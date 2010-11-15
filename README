@@ -37,7 +37,7 @@ While at it, we recommend adding yourself (or xpapers) to the www-data group for
 Now let's pull the xpapers code.
 
 cd /home
-git clone [FIXME]
+git clone git@github.com:xPapers/xPapers.git
 
 let's set an environment variable to the xPapers home directory for future reference:
 $XPAPERS=/home/xpapers
