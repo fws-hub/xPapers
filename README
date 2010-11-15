@@ -126,12 +126,12 @@ The default answers to all questions should be fine.
 
 h2. Bibutils
 
-A binary distribution of bibutils is in $XPAPERS/bin/bibutils by default. If you are not on 64 bit Linux you will need to recompile these programs from source. Just uncompress the tarball provided in that directory and follow the instructions inside. Then copy or link the resulting executables on top of those in $XPAPERS/bin/bibutils. Bibutils is required for some bibliographic file import/export options.
+A binary distribution of bibutils is in $XPAPERS/bin/bibutils by default. If you are not on 64 bit Linux you will need to recompile these programs from source. Just uncompress the tarball provided in $XPAPERS/src and follow the instructions inside. Then copy or link the resulting executables on top of those in $XPAPERS/bin/bibutils. Bibutils is required for some bibliographic file import/export options.
 
 h2. Tweak your xPapers configuration
 
 Copy $XPAPERS/etc/xpapers.d to /etc/
-Then adapt /etc/xpapers.d/main.pl to your needs. You should at least change the database settings before proceeding to the next step. The rest can be adjusted later. There are more configuration variables available than this. For a complete list, check the documentation of the xPapers::Conf and xPapers::Conf::* packages. Each variable in these packages can be overriden by a variable under /etc/xpapers.d/
+Then adapt /etc/xpapers.d/main.pl to your needs. You should at least change the database settings and the $SUBJECT variable before proceeding to the next step. The rest can be adjusted later. There are more configuration variables available than this. For a complete list, check the documentation of the xPapers::Conf and xPapers::Conf::* packages. Each variable in these packages can be overriden by a variable under /etc/xpapers.d/
 
 h2. Initialize your database and xpapers subdirectories
 
@@ -141,7 +141,7 @@ sudo perl -Ilib bin/setup/mkdirs.pl
 
 h2. Apache configuration
 
-Use $XPAPERS/etc/apache2 as an example set of Apache configuration files. The important (xPapers-specific) files are mason.conf, sites-enabled/default-site, and mods-enabled/fastcgi*. Adapt to your need. You should change the admin email, domain name, etc, but this default config should work out of the box. 
+Use $XPAPERS/etc/apache2 as an example set of Apache configuration files. The important (xPapers-specific) files are mason.conf, sites-enabled/default-site, and mods-enabled/fastcgi*. Adapt to your needs. You should change the admin email, domain name, etc, but this default config should work out of the box. 
 
 You also need to set up the xpapers init script: 
 
@@ -151,9 +151,9 @@ sudo update-rc.d xpapers defaults 21
 Now this script will start apache2, so we need to remove apache2:
 sudo update-rc.d -f apache2 remove
 
-**You should always control apache2 through /etc/init.d/xpapers our your memory cache may become corrupt **
+**You should always control apache2 through /etc/init.d/xpapers or your memory cache may become corrupt **
 
-The xpapers init script also controls sphinx for convenience.  The script provided starts up Sphinx too for convenience. It assumes the paths used here, so you may have to modify it if you are using other paths. Now try it:
+The xpapers init script also controls Sphinx for convenience.  It assumes the paths used here, so you may have to modify it if you are using other paths. Now try it:
 
 sudo /etc/init.d/xpapers restart
 
