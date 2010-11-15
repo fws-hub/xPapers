@@ -62,3 +62,5 @@ $passwd = xPapers::UserMng->crypt($passwd);
 executeSql( "INSERT INTO users ( id, firstname, lastname, email, passwd, admin, confirmed ) 
     VALUES ( 1, '$firstname', '$lastname', '$email', '$passwd', 1, 1 )" );
 
+executeSql( "ALTER TABLE users AUTO_INCREMENT = 10" );
+
