@@ -1,0 +1,68 @@
+<& ../header.html, noindex=>1 &>
+<%perl>
+error("Not allowed") unless $SECURE or ($user and $user->{id} == 1052 );
+
+my $c = 0;
+while ($ARGS{"newemail$c"} or $ARGS{"giveUp$c"}) {
+    my $u = xPapers::UserMng::getByEmail($ARGS{"oldemail$c"});
+    my $opts = xPapers::Polls::PollOptionsMng->get_objects(query=>[uId=>$u->id,emailFailed=>1]);
+    if ($ARGS{"giveUp$c"}) {
+         for my $x (0..$#$opts) {
+            $opts->[$x]->givenUp(1);
+            $opts->[$x]->save;
+         }
+         $c++;
+         next;
+    } else {
+        $u->email($ARGS{"newemail$c"});
+        $u->save;
+    }
+    for my $x (0..$#$opts) {
+        $opts->[$x]->emailFailed(0);
+        $opts->[$x]->emailStep(0);
+        $opts->[$x]->save;
+        print "Updated user " . $u->fullname . " for poll # $opts->[$x]->{poId}<br>";
+    }
+    $c++;
+}
+
+my $opts = xPapers::Polls::PollOptionsMng->get_objects(query=>[emailFailed=>1,'!givenUp'=>1]);
+
+print gh("Bouncing addresses");
+
+if ($#$opts == -1) {
+print "None found at the moment.";
+return;
+}
+
+</%perl>
+<form method=POST>
+<%perl>
+
+$c = 0;
+for my $i (0..$#$opts) {
+    my $u =  xPapers::User->get($opts->[$i]->uId);
+    unless ($u and $u->hasFlag('AUTO') and !$u->confirmed) {
+        print $ARGS{"newemail$c"} . " cannot be updated. that's ok, some are like that.<br>";
+        next;
+    }
+
+    </%perl>
+    <input type="hidden" name="oldemail<%$c%>" value="<%$u->email%>">
+    <%$u->id%>: <a href="http://www.google.com/search?q=<%urlEncode($rend->renderUserPT($u))%>%20<%$SUBJECT%>"><%$rend->renderUserPT($u)%></a><br>
+    Email on record: <%$u->email%><br>
+    New email: <input type="text" size="50" name="newemail<%$c%>"><Br>
+    <input type="checkbox" name="giveUp<%$c%>"> give up on this one<br>
+    Bounce message: <%$opts->[$i]->bounceMsg%>
+    <p>
+    <hr>
+    <%perl>
+    $c++;
+
+}
+
+</%perl>
+nb: you can leave some blanks but users will be updated UP TO THE FIRST BLANK, NON-GIVEN UP NEW EMAIL, others after will NOT be updated.
+<p>
+<input type="submit" value="save">
+</form>

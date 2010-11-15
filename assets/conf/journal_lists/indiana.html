@@ -1,0 +1,1598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Journals</title>
+<link href="http://yui.yahooapis.com/combo?2.8.1/build/reset-fonts-grids/reset-fonts-grids.css&amp;2.8.1/build/autocomplete/assets/skins/sam/autocomplete.css&amp;2.8.1/build/treeview/assets/skins/sam/treeview.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/css/NewSite.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="http://yui.yahooapis.com/combo?2.8.1/build/yahoo-dom-event/yahoo-dom-event.js&amp;2.8.1/build/animation/animation-min.js&amp;2.8.1/build/datasource/datasource-min.js&amp;2.8.1/build/autocomplete/autocomplete-min.js&amp;2.8.1/build/connection/connection_core-min.js&amp;2.8.1/build/treeview/treeview-min.js" type="text/javascript"></script>
+<script src="/jquery/jquery-1.4.2.min.js" type="text/javascript"></script>
+
+
+
+
+
+
+</head>
+
+<body class="yui-skin-sam">
+<div id="container">
+    <div id="header">
+<div id="comments">Comments and feedback welcome! <a href="mailto:inpho@indiana.edu">inpho@indiana.edu</a></div>
+
+<div id="login">
+    myInPhO :: <a href="/register">Register</a> :: <a href="/signin">Sign In</a>
+</div>
+<div id="home" onclick="window.location=(window.location.protocol+'//'+window.location.host+'/')">&nbsp;</div>
+<div id="title">
+Journals
+</div>
+
+<div id="nav">
+    <div class="buttons"><a href="/">About</a></div>
+    <div class="buttons"><a href="/docs">API</a></div>
+    <div class="buttons"><a href="/owl">OWL</a></div>
+    <div class="buttons"><a href="/papers">Articles & Papers</a></div>
+    <br /><br />
+    <div class="subButtons"><a href="/taxonomy">Taxonomy Browser</a></div>
+    <div class="subButtons"><a href="/thinker">Thinker Browser</a></div>
+    <div class="subButtons"><a href="/idea">Idea Browser</a></div>
+    <div class="subButtons"><a href="/journal">Journal Browser</a></div>
+</div>
+</div>
+    <div id="sidebar">
+
+
+<form action="/entity?id=None" method="get">
+<input name="redirect" type="hidden" value="True" />
+
+<style type="text/css">
+</style>
+
+<label for="q">Search InPhO</label><br />
+<div class="actb" style="margin-bottom:20px;">
+    <input type="text" id="q" name="q"
+    value="" style="width:80%;" />
+    <input type="submit" value="Search" style="float: right;" />
+    <div class="actbContainer" id="qContainer"></div>
+</div>
+<script type="text/javascript">
+YAHOO.example.RemoteCustomRequest = function() {
+    // Use an XHRDataSource
+    var oDS = new YAHOO.util.XHRDataSource('/entity.json?id=None');
+    // Set the responseType
+    oDS.responseType = YAHOO.util.XHRDataSource.TYPE_JSON;
+    // Define the schema of the JSON results
+    oDS.responseSchema = {
+        resultsList : "responseData.results",
+        fields : ["label","url","type"]
+    };
+
+    // Instantiate the AutoComplete
+    var oAC = new YAHOO.widget.AutoComplete("q", "qContainer", oDS);
+    // Throttle requests sent
+//    oAC.queryDelay = .5;
+    // Type fill
+    //oAC.typeAhead = true;
+    // The webservice needs additional parameters
+    oAC.generateRequest = function(sQuery) {
+        return "?limit=10&q=" + sQuery ;
+    };
+    oAC.itemSelectEvent.subscribe(function(sType, aArgs) { 
+        var oData = aArgs[2]; // object literal of selected item's result data 
+        // Redirect to the entity 
+        var thisurl = "http://" + window.location.host + oData.url;
+        window.location = thisurl; 
+    });
+    oAC.resultTypeList = false; 
+    oAC.formatResult = function(oResultData, sQuery, sResultMatch) {
+        var markup = [sResultMatch, " <span class='type'>", oResultData.type,
+        "</span>"];
+        return (markup.join(""));
+        };
+    return {
+        oDS: oDS,
+        oAC: oAC
+    };
+}();
+
+
+</script>
+
+</form>
+
+<br />
+
+
+<div id="tree-root"><img src="/favicon.ico" />
+<span><a href="/taxonomy">Philosophy</a> 
+[<a href="#" onclick="tree.expandAll()">Expand All</a>]
+[<a href="#" onclick="tree.collapseAll()">Collapse All</a>]</span></div>
+<div id="tree">
+</div>
+<script type="text/javascript">
+var tree = new YAHOO.widget.TreeView("tree");
+var root = tree.getRoot();
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'aesthetics and philosophy of art', href: '/taxonomy/2247', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'aesthetics', href: '/taxonomy/2262', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'aesthetic experience', href: '/taxonomy/2267', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'aesthetic judgment', href: '/taxonomy/2265', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'aesthetic properties', href: '/taxonomy/2268', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'philosophy of art', href: '/taxonomy/2263', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'artistic form', href: '/taxonomy/2270', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'artistic style', href: '/taxonomy/2276', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'artistic value', href: '/taxonomy/2271', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'essentialism', href: '/taxonomy/2269', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'interpretation', href: '/taxonomy/2272', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'nature of art', href: '/taxonomy/2274', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'ontology of art', href: '/taxonomy/2275', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'abstract object', href: '/taxonomy/2355', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'concrete object', href: '/taxonomy/2363', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'reception', href: '/taxonomy/2273', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'african and african-american philosophy', href: '/taxonomy/2429', selected: false, highlightState:0 }, root);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'arabic and islamic philosophy', href: '/taxonomy/2424', selected: false, highlightState:0 }, root);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'chinese philosophy', href: '/taxonomy/2420', selected: false, highlightState:0 }, root);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'continental philosophy', href: '/taxonomy/2431', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'critical theory', href: '/taxonomy/2434', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'deconstructionism', href: '/taxonomy/2433', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'existentialism', href: '/taxonomy/2432', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'absurdity', href: '/taxonomy/2439', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'nothingness', href: '/taxonomy/2438', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'hermeneutics', href: '/taxonomy/2435', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'phenomenology', href: '/taxonomy/2436', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'intentionality', href: '/taxonomy/2441', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'postmodernism', href: '/taxonomy/2437', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'epistemology', href: '/taxonomy/2374', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'justification', href: '/taxonomy/2375', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'a priori and a posteriori', href: '/taxonomy/2381', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'bayesianism', href: '/taxonomy/2388', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'coherentism', href: '/taxonomy/2386', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'contextualism', href: '/taxonomy/2384', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'foundationalism', href: '/taxonomy/2385', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'holism and indeterminacy', href: '/taxonomy/2387', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'internalism and externalism', href: '/taxonomy/2380', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'rationalism and empiricism', href: '/taxonomy/2382', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'reliabilism', href: '/taxonomy/2383', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'virtue epistemology', href: '/taxonomy/2389', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'knowledge and skepticism', href: '/taxonomy/2376', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'knowledge', href: '/taxonomy/2390', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'skepticism', href: '/taxonomy/2391', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'knowledge sources', href: '/taxonomy/2377', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'belief', href: '/taxonomy/2392', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'inference', href: '/taxonomy/2397', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'introspection', href: '/taxonomy/2394', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'memory', href: '/taxonomy/2393', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'perception', href: '/taxonomy/2396', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'perceptual experience', href: '/taxonomy/2400', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'sensory modality', href: '/taxonomy/2403', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'testimony', href: '/taxonomy/2395', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'naturalized epistemology', href: '/taxonomy/2378', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'social epistemology', href: '/taxonomy/2379', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'ethics', href: '/taxonomy/2243', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'applied ethics', href: '/taxonomy/2249', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'bioethics', href: '/taxonomy/2252', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'ethics and art', href: '/taxonomy/2253', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'ethics and information technology', href: '/taxonomy/2254', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'history of ethics', href: '/taxonomy/2250', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'metaethics', href: '/taxonomy/2248', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'metaphysics of morals', href: '/taxonomy/2266', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'moral epistemology', href: '/taxonomy/2264', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'moral reasoning', href: '/taxonomy/2279', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'normative ethics', href: '/taxonomy/2251', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'feminist philosophy', href: '/taxonomy/2246', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'feminist interventions', href: '/taxonomy/2277', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'methods in feminism', href: '/taxonomy/2278', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'history of philosophy', href: '/taxonomy/2242', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'ancient philosophy', href: '/taxonomy/2306', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'contemporary philosophy', href: '/taxonomy/2308', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'medieval philosophy', href: '/taxonomy/2309', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'medieval epistemology', href: '/taxonomy/2310', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'medieval ethics', href: '/taxonomy/2311', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'medieval grammar', href: '/taxonomy/2312', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'medieval legal philosophy', href: '/taxonomy/2313', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'medieval logic', href: '/taxonomy/2314', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'consequences', href: '/taxonomy/2318', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'propositions', href: '/taxonomy/2320', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'universals', href: '/taxonomy/2319', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'medieval metaphysics', href: '/taxonomy/2315', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'medieval natural philosophy', href: '/taxonomy/2317', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'alchemy', href: '/taxonomy/2321', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'medieval cosmology', href: '/taxonomy/2322', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'medieval philosophy of the soul', href: '/taxonomy/2323', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'medieval theories of matter', href: '/taxonomy/2324', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'motion and time', href: '/taxonomy/2325', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'medieval political philosophy', href: '/taxonomy/2316', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'medieval theology', href: '/taxonomy/2303', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'modern philosophy', href: '/taxonomy/2307', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'japanese philosophy', href: '/taxonomy/2423', selected: false, highlightState:0 }, root);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'judaic philosophy', href: '/taxonomy/2430', selected: false, highlightState:0 }, root);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'latin american and iberian philosophy', href: '/taxonomy/2427', selected: false, highlightState:0 }, root);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'logic', href: '/taxonomy/2245', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'history of logic', href: '/taxonomy/2255', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'inductive logic and decision theory', href: '/taxonomy/2256', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'decision theory', href: '/taxonomy/2421', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'epistemic paradox', href: '/taxonomy/2422', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'game theory', href: '/taxonomy/2419', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'inductive logic', href: '/taxonomy/2418', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'logic and computation', href: '/taxonomy/2257', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'computational complexity', href: '/taxonomy/2417', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'logic and artificial intelligence', href: '/taxonomy/2416', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'logic and language', href: '/taxonomy/2258', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'mathematical logic', href: '/taxonomy/2259', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'boolean algebra', href: '/taxonomy/2414', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'proof theory', href: '/taxonomy/2415', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'set theory', href: '/taxonomy/2412', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'type theory', href: '/taxonomy/2413', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'philosophical logic', href: '/taxonomy/2260', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'deontic logic', href: '/taxonomy/2406', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'intensional logic', href: '/taxonomy/2407', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'modal logic', href: '/taxonomy/2186', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'non-classical logic', href: '/taxonomy/2405', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'philosophy of logic', href: '/taxonomy/2261', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'informal logic', href: '/taxonomy/2410', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'logical consequence', href: '/taxonomy/2409', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'logical truth', href: '/taxonomy/2408', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'paradox', href: '/taxonomy/2411', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'metaphysics', href: '/taxonomy/2350', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'causation', href: '/taxonomy/2351', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'change', href: '/taxonomy/2372', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'existence', href: '/taxonomy/2357', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'arguments for the existence of god', href: '/taxonomy/2373', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'fact', href: '/taxonomy/2368', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'meta-ontology', href: '/taxonomy/2359', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'metaphysics and language', href: '/taxonomy/2367', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'monism and pluralism', href: '/taxonomy/2366', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'realism and anti-realism', href: '/taxonomy/2365', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'modality', href: '/taxonomy/2356', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'object', href: '/taxonomy/2358', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'abstract object', href: '/taxonomy/2362', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'concrete object', href: '/taxonomy/2361', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'person', href: '/taxonomy/2364', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'mind', href: '/taxonomy/2371', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'personal identity', href: '/taxonomy/2370', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'property', href: '/taxonomy/2354', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'relation', href: '/taxonomy/2360', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'events', href: '/taxonomy/2369', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'space and time', href: '/taxonomy/2353', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'value', href: '/taxonomy/2352', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'philosophy of action', href: '/taxonomy/2426', selected: false, highlightState:0 }, root);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'philosophy of language', href: '/taxonomy/2231', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'compositionality and logical form', href: '/taxonomy/2326', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'compositionality', href: '/taxonomy/2241', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'logical form', href: '/taxonomy/2236', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'language and society', href: '/taxonomy/2232', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'language learning', href: '/taxonomy/2233', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'pragmatics', href: '/taxonomy/2234', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'semantics', href: '/taxonomy/2235', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'expression and idiom', href: '/taxonomy/2237', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'reference and denotation', href: '/taxonomy/2238', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'semantic puzzles', href: '/taxonomy/2239', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'truth', href: '/taxonomy/2240', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'philosophy of law', href: '/taxonomy/2428', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'law and morality', href: '/taxonomy/2455', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'legal authority', href: '/taxonomy/2456', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'legal concepts', href: '/taxonomy/2454', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'legal reasoning', href: '/taxonomy/2453', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'philosophy of mathematics', href: '/taxonomy/2457', selected: false, highlightState:0 }, root);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'philosophy of mind', href: '/taxonomy/2183', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'artificial intelligence', href: '/taxonomy/2203', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'computation and representation', href: '/taxonomy/2204', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'computationalism', href: '/taxonomy/2206', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'connectionism', href: '/taxonomy/2207', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'dynamic system', href: '/taxonomy/2205', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'thinking machine', href: '/taxonomy/2208', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'consciousness', href: '/taxonomy/2185', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'aspects of consciousness', href: '/taxonomy/2184', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'consciousness and mental content', href: '/taxonomy/2188', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'consciousness and science', href: '/taxonomy/2402', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'consciousness and neuroscience', href: '/taxonomy/2191', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'consciousness and physics', href: '/taxonomy/2190', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'consciousness and psychology', href: '/taxonomy/2192', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'qualia', href: '/taxonomy/2187', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'mental content', href: '/taxonomy/2193', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'intentionality', href: '/taxonomy/2217', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'internalism and externalism', href: '/taxonomy/2194', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'propositional attitudes', href: '/taxonomy/2195', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'theories of mental content', href: '/taxonomy/2196', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'metaphysics of mind', href: '/taxonomy/2197', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'emergence', href: '/taxonomy/2216', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'free will', href: '/taxonomy/2214', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'mind-body problem', href: '/taxonomy/2200', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'behaviorism', href: '/taxonomy/2398', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'dualism', href: '/taxonomy/2199', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'functionalism', href: '/taxonomy/2198', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'physicalism', href: '/taxonomy/2215', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'personal identity', href: '/taxonomy/2201', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'reduction', href: '/taxonomy/2202', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'supervenience', href: '/taxonomy/2213', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'perception', href: '/taxonomy/2399', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'contents of perception', href: '/taxonomy/2401', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'perceptual experience', href: '/taxonomy/2189', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'sensory modality', href: '/taxonomy/2404', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'philosophy of psychology', href: '/taxonomy/2209', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'aspects of mind', href: '/taxonomy/2210', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'folk psychology', href: '/taxonomy/2211', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'philosophy of cognitive science', href: '/taxonomy/2212', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'philosophy of religion', href: '/taxonomy/2425', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'afterlife', href: '/taxonomy/2444', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'epistemology of religion', href: '/taxonomy/2442', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'faith and reason', href: '/taxonomy/2449', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'natural theology', href: '/taxonomy/2451', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'religion and science', href: '/taxonomy/2448', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'revelation', href: '/taxonomy/2450', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'foreknowledge and free will', href: '/taxonomy/2443', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'god or gods', href: '/taxonomy/2440', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'divine attributes', href: '/taxonomy/2447', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'existence of god', href: '/taxonomy/2446', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'religion and morality', href: '/taxonomy/2445', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'religion and politics', href: '/taxonomy/2452', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'philosophy of science and the sciences', href: '/taxonomy/2218', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'general philosophy of science', href: '/taxonomy/2305', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'epistemology of science', href: '/taxonomy/2230', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'confirmation and induction', href: '/taxonomy/2334', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'decision theory', href: '/taxonomy/2341', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'explanation', href: '/taxonomy/2336', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'models and idealization', href: '/taxonomy/2335', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'observation', href: '/taxonomy/2339', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'operationalism and instrumentalism', href: '/taxonomy/2338', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'scientific theory', href: '/taxonomy/2337', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'history of science', href: '/taxonomy/2347', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'logical positivism and logical empiricism', href: '/taxonomy/2342', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'metaphysics of science', href: '/taxonomy/2293', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'laws of nature', href: '/taxonomy/2332', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'mental causation', href: '/taxonomy/2331', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'realism and anti-realism', href: '/taxonomy/2343', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'reduction and emergence', href: '/taxonomy/2349', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'unity of science', href: '/taxonomy/2333', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'science and religion', href: '/taxonomy/2346', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'science and society', href: '/taxonomy/2345', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'ethics of science', href: '/taxonomy/2348', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'scientific methodology', href: '/taxonomy/2229', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'experimentation', href: '/taxonomy/2344', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'rhetoric of science', href: '/taxonomy/2340', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'philosophies of the particular sciences', href: '/taxonomy/2304', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'philosophy of biology', href: '/taxonomy/2302', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'developmental biology', href: '/taxonomy/2221', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'ecology and conservation', href: '/taxonomy/2330', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'evolution', href: '/taxonomy/2220', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'evolutionary psychology', href: '/taxonomy/2219', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'function and teleology', href: '/taxonomy/2328', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'molecular biology and genetics', href: '/taxonomy/2329', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'philosophy of chemistry', href: '/taxonomy/2296', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'philosophy of cognitive science', href: '/taxonomy/2294', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'philosophy of computer science', href: '/taxonomy/2301', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'philosophy of economics', href: '/taxonomy/2300', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'philosophy of medicine', href: '/taxonomy/2299', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'philosophy of physics', href: '/taxonomy/2295', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'classical physics', href: '/taxonomy/2228', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'cosmology', href: '/taxonomy/2222', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'philosophy of space and time', href: '/taxonomy/2226', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'quantum mechanics', href: '/taxonomy/2227', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'statistical mechanics and thermodynamics', href: '/taxonomy/2225', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'symmetry and invariance', href: '/taxonomy/2224', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode3 = new YAHOO.widget.TextNode({label : 'time travel', href: '/taxonomy/2223', selected: false, highlightState:0 }, tmpNode2);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'philosophy of sociology', href: '/taxonomy/2327', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'probability and statistics', href: '/taxonomy/2298', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'psychology and psychiatry', href: '/taxonomy/2297', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode0 = new YAHOO.widget.TextNode({label : 'social and political philosophy', href: '/taxonomy/2244', selected: false, highlightState:0 }, root);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'forms of government', href: '/taxonomy/2280', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'communism', href: '/taxonomy/2291', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'democracy', href: '/taxonomy/2292', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'global justice', href: '/taxonomy/2288', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'international ethics', href: '/taxonomy/2289', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'war and pacifism', href: '/taxonomy/2290', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'political morality', href: '/taxonomy/2281', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'political obligation', href: '/taxonomy/2283', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode1 = new YAHOO.widget.TextNode({label : 'social justice', href: '/taxonomy/2282', selected: false, highlightState:0 }, tmpNode0);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'civil rights', href: '/taxonomy/2284', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'distributive and economic justice', href: '/taxonomy/2285', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'human rights', href: '/taxonomy/2286', selected: false, highlightState:0 }, tmpNode1);
+var tmpNode2 = new YAHOO.widget.TextNode({label : 'liberalism', href: '/taxonomy/2287', selected: false, highlightState:0 }, tmpNode1);
+
+tree.render();
+
+var selectedNode = tree.getNodeByProperty('selected',true);
+if (selectedNode) {
+    selectedNode.focus();
+}
+
+</script>
+
+<div id="sidebarFooter"></div>
+    </div>
+    <div id="main">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="content">
+<p>This alphabetized list provides links to additional information about each
+journal from the InPhO-Noesis database, including links to the journal websites where
+available.  This journal browser will eventually be upgraded to allow
+classification of journals by subject area and for one stop searching of journal
+content. </p>
+
+<ul>
+<li><a href="/journal/4205">African Philosophy</a></li>
+<li><a href="/journal/4206">Animus: A Philosophical Journal for Our Time</a></li>
+<li><a href="/journal/4207">Annali del Dipartimento di Filosofia</a></li>
+<li><a href="/journal/4208">Anales del Instituto de Investigaciones Estéticas</a></li>
+<li><a href="/journal/4209">Anthropoetics: The Journal of Generative Anthropology</a></li>
+<li><a href="/journal/4210">Aposta: Revista de Ciencias Sociales</a></li>
+<li><a href="/journal/4211">Ars Disputandi: The Online Journal for the Philosophy of Religion</a></li>
+<li><a href="/journal/4212">Atopia Polylogic Ezine</a></li>
+<li><a href="/journal/4213">Australasian Journal of Logic</a></li>
+<li><a href="/journal/4214">BMC Medical Ethics</a></li>
+<li><a href="/journal/4215">Between the Species: A Journal of Ethics</a></li>
+<li><a href="/journal/4216">Biological Knowledge</a></li>
+<li><a href="/journal/4217">Bollettino telematico di filosofia politica</a></li>
+<li><a href="/journal/4218">Bulletin of Symbolic Logic</a></li>
+<li><a href="/journal/4219">Canadian Aesthetics Journal</a></li>
+<li><a href="/journal/4220">La Caverna de Platón</a></li>
+<li><a href="/journal/4221">Cinta de Moebio: Revista Electronica de Epistemologia de Ciencias Sociales</a></li>
+<li><a href="/journal/4222">Concrescence: The Australasian Journal of Process Thought</a></li>
+<li><a href="/journal/4223">Connexions</a></li>
+<li><a href="/journal/4224">Contemporary Aesthetics</a></li>
+<li><a href="/journal/4225">Contretemps: An Online Journal of Philosophy</a></li>
+<li><a href="/journal/4226">Cosmos and History: The Journal of Natural and Social Philosophy</a></li>
+<li><a href="/journal/4227">Crossings: Electronic Journal of Art and Technology</a></li>
+<li><a href="/journal/4228">Cultural Logic: An Electronic Journal of Marxist Theory and Practice</a></li>
+<li><a href="/journal/4229">Dear Habermas: A Journal of Postmodern Thought</a></li>
+<li><a href="/journal/4230">Dialegesthai: Revista Telematica di Filosofia</a></li>
+<li><a href="/journal/4231">Dispatches: The Newsletter of the Centre of Medical Law and Ethics</a></li>
+<li><a href="/journal/4232">Disputatio</a></li>
+<li><a href="/journal/4233">Disputatio: International Journal of Philosophy</a></li>
+<li><a href="/journal/4234">E-Logos: Electronic Journal for Philosophy</a></li>
+<li><a href="/journal/4235">Electronic Journal of Analytic Philosophy</a></li>
+<li><a href="/journal/4236">Electronic Journal of Business Ethics and Organization Studies</a></li>
+<li><a href="/journal/4237">Ends and Means</a></li>
+<li><a href="/journal/4238">Epistme - Physis e Sophia nel III millennio: An International Journal of Science, History and Philosophy</a></li>
+<li><a href="/journal/4239">Ergon: The Student Journal of Philosophy at the University of South Carolina</a></li>
+<li><a href="/journal/4240">Ethically Speaking: A Newsletter Providing Information on the Activities</a></li>
+<li><a href="/journal/4241">Ethics in Science and Environmental Politics</a></li>
+<li><a href="/journal/4242">Ethics Today</a></li>
+<li><a href="/journal/4243">Etica e Politica</a></li>
+<li><a href="/journal/4244">Eubios Journal of Asian and International Bioethics</a></li>
+<li><a href="/journal/4245">Examined Life On-Line Philosophy Journal</a></li>
+<li><a href="/journal/4246">Extropy: Journal of Transhumanist Solutions</a></li>
+<li><a href="/journal/4247">Film-Philosophy</a></li>
+<li><a href="/journal/4248">Florida Philosophical Review: The Journal of the Florida Philosophical Association</a></li>
+<li><a href="/journal/4249">Flusser Studies</a></li>
+<li><a href="/journal/4250">Formalized Mathematics</a></li>
+<li><a href="/journal/4251">Forum Logiki, Informatyki i Filozofii Nauki</a></li>
+<li><a href="/journal/4252">Foucault Studies</a></li>
+<li><a href="/journal/4253">Genomics, Society and Policy</a></li>
+<li><a href="/journal/4254">Global Virtue Ethics Review</a></li>
+<li><a href="/journal/4255">Harvard Review of Philosophy</a></li>
+<li><a href="/journal/4256">HyperNietzsche</a></li>
+<li><a href="/journal/4257">Indo-Pacific Journal of Phenomenology</a></li>
+<li><a href="/journal/4258">Information Philosophie im Internet</a></li>
+<li><a href="/journal/4259">International Gramsci Society Newsletter</a></li>
+<li><a href="/journal/4260">International Kierkegaard Newsletter</a></li>
+<li><a href="/journal/4261">International Review of Information Ethics</a></li>
+<li><a href="/journal/4262">Japanese Journal of Religious Studies</a></li>
+<li><a href="/journal/4263">Journal for Critical Animal Studies</a></li>
+<li><a href="/journal/4264">Journal for Cultural and Religious Theory</a></li>
+<li><a href="/journal/4265">Journal of Artificial Intelligence Research</a></li>
+<li><a href="/journal/4266">Journal of Artificial Societies and Social Simulation</a></li>
+<li><a href="/journal/4267">Journal of Buddhist Ethics</a></li>
+<li><a href="/journal/4268">Journal of Education Controversy</a></li>
+<li><a href="/journal/4269">Journal of Evolution and Technology</a></li>
+<li><a href="/journal/4270">Journal of Islamic philosophy</a></li>
+<li><a href="/journal/4271">Journal of Research Practice</a></li>
+<li><a href="/journal/4272">Journal of Transhumanism</a></li>
+<li><a href="/journal/4273">Journal of Formalized Mathematics</a></li>
+<li><a href="/journal/4274">Journal of Philosophy, Science &amp; Law</a></li>
+<li><a href="/journal/4275">Journal of Power and Ethics - An Interdisciplinary Review</a></li>
+<li><a href="/journal/4276">Journal on African Philosophy</a></li>
+<li><a href="/journal/4277">Justification, Truth, and Belief</a></li>
+<li><a href="/journal/4278">Kant e-Prints</a></li>
+<li><a href="/journal/4279">Karl Jaspers Forum</a></li>
+<li><a href="/journal/4280">Konvergencias: Filosofía y Culturas en Diálogo</a></li>
+<li><a href="/journal/4281">LOGOS: A Journal of Religion, Philosophy, Comparative Cultural Studies and Art</a></li>
+<li><a href="/journal/4282">LISA: Littératures, Histoire des Idées, Images, Sociétés du Monde Anglophone</a></li>
+<li><a href="/journal/4283">Labyrinth: An International Journal for Philosophy, Feminist Theory and Cultural Hermeneutics - discontinued</a></li>
+<li><a href="/journal/4284">Limen: Journal for Theory and Practice of Liminal Phenomena</a></li>
+<li><a href="/journal/4285">Logical Studies</a></li>
+<li><a href="/journal/4286">Mathesis Universalis</a></li>
+<li><a href="/journal/4287">Methodos. Savoirs et textes</a></li>
+<li><a href="/journal/4288">The New Philosophy</a></li>
+<li><a href="/journal/4289">Noetica: A Cognitive Science Forum</a></li>
+<li><a href="/journal/4290">Online Journal of Ethics</a></li>
+<li><a href="/journal/4291">Perspectives on Evil and Human Wickedness</a></li>
+<li><a href="/journal/4292">PhaenEx: Journal of Existential and Phenomenological Theory and Culture/Revue de théorie et culture existentialistes et phénoménologiques</a></li>
+<li><a href="/journal/4293">PhilSci Archive</a></li>
+<li><a href="/journal/4294">Philosophiques</a></li>
+<li><a href="/journal/4295">Philosophy &amp; Public Policy Quarterly</a></li>
+<li><a href="/journal/4296">Philosophy of Mathematics Education Journal</a></li>
+<li><a href="/journal/4297">Physics and Philosophy</a></li>
+<li><a href="/journal/4298">Plagiary: Cross-Disciplinary Studies in Plagiarism, Fabrication, and Falsification</a></li>
+<li><a href="/journal/4299">Internet Journal of the International Plato Society</a></li>
+<li><a href="/journal/4300">Postmodern Culture</a></li>
+<li><a href="/journal/4301">Psyche: An Interdisciplinary Journal of Research on Consciousness</a></li>
+<li><a href="/journal/4302">Quodlibet: Online Journal of Christian Theology and Philosophy</a></li>
+<li><a href="/journal/4303">Revista Observaciones Filosóficas</a></li>
+<li><a href="/journal/4304">Chungara: Revista de Antropología Chilena</a></li>
+<li><a href="/journal/4305">Revista de Hispanismo Filosófico</a></li>
+<li><a href="/journal/4306">S.E.E.D Journal (Semiotics, Evolution, Energy and Development)</a></li>
+<li><a href="/journal/4307">Segni e comprensione</a></li>
+<li><a href="/journal/4308">Semikolon: Tidsskrift for Idéhistorie, Semiotik og Filosofi</a></li>
+<li><a href="/journal/4309">Sens Public</a></li>
+<li><a href="/journal/4310">Sic Et Non: Magazine for Philosophy and Culture Online</a></li>
+<li><a href="/journal/4311">Signos Filosóficos</a></li>
+<li><a href="/journal/4312">Society</a></li>
+<li><a href="/journal/4313">Spaces of Utopia</a></li>
+<li><a href="/journal/4314">Stanford Encyclopedia of Philosophy</a></li>
+<li><a href="/journal/4315">Stoic Voice Journal</a></li>
+<li><a href="/journal/4316">Studies in Social and Political Thought</a></li>
+<li><a href="/journal/4317">Synthesis Philosophica</a></li>
+<li><a href="/journal/4318">Tópicos: Revista de Filosofía (México)</a></li>
+<li><a href="/journal/4319">The Philosophers' Magazine (TPM) Online</a></li>
+<li><a href="/journal/4320">The Journal of Philosophy, Science and Law</a></li>
+<li><a href="/journal/4321">The Rutherford Journal: The New Zealand Journal for the History and Philosophy of Science and Technology</a></li>
+<li><a href="/journal/4322">Totum</a></li>
+<li><a href="/journal/4323">Transcendent Philosophy: An International Journal for Comparative Philosophy and Mysticism</a></li>
+<li><a href="/journal/4324">The Trumpeter: Journal of Ecosophy</a></li>
+<li><a href="/journal/4325">World Hongming Philosophical Quarterly</a></li>
+<li><a href="/journal/4326">e-Journal Philosophie der Psychologie</a></li>
+<li><a href="/journal/4327">The Southern Journal of Philosophy</a></li>
+<li><a href="/journal/4328">Abstracta: Linguagem, Mente e Ação</a></li>
+<li><a href="/journal/4329">El Catoblepas: Revista Crítica del Presente</a></li>
+<li><a href="/journal/4330">Cuaderno de Materiales: Filosofía y Ciencias Humanas</a></li>
+<li><a href="/journal/4331">Distance: Revue Pro Kritické Myšlení</a></li>
+<li><a href="/journal/4332">Dogma: Revue Électronique</a></li>
+<li><a href="/journal/4333">Doxa: Cuadernos de Filosofía del Derecho</a></li>
+<li><a href="/journal/4334">Episteme NS: Revista del Instituto de Filosofía Facultad de Humanidades y Educación Universidad Central de Venezuela</a></li>
+<li><a href="/journal/4335">Ethic@: An International Journal for Moral Philosophy</a></li>
+<li><a href="/journal/4336">Ideas y Valores: Revista Colombiana de Filosofía</a></li>
+<li><a href="/journal/4337">Kritika: Explorations in Russian and Eurasian History</a></li>
+<li><a href="/journal/4338">Revista de Filosofie (formerly Revista de Filozofie)</a></li>
+<li><a href="/journal/4339">Revista Colombiana de Filosofía de la Ciencia</a></li>
+<li><a href="/journal/4340">Revista de Filosofía (Daimon) (see Daimon Rev Filosof)</a></li>
+<li><a href="/journal/4341">Revista de Filosofía (La Plata Argentina) (Note: Published 1950-1982, then became Revista de Filosofía y Teoría Política, ISSN 0328-6223)</a></li>
+<li><a href="/journal/4342">Revista de Filosofía (Mexico)</a></li>
+<li><a href="/journal/4343">Techné</a></li>
+<li><a href="/journal/4344">Trans/Form/Ação: Revista de Filosofia</a></li>
+<li><a href="/journal/4345">Ungewusst: Zeitschrift für Angewandtes Nichtwissen</a></li>
+<li><a href="/journal/4346">Zeitschrift fuer Aesthetik und allgemeine Kunstwissenschaft</a></li>
+<li><a href="/journal/4347">Biology &amp; Philosophy</a></li>
+<li><a href="/journal/4348">Philosophy of Science</a></li>
+<li><a href="/journal/4349">The Acorn: Journal of the Gandhi-King Society</a></li>
+<li><a href="/journal/4350">Acta Philosophica Fennica</a></li>
+<li><a href="/journal/4351">Aitia: Philosophy-Humanities Magazine</a></li>
+<li><a href="/journal/4352">American Journal of Jurisprudence: An International Forum for Legal Philosophy</a></li>
+<li><a href="/journal/4353">American Journal of Theology &amp; Philosophy</a></li>
+<li><a href="/journal/4354">American Philosophical Quarterly</a></li>
+<li><a href="/journal/4355">Analecta Husserliana: The Yearbook of Phenomenological Research</a></li>
+<li><a href="/journal/4356">Analytica</a></li>
+<li><a href="/journal/4357">Antonianum: Periodicum Trimestre</a></li>
+<li><a href="/journal/4358">APA Newsletters</a></li>
+<li><a href="/journal/4359">Apeiron: A Journal for Ancient Philosophy and Science</a></li>
+<li><a href="/journal/4360">Appraisal: The Journal of the Society for Post-Critical and Personalist Studies (formerly Appraisal: A Journal of Constructive and Post-Critical Philosophy and Interdisciplinary Studies)</a></li>
+<li><a href="/journal/4361">Aquinas: Rivista Internazionale di Filosofia</a></li>
+<li><a href="/journal/4362">Arabic Sciences and Philosophy: A Historical Journal</a></li>
+<li><a href="/journal/4363">Archives de Philosophie</a></li>
+<li><a href="/journal/4364">Argumentation: An International Journal on Reasoning</a></li>
+<li><a href="/journal/4365">The Aristotelian Society: Supplementary Volume</a></li>
+<li><a href="/journal/4366">Arts and Humanities in Higher Education: An International Journal of Theory, Research and Practice</a></li>
+<li><a href="/journal/4367">Group Dynamics: Theory, Research, and Practice</a></li>
+<li><a href="/journal/4368">Asian Philosophy</a></li>
+<li><a href="/journal/4369">Augustinian Studies</a></li>
+<li><a href="/journal/4370">Augustinus: Revista Trimestral Publicada por los Padres Agustinos Recoletos</a></li>
+<li><a href="/journal/4371">Auslegung: A Journal of Philosophy</a></li>
+<li><a href="/journal/4372">Australasian Journal of Philosophy</a></li>
+<li><a href="/journal/4373">Australian Journal of Professional and Applied Ethics</a></li>
+<li><a href="/journal/4374">Behavior and Philosophy (formerly Behaviorism)</a></li>
+<li><a href="/journal/4375">The Bertrand Russell Society Quarterly</a></li>
+<li><a href="/journal/4376">Bijdragen, Tijdschrift voor Filosofie en Theologie (International Journal in Philosophy and Theology)</a></li>
+<li><a href="/journal/4377">Bollettino del Centro di Studi Vichiani</a></li>
+<li><a href="/journal/4378">Brentano Studien: Internationales Jahrbuch der Franz Brentano Forschung</a></li>
+<li><a href="/journal/4379">Bridges: An Interdisciplinary Journal of Theology, Philosophy, History, and Science</a></li>
+<li><a href="/journal/4380">British Journal for the History of Science</a></li>
+<li><a href="/journal/4381">British Journal for the Philosophy of Science</a></li>
+<li><a href="/journal/4382">Budhi: A Journal of Ideas and Culture</a></li>
+<li><a href="/journal/4383">Bulletin of the Section of Logic</a></li>
+<li><a href="/journal/4384">The Bulletin of Symbolic Logic</a></li>
+<li><a href="/journal/4385">Business Ethics: A European Review</a></li>
+<li><a href="/journal/4386">Business &amp; Professional Ethics Journal</a></li>
+<li><a href="/journal/4387">Business and Society Review: Journal of the Center for Business Ethics at Bentley College</a></li>
+<li><a href="/journal/4388">Cadernos Nietzsche</a></li>
+<li><a href="/journal/4389">Cambridge Quarterly of Healthcare Ethics</a></li>
+<li><a href="/journal/4390">Canadian Journal of Law and Jurisprudence: An International Journal of Legal Thought</a></li>
+<li><a href="/journal/4391">Canadian Journal of Philosophy</a></li>
+<li><a href="/journal/4392">Il Cannocchiale: Rivista di Studi Filosofici</a></li>
+<li><a href="/journal/4393">Carmina Philosophiae: Journal of the International Boethius Society</a></li>
+<li><a href="/journal/4394">Clio: A Journal of Literature, History, and the Philosophy of History</a></li>
+<li><a href="/journal/4395">Communication and Cognition: An Interdisciplinary Quarterly Journal</a></li>
+<li><a href="/journal/4396">Comprendre: Revista Catalana de Filosofia</a></li>
+<li><a href="/journal/4397">Continental Philosophy Review</a></li>
+<li><a href="/journal/4398">Convivium: Revista de Filosofia</a></li>
+<li><a href="/journal/4399">Critical Inquiry</a></li>
+<li><a href="/journal/4400">Critical Review: An Interdisciplinary Journal of Politics and Society</a></li>
+<li><a href="/journal/4401">Croatian Journal of Philosophy</a></li>
+<li><a href="/journal/4402">Cuadernos sobre Vico</a></li>
+<li><a href="/journal/4403">Dao: A Journal of Comparative Philosophy</a></li>
+<li><a href="/journal/4404">De Philosophia</a></li>
+<li><a href="/journal/4405">Diametros: An Online Journal of Philosophy</a></li>
+<li><a href="/journal/4406">Dikaiosyne</a></li>
+<li><a href="/journal/4407">Diogenes</a></li>
+<li><a href="/journal/4408">Dionysius</a></li>
+<li><a href="/journal/4409">Diotima: Review of Philosophical Research</a></li>
+<li><a href="/journal/4410">Economics and Philosophy</a></li>
+<li><a href="/journal/4411">Education and Culture: The Journal of the John Dewey Society for the Study of Education and Culture</a></li>
+<li><a href="/journal/4412">Educational Philosophy and Theory</a></li>
+<li><a href="/journal/4413">Educational Theory</a></li>
+<li><a href="/journal/4414">Environmental Ethics: An Interdisciplinary Journal Dedicated to the Philosophical Aspects of Environmental Problems</a></li>
+<li><a href="/journal/4415">Environmental Values</a></li>
+<li><a href="/journal/4416">Episteme: A Journal of Social Epistemology (The Journal of the Episteme Trust)</a></li>
+<li><a href="/journal/4417">Essays in Philosophy</a></li>
+<li><a href="/journal/4418">Ethical Perspectives: Journal of the European Ethics Network</a></li>
+<li><a href="/journal/4419">Ethical Theory and Moral Practice: An International Forum</a></li>
+<li><a href="/journal/4420">Ethics: An International Journal of Social, Political, and Legal Philosophy</a></li>
+<li><a href="/journal/4421">Ethics and Behavior</a></li>
+<li><a href="/journal/4422">Ethics and Education</a></li>
+<li><a href="/journal/4423">Ethics and Information Technology</a></li>
+<li><a href="/journal/4424">Ethics and International Affairs</a></li>
+<li><a href="/journal/4425">Ethics and Medicine: An International Journal of Bioethics</a></li>
+<li><a href="/journal/4426">Ethics and the Environment</a></li>
+<li><a href="/journal/4427">Ethics Education: A Journal for Applied Philosophy and Ethics in the Christian Tradition</a></li>
+<li><a href="/journal/4428">Ethics, Place and Environment</a></li>
+<li><a href="/journal/4429">European Journal of Philosophy</a></li>
+<li><a href="/journal/4430">Existentia: An International Journal of Philosophy</a></li>
+<li><a href="/journal/4431">Facta Universitatis (Series Philosophy, Sociology and Psychology)</a></li>
+<li><a href="/journal/4432">Faith and Philosophy: Journal of the Society of Christian Philosophers</a></li>
+<li><a href="/journal/4433">Felsefelogos</a></li>
+<li><a href="/journal/4434">Feminist Studies</a></li>
+<li><a href="/journal/4435">Filozofia</a></li>
+<li><a href="/journal/4436">Filozofska Istrazivanja</a></li>
+<li><a href="/journal/4437">Filozofski Vestnik (Acta Philosophica)</a></li>
+<li><a href="/journal/4438">Foundations of Chemistry: Philosophical, Historical and Interdisciplinary Studies of Chemistry</a></li>
+<li><a href="/journal/4439">Foundations of Science</a></li>
+<li><a href="/journal/4440">Franciscan Studies</a></li>
+<li><a href="/journal/4441">Franciscanum: Revista de las Ciencias del Espiritu</a></li>
+<li><a href="/journal/4442">Free Inquiry</a></li>
+<li><a href="/journal/4443">Giornale di Metafisica</a></li>
+<li><a href="/journal/4444">Gnosis: A Journal of Philosophic Interest</a></li>
+<li><a href="/journal/4445">Gogoa: Euskal Herriko Unibertsitateko Hizkuntza, Ezagutza, Komunikazio eta Ekintzari buruzko Aldizkaria (Journal of the University of the Basque Country on Language, Knowledge, Communication, and Action)</a></li>
+<li><a href="/journal/4446">Graduate Faculty Philosophy Journal</a></li>
+<li><a href="/journal/4447">Gregorianum</a></li>
+<li><a href="/journal/4448">Hastings Center Report</a></li>
+<li><a href="/journal/4449">HEC Forum (HealthCare Ethics Committee Forum: An Interprofessional Journal on Healthcare Institutions' Ethical and Legal Issues)</a></li>
+<li><a href="/journal/4450">Hegel-Jahrbuch</a></li>
+<li><a href="/journal/4451">History and Philosophy of Logic</a></li>
+<li><a href="/journal/4452">History and Philosophy of the Life Sciences</a></li>
+<li><a href="/journal/4453">History and Theory: Studies in the Philosophy of History</a></li>
+<li><a href="/journal/4454">History of Philosophy Quarterly</a></li>
+<li><a href="/journal/4455">History of Political Thought</a></li>
+<li><a href="/journal/4456">Hobbes Studies</a></li>
+<li><a href="/journal/4457">Human Affairs: A Postdisciplinary Journal for Humanities and Social Sciences</a></li>
+<li><a href="/journal/4458">Human Studies: A Journal for Philosophy and the Social Sciences</a></li>
+<li><a href="/journal/4459">Humanitas (Journal of the National Humanities Institute)</a></li>
+<li><a href="/journal/4460">Hume Studies</a></li>
+<li><a href="/journal/4461">Husserl Studies</a></li>
+<li><a href="/journal/4462">Hyle: An International Journal for the Philosophy of Chemistry</a></li>
+<li><a href="/journal/4463">Hypatia: A Journal of Feminist Philosophy</a></li>
+<li><a href="/journal/4464">Hypnos: Revista do Centro de Estudos da Antiguidade Greco-Romana (Journal of Greco-Roman Philosophy)</a></li>
+<li><a href="/journal/4465">Idealistic Studies: An Interdisciplinary Journal of Philosophy</a></li>
+<li><a href="/journal/4466">Inquiry: An Interdisciplinary Journal of Philosophy</a></li>
+<li><a href="/journal/4467">Inquiry: Critical Thinking across the Disciplines</a></li>
+<li><a href="/journal/4468">International Journal for Philosophy of Religion</a></li>
+<li><a href="/journal/4469">International Journal of Applied Philosophy</a></li>
+<li><a href="/journal/4470">International Journal of Philosophical Studies</a></li>
+<li><a href="/journal/4471">International Journal of Politics and Ethics</a></li>
+<li><a href="/journal/4472">International Studies in the Philosophy of Science</a></li>
+<li><a href="/journal/4473">Internationales Jahrbuch des Deutschen Idealismus (International Yearbook of German Idealism)</a></li>
+<li><a href="/journal/4474">Interpretation: A Journal of Political Philosophy</a></li>
+<li><a href="/journal/4475">Iride: Filosofia e Discussione Pubblica</a></li>
+<li><a href="/journal/4476">Iyyun: The Jerusalem Philosophical Quarterly</a></li>
+<li><a href="/journal/4477">Janus Head: Journal of Interdisciplinary Studies in Literature, Continental Philosophy, Phenomenological Psychology and the Arts</a></li>
+<li><a href="/journal/4478">Journal for the Theory of Social Behavior</a></li>
+<li><a href="/journal/4479">Journal of Applied Philosophy</a></li>
+<li><a href="/journal/4480">The Journal of Ayn Rand Studies</a></li>
+<li><a href="/journal/4481">Journal of Bioethical Inquiry (formerly New Zealand Bioethics Journal)</a></li>
+<li><a href="/journal/4482">Journal of Business Ethics</a></li>
+<li><a href="/journal/4483">Journal of Chinese Philosophy</a></li>
+<li><a href="/journal/4484">The Journal of Clinical Ethics</a></li>
+<li><a href="/journal/4485">Journal of Dharma</a></li>
+<li><a href="/journal/4486">The Journal of Ethics: An International Philosophical Review</a></li>
+<li><a href="/journal/4487">Journal of Ethics and Social Philosophy: Online Peer-Reviewed Journal of Moral, Political, and Legal Philosophy</a></li>
+<li><a href="/journal/4488">Journal of Ethics in Mental Health</a></li>
+<li><a href="/journal/4489">Journal of Global Ethics</a></li>
+<li><a href="/journal/4490">Journal of Indian Council of Philosophical Research</a></li>
+<li><a href="/journal/4491">Journal of Information Ethics</a></li>
+<li><a href="/journal/4492">Journal of Logic, Language and Information</a></li>
+<li><a href="/journal/4493">Journal of Medical Ethics: The Journal of the Institute of Medical Ethics</a></li>
+<li><a href="/journal/4494">Journal of Military Ethics</a></li>
+<li><a href="/journal/4495">The Journal of Mind and Behavior</a></li>
+<li><a href="/journal/4496">Journal of Moral Education</a></li>
+<li><a href="/journal/4497">Journal of Moral Philosophy: An International Journal of Moral, Political and Legal Philosophy</a></li>
+<li><a href="/journal/4498">Journal of Philosophical Logic</a></li>
+<li><a href="/journal/4499">Journal of Philosophical Research (formerly Philosophy Research Archives)</a></li>
+<li><a href="/journal/4500">Journal of Philosophy</a></li>
+<li><a href="/journal/4501">Journal of Philosophy and Culture</a></li>
+<li><a href="/journal/4502">Journal of Social Philosophy</a></li>
+<li><a href="/journal/4503">The Journal of Speculative Philosophy: A Quarterly Journal of History, Criticism, and Imagination</a></li>
+<li><a href="/journal/4504">The Journal of Symbolic Logic</a></li>
+<li><a href="/journal/4505">Journal of the History of Ideas</a></li>
+<li><a href="/journal/4506">Journal of Theoretical and Philosophical Psychology</a></li>
+<li><a href="/journal/4507">Journal of Thought</a></li>
+<li><a href="/journal/4508">The Journal of Value Inquiry</a></li>
+<li><a href="/journal/4509">Kantian Review</a></li>
+<li><a href="/journal/4510">Kennedy Institute of Ethics Journal</a></li>
+<li><a href="/journal/4511">Kierkegaard Studies: Yearbook</a></li>
+<li><a href="/journal/4512">Krisis: Tijdschrift voor actuele Filosofie</a></li>
+<li><a href="/journal/4513">Kriterion: Revista de Filosofia</a></li>
+<li><a href="/journal/4514">Kwartalnik Filozoficzny</a></li>
+<li><a href="/journal/4515">Legal Theory</a></li>
+<li><a href="/journal/4516">Literature and Aesthetics: The Journal of the Sydney Society of Literature and Aesthetics</a></li>
+<li><a href="/journal/4517">Logic and Philosophy of Science: An Electronic Journal</a></li>
+<li><a href="/journal/4518">Logique et Analyse</a></li>
+<li><a href="/journal/4519">Logos: Revista de Filosofía</a></li>
+<li><a href="/journal/4520">Lumen: Selected Proceedings from the Canadian Society for Eighteenth-Century Studies (formerly Man and Nature/L’homme et la nature: Yearbook of the Canadian Society for Eighteenth-Century Studies)</a></li>
+<li><a href="/journal/4521">Manuscrito: Revista Internacional de Filosofia</a></li>
+<li><a href="/journal/4522">Medical Humanities Review</a></li>
+<li><a href="/journal/4523">Medicine, Health Care and Philosophy: A European Journal</a></li>
+<li><a href="/journal/4524">Medieval Philosophy and Theology</a></li>
+<li><a href="/journal/4525">Metaphilosophy</a></li>
+<li><a href="/journal/4526">Metascience: An International Review Journal for the History, Philosophy and Social Studies of Science</a></li>
+<li><a href="/journal/4527">Method: Journal of Lonergan Studies</a></li>
+<li><a href="/journal/4528">Mind &amp; Language</a></li>
+<li><a href="/journal/4529">The Modern Schoolman: A Quarterly Journal of Philosophy</a></li>
+<li><a href="/journal/4530">Modern Theology</a></li>
+<li><a href="/journal/4531">New Nietzsche Studies: The Journal of the Nietzsche Society</a></li>
+<li><a href="/journal/4532">New Vico Studies</a></li>
+<li><a href="/journal/4533">The New Yearbook for Phenomenology and Phenomenological Philosophy</a></li>
+<li><a href="/journal/4534">Newsletters for the Society for Ancient Greek Philosophy</a></li>
+<li><a href="/journal/4535">Notre Dame Journal of Law, Ethics &amp; Public Policy</a></li>
+<li><a href="/journal/4536">Overheard in Seville: Bulletin of the Santayana Society</a></li>
+<li><a href="/journal/4537">The Owl of Minerva</a></li>
+<li><a href="/journal/4538">Perspektiven der Philosophie: Neues Jahrbuch</a></li>
+<li><a href="/journal/4539">Phainomena: Journal of the Phenomenological Society of Ljubljana</a></li>
+<li><a href="/journal/4540">Phenomenological Inquiry: A Review of Philosophical Ideas and Trends</a></li>
+<li><a href="/journal/4541">Phenomenology and the Cognitive Sciences</a></li>
+<li><a href="/journal/4542">Philo: A Journal of Philosophy (formerly: Philo: The Journal of the Society of Humanist Philosophers)</a></li>
+<li><a href="/journal/4543">Philosophia Africana: Analysis of Philosophy and Issues in Africa and the Black Diaspora</a></li>
+<li><a href="/journal/4544">Philosophia Christi</a></li>
+<li><a href="/journal/4545">Philosophia Mathematica</a></li>
+<li><a href="/journal/4546">Philosophia Naturalis</a></li>
+<li><a href="/journal/4547">Philosophica</a></li>
+<li><a href="/journal/4548">Philosophical Psychology</a></li>
+<li><a href="/journal/4549">Philosophical Review</a></li>
+<li><a href="/journal/4550">Philosophical Review (National Taiwan University)</a></li>
+<li><a href="/journal/4551">Philosophical Studies: An International Journal for Philosophy in the Analytic Tradition</a></li>
+<li><a href="/journal/4552">Philosophical Studies in Education (formerly: Proceedings of the Annual Meeting of the Ohio Valley Philosophy of Education Society)</a></li>
+<li><a href="/journal/4553">Philosophical Writings</a></li>
+<li><a href="/journal/4554">Philosophische Rundschau</a></li>
+<li><a href="/journal/4555">Philosophy: The Journal of the Royal Institute of Philosophy</a></li>
+<li><a href="/journal/4556">Philosophy and Literature</a></li>
+<li><a href="/journal/4557">Philosophy and Phenomenological Research</a></li>
+<li><a href="/journal/4558">Philosophy and Public Affairs</a></li>
+<li><a href="/journal/4559">Philosophy and Social Action</a></li>
+<li><a href="/journal/4560">Philosophy and Theology: Marquette University Quarterly</a></li>
+<li><a href="/journal/4561">Philosophy, Culture, and Traditions: A Journal of the World Union of Catholic Philosophical Societies</a></li>
+<li><a href="/journal/4562">Philosophy East and West</a></li>
+<li><a href="/journal/4563">Philosophy in Science</a></li>
+<li><a href="/journal/4564">Philosophy of Music Education Review</a></li>
+<li><a href="/journal/4565">Philosophy of the Social Sciences</a></li>
+<li><a href="/journal/4566">Philosophy, Psychiatry, and Psychology</a></li>
+<li><a href="/journal/4567">Philosophy Today</a></li>
+<li><a href="/journal/4568">Pli: The Warwick Journal of Philosophy</a></li>
+<li><a href="/journal/4569">Polish Journal of Philosophy</a></li>
+<li><a href="/journal/4570">Political Theory: An International Journal of Political Philosophy</a></li>
+<li><a href="/journal/4571">Politics and Ethics Review (formerly International Journal of Politics and Ethics)</a></li>
+<li><a href="/journal/4572">Politics, Philosophy and Economics</a></li>
+<li><a href="/journal/4573">Pragmatics and Cognition</a></li>
+<li><a href="/journal/4574">Prilozi za Istrazivanje Hrvatske Filozofske Ba&amp;#154;tine</a></li>
+<li><a href="/journal/4575">Prima Philosophia</a></li>
+<li><a href="/journal/4576">Proceedings and Addresses of the American Philosophical Association</a></li>
+<li><a href="/journal/4577">Proceedings of the American Catholic Philosophical Association</a></li>
+<li><a href="/journal/4578">Proceedings of the Boston Area Colloquium in Ancient Philosophy</a></li>
+<li><a href="/journal/4579">Proceedings of the Heraclitean Society: A Report on Philosophy and Criticism of the Arts and Sciences</a></li>
+<li><a href="/journal/4580">Process Studies</a></li>
+<li><a href="/journal/4581">Prolegomena: Casopis za filozofiju</a></li>
+<li><a href="/journal/4582">Prospero: A Journal of New Thinking in Philosophy for Education</a></li>
+<li><a href="/journal/4583">Radical Philosophy: A Journal of Socialist and Feminist Philosophy</a></li>
+<li><a href="/journal/4584">Ratio: An International Journal of Analytic Philosophy</a></li>
+<li><a href="/journal/4585">Ratio Juris: An International Journal of Jurisprudence and Philosophy of Law</a></li>
+<li><a href="/journal/4586">Religious Studies: An International Journal for the Philosophy of Religion</a></li>
+<li><a href="/journal/4587">Reports on Mathematical Logic</a></li>
+<li><a href="/journal/4588">Res Publica: A Journal of Legal and Social Philosophy</a></li>
+<li><a href="/journal/4589">Research in Phenomenology</a></li>
+<li><a href="/journal/4590">Revista Portuguesa de Filosofia</a></li>
+<li><a href="/journal/4591">Revue Internationale de Philosophie</a></li>
+<li><a href="/journal/4592">Rivista di Estetica</a></li>
+<li><a href="/journal/4593">Rivista di Filosofia</a></li>
+<li><a href="/journal/4594">Rivista di Storia della Filosofia</a></li>
+<li><a href="/journal/4595">Russell: The Journal of the Bertrand Russell Archives</a></li>
+<li><a href="/journal/4596">Sapientia</a></li>
+<li><a href="/journal/4597">Sapienza: Rivista di Filosofia e di Teologia</a></li>
+<li><a href="/journal/4598">Sartre Studies International: An Interdisciplinary Journal of Existentialism and Contemporary Culture</a></li>
+<li><a href="/journal/4599">SATS: Nordic Journal of Philosophy</a></li>
+<li><a href="/journal/4600">Schopenhauer-Jahrbuch</a></li>
+<li><a href="/journal/4601">Science and Engineering Ethics</a></li>
+<li><a href="/journal/4602">Social Epistemology: A Journal of Knowledge, Culture, and Policy</a></li>
+<li><a href="/journal/4603">Social Philosophy and Policy</a></li>
+<li><a href="/journal/4604">Social Theory and Practice: An International and Interdisciplinary Journal of Social Philosophy</a></li>
+<li><a href="/journal/4605">Soochow Journal of Philosophical Studies</a></li>
+<li><a href="/journal/4606">Southwest Philosophy Review: The Journal of The Southwestern Philosophical Society</a></li>
+<li><a href="/journal/4607">Studia Logica: An International Journal for Symbolic Logic</a></li>
+<li><a href="/journal/4608">Studia Phaenomenologica: Romanian Journal for Phenomenology</a></li>
+<li><a href="/journal/4609">Studia Philosophiae Christianae</a></li>
+<li><a href="/journal/4610">Studia Philosophica: Jahrbuch der Schweizerischen, Philosophischen Gesellschaft</a></li>
+<li><a href="/journal/4611">Studia Poliana: Revista sobre el pensamiento de Leonardo Polo</a></li>
+<li><a href="/journal/4612">Studies in History and Philosophy of Biological and Biomedical Sciences</a></li>
+<li><a href="/journal/4613">Studies in History and Philosophy of Science</a></li>
+<li><a href="/journal/4614">Studies in Practical Philosophy: A Journal of Ethical and Political Philosophy</a></li>
+<li><a href="/journal/4615">Symposium: Canadian Journal of Continental Philosophy (Revue canadienne de philosophie continentale)</a></li>
+<li><a href="/journal/4616">Sztuka i Filozofia (Art and Philosophy)</a></li>
+<li><a href="/journal/4617">Teaching Ethics: The Journal of the Society for Ethics across the Curriculum</a></li>
+<li><a href="/journal/4618">Teaching Philosophy</a></li>
+<li><a href="/journal/4619">Teorema</a></li>
+<li><a href="/journal/4620">Theologie und Philosophie: Vierteljahresschrift</a></li>
+<li><a href="/journal/4621">Theoretical Medicine and Bioethics: Philosophy of Medical Research and Practice (formerly Theoretical Medicine: An International Journal for the Philosophy and Methodology of Medical Research and Practice)</a></li>
+<li><a href="/journal/4622">Theoria: A Swedish Journal of Philosophy</a></li>
+<li><a href="/journal/4623">Theoria: Revista de Teoria, Historia y Fundamentos de la Ciencia</a></li>
+<li><a href="/journal/4624">Theory and Research in Education</a></li>
+<li><a href="/journal/4625">Theory, Culture and Society</a></li>
+<li><a href="/journal/4626">Thinking: The Journal of Philosophy for Children</a></li>
+<li><a href="/journal/4627">The Thomist: A Speculative Quarterly Review</a></li>
+<li><a href="/journal/4628">Topos: Journal for Philosophical and Cultural Studies</a></li>
+<li><a href="/journal/4629">Traditio: Studies in Ancient and Medieval History, Thought and Religion</a></li>
+<li><a href="/journal/4630">Transactions of the Charles S. Peirce Society: A Quarterly Journal in American Philosophy</a></li>
+<li><a href="/journal/4631">Ultimate Reality and Meaning: Interdisciplinary Studies in the Philosophy of Understanding</a></li>
+<li><a href="/journal/4632">Universitas Philosophica</a></li>
+<li><a href="/journal/4633">Utilitas: A Journal of Utilitarian Studies</a></li>
+<li><a href="/journal/4634">Vivarium: An International Journal for the Philosophy and Intellectual Life of the Middle Ages and Renaissance</a></li>
+<li><a href="/journal/4635">Zygon: Journal of Religion and Science</a></li>
+<li><a href="/journal/4636">Accademia: Revue de la Société Marsile Ficin</a></li>
+<li><a href="/journal/4637">Allgemeine Zeitschrift für Philosophie</a></li>
+<li><a href="/journal/4638">Anales de la Cátedra Francisco Suárez</a></li>
+<li><a href="/journal/4639">Apuntes Filosóficos</a></li>
+<li><a href="/journal/4640">Archiv für Geschichte der Philosophie</a></li>
+<li><a href="/journal/4641">British Journal for the History of Philosophy</a></li>
+<li><a href="/journal/4642">Bruniana &amp; Campanelliana: Ricerche filosofiche e materiali storico-testuali</a></li>
+<li><a href="/journal/4643">Bulletin of the Santayana Society (Overheard in Seville)</a></li>
+<li><a href="/journal/4644">Cadernos de Ética e Filosofia Política</a></li>
+<li><a href="/journal/4645">Cadernos de História e Filosofia da Ciência</a></li>
+<li><a href="/journal/4646">Communication and Cognition - Artificial Intelligence (CC-AI): The Journal for the Integrated Study of Artificial Intelligence, Cognitive Science and Applied Epistemology</a></li>
+<li><a href="/journal/4647">Conceptus: Zeitschrift für Philosophie</a></li>
+<li><a href="/journal/4648">Concordia: Internationale Zeitschrift für Philosophie</a></li>
+<li><a href="/journal/4649">Contemporary Pragmatism</a></li>
+<li><a href="/journal/4650">Contrastes: Revista Internacional de Filosofía</a></li>
+<li><a href="/journal/4651">Crítica: Revista Hispanoamericana de Filosofía</a></li>
+<li><a href="/journal/4652">Anuario Filosífico</a></li>
+<li><a href="/journal/4653">Das Argument: Zeitschrift für Philosophie und Sozialwissenschaften</a></li>
+<li><a href="/journal/4654">Dialectica</a></li>
+<li><a href="/journal/4655">Dialektik: Zeitschrift für Kulturphilosophie</a></li>
+<li><a href="/journal/4656">Dialogue and Universalism</a></li>
+<li><a href="/journal/4657">Dilema: Revista de Filosofía</a></li>
+<li><a href="/journal/4658">Dois Pontos</a></li>
+<li><a href="/journal/4659">Educação e Filosofia</a></li>
+<li><a href="/journal/4660">Eidos: Revista de Filosofía de la Unversidad del Norte</a></li>
+<li><a href="/journal/4661">Enfoques: Revista de la Universidad Adventista del Plata  (Articles in Spanish, Catalan, English with abstracts)</a></li>
+<li><a href="/journal/4662">Erkenntnis: An International Journal of Analytic Philosophy</a></li>
+<li><a href="/journal/4663">Estudios de Filosofía</a></li>
+<li><a href="/journal/4664">Estudios Filosóficos: Revista de Investigación y Crítica</a></li>
+<li><a href="/journal/4665">Estudios Nietzsche: Revista de la Sociedad Española de Estudios sobre Friedrich Nietzsche</a></li>
+<li><a href="/journal/4666">Felsefe Tartismalari (Philosophical Discussions): A Turkish Journal of Philosophy</a></li>
+<li><a href="/journal/4667">Filosofia Unisinos: Revista do Programa do Pós-Graduação em Filosofia da Universidade do Vale do Rio dos Sinos</a></li>
+<li><a href="/journal/4668">Filosofický Casopis</a></li>
+<li><a href="/journal/4669">Fronesis: Revista de Filosofía Jurídica, Social y Política</a></li>
+<li><a href="/journal/4670">Jahrbuch für Hegelforschung</a></li>
+<li><a href="/journal/4671">Jahrbuch für Wissenschaft und Ethik</a></li>
+<li><a href="/journal/4672">Journal of Critical Realism</a></li>
+<li><a href="/journal/4673">The Journal of Libertarian Studies</a></li>
+<li><a href="/journal/4674">Journal of the History of Philosophy</a></li>
+<li><a href="/journal/4675">Journal of the Philosophy of Sport</a></li>
+<li><a href="/journal/4676">Kriterion: Journal of Philosophy (Zeitschrift für Philosophie)</a></li>
+<li><a href="/journal/4677">La Lámpara de Diógenes: Revista semestral de Filosofía</a></li>
+<li><a href="/journal/4678">Laval Théologique et Philosophique</a></li>
+<li><a href="/journal/4679">Logói: Revista de Filosofía</a></li>
+<li><a href="/journal/4680">Ludus Vitalis: Revista de Filosofía de las Ciencias de la Vida</a></li>
+<li><a href="/journal/4681">Medicina y Ética: Revista Internacional de Bioética, Deontología y Ética Médica</a></li>
+<li><a href="/journal/4682">Natureza Humana: Revista Internacional de Filosofia e Práticas Psicoterápicas</a></li>
+<li><a href="/journal/4683">Nursing Ethics: An International Journal for Health Care Professionals</a></li>
+<li><a href="/journal/4684">Philosophia: Philosophical Quarterly of Israel</a></li>
+<li><a href="/journal/4685">Praxis Filosófica</a></li>
+<li><a href="/journal/4686">Revista de Filosofía (Spain)</a></li>
+<li><a href="/journal/4687">Revista de Filosofía (Venezuela)</a></li>
+<li><a href="/journal/4688">Revista de Filosofía y Teoría Política (formerly Rev Filosof (La Plata))</a></li>
+<li><a href="/journal/4689">Revista de Filosofía: Universidad de Chile</a></li>
+<li><a href="/journal/4690">Rhizai: A Journal for Ancient Philosophy and Science</a></li>
+<li><a href="/journal/4691">Signos Filosóficos</a></li>
+<li><a href="/journal/4692">Thémata: Revista de Filosofía</a></li>
+<li><a href="/journal/4693">Theoria: A Journal of Social and Political Theory</a></li>
+<li><a href="/journal/4694">Zeitschrift für allgemeine Wissenschaftstheorie (continued by J Gen Phil Sci)</a></li>
+<li><a href="/journal/4695">Zeitschrift für kritische Theorie</a></li>
+<li><a href="/journal/4696">Zeitschrift für Philosophische Forschung</a></li>
+<li><a href="/journal/4697">Abraxas</a></li>
+<li><a href="/journal/4698">Academic Questions</a></li>
+<li><a href="/journal/4699">Acta Analytica: International Periodical for Philosophy in Analytical Tradition</a></li>
+<li><a href="/journal/4700">Aesthetics</a></li>
+<li><a href="/journal/4701">Agora: A Journal of the Humanities and the Social Sciences</a></li>
+<li><a href="/journal/4702">Agora: Papeles de Filosofía</a></li>
+<li><a href="/journal/4703">Agora Philosophica: Revista Marplatense de Filosofía</a></li>
+<li><a href="/journal/4704">Agriculture and Human Values</a></li>
+<li><a href="/journal/4705">Ajatus: Yearbook of the Philosophical Society of Finland</a></li>
+<li><a href="/journal/4706">The American Journal of Bioethics</a></li>
+<li><a href="/journal/4707">Aletheia: An International Journal of Philosophy</a></li>
+<li><a href="/journal/4708">Algebra and Logic</a></li>
+<li><a href="/journal/4709">Algemeen Nederlands Tijdschrift voor Wijsbegeerte</a></li>
+<li><a href="/journal/4710">Alpha Omega: Rivista di Filosofia e Teologia dell'Ateneo Pontificio Regina Apostolorum</a></li>
+<li><a href="/journal/4711">American Benedictine Review</a></li>
+<li><a href="/journal/4712">American Catholic Philosophical Quarterly (formerly The Scholasticism)</a></li>
+<li><a href="/journal/4713">American Journal of Philology</a></li>
+<li><a href="/journal/4714">Anales del Seminario de Metafísica</a></li>
+<li><a href="/journal/4715">Analiza: Casopis za kriticno misel (Analysis: Review of Critical Thinking)</a></li>
+<li><a href="/journal/4716">Analogía Filosófica: Revista de Filosofía</a></li>
+<li><a href="/journal/4717">Analysis</a></li>
+<li><a href="/journal/4718">Ancient Philosophy</a></li>
+<li><a href="/journal/4719">Angelicum: Periodicum Trimestre Pontificiae Studiorum Universitatis e Sancto Thoma Aquinate in Urbe</a></li>
+<li><a href="/journal/4720">Anima</a></li>
+<li><a href="/journal/4721">Annales d’Esthétique</a></li>
+<li><a href="/journal/4722">Annali della Facoltà di Lettere e Filosofia</a></li>
+<li><a href="/journal/4723">Annales Universitatis Mariae Curie-Sklodowska, Sectio 1/Philosophia-Sociologia</a></li>
+<li><a href="/journal/4724">Annals of Mathematical Logic (continued by Annals Pure Applied Log)</a></li>
+<li><a href="/journal/4725">Annals of the New York Academy of Sciences</a></li>
+<li><a href="/journal/4726">Annals of Pure and Applied Logic (formerly Annals of Mathematical Logic)</a></li>
+<li><a href="/journal/4727">The Annual of the Society of Christian Ethics (continued by J Soc Christ Ethics)</a></li>
+<li><a href="/journal/4728">Anthropological Quarterly</a></li>
+<li><a href="/journal/4729">The Antioch Review</a></li>
+<li><a href="/journal/4730">Applied Philosophy (continued by Int J Applied Phil)</a></li>
+<li><a href="/journal/4731">Archivio di Filosofia</a></li>
+<li><a href="/journal/4732">Areté: Revista de Filosofía</a></li>
+<li><a href="/journal/4733">Argumentos de Razón Técnica: Revista española de Ciencia, Tecnología y Sociedad, y Filosofía de la Tecnología (A Spanish Journal on Science, Technology and Society, and Philosophy of Technology)</a></li>
+<li><a href="/journal/4734">Arion: A Journal of Humanities and the Classics</a></li>
+<li><a href="/journal/4735">Arts in Society (University of Wisconsin/University Extension Division)</a></li>
+<li><a href="/journal/4736">Asian Profile</a></li>
+<li><a href="/journal/4737">Ayn Rand Letter</a></li>
+<li><a href="/journal/4738">Berkeley Studies (formerly the Berkeley Newsletter)</a></li>
+<li><a href="/journal/4739">Bigaku: The Japanese Journal of Aesthetics</a></li>
+<li><a href="/journal/4740">Bioethics</a></li>
+<li><a href="/journal/4741">Bioethics Forum (stopped publishing 2003)</a></li>
+<li><a href="/journal/4742">Bioethics Quarterly (continued by J Med Human)</a></li>
+<li><a href="/journal/4743">Bochumer Philosophisches Jahrbuch für Antike und Mittelalter</a></li>
+<li><a href="/journal/4744">Boston Studies in the Philosophy of Science</a></li>
+<li><a href="/journal/4745">Boundary 2: An International Journal of Literature and Culture</a></li>
+<li><a href="/journal/4746">The Brahmavadin</a></li>
+<li><a href="/journal/4747">Brain and Mind: A Transdisciplinary Journal of Neuroscience and Neurophilosophy</a></li>
+<li><a href="/journal/4748">The British Journal of Aesthetics</a></li>
+<li><a href="/journal/4749">Bucknell Review</a></li>
+<li><a href="/journal/4750">Bulletin of the Evangelical Theological Society</a></li>
+<li><a href="/journal/4751">Bulletin of the Hegel Society of Great Britain</a></li>
+<li><a href="/journal/4752">Bulletin de la Société Américaine de Philosophie de Langue Française</a></li>
+<li><a href="/journal/4753">Business Ethics Quarterly</a></li>
+<li><a href="/journal/4754">Cadernos de Filosofia: International Journal of Philosophy (Istituto de Filosofia da Linguagem at Universidade Nova de Lisboa)</a></li>
+<li><a href="/journal/4755">Cambridge Review</a></li>
+<li><a href="/journal/4756">The Canadian Journal of Law and Jurisprudence: An International Journal of Legal Thought</a></li>
+<li><a href="/journal/4757">Canadian Journal of Theology</a></li>
+<li><a href="/journal/4758">Philosophy in Review/Comptes rendus philosophiques</a></li>
+<li><a href="/journal/4759">Canadian Journal of Political Science</a></li>
+<li><a href="/journal/4760">Carrefour: Revue de réflexion interdisciplinaire</a></li>
+<li><a href="/journal/4761">Centennial Review</a></li>
+<li><a href="/journal/4762">Chinese Studies in History (continues in part Chinese Studies in History and Philosophy)</a></li>
+<li><a href="/journal/4763">Chinese Studies in History and Philosophy (see Chin Stud Hist and Chin Stud Phil)</a></li>
+<li><a href="/journal/4764">Chora: Intervals in the Philosophy of Architecture (indexed as an anthology)</a></li>
+<li><a href="/journal/4765">Christian Bioethics: Non-Eucumenical Studies in Medical Ethics</a></li>
+<li><a href="/journal/4766">Christian Scholar</a></li>
+<li><a href="/journal/4767">Cirpho Review</a></li>
+<li><a href="/journal/4768">Classical Journal</a></li>
+<li><a href="/journal/4769">The Classical Quarterly</a></li>
+<li><a href="/journal/4770">Club Voltaire: Jahrbuch für kritische Aufklärung</a></li>
+<li><a href="/journal/4771">Cogito: Journal of the Cogito Society (began in 1987; ceased publication around 1999)</a></li>
+<li><a href="/journal/4772">Cognitio: Revista de Filosofía</a></li>
+<li><a href="/journal/4773">Cognition: International Journal of Cognitive Science</a></li>
+<li><a href="/journal/4774">College English</a></li>
+<li><a href="/journal/4775">Colllingwood and British Idealism Studies Incorporating Bradley Studies (formerly Collingwood and British Idealism Studies and Bradley Studies separately)</a></li>
+<li><a href="/journal/4776">Colllingwood and British Idealism Studies (formerly Collingwood Studies: The Life and Thought of R. G. Collingwood)</a></li>
+<li><a href="/journal/4777">Collingwood Studies: The Life and Thought of R. G. Collingwood (continued by Collingwood Brit Ideal Stud)</a></li>
+<li><a href="/journal/4778">Commonweal</a></li>
+<li><a href="/journal/4779">Communio Viatorum</a></li>
+<li><a href="/journal/4780">Comparative Literature</a></li>
+<li><a href="/journal/4781">Computers and Automation</a></li>
+<li><a href="/journal/4782">Computers and the Humanities</a></li>
+<li><a href="/journal/4783">Conference: A Journal of Philosophy and Theory (Philosophy Department, Fordham University) (published 1990-1995)</a></li>
+<li><a href="/journal/4784">Conjectura: Filosofia e Educação</a></li>
+<li><a href="/journal/4785">Constellations: An International Journal of Critical and Democratic Theory (formerly Praxis International)</a></li>
+<li><a href="/journal/4786">Constructivist Foundations: An Interdisciplinary Journal (online journal)</a></li>
+<li><a href="/journal/4787">Contemporary Chinese Thought: Translation and Studies (formerly Chinese Studies in History and Philosophy)</a></li>
+<li><a href="/journal/4788">Contemporary Philosophy (none received after 25(1-2) 2003)</a></li>
+<li><a href="/journal/4789">Contemporary Political Theory</a></li>
+<li><a href="/journal/4790">Continental Philosophy Review (formerly Man World)</a></li>
+<li><a href="/journal/4791">Suplementos de Contrastes: Revista Interdisciplinar de Filosofía (continued by Contrastes: Suppl)</a></li>
+<li><a href="/journal/4792">Crane Review</a></li>
+<li><a href="/journal/4793">Criminal Justice Ethics</a></li>
+<li><a href="/journal/4794">Critical Review of International Social and Political Philosophy</a></li>
+<li><a href="/journal/4795">Critical Texts: A Review of Theory and Criticism</a></li>
+<li><a href="/journal/4796">Criticism</a></li>
+<li><a href="/journal/4797">Cuadernos de Etica</a></li>
+<li><a href="/journal/4798">Cuadernos de Filosof</a></li>
+<li><a href="/journal/4799">Cuadernos de Pensamiento Espa</a></li>
+<li><a href="/journal/4800">Cultural Hermeneutics (see Phil Soc Crit)</a></li>
+<li><a href="/journal/4801">Current-Musicology</a></li>
+<li><a href="/journal/4802">Daedalus</a></li>
+<li><a href="/journal/4803">Daimon, Revista de Filosof</a></li>
+<li><a href="/journal/4804">The Dalhousie Review</a></li>
+<li><a href="/journal/4805">Danish Yearbook of Philosophy</a></li>
+<li><a href="/journal/4806">Dance Scope</a></li>
+<li><a href="/journal/4807">Darshana International</a></li>
+<li><a href="/journal/4808">Das Argument: Zeitschrift für Philosophie und Sozialwissenschaften</a></li>
+<li><a href="/journal/4809">Deutsche Vierteljahresschrift f</a></li>
+<li><a href="/journal/4810">Deutsche Zeitschrift f</a></li>
+<li><a href="/journal/4811">Developing World Bioethics</a></li>
+<li><a href="/journal/4812">Dialectics and Humanism (see Dialogue Hum)</a></li>
+<li><a href="/journal/4813">Dialectica: International Journal of Philosophy of Knowledge</a></li>
+<li><a href="/journal/4814">Dialektik: Zeitschrift f</a></li>
+<li><a href="/journal/4815">Diálogo Filosófico</a></li>
+<li><a href="/journal/4816">Diálogos: Revista del Departmento de Filosofía Universidad de Puerto Rico</a></li>
+<li><a href="/journal/4817">Dialogue: Canadian Philosophical Review</a></li>
+<li><a href="/journal/4818">Dialogue: Journal of Phi Sigma Tau</a></li>
+<li><a href="/journal/4819">Dialogue and Universalism (continues Dialogue Hum)</a></li>
+<li><a href="/journal/4820">Dialogue and Humanism: The Universalist Journal (formerly Dialectics and Humanism) see Dialogue &amp;amp; Univ</a></li>
+<li><a href="/journal/4821">Diánoia</a></li>
+<li><a href="/journal/4822">Dianoia: Annali di Storia della Filosofia</a></li>
+<li><a href="/journal/4823">Dikaiosyne: Revista semestral de filosof</a></li>
+<li><a href="/journal/4824">Dilema: Revista de Filosof</a></li>
+<li><a href="/journal/4825">Discurso: Revista do Departamento de Filosofia da Universidade de S</a></li>
+<li><a href="/journal/4826">Discusiones Filos</a></li>
+<li><a href="/journal/4827">Divyadaan: Journal of Philosophy and Education</a></li>
+<li><a href="/journal/4828">Doctor Communis</a></li>
+<li><a href="/journal/4829">Downside Review</a></li>
+<li><a href="/journal/4830">Durham University Journal</a></li>
+<li><a href="/journal/4831">Duquesne Review</a></li>
+<li><a href="/journal/4832">Eastern Buddhist</a></li>
+<li><a href="/journal/4833">Ecologist</a></li>
+<li><a href="/journal/4834">Educa</a></li>
+<li><a href="/journal/4835">Educational Studies: A Journal of the American Educational Studies Association</a></li>
+<li><a href="/journal/4836">Educational Forum</a></li>
+<li><a href="/journal/4837">Educational Record</a></li>
+<li><a href="/journal/4838">Eidos: The Canadian Graduate Journal of Philosophy</a></li>
+<li><a href="/journal/4839">Eidos: Revista de Filosof</a></li>
+<li><a href="/journal/4840">El Basilisco: Revista de Filosof</a></li>
+<li><a href="/journal/4841">Encounter</a></li>
+<li><a href="/journal/4842">Enfoques: Revista de la Universidad Adventista del Plata</a></li>
+<li><a href="/journal/4843">Enrahonar: Quaderns de Filosofia</a></li>
+<li><a href="/journal/4844">Environmental Philosophy</a></li>
+<li><a href="/journal/4845">Episteme: Filosofia e Hist</a></li>
+<li><a href="/journal/4846">Episteme: A Journal of Social Epistemology</a></li>
+<li><a href="/journal/4847">Epoché: A Journal for the History of Philosophy</a></li>
+<li><a href="/journal/4848">ERM</a></li>
+<li><a href="/journal/4849">Escritos de Filosof</a></li>
+<li><a href="/journal/4850">Esp</a></li>
+<li><a href="/journal/4851">Essays in Philosophy (Electronic Journal)</a></li>
+<li><a href="/journal/4852">Essays in the Philosophy of Humanism (A Journal of the American Humanist Association)</a></li>
+<li><a href="/journal/4853">Essence: Issues in the Study of Ageing, Dying and Death</a></li>
+<li><a href="/journal/4854">Essence Interdisciplinary - International Journal of Philosophy</a></li>
+<li><a href="/journal/4855">Estetika</a></li>
+<li><a href="/journal/4856">Estudios de Filosof</a></li>
+<li><a href="/journal/4857">Estudios Filos</a></li>
+<li><a href="/journal/4858">Estudios Nietzsche: Revista de la Sociedad Espa</a></li>
+<li><a href="/journal/4859">ETC: A Review of General Semantics</a></li>
+<li><a href="/journal/4860">Ethics in Science and Medicine</a></li>
+<li><a href="/journal/4861">Ethics and Medicine: An International Journal of Bioethics (formerly Ethics and Medicine: An International Christian Perspective on Bioethics)</a></li>
+<li><a href="/journal/4862">Etyka</a></li>
+<li><a href="/journal/4863">Eur</a></li>
+<li><a href="/journal/4864">European Review of Philosophy (Note: Volumes are indexed as individual anthologies)</a></li>
+<li><a href="/journal/4865">European Judaism</a></li>
+<li><a href="/journal/4866">Evolution</a></li>
+<li><a href="/journal/4867">Exercices de la Patience</a></li>
+<li><a href="/journal/4868">Explorations in Knowledge (ceased in 1997)</a></li>
+<li><a href="/journal/4869">Facta Philosophica: Internationale Zeitschrift f</a></li>
+<li><a href="/journal/4870">Felsefe D</a></li>
+<li><a href="/journal/4871">Fichte-Studien</a></li>
+<li><a href="/journal/4872">Film &amp;amp; Philosophy</a></li>
+<li><a href="/journal/4873">Filosofick</a></li>
+<li><a href="/journal/4874">Filosofija, Sociologija (Philosophy, Sociology)</a></li>
+<li><a href="/journal/4875">Revista do Programa de Pós-Graduação em Filosofia da Universidade do Vale do Rio dos Sinos</a></li>
+<li><a href="/journal/4876">Filosofia</a></li>
+<li><a href="/journal/4877">Filozofski Vestnik</a></li>
+<li><a href="/journal/4878">Forum Linguisticum</a></li>
+<li><a href="/journal/4879">Forum Philosophicum: International Journal of Philosophy </a></li>
+<li><a href="/journal/4880">Forum (University of Houston)</a></li>
+<li><a href="/journal/4881">Foundations of Language (see Ling Phil)</a></li>
+<li><a href="/journal/4882">Foundations</a></li>
+<li><a href="/journal/4883">Foundations of Physics</a></li>
+<li><a href="/journal/4884">Freiburger Zeitschrift f</a></li>
+<li><a href="/journal/4885">Freiburger Rundbrief</a></li>
+<li><a href="/journal/4886">Fronesis: Revista de Filosof</a></li>
+<li><a href="/journal/4887">Fundamenta Mathematicae</a></li>
+<li><a href="/journal/4888">Furrow</a></li>
+<li><a href="/journal/4889">Futurum</a></li>
+<li><a href="/journal/4890">Giornale Critico della Filosofia Italiana</a></li>
+<li><a href="/journal/4891">Genre</a></li>
+<li><a href="/journal/4892">Georgia Review</a></li>
+<li><a href="/journal/4893">Gordon Review</a></li>
+<li><a href="/journal/4894">Graduate Journal</a></li>
+<li><a href="/journal/4895">Grazer Philosophische Studien</a></li>
+<li><a href="/journal/4896">Grundlagenstudien aus Kybernetik und Geisteswissenschaft</a></li>
+<li><a href="/journal/4897">Harvard Educational Review</a></li>
+<li><a href="/journal/4898">Harvard Law Review</a></li>
+<li><a href="/journal/4899">Harvard Studies in Classical Philology</a></li>
+<li><a href="/journal/4900">Harvard Theological Review</a></li>
+<li><a href="/journal/4901">Hastings Center Report (formerly Hastings Center Studies)</a></li>
+<li><a href="/journal/4902">Hastings Center Studies (see Hastings Center Rep)</a></li>
+<li><a href="/journal/4903">HealthCare Ethics Committee Forum: An Interprofessional Journal on Healthcare Institutions' Ethical and Legal Issues</a></li>
+<li><a href="/journal/4904">Hegel-Jahrbuch (done as anthologies)</a></li>
+<li><a href="/journal/4905">Heidegger Studies</a></li>
+<li><a href="/journal/4906">Hekmat va Falsafeh (Wisdom and Philosophy (Academic Journal of the Philosophy Department of Allameh Tabatabaii University)</a></li>
+<li><a href="/journal/4907">Hermathena: A Dublin University Review</a></li>
+<li><a href="/journal/4908">The Heythrop Journal: A Bimonthly Review of Philosophy and Theology</a></li>
+<li><a href="/journal/4909">The Hibbert Journal: A Quarterly Review of Religion, Theology, and Philosophy</a></li>
+<li><a href="/journal/4910">History of European Ideas</a></li>
+<li><a href="/journal/4911">History of the Human Sciences</a></li>
+<li><a href="/journal/4912">History of Political Economy</a></li>
+<li><a href="/journal/4913">History of Religions</a></li>
+<li><a href="/journal/4914">Horizons Philosophiques (formerly La Petite Revue de Philosophie)</a></li>
+<li><a href="/journal/4915">Human Inquiries</a></li>
+<li><a href="/journal/4916">Human Reproduction and Genetic Ethics</a></li>
+<li><a href="/journal/4917">Human Rights Review</a></li>
+<li><a href="/journal/4918">Humanities in Society</a></li>
+<li><a href="/journal/4919">Hypnos (Journal of Greco-Roman Philosophy)</a></li>
+<li><a href="/journal/4920">Il Protagora: Rivista di Filosofia e Cultura</a></li>
+<li><a href="/journal/4921">Iliff Review</a></li>
+<li><a href="/journal/4922">Independent Journal of Philosophy</a></li>
+<li><a href="/journal/4923">Indian Journal of Philosophy</a></li>
+<li><a href="/journal/4924">Indian Journal of Philosophic Studies</a></li>
+<li><a href="/journal/4925">Indian Philosophy and Culture</a></li>
+<li><a href="/journal/4926">Indian Philosophical Quarterly: Journal of the Department of Philosophy - University of Poona</a></li>
+<li><a href="/journal/4927">Informal Logic</a></li>
+<li><a href="/journal/4928">Insurgent Sociologist</a></li>
+<li><a href="/journal/4929">Internationale Dialog-Zeitschrift</a></li>
+<li><a href="/journal/4930">The International Journal of Applied Philosophy (formerly Applied Philosophy)</a></li>
+<li><a href="/journal/4931">The International Journal for Field-Being</a></li>
+<li><a href="/journal/4932">International Journal of Moral and Social Studies</a></li>
+<li><a href="/journal/4933">International Logic Review (Rassegna Internazionale di Logica)</a></li>
+<li><a href="/journal/4934">International Philosophical Quarterly</a></li>
+<li><a href="/journal/4935">International Studies in Philosophy (formerly Studi Internazionali di Filosofia)</a></li>
+<li><a href="/journal/4936">Intellect</a></li>
+<li><a href="/journal/4937">Interchange: A Quarterly Review of Education</a></li>
+<li><a href="/journal/4938">International Journal of Middle East Studies</a></li>
+<li><a href="/journal/4939">IRB: Ethics and Human Research (The Hastings Center)</a></li>
+<li><a href="/journal/4940">Irish Philosophical Journal</a></li>
+<li><a href="/journal/4941">Irish Theological Quarterly</a></li>
+<li><a href="/journal/4942">Isegoria: Revista de Filosofía Moral y Politíca</a></li>
+<li><a href="/journal/4943">Isonomía: Revista de Teoría y Filosofía del Derecho</a></li>
+<li><a href="/journal/4944">Isis</a></li>
+<li><a href="/journal/4945">Itinerari Filosofici: Rivista di Filosofia</a></li>
+<li><a href="/journal/4946">Iustitia</a></li>
+<li><a href="/journal/4947">The Journal of Aesthetics and Art Criticism</a></li>
+<li><a href="/journal/4948">The Journal of Aesthetic Education</a></li>
+<li><a href="/journal/4949">Journal of Agricultural and Environmental Ethics (formerly Journal of Agricultural Ethics)</a></li>
+<li><a href="/journal/4950">Journal of the American Academy of Religion</a></li>
+<li><a href="/journal/4951">Journal of the American Oriental Society</a></li>
+<li><a href="/journal/4952">Journal of the American Society for Psychical Research</a></li>
+<li><a href="/journal/4953">The Journal of the British Society for Phenomenology</a></li>
+<li><a href="/journal/4954">Journal of Consciousness Studies</a></li>
+<li><a href="/journal/4955">Journal of Educational Data Processing</a></li>
+<li><a href="/journal/4956">Journal of Existentialism</a></li>
+<li><a href="/journal/4957">Journal for General Philosophy of Science (Zeitschrift für allgemeine Wissenschaftstheorie)</a></li>
+<li><a href="/journal/4958">The Journal of Hellenic Studies</a></li>
+<li><a href="/journal/4959">Journal for the History of Astronomy</a></li>
+<li><a href="/journal/4960">Journal of the History of Biology</a></li>
+<li><a href="/journal/4961">Journal of the History of the Behavioral Sciences</a></li>
+<li><a href="/journal/4962">Journal of Indian Philosophy</a></li>
+<li><a href="/journal/4963">Journal of Law, Medicine and Ethics</a></li>
+<li><a href="/journal/4964">The Journal of Medical Humanities (formerly The Journal of Medical Humanities and Bioethics)</a></li>
+<li><a href="/journal/4965">The Journal of Medical Humanities and Bioethics (formerly Bioethics Quarterly)</a></li>
+<li><a href="/journal/4966">The Journal of Medicine and Philosophy</a></li>
+<li><a href="/journal/4967">The Journal of Neoplatonic Studies</a></li>
+<li><a href="/journal/4968">The Journal of Nietzsche Studies</a></li>
+<li><a href="/journal/4969">The Journal of Non-Classical Logic (continued by Journal of Applied Non-Classical Logics ISSN 1166-3081, not indexed)</a></li>
+<li><a href="/journal/4970">Journal of Phenomenological Psychology</a></li>
+<li><a href="/journal/4971">The Journal of Philosophy</a></li>
+<li><a href="/journal/4972">Journal of Philosophy of Education: The Journal of the Philosophy Education Society of Great Britain (formerly Proceedings of the Philosophy of Education Society of Great Britain)</a></li>
+<li><a href="/journal/4973">The Journal of Political Philosophy</a></li>
+<li><a href="/journal/4974">Journal of Pragmatics</a></li>
+<li><a href="/journal/4975">Journal of Psycholinguistic Research</a></li>
+<li><a href="/journal/4976">The Journal of Religious Ethics</a></li>
+<li><a href="/journal/4977">Journal of the Royal Statistical Society: Series A: Statistics in Society</a></li>
+<li><a href="/journal/4978">Journal of the Royal Statistical Society: Series B (Statistical Methodology)</a></li>
+<li><a href="/journal/4979">Journal for the Scientific Study of Religion</a></li>
+<li><a href="/journal/4980">Journal of Semantics</a></li>
+<li><a href="/journal/4981">Journal of Social and Biological Structures</a></li>
+<li><a href="/journal/4982">Journal of the Society of Christian Ethics (formerly Annual of the Society of Christian Ethics) </a></li>
+<li><a href="/journal/4983">Journal of the Faculty of Letters, The University of Tokyo, Aesthetics</a></li>
+<li><a href="/journal/4984">Jahrbuch für Recht und Ethik (Annual Review of Law and Ethics)</a></li>
+<li><a href="/journal/4985">Jewish Quarterly Review</a></li>
+<li><a href="/journal/4986">Journal of Bible and Religion</a></li>
+<li><a href="/journal/4987">Journal of Educational Thought</a></li>
+<li><a href="/journal/4988">Journal of General Education</a></li>
+<li><a href="/journal/4989">Journal of General Psychology</a></li>
+<li><a href="/journal/4990">Journal of Genetic Psychology</a></li>
+<li><a href="/journal/4991">Journal of Higher Education</a></li>
+<li><a href="/journal/4992">Journal of Human Relations</a></li>
+<li><a href="/journal/4993">Journal of International Affairs</a></li>
+<li><a href="/journal/4994">Journal of Jewish Studies</a></li>
+<li><a href="/journal/4995">Journal of Negro Education</a></li>
+<li><a href="/journal/4996">Journal of Politics</a></li>
+<li><a href="/journal/4997">Journal of Religion</a></li>
+<li><a href="/journal/4998">Journal of Religious Thought</a></li>
+<li><a href="/journal/4999">Journal of Sex Research</a></li>
+<li><a href="/journal/5000">Journal of Social Research</a></li>
+<li><a href="/journal/5001">Judaism: A Quarterly Journal of Jewish Life and Thought</a></li>
+<li><a href="/journal/5002">Kalagatos: Revista de Filosofia do Mestrado Acadêmico em Filosofia da UECE</a></li>
+<li><a href="/journal/5003">Kant-Studien: Philosophische Zeitschrift der Kant-Gesellschaft</a></li>
+<li><a href="/journal/5004">KAYGI: Uludag Üniversitesi Felsefe Dergisi (Uludag University, Journal of Philosophy)</a></li>
+<li><a href="/journal/5005">Kenyon Review</a></li>
+<li><a href="/journal/5006">Kinesis: Graduate Journal in Philosophy</a></li>
+<li><a href="/journal/5007">Kodikas/Code: An International Journal of Semiotics</a></li>
+<li><a href="/journal/5008">Kölner Zeitschrift für Soziologie und Sozialpsychologie</a></li>
+<li><a href="/journal/5009">Kursbuch</a></li>
+<li><a href="/journal/5010">Kutadgubilig: Felsefe – Bilim Arastirmalari Dergisi (Philosophy – Science Research Journal)</a></li>
+<li><a href="/journal/5011">Laguna: Revista de Filosof</a></li>
+<li><a href="/journal/5012">Language</a></li>
+<li><a href="/journal/5013">Laurentianum</a></li>
+<li><a href="/journal/5014">Law and Philosophy: An International Journal for Jurisprudence and Legal Philosophy</a></li>
+<li><a href="/journal/5015">Leonardo: The Journal of the International Society for the Arts, Sciences and Technology</a></li>
+<li><a href="/journal/5016">The Leibniz Review (formally The Leibniz Society Review from 1993-1998)</a></li>
+<li><a href="/journal/5017">Lekton</a></li>
+<li><a href="/journal/5018">Linguistics and Philosophy (formerly Foundations of Language)</a></li>
+<li><a href="/journal/5019">Linguistic Inquiry</a></li>
+<li><a href="/journal/5020">Listening: Journal of Religion and Culture</a></li>
+<li><a href="/journal/5021">The Living Light</a></li>
+<li><a href="/journal/5022">The Locke Newsletter</a></li>
+<li><a href="/journal/5023">Locke Studies: An Annual Journal of Locke Research (formerly The Locke Newsletter)</a></li>
+<li><a href="/journal/5024">Logos: Anales del Seminario de Metafísica</a></li>
+<li><a href="/journal/5025">Logos: Religijos, filosofijos, komparatyvistikos ir meno žurnalas (A Journal of Religion, Philosophy, Comparative Cultural Studies, and Art)</a></li>
+<li><a href="/journal/5026">Logos: Philosophic Issues in Christian Perspective</a></li>
+<li><a href="/journal/5027">Magyar Filozofiai Szemle</a></li>
+<li><a href="/journal/5028">Maha Bodhi Society of India</a></li>
+<li><a href="/journal/5029">Maltepe Üniversitesi: Fen-Edebiyat Fakültesi Dergisi (Journal of Science and Letters Faculty at Maltepe University)</a></li>
+<li><a href="/journal/5030">Man (New Series)</a></li>
+<li><a href="/journal/5031">Maritain Studies/Études Maritainiennes</a></li>
+<li><a href="/journal/5032">Marquette Law Review</a></li>
+<li><a href="/journal/5033">The Massachusetts Review: A Quarterly of Literature, the Arts and Public Affairs</a></li>
+<li><a href="/journal/5034">Mathesis: Filosofía e Historia de las Matemáticas (1985-1997, will start second series in 2004 as a bi-annual)</a></li>
+<li><a href="/journal/5035">Mediaeval Studies</a></li>
+<li><a href="/journal/5036">Mental Hygiene</a></li>
+<li><a href="/journal/5037">Metaphysica: International Journal for Ontology &amp; Metaphysics</a></li>
+<li><a href="/journal/5038">Methexis: Revista Internacional de Filosofia Antigua</a></li>
+<li><a href="/journal/5039">Methodology and Science: International Journal for the Empirical Study of the Foundations of Science and Their Methodology</a></li>
+<li><a href="/journal/5040">Metodicki ogledi: Journal for Philosophy of Education</a></li>
+<li><a href="/journal/5041">Michigan Academician</a></li>
+<li><a href="/journal/5042">Michigan Business Review</a></li>
+<li><a href="/journal/5043">Michigan Quarterly Review</a></li>
+<li><a href="/journal/5044">Midwest Studies in Philosophy (A Supplement to the Journal of Social Philosophy)</a></li>
+<li><a href="/journal/5045">The Mill News Letter (continued by Utilitas)</a></li>
+<li><a href="/journal/5046">Mind: A Quarterly Review of Philosophy</a></li>
+<li><a href="/journal/5047">Minds and Machines: Journal for Articifial Intelligence, Philosophy, and Cognitive Science</a></li>
+<li><a href="/journal/5048">Mind and Society: A Journal of Cognitive Studies in Economics and Social Studies (formerly: Mind and Society: A Journal of Cognitive and Epistemological Studies on Economics and Social Studies)</a></li>
+<li><a href="/journal/5049">Modern Age</a></li>
+<li><a href="/journal/5050">Modern Language Notes</a></li>
+<li><a href="/journal/5051">Modern Law Review</a></li>
+<li><a href="/journal/5052">The Monist: An International Quarterly Journal of General Philosophical Inquiry</a></li>
+<li><a href="/journal/5053">Month</a></li>
+<li><a href="/journal/5054">Motive</a></li>
+<li><a href="/journal/5055">Music and Man: An Interdisciplinary Journal of Studies and Music</a></li>
+<li><a href="/journal/5056">National Forum: Phi Kappa Phi Journal</a></li>
+<li><a href="/journal/5057">American Journal of Jurisprudence (formely Natural Law Forum)</a></li>
+<li><a href="/journal/5058">Nature and System</a></li>
+<li><a href="/journal/5059">Nature, Society, and Thought</a></li>
+<li><a href="/journal/5060">Neue Hefte für Philosophie (ceased with #35 1995)</a></li>
+<li><a href="/journal/5061">New Blackfriars</a></li>
+<li><a href="/journal/5062">New German Critique</a></li>
+<li><a href="/journal/5063">New Literary History</a></li>
+<li><a href="/journal/5064">The New Scholasticism (see Amer Cath Phil Quart)</a></li>
+<li><a href="/journal/5065">New York University Law Review</a></li>
+<li><a href="/journal/5066">Nietzsche-Studien: Internationales Jahrbuch für die Nietzsche-Forschung</a></li>
+<li><a href="/journal/5067">Nomos: Yearbook of the American Society for Political and Legal Philosophy</a></li>
+<li><a href="/journal/5068">Notre Dame Journal of Formal Logic</a></li>
+<li><a href="/journal/5069">The Notre Dame Lawyer</a></li>
+<li><a href="/journal/5070">Noûs</a></li>
+<li><a href="/journal/5071">Philosophical Issues: A Supplement to Nous</a></li>
+<li><a href="/journal/5072">Philosophical Perspectives: An Annual Volume Supplement to Nous</a></li>
+<li><a href="/journal/5073">Nouvelles de la République des Lettres</a></li>
+<li><a href="/journal/5074">Numen</a></li>
+<li><a href="/journal/5075">Nursing Philosophy: An International Journal for Healthcare Professionals</a></li>
+<li><a href="/journal/5076">The Objectivist</a></li>
+<li><a href="/journal/5077">O que nos faz pensar: Cadernos do Departamento de Filosofia da PUC-Rio</a></li>
+<li><a href="/journal/5078">Ohio Journal of Religious Studies</a></li>
+<li><a href="/journal/5079">Ohio University Review</a></li>
+<li><a href="/journal/5080">Ontology Studies: Cuadernos de Ontología</a></li>
+<li><a href="/journal/5081">Organon</a></li>
+<li><a href="/journal/5082">Organon F: filozofický casopis</a></li>
+<li><a href="/journal/5083">Pacific Philosophical Quarterly (formerly The Personalist)</a></li>
+<li><a href="/journal/5084">Paideia: Revista de Filosofía y Didáctica Filosófica</a></li>
+<li><a href="/journal/5085">The Pakistan Philosophical Journal</a></li>
+<li><a href="/journal/5086">Pastoral Psychology</a></li>
+<li><a href="/journal/5087">Patristica et Mediaevalia</a></li>
+<li><a href="/journal/5088">Paunch</a></li>
+<li><a href="/journal/5089">Peabody Journal of Education</a></li>
+<li><a href="/journal/5090">Pensamiento: Revista de Investigación e Información Filosófica</a></li>
+<li><a href="/journal/5091">Pensares y Quehaceres: Revista de políticas de la filosofia</a></li>
+<li><a href="/journal/5092">Per la Filosofia: Filosofia e insegnamento</a></li>
+<li><a href="/journal/5093">The Personalist Forum (continued by The Pluralist)</a></li>
+<li><a href="/journal/5094">Perspectives in Biology and Medicine</a></li>
+<li><a href="/journal/5095">Perspectives on Science: Historical, Philosophical, Social</a></li>
+<li><a href="/journal/5096">La Petite Revue de Philosophie</a></li>
+<li><a href="/journal/5097">Phainomenon: Revista de Fenomenologia do Centro de Filosofia da Universidade de Lisboa</a></li>
+<li><a href="/journal/5098">Philosophy and Geography</a></li>
+<li><a href="/journal/5099">Philosophical Books</a></li>
+<li><a href="/journal/5100">Philosophy Compass (online journal)</a></li>
+<li><a href="/journal/5101">Philosophy in the Contemporary World</a></li>
+<li><a href="/journal/5102">Philosophy in Context</a></li>
+<li><a href="/journal/5103">Philosophy of Education (formerly Philosophy of Education: Proceedings of the Annual Meeting of the Philosophy of Education Society)</a></li>
+<li><a href="/journal/5104">Philosophic Exchange: Annual Proceedings</a></li>
+<li><a href="/journal/5105">Philosophical Explorations: An International Journal for the Philosophy of Mind and Action</a></li>
+<li><a href="/journal/5106">Philosophical Forum (see Phil Forum)</a></li>
+<li><a href="/journal/5107">The Philosophical Forum (formerly Pacific Philosophical Forum)</a></li>
+<li><a href="/journal/5108">Philosophy and the History of Science: A Taiwanese Journal</a></li>
+<li><a href="/journal/5109">Philosophers’ Imprint</a></li>
+<li><a href="/journal/5110">Philosophy in Review/Comptes rendus philosophiques</a></li>
+<li><a href="/journal/5111">Philosophical Inquiry: International Quarterly</a></li>
+<li><a href="/journal/5112">Philosophical Investigations</a></li>
+<li><a href="/journal/5113">Philosophisches Jahrbuch</a></li>
+<li><a href="/journal/5114">Philosophica Malacitana (see Contrastes)</a></li>
+<li><a href="/journal/5115">Philosophical Papers</a></li>
+<li><a href="/journal/5116">Philosophia Perennis: The Journal of the Society for Aristotelian Studies (now published as a monograph series)</a></li>
+<li><a href="/journal/5117">Philosophical Practice: Journal of the American Philosophical Practitioners Association</a></li>
+<li><a href="/journal/5118">Philosophy and Public Policy Quarterly</a></li>
+<li><a href="/journal/5119">Philosophical Quarterly (see Phil Quart)</a></li>
+<li><a href="/journal/5120">Philosophia Reformata</a></li>
+<li><a href="/journal/5121">Philosophy Research Archives (continued by  J Phil Res)</a></li>
+<li><a href="/journal/5122">Philosophy and Rhetoric</a></li>
+<li><a href="/journal/5123">Philosophia Scientiae</a></li>
+<li><a href="/journal/5124">Philosophy and Social Criticism (formerly Cultural Hermeneutics)</a></li>
+<li><a href="/journal/5125">Philosophical Topics (formerly Southwestern Journal of Philosophy)</a></li>
+<li><a href="/journal/5126">Philippine Studies</a></li>
+<li><a href="/journal/5127">Philosopher: Revue de l’Enseignement de la Philosophie au Québec (stopped 1998)</a></li>
+<li><a href="/journal/5128">Philosophia: Yearbook of the Research Center for Greek Philosophy at the Academy of Athens</a></li>
+<li><a href="/journal/5129">Philosophia: International Journal of Philosophy (formerly known as Sophia)</a></li>
+<li><a href="/journal/5130">Philosophica: Zborník Filozofickej Fakulty Univerzity Komenského (formerly Philosophica (Czechoslovakia))</a></li>
+<li><a href="/journal/5131">Philosophica: Revista do Departamento de Filosofia da Faculdade de Letras de Lisboa</a></li>
+<li><a href="/journal/5132">Die Philosophin: Forum f</a></li>
+<li><a href="/journal/5133">Philosophique</a></li>
+<li><a href="/journal/5134">Philósophos: Revista de Filosofia</a></li>
+<li><a href="/journal/5135">Phoenix: The Journal of the Classical Association of Canada</a></li>
+<li><a href="/journal/5136">Phronesis: A Journal of Ancient Philosophy</a></li>
+<li><a href="/journal/5137">Physis: Revista de Saúde Coletiva</a></li>
+<li><a href="/journal/5138">The Pluralist (from 2006 continues The Personalist Forum)</a></li>
+<li><a href="/journal/5139">Polis: The Journal of the Society for the Study of Greek Political Thought</a></li>
+<li><a href="/journal/5140">Political Science Reviewer</a></li>
+<li><a href="/journal/5141">Poznan Studies in the Philosophy of the Sciences and Humanities (Note: Volumes are now cited as individual anthologies)</a></li>
+<li><a href="/journal/5142">Prajña Vihara: Journal of Philosophy and Religion</a></li>
+<li><a href="/journal/5143">Praxis: A Philosophical Journal (continued by Constellations)</a></li>
+<li><a href="/journal/5144">Praxis International (formerly Praxis, continued by Constellations)</a></li>
+<li><a href="/journal/5145">Principia: Revista Internacional de Epistemologia</a></li>
+<li><a href="/journal/5146">Princípios: Revista de Filosofia</a></li>
+<li><a href="/journal/5147">Problemos: Mokslo darbai (Problems: Research Papers)</a></li>
+<li><a href="/journal/5148">Proceedings of the American Philosophical Society</a></li>
+<li><a href="/journal/5149">Proceedings of the Annual Meeting of the Far Western Philosophy of Education Society</a></li>
+<li><a href="/journal/5150">Proceedings of the Aristotelian Society (Published 3 times yr and as hardbound. NOTE: Pagination in the Index reflects that in the hardbound edition); See also Aris Soc for the supplement, ISSN 0309-7013)</a></li>
+<li><a href="/journal/5151">Proceedings of the Biennial Meetings of the Philosophy of Science Association</a></li>
+<li><a href="/journal/5152">Proceedings of the New Mexico-West Texas Philosophical Society (continued by SW Phil Stud)</a></li>
+<li><a href="/journal/5153">Philosophy of Education: Proceedings of the Annual Meeting of the Philosophy of Education Society (continued by Phil Educ)</a></li>
+<li><a href="/journal/5154">Proceedings of the Philosophy of Education Society of Great Britain (continued by J Phil Educ)</a></li>
+<li><a href="/journal/5155">Professional Ethics: A Multidisciplinary Journal (ceased publication after 11(4) 2003)</a></li>
+<li><a href="/journal/5156">Protosociology: An International Journal of Interdisciplinary Research (formerly Protosoziologie)</a></li>
+<li><a href="/journal/5157">Protosoziologie (continued by Protosociology)</a></li>
+<li><a href="/journal/5158">Psychologische Beiträge</a></li>
+<li><a href="/journal/5159">Psychological Review</a></li>
+<li><a href="/journal/5160">Public Affairs Quarterly</a></li>
+<li><a href="/journal/5161">Quaderns de Filosofia i Ciència</a></li>
+<li><a href="/journal/5162">Quarterly Journal of Speech</a></li>
+<li><a href="/journal/5163">Quest: An African Journal of Philosophy/Revue Africaine de Philosophie</a></li>
+<li><a href="/journal/5164">Quest (Bombay, Indian Committee for Cultural Freedom) absorbed Humanist Review</a></li>
+<li><a href="/journal/5165">Radical Philosophy Review</a></li>
+<li><a href="/journal/5166">Raison publique: Éthique, politique et société</a></li>
+<li><a href="/journal/5167">Reason (magazine)</a></li>
+<li><a href="/journal/5168">Recerca: Revista de pensament i anàlisi</a></li>
+<li><a href="/journal/5169">Rechtstheorie: Zeitschrift für Logik, Methodenlehre, Kybernetik und Soziologie des Rechts</a></li>
+<li><a href="/journal/5170">Reflexe: Filosofický Casopis</a></li>
+<li><a href="/journal/5171">Reflexión: Revista de Filosofía</a></li>
+<li><a href="/journal/5172">Religious Humanism</a></li>
+<li><a href="/journal/5173">Quarterly Review (formely Religion in Life)</a></li>
+<li><a href="/journal/5174">Religious Education</a></li>
+<li><a href="/journal/5175">Rendezvous</a></li>
+<li><a href="/journal/5176">Reports on Philosophy</a></li>
+<li><a href="/journal/5177">Research in Philosophy and Technology (ceased with volume 21)</a></li>
+<li><a href="/journal/5178">Res Publica: Revista de filosofía política</a></li>
+<li><a href="/journal/5179">Research Journal of Philosophy and Social Sciences</a></li>
+<li><a href="/journal/5180">Revista Agustiniana</a></li>
+<li><a href="/journal/5181">Revista Española de Filosofía Medieval</a></li>
+<li><a href="/journal/5182">Revue d’Esthétique</a></li>
+<li><a href="/journal/5183">Revista de Estudios Hispanicos</a></li>
+<li><a href="/journal/5184">Revista de Estudios Orteguianos</a></li>
+<li><a href="/journal/5185">Revue des Études Augustiniennes</a></li>
+<li><a href="/journal/5186">Review of Existential Psychology &amp; Psychiatry</a></li>
+<li><a href="/journal/5187">ADEF: Revista de Filosofía: Publicación de la Asociación de Estudios Filosoficas</a></li>
+<li><a href="/journal/5188">Revista de Filosofía de la Universidad de Costa Rica</a></li>
+<li><a href="/journal/5189">Revista Filosófica de Coimbra</a></li>
+<li><a href="/journal/5190">Revista Internacional de Filosofía Política</a></li>
+<li><a href="/journal/5191">Review Journal of Philosophy and Social Science</a></li>
+<li><a href="/journal/5192">Review Journal of Political Philosophy</a></li>
+<li><a href="/journal/5193">Revista Latinoamericana de Filosofía</a></li>
+<li><a href="/journal/5194">The Review of Metaphysics</a></li>
+<li><a href="/journal/5195">Revue de Metaphysique et de Morale</a></li>
+<li><a href="/journal/5196">Revista Patagónica de Filosofía</a></li>
+<li><a href="/journal/5197">Revue Philosophique de la France et de l’Étranger</a></li>
+<li><a href="/journal/5198">Revue Philosophique de Louvain</a></li>
+<li><a href="/journal/5199">Revue Roumaine de Philosophie et Logique (formerly Rev Roumaine Sci Soc)</a></li>
+<li><a href="/journal/5200">Revue Roumaine des Sciences Sociales: Série de philosophie et logique (continued by Rev Roumaine Phil Log [abbreviation Phil Log used in print issues] and then Rev Roumaine Phil)</a></li>
+<li><a href="/journal/5201">Revue des Sciences Philosophiques et Théologiques</a></li>
+<li><a href="/journal/5202">Revue Teilhard de Chardin</a></li>
+<li><a href="/journal/5203">Revue de Théologie et de Philosophie</a></li>
+<li><a href="/journal/5204">Revue Thomiste: Revue doctrinale de Théologie et de Philosophie</a></li>
+<li><a href="/journal/5205">Revista de la Universidad de Madrid</a></li>
+<li><a href="/journal/5206">Revue de l’Université d’Ottawa</a></li>
+<li><a href="/journal/5207">Revista Venezolana de Filosofía</a></li>
+<li><a href="/journal/5208">Review of Politics</a></li>
+<li><a href="/journal/5209">Review of Religion</a></li>
+<li><a href="/journal/5210">Revolutionary World</a></li>
+<li><a href="/journal/5211">Rivista di Filosofia Neo-Scolastica</a></li>
+<li><a href="/journal/5212">Rivista Internazionale di Filosofia del Diritto</a></li>
+<li><a href="/journal/5213">Rivista di Studi Crociani</a></li>
+<li><a href="/journal/5214">Russian Studies in Philosophy: A Journal of Translations (formerly Soviet Studies in Philosophy)</a></li>
+<li><a href="/journal/5215">South African Journal of Philosophy</a></li>
+<li><a href="/journal/5216">South Pacific Journal of Philosophy and Culture</a></li>
+<li><a href="/journal/5217">S’vara: A Journal of Philosophy, Law, and Judaism</a></li>
+<li><a href="/journal/5218">The Saint Anselm Journal (Journal of The Institute for Saint Anselm Studies, Saint Anselm College NH)</a></li>
+<li><a href="/journal/5219">Salmagundi</a></li>
+<li><a href="/journal/5220">Salzburger Jahrbuch für Philosophie</a></li>
+<li><a href="/journal/5221">San Jose Studies</a></li>
+<li><a href="/journal/5222">The School Review</a></li>
+<li><a href="/journal/5223">Science, Medicine and Man</a></li>
+<li><a href="/journal/5224">Science, Technology, and Human Values</a></li>
+<li><a href="/journal/5225">Science and Society</a></li>
+<li><a href="/journal/5226">The Science Teacher</a></li>
+<li><a href="/journal/5227">Scientific American</a></li>
+<li><a href="/journal/5228">Scientific Monthly (continued by Science)</a></li>
+<li><a href="/journal/5229">Scottish Journal of Theology</a></li>
+<li><a href="/journal/5230">Semantikos</a></li>
+<li><a href="/journal/5231">Semiotica: Journal of the Internationl Association for Semiotic Studies</a></li>
+<li><a href="/journal/5232">Sewanee Review</a></li>
+<li><a href="/journal/5233">Skepsis: A Journal for Philosophy and Interdisciplinary Research</a></li>
+<li><a href="/journal/5234">Slovak Studies</a></li>
+<li><a href="/journal/5235">Social Indicators Research: An International and Interdisciplinary Journal for Quality-of-Life Measurement</a></li>
+<li><a href="/journal/5236">Social Philosophy Today (Note: Each volume has an ISBN and is indexed as an anthology)</a></li>
+<li><a href="/journal/5237">Social Praxis: International and Interdisciplinary Journal of Social Thought</a></li>
+<li><a href="/journal/5238">Social Education</a></li>
+<li><a href="/journal/5239">Social Order</a></li>
+<li><a href="/journal/5240">Social Research</a></li>
+<li><a href="/journal/5241">Social Sciences Information</a></li>
+<li><a href="/journal/5242">La Società degli Individui: Quadrimestrale di teoria sociale e storia delle idee</a></li>
+<li><a href="/journal/5243">Sociology and Social Research</a></li>
+<li><a href="/journal/5244">Sociological Quarterly</a></li>
+<li><a href="/journal/5245">Sociological Review</a></li>
+<li><a href="/journal/5246">Sophia: International Journal for Philosophy of Religion, Metaphysical Theology and Ethics (formerly also Sophia: International Journal for Philosophical Theology and Cross-Cultural Philosophy of Religion and Ethics) </a></li>
+<li><a href="/journal/5247">Sorites: An International Electronic Magazine of Analytical Philosophy</a></li>
+<li><a href="/journal/5248">Soter: Religijos mokslo žurnala (Journal of Religious Science)</a></li>
+<li><a href="/journal/5249">Soundings</a></li>
+<li><a href="/journal/5250">South Atlantic Quarterly</a></li>
+<li><a href="/journal/5251">Southern Humanities Review</a></li>
+<li><a href="/journal/5252">Soviet Studies in Philosophy (continued by Russian Stud Phil)</a></li>
+<li><a href="/journal/5253">Sowjetwissenschaft Gesellschaftswissenschaftliche Beiträge</a></li>
+<li><a href="/journal/5254">Soziale Welt: Zeitschrift für sozialwissenschaftliche, Forschung und Praxis</a></li>
+<li><a href="/journal/5255">Speculum</a></li>
+<li><a href="/journal/5256">Sport, Ethics and Philosophy: The Journal of the British Philosophy of Sport</a></li>
+<li><a href="/journal/5257">Sprache im technischen Zeitalter</a></li>
+<li><a href="/journal/5258">Stromata</a></li>
+<li><a href="/journal/5259">Studies in East European Thought (formerly Studies in Soviet Thought)</a></li>
+<li><a href="/journal/5260">Studi Filosofici: Annali del Dipartimento di Filosofia e Politica, Istituto Universitario Orientale</a></li>
+<li><a href="/journal/5261">Studia Filozoficzne (continued by Przegląd Filozoficzny)</a></li>
+<li><a href="/journal/5262">Studium Generale</a></li>
+<li><a href="/journal/5263">Studies in History and Philosophy of Modern Physics</a></li>
+<li><a href="/journal/5264">Studies in Comparative Religion</a></li>
+<li><a href="/journal/5265">Studies in Religion</a></li>
+<li><a href="/journal/5266">Studi Internazionali di Filosofia (continued by Int Stud Phil)</a></li>
+<li><a href="/journal/5267">Studia Leibnitiana: Zeitschrift für Geschichte der Philosophie und der Wissenschaften</a></li>
+<li><a href="/journal/5268">Studies in Philosophy and Education</a></li>
+<li><a href="/journal/5269">Studies in Philosophy and the History of Philosophy (Note: Volumes 1-6 cited as journals, thereafter as individual anthologies)</a></li>
+<li><a href="/journal/5270">Studies in Soviet Thought (continued by Stud East Euro Thought)</a></li>
+<li><a href="/journal/5271">Studia Spinozana</a></li>
+<li><a href="/journal/5272">Studia Islamica</a></li>
+<li><a href="/journal/5273">Studium</a></li>
+<li><a href="/journal/5274">Studium Generale</a></li>
+<li><a href="/journal/5275">Southwestern Journal of Philosophy (continued by Phil Topics)</a></li>
+<li><a href="/journal/5276">Southwest Philosophical Studies (formerly Proceedings of the New Mexico&amp;#150;West Texas Philosophical Society)</a></li>
+<li><a href="/journal/5277">Synthese: An International Journal for Epistemology, Methodology and Philosophy of Science</a></li>
+<li><a href="/journal/5278">Systematic Zoology</a></li>
+<li><a href="/journal/5279">Systematics (Institute for the Comparative Study of History, Philosophy and the Sciences)</a></li>
+<li><a href="/journal/5280">Teaching Business Ethics (after Volume 7 incorporated into the Journal of Business Ethics, see J Bus Ethics)</a></li>
+<li><a href="/journal/5281">Teacher's College Record</a></li>
+<li><a href="/journal/5282">Telos: A Quarterly Journal of Critical Thought</a></li>
+<li><a href="/journal/5283">Telos: Revista Iberoamerica de Estudios Utilitaristas</a></li>
+<li><a href="/journal/5284">Theologische Zeitschrift</a></li>
+<li><a href="/journal/5285">Theological Studies</a></li>
+<li><a href="/journal/5286">Theology Digest</a></li>
+<li><a href="/journal/5287">Theology Today</a></li>
+<li><a href="/journal/5288">Theory and Decision: An International Journal for Multidisciplinary Advances in Decision Science</a></li>
+<li><a href="/journal/5289">Theoretical Medicine: An International Journal for the Philosophy and Methodology of Medical Research and Practice (formerly Metamedicine) (continued by Theor Med Bioethics)</a></li>
+<li><a href="/journal/5290">Theoria: Casopis Filozofskog Drustva Srbije</a></li>
+<li><a href="/journal/5291">Theoria to Theory</a></li>
+<li><a href="/journal/5292">Thought: Fordham University Quarterly</a></li>
+<li><a href="/journal/5293">Thought and Word</a></li>
+<li><a href="/journal/5294">Tijdschrift voor Filosofie</a></li>
+<li><a href="/journal/5295">Tijdschrift voor de Studie van de Verlichting en van Het Vrije Denken</a></li>
+<li><a href="/journal/5296">Tópicos: Revista de Filosofía de Santa Fe</a></li>
+<li><a href="/journal/5297">Topoi: An International Review of Philosophy</a></li>
+<li><a href="/journal/5298">Tradition and Discovery: The Polyani Society Periodical</a></li>
+<li><a href="/journal/5299">Tribüne: Zeitschrift zum Verständnis des Judentums</a></li>
+<li><a href="/journal/5300">Tulane Law Review</a></li>
+<li><a href="/journal/5301">Tulane Studies in Philosophy</a></li>
+<li><a href="/journal/5302">Union Seminary Quarterly Review</a></li>
+<li><a href="/journal/5303">Universal Human Rights</a></li>
+<li><a href="/journal/5304">University of Colorado Studies</a></li>
+<li><a href="/journal/5305">Universitas</a></li>
+<li><a href="/journal/5306">University of Dayton Review</a></li>
+<li><a href="/journal/5307">University of Pennsylvania Law Review</a></li>
+<li><a href="/journal/5308">University of Portland Review</a></li>
+<li><a href="/journal/5309">Utopía y Praxis Latinoamericana: Revista Internaciónal de Filosofía Iberoamericana y Teoría Social</a></li>
+<li><a href="/journal/5310">The Vedanta Kesari</a></li>
+<li><a href="/journal/5311">Vera Lex: Journal of the International Natural Law Society</a></li>
+<li><a href="/journal/5312">Veritas: Revista de Filosofia</a></li>
+<li><a href="/journal/5313">Vermont Life</a></li>
+<li><a href="/journal/5314">Vienna Circle Institute Yearbook</a></li>
+<li><a href="/journal/5315">Visva Bharati Quarterly</a></li>
+<li><a href="/journal/5316">University of Western Ontario Law Review</a></li>
+<li><a href="/journal/5317">Walt Whitman Review</a></li>
+<li><a href="/journal/5318">The Washington University Law Quarterly</a></li>
+<li><a href="/journal/5319">Wayne Law Review</a></li>
+<li><a href="/journal/5320">Western Humanities Review: A Journal of Fiction, Poetry, Creative Nonfiction, and Critical Essays</a></li>
+<li><a href="/journal/5321">Western Political Quarterly</a></li>
+<li><a href="/journal/5322">Widerspruch: Münchener Zeitschrift für Philosophie</a></li>
+<li><a href="/journal/5323">William and Mary Law Review</a></li>
+<li><a href="/journal/5324">William and Mary Quarterly</a></li>
+<li><a href="/journal/5325">William James Studies (continues Streams of William James that stopped after Vol. 6 2004)</a></li>
+<li><a href="/journal/5326">Wissenschaft und Weisheit</a></li>
+<li><a href="/journal/5327">Wissenschaft und Weltbild</a></li>
+<li><a href="/journal/5328">Wittgenstein Studien</a></li>
+<li><a href="/journal/5329">Yale Classical Studies</a></li>
+<li><a href="/journal/5330">Yale Law Journal</a></li>
+<li><a href="/journal/5331">Yale Review</a></li>
+<li><a href="/journal/5332">Yearbook of the Irish Philosophical Society: Voices of Irish Philosophy (Irisleabhar Chumann Fealsúnachta Na hÉireann: Glórtha Fealsúnachta Éireann).</a></li>
+<li><a href="/journal/5333">Yearbook of Comparative Criticism</a></li>
+<li><a href="/journal/5334">Yeditepe'de Felsefe (Philosophy at Yeditepe)</a></li>
+<li><a href="/journal/5335">Žmogus ir žodis: Filosofija: Mokslo darbai (Man and Word: Part IV: Philosophy Research Papers)</a></li>
+</ul>
+</div>
+
+
+        <div id="footer">
+<div class="yui-b">
+    <div id="footerLeft"><a href="http://www.iub.edu" title="Indiana University"><img src="/img/iub_white.gif" alt="Indiana University Bloomington" style="border: 0px; margin-right:4px;"/></a>
+    <a href="http://www.cogs.indiana.edu">Cognitive Science Program</a> | 
+    819 Eigenmann Hall, 1910 E. 10th St.  Bloomington, IN 47406-7512 | 
+    <a href="http://www.indiana.edu/comments/copyright.shtml">Copyright</a> &copy; 2008  The Trustees of <a href="http://www.indiana.edu/">Indiana University</a>  |
+    <a href="http://www.indiana.edu/comments/complaint.shtml">Copyright Complaints</a>
+    </div>
+    
+    <div id="footerCenter">
+
+    </div>
+    
+    <div id="footerRight"><a href="http://www.neh.gov/odh/" title="Office of Digital Humanities"><img src="/img/ODH.jpg" alt="Office of Digital Humanities" style="border: 0px" /></a>Any views, findings, conclusions or recommendations expressed in this website do not necessarily represent those of the National Endowment for the Humanities.</div>
+	</div> 
+</div>
+    </div><!-- body -->
+    <!--<div id="ft"></div> footer -->
+    <div style="clear:both; padding-left:400px;">&nbsp;</div>
+</div><!-- doc -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+%return unless $ARGS{_c}->highestLevel >= 0;
+<td valign="top" style="width:180px;padding-right:0">
+<div class='sideBox' style="position:relative;top:-15px;background:#fff">
+<div class='sideBoxH'>
+% print (($ARGS{_c}->highestLevel <= 0) ? "Subareas" : "Other areas");
+% my $rs = ($ARGS{_c}->highestLevel <= 0) ? $ARGS{_c} : $ARGS{_c}->firstParent; 
+</div>
+<div class='sideBoxC'>
+<ul class='normal'>
+<%perl>
+print "<li><a href='/browse/$_->{id}/$ARGS{what}.pl'>$_->{name}</a></li>\n"
+    for @{$rs->children_o};
+my $all = $ARGS{what} eq 'threads' ? 'aggregated' : 'all groups';
+print "<li><b><a href='/browse/$rs->{id}/$ARGS{what}.pl'>$rs->{name}, $all</b></a></li>\n"
+    if ($ARGS{_c}->id ne $rs->id and $ARGS{what} ne 'biblios' and $ARGS{what} ne 'people');
+</%perl>
+</ul>
+</div>
+</div>
+</td>
+

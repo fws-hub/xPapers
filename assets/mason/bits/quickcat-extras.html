@@ -1,0 +1,19 @@
+<%perl>
+unless (defined $rend->{cur}->{user_is_editor} or !$user->{id}) {
+    $rend->{cur}->{user_is_editor} = $ARGS{cat}->isEditor($user);
+}
+
+</%perl>
+Select appropriate categories:
+<p>
+Or:
+<& cat_picker.html, width=>180,field=>"picker$ARGS{entry}->{id}",onSelect=>"ppAct('addToList',{lId:id,eId:'$ARGS{entry}->{id}'},function(){if (!readCookie('quickcatmsg-c')) { alert('Entry added to ' + name + \". Unless you want to put it into other categories, you should now click 'Remove from this cat itself' so it doesn't stay here ($ARGS{cat}->{name}, a non-leaf category) as well as wherever you've put it. This will have been done automatically if $ARGS{cat}->{name} is an ancestor of \" + name + '. This message will not be repeated.')}; createCookie('quickcatmsg-c',1,10)})" &>
+<p>
+<input type="button" onclick="ppAct('removeFromList',{lId:<%$ARGS{cat}->{id}%>,eId:'<%$ARGS{entry}->{id}%>'}, function() { $('e<%$ARGS{entry}->{id}%>').hide();resizeRS(-1)})" value="Remove from this cat itself">
+%if($rend->{cur}->{user_is_editor} and !$q->param('setAside')) {
+<p>
+<input type="button" onclick="ppAct('setAside',{lId:<%$ARGS{cat}->{id}%>,eId:'<%$ARGS{entry}->{id}%>'},function() { $('e<%$ARGS{entry}->{id}%>').hide()})" value="Set aside for now">
+<br><br><br><br>
+<input type="button" onclick="$('e<%$ARGS{entry}->{id}%>').hide()"" value="Done, hide this item">
+
+%}

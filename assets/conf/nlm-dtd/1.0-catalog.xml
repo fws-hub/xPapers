@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE catalog PUBLIC 
+"-//OASIS//DTD Entity Resolution XML Catalog V2.2//EN"
+"http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+    prefer="public">
+
+<group xml:base="/home/xpapers/etc/nlm-dtd/1.0/"
+         prefer="public">
+
+<!-- 
+              JOURNAL ARCHIVING AND INTERCHANGE DTD AND       
+              ARCHIVING AND INTERCHANGE DTD SUITE             
+              MODULAR LIBRARY                                 
+              OASIS SOCAT FILE                                
+                                                              
+              JOURNAL ARCHIVING AND INTERCHANGE DTD           
+-->
+<public publicId="-//NLM//DTD Journal Archiving and Interchange DTD v1.0 20021201//EN" uri="archivearticle.dtd"/> 
+<public publicId="-//NLM//DTD Journal Archiving and Interchange DTD Customize Classes Module v1.0 20021201//EN" uri="archivecustomize.ent"/>
+<!-- 
+
+                                                              
+              ARCHIVING AND INTERCHANGE DTD SUITE             
+              MODULAR LIBRARY                                 
+              DEFINE CLASSES, MIXES, AND MODULES              
+-->
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Module of Modules v1.0 20021201//EN" uri="modules.ent"/>
+<!-- 
+              ELEMENT COMMON (SHARED) ELEMENTS                
+-->
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Common (Shared) Elements Module v1.0 20021201//EN" uri="common.ent"/>                                                       
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Notation Declarations v1.0 20021201//EN" uri="notat.ent"/>                                                       
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite XML Special Characters Module v1.0 20021201//EN" uri="xmlspecchars.ent"/>                                                       
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Custom Special Characters Module v1.0 20021201//EN" uri="chars.ent"/>                                                       
+<!-- 
+              DEFINE A CLASS MODULES                          
+-->
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Journal Article Metadata Elements v1.0 20021201//EN" uri="articlemeta.ent"/>  
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Back Matter Elements v1.0 20021201//EN" uri="backmatter.ent"/>
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Bibliographic Reference (Citation) Class Elements v1.0 20021201//EN" uri="references.ent"/>
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Display Class Elements v1.0 20021201//EN" uri="display.ent"/>    
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Formatting Element Classes v1.0 20021201//EN" uri="format.ent"/>
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Journal Metadata Elements v1.0 20021201//EN" uri="journalmeta.ent"/>
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Link Class Elements v1.0 20021201//EN" uri="link.ent"/>  
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite List Class Elements v1.0 20021201//EN" uri="list.ent"/>  
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Math Class Elements v1.0 20021201//EN" uri="math.ent"/> 
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Paragraph-Like Elements v1.0 20021201//EN" uri="para.ent"/>
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Subject Phrase Class Elements v1.0 20021201//EN" uri="phrase.ent"/> 
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite Section Class Elements v1.0 20021201//EN" uri="section.ent"/>
+<!-- 
+              XHTML TABLE ENTITIES                            
+-->
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite XHTML Table Setup Module v1.0 20021201//EN" uri="XHTMLtablesetup.ent"/>
+<public publicId="-//W3C//ELEMENTS XHTML Tables 1.0//EN" uri="htmltable.dtd"/> 
+<!-- 
+              OASIS CALS TABLE ENTITIES                       
+-->
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite OASIS XML Table Setup Module v1.0 20021201//EN" uri="oasis-tablesetup.ent"/>
+<public publicId="-//OASIS//DTD XML Exchange Table Model 19990315//EN" uri="oasis-exchange.ent"/> 
+<!-- 
+              MATHML ENTITIES                                 
+-->
+<public publicId="-//NLM//DTD Archiving and Interchange DTD Suite MathML Setup Module v1.0 20021201//EN" uri="mathmlsetup.ent"/>                                                       
+<public publicId="-//W3C//DTD MathML 2.0//EN" uri="mathml2.dtd"/> 
+<public publicId="-//W3C//ENTITIES MathML 2.0 Qualified Names 1.0//EN" uri="mathml/mathml2-qname-1.mod"/>
+<public publicId="-//W3C//ENTITIES Extra for MathML 2.0//EN" uri="mathml/mmlextra.ent"/>      
+<public publicId="-//W3C//ENTITIES Aliases for MathML 2.0//EN" uri="mathml/mmlalias.ent"/>           
+<!-- 
+              ISO SPECIAL CHARACTER ENTITIES (MATHML SET)     
+-->
+<public publicId="-//W3C//ENTITIES Box and Line Drawing for MathML 2.0//EN" uri="xmlchars/isobox.ent"/>  
+<public publicId="-//W3C//ENTITIES Russian Cyrillic for MathML 2.0//EN" uri="xmlchars/isocyr1.ent"/>
+<public publicId="-//W3C//ENTITIES Non-Russian Cyrillic for MathML 2.0//EN" uri="xmlchars/isocyr2.ent"/>
+<public publicId="-//W3C//ENTITIES Diacritical Marks for MathML 2.0//EN" uri="xmlchars/isodia.ent"/>
+<public publicId="-//W3C//ENTITIES Greek Letters//EN" uri="xmlchars/isogrk1.ent"/>
+<public publicId="-//W3C//ENTITIES Monotoniko Greek//EN" uri="xmlchars/isogrk2.ent"/>
+<public publicId="-//W3C//ENTITIES Greek Symbols for MathML 2.0//EN" uri="xmlchars/isogrk3.ent"/>
+<public publicId="-//W3C//ENTITIES Alternative Greek Symbols//EN" uri="xmlchars/isogrk4.ent"/>
+<public publicId="-//W3C//ENTITIES Added Latin 1 for MathML 2.0//EN" uri="xmlchars/ISOlat1.ent"/>
+<public publicId="-//W3C//ENTITIES Added Latin 2 for MathML 2.0//EN" uri="xmlchars/ISOlat2.ent"/>
+<public publicId="-//W3C//ENTITIES Numeric and Special Graphic for MathML 2.0//EN" uri="xmlchars/isonum.ent"/>
+<public publicId="-//W3C//ENTITIES General Technical for MathML 2.0//EN" uri="xmlchars/isotech.ent"/>
+<public publicId="-//W3C//ENTITIES Publishing for MathML 2.0//EN" uri="xmlchars/isopub.ent"/>
+
+<public publicId="-//W3C//ENTITIES Math Alphabets: Script for MathML 2.0//EN" uri="xmlchars/isomscr.ent"/>
+<public publicId="-//W3C//ENTITIES Added Math Symbols: Arrow Relations for MathML 2.0//EN" uri="xmlchars/isoamsa.ent"/> 
+<public publicId="-//W3C//ENTITIES Added Math Symbols: Binary Operators for MathML 2.0//EN" uri="xmlchars/isoamsb.ent"/> 
+<public publicId="-//W3C//ENTITIES Added Math Symbols: Delimiters for MathML 2.0//EN" uri="xmlchars/isoamsc.ent"/>                                               >
+<public publicId="-//W3C//ENTITIES Added Math Symbols: Negated Relations for MathML 2.0//EN" uri="xmlchars/isoamsn.ent"/>
+<public publicId="-//W3C//ENTITIES Added Math Symbols: Ordinary for MathML 2.0//EN" uri="xmlchars/isoamso.ent"/> 
+<public publicId="-//W3C//ENTITIES Added Math Symbols: Relations for MathML 2.0//EN" uri="xmlchars/isoamsr.ent"/> 
+<public publicId="-//W3C//ENTITIES Math Alphabets: Fraktur for MathML 2.0//EN" uri="xmlchars/isomfrk.ent"/> 
+<public publicId="-//W3C//ENTITIES Math Alphabets: Open Face for MathML 2.0//EN" uri="xmlchars/isomopf.ent"/>
+<!-- 
+              END NLM ARCHIVING AND INTERCHANGE CATALOG       
+-->
+</group>
+</catalog>
+

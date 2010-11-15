@@ -1,0 +1,3 @@
+LoadModule cache_module /usr/lib/apache2/modules/mod_cache.so                   
+LoadModule disk_cache_module /usr/lib/apache2/modules/mod_disk_cache.so         
+LoadModule proxy_module /usr/lib/apache2/modules/mod_proxy.so                   

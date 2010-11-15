@@ -1,0 +1,9 @@
+<%perl>
+
+my $cat = $ARGS{cat};
+$m->comp("../bits/list.pl",%ARGS,list=>$cat->id,nolheader=>1,bigcap=>$cat->{name},listClass=>'padded');
+for ($cat->children_o) {
+    $m->comp("rcontents.html", cat=>$_);
+}
+
+</%perl>

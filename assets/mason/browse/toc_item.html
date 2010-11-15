@@ -1,0 +1,17 @@
+<li class="tli<%$ARGS{first} ? '' : $ARGS{level}%>">
+<%perl>
+    print "<a href='/browse/" . $ARGS{cat}->id . "'>" . $ARGS{cat}->name. "</a>". " <span class='hint'>[" . $ARGS{cat}->preCountWhere($s) . "] " . "</span>" ;
+    if ($ARGS{level} < 2) {
+        
+        my $children = $ARGS{cat}->children_o;
+        if ($#$children > -1) {
+            print "<ul class='normal tl$ARGS{level}'>";
+            $m->comp('toc_item.html',cat=>$_, level=>$ARGS{level}+1) for @$children; 
+            print "</ul>";
+
+        }
+    }
+
+</%perl>
+</li>
+

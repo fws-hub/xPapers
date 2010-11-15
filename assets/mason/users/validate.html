@@ -1,0 +1,79 @@
+<%perl>
+use xPapers::Mail::Postmaster;
+
+if (!$ARGS{key}) {
+
+# check valid email and create conf token
+
+my $us = xPapers::UserMng::getByEmail($ARGS{email});
+if (!$us or !$us->{id}) {
+    print "<h2>Email address '$ARGS{email}' not known</h2><p>Did you register under another address?</h2>";
+    return;
+} else {
+    $us->{confToken} = randomKey(20);
+    $us->{pk} = randomKey(15) unless $us->pk; 
+    $us->save();
+}
+
+
+my $link = "http://$domain/profile/profile.pl?login=$ARGS{email}\&key=$us->{confToken}";
+
+my $r = "";
+$r .= "(This message is sent to you for a second time to remedy a glitch in the system. Sorry if you didn't need/want it. If you have created an account on a different email, you don't have to delete this one. It will lapse after some time if you don't click the link below.)\n\n" if $ARGS{repeat};
+
+my $name = $us->{firstname};
+$name =~ s/\s+.*$//g;
+$r .= "Hi $name,\n\n";
+if ($ARGS{postRegistration} eq 'survey') {
+    # PhilPapers specific
+    my $surveyLink = "http://$domain/survey?login=$us->{email}&key=$us->{confToken}";
+    $r .= "To take the " . ucfirst( $s->{subjectAdj} ) . " Survey, please follow this link:\n\n\"$surveyLink\":$surveyLink\n\nTo configure your $s->{niceName} account, please follow this link:\n\n\"$link\":$link\n\nYou may perform these actions in either order.";
+} else {
+$r .= "You must confirm your email address in order to activate your $s->{niceName} profile. To do so, please follow this link:";
+    $r .= "\n\n\"$link&first=1\":$link&first=1";
+}
+$r .= "\n\nBest Regards,\n The $s->{niceName} Team.\n (Please do not reply to this email, as your reply will be lost. This email invalidates any prior links we may have given you to log in or confirm your email.)";
+my $n = xPapers::Mail::Message->new;
+$n->uId($us->id);
+$n->email($us->email);
+$n->brief("Please confirm your email address");
+$n->content($r);
+$n->save;
+xPapers::Mail::Postmaster::post($n);
+
+return if $ARGS{justSend};
+$m->comp("../header.html", %ARGS,title=>"Email validation") unless $HEADER_SENT;
+print gh("Please validate your email address");
+</%perl>
+<br>
+You must now validate your email address by clicking on a link which has been sent to you. You will be able to log in when your email address has been verified. 
+<p>
+<em><b>It is possible that the email will be blocked by your spam filter.</b> Please check your spam folder if you do not receive our email within a few minutes. You can trigger the validation procedure anew by following the lost password procedure from the "sign in" menu above if required.</em>
+<br><br><br>
+<%perl>
+
+
+# checking key
+} else {
+    my $us = xPapers::User->new(email=>$ARGS{email})->load_speculative;
+    error("User unknown.") unless $us;
+    if ($us->{confToken} eq $ARGS{key}) {
+        $us->{confirmed} = 1;
+        $us->{failedAttempts} = 0;
+        $us->save;
+        </%perl>
+        <p>
+        Welcome to <%$s->{HTML_TITLE}%>, <%$us->{firstname}%>
+        <p>
+        Click <a href="/profile/profile.pl?login=<%$us->{email}%>&key=<%$us->{confToken}%>">here</a> to log in and start using your account.
+        <p>
+
+        <%perl>
+    } else {
+        sleep(2);
+        print "Invalid validation key."
+    }
+
+}
+$m->comp("../footer.html") if $ARGS{noheader}
+</%perl>

@@ -1,0 +1,46 @@
+trends in cognitive science => Trends in Cognitive Sciences
+trends in neuroscience => Trends in Neurosciences
+canadian journal of philosophy supplement => Canadian Journal of Philosophy
+nous => Noûs
+noÃ»s => Noûs
+noã»S => Noûs
+synthesis philosophica, pt => Synthesis Philosophica
+brit j aesthetics => British Journal of Aesthetics
+br j philos sci => British Journal of Philosophy of Science
+aristotelian society ( => Proceedings of the Aristotelian Society
+proceedings of the aristotelian society supplement => Aristotelian Society Supplementary Volume 
+proceedings of the aristotelian society supplementary volume =>  Aristotelian Society Supplementary Volume
+proceedings of the aristotelian society, supplementary volume => Aristotelian Society Supplementary Volume
+proceedings of the aristotelian society (hardback) => Proceedings of the Aristotelian Society
+journal for the theory of social behavior => Journal for the Theory of Social Behaviour
+mind, new series => Mind
+mind & language => Mind and Language
+re:Zygon.* => Zygon
+theoria. revista de teoría, historia y fundamentos de la ciencia => Theoria: Revista de Teoría, Historia y Fundamentos de la Ciencia
+dao => Dao: A Journal of Comparative Philosophy
+Prolegomena - Journal of Philosophy => Prolegomena: Journal of Philosophy
+Prolegomena: Journal of Philosophy => Prolegomena
+J Med Philos => Journal of Medicine and Philosophy
+Ethics, Place Environment => Ethics, Place and Environment
+Ethics, Place, and Environment => Ethics, Place and Environment
+Ethics, Place & Environment => Ethics, Place and Environment
+Ethics, Place &amp; Environment => Ethics, Place and Environment
+International Journal of Bifurcation and Chaos [in Applied Sciences and Engineering] => International Journal of Bifurcation and Chaos
+Thinking Reasoning => Thinking and Reasoning
+Thinking & Reasoning => Thinking and Reasoning
+Thinking &amp; Reasoning => Thinking and Reasoning
+Bmc Medical Ethics => BMC Medical Ethics
+The Philosophical Forum => Philosophical Forum
+The Philosophical Quarterly => Philosophical Quarterly
+The Philosophical Review => Philosophical Review
+The Journal of Philosophy => Journal of Philosophy
+Hec Forum => HEC Forum
+Journal of Law, Medicine Ethics => Journal of Law, Medicine and Ethics
+Journal of Law, Medicine, and Ethics => Journal of Law, Medicine and Ethics
+Ethics International Affairs => Ethics and International Affairs
+re:Ntm Zeitschrift F.{1,4}r Geschichte Der Wissenschaften, Technik Und Medizin  => NTM International Journal of History and Ethics of Natural Sciences, Technology and Medicine
+Ntm International Journal of History and Ethics of Natural Sciences, Technology and Medicine => NTM International Journal of History and Ethics of Natural Sciences, Technology and Medicine
+Ai and society => AI and Society
+
+
+

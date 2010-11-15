@@ -1,0 +1,515 @@
+
+<%perl>
+#test2
+no warnings;
+
+$s = $m->cgi_object->{__site__};
+
+# weird bug with space handling...
+xPapers::Entry->meta->table('main');
+our $TOO_BUSY;
+our $READ_ONLY = undef;#'4pm today (GMT)';
+$xPapers::Utils::CGI::READ_ONLY = $READ_ONLY;
+#$ENV{NOLOG} =1;
+my $DOWN = 0;
+
+# check for writelock XXX lock isn't set anywhere
+#my $cache = xPapers::Utils::Cache::handle();
+#my $lid = $cache->get('__write_lock__');
+#$xPapers::Cat::write_lock = ( $lid and $lid != $$ );
+
+initProfiling();
+event('autohandler','start');
+#->cgi_request for mod_perl
+$q = $m->cgi_object();
+%HTML::Mason::Commands::ORIG_ARGS = %ARGS;
+
+$browser = new HTTP::BrowserDetect;
+$NOOPTIONS = 0;
+$HEADER_SENT = 0;
+$HTTP_HEADER_SENT = 0;
+@COOKIES_OUT = (); 
+$xPapers::Utils::CGI::REQ_LOGGED = 0;
+
+#
+# Load site-specific config
+#
+ 
+$filters = dclone($s->{defaultFilter});
+$root = xPapers::Cat->get($s->{root});
+
+foreach (keys %{$s->{paths}}) {
+    $PATHS{$_} = $s->{paths}->{$_};
+}
+$PATHS{BASE_URL} = $s->{BASE_URL} if $s->{BASE_URL};
+our $BASE_URL=$PATHS{BASE_URL};
+
+
+# check CGI params 
+if (!checkParams($q,\%xPapers::Conf::VALID_VALUES)) {
+    return;
+}
+
+#
+# Fix array params
+#
+for my $k (keys %ARGS) {
+    if (ref($ARGS{$k}) eq 'ARRAY') {
+        $ARGS{$k} = $ARGS{$k}->[0];
+    } 
+}
+
+# Some redirects to improve our search engine profile
+if ($ARGS{eId} and $m->request_comp->name eq 'threads.pl') {
+    redirect($s,$q,"$s->{server}/rec/$ARGS{eId}",301);
+} 
+
+#
+# Attempt login/logoff/auth
+# There are multiple kinds of authentication for new and old feeds, polls, etc.
+#
+
+event('auth','start');
+our $user = undef;
+our $USING_PK = 0;
+my $recomp; #alt comp to load
+
+# read only mode is more or less equivalent to no-login
+unless ($READ_ONLY) {
+
+if ($ARGS{user} and $ARGS{dg}) {
+    my $dg = $ARGS{dg};
+    delete $ARGS{dg};
+    if ($dg eq digest(\%ARGS)) {
+        $user = xPapers::User->get($ARGS{user});
+        $user->{__FEED_USER} = 1;
+    } else {
+        sleep(3);
+        print STDOUT $q->header(-code=>403);
+        print "invalid digest:";
+        print "$_ => $ARGS{$_}<br>" for sort keys %ARGS;
+        $m->abort;
+    }
+
+# auth based on feed key
+} elsif (my $fk = $ARGS{k} || $ARGS{dg}) {
+    # try to get the feed
+    my $f = xPapers::Feed->new(k=>$fk)->load_speculative;
+
+    # THIS IS TEMPORARY HACK: create on the fly if not found 
+    #unless ($f) {
+    #    my ($base,$p) = url2hash($ENV{REQUEST_URI});
+    #    delete $p->{k};
+    #    my $u = hash2url($base,$p);
+    #    $f = xPapers::Feed->create(url=>$u,uId=>$ARGS{user},k=>$ARGS{k});
+    #}
+
+    my ($base,$params) = url2hash($ENV{REQUEST_URI});
+    delete $params->{k};
+    delete $params->{dg};
+    my $uri = hash2url($base,$params);
+
+    if ($f and $f->url eq $uri) {
+
+        # Check if we say "not modified";
+        #my $cmp = DateTime->compare($f->lastChecked,DateTime->now->subtract(hours=>4));
+        #unless ($cmp == -1) {
+        #    print STDOUT $q->header(code=>304);
+        #    $m->abort;
+        #}
+
+        $user = $f->user if $f->uId;
+        $user->{__FEED_USER} = 1;
+        $f->lastChecked('now');
+        $f->lastIP($ENV{REMOTE_ADDR});
+        $f->save;
+        $ARGS{sort} = 'added';
+    } else {
+        sleep(3);
+        print STDOUT $q->header(-code=>404);
+        print "Feed not found: $fk, $uri";
+        $m->abort;
+    }
+} elsif ($ARGS{user} and $ARGS{k}) {
+    #print STDOUT $q->header;
+    #print "$_:$ARGS{$_}\n" for sort keys %ARGS;
+    $user = xPapers::UserMng::pkauth($ARGS{user},$ENV{REQUEST_URI},\%ARGS,$s);
+    $USING_PK = 1 if $user;
+    unless ($user) {
+        sleep(3);
+        print STDOUT $q->header(-code=>404);
+        $m->comp("badrss.html");
+        $m->abort;
+    }
+    $user->{__FEED_USER} = 1;
+} elsif ( $ARGS{login} and ($ARGS{passwd} or $ARGS{key})) {
+    $ARGS{passwd} = undef if $ARGS{key};
+    my $reason;
+    my $luser = xPapers::UserMng::auth($ARGS{login},$ARGS{passwd},$ARGS{key},\$reason);
+    #print STDOUT $q->header;
+    #$root->elog(localtime() . " Attempt login: $ARGS{login}, $ARGS{passwd}, $ARGS{key}, $luser->{id}");
+    # handle failures in embed mode
+    if ($ARGS{embed} and !$luser) {
+        print STDOUT $q->header;
+        print encode_json { error => "Bad username or password" };
+        return;
+    }
+
+    if ($luser eq 'BLOCKED') {
+        $recomp = 'blocked.html';
+    } elsif ($luser) {
+        if (!$luser->{confirmed}) {
+            $ARGS{first} = 1;
+            $luser->confirmed(1);
+            $luser->publish(1);
+            if ($ARGS{pass1} and length($ARGS{pass1}) >= 6) {
+                $luser->passwd(xPapers::UserMng->crypt($ARGS{pass1}));
+            }
+            unless ($luser->passwd) {
+                my $x = $luser->x;
+                error("Invalid new password") unless length($x->futurePasswd) >= 6;
+                $luser->passwd(xPapers::UserMng->crypt($x->futurePasswd));
+                $x->futurePasswd(undef);
+                $x->save;
+            }
+            if ($luser->email =~ /^guest:/) {
+                my $ev = $luser->email;
+                $ev =~ s/^guest://;
+                $luser->email($ev);
+                $luser->firstname($ARGS{firstname});
+                $luser->lastname($ARGS{lastname});
+            }
+            $luser->save;
+        } 
+        push @COOKIES_OUT, $q->cookie(-name=>'id',-value=>$luser->{id},-expires=>'+5000d');
+        push @COOKIES_OUT, $q->cookie(-name=>'sid',-value=>$luser->{__sId},-expires=>'+5000d');
+        if ($luser->hasFlag('PROXY')) {
+            push @COOKIES_OUT, $q->cookie(name=>'ez-server',-value=>$luser->proxy,-expires=>'+5000d');
+        }
+        $user = $luser;
+        $ARGS{_mmsg} = "<font color='green'>You are now logged in as " . $user->fullname . "</font>";
+        if ($ARGS{embed}) {
+            print STDOUT $q->header;
+            print encode_json { id => $user->{id}, sid => $luser->{__sId} };
+            return;
+        }
+        if ($ARGS{after}) {
+            #$m->redirect($BASE_URL . $ARGS{after});
+            $ARGS{after} =~ s!^/!!;
+            my $url = ($ARGS{after} =~ m!https?://!) ? $ARGS{after} : "$s->{server}$BASE_URL$ARGS{after}";
+            $url .= ($url =~ /\?/ ? '&' : '?');
+            $url .= "_mmsg=$ARGS{_mmsg}";
+            #print STDOUT $q->header;
+            #print "hey\n";
+            print STDOUT $q->header(-cookie=>\@COOKIES_OUT,-code=>307,-location=>$url);
+            #htmlRedirect($url);
+            return;
+        }
+    } else {
+        $ARGS{_mmsg} = "<font color='red'>Log in failed, please try again.$reason</font>";
+        $user = undef;
+        $recomp ="inoff.html";
+    }
+} elsif ($ARGS{logoff}) {
+    #push @cookies, $q->cookie(-name=>'id',-value=>'',-expires=>'+1s');       
+    #push @cookies, $q->cookie(-name=>'sid',-value=>'',-expires=>'+1s');
+    foreach my $c (qw/id sid email login jFilter ez-server/) {
+        push @COOKIES_OUT, $q->cookie(-name=>$c,-value=>'',-expires=>'+1s');
+    }
+    $ARGS{_mmsg} = "<font color='green'>You are now logged off.</font>";
+    $recomp = 'index.html' unless $ARGS{pt};
+} elsif ($q->cookie('id') and $q->cookie('sid')) {
+    #open F, ">/tmp/ll";
+    #print F "got $user->{id}, " . $q->cookie('id') . ", " . $q->cookie("sid") . "\n";
+    #close F;
+    $user = xPapers::UserMng::sauth($q->cookie('id'),$q->cookie('sid'));
+    #elog(localtime() . " Attempt auth: " . $q->cookie('id') . ", " . $q->cookie('sid') . ", $user->{id}");
+    if (! defined $user) {
+        foreach my $c (qw/id sid email login/) {
+            push @COOKIES_OUT, $q->cookie(-name=>$c,-value=>'',-expires=>'+1s');
+        }
+    }
+} else {
+}
+
+} #!$READ_ONLY
+
+#$user = xPapers::User->get(1);
+our $SECURE = $user->{admin};
+event('auth','end');
+
+
+#Impersonation
+if ($SECURE and $q->cookie('fakeId')) {
+    $user = xPapers::User->get($q->cookie('fakeId'));
+}
+
+#Uncomment to set current user as betaTester
+#$user->betaTester(1) if $SECURE;
+
+
+# decode utf8 params and encode html <>
+# also deal with arrays
+# param with __name__ are not allowed in from outside (they are treated as safe)
+my %skip = (
+    body =>1,
+    people_descr=>1,
+    file=>1,
+    menuhtml=>1,
+    cecmds=>1,
+    params=>1,
+);
+foreach my $k (keys %ARGS) {
+    if (substr($k,0,2) eq '__' and substr($k, -2, 2) eq '__') {
+        error("Something went wrong with your request, sorry");
+    }
+    if (ref($ARGS{$k})) {
+        next;
+    }
+    $ARGS{$k} = Encode::decode_utf8($ARGS{$k});
+    if (substr($k,0,1) eq '_' or $skip{$k}) {
+        # do nothing with body for now. filtered later.
+    } else {
+        $ARGS{$k} =~ s/\"/&quot;/g;
+        $ARGS{$k} =~ s/</&lt;/g;
+        $ARGS{$k} =~ s/>/&gt;/g;
+        $q->param($k,$ARGS{$k});
+    }
+}
+
+# Get the time
+our $TIME  = DateTime->from_epoch(epoch=>time(),time_zone=>$TIMEZONE);
+
+our $BROWSER = ($ENV{HTTP_USER_AGENT} =~ /MSIE/ ? "MSIE" : "-MSIE");
+our (%misc, $s,$filter,%PATHS);
+
+our $database = xPapers::DB->new;
+our $con = $database->dbh;
+if (!$con) {
+    error("We are currently experiencing unusual demand and cannot process your request. Please try again later (not immediately!)");
+
+}
+$con->do("set names utf8");
+
+#
+# Check the request type (rss, html, etc) and intercept RSS as required.
+#
+
+my ($ext) = $ARGS{format} || ($m->request_comp->name =~ /\.([^\.]*)$/);
+$m->abort if $ext eq 'rss' and intercept($root->dbh,$q);
+
+
+#
+# Eat some cookies
+#
+
+$misc{proxy} = $q->cookie('ez-server');
+$q->param('editMode',1) if $q->cookie('editMode');
+$FLAG = $q->cookie('flag') if $q->cookie('flag');
+
+# Set up filters
+$filter = "true";
+
+    for (qw/sqc newWindow freeOnly hideAbstracts filterByAreas onlineOnly proOnly publishedOnly categorizerOn showCategories/) { 
+        $ARGS{$_} ||= $q->cookie($_);
+    }
+    #for (qw/freeOnly hideAbstracts publishedOnly/) { } 
+    for (qw/newWindow proOnly onlineOnly showCategories/) {
+        $ARGS{$_} = 'on' unless $ARGS{$_};
+    }
+
+    if ($ARGS{uncat}) {
+        $ARGS{sqc} = 'on';
+        $ARGS{nofilter} = 1;
+    }
+    if ($ARGS{nofilter}) {
+        $ARGS{$_} = 'off' for qw/onlineOnly freeOnly publishedOnly proOnly/;
+    }
+    $ARGS{showCategories} = 'on' if $ARGS{sqc} eq 'on';
+
+
+    #exceptions
+
+    if (grep { $m->request_comp->name eq $_ } qw/profile.pl myworks.pl/ or $ARGS{pub} or $ARGS{pubn}) {
+
+        $ARGS{freeOnly} = 'off';
+        $ARGS{onlineOnly} = 'off';
+        $ARGS{proOnly} = 'off';
+
+    }
+
+
+    #sql filter
+
+    push @$filters, 'free'=> 1 if $ARGS{freeOnly} eq 'on';
+    push @$filters, 'published'=>1 if $ARGS{publishedOnly} eq 'on';
+    push @$filters, 'pro'=>1 if $ARGS{proOnly} eq 'on';
+    push @$filters, 'online'=>1 if $ARGS{onlineOnly} eq 'on';
+    push @$filters, 'draft'=>1 if $ARGS{draftsOnly} eq 'on';
+
+
+    # we only use GMT time
+    $tz_offset = formatTZ(0); #formatTZ($ARGS{tz_offset} || $q->cookie('tz_offset') || 0);
+
+
+
+xPapers::Utils::CGI::setUser($user);
+xPapers::Utils::CGI::setSite($s);
+
+
+#$user = xPapers::User->get(1) if $ENV{REMOTE_ADDR} eq '150.203.226.205';
+#$user = xPapers::User->get(2) if $user and $user->{id} == 1;
+
+our $SAFE_PARAMS = 0;
+our ($tracker,$cook) = tracker($con,$q,$user);
+push @COOKIES_OUT,$cook;
+
+event('init renderer','start');
+
+#
+# http headers and renderer
+#
+
+our $rend;
+if (defined $FORMATS{$ext} and defined $FORMATS{$ext}->{renderer}) {
+   $rend = $FORMATS{$ext}->{renderer} ? $FORMATS{$ext}->{renderer}->new() : undef;
+   $ARGS{__limit} = $FORMATS{$ext}->{limit} if $FORMATS{$ext}->{limit};
+   $ARGS{limit} = $FORMATS{$ext}->{limit} if $FORMATS{$ext}->{limit};
+} else {
+   $rend = $s->{defaultRenderer}->new();
+}
+$rend->init($q,\%PATHS,$s);
+
+my $ctype = $FORMATS{$ext}->{contentType} || 'text/html';
+our $HTML = ($ctype eq 'text/html' and $ext ne "htm" and !$FORMATS{$ext}->{noHTML});
+$xPapers::Utils::CGI::HTML = $HTML;
+our $AJX = !$HTML; # !html=>ajx. the cases where html and !ajx are set locally.
+our $NOFOOT=0;
+our $MCAT_DONE=0; #this is hack for safari. 
+$ARGS{limit} *= -1 if $ARGS{limit} < 0; # fix for bogus negative limits; don't know where they come from.
+
+if (!$HTML or $FORMATS{$ext}->{noheader} == 1) {
+    $ARGS{noheader} = 1;
+    $ARGS{nosh} = 1;
+    $NOFOOT = 1;
+} 
+
+if ($TOO_BUSY and (!$user or !$user->{id})) {
+#if ($user and $user->{id} == 1) {
+    my $path = $m->request_comp->path;
+
+    unless (grep { $path =~ m!/$_/! } qw/users survey metasurvey profile/) {
+        print STDOUT "Status-Code: 500\nContent-Type: text/html\n\n"; 
+        print STDOUT "__PPError:" unless $HTML; 
+        print STDOUT "<center><b>Sorry, $s->{niceName} is too busy right now. Please come back later. A few priority services may still be available (e.g. surveys, user accounts).</b></center> ";
+
+        $m->abort;
+    }
+}
+
+
+$rend->{cur}->{user} = $user if $user->{id};
+$rend->{cur}->{mason} = $m;
+$rend->{showTemplate} = $ARGS{showTemplate};
+$rend->{showAbstract} = lc $ARGS{'hideAbstracts'} ne 'on';
+$rend->{newWindow} = lc $ARGS{newWindow} eq 'on';
+$rend->{cur}->{categorizerOn} = $ARGS{categorizerOn};
+$rend->{cur}->{showCategories} = $ARGS{showCategories};
+$rend->{cur}->{sqc} = $ARGS{sqc};
+$rend->{cur}->{capitalizeTitle} = 1;
+$rend->{cur}->{quickCat} = $q->cookie('quickCat');
+$rend->{cur}->{root} = $root;
+$rend->{cur}->{site} = $s;
+$rend->{cur}->{showAdded} = 1 if $ARGS{sort} eq 'added' and !$ARGS{al};
+$rend->{cur}->{start} = $ARGS{start} || 0;
+$rend->{cur}->{forceSQC} = 1 if $ARGS{uncat};
+$rend->{cur}->{user} = $user if $user;
+$rend->{cur}->{addQuotes} = 1;
+$rend->{cur}->{addDetailsPage} = 1;
+$rend->{cur}->{topRight} = sub {
+    "<span style='color:#$C2'>" . shift()->viewings . " views</span>";
+} if $ARGS{sort} eq 'viewings';
+
+$rend->{cur}->{filters} = $filters;
+$rend->{cur}->{countFilter} = $s->{defaultFilter};
+$rend->{cur}->{site} = $s;
+
+$rend->{secure} = $SECURE;
+$rend->{sites} = \%SITES;
+$rend->{tz_offset} = $tz_offset;
+
+event('init renderer','end');
+
+my $comp = ($recomp || $m->request_comp->name);
+
+#
+# Run the called component, or replacement
+#
+
+my $comp_ret;
+
+# Check if the user has been banned
+if ($user and $user->{blocked}) {
+    $comp_ret = $m->scomp("/blocked2.html");
+    return;
+}
+
+# Called component
+if ($DOWN and $ENV{REMOTE_ADDR} ne '150.203.226.205') {
+    $comp_ret = $m->scomp("down.html");
+} elsif ($recomp) {
+    if ($recomp =~ /^http:/) {
+        $recomp =~ s/^.*\///g;
+    }
+    $comp_ret = $m->scomp("/$recomp",%ARGS);
+} else {
+    xPapers::Utils::Profiler::event('called component','start');
+    my $next_comp = $m->fetch_next;
+    eval {
+        $comp_ret = $m->scomp($next_comp->path,%ARGS);
+    };
+    if ($@) {
+        # Internal exceptions are flagged by setting a note in the mason handler. others are propagated.
+        if ($m->notes("exception")) {
+           $comp_ret = $m->notes("exception");
+        } else {
+           die $@; 
+        }
+    }
+    xPapers::Utils::Profiler::event('called component','end');
+}
+
+#
+# Now we actually output
+#
+
+if (my $xcookies = $m->notes("cookies")) {
+    push @COOKIES_OUT,@$xcookies;
+}
+
+#if ((!$ARGS{noheader} or $ctype ne 'text/html') and $m->base_comp->name ne 'go.pl') {
+unless ($HTTP_HEADER_SENT) {
+    #$root->elog("THERE\n" . $q->header(-expires=>"now",-cookie=>\@COOKIES_OUT, -charset=>"UTF-8",-type=>$ctype));
+    print STDOUT $q->header(-type=>$ctype,-expires=>"now",-cookie=>\@COOKIES_OUT, -charset=>"UTF-8");
+    $HTTP_HEADER_SENT = 1;
+}
+
+
+print $comp_ret;
+event('autohandler','end');
+event('pre footer','');
+# Site footer
+$m->comp("/footer.html") unless $NOFOOT or $ARGS{noheader} or $ARGS{embed} or !$s->{name};
+print "</body>" if $ARGS{embed} == 1;
+
+# Misc log entry if not logged already
+writeLog($root->dbh,$q, $tracker, "misc", $m->request_comp->name,$s);
+# Update busy flag
+$TOO_BUSY = (-e "/tmp/DIVRE-too-busy") ? 1 : 0;
+
+# Debug
+#foreach my $k (%ARGS) {
+#    print "$k -> $ARGS{$k}<br>";
+#}
+</%perl>
+

@@ -1,0 +1,15 @@
+<%perl>
+my $p = $ARGS{post};
+error("bad post: $ARGS{post}") unless $p;
+my @a = split(" ",$p->body);
+my $preview = join(" ", @a[0,80]);
+my @replies = $p->replies; 
+#$ARGS{anchor} ? "#p".$p->id : 
+my $link = $s->{server} . "/bbs/thread.pl?tId=" .$p->thread->id . "#p" . $p->id;
+</%perl>
+<div class="postShort"> 
+<a href="<%$link%>">
+%unless ($ARGS{nosubject}) {
+<b><%$p->{subject}%></b> - 
+%}
+<%$p->user ? $p->user->fullname : "[User deleted]" %></a> <span style="font-size:smaller;color:#888">(<%$p->created->ymd ."; " . ($ARGS{thread} ? num($p->thread->postCount,"post") . " in thread)" : num($#replies+1,"reply") .") ") . "</span>" %> </div>

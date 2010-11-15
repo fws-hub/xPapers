@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+%if ($ARGS{title}) {
+<title><%$ARGS{title}%></title>
+%} else {
+<title><%$ARGS{subtitle} ? "$ARGS{subtitle} | " : ""%><% $s->{niceName} %></title>
+%}
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-language" content="en">
+%if ($ARGS{noindex} or ($m->request_comp->name eq 'asearch.pl' and $ARGS{filterMode} ne 'notauthors')) {
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+%}
+%if ($ARGS{description}) {
+<meta name="description" content="<%$ARGS{description}%>"> 
+%}
+%if ($ARGS{keywords}) {
+<meta name="keywords" content="<%$ARGS{keywords}%>">
+%}
+%if ($ARGS{canonical}) {
+<link rel="canonical" href="<%$ARGS{canonical}%>">
+%}
+%if ($ARGS{forward}) {
+<meta http-equiv="refresh" content="5;url=<%$ARGS{forward}%>">
+%}
+<& style.html, %ARGS &>
+<& js/scripts.html, %ARGS &>
+</head>
+<script type="text/javascript">
+var pageDesc="<%dquote($ARGS{description} || $ARGS{subtitle} || "")%>";
+var BASE_URL="<%$BASE_URL%>";
+var SERVER="<%$s->{serer}%>";
+
+function renderFollowX( eId ){
+    var conf =  {
+        width: "450px",
+        height: "400px",
+        fixedcenter: true,
+        visible: false,
+        draggable: false,
+        close: true,
+        text: 'aaaaaaa',
+        constraintoviewport: true,
+        zIndex:9999,
+    };
+    var d = new YAHOO.widget.SimpleDialog("followX",conf);
+    d.setHeader("Follow authors");
+    d.render("container");
+    new Ajax.Request('/followx.pl',
+      {
+        method:'get',
+        parameters: { eId: eId },
+        onSuccess: function(transport){
+           var response = transport.responseText || "no record";
+           d.setBody( response );
+           alert( $('followXform').followXsubmit.onClick );
+        },
+        onFailure: function(){ alert('Something went wrong...') }
+      });
+    d.show();
+}
+
+</script>
+<body class='yui-skin-sam' id='<%$ARGS{embed} ? 'embedBody' : 'mainBody'%>'>

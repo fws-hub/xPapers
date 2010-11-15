@@ -1,0 +1,121 @@
+<%perl>
+my $p = $ARGS{post}; 
+my $thread = $ARGS{thread} || $p->thread;
+my $nbrep = $p->target ? 0 : $thread->postCount-1; 
+my $path = "/bbs/"; 
+</%perl>
+%unless ($p->accepted or $SECURE) {
+<div style='font-weight:bold;background-color:#fee;text-align:center'>
+Note: Because you do not have <span class='ll' onclick='faq("pro")'>pro status</span>, this post needs to be accepted by an editor before appearing on regular forum pages. It will be deleted if rejected, so you should make a copy.</div>
+%}
+
+<table class="postExpanded" cellpadding="0" cellspacing="0" width="100%" id="post-<%$p->{id}%>">
+<tr>
+<td class="postTime">
+ <a name="p<%$p->id%>"><%$rend->renderDate($p->created)%></a>
+</td>
+<td class="postSubject">
+<div class="postSubject">
+%print "<span class='blogForum' style='float:right'>" .$rend->renderForum($thread->forum). "</span>" if $ARGS{showForum};
+%print "<a class='postSubject' href=\"" . $rend->threadURL($thread) . "\">" if $ARGS{blogView}; 
+<%$p->subject%>
+%print "</a>" if $ARGS{blogView};
+</div>
+<%perl>
+if (my $tp = $p->targetPost) {
+    print '<div class="postReplyTo">Reply to ';
+    my $link = "${path}thread.pl?tId=" .$thread->id . "#p" . $tp->id;
+    print "<a href='$link'>" . $tp->user->fullname . "</a>";
+    print '</div>';
+}
+</%perl>
+</td>
+</tr>
+<tr>
+<td class="postAuthorTD">
+
+<div class="postAuthor"><%$rend->renderUser($p->user)%>
+</div>
+<%perl>
+if ($SECURE) {
+    event('subscribed','start');
+    print "<br>Subscribed" if $p->thread->subscribers_count({uId=>$p->user->{id}});
+    event('subscribed','end');
+}
+</%perl>
+</td>
+<td class="postContentTD">
+<%perl>
+    my $toshow;
+    if ($ARGS{charLimit}) {
+        $toshow = $p->excerpt(link=>" ... (<a href='" . $rend->threadURL($thread) ."'>read more</a>)");
+    } else {
+        $toshow = $p->body;
+    }
+
+</%perl>
+<div class="postBody"><%$rend->mkRefs($toshow)%></div>
+<div class="postOptions">
+%if ($nbrep > 0 and $ARGS{blogView}) {
+%event('replies','start');
+    Latest replies:<ul class="normal">
+        <li>
+            <% join("</li><li>", map {  
+                "<a href='" . $rend->postURL($_) . "'>" . $_->user->fullname . ', ' . $rend->renderDate($_->created) . "</a> : " .
+                $_->excerpt(
+                    length=>120, 
+                    link=> "... (<a href='" . $rend->postURL($_) . "'>read more</a>)",
+                    nogreetings=>1
+                    ) 
+                } grep { ref($_) }  $thread->latestReplies) %> 
+%   if ($nbrep > 5) {
+            <li><a href="<%$rend->threadURL($thread)%>"><%$nbrep-5%> more ..</a>
+%   }
+        </li>
+    </ul>
+%event('replies','end');
+%}
+%#elsif (!$ARGS{showTarget}) {
+%#No replies | 
+%#}
+%if ($thread->id == $p->id) {
+%    print "<a href='?subscribe=1&tId=" . $thread->id . "'>Subscribe to this thread</a> | ";
+%}
+    <span style='float:right;color:#888'>Permanent link: <a href="<%$DEFAULT_SITE->{server}%>/post/<%$p->id%>"><%$DEFAULT_SITE->{server}%>/post/<%$p->id%><a></span>
+%#    <a href='<%$rend->threadURL($thread)%>'>View replies</a> |
+%unless ($thread->noReplies) {
+    <a href="<%$path%>newmsg.pl?target=<%$p->id%>&amp;after=<%urlEncode($ENV{REQUEST_URI})%>">Reply</a>
+%}
+%if ($p->uId == $user->{id} and DateTime->now->subtract(minutes=>30)->subtract_datetime($p->created)->is_negative) {
+    | <a href="<%$path%>newmsg.pl?edit=<%$p->id%>&amp;after=<%urlEncode($ENV{REQUEST_URI})%>">Edit</a> (This option will disappear shortly)
+%}
+
+</div> 
+<%perl>
+if ($SECURE and !$ARGS{charLimit}) {
+ print "<br><div style='background-color:#fff;font-size:12px;text-align:center'>";
+ if (!$p->accepted) {
+    print "Forum: " . $rend->renderForum($thread->forum) . "<br>";
+    print "<span class='ll' onclick='admAct(\"acceptPost\",{pId:$p->{id}}, function() { \$(\"post-$p->{id}\").hide() })'>accept</span> | ";
+    print "<span class='ll' onclick='admAct(\"rejectPost\",{pId:$p->{id},reason:\$F(\"reason-$p->{id}\")}, function() { \$(\"post-$p->{id}\").hide() })'>reject</span> ";
+    print "<form style='display:inline'><input type='text' id='reason-$p->{id}' size='30'></form> |";
+ }
+ if (!$p->target) {
+    print "" . $rend->checkboxAuto($thread, "sticky", "sticky") . " | ";
+    print "" . $rend->checkboxAuto($thread, "blog", "blog") . " | ";
+ }
+    print "&nbsp;<span class='ll' onclick='admAct(\"deletePost\",{pId:$p->{id}},function() { \$(\"post-$p->{id}\").hide() })'>delete</span> | ";
+    print "&nbsp;<span class='ll' onclick='if (confirm(\"This will block the user from accessing the site\")) {admAct(\"deletePostSpam\",{pId:$p->{id}},function() { \$(\"post-$p->{id}\").hide() })}'>delete and ban</span> | ";
+    print "&nbsp;<span class='ll' onclick='var dfid = prompt(\"Destination forum ID:\"); if (dfid) admAct(\"moveThread\",{tId:" . $thread->id . ",fId:dfid})'>move thread</span> | ";
+    print " <a href='${path}newmsg.pl?edit=$p->{id}&amp;after=" . urlEncode($ENV{REQUEST_URI}) . "'>edit</a>&nbsp;|";
+    print "&nbsp<a href='/admin/inspect.pl?oId=$p->{id}&class=xPapers::Post'>inspect</a>";
+    print "<br>Notified: <span id='notified-$p->{id}'>" . join(", ", $p->notifiedMode) . " | <span class='ll' onclick='admAct(\"skipNotices\",{pId:$p->{id}},function() { \$(\"notified-$p->{id}\").update(\"all set\") } )'>skip notices</span></span><br>";
+ print "</div>";
+}
+
+
+</%perl>
+</td>
+</tr>
+</table>
+<br>

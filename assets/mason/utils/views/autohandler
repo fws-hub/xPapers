@@ -1,0 +1,66 @@
+<%perl>
+$NOFOOT = 1;
+my $comp = $m->request_comp;
+$comp = $ARGS{__comp} if $ARGS{__comp}; # this allows us to use this autohandler when the child comp isn't requested through http
+
+# add the contextual params to the request arg
+my $params;
+if ($ARGS{params}) {
+    $params = decode_json($ARGS{params});
+} else {
+    $params = {};
+}
+delete $ARGS{params};
+$ARGS{$_} = $params->{$_} for keys %$params;
+
+
+my $ret = $m->scomp($comp,%ARGS);
+my $all = $m->scomp("wrapper", %ARGS, id=>$m->notes("oId"), content=>$ret);
+
+# if called directly, don't json-encode
+if ($ARGS{__comp} or $ARGS{test}) {
+    $m->comp("../../head.html") if $ARGS{test};
+    print $all;
+} else {
+    print encode_json {id=>$m->notes("oId"),content=>$all};
+}
+
+
+
+</%perl>
+
+<%def wrapper>
+
+<%perl>
+my $id = $ARGS{id};
+</%perl>
+<div style='padding:2px;'>
+
+<!--
+<div style='float:right; background-color:#eee'><%$id%></div>
+-->
+
+<form id='of-<%$id%>' method='POST'>
+<div>
+
+<input type='hidden' name='id' value='<%$id%>'>
+<input type='hidden' name='params' id='params'>
+<%$ARGS{content}%>
+<div style="background-color: #f7f7f7;margin-top:10px">
+%if (!$ARGS{id}) {
+    <input type="button" value="Save" onclick="saveIt(<%$id%>)">
+    <input type="button" value="Cancel" onclick="$('ow-').hide()">
+%} elsif ($ARGS{c} eq 'edit') {
+    <input type="button" value="Save" onclick="saveIt(<%$id%>)">
+    <input type="button" value="Cancel" onclick="showIt(<%$id%>)">
+%} elsif ($ARGS{c} eq 'save' or $ARGS{c} eq 'show') {
+    <input type="button" value="Edit" onclick="editIt(<%$id%>)">
+    <input type="button" value="Delete" onclick="deleteIt(<%$id%>)">
+%}
+</div>
+
+</div>
+</form>
+
+</div>
+</%def>

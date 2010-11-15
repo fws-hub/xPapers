@@ -1,0 +1,44 @@
+<%perl>
+#print "inner1:" . Dumper $ARGS{diff};
+renderDiff($ARGS{diff}->{diff},$ARGS{diff});
+sub renderDiff {
+    my $i = shift;
+    my $diff= shift;
+#    print "iner2: " . Dumper $i;
+#    return;
+    for my $k (keys %$i) { 
+
+        if ($i->{$k}->{type} eq 'scalar') {
+            print "<table class='diffScalar'><td class='diffFieldName'>$k</td> <td class='diffFieldValue'>$i->{$k}->{before}</td><td class='diffArrow'>&gt;</td> <td class='diffFieldValue'> $i->{$k}->{after}</td></table>";
+
+
+        } elsif ($i->{$k}->{type} eq 'array') {
+            print "<table class='diffArray'><td class='diffFieldName'>$k:</td><td class='diffFieldValue'>";
+            print join("<br>", map { "<span class='diffArrow'>+</span>" . 
+                $diff->{class}->render_diffable_array_element(
+                    $rend,
+                    $diff->id,
+                    $k,
+                    $_,
+                    $i->{$k}->{class}
+                ) } @{$i->{$k}->{to_add}}); 
+            print "<br>";
+            print join("<br>", map { "<span class='diffArrow' style='color:red'>&ndash;</span>" .  
+                    $diff->{class}->render_diffable_array_element(
+                        $rend,
+                        $diff->id,
+                        $k,
+                        $_,
+                        $i->{$k}->{class}
+                    ) } @{$i->{$k}->{to_delete}}); 
+
+#            add</td><td class='diffFieldOp'>delete</td></tr><tr><td></td>";
+#            print "<td class='diffFieldValue'>" . join("<br>",@{$i->{$k}->{to_add}}) . "</td>";
+#            print "<td class='diffFieldValue'>" . join("<br>",@{$i->{$k}->{to_delete}}) . "</td>";
+            print "</td></table>";
+        }
+        
+    }
+
+}
+</%perl>

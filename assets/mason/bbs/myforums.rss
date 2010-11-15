@@ -1,0 +1,1 @@
+<& myforums.html, %ARGS, format=>'rss' &>

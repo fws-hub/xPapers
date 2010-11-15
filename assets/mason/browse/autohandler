@@ -1,0 +1,123 @@
+<%perl>
+$ARGS{cId} = $ARGS{cId}->[0] if ref($ARGS{cId}) eq 'ARRAY';
+$ARGS{cn} = $ARGS{cn}->[0] if ref($ARGS{cn}) eq 'ARRAY';
+
+#$ARGS{start} = 31 if $SECURE and $ARGS{uncat};
+my $cat;
+# handle human-readable alias
+if ($ARGS{cn}) {
+    $cat = xPapers::Cat->getByUName(lc $ARGS{cn});     
+    unless ($cat) {
+        error("Category not found: $ARGS{cn}");
+    }
+    $ARGS{cId} = $cat->{id};
+    $q->param('cId',$cat->{id});
+} else {
+    $cat = xPapers::Cat->get($ARGS{cId});
+}
+$ARGS{dir} = pdir(\%ARGS);
+error("Category not found") unless $cat;
+$rend->{ver} = "";
+
+unless ($cat->canonical) {
+
+    error("You are not allowed to view this bibliography. Did you forget to log in?") unless !$cat->owner or $cat->publish or $user->{id} eq $cat->owner or $SECURE;
+
+    $m->comp('../bits/frame.html', __p=>'list.pl', %ARGS, _l=>$cat);
+    return;
+}
+
+if ($ARGS{noheader} or !$HTML) {
+    $m->call_next(%ARGS,__cat__=>$cat);
+    return;
+}
+
+
+my %H;
+$H{subtitle} = $cat->name;
+$H{canonical} = "/browse/" . $cat->eun;
+if ($m->request_comp->name eq 'people.pl') {
+    $H{subtitle} .=  " - People";
+    $H{canonical} .=  "/people.pl";
+} elsif ($m->request_comp->name eq 'threads.pl') {
+    $H{subtitle} .= " - Discussion";
+    $H{canonical} .= "/threads.pl";
+} elsif ($ARGS{recent}) {
+    $H{subtitle} .= " - New online papers";
+    $H{canonical} .= "?recent=1";
+} elsif ($ARGS{uncat}) {
+    $H{subtitle} .= " - Material to categorize";
+    $H{canonical} .= "?uncat=1";
+} elsif ($m->request_comp->name eq 'thread.pl') {
+    $ARGS{__thread__} = xPapers::Thread->new(id=>$ARGS{tId})->load_speculative;
+    if ($ARGS{__thread__}) {
+        $H{subtitle} = $ARGS{__thread__}->firstPost->subject . " (discussion)";
+    }
+} else {
+    $H{subtitle} .= " - Bibliography";
+    if ($cat->pLevel <= 1) {
+        $H{description} = "A bibliography of online papers in " . $cat->name;
+    }
+}
+
+$m->comp("../header.html", %ARGS, %H); 
+    
+my @eds = sort { $b->{lastname} cmp $a->{lastname} } $cat->editors;
+$cat->{__user_is_editor} = 1 if grep { $user->{id} == $_->{id} } @eds;
+
+
+if (!$cat->marginal and $cat->{pLevel} > 0 and $#eds == -1 and $m->request_comp->name eq 'index.html') {
+    print "<div class='centered'><div style='background-color:yellow;font-weight:bold;border:1px black dotted;padding:3px'>This category needs an editor. Please help if you are qualified.<br><a href='/browse/". $cat->eun . "/application.html'>Apply</a>, or <a href=\"/help/editors.html\">read more about what this involves</a>.</div></div>";
+}
+
+my $in;
+unless ($cat->{pLevel} <= 1) {
+    $in = join(" <span style='font-size:9px'>&gt;</span> ", map { $rend->renderCatC($_) } $cat->pAncestry(0));
+    $in = $in ? "$in" : "";
+}
+</%perl>
+
+<br>
+<table class='nospace' style='width:100%;margin-bottom:5px'><tr><td valign="top">
+    <div class="ch" style='margin-left:0;font-size:11px;margin-bottom:10px'><%$in%></div>
+    <h1 class="gh" style='padding-bottom:0px;margin-bottom:5px;font-size:20px'><a href="/browse/<%$cat->{uName}||$cat->{id}%>"><%$cat->{name} %></a>
+%if ($SECURE and $user->{id} == 1) {
+    <span style="font-size:9px;font-weight:normal">(<%$cat->{id}%>)<span>
+%}
+%if ($#eds > -1) {
+    <span style="font-size:12px;padding-left:10px;color:#333;font-weight:bold">
+    Edited by <% join(" and ", map {$rend->renderUserC($_,$#eds > 0)} @eds) %>
+    </span>
+
+%} 
+    </h1>
+
+</td><td valign="top" style="width:200px">
+%if ($SECURE) {
+    <br>
+    <a style='margin-left:10px;' href="/browse/<%$cat->{id}%>/edit.pl">Admin panel</a>
+%}
+</td></tr></table>
+
+%if (0 and ($cat->{__user_is_editor} or $SECURE)) {
+<span class='ll' id='edpanellnk' onclick="
+    simpleReq('/utils/edpanel_one.pl',{cId:<%$cat->id%>}, function(r) {
+        $('panel_con').update(r);
+        $('panel_con').show();
+        $('edpanellnk').hide();
+    });
+">Load editor's panel</span>
+<div id='panel_con' style='display:none'></div>
+%}
+
+%$rend->{cur}->{root} = $cat;
+%$rend->{cur}->{currentList} = $cat->id if $cat->canDo("DeletePapers",$user->{id});
+
+<% $m->call_next(%ARGS,_c=>$cat,__cat__=>$cat) %>
+
+%#<script type="text/javascript">
+%#<& ../search/catcomplete.js, append=>"&eun=1",action=>"window.location='/browse/'+%s",suffix=>2 &>
+%#</script>
+
+%# writeLog($root->dbh,$q, $tracker, "browse",undef,$s);
+

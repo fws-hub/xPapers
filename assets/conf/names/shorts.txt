@@ -1,0 +1,36 @@
+Ken => Kenneth
+Fred => Frederick
+Andre => André
+Tim => Timothy
+Dave => David
+Jim => James
+Tom => Thomas
+Jerome => Jérôme
+Jon => Jonathan
+Jorg => Jörg
+Chris => Christopher
+Stan => Stanley
+Danny => Daniel
+Dan => Daniel
+Mike => Michael
+Don => Donald
+Bob => Robert
+Terry => Terence
+Terrence => Terence
+Zoltan => Zoltán
+Shole => Sholé
+Jeff => Jeffrey
+Uri => Uriah
+Ernie => Ernest
+Jimmy => James
+Jozef => Józef
+Jurgen => Jürgen
+Francoise => Françoise
+Larry => Lawrence
+Amelie => Amélie 
+Amelié => Amélie 
+Quenton => Quentin
+Pat => Patricia
+
+
+

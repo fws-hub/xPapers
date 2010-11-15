@@ -1,0 +1,243 @@
+<%perl>
+#$ARGS{id} = $ARGS{id}->[0] if ref($ARGS{id}) eq 'ARRAY';
+$m->comp("../checkLogin.html") unless $ARGS{id} || $user->{id};
+my $p = ($ARGS{id} ? xPapers::User->get($ARGS{id}) : $user);
+$ARGS{id} ||= $p->{id};
+my %public = (
+    'index.html' => 1,
+    'myview.html' => 1,
+    'myworks.pl' => 1,
+    'same_views.pl' => 1,
+    'profile.pl' => 1
+);
+
+#unless ($HTML or $m->comp->base) {
+#   $m->comp("myworks.pl",%ARGS);
+#   return;
+#
+
+error("Unknown profile") unless $p and $p->{confirmed};
+
+my $same = ($p->{id} == $user->{id}) && !$ARGS{foreign};
+if ($ARGS{noheader}) {
+    $m->call_next(%ARGS);
+    return;
+}
+
+if ($p->hide and !($same or $SECURE)) {
+    $m->comp("private.html");
+    return;
+} elsif (!$same and !$public{$m->request_comp->name} and !$SECURE) {
+    error("Not allowed");
+}
+
+my $name = $p->fullname;
+my $x = $p->x;
+$name =~ s/\s/&nbsp;/g;
+my $affil_str = join(", ", map { $_->instName } $p->affils_o);
+$m->comp("../header.html",%ARGS,subtitle=>"Profile for ".$name,description=>"$s->{niceName} profile of $name, with publications.", onLoad=>"if (\$('passwd')) { \$('passwd').value=''}");
+
+
+if ($ARGS{foreign}) {
+    print "<div class='centered'><em>This is how others see your profile page, this note aside.</em> (<a href='/profile/'>OK, let me back in.</a>)</div>";
+}
+
+
+</%perl>
+
+%if ($ARGS{_lmsg}) {
+<div class='msgOK'><%$ARGS{_lmsg}%></div>
+%}
+
+
+<div class="bigBox"style='margin-top:5px;margin-bottom:5px'>
+<div class="bigBoxC">
+<a title="Go to profile" style="color:#<%$C2%>;font-size:22px;font-weight:bold;text-decoration:none" href='/profile/<%$p->id%>'><%$name%></a>
+<span style="padding-left:10px;font-size:16px"><%$affil_str%></span>
+
+%unless ($same or !$user->{id}) {
+% print '<!--' unless( $user->{id} && $user->betaTester );
+<span class='hint' style="float:right" >
+<%perl>
+    my $oname = $user->lastname . ', ' . $user->firstname;
+    my $hidden_un = '';
+    my $hidden_fo = '';
+    if( $user->follow_all_aliases_of( $p->{id} ) ){
+        $hidden_fo = 'style="display:none"';
+    }
+    else{
+        $hidden_un = 'style="display:none"';
+    }
+</%perl>
+<span id='unfollow_button' <% $hidden_un %>>You are following this user (<span class='ll hint' onclick='removeFollow(0,"<% $oname %>")'>unfollow</span>)</span>
+<span id='follow_button' class='ll' onclick='updateFollowXUser(<% $p->{id} %>)' <% $hidden_fo %>>follow <% $name %></span>
+</span>
+% print '-->' unless( $user->{id} && $user->betaTester );
+%}
+
+<br>
+</div>
+</div>
+
+
+<table width="100%">
+<tr>
+<td style="width:200px" valign="top">
+<div class="bigBox">
+<!--
+<div class="bigBoxH" style="padding-bottom:4px"><a title="Go to profile" style="color:#<%$C2%>;font-size:18px;text-decoration:none" href='/profile/<%$p->id%>'><%$name%></a></div>
+-->
+<div class="bigBoxC">
+<div class="smallh"><% $same ? 'Basic information <span class="hint"><a href="/profile/'.$user->id.'/account.html">(edit)</a></span>' : 'Contact'%></div>
+<ul class='normal'>
+%if($p->homePage) {
+%my $hp = ($p->homePage =~ /^http:/ ? $p->homePage : "http://".$p->homePage);
+<li><a href="<%$hp%>">home page</a></li>
+%}
+<%perl>
+if ($p->showEmail) {
+    print "<li>" . ecode($p->{email}) . "</li>";
+}
+if (!$p->showEmail and !$p->homePage) {
+    print "<li>No contact info.</li>";
+}
+</%perl>
+</ul>
+<p>
+<div class="smallh">Affiliations<% $same ? ' <span class="hint"><a href="/profile/'.$user->id.'/affils.html">(edit)</a></span>' : ''%></div>
+
+<ul class="normal">
+<%perl>
+my @affs = $p->affils_o;
+for (rankSort(@affs)) {
+    print "<li>".$_->{role} . ", " . ($_->instName) . "</li>";
+}
+if ($p->phd) {
+    print "<li>" . 
+        ($p->degree->iId ? $p->degree->inst->phdName : "PhD") . ", " . 
+        $p->degree->instName . ", " . 
+        $p->degree->year . 
+    ".</li>";
+} else {
+    print "<li>None specified</li>" if $#affs == -1;
+}
+</%perl>
+</ul>
+
+
+<p>
+<div class="smallh">Areas of specialization<% $same ? ' <span class="hint"><a href="/profile/'.$user->id.'/aos.html">(edit)</a></span>' : ''%></div>
+<ul class="normal">
+<%perl>
+my @aos = $p->aos_o;
+for (@aos) {
+    print "<li>". $rend->renderObject($_) . "</li>";
+}
+print "<li>None specified</li>" if $#aos == -1;
+</%perl>
+</ul>
+
+
+<p>
+<div class="smallh">Areas of interest<% $same ? ' <span class="hint"><a href="/profile/'.$user->{id}.'/areas.html">(edit)</a></span>' : ''%></div>
+<ul class="normal">
+<%perl>
+my @areas = $p->areas_o;
+for (@areas) {
+    print "<li>". $rend->renderObject($_) . "</li>";
+}
+print "<li>None specified</li>" if $#areas == -1;
+</%perl>
+</ul>
+
+%#DISABLED
+%if ($user->{betaTester}) { #($same or $x->publishView) {
+<p>
+<& nav_extra.html, x => $x, p => $p &>
+</p>
+%}
+
+
+%if ($same) {
+<p>
+<a href="profile.pl?foreign=1">What can others see?</a>
+%}
+
+</div>
+
+
+%if ($same) {
+<p>
+<div class="bigBox">
+<div class="bigBoxH">Preferences</div>
+<div class="bigBoxC">
+<ul class="normal">
+<li><a href='/profile/<%$user->id%>/myjournals.pl'>My Journals</a></li>
+<li><a href='/profile/<%$user->id%>/offcampus.html'>Off-campus access</a></li>
+<li><a href='/profile/<%$user->id%>/aliases.pl'>Aliases</a></li>
+<li><a href='/profile/<%$user->id%>/openurl.html'>At my library</a></li>
+<li><a href='/profile/<%$user->id%>/shopping.html'>Book shopping</a> <%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2010,month=>10,day=>1),"Shopping")%></li>
+<li><a href='/profile/<%$user->id%>/settings.html'>Privacy and communications</a></li>
+<li><a href='/profile/<%$user->id%>/account.html'>Email, identification and password</a></li>
+<li><a href='/profile/<%$user->id%>/deactivate.pl'>Close this account</a></li>
+</div>
+</div>
+
+<div style='line-height:0.9' class='hint'>Link to this profile as:<br><a href="<% $s->{server} %>/profile/<%$p->{id}%>"><% $s->{server} %>/profile/<%$p->{id}%></a></div>
+%}
+%if ($SECURE) {
+    <p class="admin">
+   [ <%$p->{pro} ? 'user has pro status' : 'not pro'%> ]<br>
+   [ <a href="/admin/inspect.pl?class=xPapers::User&oId=<%$p->{id}%>">Object inspector</a> ]<br>
+   [ <span class='ll' onclick='createCookie("fakeId","<%$p->{id}%>");refresh()'>Impersonate</span> ]<br>
+   </p>
+%}
+<br>
+
+</td>
+<td width="10"><%space(10,10)%></td>
+<td valign="top">
+%if ($ARGS{first}) {
+
+    <br>
+    <h3 style='color:#<%$C2%>;font-size:larger'>Welcome to <% $s->{niceName} %>, <%$user->firstname%>!</h3>
+    <%perl>
+    if ($user->{addToGroup}) {
+        my $g = xPapers::Group->get($user->{addToGroup});
+        if ($g) {
+            $g->addUser($user,10);
+            print "<p><b>You have been added to the group $g->{name}.</b>";
+        }
+    }
+    </%perl>
+
+    <p style="font-size:110%">What now? There are many new things you can do as a registered user. We recommend that you begin by filling in your areas of interests.  
+    <br><br>
+    <%perl>
+    $m->comp("areas.html",%ARGS,newUser=>1);
+    return;
+
+}
+
+$m->call_next(%ARGS,u=>$p,__same=>$same);
+
+</%perl>
+
+</td>
+</tr>
+</table>
+
+</div>
+</div>
+
+<%once>
+
+    sub l {
+        my ($link,$cap,$ok) = @_;
+        if ($ok) {
+            return "<a href='$link' style='font-weight:bold'>$cap</a>";
+        } else {
+            return "<span style='font-weight:bold;font-decoration:underline;font-color:#666'>$cap</span>";
+        }
+    }
+</%once>

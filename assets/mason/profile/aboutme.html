@@ -1,0 +1,26 @@
+<%perl>
+if ($ARGS{do} eq "save") {
+    $user->blurb($ARGS{blurb});
+    $user->save;
+    print redirect($s,$q,"/profile/profile.pl?_lmsg=Profile%20updated");
+    return;
+}
+
+</%perl>
+
+<p>
+<div class="bigBox">
+<div class="bigBoxH">About me</div>
+<div class="bigBoxC">
+<form method="POST">
+<div>
+<input type="hidden" name="do" value="save" >
+<input type="hidden" name="noheader" value="1">
+<textarea cols='75' rows='5' name='blurb'><% $user->blurb %></textarea>
+<p>
+<input type="submit" value="Save">
+<input type="button" value="Cancel" onclick="window.location='/profile/profile.pl'">
+</div>
+</form></div>
+</div>
+

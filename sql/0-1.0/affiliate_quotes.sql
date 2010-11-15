@@ -1,0 +1,12 @@
+create table affiliate_quotes ( id bigint auto_increment primary key, eId varchar(12), company varchar(32), locale varchar(8), state varchar(8), price decimal, currency varchar(20), usd_price decimal, link varchar(255), found timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
+alter table affiliate_quotes add unique index(eId, company, locale, state);
+alter table affiliate_quotes change column price price decimal(4,2);
+alter table affiliate_quotes change column usd_price usd_price decimal(4,2);
+update affiliate_quotes set company = 'Amazon' where company = 'amazon';
+update affiliate_quotes set company = 'AbeBooks' where company = 'abebooks';
+alter table affiliate_quotes add column link_class varchar(64);
+alter table affiliate_quotes change column price price decimal(16,2);
+alter table affiliate_quotes change column usd_price usd_price decimal(16,2);
+alter table affiliate_quotes add column bargain_ratio int unsigned default 0;
+alter table affiliate_quotes add index(bargain_ratio);
+alter table affiliate_quotes add column detailsURL varchar(514);

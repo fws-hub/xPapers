@@ -1,0 +1,216 @@
+<& ../header.html, subtitle=>"Editor's Guide" &>
+<style> 
+h3 { color: #<%$C2%> } 
+h4 { color: #333 }
+li { padding:3px }
+ul.normal li { padding:0 }
+</style>
+
+<% gh("Editor's Guide") %>
+This document is intended for current and prospective category editors. Prospective editors should also read the <a href="/help/categorization.html">introduction to the categorization project</a>, and should examine the <a href="/browse/all">full list of categories and editors</a>. 
+<p>
+<h3>Contents</h3>
+<ul class="normal">
+<li><a href="#types">Category types</a></li>
+<li><a href="#resp">What editors do</a></li>
+<li><a href="#whatwhere">Criteria for inclusion</a></li>
+<li><a href="#tools">Editors' tools</a></li>
+<li><a href="#startup">Where do I start?</a></li>
+<li><a href="#criteria">Categorization criteria</a></li>
+<li><a href="#confusion">Things that can be confusing</a></li>
+<li><a href="#terms">Duration of terms, expectations</a></li>
+<li><a href="#app">Applications</a></li>
+<li><a href="#qual">Qualifications</a></li>
+<li><a href="#get">What do editors get?</a></li>
+</ul>
+
+<a name="types"><h2>Category types</h2></a>
+For the purposes of editorships, we distinguish three relevant category types: area, middle and leaf. For example:
+<& example_cat_hierarchy.html &>
+<p>
+The areas are the categories just below the five main clusters in the "browse by area" menu. There are no editors for the non-<% lc $SUBJECT %> categories. 
+<p>
+<a name="resp"><h2>What editors do</h2></a>
+The single most important role for all editors is to populate their category with entries.  There are three main ways to do this:
+<ol class='normal' style='padding-left:20px'>
+
+    <li><b>Trawl using search mechanisms.</b>  The editors' control panel allows editors to manually <a href=#trawl>trawl</a> the <% $s->{niceName} %> database using search mechanisms to find relevant papers and add them easily to their categories.  Editors can also set up an automatic trawler that will find potential new entries as they are added to <% $s->{niceName} %>.  
+
+<li><b>Import bibliographies.</b>  Editors can import bibliographies of relevant papers from articles (including Word, PDF, plain text) or bibliographic files (e.g. BibTeX, EndNote).  Editors can begin by importing bibliographies from their theses and articles, as well as any bibliographic files they might have access to. Be sure to obtain permission before importing someone else's bibliography. See the section on <a href="#import">batch imports</a> for more information on how this works. 
+
+<li><b>Monitor the new items page.</b>  Editors should periodically monitor the <a href="/recent">new items page</a> for papers in their areas, categorizing them under their area when appropriate.
+</ol>
+
+All editors at all levels should use all three of these methods.  Editors of unpopulated categories should initially concentrate on populating their categories.  After the initial population of categories, they should periodically check for new additions (at least every month, preferably more often), as well as for relevant items already in the database that have not yet been added to the category.
+
+<p>Note that in using both trawling and importing tools, editors should be cautious about adding too many items to a category.  As always, the criterion is that the category in question should be a major focus of the work in question. 
+
+<p>Additional responsibilities specific to category types are described below.
+
+<p>
+<h3>Leaf editors</h3>
+<ol class='normal' style='padding-left:20px'>
+
+<li><b>Monitor third party changes.</b> Leaf editors are responsible for inspecting modifications to the contents of their categories made by third parties. They have the power to reverse any inappropriate changes through the control panel.</li>
+
+<li><b>Correct entries.</b> If entries in a category contain obvious mistakes, for example in author, title, date, or publication information, then a leaf editor should correct these mistakes by editing the entry.
+</ol>
+
+<p>
+<h3>Middle editors</h3>
+Middle editors will often be editors of the leaf categories underneath, but this is optional. Apart from leaf editor duties and the general duties described above, middle editors' main duties are as follows:
+<ol class='normal' style='padding-left:20px'>
+
+<li><b>Move entries to lower categories</b>.  When papers are categorized under a middle category but not under a lower category, editors of the middle category should assign entries to a lower category.  This can be done easily using the quick categorization shortcuts (an option in the right-hand-side boxes).
+
+<li><b>Improve internal structure</b>.  Middle editors are also encouraged to suggest improvements to the internal structure of their categories, by submitting proposals to the general editors (not the area editors).  Final decisions will be made by the general editors, in consultation with the area editors.<p>
+</ol>
+
+<h3>Area editors</h3>
+<ol class='normal' style='padding-left:20px'>
+
+<li><b>Move entries to lower categories.</b>  When papers are categorized under an area category but not under a lower category, editors of the middle category should assign entries to a lower category.  This can be done easily using the quick categorization shortcuts (an option in the right-hand-side boxes).  The lower category need not be a leaf category; one area below is fine.  
+
+<li><b>Improve internal structure</b>.  Area editors are also encouraged to suggest improvements to the internal structure of their categories, by submitting proposals to the general editors.  Final decisions will be made by the general editors, in consultation with the area editor.
+
+<li><b>Help recruit subeditors</b>.  Area editors are expected to help in the process of recruiting editors for lower-level categories in their area.
+
+<li><b>Monitor the work of subeditors</b>. Area editors are expected to monitor the work of editors of lower-level categories to ensure that categories are being appropriately maintained as per the guidelines for other levels above.  When categories are incomplete or otherwise poorly maintained, area editors should notify either the category editor or the general editors.</li>
+</ol>
+
+
+<a name="extra"><h2>Further roles</h2></a>
+All editors are encouraged to play some further optional roles:
+<ol class='normal' style='padding-left:20px'>
+
+<li><b>Promote your categories.</b> It helps people find categories when they are referenced elsewhere on the web. For this reason, we recommend that editors link to their categories from their personal pages. There is a tool for doing so <a rel="nofollow" href="/utils/mycategories.pl">here</a>.</li>
+
+<li><b>Report bugs</b>. We encourage editors to report bugs in <% $s->{niceName} %> as they find them. The overwhelming majority of people don't bother reporting problems they stumble upon. As an editor, please be dilligent and report all anomalies so we can fix them.</li>
+
+<!--
+<li><b>Categorize uncategorized material</b>.  The <a href="/utils/uncategorized.pl">uncategorized material</a> page will give a list of papers that have not yet been categorized (listed 20 at a time, selected from around 50,000 uncategorized entries).  All editors are encouraged to go through this page from time to time and assign entries to appropriate clusters or areas, at which point local editors can take over.  This process will play a crucial role in ensuring that all papers are eventually assigned to categories.</li>
+-->
+
+<li><b>Discussion forums</b>.  Editors are encouraged to take an active part in the discussion forums.  We will set up an editors-only forum in which editors can raise issues specific to the editorial process, but we also encourage editors to take part in the more general discussion forums.</li>
+
+<li><b>Monitor new entries</b>.  All editors are encouraged to monitor
+the entries on the new papers page, to categorize them even when not
+in the editors' own categories, and to correct mistakes where they are
+apparent.</li>
+</ol>
+
+
+<a name="whatwhere"><h2>Criteria for inclusion</h2></a>
+Editors should make sure they understand the criteria for including an entry in a category.  The most important criterion is that the category be a major focus of the entry in question.  See the <span class='ll' onclick='faq("whatwhere")'>categorization guidelines</span> in the FAQ, as well as the introduction to the <a href="/help/categorization.html">categorization project</a>.  If editors have any questions about this, please contact the general editors or post in the editors' forum.  Final decisions about policies for inclusion in a category rest with the general editors, with input from category editors.
+
+<p>
+<a name="tools"><h2>Editor's tools</h2></a>
+This section describes the central tools that editors should use.
+<p>
+<h3>Editor's control panel (all editors)</h3>
+Each editor has access to a customized control panel <a rel="nofollow" href="/utils/edpanel.pl">here</a>. Editors should also see a link to this panel appear in the top menu on each page. The control panel brings together all the tools and information that an editor needs. 
+
+<p>
+<h3>Email reports (all editors)</h3>
+All editors receive weekly email reports of the status of their categories and trawlers. Email reports summarize the most important information found on the control panel.
+
+<p>
+<a name="import"><h3>Batch import (all editors)</h3></a>
+The <a href="/utils/batch_import.pl">batch import function</a> allows anyone to add entries from an existing bibliography  to a category.
+<p>
+Two kinds of import are possible: 
+
+<ol class="normal">
+    <li><b>Plain text</b>. The plain text mode is for pasting in a bibliography from an article, dissertation, or web page. The plain text parser is very imperfect, and some tweaking of the bibliography's format may be necessary to obtain good results. It is nevertheless a good idea to try importing all relevant bibliographies. One important limitation of plain text imports is that they cannot create new <% $s->{niceName} %> entries.  Instead, they are used only to categorize existing entries, when the entries match items in the file sufficiently well. </li>
+
+    <li><b>Bibliographic file</b>. In contrast, bibliographic files can be used to create new <% $s->{niceName} %> entries, when there is no matching entry in the database. A number of formats are supported, including BibTeX, MODS XML, EndNote and RIS. Generally speaking, imports from bibliographic files are more flexible and more reliable.  </li>
+</ol>
+
+<p>
+Editors are encouraged to use batch imports to quickly populate their categories, subject to the caution that follows. The import function is accessible from a link at the top of category listings, as well as from the editor's panel. Note that when an entry is already present in the category or in a child, the action will be ignored. This means that there is no harm in importing bibliographies which contain items already categorized, including whole-area bibliographies for area-level categories.
+<p>
+<b>Important caution:</b> Almost every bibliography contains many items that should not be included in a given category.  Please keep in mind the <% $s->{niceName} %> criterion, that the category should be a major focus of the work in question.  Even specialized bibliographies are often compiled using a more liberal criterion.  For this reason, bibliographies should be carefully trimmed before importing. Alternatively, it is possible to inspect imported entries after the import and reverse any inappropriate change caused by the import. This is easy to do from the listings provided as part of batch import reports. Both additions of new entries and classifications of entries into categories can easily be reversed from batch import reports.  
+<p>
+<a name="trawling"><h3>Trawling tools (all editors)</h3></a>
+
+The other central way of populating a category is through trawling. There are two ways to trawl:
+<p>
+<b>Manual trawling</b>. Manual trawling is performed by entering a search query in the appropriate box in the editor's panel. The database will be searched for items which meet the three following conditions: 1) they match the query; 2) they are not already in the relevant category; 3) they are not in the category's exclusion list. The exclusion list is used to keep track of which entries have been inspected for relevance and which have not. Each entry listed in a trawl search will come with a button to add it to the category. After having inspected a page of results and classified all relevant entries, one can add all remaining items to the category's exclusion list. It's possible to build up a comprehensive bibliography quite rapidly using this system.
+<p>
+<b>Automatic trawling</b>. It is also possible to associate a permanent trawler with a category. A trawler is essentially a saved search query which uses the advanced search function. One can use an automatic trawler exactly as one uses the manual searches described above, with the following additional benefits: (i) the search is saved and needs not be re-entered each time, (ii) one has access to the added power of advanced search, (iii) a timemark system can be used so that only new entries are trawled by the automatic trawler.
+
+<p>Each category has a timemark.  When the timemark is activated, only entries added to the <% $s->{niceName} %> database after the time in the timemark will appear in the automatic trawler results.  (Timemarks do not affect manual trawling.)  If timemarks are used, you will know that there are new potential entries to examine when your reports indicate that entries have been detected by the automatic trawler.
+
+<p>You should be very careful before setting a timemark on a category, as doing so will cause <i>all</i> existing <% $s->{niceName} %> entries to be excluded from future automatic trawling. It is easy to overlook relevant entries.  A timemark should only be set when the current automatic trawler shows no unchecked entries.  Timemarks should be reset when changing a trawler's configuration, in order to discover previously missed entries. 
+<p>
+<h3>Material to categorize (for area and middle editors)</h3>
+
+Panels for area and middle categories show the number of entries currently sitting in the category itself. These entries should be moved down to lower-level categories. The link provided will show a list of these entries with quick categorization links under each entry. An entry can be moved down to a category by clicking on the category's name. 
+
+Area and middle editors are also encouraged to use the quick categorization
+shortcuts (enabled by ticking te "categorization shortcuts" option box
+in the right column) in other contexts to categorize items.  For
+example, these can be used from the new items page in order to
+categorize new items.
+
+<p>
+<h3>Edit history (for leaf editors)</h3>
+Leaf editors have access to the history of changes by other users to their categories' content (changes they made themselves are omitted). They should review changes periodically and reverse any inappropriate changes. Reversing a change is simply a matter of clicking the "reverse" button next to it. Editors can mark non-reversed changes as checked in order to keep track of which changes they have inspected. The editor's panel shows a count of unchecked changes for each leaf category.
+
+<p>Leaf editors may notice some changes made by a user called "AUTOCAT". This is the user account associated with our automated categorization system. When this can be done safely, AUTOCAT classifies entries based on their source journals and/or certain keywords in them. It is a rudimentary automatic classifier. Don't be afraid to reverse what AUTOCAT does. AUTOCAT also sometimes fixes glitches in the categorization system. For example, it makes sure that no entry is both in a category and the category's parent. (You will not see these edits as a leaf editor.)
+
+<p>
+<h3>New "my bibliography" shortcuts</h3>
+Editors will see the categories they edit appear in the "my bibliography" menu attached to each entry. The public categories will be distinguished from their personal categories by italics. At the moment, public categories will not show a checkmark when an item is in the category. 
+
+<a name="startup"><h2>My application was accepted.  Where do I start?</h2></a>
+Here is a checklist of what you should do to start. You will be able to do all these things from the <a rel="nofollow" href="/utils/edpanel.pl">editor's control panel</a>. We recommend that you do these things in order for each category, starting with the highest-level categories.
+<ol>
+<li>Import any relevant bibliographies (making sure to seek permission from whoever holds the rights to them--bibliographies <b>are</b> copyrightable). You can import from bibliographic files (e.g. BibTeX and EndNote) as well as bibliographies from articles and books. See <a href="#import">batch import</a>. It is worthwhile to scour the web and request permissions. </li>
+    <li>For leaf categories, go through the category and remove any irrelevant entries. Correct any obvious errors in entries' details.</li>
+    <li>For middle categories and areas, go through the material to categorize (follow the link from the control panel);
+    <li>Start trawling! Start with manual trawls.  Once you have built up a good body of entries and have a sense of which search queries are relevant, try to design a good automated trawler to assist you. </li>
+</ol>
+<p>
+
+<a name="criteria"><h2>How do I know what items belong to a category?</h2></a>
+<p>
+See the <span class='ll' onclick='faq("whatwhere")'>categorization guidelines</span> in the FAQ.
+</p>
+
+
+<a name="confusion"><h2>Things that can be confusing</h2></a>
+<ul class="normal">
+    <li><i>Filters:</i> Certain filters are applied to search results and category listings by default (except in special circumstances, such as when trawling and listing material to categorize). In particular, only online papers by professional authors are listed by default.  So it's possible that you will not see some material you add while you have the default filters on.  You can change the filters in the options on the right of listings. Even though <% $s->{niceName} %> has focused initially on online material (hence the filter), we want to cover as much offline material as possible too, so it is worth adding everything.</li>
+    <li><i>AUTOCAT:</i> As an editor you will notice numerous changes made by a user named 'AUTOCAT'. This is our automatic categorizer. Because it is even worse than human, you should pay particular attention to the actions it takes. Don't be afraid to reverse them, because a certain percentage are guaranteed to be wrong.</li>
+<!--
+<li><i>Contributed bibliographies:</i> The "contributed bibliographies" listed in the right-hand-side box on area pages are personal bibliographies compiled by <% $s->{niceName} %> users (listed in "my bibliography") and then published.  These are not under the control of editors.</li>
+    -->
+</ul>
+
+<a name="terms"><h2>Duration of terms, expectations</h2></a>
+By default, an editorship lasts for six months.  Editors who do good work and wish to continue will normally be renewed automatically.
+<p>
+The primary expectation is that editors will play the roles delineated above.  In the case of an initially unpopulated category, our hope is that by the end of a six-month term, the category will be populated with a substantial population of items that includes well over half of the published entries in the category.  In the case of an initially populated category, our hope is that by the end of a six-month term editors will have made a significant effort to fill in missing items and to keep up with new items in the category.
+
+<a name="app"><h2>Applications</h2></a>
+
+Applications to be a category editor can be lodged from a category's
+main page.  When no editor has been assigned to a category, an
+application link will be present on the category page.  When an editor
+has been assigned, the editors' name will be present instead.  After
+an editor steps down, the application link will be reintroduced.
+
+<p>
+<a name="qual"><h2>Qualifications</h2></a>
+The usual minimal qualification for being editor of a given category is publications on the relevant topic, though we may make exceptions in some cases for leaf categories.  Area editors, and middle editors editing a significant number of leaf categories, will be held to a somewhat higher standard than leaf editors.
+
+<p>
+<a name="get"><h2>What do editors get?</h2></a>
+<& motivation1.html &>
+<p>
+Another common motivation for being a <% $s->{niceName} %> editor is that one discovers a lot of interesting literature in the process. The tools we make available to editors are quite unique and enable them to keep on top of their topics of interest very efficiently. We cannot make these tools available to everyone because this would consume too much computational resources.
+<p>
+Every effort is made to properly acknowledge editors' contributions. Editors' names and affiliations are prominently displayed next to their categories headings on category pages. In the future we will also provide a list of past editors and the duration of their terms.
+
+

@@ -1,0 +1,189 @@
+#!/bin/csh -f
+
+set INPUT_FILE = Makefile_start
+set OUTPUT_FILE = Makefile
+
+set INSTALLDIR = /usr/local/bin
+
+if ( ${#argv} > 0 ) then
+	if ( $1 == "--install-dir" ) then
+		if ( ${#argv} < 2 ) then
+			echo "--install-dir requires a directory"
+			exit
+		else
+			set INSTALLDIR = $2
+		endif
+	else
+		echo "Unidentified argument $1"
+		exit
+	endif
+endif
+
+set type = "Unknown"
+set universal_binary = "FALSE"
+set UNAME = `uname -a`
+if ( ` echo $UNAME | grep Linux | wc | awk '{print $1;}' ` == 1 ) then
+	if ( ` echo $UNAME | grep 'i[3456]86' | wc | awk '{print $1};'` == 1 ) then
+		set type = "Linux_x86"
+	else if ( ` echo $UNAME | grep 'x86_64' | wc | awk '{print $1};'` == 1 ) then
+		set type = "Linux_x86_64"
+	else
+		set type = "Linux_Unknown"
+	endif
+endif
+if ( ` echo $UNAME | grep Darwin | wc | awk '{print $1;}' ` == 1 ) then
+	set type = "MacOSX_Unknown"
+	if ( ` echo $UNAME | grep 'powerpc' | wc | awk '{print $1};'` == 1 ) then
+		set type = "MacOSX_ppc"
+	endif
+	if ( ` echo $UNAME | grep 'i386' | wc | awk '{print $1}'` == 1 ) then
+		set type = "MacOSX_intel"
+	endif
+endif
+if ( ` echo $UNAME | grep SunOS | wc | awk '{print $1;}' ` == 1 ) then
+	set type = "SunOS5"
+endif
+if ( ` echo $UNAME | grep IRIX | wc | awk '{print $1;}' ` == 1 ) then
+	set type = "IRIX"
+endif
+if ( ` echo $UNAME | grep NetBSD | wc | awk '{print $1;}' ` == 1 ) then
+	set type = "NetBSD"
+endif
+if ( ` echo $UNAME | grep FreeBSD | wc | awk '{print $1;}' ` == 1 ) then
+	set type = "FreeBSD"
+endif
+if ( ` echo $UNAME | grep Cygwin | wc | awk '{print $1;}' ` == 1 ) then
+	set type = "Cygwin"
+endif
+
+#
+# Support universal binaries for MacOSX's (gcc version 4 and higher)
+#
+# restrict to intel Mac's only because ppc Mac's I have access to
+# just don't have the i386 libraries...
+#
+#if ( $type == "MacOSX_ppc" || $type == "MacOSX_intel" ) then
+if ( $type == "MacOSX_intel" ) then
+	gcc -v >& tmp.$$
+	set gcc_version = ` grep version tmp.$$ | awk '{print $3;}' `
+	set gcc_major = ` echo $gcc_version | awk -v FS="." '{print $1;}' `
+	if ( $gcc_major > 3 ) then
+		set universal_binary = "TRUE"
+	endif
+	/bin/rm -f tmp.$$
+endif
+
+#POSTFIX=REPLACE_POSTFIX
+#CC = REPLACE_CC
+#RANLIB=REPLACE_RANLIB
+#INSTALLDIR=REPLACE_INSTALLDIR
+
+if ( $type == "Linux_x86" ) then
+	cat $INPUT_FILE | \
+	sed 's/REPLACE_CC/CC="cc -Wall"/' | \
+	sed 's/REPLACE_RANLIB/RANLIB="ranlib"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX/_i386/' > $OUTPUT_FILE
+else if ( $type == "Linux_x86_64" ) then
+	cat $INPUT_FILE | \
+	sed 's/REPLACE_CC/CC="cc -Wall"/' | \
+	sed 's/REPLACE_RANLIB/RANLIB="ranlib"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX/_i386/' > $OUTPUT_FILE
+else if ( $type == "Linux_Unknown" ) then
+	cat $INPUT_FILE | \
+	sed 's/REPLACE_CC/CC="cc -Wall"/' | \
+	sed 's/REPLACE_RANLIB/RANLIB="ranlib"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX//' > $OUTPUT_FILE
+else if ( $type == "MacOSX_ppc" && $universal_binary == "TRUE" ) then
+	cat $INPUT_FILE | \
+	sed 's/REPLACE_CC/CC="cc -arch i386 -arch ppc -Wall"/' | \
+	sed 's/REPLACE_RANLIB/RANLIB="ranlib -s"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX/_osx_universal/' > $OUTPUT_FILE
+else if ( $type == "MacOSX_intel" && $universal_binary == "TRUE" ) then
+	cat $INPUT_FILE | \
+	sed 's/REPLACE_CC/CC="cc -arch i386 -arch ppc -Wall"/' | \
+	sed 's/REPLACE_RANLIB/RANLIB="ranlib -s"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX/_osx_universal/' > $OUTPUT_FILE
+else if ( $type == "MacOSX_ppc" || $type == "MacOSX_intel" || \
+	$type == "MacOSX_unknown" ) then
+	cat $INPUT_FILE | \
+	sed 's/REPLACE_CC/CC="cc -Wall"/' | \
+	sed 's/REPLACE_RANLIB/RANLIB="ranlib -s"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX/_osx/' > $OUTPUT_FILE
+else if ( $type == "SunOS5" ) then
+	cat $INPUT_FILE | \
+	sed 's|REPLACE_CC|CC="gcc"|' | \
+	sed 's/REPLACE_RANLIB/RANLIB="echo Skipping ranlib"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX/_sunos5/' > $OUTPUT_FILE
+else if ( $type == "IRIX" ) then
+	cat $INPUT_FILE | \
+	sed 's|REPLACE_CC|CC="/tsri/gnu/sgi4DIRIX6/bin/gcc"|' | \
+	sed 's/REPLACE_RANLIB/RANLIB="echo Skipping ranlib"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX/_irix/' > $OUTPUT_FILE
+else if ( $type == "NetBSD" ) then
+	cat $INPUT_FILE | \
+	sed 's/REPLACE_CC/CC="cc -Wall"/' | \
+	sed 's/REPLACE_RANLIB/RANLIB="ranlib"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX/_netbsd/' > $OUTPUT_FILE
+else if ( $type == "FreeBSD" ) then
+	cat $INPUT_FILE | \
+	sed 's/REPLACE_CC/CC="cc -Wall"/' | \
+	sed 's/REPLACE_RANLIB/RANLIB="ranlib"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX/_freebsd/' > $OUTPUT_FILE
+else if ( $type == "Cygwin" ) then
+	cat $INPUT_FILE | \
+	sed 's/REPLACE_CC/"CC=cc"/' | \
+	sed 's/REPLACE_RANLIB/RANLIB="echo Skipping ranlib"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX/_cygwin/' > $OUTPUT_FILE
+else
+	# Unknown operating system
+	cat $INPUT_FILE | \
+	sed 's/REPLACE_CC/"CC=cc"/' | \
+	sed 's/REPLACE_RANLIB/RANLIB="echo Skipping ranlib"/' | \
+	sed "s|REPLACE_INSTALLDIR|${INSTALLDIR}|" | \
+	sed 's/REPLACE_POSTFIX//' > $OUTPUT_FILE
+endif
+
+echo
+echo
+echo "Bibutils Configuration"
+echo "----------------------"
+echo
+echo "Configured $OUTPUT_FILE to operating system $type."
+echo "    If auto-identification of operating system failed, please"
+echo "    e-mail cdputnam@ucsd.edu with the system type and output of"
+echo "    the command: uname -a"
+echo
+echo "Set installation directory to $INSTALLDIR."
+echo "    To modify install directory type: configure --install-dir DIR"
+echo "    where DIR is the desired directory."
+echo
+if ( $OUTPUT_FILE == "Makefile" ) then
+  echo "To compile,                  type: make"
+  echo "To install,                  type: make install"
+  echo "To make tgz package,         type: make package"
+  echo "To make deb package,         type: make deb"
+  echo
+  echo "To clean up temporary files, type: make clean"
+  echo "To clean up all files,       type: make realclean"
+else
+  echo "To compile,                  type: make -f $OUTPUT_FILE"
+  echo "To install,                  type: make -f $OUTPUT_FILE install"
+  echo "To make tgz package,         type: make -f $OUTPUT_FILE package"
+  echo "To make deb package,         type: make -f $OUTPUT_FILE deb"
+  echo
+  echo "To clean up temporary files, type: make -f $OUTPUT_FILE clean"
+  echo "To clean up all files,       type: make -f $OUTPUT_FILE realclean"
+endif
+echo
+echo

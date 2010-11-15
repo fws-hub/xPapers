@@ -1,0 +1,74 @@
+<%perl>
+return unless $SECURE;
+my $d = $ARGS{diff};
+#$rend->{noOptions} = 1;
+#$rend->{noExtras} = 1;
+$d->load;
+</%perl>
+<table id='diff-<%$d->id%>' class='diff <%$d->checked?"diffChecked":""%> <%$d->status>=10?"diffApplied":""%>'>
+    <tr>
+%unless ($ARGS{compact}) {
+        <td class='diffCtl'>
+            <% $d->uId ? $d->user->fullname . "<span class='hint'> (" . $d->user->id . ")</span>" : "<b>Guest</b>" %><br>
+            <span class='diffType'><% $d->type %></span><br>
+            <span class='hint'><% $d->created->ymd %></span><br>
+            <span class='hint'><% $d->created->hms %></span><p>
+            <span class='hint'>diff #<%$d->id%></span><br>
+        </td>
+%}
+        <td>
+%if ($d->{status} > 0) {
+        <div style='float:right;'>
+%unless ($ARGS{compact}) {
+%#i don't think this is right..(DB)            <input type='button' onclick='rollback("<%$d->oId%>","<% $ARGS{startTime}->ymd . "T" . $ARGS{startTime}->hms%>","<% $ARGS{endTime}->ymd . "T" . $ARGS{endTime}->hms%>","<%$d->class%>")' value="rollback to prior state"><br>
+%}
+            <input type='button' onclick='reverseOne("<%$d->id%>")' value="reverse">
+           <!-- <input type='checkbox' name='diff-<%$d->id%>' checked> mark-->
+        </div>
+%} elsif ($d->{status} == 0) {
+       <div style='float:right;'>
+            <input type='button' onclick='acceptDiff("<%$d->id%>")' value="Accept"><br><br>
+            <input type='button' onclick='rejectDiff("<%$d->id%>",$F("<%$d->id%>reason"))' value="Reject"><br>
+            <!--
+            <input type='button' onclick='rejectDiff("<%$d->id%>","Wrong function: Use the _Remove_ link to remove an entry from a list (e.g., from My Works), not the _Delete_ link.")' value="Rem not Del">
+           -->
+           <!-- <input type='checkbox' name='diff-<%$d->id%>' checked> mark-->
+        </div>
+%}
+<%perl>
+
+if (1) {
+    if ($d->type eq 'update') {
+        print $rend->renderObject($d->object) if $ARGS{solo};
+        $m->comp("innerdiff.html", diff=>$d);
+    } elsif ($d->type eq 'add') {
+        if ($d->class eq 'xPapers::Entry') {
+            my $fd = xPapers::Diff->new;
+            my $void = xPapers::Entry->new;
+            $void->id($d->oId);
+            $fd->before($void);
+            $fd->after($d->object_back_then);
+            $fd->compute;
+            $m->comp("innerdiff.html", diff=>$fd);
+        } else {
+            print $rend->renderObject($d->object or $d->object_back_then);
+        }
+    } else {
+        print $rend->renderObject($d->object) if $ARGS{solo};
+        print "<a href='/utils/duplicate.pl?eId=" . $d->oId . "'>dup</a>" if $d->class eq 'xPapers::Entry';
+    }
+    print "Note: <em>$d->{note}</em>" if $d->{note};
+    my $test_url = $d->class->diff_test_url($d->id);
+    print "<a href='$test_url'>Test diff</a><br>" if $test_url;
+} else {
+    print "Object no longer in database (probably deleted). This diff cannot be shown until you restore the object.";
+}
+
+</%perl>
+%unless ($d->status) {
+        Reason for reject: <input type="text" size="50" id="<%$d->id%>reason">
+%}
+        </td>
+</table>
+
+

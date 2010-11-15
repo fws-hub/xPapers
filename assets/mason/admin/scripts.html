@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    function reverseOne(dId) {
+        admAct("reverseDiff",{dId:dId},function() {
+            $('diff-'+dId).hide();
+        });
+    }
+
+    function rollback(oId,minTime,maxTime,class,all) {
+        admAct("rollback",
+            {
+                oId:oId, 
+                uId:<%$ARGS{uId} || 0%>, 
+                minTime:minTime, 
+                maxTime:maxTime,
+                all:"<%$ARGS{all}%>",
+                class:class
+            }, 
+            all ? 
+            function() { $('diff-'+oId).hide() } : 
+            refresh
+        );
+    }
+    function markChecked(oId,minTime,maxTime,class) {
+        admAct("markChecked",{oId:oId, minTime:minTime, maxTime:maxTime, class:class}, 
+            function() { $('diff-'+oId).hide() } 
+        )
+    }
+
+</script>
+
+

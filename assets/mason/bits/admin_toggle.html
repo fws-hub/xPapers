@@ -1,0 +1,7 @@
+<%perl>
+my $o = $ARGS{object};
+my $on = $o->{$ARGS{field}};
+</%perl>
+<input type="checkbox" name="admtog<%$ARGS{field}.$o->{id}%>" <%$on?"checked":""%> onclick="
+    admAct('setField',{class:'<%$o->meta->class%>', id:'<%$o->id%>', targetField:'<%$ARGS{field}%>',value:this.checked?1:0});
+">

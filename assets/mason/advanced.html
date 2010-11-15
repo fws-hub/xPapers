@@ -1,0 +1,307 @@
+<%perl>
+if (!$ARGS{noheader}) {
+    $m->comp('header.html',subtitle=>'Advanced search',%ARGS);
+    print gh("Advanced search");
+} else {
+    print "<div>";
+}
+
+# Load query if provided an id
+if ($ARGS{fId} or $ARGS{edFilter}) {
+    my $cat;
+    if ($ARGS{edFilter}) {
+
+        $cat = xPapers::Cat->get($ARGS{edFilter});
+        error("Problem loading trawler") if !$cat;
+        error("Not allowed: not editor") unless $cat->isEditor($user) or $SECURE;
+        $ARGS{fId} = $cat->edfId;
+        print "<b>Editing trawler for category " . $cat->name . "</b><p>";
+        </%perl>
+        <div style='border:1px dotted #555;padding:5px'>
+           A trawler is an advanced search that is saved and attached to a category. Once set up, you can use the trawler to monitor possibly relevant entries. You don't need to worry about setting up a recency constraint, this will be set automatically when the trawler is used. 
+        </div>
+           <br>
+        <%perl>
+
+    } else {
+        $ARGS{fId} = $ARGS{fId}->[0] if ref $ARGS{fId} eq 'ARRAY';
+    }
+
+    my $que = xPapers::Query->new(id=>$ARGS{fId})->load_speculative;
+    error("Bad filter id") unless $que;
+
+    # if asked to save ..
+    if ($ARGS{save}) {
+        $que->loadForm(\%ARGS);
+        $que->save;
+        if ($ARGS{edFilter}) {
+            print "<b>Trawler saved</b><p>";
+            if ($ARGS{reset}) {
+                print "<b>Unchecked all items.</b><p>";
+                $cat->edfChecked(undef);
+                $cat->save;
+            }
+            print "<a href='/utils/edpanel.pl'>Return to Editor Panel</a>";
+            return;
+        } else {
+            print "<b>Search saved as `$ARGS{name}`.</b><br><br>";
+        }
+    } 
+    # otherwise we're loading from scratch 
+    else {
+        foreach (keys %$que) {
+            $ARGS{$_} = $que->{$_};
+        }
+        $ARGS{appendMSets} = 1;
+    }
+} else {
+    $ARGS{appendMSets} = 1;
+}
+$ARGS{advMode} ||= 'fields';
+
+# Load examplar if req
+if ($ARGS{examplarId}) {
+    my $que = xPapers::Query->new(id=>$ARGS{examplarId})->load_speculative;
+    error("Bad filter id") unless $que and $que->{examplar};
+    print "<b>Example search " . $que->name . " loaded as new.</b><br>";
+    $ARGS{$_} = $que->{$_} for keys %$que;
+    $ARGS{fId} = undef;
+}
+
+if ($user->{id} and !$ARGS{edFilter}) {
+
+    my @qs = grep {!$_->system} $user->queries_o;
+    if ($#qs > -1) {
+        print "<form method='get' id='saved'><div>\n";
+        print "Saved query: <select  onChange='\$(\"saved\").submit()' name='fId'>\n";
+        print opt('','New query','');
+        for my $oq (@qs) {
+            print opt($oq->id,$oq->{name},$ARGS{fId});
+        }
+        print "</select>";
+        print " (<a href='/profile/advanced_mng.html'>manage saved queries</a>)";
+        print "</div></form>\n";
+    }
+
+}
+
+
+</%perl>
+<script type="text/javascript">
+var adv_modes = ['fields','normal','more'];
+function syncMode(mode) {
+
+    $('advMode').value=mode;
+    $('advModeS').value=mode;
+
+    for(x=0;x<=adv_modes.length;x++) {
+        if (mode==adv_modes[x]) {
+            $$('.'+adv_modes[x]).each(function(i) {
+                i.show();
+            });
+        } else {
+            $$('.'+adv_modes[x]).each(function(i) {
+                i.hide();
+            });
+        }
+    }
+}
+
+YAHOO.util.Event.onDOMReady(function() {
+    syncMode("<%$ARGS{advMode}%>");
+});
+</script>
+
+<form>
+Search mode: <select id='advModeS' onchange="syncMode(this.value)">
+    <%opt('fields','Normal - Good for most purposes',$ARGS{advMode})%>
+    <%opt('normal','Fuzzy filter (basic) - use to screen the literature along thematic lines',$ARGS{advMode})%>
+    <%opt('more','Fuzzy filter (advanced) - more flexible filter',$ARGS{advMode})%>
+</select>
+</form>
+<p>
+<div>
+
+    <div class='more' style="display: <%$ARGS{advMode} eq 'more' ? "block" : "none"%>">
+    <b>Instructions</b>
+    <ul>
+        <li>This unique tool allows you to search the <% lc $SUBJECT %> literature using keywords graded for relevance.</li>
+        <li>Enter words or phrases in the appropriate boxes belows. The more the better. </li>
+        <li>Use <b>double</b> quotes for multi-word phrases such as "externalism about content".</li>
+        <li>Search is not case-sensitive. Words of less than four characters are ignored.</li>
+        <li>Outside double quotes, you can use * at the end of a word to match all words beginning with it. For example, "dualis*" matches both "dualism" and "dualist". </li>
+        <li>You can load an example search to see how this all works:
+            <form style="display:inline">
+            <select name="examplarId">
+                <%perl>
+                    my $exl = xPapers::QueryMng->get_queries(query=>[examplar=>1]);            
+                    print opt($_->id,$_->name) for @$exl;
+                </%perl>
+            </select>
+            <input type="submit" value="Load it">
+            </form>
+        </li>
+    </ul>
+    </div>
+    <div class='normal' style="display: <%$ARGS{advMode} eq 'normal' ? "block" : "none"%>">
+    <b>Instructions</b>
+    <ul>
+        <li>In this search mode, you <b>cannot</b> use * and +. You need to spell out all relevant variations on a word. The exception are words ending in -ism, -ist, or -ists, which will automatically be expanded with all three variations. For example, entering "dualism" is equivalent to entering "dualism dualist dualists" without expansion. </li>
+        <li>You can specify up to two mandatory keywords sets. Only entries which match at least a word in each specified set will be returned.</li>
+        <li>Relevance keywords are used primarily to determine the ranking of entries. You must enter something there or tick the "append words from mandatory sets" option. If you enter phrases in this box (strings in double quotes),  they will be treated like separate words. </li> 
+        <li>The right way to use this tool is to specify mandatory sets then add additional words to the relevance keywords. </li>
+        <li>You can repeat words for emphasis. A word repeated n times will count n times as much as it would otherwise. (Keep in mind that the "append words from mandatory sets" option can create duplicates.)</li> 
+    </ul>
+    </div>
+
+
+<form id='query' method="post" action="/search/<%$ARGS{edFilter}?'trawl.pl':'advanced.pl'%>">
+<input type="hidden" name="advMode" id="advMode" value="<%$ARGS{advMode}%>">
+
+<div class='fields' style="display: <%$ARGS{advMode} eq 'fields' ? "block" : "none"%>">
+    
+    <& search/fields_form.html, %ARGS &>
+
+</div>
+
+
+</div>
+
+<div class='normal' style="display: <%$ARGS{advMode} eq 'normal' ? "block" : "none"%>">
+<b>Mandatory keyword sets</b><p>
+Double quotes allowed here to match multi-word strings.<br>
+Entry contains at least one of these words:<br>
+<textarea name="w_ezn" cols="90" rows="1"><%$ARGS{w_ezn}%></textarea><br>
+AND<br>
+Entry contains at least one of these words:<br>
+<textarea name="w_ezn2" cols="90" rows="1"><%$ARGS{w_ezn2}%></textarea><br>
+<p>
+<b>Relevance keywords</b><p>
+These keywords primarily determine the ranking of entries. You must either specify words here or use the mandatory keywords from above instead. You can also do both. <br>
+<input type="checkbox" name="appendMSets"<%$ARGS{appendMSets}?'checked':''%>> Append words from mandatory keyword sets (above) to this list.<br>
+<textarea name="w_ez" cols="90" rows="2"><%$ARGS{w_ez}%></textarea><br>
+<p>
+
+</div>
+
+
+<div class='more' style="display: <%$ARGS{advMode} eq 'more' ? "block" : "none"%>">
+<table width="650">
+        <tr>
+            <td align="left"><b>Keywords</b></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td align="right" valign="top">These words <b>must appear</b> in the results:
+                <div class="hint">Use sparingly. Most words are better put in the box below. <br>You can group words using parentheses. "(Word1 Word2) (Word3 Word4)" will restricted results to entries containing (Word1 or Word2) and (Word3 or Word4). </div>
+            </td>
+            <td>
+                <textarea rows="3" cols="40" name="w_a"><%$ARGS{w_a}%></textarea>
+           </td>
+        </tr>
+        <tr>
+            <td align="right" valign="top">These words are <b>excellent</b> indicators of relevance:
+                <div class="hint">If searching for papers about a given view, you want to put its name and those of alternative views here. Typically, you want dualis*, not dualism.</div>
+            </td>
+           <td valign="top"><textarea rows="3" cols="40" name="w_e"><%$ARGS{w_e}%></textarea></td>
+        </tr>
+        <tr>
+            <td align="right" valign="top">These words are <b>good</b> indicators of relevance:</td>
+            <td valign="top"><textarea rows="3" cols="40" name="w_g"><%$ARGS{w_g}%></textarea></td>
+        </tr>
+        <!--
+        <tr>
+            <td align="right" valign="top">These words are <b>poor but positive</b> indicators:
+                <div class="hint">These words are better there than not, but not very good indicators of relevance. Use sparingly. This field is only really useful for fine-tuning purposes.</div>  
+            </td>
+            <td valign="top"><textarea rows="3" cols="40" name="w_p"><%$ARGS{w_p}%></textarea></td>
+        </tr>
+        -->
+        <tr>
+            <td align="right" valign="top">These words are indicators of <b>irrelevance</b>:
+            <div class="hint">Use to weed out entries about topics you are not interested in. If you use sufficiently many positive indicators (above), you will not need many terms here.</div> 
+            
+            </td>
+            <td valign="top"><textarea rows="3" cols="40" name="w_n"><%$ARGS{w_n}%></textarea></td>
+        </tr>
+</table>
+</div>
+
+<table width='700px'>
+
+    <tr bgcolor="#FFFFFF">
+    <td width="15%"><b>Date&nbsp;</b></td>
+    <td nowrap="nowrap" width="40%">Return works published between</td>
+    <td><span><input size="5" maxlength="5" value="<%dquote($ARGS{minYear})%>" name="minYear">
+    - <input size="5" maxlength="5" value="<%dquote($ARGS{maxYear})%>" name="maxYear"></span></td>
+    <td>&nbsp;</td>
+    </tr>
+
+    <tr bgcolor="#FFFFFF">
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td nowrap="nowrap" valign="top">e.g.,
+    <i>1996</i></td>
+    <td>&nbsp;</td>
+    </tr>
+
+    <tr bgcolor="#FFFFFF">
+    <td width="15%" valign='top'><b>Other&nbsp;</b></td>
+    <td colspan='2'>
+
+%unless ($ARGS{edFilter}) {
+    Added <select name="interval">
+        <% opt(0,"----",$ARGS{interval} || 0)%>
+        <% opt(7,"1 week",$ARGS{interval} || 0)%>
+        <% opt(14,"2 weeks",$ARGS{interval} || 0)%>
+        <% opt(28,"1 month ",$ARGS{interval} || 0)%>
+        <% opt(56,"2 months ",$ARGS{interval} || 0)%>
+        <% opt(112,"4 months ",$ARGS{interval} || 0)%>
+        <% opt(180,"6 months ",$ARGS{interval} || 0)%>
+        <% opt(350,"1 year ",$ARGS{interval} || 0)%>
+        <% opt(700,"2 years ",$ARGS{interval} || 0)%>
+        <% opt(1100,"3 years ",$ARGS{interval} || 0)%>
+    </select> or less ago.
+    <br>
+    <input name="proOnly" id="proOnly" type="checkbox" <%$ARGS{proOnly} eq 'on' ? 'checked' :''%>> professional authors only<br>
+    <input name="onlineOnly" id="onlineOnly" type="checkbox" <%$ARGS{onlineOnly} eq 'on' ? 'checked' :''%>> online only<br>
+    <input name="freeOnly" id="freeOnly" type="checkbox" <%$ARGS{freeOnly} eq 'on' ? 'checked' :''%>> free only<br>
+    <input name="publishedOnly" id="publishedOnly" type="checkbox" <%$ARGS{publishedOnly} eq 'on' ? 'checked' :''%>> published only<br>
+%}
+    <p>
+    Minimal relevance (ignore if unsure): <input type="text" size="4" name="minRelevance" value="<%$ARGS{minRelevance}%>">. <span class='ll hint' onClick="faq('relevance')">(?)</a><br>
+
+   
+    
+    </td>
+    </tr>
+
+
+
+
+</table>
+
+%if ($ARGS{fId}) {
+%if (!$ARGS{edFilter}) {
+    Filter name: <input type="text" name="name" value="<%$ARGS{name}%>"><br>
+%} else {
+    <input type="hidden" name="cId" value="<%$ARGS{edFilter}%>">
+    <input type="checkbox" name="reset" checked> Reset timemark (recommended). You need to do this if you want older entries previously missed by your trawler to turn up now.<p>
+%}
+    <input type="hidden" name="fId" value="<%$ARGS{fId}%>">
+    <input type="submit" name="op" value="Save search and show results"> &nbsp;&nbsp; Or:
+    <input type="submit" name="op" value="Show results without saving">
+    <input type="hidden" id="save" name="save" value="0">
+    <input type="button" name="op" value="Save" onclick="$('query').action='';$('save').value='1';$('query').submit()">
+%} else {
+    Save this search as: <input type="text" value="<%$ARGS{name}%>" name="name" size="30" maxlength="100" <%$user->{id} ? "" : 'disabled'%>> (<% $user->{id} ? "leave blank not to save" : "You must sign in to save searches."%>)
+    <br><span style="font-size:smaller">Saved searches are accessible from the "my profile" menu. They can be used as RSS feeds or to automatically supply entries for a bibliography, among other things.</span> 
+    <br><br><input type="submit" value="Submit">
+%}
+    <p>
+    <input type="hidden" name="filterMode" value="advanced">
+</div>
+</form>
+% print "</div>" if $ARGS{noheader};
+
+

@@ -1,0 +1,146 @@
+<%perl>
+error("You need to log in to use this feature.") unless $user->{id};
+my $list = xPapers::Cat->new(id=>$ARGS{lId})->load;
+error("bad category id: $ARGS{lId}") unless $list;
+error("You are not allowed to add papers to list #$ARGS{lId}") unless $list->canDo("AddPapers",$user->{id});
+$m->comp("../header.html", %ARGS,subtitle=>"Import entries");
+print gh("Import entries from text to category `" . $list->name . "`");
+</%perl>
+
+%if (!$ARGS{content} and !$ARGS{confirm}) {
+<ul class="normal">
+<li>Copy (or type) a bibliography in the box below to add its content to your category. </li>
+<li>This tool is not for adding entries to the database, as only currently existing entries will be added to your category.</li> 
+<li>For best results, the bibliography should contain one entry per line.</li>
+<li>To get any results at all, the bibliography should be in the "Authors (year) Title" format, for example:<p>
+<code style="margin-left:20px">
+Chalmers, David J. (1996). The Conscious Mind. Oxford University Press.
+</code>
+<p>
+The parser will understand any reasonable format for the authors' names and is flexible with punctuation and typos. Non-letter characters at the beginning of lines are ignored, so bullet points are OK.<br>Aside from authors and title, all information is optional; however it is best to provide publication years to avoid mismatches.</li>
+</ul>
+<form method="POST" action="list_inject.html">
+    <textarea cols="80" rows="10" name="content"></textarea>
+    <input type="hidden" name="lId" value="<%$ARGS{lId}%>">
+    <p>
+    <input type="checkbox" name="defaultNot">I want to select only a few entries to add once the list has been parsed.<p>
+    <!--
+    <input type="checkbox" name="concat">My entries use more than one line each, deal with it.<br>
+    <br>
+    -->
+    <input type="submit" value="Submit">
+</form>
+
+<%perl>
+} elsif ($ARGS{content}) {
+    process(\%ARGS,$rend,$list);
+} elsif ($ARGS{confirm}) {
+    addEntries(\%ARGS,$list);
+} else {
+    error("Invalid command");
+}
+</%perl>
+
+<%once>
+sub addEntries {
+    my ($a,$list) = @_;
+    my $c = 0;
+    my @add;
+    for (keys %$a) {
+        next unless /^add-(.*)$/;
+        push @add,$1;
+        $c++;
+    }
+    $list->addEntry($_,$user->{id}) for @add;
+    print "$c entries added. <a href='/browse/$list->{id}'>View list</a>.";
+    writeLog($root->dbh,$q, $tracker, "listinject", "Added $c entries to $list->{name} ($list->{id})",$s);
+}
+
+sub process {
+    my ($a,$rend, $list) = @_;
+
+    my $content = decode_entities($a->{content});
+    use xPapers::Parse::Text qw/parse_list/;
+    my @res = parse_list($content,1);
+
+    my @found; 
+    my @notfound;
+    my @already;
+    my $sth = $root->dbh->prepare("insert ignore into unparsed set content= ?");
+
+    foreach my $e (@res) {
+        my $match;
+        $sth->execute($e->{input});
+        for my $m (xPapers::EntryMng->fuzzyMatch($e)) {
+            if (sameEntry($e,$m,undef,1)) {
+                if ($list->contains($m)) {
+                    push @already,$m;
+                } else  {
+                    push @found, $m;
+                }
+                $match = 1;
+                last;
+            }
+        }
+
+        push @notfound, $e unless $match;
+
+    }
+    $rend->{noOptions} = 1;
+    print "<p><h3 style='color:#$C2'>Items to be added:</h3>";
+    if ($#found > -1) {
+        print "Please review to make sure there is no mismatch.<p>";
+        print "<form method='POST' action='list_inject.html'>\n";
+        print "<input type='hidden' name='lId' value='".$list->id."'>";
+        print "<input type='hidden' name='confirm' value='1'>";
+        print $rend->startBiblio;
+        my $default = $a->{defaultNot} ? "" : "checked"; 
+        for (@found) {
+            $rend->{addToEntry} = " <input type='checkbox' name='add-$_->{id}' $default> Add";
+            print $rend->renderEntry($_) . "";
+        }
+        print $rend->endBiblio;
+        print "<input type='submit' value='Add selected entries'>\n";
+        print "</form>\n";
+    } else {
+        print "Sorry, nothing was found.<p>"
+    }
+
+
+    if ($#already > -1) {
+        print "<p><h3 style='color:#$C2'>These items were already in this category:</h3>";
+        print $rend->startBiblio;
+        for (@already) {
+            print $rend->renderEntry($_);
+        }
+        print $rend->endBiblio;
+    }
+
+    if ($#notfound > -1) {
+    print "<p><h3 style='color:red'>These items were not found on $s->{niceName}:</h3>";
+    print "These items are not on $s->{niceName} --probably because they are not available online at all. If you submit them for addition using the provided link, they will be added to your category.<p>";
+        print $rend->startBiblio;
+        for (@notfound) {
+            my $s = "addToList=".$list->id."&amp;title=" . urlEncode($_->{title}) . "&amp;author=" . urlEncode(join(";",$_->getAuthors));
+            $rend->{addToEntry} = " <span class='ll' style='font-size:smaller' onclick='
+                customEditor(
+                    {
+                    author:\"" . encode_entities($_->firstAuthor) . "\",
+                    title:\"" . encode_entities($_->{title}) . "\",
+                    embed:1,
+                    addToList:$list->{id}
+                    }
+                    )'>Add to $s->{niceName}</span>
+            ";
+            print $rend->renderEntry($_);
+        }
+        print $rend->endBiblio;
+    }
+
+    if ($#xPapers::Parse::Text::notParsed > -1) {
+        print "<p><h3 style='color:red'>These lines were not understood by the parser:</h3>";
+        print "<em>Tip: do your entries take up more than one line each (this often happens with lists pasted from PDF documents)? If so, try ticking the appropriate box in the <span class='ll' onclick='history.go(-1)'>submission form</span>.</em>";
+        print "<p>$_</p>" for @xPapers::Parse::Text::notParsed;
+    }
+}
+</%once>

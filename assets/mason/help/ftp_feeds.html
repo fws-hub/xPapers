@@ -1,0 +1,78 @@
+<& ../header.html, %ARGS,subtitle=>"Uploading article data via FTP" &>
+
+
+<h2>The FTP push protocol</h2>
+
+On this protocol, journal metadata are uploaded to <% $s->{niceName} %> by
+ journal editors as they become available. Some journal hosting
+ companies (e.g. Atypon) already support this protocol.
+
+ In order to use this protocol, you must first obtain a user id and
+ password from the <% $s->{niceName} %> General Editors (<a href="/help/contact.html">contact us</a>), and submit a list of the
+ titles you would like to be indexed. Metadata should be uploaded as
+ follows.
+ <p>
+ <h3>Connecting to the server</h3>
+
+ The FTP server is <% $s->{feedServer} %>. It does not use secure FTP but
+ normal FTP. You will use the username and password provided to you by the editors.
+
+ <p>
+ <h3>What to upload</h3>
+ <% $s->{niceName} %> only indexes research articles and book reviews. Please do not upload prefaces, errata and the like.
+
+ <p>
+ <h3>The file format</h3>
+
+ <% $s->{niceName} %> supports the <a href="http://dtd.nlm.nih.gov/archiving/">
+     NLM Archiving and Interchange</a> format versions 1.0 and 2.2 
+ with one article per file.
+ <ul>
+     <li><a href="nlm_example.html">Example of an XML file representing a regular journal article.</a>
+     <li><a href="nlm_example_review.html">Example of an XML file representing a book review.</a>
+ </ul>
+ Not all elements included in the examples are mandatory. For a regular journal article, the mandatory elements are:
+ <ul>
+    <li>Authors' names</li>
+    <li>Article title</li>
+    <li>Journal name (journal title)</li>
+    <li>Volume, issue, and page numbers</li>
+    <li>Either a DOI or a link to the full text of the article (we prefer to have both)</li>
+    <li>An abstract</li>
+ </ul>
+ For book reviews:
+ <ul>
+    <li>Authors' names</li>
+    <li>Either a title for the review or the author(s) and title(s) of the reviewed works (it is best when both can be provided).</li>
+    <li>Journal name</li>
+    <li>Volume, issue, and page numbers</li>
+    <li>Either a DOI or a link to the full text of the review</li>
+ </ul>
+
+ <p>
+ <h3>Packaging the files</h3>
+
+ You can upload separate nlm files or zip archives.  Currently only the 
+ zip compression format is supported (on Unix/Linux use
+ "$zip -r directory.zip directory"
+ command to zip a directory).
+
+ Uploaded files should have unique names. For example, files could be
+ named sequentially ("upload1.zip", "upload2.zip", etc.).
+
+ Metadata from different journals can be combined in the same zip files.
+
+ <p>
+ <h3>Important notes</h3>
+
+     <ul>
+         <li>Use only entities defined in the appriopriate DTD. Preferably, use only standard XML entities.</li>
+         <li><% $s->{niceName} %> may not index all the items for which you submit
+         metadata. In general, front matter material is discarded.</li>
+         <li>Make sure to review your journals in the index. Use the "browse
+         journals" feature for this, as the "recent items" page may not show
+         everything that you upload.</li>
+         <li>It can take up to 24 hours for uploaded material to become available on <% $s->{niceName} %>.</li>
+     </ul>
+
+

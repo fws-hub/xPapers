@@ -1,0 +1,70 @@
+<%perl>
+if ($ARGS{do} eq "save") {
+
+    my @nm;
+    my %seen;
+    for (my $i =0; $i <= $ARGS{areas_max}; $i++) {
+        my $id = $ARGS{"areas$i"};
+        next unless $id;
+        next if $seen{$id};
+        $seen{$id} = 1;
+        my $cat = xPapers::Cat->new(id=>$id)->load;
+        next unless $cat;
+        push @nm, $cat;
+    }
+    $user->alertAreas($ARGS{alertAreas});
+    $user->subAreas($ARGS{subAreas});
+    $user->areas([]);
+
+    for (@DEFAULT_SUBSCRIPTIONS) {
+        next unless $ARGS{"sub$_"};
+        my $f = xPapers::Forum->get($_);
+        $f->add_subscribers($user->{id});
+        $f->save;
+    }
+
+
+    if ($ARGS{subAreas}) {
+        for (@nm) {
+            my $f = $_->forum;
+            next unless $f;
+            $f->add_subscribers($user->{id});
+            $user->elog("forum $f->{id}");
+            $f->save;
+        }
+        $user->clear_cache;
+    }
+    $user->clear_cache;
+    my $c = 0;
+    $user->dbh->do("delete from areas_m where mId=$user->{id}");
+    for (@nm) {
+        xPapers::Relations::UserAOI->new(mId=>$user->id,aId=>$_->id,rank=>$c++)->save;
+    }
+    print redirect($s,$q,"/profile/profile.pl?_lmsg=Profile%20updated") unless $ARGS{noredirect};
+    return;
+}
+
+</%perl>
+<p>
+<div class="bigBox">
+<div class="bigBoxH">Areas of interest</div>
+<div class="bigBoxC">
+<form method="POST" action="areas.html">
+<input type="hidden" name="do" value="save" >
+<input type="hidden" name="noheader" value="1">
+<& areas_t.html &>
+<p>
+<input type="checkbox" name="alertAreas" value="1" <%($user->alertAreas or $ARGS{newUser}) ? "checked" :""%>> Send me digests of new papers in my areas (see <a href="/profile/myalerts.pl">My Alerts</a> for more settings).<br>
+<input type="checkbox" name="subAreas" value="1" <%$user->subAreas ? "checked" : ""%>> Subscribe me to the forums associated with my areas.
+<br>
+%if (($ARGS{newUser} and $user->hasFlag('AUTO')) or $ARGS{newsSub}) {
+<input type="checkbox" name="sub<%$NEWSFORUM%>" value="1" checked> Subscribe me to <% $s->{niceName} %> news. You should receive less than one announcement per month, for important events of public interest only.
+%}
+<p>
+<input type="submit" value="Save">
+<input type="button" value="Cancel" onclick="window.location='/profile/profile.pl'">
+</form>
+</div>
+</div>
+
+

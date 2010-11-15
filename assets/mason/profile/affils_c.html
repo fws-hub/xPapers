@@ -1,0 +1,15 @@
+<span class="hint ll" onclick="faq('phd')">(Why do we want to know this?)</span>
+<div class='affilslist'>
+<%perl>
+my $p = $ARGS{_u} || $user; 
+my @afs = $p->affils_o;
+$m->comp("../bits/object_list.html", 
+    class=>"xPapers::Affil", 
+    id=>"affils",
+    caption=>"Add another affiliation",
+    render=>"../profile/affil.html",
+    current=>\@afs);
+
+</%perl>
+</div>
+<& ../profile/phd.html, %ARGS, object=>$p->phd ? $p->degree : undef &>

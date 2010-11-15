@@ -1,0 +1,20 @@
+<%perl>
+$m->comp("../checkLogin.html",%ARGS);
+if (!$user->readingList) {
+    print gh("My reading list");
+    </%perl>
+    <div class="expl">
+    You do not have a reading list yet. One will be created for you as soon as you check the 'to read' box under an entry:
+<img style="display:block;border:2px #ddd solid;margin:10px"  src="<% $s->rawFile( 'expl-reading.png' ) %>">
+    <p>
+</div>
+
+    <%perl>
+
+    return;
+}
+
+my $list = $user->reads;
+$filters = $s->{DEFAULT_FILTER};
+$m->comp('../bits/list.pl',%ARGS,_l=>$list);
+</%perl>

@@ -1,0 +1,156 @@
+<%perl>
+my $author = $ARGS{author};
+my @areas = $author->id ? @{$author->areas} : ();
+my @pages = $author->id ? @{$author->pages} : ();
+my @all_areas = @{xPapers::CatMng->get_objects(query=>[canonical=>1, pLevel=>1], sort_by=>['name'])};
+my @hidden_areas = (7072,6854,6855,71,129,115,79,91,97,104);
+my %hidden_areas = map { $_ => 1 } @hidden_areas;
+@all_areas = grep { !$hidden_areas{$_->{id}} } @all_areas;
+
+unless ($author->id) { print <<EOD;
+
+<div style="padding:10px">
+Please make sure that this author is not in our list already. To add a
+new page for a researcher we already track, use the 'Edit' link at the
+relevant item in the list.
+</div>
+
+EOD
+}
+
+</%perl>
+
+<form id='editform' name='editform' action='pagesedit.pl' method='POST'>
+<input type='hidden' name='embed' value='on'>
+<input type='hidden' name='author_id' value='<% $author->id ? $author->id : '0' %>'>
+<input type='hidden' name='deleted' id='deleted' value='0'>
+
+<fieldset>
+<legend>Author</legend>
+
+<table>
+<tr>
+  <td><label for='firstname'>First name:</label></td>
+  <td>
+    <input type='text' id='firstname' name='firstname' value='<% $author->{firstname} %>'>
+    <label for='lastname'>Surname:</label>
+    <input type='text' id='lastname' name='lastname' value='<% $author->{lastname} %>'>
+  </td>
+</tr>
+<tr>
+  <td style='vertical-align:top'>Areas:</td>
+  <td>
+<%perl>
+  foreach my $i (1..4) {
+    print "<select name='area$i'>\n";
+    print "<option value=''>&mdash;</option>\n";
+    foreach my $area (@all_areas) {
+      my $selected = ($areas[$i-1] && $areas[$i-1]->name eq $area->name) ? "selected='selected'" : "";
+      print "<option value='cat$area->{id}' $selected>$area->{name}</option>\n";
+    }
+    print "</select><br>\n";
+  }
+</%perl>
+  </td>
+</tr>
+<tr>
+    <td><label for='user_id'><% ($SECURE ? $s->{niceName} . " user id:" : "") %></label></td>
+  <td>
+    <input type='<% ($SECURE ? "text" : "hidden") %>' id='user_id' name='user_id' size='5' value='<% $author->{user_id} %>'>
+    <input type='checkbox' name='isme' id='isme' <% ($user->{id} == $author->{user_id}) ? "checked='checked'" : "" %>
+           onchange='$("user_id").value = this.checked ? <% $user->{id} %> : 0'
+    >
+    <label for='isme'>This is me</label>
+    <input type='checkbox' id='pro' name='pro' <% $author->{pro} ? "checked='checked'" : "" %>>
+    <label for='pro'><% ucfirst( $SUBJECT ) %> Ph.D</label>
+  </td>
+</tr>
+</table>
+</fieldset>
+
+<fieldset>
+<legend>Pages</legend>
+
+<%perl>
+if (1) {
+my @pub_pages = grep { $_->{accepted} && !$_->{deleted} } @pages;
+my @args = map { $_->{id}.'|'.$_->{url} } @pub_pages; # hack because mkDynList doesn't work with @pub_pages as argument
+</%perl>
+
+<% mkDynList("pages",\@args,"<div>_CONTENT_</div>","div", sub {
+   my $arg = shift;
+   my ($id, $url) = split(/\|/, $arg, 2);
+   return "   <table id='page_COUNT_'>   <tr>     <td><label for='url_COUNT_'>Address:</label></td>     <td>       <input type='text' size='40' name='url_COUNT_' id='url_COUNT_' value='$url'>         <input type='hidden' name='page_id_COUNT_' value='$id'>   </td> <td>_OPTIONS_</td>  </tr>   </table>"
+   }, "")
+%>
+<input type="button" onclick="window.addToList('pages')" value="Add page">
+
+
+<%perl>
+}
+
+if (0) {
+
+my $i=0;
+my $empty_page = xPapers::Pages::Page->new;
+$empty_page->{accepted} = 1;
+push @pages, $empty_page;
+for my $page (@pages) {
+   next unless ($page->{accepted} && !$page->{deleted});
+   $i++;
+   print <<EOD;
+   <table id='page$i'>
+   <tr>
+     <td><label for='url$i'>Address:</label></td>
+     <td>
+       <input type='text' size='40' name='url$i' id='url$i' value='$page->{url}'>
+EOD
+if ($page->{id}) {
+       print <<EOD;
+       <a href='#' onclick='\$("url$i").value="DEL"; \$("page$i").hide();'>Remove this page</a>
+       <input type='hidden' name='page_id$i' value='$page->{id}'><br>
+EOD
+}
+       print <<EOD;
+     </td>
+   </tr>
+   <!--tr>
+     <td><label for='title$i'>Title:</label></td>
+     <td>
+       <input type='text' name='title$i' value='$page->{title}'>
+     </td>
+   </tr-->
+   </table>
+EOD
+}
+
+}
+
+</%perl>
+
+
+</fieldset>
+
+% if ($SECURE) {
+
+<fieldset>
+<legend>consc.net/people.html</legend>
+
+<table>
+<tr>
+  <td><label for='people_cat'>Category:</label></td>
+  <td><input type='text' id='people_cat' name='people_cat' value='<% $author->{people_cat} %>'></td>
+</tr>
+<tr>
+  <td><label for='people_descr'>Description:</label></td>
+  <td><input type='text' size='40' id='people_cat' name='people_descr' value='<% $author->{people_descr} %>'></td>
+</tr>
+</table>
+
+</fieldset>
+
+% }
+
+</form>
+
+

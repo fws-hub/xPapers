@@ -1,0 +1,27 @@
+<%perl>
+my @sides = ('../side.html');
+my @xsides;
+@xsides= @{$ARGS{__xsides}} if $ARGS{__xsides};
+
+if ($HTML) {
+$m->comp("../header.html",%ARGS);
+</%perl>
+<table class="wrap_table">
+<td valign="top" class="main_td" id="main">
+<%perl>
+} 
+
+$m->comp($ARGS{__p},%ARGS,noheader=>1); 
+
+if ($HTML) {
+
+</%perl>
+</td>
+<td valign="top" class="side_td" <%$ARGS{padding} ? "style='padding-top:$ARGS{padding}px'" : ""%>>
+    <%perl>
+        $m->comp($_,%ARGS,noheader=>0) for @xsides; 
+        $m->comp($_,%ARGS,noheader=>0) for @sides; 
+    </%perl>
+</td>
+</table>
+%}

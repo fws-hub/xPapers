@@ -1,0 +1,21 @@
+<%perl>
+my @sim = $ARGS{__entry__}->similar;
+if ($#sim > -1) {
+</%perl>
+<style>
+.simList, .simList .abstract, .simList a, .simList .options { font-size: 11px !important }
+.relevance { display: none }
+</style>
+    <div class='sideBox'>
+    <div class='sideBoxH'>Similar books and articles</div>
+    <div class='sideBoxC simList'>
+    <%perl>
+    while (my $sim = shift @sim) {
+        next if $sim->{deleted};
+        print $rend->renderEntry($sim);
+    }
+    </%perl>
+</div>
+</div>
+%}
+

@@ -1,0 +1,29 @@
+<%perl>
+my $p = $ARGS{_p};
+
+</%perl>
+<div class='postExpanded' style="height:340px;background-color:white;overflow:auto">
+<div class="postTime">
+<div class="postSubject">
+<%$p->subject%>
+</div>
+<%perl>
+if ($p->target) {
+    print '<div class="postReplyTo">Reply to ';
+
+    print "" . $p->targetPost->user->fullname . "";
+    print '</div>';
+}
+</%perl>
+</div>
+<div class='postBody' style="padding:3px"><% $rend->mkRefs($p->body) %></div>
+
+</div>
+
+
+<div style="padding:5px;text-align:center;vertical-align:bottom;position:absolute;bottom:0;right:0">
+<input type="button" value="Refresh" onclick="window.preview.renderPreview()" style="vertical-align:bottom">
+<input type="button" value="Close" onclick="window.preview.close()" style="vertical-align:bottom">
+</div>
+
+

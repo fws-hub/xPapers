@@ -1,0 +1,42 @@
+<%perl>
+my $data = $ARGS{data};
+my @sorted = sort { $data->{$b} <=> $data->{$a} } keys %$data;
+my $max = $data->{$sorted[0]};
+if ($ARGS{sortByKey}) {
+    @sorted = sort keys %$data;
+}
+unless ($#sorted > -1) {
+    print "No data.";
+    return;
+}
+</%perl>
+<table width="<%$ARGS{width}||600%>" style='margin-bottom:5px'>
+<%perl>
+my $c = 0;
+for (@sorted) {
+last if $data->{$_} < $ARGS{cutOff};
+my $col = ($c++ %2 == 0 ? $C2 : '666' );
+my $l = $_;
+$l =~ s/\s/&nbsp;/g;
+</%perl>
+
+    <tr>
+    <td style='text-align:right'><%$l%></td>
+    <td>
+        <table cellspacing="0" cellpadding="0">
+        <tr>
+        <td>
+        <div style='background-color:#<%$col%>;width:<%ceil($data->{$_}/$max*($ARGS{width}||600))%>px;text-align:right'>&nbsp;</div>
+        </td>
+        <td>&nbsp;<%$data->{$_}%></td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+<%perl>
+}
+</%perl>
+
+</table>
+
+%print " n &lt; $ARGS{cutOff} omitted<br>" if $ARGS{cutOff};

@@ -1,0 +1,11 @@
+<& ../header.html, subtitle=>"Most followed names" &>
+<ol>
+<%perl>
+
+my $res = xPapers::DB->exec("select alias,count(*) as nb from followers group by alias order by nb desc limit 100");
+while (my $h = $res->fetchrow_hashref) {
+   print "<li>$h->{alias} ($h->{nb})</li>"; 
+}
+
+</%perl>
+</ol>

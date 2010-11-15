@@ -1,0 +1,10 @@
+<style type="text/css">
+.alphalist ul { list-style:none; margin-left:30px; padding-left:0em; }
+.alphalist ul li.letter { margin:1em 0 -1.1em -30px; font-weight:bold; font-size:1.6em; color:#333; }
+.alphalist ul li { margin-bottom:0.3em; }
+.alphalist .e { margin:2px 10px 5px; padding:2px; border-left:1px solid #ccc; } 
+.alphalist .e a { text-decoration:none; color:green; } 
+legend { font-weight:bold; }
+</style>
+
+

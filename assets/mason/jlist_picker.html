@@ -1,0 +1,18 @@
+<%perl>
+my $f = $ARGS{field} || 'jlist';
+</%perl>
+<span class='jlistPickerH'><%$ARGS{header}%></span>
+<select class ='jlistPicker' name='<%$f%>' id='jlist' onChange="<%$ARGS{createCookie} ? "createCookie('jFilter',\$F('jlist'));" : ""%>$('<%$ARGS{form}%>').submit()">
+
+<%perl>
+    # determine current list
+    my $jlist = $ARGS{$f} || $ARGS{default} || 1;
+    foreach my $h (xPapers::JournalListMng->getListsForUser($user)) {
+        next if $ARGS{skip} and $h->{jlName} =~ /$ARGS{skip}/i;
+        print opt($h->{jlId},"$h->{jlName}\&nbsp;",$jlist);
+    }
+    print opt('all',"All",$jlist);
+</%perl>
+
+</select>
+

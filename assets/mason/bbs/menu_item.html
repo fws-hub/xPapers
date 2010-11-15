@@ -1,0 +1,120 @@
+<%perl>
+my $f = ($ARGS{f} || ($ARGS{c} ? $ARGS{c}->forum : undef));
+unless ($f) {
+    print "Forum not found";
+    return;
+}
+# handle special cases
+if ($f->{special}) {
+    my $tpl = "<tr><td>" . $rend->renderForum($f) . "</td><td style='text-align:center'></td><td align='center'>%d</td><td align='center'>%d</td><td>%s</td>";
+    if ($f->{special} eq 'ALL') {
+        my $postsc = xPapers::PostMng->get_objects_count();
+        printf(
+            $tpl,
+            $postsc,
+            xPapers::ThreadMng->get_objects_count(@DEFAULT_FF),
+            (
+                $postsc ?
+                $rend->renderPost(xPapers::PostMng->get_objects(@DEFAULT_FF, sort_by=>['created desc'],limit=>1)->[0]) :
+                "Nothing in the forums at this time."
+            )
+        );
+    } elsif ($f->{special} eq 'SUMMARY') {
+        my $postsc =  xPapers::PostMng->get_objects_count(
+                require_objects=>['thread.forum'],
+                query=>['t3.id' => { in_set=>$f->{summaryOf} }, accepted=>1]
+            );
+        printf(
+            $tpl,
+            $postsc,
+            xPapers::ThreadMng->get_objects_count(
+                query=>[fId => { in_set=>$f->{summaryOf} }, accepted=>1]
+            ),
+            (
+                $postsc ?
+                $rend->renderPost(
+                    xPapers::ThreadMng->get_objects(
+                        query=>[fId=>{in_set=>$f->{summaryOf}}, accepted=>1],
+                        sort_by=>['latestPostTime desc'],
+                        limit=>1
+                    )->[0]->latestPost
+                ) :
+                "Nothing in this forum yet."
+            )
+        );
+
+    } elsif ($f->{special} eq 'PAPERS') {
+        my $postsc =  xPapers::PostMng->get_objects_count(
+                @DEFAULT_FF,
+                require_objects=>['thread.forum.paper']
+            );
+        printf(
+            $tpl,
+            $postsc,
+            xPapers::ThreadMng->get_objects_count(
+                @DEFAULT_FF,
+                require_objects=>['forum.paper']
+            ),
+            (
+                $postsc ?
+                $rend->renderPost(
+                    xPapers::ThreadMng->get_objects(
+                        @DEFAULT_FF,
+                        require_objects=>['forum.paper'],
+                        sort_by=>['latestPostTime desc'],
+                        limit=>1
+                    )->[0]->latestPost
+                ) :
+                "Nothing in this forum yet."
+            )
+        );
+
+
+    }
+    return;
+}
+
+#unless (ref($f) eq "xPapers::Forum") {
+#print Dumper($f);
+#return;
+#}
+my @threads = ();
+@threads = $f->threads_o(undef,"pt desc",0,9999999) if ref($f);
+my $posts = 0;
+$posts += $_->postCount for @threads;
+</%perl>
+<tr>
+<td>
+%if (ref($f)) {
+<%$rend->renderForum($f)%>
+%} else {
+[forum not found, cat = <%$ARGS{c}->{name}%>, id = <%$ARGS{c}->{id}%>]
+%#<b><a href="/browse/<%$ARGS{c}->id%>/threads.pl"><%$ARGS{c}->name%></a></b>
+%}
+</td>
+<td style='text-align:center'>
+
+%my $count = $f->subscribers_count;
+%print $count >= 50 ? $count :  "--";
+
+</td>
+<td align="center">
+<%$f ? $posts : ""%>
+</td>
+<td align="center">
+<%$f ? $f->{found} : ""%>
+</td>
+<td>
+<%perl>
+if ($f) {
+    if ($#threads > -1) {
+        print $rend->renderPost($threads[0]->latestPost);
+    } else {
+        print "Nothing in this forum yet.";
+    }
+} else {
+    print "Nothing in this forum yet.";
+}
+</%perl>
+</td>
+</tr>

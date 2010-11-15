@@ -1,0 +1,25 @@
+<%perl>
+
+    my @chain = @{$ARGS{chain}};
+    my $ok = ($chain[0] and $chain[0]->{id} == $ARGS{cat}->{id});
+    my $ckey = "$ARGS{cat}->{id}-$ARGS{caller}";
+    # no caching if in expanded chain
+    if (1 or $ok or $ARGS{cat}->{id} == $ARGS{cId}) {
+        $m->comp("rtoc_item_c.pl",%ARGS);
+    } else {
+
+        # prepare cache if not ready
+        my $ckey = "rtoc-$ARGS{cat}->{id}-$ARGS{caller}";
+        if (!$ARGS{cat}->cache->{$ckey}) {
+            elog("NOT CACHED $ARGS{cat}->{id}");
+            $ARGS{cat}->cache->{$ckey} = $m->scomp("rtoc_item_c.pl",%ARGS);
+            $ARGS{cat}->save_cache;
+        }
+        # print from cache
+        print $ARGS{cat}->cache->{$ckey};
+
+    }
+#    return if !$ok && $ARGS{cat}->{id} != $ARGS{cId} && $m->cache_self(key=>"rtoc-$ARGS{cat}->{id}-$ARGS{caller}");
+</%perl>
+
+

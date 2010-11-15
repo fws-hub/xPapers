@@ -1,0 +1,40 @@
+<%perl>
+$ARGS{count} ||= 0;
+unless ($ARGS{count}) {
+    </%perl>
+    <script type="text/javascript" src="<% $s->rawFile( 'js/slider-all.js' ) %>"></script>
+    <link type="text/css" rel="StyleSheet"  href="<% $s->rawFile( 'slider/css/bluecurve/bluecurve.css' ) %>" />
+    <style>
+    .slider-field {
+        
+    }
+    </style>
+    <script>var sliders = new Array(); var slidersChanged = function() {}</script>
+    <%perl>
+}
+</%perl>
+
+<table><tr><td>
+<input  value="<%$ARGS{value}%>" id="slider-field-<%$ARGS{count}%>" class="slider-field" size="3" maxlength="3" onchange="sliders[<%$ARGS{count}%>].setValue(parseInt(this.value))"/><span class='slider-field'>%</span>
+</td><td>
+<div class="slider" id="slider-<%$ARGS{count}%>" tabIndex="1" style='width:300px'>
+	<input class="slider-input" id="slider-input-<%$ARGS{count}%>"/>
+</div>
+</td></tr>
+</table>
+
+<script type="text/javascript">
+
+sliders.push( new Slider($("slider-<%$ARGS{count}%>"), $("slider-input-<%$ARGS{count}%>")) );
+sliders[<%$ARGS{count}%>].onchange = function () {
+    $('slider-field-<%$ARGS{count}%>').value=sliders[<%$ARGS{count}%>].getValue();
+    slidersChanged();
+};
+sliders[<%$ARGS{count}%>].setValue(<%$ARGS{value}%>);
+sliders[<%$ARGS{count}%>].setMaximum(100);
+
+</script>
+
+
+
+

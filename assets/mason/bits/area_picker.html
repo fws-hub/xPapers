@@ -1,0 +1,11 @@
+<%perl>
+my @areas = @{xPapers::CatMng->get_objects(query=>[canonical=>1, pLevel=>1], sort_by=>['name'])};
+</%perl>
+<select name="<%$ARGS{name}%_>COUNT_">
+<%perl>
+for (@areas) {
+    next if $NONAREAS{$_->{id}};
+    print "<option value='$_->{id}'>$_->{name}</option>";
+}
+</%perl>
+</select>

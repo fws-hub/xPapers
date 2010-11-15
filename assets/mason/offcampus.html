@@ -1,0 +1,72 @@
+<& /header.html, title=>$s->{HTML_TITLE},subtitle=>"Off-campus access" &>
+<% gh("Off-campus access") %>
+<%perl>
+    my $proxy = $user->{proxy};
+    $proxy =~ s/^\.//;
+</%perl>
+%if (!$user->{id}) {
+    You need to <a href="inoff.html?after=offcampus.html">log in</a> before using this feature. 
+    <p>
+    <a href="user.html">Create an account</a>. 
+    <p>
+% return;
+%}
+<p>Most university libraries have `reverse proxy servers` allowing access to subscription-based resources from home. In order to use your library's proxy, you need to configure your browser first (you will only need to do this once).
+<p>
+<em>UK/Athens users: most UK universities don't offer the reverse proxy services but Athens/OpenAthens/Shibboleth instead. If your university uses one of these systems, the reverse proxy system offered on this page will not work for you. You must login using Athens/OpenAthens/Shibboleth from publishers' sites. Or you can use our <a href="/profile/openurl.html">At my library</a> service.</em>
+<p>
+%if ($proxy) {
+Your current proxy server is <code><%$proxy%></code>. 
+<p>
+Proxy browsing is <b><% $q->cookie('ez-server') ? 'on' : 'off' %></b> for this browser. (
+%if (!$q->cookie('ez-server')) {
+<span class='ll' onclick='createCookie("ez-server","<%$user->{proxy}%>");refresh()'>Turn on proxy browsing</span>
+%} else {
+<span class='ll' onclick='eraseCookie("ez-server");refresh()'>Turn off proxy browsing</span>
+%}
+)<p>
+To change proxy server, you can use any of method A, B, or C below.
+%} else {
+Choose the configuration method that best suits you:
+%}
+
+<p>
+<h3>A. Pick the same proxy as other users from your University (the easiest method)</h3>
+<p>
+<%perl>
+my @affils = $user->affils_o;
+if ($#affils > -1) {
+    print "Here are the proxies in use by other users from your institution(s). The more people use a proxy, the more likely it is to work.<p>";
+    for my $a (@affils) {
+        print "<p><em>" .  $a->instName . "</em><ul class='normal'>";
+        if ($a->iId and my $inst = $a->inst) {
+            my @proxies = grep { $_->{nb} > 1 } $inst->proxies;
+            if ($#proxies > -1) {
+                print map { "<li>$_->{proxy} (" . num_to_text($_->{nb}) . ' users' . ") [ <span class='ll' onclick=\"proxyConf('$s->{server}/proxyconf.pl','$_->{proxy}');\">select this proxy</span> ]</li>" } @proxies;
+            } else {
+                print "<li><em>No proxies found.</em></li>";
+            }
+        }
+        print "</ul>";
+    }
+    
+} else {
+    print "You must <a href='/profile/affils.html'>configure your affiliation</a> before using this proxy selection method.";
+}
+sub num_to_text {
+    my $n = shift;
+    return $n <= 2 ? "a few" :
+           $n <= 5 ? "several" :
+           "many";
+
+}
+</%perl>
+<p>
+<h3>B. Let <% $s->{niceName} %> guess your proxy</h3>
+    <& /offconf.html &>
+<p>
+<h3>C. Specify a proxy manually (go back to option A or B if unsure)</h3>
+<p>
+<form name='spe'>
+    Proxy server (domain name or IP address, no "http://"): <input type="text" id="proxy"> <input type="button" value="Apply" onClick="proxyConf('<%$s->{server}%>/proxyconf.pl',$F('proxy'))">
+</form>

@@ -1,0 +1,128 @@
+<& "../header.html", title=>"Search help"&>
+<style>
+li { margin-bottom:10px}
+h3 { color: #<%$C2%> }
+</style>
+<% gh("Search help")%>
+
+<h3>Important things to keep in mind</h3>
+
+<ul class="normal">
+<li><b>As of 14/09/2010</b>, if you don't use any special operator in a query (no &amp;, |, -, ~, etc, except *), an OR operator ( | ) will be inserted between all words. Otherwise, an AND ( &amp; ) operator will be inserted wherever no OR operator is found (the old behaviour). </li>
+<li>The search engine reduces all words to their stems. For example, a search for "dualism" will match a document containing the word "dualist" even if it does not contain "dualism". However, documents with exact matches are ranked significantly higher than documents with stem matches only. No stemming is done when the * operator is used.</li>
+<li>Word order matters. For example "theories of consciousness" and "consciousness of theories" will return different results.</li>
+<li>You can use + and - as on Google, and many other operators not found on Google (read on). + is equivalent to the AND operator (&amp;).</li>
+<li><b>As of 12/10/2010</b>, our search engine conflates British and American spelling variations. For example, searches for 'color' and 'colour' should give you the same results.</li> 
+<li>Arbitrarily nested brackets and negations are possible.</li>
+</ul>
+
+
+<h3>Operators</h3>
+
+<p>
+<ul class='normal'>
+
+<li><b>AND and OR operators</b>: <pre class="programListing">content &amp; consciousness | experience</pre>
+
+<b>As of 14/09/2010</b>, if you don't use any special operator in a query (no &amp;, |, -, ~, etc, except *), an OR operator ( | ) will be inserted between all words. Otherwise, an AND ( &amp; ) operator will be inserted wherever no OR operator is found (the old behaviour).  So in the example above the &amp; after "content" is superfluous.
+<p>
+OR operator precedence is higher than AND, so the above is equivalent to:
+
+<pre class="programListing">content (consciousness | experience)</pre>
+
+</li>
+
+<li><b>NOT operator</b>:
+<pre class="programListing">
+externalism -justification
+
+</pre></li>
+
+
+<li><b>truncation operator</b>:
+<pre class="programListing">
+dualis*
+</pre>
+Matches both "dualism" and "dualist". (But you wouldn't need to use * here because of stemming (see above).)
+</li>
+
+<li><b>field search operator</b>: 
+<pre class="programListing">@title hello @descriptors world</pre>
+The following fields can be searched: 
+<ul>
+    <li>authors</li>
+    <li>title</li>
+    <li>descriptors</li>
+<!--    <li>abstract</li> -->
+    <li>source (journal or anthology)</li>
+</ul>
+At the moment it is only possible to search abstracts by searching all fields (by not using @).
+<p>
+You can specify multiple fields like this:
+<p>
+<pre class="programListing">@(title,descriptors) hello world</pre>
+
+The @ operator affects all expressions following it. If you want "world" to be matched against every field, you can do this:
+
+<pre class="programListing">@(title,descriptors) hello @* world</pre>
+
+Or more simply:
+
+<pre class="programListing">world @(title,descriptors) hello</pre>
+
+
+</li>
+
+<li><b>phrase search operator</b>: <pre class="programListing">"hello world"</pre>
+Matches the precise phrase "hello world".
+</li>
+
+<li><b>proximity search operator</b>: <pre class="programListing">"hello world"~10</pre>
+
+Matches all documents which contain the words "hello" and "world" within less than twelve (10+2) words of each other.
+
+</li>
+
+<li><b>quorum matching operator</b>: <pre class="programListing">"the world is a wonderful place"/3</pre>
+
+This example will match all documents that have at least 3 of the 6 specified words.
+</li>
+
+<li><b>strict order operator (aka operator "before")</b>: <pre class="programListing">aaa &lt;&lt; bbb &lt;&lt; ccc</pre>
+
+The order operator has the lowest priority and can be applied to arbitrarily complex expressions.
+</li>
+
+<!--
+<li>exact form modifier (introduced in version 0.9.9-rc1): <pre class="programListing">raining =cats and =dogs</pre></li>
+-->
+
+<li><b>field-start and field-end modifiers</b>: <pre class="programListing">^hello world$</pre></li>
+</ul>
+<p>
+<h3>A more complex example</h3>
+<pre class="programListing" style='max-width:600px'>
+<a href="/s/<%urlEncode('derivative "intentional phenomenal"~5 -inexistence')%>">derivative "intentional phenomenal"~5 -inexistence</a>
+</pre>
+
+Finds documents a) containing the word 'derivative' (or a word with the same stem, e.g. 'derived'), b) containing the words 'intentional' and 'phenomenal' within less than seven words of each other, and c) not containing the word 'inexistence'. At the time of writing this picks out a single paper.
+
+<p>
+<h3>Additional notes</h3>
+The query must be possible to compute without involving an implicit list of all documents.
+</p>
+
+Correct query:
+<pre class="programListing">
+aaa -(bbb -(ccc ddd))
+</pre>
+Incorrect queries:
+<pre class="programListing">
+-aaa<br>
+aaa | -bbb
+</pre>
+
+<h3>More information</h3>
+<% $s->{niceName} %> uses <a href="http://www.sphinxsearch.com">Sphinx</a> as its primary search engine. Searches performed using the main search box or the 'extended' option in advanced search use Sphinx's extended2 mode. Consult <a href="http://www.sphinxsearch.com/docs/current.html">Sphinx's documentation</a> for more information. Some of Sphinx's features are not mentioned here.
+
+

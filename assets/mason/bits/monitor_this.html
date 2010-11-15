@@ -1,0 +1,48 @@
+<div class='sideBox'>
+<div class='sideBoxH'>Monitor this page</div>
+<div class='sideBoxC'>
+
+<span style="font-size:smaller">Be alerted of all new items appearing on this page. Choose how you want to monitor it: </span>
+
+<p>
+
+<table>
+<tr>
+<td>
+
+<img style="vertical-align:bottom" src="<% $s->rawFile( 'icons/internet-mail.png' ) %>"> <span class='ll' onclick="
+    var name = prompt('Please provide a brief description for this new content alert:', pageDesc ? pageDesc : '');
+    if (!name) return;
+    var params = $('allparams').serialize(true);
+    params.__action = $('allparams').action; 
+    params.__name = name;
+    ppAct('createAlert', params, function() {
+        alert('Your email alert has been created. Go to your profile to see all currently registered alerts.');
+    });
+">Email</span>
+
+</td>
+<td>
+&nbsp;
+<img style="vertical-align:bottom" src="<% $s->rawFile( 'icons/rss.png' ) %>"> <span class='ll' onclick="
+    //alert('RSS feeds cannot be used while the site is locked with a password. Try again when we go public.');
+    //return;
+
+    var f = $('ap-c1'); 
+    f.name='noheader';
+    f.value='1';
+    var f2 = $('ap-c2');
+    f2.name='__action';
+    f2.value=$('allparams').action;
+    $('ap-format').value='';
+    submitTo($('allparams'),'/utils/feed.pl');
+">RSS feed</span>
+
+</td>
+</tr>
+</table>
+
+</div>
+</div>
+
+

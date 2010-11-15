@@ -1,0 +1,44 @@
+<%perl>
+$m->comp("../header.html",title=>"NLM Example");
+print gh("NLM Example: Journal Article");
+</%perl>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>
+&lt;!DOCTYPE article PUBLIC &quot;-//NLM//DTD Journal Archiving and Interchange DTD v2.2 20060430//EN&quot; &quot;nlm-dtd2.2/archivearticle.dtd&quot;&gt;<br>
+&lt;article article-type=&quot;research-article&quot; dtd-version=&quot;2.2&quot; xml:lang=&quot;en&quot;&gt;<br>
+    &lt;front&gt;<br>
+        &lt;journal-meta&gt;<br>
+            &lt;journal-id journal-id-type=&quot;publisher-id&quot;&gt;AAA&lt;/journal-id&gt;<br>
+            &lt;journal-title&gt;Journal Title&lt;/journal-title&gt;<br>
+            &lt;issn pub-type=&quot;ppub&quot;&gt;1111-2222&lt;/issn&gt;<br>
+            &lt;issn pub-type=&quot;epub&quot;&gt;3333-4444&lt;/issn&gt;<br>
+            &lt;publisher&gt;<br>
+            &lt;publisher-name&gt;A University Press&lt;/publisher-name&gt;<br>
+            &lt;publisher-loc&gt;<br>
+            &lt;addr-line&gt;22 Example Ave, London, WC1E 7HU&lt;/addr-line&gt;<br>
+            &lt;country&gt;UK&lt;/country&gt;<br>
+            &lt;/publisher-loc&gt;<br>
+            &lt;/publisher&gt;<br>
+        &lt;/journal-meta&gt;<br>
+        &lt;article-meta&gt;<br>
+            &lt;article-id pub-id-type=&quot;doi&quot;&gt;xxxxxx/XXXXXX&lt;/article-id&gt;<br>
+            &lt;ext-link xlink:href=&quot;http://www.example.com/files/articles1.pdf&quot;/&gt;<br>
+            &lt;title-group&gt;<br>
+            &lt;article-title&gt;Title of the Article&lt;/article-title&gt;<br>
+            &lt;/title-group&gt;<br>
+            &lt;contrib-group&gt;<br>
+            &lt;contrib contrib-type=&quot;author&quot;&gt;&lt;name&gt;&lt;given-names&gt;Bob C.&lt;/given-names&gt;&lt;x&gt; &lt;/x&gt;&lt;surname&gt;Smith&lt;/surname&gt;&lt;/name&gt;&lt;/contrib&gt;<br>
+            &lt;contrib contrib-type=&quot;author&quot;&gt;&lt;name&gt;&lt;given-names&gt;Alice&lt;/given-names&gt;&lt;x&gt; &lt;/x&gt;&lt;surname&gt;Jones&lt;/surname&gt;&lt;/name&gt;&lt;/contrib&gt;<br>
+            &lt;/contrib-group&gt;<br>
+            &lt;pub-date pub-type=&quot;ppub&quot;&gt;<br>
+            &lt;year&gt;2009&lt;/year&gt;<br>
+            &lt;/pub-date&gt;<br>
+            &lt;volume&gt;12&lt;/volume&gt;<br>
+            &lt;issue&gt;1&lt;/issue&gt;<br>
+            &lt;fpage&gt;55&lt;/fpage&gt;<br>
+            &lt;lpage&gt;77&lt;/lpage&gt;<br>
+            &lt;abstract xml:lang=&quot;en&quot;&gt;<br>
+                Lorem ipsum.<br>
+            &lt;/abstract&gt;<br>
+        &lt;/article-meta&gt;<br>
+    &lt;/front&gt;<br>
+&lt;/article&gt;<br>

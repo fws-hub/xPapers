@@ -1,0 +1,77 @@
+<%perl>
+    # Process cookies, presets
+
+    $ARGS{tz_offset} = $q->cookie('tz_offset') unless defined $ARGS{tz_offset};
+
+    # if preset
+    if (my $ps = $PRESETS{$ARGS{preset}}) {
+        $ARGS{$_} = $ps->{$_} for keys %$ps;
+    } 
+    # else if selected 'everything' or no settings, default to all on
+    # everything is in_l = on
+    elsif (
+        $ARGS{in_l} eq 'on' or 
+        ( !$ARGS{"in_j"} and !$ARGS{"in_l"} and !$ARGS{"in_w"} and !$ARGS{"in_a"} )
+          ) { 
+        for (qw/j a w l b/) { $ARGS{"in_$_"} = 'on'; }
+    } 
+
+    # figure out journal filter
+
+    my $jlist = $ARGS{jlist} || $q->cookie('jFilter') || "all";
+    my $jlname = "";
+    if ($jlist eq "all") {
+        $jlname = "All sources";
+    } elsif (defined $jlist) {
+        my $s = $root->dbh->prepare("select jlName from ${TABLE}_jlists where jlId='" .quote($jlist)."' order by jlId");
+        $s->execute;
+        if (my $h = $s->fetchrow_hashref) {
+            $jlname = $h->{jlName};
+        } else {
+            $jlist = undef;
+        }
+
+    } elsif ($user->{uId}) {
+        my $s = $root->dbh->prepare("select jlId,jlName from ${TABLE}_jlists where jlOwner='$user->{uId}' order by jlId");
+        $s->execute;
+        if (my $h = $s->fetchrow_hashref) {
+            $jlist = $h->{jlId};
+        }
+    }
+
+
+if ($HTML) {
+</%perl>
+
+<& header.html, 
+    subtitle=>"Recent books and articles",
+    description=>"Recent books and articles in $SUBJECT",
+    canonical=>"$s->{server}/recent"
+    &>
+<table class="wrap_table" style="position:relative">
+<tr style="position:relative">
+
+<td class="main_td" id="main">
+
+<%perl>
+}
+
+$m->comp('search.pl',%ARGS,jlist=>$jlist,__fast=>1,range=>90,offset=>89, noheader=>1, latest=>1,nosh=>1); 
+
+if ($HTML) {
+</%perl>
+
+</td>
+
+<td valign="top" class="side_td" align="right">
+
+<& 'bits/recent_scope.html', jlist=>$jlist,action=>'recent',%ARGS &>
+
+<& side.html, %ARGS, nogen=>1 &>
+
+</td>
+
+</tr>
+</table>
+
+%}

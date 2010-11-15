@@ -1,0 +1,1310 @@
+
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns="http://purl.org/rss/1.0/"
+ xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
+ xmlns:content="http://purl.org/rss/1.0/modules/content/"
+ xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+ xmlns:admin="http://webns.net/mvcb/"
+>
+
+<channel rdf:about="http://feeds.philpapers.org">
+<title>Export feed</title>
+<link>http://feeds.philpapers.org</link>
+<description></description>
+<dc:publisher>PhilPapers</dc:publisher>
+<syn:updateBase>1901-01-01T00:00+00:00</syn:updateBase>
+<syn:updateFrequency>1</syn:updateFrequency>
+<syn:updatePeriod>daily</syn:updatePeriod>
+<taxo:topics>
+  <rdf:Bag>
+  </rdf:Bag>
+</taxo:topics>
+<items>
+ <rdf:Seq>
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123506446/PDFSTART" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123503741/PDFSTART" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123511159/PDFSTART" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123508434/PDFSTART" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123511155/PDFSTART" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123508431/PDFSTART" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123511158/PDFSTART" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123508433/PDFSTART" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123511157/PDFSTART" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/w96x3382pg941573/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/b7q2405717416158/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/km25327w13r32743/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/3420lw0ll3r5p7k0/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/3l7n2604394704j7/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/u214277m5q618glu/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/4n47717420j6437l/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.journals.uchicago.edu/doi/full/10.1086/652448" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/j056g33647774456/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/d84u378862kg345g/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/502t165717777p26/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/e5p213511684r1p3/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/352t844j94386413/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/701j753715k18610/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/e470xqj513116504/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/b582768vw325055x/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/y0250764up521167/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/r85vw4318n18k4n4/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/q45205v28g803x03/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/2668707774r0k872/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/h3467673314w21g5/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/j37r566693412v37/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/a7729n56772r2443/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/h66701url5934g34/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/4101tqhv0080882r/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/01733k5145407466/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.journals.uchicago.edu/doi/full/10.1086/652294" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/gl05qw478n33p387/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/nx076552gn107304/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/0m53l6p725323103/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/hwk142122r073787/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/j812428062757322/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/1656648w63284443/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/807pv2q716216072/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/c2871270g116q494/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/p1vlg2267wq11223/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.journals.uchicago.edu/doi/full/10.1086/652303" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/h3u061v03j252g67/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/47441016r3281375/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/q5l784402858l185/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/q63r7g2154287675/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.journals.uchicago.edu/doi/full/10.1086/652302" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/85m15k92q3135668/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.journals.uchicago.edu/doi/full/10.1086/652292" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/0l72m5263r104510/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/d74523m431034135/fulltext.pdf" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807582&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807580" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807579&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807577" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123525167/PDFSTART" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807567&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807565" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807588&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807586" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807585&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807583" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807573&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807571" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807576&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807574" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807558&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807556" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807564&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807562" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807555&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807553" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123526159/PDFSTART" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807570&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807568" />
+  <rdf:li rdf:resource="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807561&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807559" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123535765/PDFSTART" />
+  <rdf:li rdf:resource="http://www3.interscience.wiley.com/cgi-bin/fulltext/123535762/PDFSTART" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/11536576560685xt/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/l402tv38313m9084/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/p3184688727m12x3/fulltext.pdf" />
+  <rdf:li rdf:resource="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.goodman.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/9gh380t4k6817487/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/h63p27118h875472/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/80g3w4327625720p/fulltext.pdf" />
+  <rdf:li rdf:resource="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.attick.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/a3768u1243851748/fulltext.pdf" />
+  <rdf:li rdf:resource="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.defalco.pdf" />
+  <rdf:li rdf:resource="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.ellison.pdf" />
+  <rdf:li rdf:resource="http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.lev.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/t315nn4425695340/fulltext.pdf" />
+  <rdf:li rdf:resource="http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.goodman.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/a710875628wl64u8/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/y73738384h2777v5/fulltext.pdf" />
+  <rdf:li rdf:resource="http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.crozier.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/hxl7813560t71uj5/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/r7043k8078721958/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/36196638l3854927/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/h578626guj76j0h6/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/5ww2401u120897m2/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/lnl111540q6850w6/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/apv2l11n17811r07/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/96711654q5q6m875/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/r144852146482755/fulltext.pdf" />
+  <rdf:li rdf:resource="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.ralston.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/d857r81004032779/fulltext.pdf" />
+  <rdf:li rdf:resource="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.seltzer-kelly.pdf" />
+  <rdf:li rdf:resource="http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.sparrow.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/6017118368733266/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/kph6423k2212x326/fulltext.pdf" />
+  <rdf:li rdf:resource="http://www.springerlink.com/content/v712766270015047/fulltext.pdf" />
+  <rdf:li rdf:resource="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.waddington.pdf" />
+ </rdf:Seq>
+</items>
+</channel>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123506446/PDFSTART">
+<title>Developing group-deliberative virtues</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123506446/PDFSTART</link>
+<description>In this paper, the authors argue for two main claims: first, that the epistemic results of group deliberation can be superior to those of individual inquiry; and, second, that successful deliberative groups depend on individuals exhibiting deliberative virtues. The development of these group-deliberative virtues, the authors argue, is important not only for epistemic purposes but political purposes, as democracies require the virtuous deliberation of their citizens. Deliberative virtues contribute to the deliberative synergy of the group, not only in terms of improving the quality of the group&#x27;s present decisions, but also improving the background conditions for continued group deliberation. The authors sketch a preliminary schedule of these group-deliberative virtues modelled on Aristotle&#x27;s conception of virtue as the mean between two extreme vices. The virtues discussed in this article include deliberative wit, friendliness, empathy, charity, temperance, courage, sincerity, and humility</description>
+<dc:creator>Clanton, J. Caleb</dc:creator>
+<dc:creator>Aaa, Aaaaaa</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>AIKDGV</dc:identifier>
+<dc:title>Developing group-deliberative virtues</dc:title>
+<prism:publicationName>Journal of Applied Philosophy</prism:publicationName>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123503741/PDFSTART">
+<title>Anthony C. Genova 1929&#x2013;2010</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123503741/PDFSTART</link>
+<description></description>
+<dc:creator>de George, Richard</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>DEGACG</dc:identifier>
+<dc:title>Anthony C. Genova 1929&#x2013;2010</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>48</prism:volume>
+<prism:publicationName>Southern Journal of Philosophy</prism:publicationName>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123511159/PDFSTART">
+<title>&#x27;Chocolate&#x27; and other kind terms: Implications for semantic externalism</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123511159/PDFSTART</link>
+<description>How do people manage to refer to chocolate, despite knowing so little about it? Traditional semantic externalism gives a two-part answer, a negative claim that meanings are not determined inside speakers&#x27; heads, and a positive claim that meanings are fixed by external factors. This gets the semantics of &#x27;chocolate&#x27; half right: the negative claim is correct, but the positive claim is not. There is nothing special about &#x27;chocolate&#x27;, and scientifically respectable natural-kind terms also fail to live up to the positive expectations of traditional externalism. However, kind-term indeterminacy is compatible with important advances associated with externalism&#x27;s de re understanding of kind terms</description>
+<dc:creator>Greene, Mark</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>GRECAO</dc:identifier>
+<dc:title>&#x27;Chocolate&#x27; and other kind terms: Implications for semantic externalism</dc:title>
+<prism:publicationName>Philosophical Quarterly</prism:publicationName>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123508434/PDFSTART">
+<title>Wittgenstein and philosophical psychology: Essays in honour of Lars Hertzberg &#x2013; edited by christoffer gefwert and Olli Lagerspetz</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123508434/PDFSTART</link>
+<description></description>
+<dc:creator>Hughes, Liam</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>HUGWAP</dc:identifier>
+<dc:title>Wittgenstein and philosophical psychology: Essays in honour of Lars Hertzberg &#x2013; edited by christoffer gefwert and Olli Lagerspetz</dc:title>
+<prism:number>3</prism:number>
+<prism:volume>33</prism:volume>
+<prism:publicationName>Philosophical Investigations</prism:publicationName>
+<prism:endingPage>278</prism:endingPage>
+<prism:startingPage>274</prism:startingPage>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123511155/PDFSTART">
+<title>Vagueness, semantics and psychology</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123511155/PDFSTART</link>
+<description>According to extension-shifting theories of vagueness, the extensions of vague predicates have sharp boundaries, which shift as a function of certain psychological factors. Such theories have been claimed to provide an attractive explanation of the appeal of soritical reasoning. I challenge this claim: the demand for such an explanation need not constrain the semantics of vague predicates at all</description>
+<dc:creator>&#xC5;kerman, Jonas</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>KERVSA</dc:identifier>
+<dc:title>Vagueness, semantics and psychology</dc:title>
+<prism:publicationName>Philosophical Quarterly</prism:publicationName>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123508431/PDFSTART">
+<title>Wittgenstein and analytic philosophy: Essays for P.m.S. Hacker &#x2013; by Hans-Johann Glock and John Hyman</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123508431/PDFSTART</link>
+<description></description>
+<dc:creator>Knott, H. A.</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>KNOWAA</dc:identifier>
+<dc:title>Wittgenstein and analytic philosophy: Essays for P.m.S. Hacker &#x2013; by Hans-Johann Glock and John Hyman</dc:title>
+<prism:number>3</prism:number>
+<prism:volume>33</prism:volume>
+<prism:publicationName>Philosophical Investigations</prism:publicationName>
+<prism:endingPage>282</prism:endingPage>
+<prism:startingPage>278</prism:startingPage>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123511158/PDFSTART">
+<title>Lessons on truth from mediaeval solutions to the liar paradox</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123511158/PDFSTART</link>
+<description>Some fourteenth-century treatises on paradoxes of the liar family offer a promising starting-point for the formulation of full-fledged theories of truth with systematic relevance in their own right. In particular, Bradwardine&#x27;s thesis that sentences typically say more than one thing gives rise to a quantificational approach to truth, and Buridan&#x27;s theory of truth based on the notion of suppositio allows for remarkable metaphysical parsimony. Bradwardine&#x27;s and Buridan&#x27;s theories both have theoretical advantages, but fail to provide a satisfactory account of truth because both are committed to the thesis, fatal for both, that every sentence signifies/implies its own truth. I close with remarks on Greg Restall&#x27;s recent model-theoretic formalization of Bradwardine&#x27;s theory of truth</description>
+<dc:creator>Novaes, Catarina Dutilh</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>NOVLOT</dc:identifier>
+<dc:title>Lessons on truth from mediaeval solutions to the liar paradox</dc:title>
+<prism:publicationName>Philosophical Quarterly</prism:publicationName>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123508433/PDFSTART">
+<title>Holding the centre and untied kingdom &#x2013; by Ian Robinson</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123508433/PDFSTART</link>
+<description></description>
+<dc:creator>Osborne, Catherine</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>OSBHTC</dc:identifier>
+<dc:title>Holding the centre and untied kingdom &#x2013; by Ian Robinson</dc:title>
+<prism:number>3</prism:number>
+<prism:volume>33</prism:volume>
+<prism:publicationName>Philosophical Investigations</prism:publicationName>
+<prism:endingPage>270</prism:endingPage>
+<prism:startingPage>266</prism:startingPage>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123511157/PDFSTART">
+<title>Chance and actuality</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123511157/PDFSTART</link>
+<description>The relation between chance and actuality gives rise to a puzzle. On the one hand, it may be a chancy matter what will actually happen. On the other hand, the standard semantics for &#x27;actually&#x27; implies that sentences beginning with &#x27;actually&#x27; are never contingent. To elucidate the puzzle, I defend a kind of objective semantic indeterminacy: in a chancy world, it may be a chancy matter which proposition is expressed by sentences containing &#x27;actually&#x27;. I bring this thesis to bear on certain counter-examples, proposed by Hawthorne and Lasonen-Aarnio, to Lewis&#x27; &#x27;principal principle&#x27;</description>
+<dc:creator>Schulz, Moritz</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>SCHCAA-5</dc:identifier>
+<dc:title>Chance and actuality</dc:title>
+<prism:publicationName>Philosophical Quarterly</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/w96x3382pg941573/fulltext.pdf">
+<title>Wegner on hallucinations, inconsistency, and the illusion of free will. Some critical remarks</title>
+<link>http://www.springerlink.com/content/w96x3382pg941573/fulltext.pdf</link>
+<description>Wegner&#x2019;s argument on the illusory nature of conscious will, as developed in The Illusion of Conscious Will ( 2002 ) and other publications, has had major impact. Based on empirical data, he develops a theory of apparent mental causation in order to explain the occurrence of the illusion of conscious will. Part of the evidence for his argument is derived from a specific interpretation of the phenomenon of auditory verbal hallucinations as they may occur in schizophrenia. The aim of this paper is to evaluate the validity of the evidence on auditory verbal hallucinations as employed by Wegner. I conclude that auditory hallucinations do not provide solid evidence for Wegner&#x2019;s theory. Moreover, the phenomena in schizophrenia provide, in fact, an argument against part of Wegner&#x2019;s theory of apparent mental causation</description>
+<dc:creator>Meynen, Gerben</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>MEYWOH</dc:identifier>
+<dc:title>Wegner on hallucinations, inconsistency, and the illusion of free will. Some critical remarks</dc:title>
+<prism:publicationName>Phenomenology and the Cognitive Sciences</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/b7q2405717416158/fulltext.pdf">
+<title>Academic misconduct in portugal: Results from a large scale survey to university economics/business students</title>
+<link>http://www.springerlink.com/content/b7q2405717416158/fulltext.pdf</link>
+<description>The phenomenon of cheating in higher education is of overwhelming importance in that the students engaging in these acts are unlikely to have the skills necessary for their future professional life. Despite its relevance, the empirical evaluation of cheating in universities has been almost exclusively focused on the US context. Little is known about cheating at the European level, let alone in Portugal. Even less is explored at the regional level. In this paper we present evidence on the perception of cheating by Portuguese undergraduate students of economics/business degrees. We undertake a large-scale survey, involving 2675 students from all Portuguese mainland public universities (10). We found that copying-favourable environments are associated with a higher propensity to cheat. Moreover, in universities where &#x2018;codes of honour&#x2019; exist, this propensity tends to be lower. Finally, the propensity to copy seems to be highly influenced by the cultural systems and socially-related factors of different regions</description>
+<dc:creator>Rochdea, Maria F&#xE1;tima Oliveira</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>TEIAMI</dc:identifier>
+<dc:title>Academic misconduct in portugal: Results from a large scale survey to university economics/business students</dc:title>
+<prism:publicationName>Journal of Academic Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/km25327w13r32743/fulltext.pdf">
+<title>Development (and evolution) of the universe</title>
+<link>http://www.springerlink.com/content/km25327w13r32743/fulltext.pdf</link>
+<description>I distinguish Nature from the World. I also distinguish development from evolution. Development is progressive change and can be modeled as part of Nature, using a specification hierarchy. I have proposed a &#x2018;canonical developmental trajectory&#x2019; of dissipative structures with the stages defined thermodynamically and informationally. I consider some thermodynamic aspects of the Big Bang, leading to a proposal for reviving final cause. This model imposes a &#x2018;hylozooic&#x2019; kind of interpretation upon Nature, as all emergent features at higher levels would have been vaguely and episodically present primitively in the lower integrative levels, and were stabilized materially with the developmental emergence of new levels. The specification hierarchy&#x2019;s form is that of a tree, with its trunk in its lowest level, and so this hierarchy is appropriate for modeling an expanding system like the Universe. It is consistent with this model of differentiation during Big Bang development to view emerging branch tips as having been entrained by multiple finalities because of the top-down integration of the various levels of organization by the higher levels</description>
+<dc:creator>Salthe, Stanley N.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>SALDAE</dc:identifier>
+<dc:title>Development (and evolution) of the universe</dc:title>
+<prism:publicationName>Foundations of Science</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/3420lw0ll3r5p7k0/fulltext.pdf">
+<title>Towards a hierarchical definition of life, the organism, and death</title>
+<link>http://www.springerlink.com/content/3420lw0ll3r5p7k0/fulltext.pdf</link>
+<description>Despite hundreds of definitions, no consensus exists on a definition of life or on the closely related and problematic definitions of the organism and death. These problems retard practical and theoretical development in, for example, exobiology, artificial life, biology and evolution. This paper suggests improving this situation by basing definitions on a theory of a generalized particle hierarchy. This theory uses the common denominator of the &#x201C;operator&#x201D; for a unified ranking of both particles and organisms, from elementary particles to animals with brains. Accordingly, this ranking is called &#x201C;the operator hierarchy&#x201D;. This hierarchy allows life to be defined as: matter with the configuration of an operator, and that possesses a complexity equal to, or even higher than the cellular operator. Living is then synonymous with the dynamics of such operators and the word organism refers to a select group of operators that fit the definition of life. The minimum condition defining an organism is its existence as an operator, construction thus being more essential than metabolism, growth or reproduction. In the operator hierarchy, every organism is associated with a specific closure, for example, the nucleus in eukaryotes. This allows death to be defined as: the state in which an organism has lost its closure following irreversible deterioration of its organization. The generality of the operator hierarchy also offers a context to discuss &#x201C;life as we do not know it&#x201D;. The paper ends with testing the definition&#x2019;s practical value with a range of examples</description>
+<dc:creator>Akkerhuis, Gerard A. J. M. Jagers op</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>AKKTAH</dc:identifier>
+<dc:title>Towards a hierarchical definition of life, the organism, and death</dc:title>
+<prism:publicationName>Foundations of Science</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/3l7n2604394704j7/fulltext.pdf">
+<title>The university and the responsible conduct of research: Who is responsible for what?</title>
+<link>http://www.springerlink.com/content/3l7n2604394704j7/fulltext.pdf</link>
+<description>Research misconduct has been thoroughly discussed in the literature, but mainly in terms of definitions and prescriptions for proper conduct. Even when case studies are cited, they are generally used as a repository of &#x201C;lessons learned.&#x201D; What has been lacking from this conversation is how the lessons of responsible conduct of research are imparted in the first place to graduate students, especially those in technical fields such as engineering. Nor has there been much conversation about who is responsible for what in training students in Responsible Conduct of Research or in allocating blame in cases of misconduct. This paper explores three seemingly disparate cases of misconduct&#x2014;the 2004 plagiarism scandal at Ohio University; the famous Robert Millikan article of 1913, in which his reported data selection did not match his notebooks; and the 1990 fabrication scandal in Dr. Leroy Hood&#x2019;s research lab. Comparing these cases provides a way to look at the relationship between the graduate student (or trainee) and his/her advisor (a relationship that has been shown to be the most influential one for the student) as well as at possibly differential treatment for established researchers and researchers-in-training, in cases of misconduct. This paper reflects on the rights and responsibilities of research advisers and their students and offers suggestions for clarifying both those responsibilities and the particularly murky areas of research-conduct guidelines</description>
+<dc:creator>Hart, Hillary</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>ALFTUA</dc:identifier>
+<dc:title>The university and the responsible conduct of research: Who is responsible for what?</dc:title>
+<prism:publicationName>Science and Engineering Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/u214277m5q618glu/fulltext.pdf">
+<title>Commentators on the c&#x101;rv&#x101;kas&#x16B;tra: A critical survey</title>
+<link>http://www.springerlink.com/content/u214277m5q618glu/fulltext.pdf</link>
+<description>In spite of the fact that the m&#x16B;la -text of the C&#x101;rv&#x101;kas&#x16B;tra is lost, we have some 30 fragments of the commentaries written by no fewer than four commentators, namely, Kambal&#x101;&#x15B;vatara, Purandara, Aviddhakar&#x1E47;a, and Udbha&#x1E6D;a. The existence of other commentators too has been suggested, of whom only one name is mentioned: Bh&#x101;vivikta. Unfortunately no extract from his work is quoted anywhere. The position of the C&#x101;rv&#x101;kas was nearer the Buddhists (who admitted both perception and inference) than any other philosophical system. But in order to brand the C&#x101;rv&#x101;kas as pram&#x101;&#x1E47;aikav&#x101;dins they were made to appear as one with Bhart&#x1E5B;hari. Even though the commentators of the C&#x101;rv&#x101;kas&#x16B;tra had some differences among themselves concerning the interpretation of some aphorisms, they seem to have been unanimous in regard to the number of pram&#x101;&#x1E47;as to be admitted. It was perception and inference based on perception . Only in this sense they were pram&#x101;&#x1E47;aikav&#x101;dins . Unlike other systems of philosophy, the C&#x101;rv&#x101;ka/Lok&#x101;yata did not accord equal value to perception and inference. Inference, they said, must be grounded on perception first, so it was of secondary kind ( gau&#x1E47;a ). From the available evidence it is clear that the commentators were unanimous in one point, namely, primacy of perception which includes admittance of such laukika inference as is preceded and hence can be tested by repeated observations. In this respect both Aviddkar&#x1E47;a and Udbha&#x1E6D;a were in agreement with Purandara. Bha&#x1E6D;&#x1E6D;odbha&#x1E6D;a or Udbha&#x1E6D;abha&#x1E6D;&#x1E6D;a was known as a commentator who differed from the traditional C&#x101;rv&#x101;kas and broke new grounds in explaining some of the aphorisms. His commentary is creative in its own way but at the same time unreliable in reconstructing the original C&#x101;rv&#x101;ka position. Udbha&#x1E6D;a seems to have digressed from the original, monist materialist position by taking a dualist position concerning the body-consciousness relation. Moreover, he seems to verge on the idealist side in his explication of an aphorism. In this sense he was a reformist or revisionist. Aviddhakar&#x1E47;a, like Udbha&#x1E6D;a, attempted to interpret the C&#x101;rv&#x101;ka aphorisms from the Ny&#x101;ya-Vai&#x15B;e&#x1E63;ika point of view, perhaps without being converted to the C&#x101;rv&#x101;ka. Since it is not possible at the present state of our knowledge to determine whether they were C&#x101;rv&#x101;kas converted to Ny&#x101;ya or Naiy&#x101;yikas converted to Lok&#x101;yata, the suggestion that they simply adopted the C&#x101;rv&#x101;ka position while writing their commentaries without being converted to the C&#x101;rv&#x101;ka, may be taken as a third alternative. In spite of the meagre material available, it is evident that (1) not unlike the other systems, there is a lack of uniformity in the commentary tradition of the C&#x101;rv&#x101;kas&#x16B;tra , (2) not all commentators were committed monistic materialists; at least one, namely, Udbha&#x1E6D;a, was a dualist, and (3) in course of time Ny&#x101;ya-Vai&#x15B;e&#x1E63;ika terminology, such as gamya, gamaka , etc., quite foreign to the traditional C&#x101;rv&#x101;ka, has been introduced into the C&#x101;rv&#x101;ka system</description>
+<dc:creator>Bhattacharya, Ramkrishna</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>BHACOT</dc:identifier>
+<dc:title>Commentators on the c&#x101;rv&#x101;kas&#x16B;tra: A critical survey</dc:title>
+<prism:publicationName>Journal of Indian Philosophy</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/4n47717420j6437l/fulltext.pdf">
+<title>How not to attack intelligent design creationism: Philosophical misconceptions about methodological naturalism</title>
+<link>http://www.springerlink.com/content/4n47717420j6437l/fulltext.pdf</link>
+<description>In recent controversies about Intelligent Design Creationism (IDC), the principle of methodological naturalism (MN) has played an important role. In this paper, an often neglected distinction is made between two different conceptions of MN, each with its respective rationale and with a different view on the proper role of MN in science. According to one popular conception, MN is a self-imposed or intrinsic limitation of science, which means that science is simply not equipped to deal with claims of the supernatural (Intrinsic MN or IMN). Alternatively, we will defend MN as a provisory and empirically grounded attitude of scientists, which is justified in virtue of the consistent success of naturalistic explanations and the lack of success of supernatural explanations in the history of science (Provisory MN or PMN). Science does have a bearing on supernatural hypotheses, and its verdict is uniformly negative. We will discuss five arguments that have been proposed in support of IMN: the argument from the definition of science, the argument from lawful regularity, the science stopper argument, the argument from procedural necessity, and the testability argument. We conclude that IMN, because of its philosophical flaws, proves to be an ill-advised strategy to counter the claims of IDC. Evolutionary scientists are on firmer ground if they discard supernatural explanations on purely evidential grounds, instead of ruling them out by philosophical fiat</description>
+<dc:creator>Braeckman, Johan</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>BOUHNT</dc:identifier>
+<dc:title>How not to attack intelligent design creationism: Philosophical misconceptions about methodological naturalism</dc:title>
+<prism:publicationName>Foundations of Science</prism:publicationName>
+</item>
+<item rdf:about="http://www.journals.uchicago.edu/doi/full/10.1086/652448">
+<title>Self&#x2010;governance, means&#x2010;ends coherence, and unalterable ends</title>
+<link>http://www.journals.uchicago.edu/doi/full/10.1086/652448</link>
+<description></description>
+<dc:creator>Brunero, John</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>BRUSMC</dc:identifier>
+<dc:title>Self&#x2010;governance, means&#x2010;ends coherence, and unalterable ends</dc:title>
+<prism:number>3</prism:number>
+<prism:volume>120</prism:volume>
+<prism:publicationName>Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/j056g33647774456/fulltext.pdf">
+<title>Trustworthiness, governance, and wealth creation</title>
+<link>http://www.springerlink.com/content/j056g33647774456/fulltext.pdf</link>
+<description>Although trustworthiness has been described as a source of competitive advantage, its value extends to organizational governance and wealth creation. We identify the importance of the commitment&#x2013;compliance continuum in the decision to trust and note that trustworthiness is a subjective perception viewed through each person&#x2019;s mediating lens. That lens and each person&#x2019;s interpretation of the social contract impact one&#x2019;s commitment to cooperate. We suggest five propositions that integrate trustworthiness, governance, and wealth creation</description>
+<dc:creator>Hansen, Mark H.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>CALTGA</dc:identifier>
+<dc:title>Trustworthiness, governance, and wealth creation</dc:title>
+<prism:publicationName>Journal of Business Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/d84u378862kg345g/fulltext.pdf">
+<title>Human development or human enhancement? A methodological reflection on capabilities and the evaluation of information technologies</title>
+<link>http://www.springerlink.com/content/d84u378862kg345g/fulltext.pdf</link>
+<description>Nussbaum&#x2019;s version of the capability approach is not only a helpful approach to development problems but can also be employed as a general ethical-anthropological framework in &#x2018;advanced&#x2019; societies. This paper explores its normative force for evaluating information technologies, with a particular focus on the issue of human enhancement. It suggests that the capability approach can be a useful way of to specify a workable and adequate level of analysis in human enhancement discussions, but argues that any interpretation of what these capabilities mean is itself dependent on (interpretations of) the techno-human practices under discussion. This challenges the capability approach&#x2019;s means-end dualism concerning the relation between on the one hand technology and on the other hand humans and capabilities. It is argued that instead of facing a choice between development and enhancement, we better reflect on how we want to shape human-technological practices, for instance by using the language of capabilities. For this purpose, we have to engage in a cumbersome hermeneutics that interprets dynamic relations between unstable capabilities, technologies, practices, and values. This requires us to modify the capability approach by highlighting and interpreting its interpretative dimension</description>
+<dc:creator>Coeckelbergh, Mark</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>COEHDO</dc:identifier>
+<dc:title>Human development or human enhancement? A methodological reflection on capabilities and the evaluation of information technologies</dc:title>
+<prism:publicationName>Ethics and Information Technology</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/502t165717777p26/fulltext.pdf">
+<title>Possible implications of the quantum theory of gravity: An introduction to the meduso-anthropic principle</title>
+<link>http://www.springerlink.com/content/502t165717777p26/fulltext.pdf</link>
+<description>If we assume that the constants of nature fluctuate near the singularity when a black hole forms (assuming, also, that physical black holes really do form singularities) then a process of evolution of universes becomes possible. We explore the implications of such a process for the origin of life, interstellar travel, and the human future</description>
+<dc:creator>Crane, Louis</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>CRAPIO</dc:identifier>
+<dc:title>Possible implications of the quantum theory of gravity: An introduction to the meduso-anthropic principle</dc:title>
+<prism:publicationName>Foundations of Science</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/e5p213511684r1p3/fulltext.pdf">
+<title>Gemmules and elements: On Darwin&#x27;s and Mendel&#x27;s concepts and methods in heredity</title>
+<link>http://www.springerlink.com/content/e5p213511684r1p3/fulltext.pdf</link>
+<description>Inheritance and variation were a major focus of Charles Darwin&#x2019;s studies. Small inherited variations were at the core of his theory of organic evolution by means of natural selection. He put forward a developmental theory of heredity (pangenesis) based on the assumption of the existence of material hereditary particles. However, unlike his proposition of natural selection as a new mechanism for evolutionary change, Darwin&#x2019;s highly speculative and contradictory hypotheses on heredity were unfruitful for further research. They attempted to explain many complex biological phenomena at the same time, disregarded the then modern developments in cell theory, and were, moreover, faithful to the widespread conceptions of blending and so-called Lamarckian inheritance. In contrast, Mendel&#x2019;s approaches, despite the fact that features of his ideas were later not found to be tenable, proved successful as the basis for the development of modern genetics. Mendel took the study of the transmission of traits and its causes (genetics) out of natural history; by reducing complexity to simple particulate models, he transformed it into a scientific field of research. His scientific approach and concept of discrete elements (which later gave rise to the notion of discrete genes) also contributed crucially to the explanation of the existence of stable variations as the basis for natural selection</description>
+<dc:creator>Deichmann, Ute</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>DEIGAE</dc:identifier>
+<dc:title>Gemmules and elements: On Darwin&#x27;s and Mendel&#x27;s concepts and methods in heredity</dc:title>
+<prism:publicationName>Journal for General Philosophy of Science</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/352t844j94386413/fulltext.pdf">
+<title>How can contributors to open-source communities be Trusted? On the assumption, inference, and substitution of trust</title>
+<link>http://www.springerlink.com/content/352t844j94386413/fulltext.pdf</link>
+<description>Open-source communities that focus on content rely squarely on the contributions of invisible strangers in cyberspace. How do such communities handle the problem of trusting that strangers have good intentions and adequate competence? This question is explored in relation to communities in which such trust is a vital issue: peer production of software (FreeBSD and Mozilla in particular) and encyclopaedia entries (Wikipedia in particular). In the context of open-source software, it is argued that trust was inferred from an underlying &#x2018;hacker ethic&#x2019;, which already existed. The Wikipedian project, by contrast, had to create an appropriate ethic along the way. In the interim, the assumption simply had to be that potential contributors were trustworthy; they were granted &#x2018;substantial trust&#x2019;. Subsequently, projects from both communities introduced rules and regulations which partly substituted for the need to perceive contributors as trustworthy. They faced a design choice in the continuum between a high-discretion design (granting a large amount of trust to contributors) and a low-discretion design (leaving only a small amount of trust to contributors). It is found that open-source designs for software and encyclopaedias are likely to converge in the future towards a mid-level of discretion. In such a design the anonymous user is no longer invested with unquestioning trust</description>
+<dc:creator>de Laat, Paul B.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>DELHCC</dc:identifier>
+<dc:title>How can contributors to open-source communities be Trusted? On the assumption, inference, and substitution of trust</dc:title>
+<prism:publicationName>Ethics and Information Technology</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/701j753715k18610/fulltext.pdf">
+<title>Core values, culture and ethical climate as constitutional elements of ethical behaviour: Exploring differences between family and non-family enterprises</title>
+<link>http://www.springerlink.com/content/701j753715k18610/fulltext.pdf</link>
+<description>The research presented in this article aims to contribute both quantitatively and qualitatively to the discussion on family versus non-family businesses&#x2019; differences in ethical core values, culture and ethical climate. The purpose of our article is to better understand the association between the degree of involvement of a family in an enterprise and its influence on the enterprise&#x2019;s core values, culture and ethical climate as the constitutional elements of enterprise ethical behaviour. The research indicates that family as well as non-family enterprises maintain positive attitudes towards the core values with ethical content. Regarding the type and strength of culture as well as the type of ethical climate, our research results indicate significant differences between family and non-family enterprises</description>
+<dc:creator>Milfelner, Borut</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>DUHCVC</dc:identifier>
+<dc:title>Core values, culture and ethical climate as constitutional elements of ethical behaviour: Exploring differences between family and non-family enterprises</dc:title>
+<prism:publicationName>Journal of Business Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/e470xqj513116504/fulltext.pdf">
+<title>Contradictory information: Too much of a good thing</title>
+<link>http://www.springerlink.com/content/e470xqj513116504/fulltext.pdf</link>
+<description>Both I and Belnap, motivated the &#x201C;Belnap-Dunn 4-valued Logic&#x201D; by talk of the reasoner being simply &#x201C;told true&#x201D; ( T ), and simply &#x201C;told false&#x201D; ( F ), which leaves the options of being neither &#x201C;told true&#x201D; nor &#x201C;told false&#x201D; ( N ), and being both &#x201C;told true&#x201D; and &#x201C;told false&#x201D; ( B ). Belnap motivated these notions by consideration of unstructured databases that allow for negative information as well as positive information (even when they conflict). We now experience this on a daily basis with the Web. But the 4-valued logic is deductive in nature, and its matrix is discrete: there are just four values. In this paper I investigate embedding the 4-valued logic into a context of probability. J&#xF8;sang&#x2019;s Subjective Logic introduced uncertainty to allow for degrees of belief, disbelief, and uncertainty. We extend this so as to allow for two kinds of uncertainty&#x2014;that in which the reasoner has too little information (ignorance) and that in which the reasoner has too much information (conflicted). J&#xF8;sang&#x2019;s &#x201C;Opinion Triangle&#x201D; becomes an &#x201C;Opinion Tetrahedron&#x201D; and the 4-values can be seen as its vertices. I make/prove various observations concerning the relation of non-classical &#x201C;probability&#x201D; to non-classical logic</description>
+<dc:creator>Dunn, J. Michael</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>DUNCIT</dc:identifier>
+<dc:title>Contradictory information: Too much of a good thing</dc:title>
+<prism:publicationName>Journal of Philosophical Logic</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/b582768vw325055x/fulltext.pdf">
+<title>Complexity and evolution: A study of the growth of complexity in organic and cultural evolution</title>
+<link>http://www.springerlink.com/content/b582768vw325055x/fulltext.pdf</link>
+<description>In the present paper I develop a model of the evolutionary process associated to the widespread although controversial notion of a prevailing trend of increasing complexity over time. The model builds on a coupling of evolution to individual developmental programs and introduces an integrated view of evolution implying that human culture and science form a continuous extension of organic evolution. It is formed as a mathematical model that has made possible a quantitative estimation in relative terms of the growth of complexity. This estimation is accomplished by means of computer simulations the result of which indicates a strong acceleration of complexity all the way from the appearance of multicellular organisms up to modern man</description>
+<dc:creator>Ekstig, B&#xF6;rje</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>EKSCAE</dc:identifier>
+<dc:title>Complexity and evolution: A study of the growth of complexity in organic and cultural evolution</dc:title>
+<prism:publicationName>Foundations of Science</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/y0250764up521167/fulltext.pdf">
+<title>Intrinsic ethics regarding integrated assessment models for climate management</title>
+<link>http://www.springerlink.com/content/y0250764up521167/fulltext.pdf</link>
+<description>In this essay we develop and argue for the adoption of a more comprehensive model of research ethics than is included within current conceptions of responsible conduct of research (RCR). We argue that our model, which we label the ethical dimensions of scientific research (EDSR), is a more comprehensive approach to encouraging ethically responsible scientific research compared to the currently typically adopted approach in RCR training. This essay focuses on developing a pedagogical approach that enables scientists to better understand and appreciate one important component of this model, what we call intrinsic ethics . Intrinsic ethical issues arise when values and ethical assumptions are embedded within scientific findings and analytical methods. Through a close examination of a case study and its application in teaching, namely, evaluation of climate change integrated assessment models, this paper develops a method and case for including intrinsic ethics within research ethics training to provide scientists with a comprehensive understanding and appreciation of the critical role of values and ethical choices in the production of research outcomes</description>
+<dc:creator>J. Davis, Klaus Keller</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>ERIIER</dc:identifier>
+<dc:title>Intrinsic ethics regarding integrated assessment models for climate management</dc:title>
+<prism:publicationName>Science and Engineering Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/r85vw4318n18k4n4/fulltext.pdf">
+<title>Grahek Nikola: Feeling pain and being in pain, 2nd ed</title>
+<link>http://www.springerlink.com/content/r85vw4318n18k4n4/fulltext.pdf</link>
+<description></description>
+<dc:creator>Fajardo-Chica, David</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>FAJGNF</dc:identifier>
+<dc:title>Grahek Nikola: Feeling pain and being in pain, 2nd ed</dc:title>
+<prism:publicationName>Minds and Machines</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/q45205v28g803x03/fulltext.pdf">
+<title>Introduction</title>
+<link>http://www.springerlink.com/content/q45205v28g803x03/fulltext.pdf</link>
+<description></description>
+<dc:creator>Werhane, Patricia</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>FLAI</dc:identifier>
+<dc:title>Introduction</dc:title>
+<prism:publicationName>Journal of Business Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/2668707774r0k872/fulltext.pdf">
+<title>Schanbacer, William d: The politics of food: The global conflict between food security and food sovereignty</title>
+<link>http://www.springerlink.com/content/2668707774r0k872/fulltext.pdf</link>
+<description></description>
+<dc:creator>Flora, Cornelia Butler</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>FLOSWD</dc:identifier>
+<dc:title>Schanbacer, William d: The politics of food: The global conflict between food security and food sovereignty</dc:title>
+<prism:publicationName>Journal of Agricultural and Environmental Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/h3467673314w21g5/fulltext.pdf">
+<title>Robert Kirk: Zombies and consciousness</title>
+<link>http://www.springerlink.com/content/h3467673314w21g5/fulltext.pdf</link>
+<description></description>
+<dc:creator>Ford, Jason</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>FORRKZ</dc:identifier>
+<dc:title>Robert Kirk: Zombies and consciousness</dc:title>
+<prism:publicationName>Minds and Machines</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/j37r566693412v37/fulltext.pdf">
+<title>Trashing life&#x27;s tree</title>
+<link>http://www.springerlink.com/content/j37r566693412v37/fulltext.pdf</link>
+<description>The Tree of Life has traditionally been understood to represent the history of species lineages. However, recently researchers have suggested that it might be better interpreted as representing the history of cellular lineages, sometimes called the Tree of Cells. This paper examines and evaluates reasons offered against this cellular interpretation of the Tree of Life. It argues that some such reasons are bad reasons, based either on a false attribution of essentialism, on a misunderstanding of the problem of lineage identity, or on a limited view of scientific representation. I suggest that debate about the Tree of Cells and other successors to the traditional Tree of Life should be formulated in terms of the purposes these representations may serve. In pursuing this strategy, we see that the Tree of Cells cannot serve one purpose suggested for it: as an explanation for the hierarchical nature of taxonomy. We then explore whether, instead, the tree may play an important role in the dynamic modeling of evolution. As highly-integrated complex systems, cells may influence which lineage components can successfully transfer into them and how they change once integrated. Only if they do in fact have a substantial role to play in this process might the Tree of Cells have some claim to be the Tree of Life</description>
+<dc:creator>Franklin-Hall, L. R.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>FRATLT</dc:identifier>
+<dc:title>Trashing life&#x27;s tree</dc:title>
+<prism:publicationName>Biology and Philosophy</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/a7729n56772r2443/fulltext.pdf">
+<title>The full theory of conditional elements: Enumerating, exemplifying, and evaluating each of the eight conditional elements</title>
+<link>http://www.springerlink.com/content/a7729n56772r2443/fulltext.pdf</link>
+<description>This paper presents a unified, more-or-less complete, and largely pragmatic theory of indicative conditionals as they occur in natural language, which is entirely truth-functional and does not involve probability. It includes material implication as a special&#x2014;and the most important&#x2014;case, but not as the only case. The theory of conditional elements, as we term it, treats if-statements analogously to the more familiar and less controversial other truth-functional compounds, such as conjunction and disjunction</description>
+<dc:creator>Fulda, Joseph S.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>FULTFT-2</dc:identifier>
+<dc:title>The full theory of conditional elements: Enumerating, exemplifying, and evaluating each of the eight conditional elements</dc:title>
+<prism:publicationName>Acta Analytica</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/h66701url5934g34/fulltext.pdf">
+<title>Ethical issues in engineering models: An operations researcher&#x27;s reflections</title>
+<link>http://www.springerlink.com/content/h66701url5934g34/fulltext.pdf</link>
+<description>This article starts with an overview of the author&#x2019;s personal involvement&#x2014;as an Operations Research consultant&#x2014;in several engineering case-studies that may raise ethical questions; e.g., case-studies on nuclear waste, water management, sustainable ecology, military tactics, and animal welfare. All these case studies employ computer simulation models. In general, models are meant to solve practical problems, which may have ethical implications for the various stakeholders; namely, the modelers, the clients, and the public at large. The article further presents an overview of codes of ethics in a variety of disciples. It discusses the role of mathematical models, focusing on the validation of these models&#x2019; assumptions. Documentation of these model assumptions needs special attention. Some ethical norms and values may be quantified through the model&#x2019;s multiple performance measures, which might be optimized. The uncertainty about the validity of the model leads to risk or uncertainty analysis and to a search for robust models. Ethical questions may be pressing in military models, including war games. However, computer games and the related experimental economics may also provide a special tool to study ethical issues. Finally, the article briefly discusses whistleblowing. Its many references to publications and websites enable further study of ethical issues in modeling</description>
+<dc:creator>Kleijnen, J.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>KLEEII</dc:identifier>
+<dc:title>Ethical issues in engineering models: An operations researcher&#x27;s reflections</dc:title>
+<prism:publicationName>Science and Engineering Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/4101tqhv0080882r/fulltext.pdf">
+<title>Shakya chokden&#x27;s interpretation of the ratnagotravibh&#x101;ga : &#x201C;Contemplative&#x201D; or &#x201C;dialectical&#x201D;?</title>
+<link>http://www.springerlink.com/content/4101tqhv0080882r/fulltext.pdf</link>
+<description>This reconciliation of the dialectical and contemplative approaches to the buddha-essence is related to and closely resembles Shakchok&#x2019;s reconciliation of the two approaches to ultimate reality advocated respectively by Ni&#x1E25;svabh&#x101;vav&#x101;da ( ngo bo nyid med par smra ba , &#x201C;Proponents of Entitylessness&#x201D;) system of Madhyamaka and Al&#x12B;k&#x101;k&#x101;rav&#x101;da ( rnam rdzun pa , &#x201C;False Aspectarians&#x201D;) system of Yog&#x101;c&#x101;ra. These approaches in turn are connected respectively to the explicit teachings ( dngos bstan ) of the second dharmacakra ( chos &#x2019;khor , &#x201C;Wheel of Dharma&#x201D;) and the definitive teachings ( nges don, n&#x12B;t&#x101;rtha ) of the third dharmacakra that he also presents in a reconciliatory manner. In the same way as the teachings of the last two dharmacakras, as well as the Ni&#x1E25;svabh&#x101;vav&#x101;da and Al&#x12B;k&#x101;k&#x101;rav&#x101;da systems that derive from them, come to the same point, the dialectical and contemplative traditions also come to the same point. This point is the above-mentioned naturally pure primordial mind luminous by nature, the ultimate reality. In Shakchok&#x2019;s opinion, application of non-affirming negations is a powerful tool for accessing direct realization of that reality, while its identification as primordial mind ( ye shes, j&#xF1;&#x101;na ) is important for maintaining that realization and turning it into the basis of unfolding positive qualities on the path to buddhahood. When in the passage above Shakchok says that the two traditions are not contradictory, and when he reconciles the two last dharmacakras together with Al&#x12B;k&#x101;k&#x101;rav&#x101;da and Ni&#x1E25;svabh&#x101;vav&#x101;da, he is not arguing that their words are non-contradictory. They obviously are! Nevertheless, those systems are non-contradictory in terms of complementing each other in getting access to and maintaining realization of the ultimate reality of primordial mind</description>
+<dc:creator>Komarovski, Yaroslav</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>KOMSCI</dc:identifier>
+<dc:title>Shakya chokden&#x27;s interpretation of the ratnagotravibh&#x101;ga : &#x201C;Contemplative&#x201D; or &#x201C;dialectical&#x201D;?</dc:title>
+<prism:publicationName>Journal of Indian Philosophy</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/01733k5145407466/fulltext.pdf">
+<title>Values congruence and organisational commitment: P&#x2014;o fit in higher education institutions</title>
+<link>http://www.springerlink.com/content/01733k5145407466/fulltext.pdf</link>
+<description>This study examines business students&#x2019; individual values and their perception of their university&#x2019;s values and the relationship between these values and affective organisational commitment. Findings indicate that both groups of business students rated their personal values as consistent with the rankings of the major pan&#x2014;cultural values with strong ethical orientation and self&#x2014;development and learning values. In both educational institutions organisational vision values and individual conservatism values predicted affective commitment. Findings also indicate statistically significant differences between the students&#x2019; personal values and their perception of their university&#x2019;s values, suggesting a degree of lack of P&#x2014;O fit between the students&#x2019; values and their university&#x2019;s values</description>
+<dc:creator>Lawrence, Peter</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>LAWVCA</dc:identifier>
+<dc:title>Values congruence and organisational commitment: P&#x2014;o fit in higher education institutions</dc:title>
+<prism:publicationName>Journal of Academic Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.journals.uchicago.edu/doi/full/10.1086/652294">
+<title>Negative duties, positive duties, and the &#x201C;new harms&#x201D;</title>
+<link>http://www.journals.uchicago.edu/doi/full/10.1086/652294</link>
+<description></description>
+<dc:creator>Lichtenberg, Judith</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>LICNDP</dc:identifier>
+<dc:title>Negative duties, positive duties, and the &#x201C;new harms&#x201D;</dc:title>
+<prism:number>3</prism:number>
+<prism:volume>120</prism:volume>
+<prism:publicationName>Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/gl05qw478n33p387/fulltext.pdf">
+<title>The neuroethics of pleasure and addiction in public health strategies moving beyond harm reduction: Funding the creation of non-addictive drugs and taxonomies of pleasure</title>
+<link>http://www.springerlink.com/content/gl05qw478n33p387/fulltext.pdf</link>
+<description>We are unlikely to stop seeking pleasure, as this would prejudice our health and well-being. Yet many psychoactive substances providing pleasure are outlawed as illicit recreational drugs, despite the fact that only some of them are addictive to some people. Efforts to redress their prohibition, or to reform legislation so that penalties are proportionate to harm have largely failed. Yet, if choices over seeking pleasure are ethical insofar as they avoid harm to oneself or others, public health strategies should foster ethical choice by moving beyond current risk management practices embodied in the harm reduction movement. The neuroscience of pleasure has much to offer neuroethics and public health strategies. Distinguishing between &#x2018;wanting&#x2019; and &#x2018;liking&#x2019; fosters new understandings of addiction. These hold promise for directing the search for pharmacotherapies which prevent addiction and relapse or disrupt associated neuromechanisms. They could inform new research into creating lawful psychoactive substances which give us pleasure without provoking addiction. As the health and well being of human and other animals rests upon the experience of pleasure, this would be an ethical objective within public health strategy. Were ethical and neurobiological obstacles to ending addiction to be overcome, problems associated with excessive consumption, the lure of unlawful psychoactive substances and the paucity of lawful means to achieve pleasurable altered states would remain. Non-addictive designer drugs, which reliably provided lawful access to pleasures and altered states, would ameliorate these public health concerns insofar as they fostered citizens&#x2019; informed, ethical choices according to a neurobiological taxonomy of pleasures</description>
+<dc:creator>Mackenzie, Robin</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>MACTNO-6</dc:identifier>
+<dc:title>The neuroethics of pleasure and addiction in public health strategies moving beyond harm reduction: Funding the creation of non-addictive drugs and taxonomies of pleasure</dc:title>
+<prism:publicationName>Neuroethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/nx076552gn107304/fulltext.pdf">
+<title>On the meaning of the constant &#x201C;c&#x201D; in modern physics</title>
+<link>http://www.springerlink.com/content/nx076552gn107304/fulltext.pdf</link>
+<description>In modern physics, the constant &#x201C;c&#x201D; plays a twofold role. On the one hand, &#x201C;c&#x201D; is the well known velocity of light in an empty Minkowskian space&#x2013;time, on the other hand &#x201C;c&#x201D; is a characteristic number of Special Relativity that governs the Lorentz transformation and its consequences for the measurements of space&#x2013;time intervals. We ask for the interrelations between these two, at first sight different meanings of &#x201C;c&#x201D;. The conjecture that the value of &#x201C;c&#x201D; has any influence on the structure of space&#x2013;time is based on the operational interpretation of Special Relativity, which uses light rays for measurements of space&#x2013;time intervals. We do not follow this way of reasoning but replace it by a more realistic approach that allows to show that the structure of the Minkowskian space&#x2013;time can be reconstructed already on the basis of a restricted classical ontology (Mittelstaedt, Philosophie der Physik und der Raum-Zeit, Mannheim: BI-Wissenschaftsverlag, 1988 and Mittelstaedt, Kaltbl&#xFC;tig: Philosophie von einem rationalen Standpunkt, Stuttgart: S. Hirzel Verlag, pp. 221&#x2013;240, 2003 ), and that without any reference to the propagation of light. However, the space&#x2013;time obtained in this way contains still an unknown constant. We show that this constant agrees numerically with &#x201C;c&#x201D; but that it must conceptually clearly be distinguished from the velocity of light. Hence, we argue for a clear distinction between the two faces of &#x201C;c&#x201D; and for a dualism of space&#x2013;time and matter</description>
+<dc:creator>Mittelstaedt, Peter</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>MITOTM</dc:identifier>
+<dc:title>On the meaning of the constant &#x201C;c&#x201D; in modern physics</dc:title>
+<prism:publicationName>Journal for General Philosophy of Science</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/0m53l6p725323103/fulltext.pdf">
+<title>How to consider the value of farm animals in breeding goals. A review of current status and future challenges</title>
+<link>http://www.springerlink.com/content/0m53l6p725323103/fulltext.pdf</link>
+<description>The objective of this paper is to outline challenges associated with the inclusion of welfare issues in breeding goals for farm animals and to review the currently available methodologies and discuss their potential advantages and limitations to address these challenges. The methodology for weighing production traits with respect to cost efficiency and market prices are well developed and implemented in animal breeding goals. However, these methods are inadequate in terms of assessing proper values of traits with social and ethical values such as animal welfare, because such values are unlikely to be readily available from the product prices and costs in the market. Defining breeding goals that take animal welfare and ethical concerns into account, therefore, requires new approaches. In this paper we suggest a framework and an approach for defining breeding goals, including animal welfare. The definition of breeding goals including values related to animal welfare requires a multidisciplinary approach with a combination of different methods such as profit equations, stated preference techniques, and selection index theory. In addition, a participatory approach involving different stakeholders such as breeding organizations, food authorities, farmers, and animal welfare organizations should be applied. We conclude that even though these methods provide the necessary tools for considering welfare issues in the breeding goal, the practical application of these methods is yet to be achieved</description>
+<dc:creator>Amer, P.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>NIEHTC</dc:identifier>
+<dc:title>How to consider the value of farm animals in breeding goals. A review of current status and future challenges</dc:title>
+<prism:publicationName>Journal of Agricultural and Environmental Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/hwk142122r073787/fulltext.pdf">
+<title>Prioritarianism and the levelling down objection</title>
+<link>http://www.springerlink.com/content/hwk142122r073787/fulltext.pdf</link>
+<description>I discuss Ingmar Persson&#x2019;s recent argument that the Levelling Down Objection could be worse for prioritarians than for egalitarians. Persson&#x2019;s argument depends upon the claim that indifference to changes in the average prioritarian value of benefits implies indifference to changes in the overall prioritarian value of a state of affairs. As I show, however, sensible conceptions of prioritarianism have no such implication. Therefore prioritarians have nothing to fear from the Levelling Down Objection</description>
+<dc:creator>Porter, Thomas</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>PORPAT</dc:identifier>
+<dc:title>Prioritarianism and the levelling down objection</dc:title>
+<prism:publicationName>Ethical Theory and Moral Practice</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/j812428062757322/fulltext.pdf">
+<title>Medical error disclosure training: Evidence for values-based ethical environments</title>
+<link>http://www.springerlink.com/content/j812428062757322/fulltext.pdf</link>
+<description>Disclosure of medical and errors to patients has been increasingly mandated in the U.S. and Canada. Thus, some health systems are developing formal disclosure policies. The present study examines how disclosure training may impact staff and the organization. We argue that organizations that support &#x201C;disclose and apologize&#x201D; activities, as opposed to &#x201C;deny and defend,&#x201D; are demonstrating values-based ethics. Specifically, we hypothesized that when health care clinicians are trained and supported in error disclosure, this may signal a values-based ethical environment, and staff may be more committed to the organization. We surveyed 325 clinical care providers employed by a large hospital that had recently begun implementing disclosure policies and training. Disclosure training explained significant variance in perceptions of the ethical environment, and the ethical environment mediated the relationship between disclosure training and organizational commitment. Although this study explored disclosure of medical errors, organizational support for error disclosure is a concept that could be relevant for many types of organizations</description>
+<dc:creator>Phillips, Win</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>RATMED</dc:identifier>
+<dc:title>Medical error disclosure training: Evidence for values-based ethical environments</dc:title>
+<prism:publicationName>Journal of Business Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/1656648w63284443/fulltext.pdf">
+<title>We meant no harm, yet we made a mistake; why not apologize for it? A student&#x27;s view</title>
+<link>http://www.springerlink.com/content/1656648w63284443/fulltext.pdf</link>
+<description>This essay explores the unique perspective of medical students regarding the ethical challenges of providing full disclosure to patients and their families when medical mistakes are made, especially when such mistakes lead to tragic outcomes. This narrative underscores core precepts of the healing profession, challenging the health care team to be open and truthful, even when doing so is uncomfortable. This account also reminds us that nonabandonment is an obligation that assumes accountability for one&#x2019;s actions in the healing relationship and that apologizing for mistakes can serve to heal. It argues that even medical students have an obligation to speak up when actions violate their moral beliefs, even if this means confronting a superior. Ethical principles cannot be abandoned in fear of adverse evaluation or failure to conform. Healthcare workers have an obligation to address mistakes made around the time of a patient&#x2019;s death with the patient&#x2019;s family. This responsibility trumps any selfish desire to avoid unpleasant feelings of guilt or regret. Such events often bring closure to already anguished relatives and spouses, and may help to facilitate the grieving process. This includes pressing forward the need to apologize to patients and/or their families when mistakes are made and when decisions are made that lead to poor outcomes for the patient, even when benevolently intended</description>
+<dc:creator>Fleming, David A.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>SANWMN</dc:identifier>
+<dc:title>We meant no harm, yet we made a mistake; why not apologize for it? A student&#x27;s view</dc:title>
+<prism:publicationName>Hec Forum</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/807pv2q716216072/fulltext.pdf">
+<title>Patrick J. Carr and Maria J. kafalas, hollowing out the middle: The rural brain drain and what it means for America</title>
+<link>http://www.springerlink.com/content/807pv2q716216072/fulltext.pdf</link>
+<description></description>
+<dc:creator>Seale, Doug</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>SEAPJC</dc:identifier>
+<dc:title>Patrick J. Carr and Maria J. kafalas, hollowing out the middle: The rural brain drain and what it means for America</dc:title>
+<prism:publicationName>Journal of Agricultural and Environmental Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/c2871270g116q494/fulltext.pdf">
+<title>The commitments of a madhyamaka trickster: Innovation in candrak&#x12B;rti&#x27;s prasanna-pad&#x101;</title>
+<link>http://www.springerlink.com/content/c2871270g116q494/fulltext.pdf</link>
+<description>This paper challenges the notion that there is a complete continuity between the thought of N&#x101;g&#x101;rjuna and the thought of Candrak&#x12B;rti. It is shown that there is strong reason to doubt Candrak&#x12B;rti&#x2019;s gloss of Mu&#x304;la-madhyamaka-k&#x101;rik&#x101; (MMK) 2.1, and that Candrak&#x12B;rti&#x2019;s peculiar reading of this verse causes him to alter the context of the discussion in the four cases in which N&#x101;g&#x101;rjuna quotes MMK 2.1 later in the text&#x2014;MMK 3.3, 7.14, 10.13 and 16.7. The innovation produced by Candrak&#x12B;rti is next contrasted to N&#x101;g&#x101;rjuna&#x2019;s style of argument, and it is shown that these two author&#x2019;s notions of emptiness, as well as their particular implementation of Madhyamaka logic, significantly diverge from each other. Finally, Candrak&#x12B;rti&#x2019;s reading of these verses is compared with his commentary on MMK 15 so as to suggest a possible subtle metaphysical position that is at the base of his thinking</description>
+<dc:creator>Shulman, Eviatar</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>SHUTCO-2</dc:identifier>
+<dc:title>The commitments of a madhyamaka trickster: Innovation in candrak&#x12B;rti&#x27;s prasanna-pad&#x101;</dc:title>
+<prism:publicationName>Journal of Indian Philosophy</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/p1vlg2267wq11223/fulltext.pdf">
+<title>Reply to Jacobs</title>
+<link>http://www.springerlink.com/content/p1vlg2267wq11223/fulltext.pdf</link>
+<description></description>
+<dc:creator>Parry, Peter I.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>SPIRTJ</dc:identifier>
+<dc:title>Reply to Jacobs</dc:title>
+<prism:publicationName>Journal of Bioethical Inquiry</prism:publicationName>
+</item>
+<item rdf:about="http://www.journals.uchicago.edu/doi/full/10.1086/652303">
+<title>Duties and their direction</title>
+<link>http://www.journals.uchicago.edu/doi/full/10.1086/652303</link>
+<description></description>
+<dc:creator>Sreenivasan, Gopal</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>SREDAT</dc:identifier>
+<dc:title>Duties and their direction</dc:title>
+<prism:number>3</prism:number>
+<prism:volume>120</prism:volume>
+<prism:publicationName>Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/h3u061v03j252g67/fulltext.pdf">
+<title>Dieter Lohmar, ph&#xE4;nomenologie der schwachen phantasie. Untersuchungen der psychologie, cognitive science, neurologie und ph&#xE4;nomenologie zur funktion der phantasie in der wahrnehmung</title>
+<link>http://www.springerlink.com/content/h3u061v03j252g67/fulltext.pdf</link>
+<description></description>
+<dc:creator>Staiti, Andrea</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>STADLP</dc:identifier>
+<dc:title>Dieter Lohmar, ph&#xE4;nomenologie der schwachen phantasie. Untersuchungen der psychologie, cognitive science, neurologie und ph&#xE4;nomenologie zur funktion der phantasie in der wahrnehmung</dc:title>
+<prism:publicationName>Husserl Studies</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/47441016r3281375/fulltext.pdf">
+<title>Poland translated: The post-communist generation of writers</title>
+<link>http://www.springerlink.com/content/47441016r3281375/fulltext.pdf</link>
+<description>This article is concerned with writing in Poland since the collapse of Communism. It focuses mainly on the generation of Polish writers who made their debut around the time of the collapse of Communism and whose work has since begun to appear in English translation. It considers the changing focus of the post-Communist generation of writers, asks how the translations of their work represent Poland to the world and what these works might indicate about changes within contemporary Polish literary and political culture. In particular the article looks at recent fiction from Polish Women Writers and themes in recent writing including the ideas of Poland as Post-Communist, Post-nationalist, Post-Jewish and Post-German</description>
+<dc:creator>Tighe, Carl</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>TIGPTT</dc:identifier>
+<dc:title>Poland translated: The post-communist generation of writers</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>62</prism:volume>
+<prism:publicationName>Studies in East European Thought</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/q5l784402858l185/fulltext.pdf">
+<title>Nature and freedom: Repetition as supplement in the late Schelling</title>
+<link>http://www.springerlink.com/content/q5l784402858l185/fulltext.pdf</link>
+<description>F.W.J. von Schelling&#x2019;s positive philosophy of mythology and revelation questions how one can move from the natural (the negative or mythology) to freedom (the positive or revelation), i.e. from the natural to the supernatural. The move from nature to freedom surpasses the traditional metaphysics of presence. Being is not simply the presencing of nature but the result of a decisive deed surpassing and supplementing nature. Nature can do nothing other than presence. Freedom, however, could also not be. It could remain in concealment and must not necessarily presence as nature does. The origin is a supplement because an unnecessary excess extraneous to nature. In other words, origins always supplement the natural, i.e. they are supernatural and revelatory. Origins bring something novel, i.e. something original, into being but origins themselves remain in non-being and consequently remain un-revealed. The origin cannot exist, i.e. cannot become present, because it is always qualitatively Past. The origin never was but always already has been . Primal repetition was freedom&#x2019;s subjection of nature to the Past and a deferral of this deed&#x2019;s consequences to the indefinite Future</description>
+<dc:creator>Tritten, Tyler</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>TRINAF</dc:identifier>
+<dc:title>Nature and freedom: Repetition as supplement in the late Schelling</dc:title>
+<prism:publicationName>Sophia</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/q63r7g2154287675/fulltext.pdf">
+<title>Anderson and Belnap&#x27;s invitation to sin</title>
+<link>http://www.springerlink.com/content/q63r7g2154287675/fulltext.pdf</link>
+<description>Quine has argued that modal logic began with the sin of confusing use and mention. Anderson and Belnap, on the other hand, have offered us a way out through a strategy of nominalization. This paper reviews the history of Lewis&#x2019;s early work in modal logic, and then proves some results about the system in which &#x201C; A is necessary&#x201D; is intepreted as &#x201C; A is a classical tautology.&#x201D;</description>
+<dc:creator>Urquhart, Alasdair</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>URQAAB</dc:identifier>
+<dc:title>Anderson and Belnap&#x27;s invitation to sin</dc:title>
+<prism:publicationName>Journal of Philosophical Logic</prism:publicationName>
+</item>
+<item rdf:about="http://www.journals.uchicago.edu/doi/full/10.1086/652302">
+<title>Moral rationalism and rational amoralism</title>
+<link>http://www.journals.uchicago.edu/doi/full/10.1086/652302</link>
+<description>Huck Finn&#x27;s refusal to turn in his friend Jim was not a failure of rationality. It is partly on the basis of such examples that many theorists conclude that the requirements of ethics cannot be the requirements of practical reason. In this essay I will defend rationalism against these worries. But I hope to do more than that. I intend to show how the rationality of people like those described above is compatible with two plausible versions of internalism. Second, I will show how properly formulated rationalism serves to explain these plausible internalist theses along with the plausible cases of rational amorality and immorality which they allow.&#x3C;br&#x3E;The result will be that a plausible internalism and a well-formulated&#x3C;br&#x3E;rationalism are mutually supporting theories.</description>
+<dc:creator>van Roojen, Mark</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>VANMRA-6</dc:identifier>
+<dc:title>Moral rationalism and rational amoralism</dc:title>
+<prism:number>3</prism:number>
+<prism:volume>120</prism:volume>
+<prism:publicationName>Ethics</prism:publicationName>
+<prism:endingPage>525</prism:endingPage>
+<prism:startingPage>495</prism:startingPage>
+</item>
+<item rdf:about="http://www.springerlink.com/content/85m15k92q3135668/fulltext.pdf">
+<title>The power of Belnap: Sequent systems for sixteen</title>
+<link>http://www.springerlink.com/content/85m15k92q3135668/fulltext.pdf</link>
+<description>The trilattice is a natural generalization of the well-known bilattice . Cut-free, sound and complete sequent calculi for truth entailment and falsity entailment in are presented</description>
+<dc:creator>Wansing, Heinrich</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>WANTPO-4</dc:identifier>
+<dc:title>The power of Belnap: Sequent systems for sixteen</dc:title>
+<prism:publicationName>Journal of Philosophical Logic</prism:publicationName>
+</item>
+<item rdf:about="http://www.journals.uchicago.edu/doi/full/10.1086/652292">
+<title>On the evolutionary debunking of morality</title>
+<link>http://www.journals.uchicago.edu/doi/full/10.1086/652292</link>
+<description></description>
+<dc:creator>Wielenberg, Erik J.</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>WIEOTE</dc:identifier>
+<dc:title>On the evolutionary debunking of morality</dc:title>
+<prism:number>3</prism:number>
+<prism:volume>120</prism:volume>
+<prism:publicationName>Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/0l72m5263r104510/fulltext.pdf">
+<title>Truth and consistency</title>
+<link>http://www.springerlink.com/content/0l72m5263r104510/fulltext.pdf</link>
+<description>This paper investigates relations between truth and consistency. The basic intuition is that truth implies consistency, but the reverse dependence fails. However, this simple account leads to some troubles, due to some metalogical results, in particular the G&#xF6;del-Malcev completeness theorem. Thus, a more advanced analysis is required. This is done by employing the concept of &#x3C9;-consistency and &#x3C9;-inconsistency. Both concepts motivate that the concept of the standard truth should be introduced as well. The results are illustrated by an interpretation of the well-known logical square and its generalization</description>
+<dc:creator>Wole&#x144;ski, Jan</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>WOLTAC</dc:identifier>
+<dc:title>Truth and consistency</dc:title>
+<prism:publicationName>Axiomathes</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/d74523m431034135/fulltext.pdf">
+<title>Communitarian and liberal themes in moral agency and education</title>
+<link>http://www.springerlink.com/content/d74523m431034135/fulltext.pdf</link>
+<description>Philosophers and psychologists have been vigorously examining the psychological capacities that realize our moral agency. Our purpose is to take some of this work and present its implications for moral education. To connect recent work with more long-standing debates in moral education, we frame this discussion with Helen Haste&#x2019;s 1996 examination of liberal and communitarian positions on moral agency and education. We argue that contemporary research does not confirm the descriptive theory of moral agency offered by either liberal theorists or communitarians, but nonetheless the prescriptive theory of liberal moral education can be vindicated</description>
+<dc:creator>Sneddon, Andrew</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>YOUCAL</dc:identifier>
+<dc:title>Communitarian and liberal themes in moral agency and education</dc:title>
+<prism:publicationName>Review of Philosophy and Psychology</prism:publicationName>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807582&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807580">
+<title>The duty to seek peace</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807582&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807580</link>
+<description></description>
+<dc:creator>Boxill, Bernard R.</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>BOXTDT</dc:identifier>
+<dc:title>The duty to seek peace</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>296</prism:endingPage>
+<prism:startingPage>274</prism:startingPage>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807579&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807577">
+<title>A conceptual and (preliminary) normative exploration of waste</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807579&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807577</link>
+<description></description>
+<dc:creator>Cohen, Andrew Jason</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>COHACA</dc:identifier>
+<dc:title>A conceptual and (preliminary) normative exploration of waste</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>273</prism:endingPage>
+<prism:startingPage>233</prism:startingPage>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123525167/PDFSTART">
+<title>G. E. Moore and bad faith</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123525167/PDFSTART</link>
+<description>Abstract: G. E. Moore claimed to know a variety of commonsense propositions. He is often accused of being dogmatic or of begging the question against philosophers who deny that he knows such things. In this paper, I argue that this accusation is mistaken. I argue that Moore is instead guilty of answering questions of the form &#x27;Do I know p?&#x27; in bad faith</description>
+<dc:creator>Coleman, Anthony</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>COLGEM</dc:identifier>
+<dc:title>G. E. Moore and bad faith</dc:title>
+<prism:publicationName>European Journal of Philosophy</prism:publicationName>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807567&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807565">
+<title>&#x201C;But it would be wrong&#x201D;</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807567&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807565</link>
+<description></description>
+<dc:creator>Darwall, Stephen</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>DARBIW</dc:identifier>
+<dc:title>&#x201C;But it would be wrong&#x201D;</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>157</prism:endingPage>
+<prism:startingPage>135</prism:startingPage>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807588&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807586">
+<title>Moral obligation after the death of God: Critical reflections on concerns from Immanuel Kant, G. W. F. Hegel, and Elizabeth Anscombe</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807588&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807586</link>
+<description></description>
+<dc:creator>Engelhardt, H. Tristram</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>ENGMOA-2</dc:identifier>
+<dc:title>Moral obligation after the death of God: Critical reflections on concerns from Immanuel Kant, G. W. F. Hegel, and Elizabeth Anscombe</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>340</prism:endingPage>
+<prism:startingPage>317</prism:startingPage>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807585&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807583">
+<title>Goals, luck, and moral obligation</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807585&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807583</link>
+<description></description>
+<dc:creator>Frey, R. G.</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>FREGLA</dc:identifier>
+<dc:title>Goals, luck, and moral obligation</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>316</prism:endingPage>
+<prism:startingPage>297</prism:startingPage>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807573&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807571">
+<title>Making room for options: Moral reasons, imperfect duties, and choice</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807573&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807571</link>
+<description></description>
+<dc:creator>Greenspan, Patricia</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>GREMRF</dc:identifier>
+<dc:title>Making room for options: Moral reasons, imperfect duties, and choice</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>205</prism:endingPage>
+<prism:startingPage>181</prism:startingPage>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807576&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807574">
+<title>The obligation to be virtuous: Kant&#x27;s conception of the tugendverpflichtung</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807576&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807574</link>
+<description></description>
+<dc:creator>Guyer, Paul</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>GUYTOT</dc:identifier>
+<dc:title>The obligation to be virtuous: Kant&#x27;s conception of the tugendverpflichtung</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>232</prism:endingPage>
+<prism:startingPage>206</prism:startingPage>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807558&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807556">
+<title>Untying a knot from the inside out: Reflections on the &#x201C;paradox&#x201D; of supererogation</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807558&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807556</link>
+<description></description>
+<dc:creator>Timmons, Mark</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>HORUAK</dc:identifier>
+<dc:title>Untying a knot from the inside out: Reflections on the &#x201C;paradox&#x201D; of supererogation</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>63</prism:endingPage>
+<prism:startingPage>29</prism:startingPage>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807564&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807562">
+<title>Underivative duty: Prichard on moral obligation</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807564&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807562</link>
+<description></description>
+<dc:creator>Hurka, Thomas</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>HURUDP</dc:identifier>
+<dc:title>Underivative duty: Prichard on moral obligation</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>134</prism:endingPage>
+<prism:startingPage>111</prism:startingPage>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807555&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807553">
+<title>Reflection and morality</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807555&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807553</link>
+<description></description>
+<dc:creator>Larmore, Charles</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>LARRAM-3</dc:identifier>
+<dc:title>Reflection and morality</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>28</prism:endingPage>
+<prism:startingPage>1</prism:startingPage>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123526159/PDFSTART">
+<title>The harmony of Spinoza and Leibniz</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123526159/PDFSTART</link>
+<description></description>
+<dc:creator>Newlands, Samuel</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>NEWTHO</dc:identifier>
+<dc:title>The harmony of Spinoza and Leibniz</dc:title>
+<prism:publicationName>Philosophy and Phenomenological Research</prism:publicationName>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807570&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807568">
+<title>Moral obligation, blame, and self-governance</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807570&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807568</link>
+<description></description>
+<dc:creator>Skorupski, John</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>SKOMOB</dc:identifier>
+<dc:title>Moral obligation, blame, and self-governance</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>180</prism:endingPage>
+<prism:startingPage>158</prism:startingPage>
+</item>
+<item rdf:about="http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807561&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807559">
+<title>Subjective rightness</title>
+<link>http://journals.cambridge.org/action/displayFulltext?type=1&#x26;pdftype=1&#x26;fid=7807561&#x26;jid=SOY&#x26;volumeId=27&#x26;issueId=02&#x26;aid=7807559</link>
+<description></description>
+<dc:creator>Smith, Holly M.</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>SMISR</dc:identifier>
+<dc:title>Subjective rightness</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>27</prism:volume>
+<prism:publicationName>Social Philosophy and Policy</prism:publicationName>
+<prism:endingPage>110</prism:endingPage>
+<prism:startingPage>64</prism:startingPage>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123535765/PDFSTART">
+<title>Kripke&#x27;s account of the rule-following considerations</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123535765/PDFSTART</link>
+<description>Abstract: This paper argues that most of the alleged straight solutions to the sceptical paradox which Kripke (1982) ascribed to Wittgenstein can be regarded as the first horn of a dilemma whose second horn is the paradox itself. The dilemma is proved to be a by-product of a foundationalist assumption on the notion of justification, as applied to linguistic behaviour. It is maintained that the assumption is unnecessary and that the dilemma is therefore spurious. To this end, an alternative conception of the justification of linguistic behaviour is outlined, a conception that vindicates some of the insights behind Kripke&#x27;s Wittgenstein&#x27;s sceptical solution of the paradox. This alternative conception is defended against two objections (both familiar from McDowell&#x27;s works): (1) that it would imply that for the linguistic community there is no authority, no standard to meet and, therefore, no possibility of error and (2) that it would lead to a kind of idealism</description>
+<dc:creator>Guardo, Andrea</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>GUAKAO</dc:identifier>
+<dc:title>Kripke&#x27;s account of the rule-following considerations</dc:title>
+<prism:publicationName>European Journal of Philosophy</prism:publicationName>
+</item>
+<item rdf:about="http://www3.interscience.wiley.com/cgi-bin/fulltext/123535762/PDFSTART">
+<title>What assertion doesn&#x27;t show</title>
+<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123535762/PDFSTART</link>
+<description>Abstract: Some recent arguments against the classical invariantist account of knowledge exploit the idea that there is a &#x27;knowledge norm&#x27; for assertion. It is claimed that, given the existence of this norm, certain intuitions about assertability support contextualism, or contrastivism, over classical invariantism. In this paper I show that, even if we accept the existence of a knowledge norm, these assertability-based arguments fail. The classical invariantist can accommodate and explain the relevant intuitions about assertability, in a way that retains the idea that knowledge is the epistemic norm for assertion. When we consider the role of assertion as a conversational act, it becomes plausible that a subject&#x27;s epistemic warrant to assert can be defeated even though she has knowledge. This defeasibility thesis is what allows the classical invariantist to accommodate and explain the kinds of intuitions on which assertability-based arguments depend</description>
+<dc:creator>McHugh, Conor</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>MCHWAD</dc:identifier>
+<dc:title>What assertion doesn&#x27;t show</dc:title>
+<prism:publicationName>European Journal of Philosophy</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/11536576560685xt/fulltext.pdf">
+<title>The price of responsibility: Ethics of animal husbandry in a time of climate change</title>
+<link>http://www.springerlink.com/content/11536576560685xt/fulltext.pdf</link>
+<description>This paper examines the challenges that climate change raises for animal agriculture and discusses the contributions that may come from a virtue ethics based approach. Two scenarios of the future role of animals in farming are set forth and discussed in terms of their ethical implications. The paper argues that when trying to tackle both climate and animal welfare issues in farming, proposals that call for a reorientation of our ethics and technology must first and foremost consider the values that drive current livestock production. This paper sets forth and discusses the broader societal values implicit in livestock production. We suggest that a virtues approach would improve our thinking and practice regarding animal agriculture, facilitating a move from livestock production to animal husbandry. This change in animal agriculture in a time of climate change would stress virtues such as attentiveness, responsibility, competence, and responsiveness as central elements in any mitigation or adaptation program</description>
+<dc:creator>Anthony, R.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>GJETPO-2</dc:identifier>
+<dc:title>The price of responsibility: Ethics of animal husbandry in a time of climate change</dc:title>
+<prism:publicationName>Journal of Agricultural and Environmental Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/l402tv38313m9084/fulltext.pdf">
+<title>More on the conceptual and the empirical: Misunderstandings, clarifications, and replies</title>
+<link>http://www.springerlink.com/content/l402tv38313m9084/fulltext.pdf</link>
+<description>At the invitation of the Editors, we wrote an article (entitled, &#x201C;Minds, Brains, and Norms&#x201D;) detailing our views on a variety of claims by those arguing for the explanatory power of neuroscience in matters of law and ethics. The Editors invited comments on our article from four distinguished academics (Walter Glannon, Carl Craver, Sarah Robins, and Thomas Nadelhoffer) and invited our reply to their critique of our views. In this reply to our commentators, we correct some potential misunderstandings of our views and further clarify our positions with discussions of the conceptual-empirical distinction, rule-following, explanations at the personal and subpersonal levels, memory, and lie detection. Although we acknowledge many of the criticisms advanced by our distinguished colleagues, we conclude that, in several important respects, their criticisms confirm the points made in our original article</description>
+<dc:creator>Patterson, Dennis</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>PARMOT-2</dc:identifier>
+<dc:title>More on the conceptual and the empirical: Misunderstandings, clarifications, and replies</dc:title>
+<prism:publicationName>Neuroethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/p3184688727m12x3/fulltext.pdf">
+<title>Longitudinal effects of corporate social responsibility on customer relationships</title>
+<link>http://www.springerlink.com/content/p3184688727m12x3/fulltext.pdf</link>
+<description></description>
+<dc:creator>Kennett-Hensel, Pamela A.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>LACLEO</dc:identifier>
+<dc:title>Longitudinal effects of corporate social responsibility on customer relationships</dc:title>
+<prism:publicationName>Journal of Business Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.goodman.pdf">
+<title>Rorty&#x27;s social theory and the narrative of U.s. History curriculum</title>
+<link>http://muse.jhu.edu/journals/education_and_culture/v026/26.1.goodman.pdf</link>
+<description></description>
+<dc:creator>Ables, Jesse Goodman Sarah Montgomery Connie</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>ABLRST</dc:identifier>
+<dc:title>Rorty&#x27;s social theory and the narrative of U.s. History curriculum</dc:title>
+<prism:number>1</prism:number>
+<prism:volume>26</prism:volume>
+<prism:publicationName>Education and Culture</prism:publicationName>
+<prism:endingPage>22</prism:endingPage>
+<prism:startingPage>3</prism:startingPage>
+</item>
+<item rdf:about="http://www.springerlink.com/content/9gh380t4k6817487/fulltext.pdf">
+<title>Why safety doesn&#x27;t save closure</title>
+<link>http://www.springerlink.com/content/9gh380t4k6817487/fulltext.pdf</link>
+<description>Knowledge closure is, roughly, the following claim: For every agent S and propositions P and Q, if S knows P, knows that P implies Q, and believes Q because it is so implied, then S knows Q. Almost every epistemologist believes that closure is true. Indeed, they often believe that it so obviously true that any theory implying its denial is thereby refuted. Some prominent epistemologists have nevertheless denied it, most famously Fred Dretske and Robert Nozick. There are closure advocates who see other virtues in those accounts, however, and so who introduce revisions of one sort or another in order to preserve closure while maintaining their spirit. One popular approach is to replace the &#x201C;sensitivity&#x201D; constraint at the heart of both of those accounts with a &#x201C;safety&#x201D; constraint, as advocated by Timothy Williamson, Duncan Pritchard, Ernest Sosa, Stephen Luper, and others. The purpose of this essay is to show that this approach does not succeed: safety does not save closure. And neither does a popular variation on the safety theme, the safe-basis or safe-indicator account</description>
+<dc:creator>Alspector-Kelly, Marc</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>ALSWSD</dc:identifier>
+<dc:title>Why safety doesn&#x27;t save closure</dc:title>
+<prism:publicationName>Synthese</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/h63p27118h875472/fulltext.pdf">
+<title>Is Plato&#x27;s timaeus panentheistic?</title>
+<link>http://www.springerlink.com/content/h63p27118h875472/fulltext.pdf</link>
+<description>Hartshorne and Reese thought that in the Timaeus Plato wasn&#x2019;t quite a panentheist&#x2014;though he would have been if he&#x2019;d been consistent. More recently, Cooper has argued that while Plato&#x2019;s World Soul may have inspired panentheists, Plato&#x2019;s text does not itself describe a form of panenetheism. In this paper, I will reconsider this question not only by examining closely the Timaeus but by thinking about which features of current characterizations of panentheism are historically accidental and how the core of the doctrine might most fruitfully be understood. I&#x2019;ll argue that there is a polytheistic view that deserves to be called panentheistic and that Plato&#x2019;s Timaeus describes such a view</description>
+<dc:creator>Baltzly, Dirk</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>BALIPT</dc:identifier>
+<dc:title>Is Plato&#x27;s timaeus panentheistic?</dc:title>
+<prism:publicationName>Sophia</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/80g3w4327625720p/fulltext.pdf">
+<title>The influence of retail management&#x27;s use of social power on corporate ethical values, employee commitment, and performance</title>
+<link>http://www.springerlink.com/content/80g3w4327625720p/fulltext.pdf</link>
+<description>Recent cases in retailing reflect that ethics have a major impact on brands and performance, in turn, demonstrating that brand owners, employees, and consumers focus on ethical values. In this study, we analyze how various sources of social power affect corporate ethical values, retailer&#x2019;s commitment to the retail organization, and ultimately sales and service quality. Multi-source data based on a sample of 225 retailers indicated a strong link between power, ethics, and commitment and that these affected output performance</description>
+<dc:creator>Silkoset, Ragnhild</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>BIOTIO</dc:identifier>
+<dc:title>The influence of retail management&#x27;s use of social power on corporate ethical values, employee commitment, and performance</dc:title>
+<prism:publicationName>Journal of Business Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.attick.pdf">
+<title>Montessori, Dewey, and capitalism: Educational theory for a free market in education</title>
+<link>http://muse.jhu.edu/journals/education_and_culture/v026/26.1.attick.pdf</link>
+<description></description>
+<dc:creator>Boyles, Dennis Attick Deron</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>BOYMDA</dc:identifier>
+<dc:title>Montessori, Dewey, and capitalism: Educational theory for a free market in education</dc:title>
+<prism:number>1</prism:number>
+<prism:volume>26</prism:volume>
+<prism:publicationName>Education and Culture</prism:publicationName>
+<prism:endingPage>103</prism:endingPage>
+<prism:startingPage>100</prism:startingPage>
+</item>
+<item rdf:about="http://www.springerlink.com/content/a3768u1243851748/fulltext.pdf">
+<title>How the dead live</title>
+<link>http://www.springerlink.com/content/a3768u1243851748/fulltext.pdf</link>
+<description>This paper maintains (following Yougrau 1987 ; 2000 and Hinchliff 1996 ) that the dead and other former existents count as examples of non-existent objects. If the dead number among the things there are, a further question arises: what is it to be dead&#x2014;how should the state of being dead be characterised? It is argued that this state should be characterised negatively: the dead are not persons, philosophers etc. They lack any of the (intrinsic) qualities they had while they lived. The only facts involving the dead are facts about the relations they stand in&#x2014;including the relations they bear to the qualities they formerly instantiated, and the intentional relations they stand in to us. Given an appropriate conception of qualities the dead can be said to be quality-less objects: bare particulars. The &#x2018;Bare Particular Theory&#x2019; of individuals, it is argued, is coherent if and only if it concedes that the bare particulars it allows for don&#x2019;t exist. The account of the dead and other former existents as bare particulars does justice to the misfortune of death, and points the way to a general theory of nonexistent objects</description>
+<dc:creator>Connolly, Niall</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>CONHTD</dc:identifier>
+<dc:title>How the dead live</dc:title>
+<prism:publicationName>Philosophia</prism:publicationName>
+</item>
+<item rdf:about="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.defalco.pdf">
+<title>An analysis of John Dewey&#x27;s notion of occupations: Still pedagogically valuable?</title>
+<link>http://muse.jhu.edu/journals/education_and_culture/v026/26.1.defalco.pdf</link>
+<description></description>
+<dc:creator>DeFalco, Anthony</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>DEFAAO</dc:identifier>
+<dc:title>An analysis of John Dewey&#x27;s notion of occupations: Still pedagogically valuable?</dc:title>
+<prism:number>1</prism:number>
+<prism:volume>26</prism:volume>
+<prism:publicationName>Education and Culture</prism:publicationName>
+<prism:endingPage>99</prism:endingPage>
+<prism:startingPage>82</prism:startingPage>
+</item>
+<item rdf:about="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.ellison.pdf">
+<title>In the shadow of Hegel: Toward a methodology appropriate to the sociological consciousness of philosophic inquiry</title>
+<link>http://muse.jhu.edu/journals/education_and_culture/v026/26.1.ellison.pdf</link>
+<description></description>
+<dc:creator>Ellison, Scott</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>ELLITS</dc:identifier>
+<dc:title>In the shadow of Hegel: Toward a methodology appropriate to the sociological consciousness of philosophic inquiry</dc:title>
+<prism:number>1</prism:number>
+<prism:volume>26</prism:volume>
+<prism:publicationName>Education and Culture</prism:publicationName>
+<prism:endingPage>66</prism:endingPage>
+<prism:startingPage>44</prism:startingPage>
+</item>
+<item rdf:about="http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.lev.pdf">
+<title>The ethics of research on enhancement interventions</title>
+<link>http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.lev.pdf</link>
+<description></description>
+<dc:creator>Emanuel, Ori Lev Franklin G. Miller Ezekiel J.</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>EMATEO-2</dc:identifier>
+<dc:title>The ethics of research on enhancement interventions</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>20</prism:volume>
+<prism:publicationName>Kennedy Institute of Ethics Journal</prism:publicationName>
+<prism:endingPage>113</prism:endingPage>
+<prism:startingPage>101</prism:startingPage>
+</item>
+<item rdf:about="http://www.springerlink.com/content/t315nn4425695340/fulltext.pdf">
+<title>Heidegger and the narrativity debate</title>
+<link>http://www.springerlink.com/content/t315nn4425695340/fulltext.pdf</link>
+<description>One unresolved dispute within Heidegger scholarship concerns the question of whether Dasein should be conceived in terms of narrative self-constitution. A survey of the current literature suggests two standard responses. The first correlates Heidegger&#x2019;s talk of authentic historicality with that of self-authorship. To the alternative perspective, however, Heidegger&#x2019;s talk of Dasein&#x2019;s existentiality, with its emphasis on nullity and unattainability, is taken as evidence that Dasein is structurally and ontologically incapable of being completed via any life-project. Narrativity imports into Being and Time commitments concerning temporality, selfhood, and ethics, which Heidegger rejects. Although both positions find good exegetic support for their conclusions, they can&#x2019;t both be right. In this article, I navigate a path between these two irreconcilable positions by applying insights derived from recent debates within Anglo-American literature on personal identity. I develop an alternative thesis to Narrativism, without rejecting it outright, by arguing that Dasein can be analysed in terms of what I call &#x201C;narratability conditions.&#x201D; These allow us to make sense of the prima facie paradoxical notion of &#x201C;historicality without narrativity.&#x201D; Indeed, rather than reconciling the two standard positions, I hold that the tension between them says something important about Dasein&#x2019;s kind of existence. Thus I conclude that while the narrativist question &#x201C;Who ought I to be?&#x201D; is perfectly legitimate within limits, what the existential analysis of the limits on narratability reveals is that no answer to this question can ever be definitive</description>
+<dc:creator>Fisher, Tony</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>FISHAT</dc:identifier>
+<dc:title>Heidegger and the narrativity debate</dc:title>
+<prism:publicationName>Continental Philosophy Review</prism:publicationName>
+</item>
+<item rdf:about="http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.goodman.pdf">
+<title>Cognitive enhancement, cheating, and accomplishment</title>
+<link>http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.goodman.pdf</link>
+<description></description>
+<dc:creator>Goodman, Rob</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>GOOCEC</dc:identifier>
+<dc:title>Cognitive enhancement, cheating, and accomplishment</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>20</prism:volume>
+<prism:publicationName>Kennedy Institute of Ethics Journal</prism:publicationName>
+<prism:endingPage>160</prism:endingPage>
+<prism:startingPage>145</prism:startingPage>
+</item>
+<item rdf:about="http://www.springerlink.com/content/a710875628wl64u8/fulltext.pdf">
+<title>Review of Charles Goodman, consequences of compassion: An interpretation and defense of buddhist ethics</title>
+<link>http://www.springerlink.com/content/a710875628wl64u8/fulltext.pdf</link>
+<description></description>
+<dc:creator>Gross, Rita M.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>GROROC-2</dc:identifier>
+<dc:title>Review of Charles Goodman, consequences of compassion: An interpretation and defense of buddhist ethics</dc:title>
+<prism:publicationName>Sophia</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/y73738384h2777v5/fulltext.pdf">
+<title>Some uses of logic in rigorous philosophy</title>
+<link>http://www.springerlink.com/content/y73738384h2777v5/fulltext.pdf</link>
+<description>This paper is concerned with the use of logic to solve philosophical problems. Such use of logic goes counter to the prevailing empiricist tradition in analytic circles. Specifically, model-theoretic tools are applied to three fundamental issues in the philosophy of logic and mathematics, namely, to the issue of the existence of mathematical entities, to the dispute between first- and second-order logic and to the definition of analyticity</description>
+<dc:creator>Haddock, Guillermo E. Rosado</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>HADSUO</dc:identifier>
+<dc:title>Some uses of logic in rigorous philosophy</dc:title>
+<prism:publicationName>Axiomathes</prism:publicationName>
+</item>
+<item rdf:about="http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.crozier.pdf">
+<title>Market stimulus and genomic justice: Evaluating the effects of market access to human germ-line enhancement</title>
+<link>http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.crozier.pdf</link>
+<description></description>
+<dc:creator>Hajzler, G. K. D. Crozier Christopher</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>HAJMSA</dc:identifier>
+<dc:title>Market stimulus and genomic justice: Evaluating the effects of market access to human germ-line enhancement</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>20</prism:volume>
+<prism:publicationName>Kennedy Institute of Ethics Journal</prism:publicationName>
+<prism:endingPage>179</prism:endingPage>
+<prism:startingPage>161</prism:startingPage>
+</item>
+<item rdf:about="http://www.springerlink.com/content/hxl7813560t71uj5/fulltext.pdf">
+<title>The bearable lightness of being</title>
+<link>http://www.springerlink.com/content/hxl7813560t71uj5/fulltext.pdf</link>
+<description>How are philosophical questions about what kinds of things there are to be understood and how are they to be answered? This paper defends broadly Fregean answers to these questions. Ontological categories&#x2014;such as object , property , and relation &#x2014;are explained in terms of a prior logical categorization of expressions, as singular terms, predicates of varying degree and level, etc. Questions about what kinds of object, property, etc., there are are, on this approach, reduce to questions about truth and logical form: for example, the question whether there are numbers is the question whether there are true atomic statements in which expressions function as singular terms which, if they have reference at all, stand for numbers, and the question whether there are properties of a given type is a question about whether there are meaningful predicates of an appropriate degree and level. This approach is defended against the objection that it must be wrong because makes what there depend on us or our language. Some problems confronting the Fregean approach&#x2014;including Frege&#x2019;s notorious paradox of the concept horse&#x2014;are addressed. It is argued that the approach results in a modest and sober deflationary understanding of ontological commitments</description>
+<dc:creator>Hale, Bob</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>HALTBL</dc:identifier>
+<dc:title>The bearable lightness of being</dc:title>
+<prism:publicationName>Axiomathes</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/r7043k8078721958/fulltext.pdf">
+<title>Can machines think? An old question reformulated</title>
+<link>http://www.springerlink.com/content/r7043k8078721958/fulltext.pdf</link>
+<description>This paper revisits the often debated question Can machines think? It is argued that the usual identification of machines with the notion of algorithm has been both counter-intuitive and counter-productive. This is based on the fact that the notion of algorithm just requires an algorithm to contain a finite but arbitrary number of rules. It is argued that intuitively people tend to think of an algorithm to have a rather limited number of rules. The paper will further propose a modification of the above mentioned explication of the notion of machines by quantifying the length of an algorithm. Based on that it appears possible to reconcile the opposing views on the topic, which people have been arguing about for more than half a century</description>
+<dc:creator>Hoffmann, Achim</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>HOFCMT</dc:identifier>
+<dc:title>Can machines think? An old question reformulated</dc:title>
+<prism:publicationName>Minds and Machines</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/36196638l3854927/fulltext.pdf">
+<title>Logic, spirit, and freedom in the state: Appreciative and critical thoughts on Adriaan Peperzak&#x27;s modern freedom</title>
+<link>http://www.springerlink.com/content/36196638l3854927/fulltext.pdf</link>
+<description></description>
+<dc:creator>Houlgate, Stephen</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>HOULSA</dc:identifier>
+<dc:title>Logic, spirit, and freedom in the state: Appreciative and critical thoughts on Adriaan Peperzak&#x27;s modern freedom</dc:title>
+<prism:publicationName>Continental Philosophy Review</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/h578626guj76j0h6/fulltext.pdf">
+<title>Introduction symposium on crime and culpability</title>
+<link>http://www.springerlink.com/content/h578626guj76j0h6/fulltext.pdf</link>
+<description></description>
+<dc:creator>Hurd, Heidi M.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>HURISO</dc:identifier>
+<dc:title>Introduction symposium on crime and culpability</dc:title>
+<prism:publicationName>Law and Philosophy</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/5ww2401u120897m2/fulltext.pdf">
+<title>Levinas in japan: The ethics of alterity and the philosophy of no-self</title>
+<link>http://www.springerlink.com/content/5ww2401u120897m2/fulltext.pdf</link>
+<description>Does the Buddhist doctrine of no-self imply, simply put, no-other? Does this doctrine necessarily come into conflict with an ethics premised on the alterity of the other? This article explores these questions by situating Emmanuel Levinas&#x2019;s ethics in the context of contemporary Japanese philosophy. The work of twentieth-century Japanese philosopher Watsuji Tetsur&#x14D; provides a starting point from which to consider the ethics of the self-other relation in light of the Buddhist notion of emptiness. The philosophy of thirteenth-century Zen Master D&#x14D;gen casts doubt on Watsuji&#x2019;s commitment to reciprocal self-other relationality, showing that the idea of self-emptiness disrupts any conventional understanding of reciprocity and promotes instead other-oriented compassion. Despite interesting similarities between the ethics of alterity and Buddhist compassion, a Buddhist-influenced understanding of alterity differs from Levinas on important points, by making possible the claim that all others&#x2014;human, animal, plant, and mineral&#x2014;are ethical others</description>
+<dc:creator>Kalmanson, Leah</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>KALLIJ</dc:identifier>
+<dc:title>Levinas in japan: The ethics of alterity and the philosophy of no-self</dc:title>
+<prism:publicationName>Continental Philosophy Review</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/lnl111540q6850w6/fulltext.pdf">
+<title>Walter  A. Brogan: Heidegger and Aristotle: The twofoldness of being</title>
+<link>http://www.springerlink.com/content/lnl111540q6850w6/fulltext.pdf</link>
+<description></description>
+<dc:creator>Kirkland, Sean D.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>KIRWAB</dc:identifier>
+<dc:title>Walter  A. Brogan: Heidegger and Aristotle: The twofoldness of being</dc:title>
+<prism:publicationName>Continental Philosophy Review</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/apv2l11n17811r07/fulltext.pdf">
+<title>Milk in the multiple: The making of organic milk in norway</title>
+<link>http://www.springerlink.com/content/apv2l11n17811r07/fulltext.pdf</link>
+<description>The current article looks into the development of an organic market segment in Norway by following organic milk and the controversies that have emerged in the trail of this morally infused artefact. In particular focus is the reformatting of organic milk around the turn of the millennium and the following attempts by various actors to make this product more accessible for a larger group of consumers. The approach favored in this undertaking is actor-network theory (ANT), which stresses the distributed nature of moral agency and that human and non-human elements of actor networks should be given equal attention when accounting for societal practices. Economic narratives such as the sovereign consumer are also used to shed light on the constitution of organic milk as a moral object and the positioning of this product relative to products stemming from conventional agriculture</description>
+<dc:creator>Larss&#xE6;ther, Stig</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>LARMIT</dc:identifier>
+<dc:title>Milk in the multiple: The making of organic milk in norway</dc:title>
+<prism:publicationName>Journal of Agricultural and Environmental Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/96711654q5q6m875/fulltext.pdf">
+<title>The influence of retail management&#x27;s use of social power on corporate ethical values, employee commitment, and performance</title>
+<link>http://www.springerlink.com/content/96711654q5q6m875/fulltext.pdf</link>
+<description>Recent cases in retailing reflect that ethics have a major impact on brands and performance, in turn, demonstrating that brand owners, employees, and consumers focus on ethical values. In this study, we analyze how various sources of social power affect corporate ethical values, retailer&#x2019;s commitment to the retail organization, and ultimately sales and service quality. Multi-source data based on a sample of 225 retailers indicated a strong link between power, ethics, and commitment and that these affected output performance</description>
+<dc:creator>Biong, Harald</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>NYGTIO</dc:identifier>
+<dc:title>The influence of retail management&#x27;s use of social power on corporate ethical values, employee commitment, and performance</dc:title>
+<prism:publicationName>Journal of Business Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/r144852146482755/fulltext.pdf">
+<title>Sustainable aquaculture: Are we getting there? Ethical perspectives on salmon farming</title>
+<link>http://www.springerlink.com/content/r144852146482755/fulltext.pdf</link>
+<description>Aquaculture is the fastest growing animal producing sector in the world and is expected to play an important role in global food supply. Along with this growth, concerns have been raised about the environmental effects of escapees and pollution, fish welfare, and consumer health as well as the use of marine resources for producing fish feed. In this paper we present some of the major challenges salmon farming is facing today. We discuss issues of relevance to how to ensure sustainability, by focusing on animal production systems, breeding approaches, sources for feed ingredients, and genetic engineering strategies. Other crucial issues such as animal welfare, environmental quality, and ethics are elaborated with regard to relevance for the sustainability of aquaculture. Additionally, we comment on socio-economic distributive implications by intellectual property rights (IPR) strategies on access to genetic material and traceability. To improve sustainability of salmon farming we suggest that there is a need for new approaches to guide research, for identification of ethical issues, and for engaging stakeholders in resolving these challenges</description>
+<dc:creator>Rosendal, G. Kristin</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>OLESAA</dc:identifier>
+<dc:title>Sustainable aquaculture: Are we getting there? Ethical perspectives on salmon farming</dc:title>
+<prism:publicationName>Journal of Agricultural and Environmental Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.ralston.pdf">
+<title>Dewey&#x27;s theory of moral (and political) deliberation unfiltered</title>
+<link>http://muse.jhu.edu/journals/education_and_culture/v026/26.1.ralston.pdf</link>
+<description></description>
+<dc:creator>Ralston, Shane J.</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>RALDTO-2</dc:identifier>
+<dc:title>Dewey&#x27;s theory of moral (and political) deliberation unfiltered</dc:title>
+<prism:number>1</prism:number>
+<prism:volume>26</prism:volume>
+<prism:publicationName>Education and Culture</prism:publicationName>
+<prism:endingPage>43</prism:endingPage>
+<prism:startingPage>23</prism:startingPage>
+</item>
+<item rdf:about="http://www.springerlink.com/content/d857r81004032779/fulltext.pdf">
+<title>Corporate autonomy and buyer&#x2013;supplier relationships: The case of unsafe mattel toys</title>
+<link>http://www.springerlink.com/content/d857r81004032779/fulltext.pdf</link>
+<description>This article analyses supplier&#x2013;buyer relationships where the suppliers adapt to the buyers&#x2019; needs and expectations to gain mutual advantages. In some cases, such closely knit relationships lead to violations of the autonomy of one or both partners. A concept of corporate autonomy (CA) is developed to analyze this problem. Three different facets can be distinguished: rule autonomy, executive autonomy, and control autonomy. A case study of Mattel&#x2019;s problems with lead-contaminated toys produced in China shows that the CA of buyer and supplier can be restricted as a result of a dysfunctional partnership involving a moral dilemma</description>
+<dc:creator>A&#xDF;l&#xE4;nder, Michael S.</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>ROLCAA-2</dc:identifier>
+<dc:title>Corporate autonomy and buyer&#x2013;supplier relationships: The case of unsafe mattel toys</dc:title>
+<prism:publicationName>Journal of Business Ethics</prism:publicationName>
+</item>
+<item rdf:about="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.seltzer-kelly.pdf">
+<title>Evolution&#x27;s first philosopher: John Dewey and the continuity of nature</title>
+<link>http://muse.jhu.edu/journals/education_and_culture/v026/26.1.seltzer-kelly.pdf</link>
+<description></description>
+<dc:creator>Seltzer-Kelly, Deborah L.</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>SELEFP</dc:identifier>
+<dc:title>Evolution&#x27;s first philosopher: John Dewey and the continuity of nature</dc:title>
+<prism:number>1</prism:number>
+<prism:volume>26</prism:volume>
+<prism:publicationName>Education and Culture</prism:publicationName>
+<prism:endingPage>107</prism:endingPage>
+<prism:startingPage>104</prism:startingPage>
+</item>
+<item rdf:about="http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.sparrow.pdf">
+<title>Better than men?: Sex and the therapy/enhancement distinction</title>
+<link>http://muse.jhu.edu/journals/kennedy_institute_of_ethics_journal/v020/20.2.sparrow.pdf</link>
+<description></description>
+<dc:creator>Sparrow, Robert</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>SPABTM</dc:identifier>
+<dc:title>Better than men?: Sex and the therapy/enhancement distinction</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>20</prism:volume>
+<prism:publicationName>Kennedy Institute of Ethics Journal</prism:publicationName>
+<prism:endingPage>144</prism:endingPage>
+<prism:startingPage>115</prism:startingPage>
+</item>
+<item rdf:about="http://www.springerlink.com/content/6017118368733266/fulltext.pdf">
+<title>Modelling trust in artificial agents, a first step toward the analysis of e-trust</title>
+<link>http://www.springerlink.com/content/6017118368733266/fulltext.pdf</link>
+<description>This paper provides a new analysis of e - trust , trust occurring in digital contexts, among the artificial agents of a distributed artificial system. The analysis endorses a non-psychological approach and rests on a Kantian regulative ideal of a rational agent, able to choose the best option for itself, given a specific scenario and a goal to achieve. The paper first introduces e-trust describing its relevance for the contemporary society and then presents a new theoretical analysis of this phenomenon. The analysis first focuses on an agent&#x2019;s trustworthiness , this one is presented as the necessary requirement for e-trust to occur. Then, a new definition of e-trust as a second-order-property of first-order relations is presented. It is shown that the second-order-property of e-trust has the effect of minimising an agent&#x2019;s effort and commitment in the achievement of a given goal. On this basis, a method is provided for the objective assessment of the levels of e-trust occurring among the artificial agents of a distributed artificial system</description>
+<dc:creator>Taddeo, Mariarosaria</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>TADMTI</dc:identifier>
+<dc:title>Modelling trust in artificial agents, a first step toward the analysis of e-trust</dc:title>
+<prism:publicationName>Minds and Machines</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/kph6423k2212x326/fulltext.pdf">
+<title>Writing the nation and reframing early modern intellectual history in hungary</title>
+<link>http://www.springerlink.com/content/kph6423k2212x326/fulltext.pdf</link>
+<description>The article traces the development of Hungarian intellectual history of the early modern period from the emergence of the national romantic constructions of literary history to the recent turn towards contextualist and conceptual history. One of its main findings is the ideological importance of this period for the formation of the national canon, as it became a central point of reference for the emerging local methodological tradition of intellectual history, even if it was often compartamentalized under other categories. From this perspective, the article puts particular emphasis on ideological constructions seeking to define the nation and depict the emergence of modern national identity. This finding also offers a vantage point for analyzing the interplay between literary history and the socio-culturally focused approaches, which can be considered the main framework for the developments of the last two decades, when these local historiographical traditions entered into an interesting dialogue with the Western European and American schools of intellectual history. Along these lines, while pointing out the discursive continuities with the previous paradigms, which are shaping even the contemporary historiographical production, the article also ponders the ways in which the inherited (post-)romantic constructions can be successfully challenged</description>
+<dc:creator>Trencs&#xE9;nyi, Bal&#xE1;zs</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>TREWTN</dc:identifier>
+<dc:title>Writing the nation and reframing early modern intellectual history in hungary</dc:title>
+<prism:number>2</prism:number>
+<prism:volume>62</prism:volume>
+<prism:publicationName>Studies in East European Thought</prism:publicationName>
+</item>
+<item rdf:about="http://www.springerlink.com/content/v712766270015047/fulltext.pdf">
+<title>&#x201C;The neuroscience of responsibility&#x201D;&#x2014;workshop report</title>
+<link>http://www.springerlink.com/content/v712766270015047/fulltext.pdf</link>
+<description>This is a report on the 3-day workshop &#x201C;The Neuroscience of Responsibility&#x201D; that was held in the Philosophy Department at Delft University of Technology in The Netherlands during February 11th&#x2013;13th, 2010. The workshop had 25 participants from The Netherlands, Germany, Italy, UK, USA, Canada and Australia, with expertise in philosophy, neuroscience, psychology, psychiatry and law. Its aim was to identify current trends in neurolaw research related specifically to the topic of responsibility, and to foster international collaborative research on this topic. The workshop agenda was constructed by the participants at the start of each day by surveying the topics of greatest interest and relevance to participants. In what follows, we summarize (1) the questions which participants identified as most important for future research in this field, (2) the most prominent themes that emerged from the discussions, and (3) the two main international collaborative research project plans that came out of this meeting</description>
+<dc:creator>Lokhorst, Gert-Jan</dc:creator>
+<dc:date>forthcoming</dc:date>
+<dc:identifier>VINTNO-2</dc:identifier>
+<dc:title>&#x201C;The neuroscience of responsibility&#x201D;&#x2014;workshop report</dc:title>
+<prism:publicationName>Neuroethics</prism:publicationName>
+</item>
+<item rdf:about="http://muse.jhu.edu/journals/education_and_culture/v026/26.1.waddington.pdf">
+<title>Uncovering Hegelian connections: A new look at Dewey&#x27;s early educational ideas</title>
+<link>http://muse.jhu.edu/journals/education_and_culture/v026/26.1.waddington.pdf</link>
+<description></description>
+<dc:creator>Waddington, David I.</dc:creator>
+<dc:date>2010</dc:date>
+<dc:identifier>WADUHC</dc:identifier>
+<dc:title>Uncovering Hegelian connections: A new look at Dewey&#x27;s early educational ideas</dc:title>
+<prism:number>1</prism:number>
+<prism:volume>26</prism:volume>
+<prism:publicationName>Education and Culture</prism:publicationName>
+<prism:endingPage>81</prism:endingPage>
+<prism:startingPage>67</prism:startingPage>
+</item>
+</rdf:RDF>
+
+

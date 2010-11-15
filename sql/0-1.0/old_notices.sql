@@ -1,0 +1,1 @@
+create table old_notices( id int unsigned primary key, uId int unsigned, email varchar(255), brief varchar(255), content text, sent tinyint(4), created datetime, sent_time datetime, isHTML tinyint(1) unsigned, failed tinyint(1) unsigned, failures int(5) unsigned, replyTo int(10) unsigned, sender varchar(255) );

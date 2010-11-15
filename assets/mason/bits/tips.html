@@ -1,0 +1,27 @@
+<%perl>
+return if $q->cookie('notips');
+my $coo = $q->cookie('tips');
+my $num;
+#print "'$coo'";
+if ($coo =~ s/^(\d+)//) {
+    $num = $1 + 1;
+    $num = $xPapers::Conf::TIPS_FREQ if $coo eq '-int'; #to get another immediately after the intro
+#    print " post: $num";
+} else {
+    $num = $xPapers::Conf::TIPS_FREQ;
+}
+unless ($num == $xPapers::Conf::TIPS_FREQ) {
+    createCookie('tips',"$num$coo");
+    return;
+}
+
+for my $i (0..$#xPapers::Conf::TIPS) {
+    next if $coo =~ /-$xPapers::Conf::TIPS[$i]->{c}/; 
+    my $text = $xPapers::Conf::TIPS[$i]->{t};
+    $text =~ s/_SITE_NAME_/$s->{niceName}/g;
+   print "<div  id='tip' width='100%'><div style='float:right;font-size:10px;padding-left:10px;padding-right:2px'><a href='/help/tips.html'>View all tips</a> / <span class='ll' onclick='createCookie(\"notips\",1,5000);\$(\"tip\").hide()'>No more tips</span></div><p style='text-align:center;background-color:#cfc;padding:2px;color:#000'><b>Tip:</b> $text (<span class='ll' onclick='createCookie(\"tips\",\"0$coo-$xPapers::Conf::TIPS[$i]->{c}\");\$(\"tip\").hide()'>Okay, got it</span>)</p></div>";
+   return;
+}
+</%perl>
+
+

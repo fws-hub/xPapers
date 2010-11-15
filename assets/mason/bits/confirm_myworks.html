@@ -1,0 +1,9 @@
+%return unless $HTML;
+%unless ($ARGS{__list}->contains($ARGS{__entry})) {
+<div id="unconfirmed-<%$ARGS{__entry}->id%>" style="text-align:right">
+Unconfirmed authorship
+%if ($user->{id} == $ARGS{__list}->{owner}) {
+<br>(<span class='ll' onclick="ppAct('addToList',{lId:'<%$ARGS{__list}->id%>',eId:'<%$ARGS{__entry}->id%>'},function() { $('unconfirmed-<%$ARGS{__entry}->id%>').hide()})">confirm</span>)
+%}
+</div>
+%}

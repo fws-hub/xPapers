@@ -1,0 +1,37 @@
+<& ../header.html, subtitle=>'RSS Feeds'&>
+<% gh('RSS Feeds') %>
+
+The simplest way of submitting metadata to <% $s->{niceName} %> on a regular basis is to set up RSS feeds with the appropriate structure (described below). Just <a href="/help/contact.html">drop us a line</a> with the URL(s) of your feed(s). Make sure to tell us which journals the feeds correspond to or we won't monitor them.
+
+
+<p>
+<h3>Feed specifications</h3>
+Your feeds should use RSS 1.0 and contain Dublin Core and PRISM fields describing each article. The following fields are supported. 
+<ul class='normal'>
+    <li>*title</li>
+    <li>*link</li>
+    <li>*dc:creator (one element per author)</li>
+    <li>*dc:date (the publication year, the publication date, or the string 'forthcoming')</li>   
+    <li>description (an abstract)</li>
+    <li>*prism:publicationName (the journal name; can be either in the 'item' or the 'channel' element)</li>
+    <li>prism:volume (in 'item' or 'channel')</li>
+    <li>prism:number (in 'item' or 'channel')</li>
+    <li>prism:startingPage</li>
+    <li>prism:endingPage</li>
+    <li>prism:doi (a <a href="http://doi.org">Digital Object Identifier</a>)</li>
+</ul>
+dc: = Dublin Core prefix<br>
+prism: = PRISM prefix<br>
+* indicates a required field<br>
+</ul>
+
+<p>
+
+You should prepare one feed per journal, and each feed should provide the data for at least the last issue of the journal. To add older items to the index, upload them using the <a href="/utils/batch_import.pl">batch import</a> tool.
+
+<p>
+
+<h3>Example of a suitable &lt;item&gt; element:</h3>
+<div style='padding:10px;border:1px solid black'>
+<& /example_rss_item.html &>
+</div>

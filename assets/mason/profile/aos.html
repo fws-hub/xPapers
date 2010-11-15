@@ -1,0 +1,42 @@
+<%perl>
+if ($ARGS{do} eq "save") {
+
+    my %seen;
+    my @nm;
+    for (my $i = 0; $i <= $ARGS{areas_max}; $i++) {
+        my $id = $ARGS{"areas$i"};
+        next unless $id;
+        next if $seen{$id};
+        $seen{$id} = 1;
+        my $cat = xPapers::Cat->new(id=>$id)->load;
+        next unless $cat;
+        push @nm, $cat;
+    }
+    $user->aos([]);
+    $user->clear_cache;
+    my $c = 0;
+    $user->dbh->do("delete from aos_m where mId=$user->{id}");
+    for (@nm) {
+        xPapers::Relations::UserAOS->new(mId=>$user->id,aId=>$_->id,rank=>$c++)->save;
+    }
+    print redirect($s,$q,"/profile/profile.pl?_lmsg=Profile%20updated") unless $ARGS{noredirect};
+    return;
+}
+
+</%perl>
+<p>
+<div class="bigBox">
+<div class="bigBoxH">Areas of specialization</div>
+<div class="bigBoxC">
+<form method="POST" action="aos.html">
+<input type="hidden" name="do" value="save" >
+<input type="hidden" name="noheader" value="1">
+<& areas_t.html, __current=>[$user->aos_o] &>
+<p>
+<input type="submit" value="Save">
+<input type="button" value="Cancel" onclick="window.location='/profile/profile.pl'">
+</form>
+</div>
+</div>
+
+

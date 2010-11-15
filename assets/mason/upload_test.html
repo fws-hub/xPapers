@@ -1,0 +1,19 @@
+<& /header.html, &>
+<% gh("upload test") %>
+
+<%perl>
+if( $r->method eq 'GET' ){
+</%perl>
+<form method="post">
+    <input type="hidden" name="upsession" id="upsession">
+    <iframe src="/cgi/upload.pl" width="40%" height="120" name="upload_frame">Browser supporting iframes is required</iframe>
+    <input type="submit" id="mainFormSubmit" disabled >
+</form>
+<%perl>
+}
+else{
+    print redirect( $s, $q, 'upload_test.html' );
+#    print "Data processed with uploaded file: $ARGS{upId}";
+}
+</%perl>
+

@@ -1,0 +1,34 @@
+<%perl>
+my $offset = 0;
+my $limit = 10;
+my $wLimit = 70;
+if ($ARGS{small}) {
+    print '<div class="blog">';
+} else {
+    $m->comp("header.html",subtitle=>"The Blog");
+    print "<div style='float:right'><img border='0' align='absbottom' src='" . $s->rawFile( 'icons/rss.png' ) . "'> <a href='/bbs/blog.rss'>RSS feed</a> </div>";
+    $wLimit= 300;
+    my $h;
+    if ($ARGS{old}) {
+        $limit = 100;
+        $offset = 10;
+        $h = "Older blog entries";
+    } else {
+        $h = "The $s->{niceName} Blog <span class='ghx'>Selected threads from the discussion forums</span>";
+    }
+    print "<div class='gh' style='color:#<%$C2%>;font-size:24px;margin-top:18px;padding-bottom:5px'>$h</div>";
+    print "<p>";
+}
+
+
+my $threads = xPapers::ThreadMng->get_objects(query=>[blog=>1],sort_by=>['created desc'], limit=>$limit, offset=>$offset);
+unless ($#$threads > -1) {
+    print "Nothing here yet.";
+}
+for my $t (@$threads) {
+    $m->comp("bbs/expanded.html",post=>$t->firstPost,blogView=>1,wordLimit=>$wLimit,showForum=>!$ARGS{small});
+    print "<p>";
+}
+
+</%perl>
+%print '</div>' if $ARGS{small}

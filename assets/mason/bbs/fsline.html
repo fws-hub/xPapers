@@ -1,0 +1,22 @@
+<img style="vertical-align:bottom" src="<% $s->rawFile( 'icons/internet-mail.png' ) %>">
+<%perl>
+if ($ARGS{forum}->subscribers_count({uId=>$user->{id}})) {
+    </%perl>
+    You are subscribed to this forum <span class='ll hint' onclick="
+        ppAct('unsubscribeForum',
+        {bId: <%$ARGS{forum}->id%>, uId: <%$user->{id}%>}, 
+        function() { alert('You are no longer subscribed to this forum')}
+        )">(unsubscribe)</span>
+    </span>
+    <%perl>
+} else {
+    </%perl>
+    <span class='ll' onclick="
+        ppAct('subscribe<%$ARGS{eId} ? 'Entry' : ''%>Forum', 
+        {bId: '<%$ARGS{forum}->id%>', eId: '<%$ARGS{eId}%>', uId: '<%$user->{id}%>'}, 
+        function() { alert('You are now subscribed to this forum')}
+        )">Subscribe to this forum</span>
+    <%perl>
+}
+</%perl>
+

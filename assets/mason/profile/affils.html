@@ -1,0 +1,60 @@
+<%perl>
+my $p = $ARGS{_u} || $user;
+if ($ARGS{do} eq "Save") {
+    my $affils = fields2objects("xPapers::Affil","affils",\%ARGS,3,1,sub { 
+        my $h = shift; 
+        return (!$h->{iId} and !$h->{inst_manual});
+    });
+    error($affils) unless ref($affils);
+    if ($ARGS{phd} and ($ARGS{iId999} or $ARGS{inst_manual999}) and $ARGS{year999}) {
+        my $phd = xPapers::Affil->new(
+            iId => $ARGS{iId999},
+            inst_manual => $ARGS{inst_manual999},
+            year=> $ARGS{year999},
+            discipline=>$SUBJECT,
+            role=>'Alumni',
+            rank=>999
+        );
+        $phd->load_speculative;
+        $phd->save;
+        $user->phd($phd->id);
+    } else {
+        $user->phd(undef);
+    }
+#print $q->header;
+#print "<pre>" . Dumper($affils->[0]->{id}) . "</pre>";
+#return;
+    $user->affils($affils);
+    $user->clear_cache;
+    $user->save;
+    $user->calcPro;
+    $user->setQuotas;
+    print redirect($s,$q,"/profile/profile.pl?_lmsg=Profile%20updated") unless $ARGS{noredirect};
+    return;
+}
+
+</%perl>
+<p>
+<div class="bigBox">
+<div class="bigBoxH">Affiliations</div>
+<div class="bigBoxC">
+    <form method="POST" onSubmit="
+        if($('phdCheckBox').checked && !( $F('input_year999') && ( $('iId999').value || $('inst_manual999').value ) ) ){ 
+          alert('You need to specify the year and institution'); 
+          return false;
+        }
+        else{ 
+          return true;
+        }
+        ">
+<input type="hidden" name="do" value="Save" >
+<input type="hidden" name="noheader" value="1">
+
+<& affils_c.html, %ARGS,_u=>$p &>
+
+<p>
+<input type="submit" value="Save">
+<input type="button" value="Cancel" onclick="window.location='/profile'">
+</form>
+</div>
+</div>

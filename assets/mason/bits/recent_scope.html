@@ -1,0 +1,44 @@
+<div class="sideBox">
+<div class="sideBoxH">Custom filter</div>
+<%perl>
+
+# journal list 
+my $jlist = $ARGS{jlist};
+
+</%perl>
+<div class="sideBoxC">
+<form style='display:inline' name="recent" id='recent' method='GET' action="">
+<div>
+
+
+%if ($SECURE) {
+    
+%}
+
+Show:<br>
+<input type="radio" id="in_l" name="in_l" <%$ARGS{in_l} eq 'on' ? 'checked' : ''%> value="on" onChange="intervalSync()" onclick="$('ap-in_l').value='on'"> Everything<br>
+<input type="radio" id="in_loff" name="in_l" <%$ARGS{in_l} eq 'off' ? 'checked' : ''%> value="off" onChange="intervalSync()" onclick="$('ap-in_l').value='off'"> Customize:<br>
+
+<div style="padding-left:10px">
+<% checkBox("in_b",\%ARGS,"set cookie","\$('ap-in_b').value=this.checked?'on':'off';\$('ap-in_l').value='off';\$('in_loff').checked=true;intervalSync()",'','') %> Books<br>
+<% checkBox("in_j",\%ARGS,"set cookie","\$('ap-in_j').value=this.checked?'on':'off';\$('ap-in_l').value='off';\$('in_loff').checked=true;intervalSync()",'','')%> Journal articles<br>
+<% checkBox("in_w",\%ARGS,"set cookie","\$('ap-in_w').value=this.checked?'on':'off';\$('ap-in_l').value='off';\$('in_loff').checked=true;intervalSync()","",'') %> Manuscripts<br>
+</div>
+
+<br>
+<& jlist_picker_radio.html, 
+    %ARGS, 
+    createCookie=>1, 
+    form=>'recent', 
+    header=>'Journal filter:',
+    onChange=>"createCookie('jFilter',this.value);\$('ap-jlist').value=this.value",
+    skip=>'Monitored journals' &>
+<br>
+</div>
+<& filters.html, %ARGS &>
+<p>
+<div class="centered"><input type="button" value="Apply" onclick='$("ap-start").value=0;$("allparams").submit()'></div>
+</form>
+
+</div>
+</div>

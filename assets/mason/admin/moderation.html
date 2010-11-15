@@ -1,0 +1,13 @@
+<& ../header.html, subtitle=>"Moderated posts" &>
+
+<%perl>
+print gh("Posts awaiting acceptance");
+my $posts = xPapers::PostMng->get_objects(query=>[accepted=>0],sort_by=>['id']);
+
+for my $p (@$posts) {
+
+    $m->comp("../bbs/expanded.html",post=>$p);
+    print "<br>";
+}
+
+</%perl>

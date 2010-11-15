@@ -1,0 +1,84 @@
+#NameVirtualHost *
+#Adjust paths if you are not using /home/xpapers as your xpapers home
+<VirtualHost *>
+	ServerName CHANGEME
+    ServerAlias www.changeme.org
+    ServerAlias localhost
+	DocumentRoot /home/xpapers/assets/mason
+
+	BrowserMatchNoCase bot NOLOG 
+	BrowserMatchNoCase spider NOLOG
+	BrowserMatchNoCase crawl NOLOG
+	BrowserMatchNoCase slurp NOLOG
+
+    Alias /assets /home/xpapers/assets/
+	Alias /dynamic-assets /home/xpapers/var/dynamic-assets
+	Alias /archive "/home/xpapers/var/files/arch/"
+	ScriptAlias /cgi/ /home/xpapers/cgi/
+
+	RewriteEngine on
+	RewriteLog /var/log/apache2/rewrite.log
+	RewriteLogLevel 9
+
+    # That's how the right [xpapers]/sites/* files are used
+	SetEnv SITE default_site
+
+    RewriteRule ^/assets\/raw/ - [L]
+    RewriteRule ^/dynamic-assets/ - [L]
+	RewriteRule ^/s?cgi - [PT,L]
+	RewriteRule ^.*\.(ico|gif|jpg|png)$ - [L,E=NOLOG:1]
+	RewriteRule ^.*robot\.txt$ - [L,E=NOLOG:1]
+
+    RewriteRule ^/archive/(.+\..+) - [L]
+    RewriteRule .* /dummy.html [L]
+
+    <Directory "/home/xpapers/sites/default_site/mason">
+        SetHandler mason-handler
+        Order allow,deny
+        Allow from all
+        AllowOverride None
+    </Directory>
+
+	<Directory "/home/xpapers/cgi/">
+		AllowOverride None
+		Options +ExecCGI -MultiViews -FollowSymlinks -Indexes
+	</Directory>
+
+    # Set up on-the-fly compression in a safe way
+    <Location />
+        # Insert filter
+        SetOutputFilter DEFLATE
+        
+        # Netscape 4.x has some problems...
+        BrowserMatch ^Mozilla/4 gzip-only-text/html
+        
+        # Netscape 4.06-4.08 have some more problems
+        BrowserMatch ^Mozilla/4\.0[678] no-gzip
+       
+        # MSIE masquerades as Netscape, but it is fine
+        BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+        
+        # NOTE: Due to a bug in mod_setenvif up to Apache 2.0.48
+        # the above regex won't work. You can use the following
+        # workaround to get the desired effect:
+        BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+       
+        # Don't compress images
+        SetEnvIfNoCase Request_URI \
+        \.(?:gif|png|jpe?g)$ no-gzip dont-vary
+        
+        # Make sure proxies don't deliver the wrong content
+        Header set Vary *
+    </Location> 
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel info
+
+	ErrorLog /var/log/apache2/error.log
+	CustomLog /var/log/apache2/access.log combined
+
+	HostnameLookups Off
+	ServerSignature Off
+
+</VirtualHost>

@@ -1,0 +1,4 @@
+<%perl>
+#    $rend = new xPapers::Render::JSON;
+    $m->comp('../search.pl', %ARGS, format=>'json', noDupCheck=>1,noheader=>1, nonothing=>1,nolimit=>1,nosh=>1,nocount=>1);
+</%perl>

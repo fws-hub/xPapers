@@ -1,0 +1,36 @@
+<& "../header.html", title => "Followed Authors" , description => 'Authors you follow' &>
+
+
+<%perl>
+error("This feature is currently disabled, sorry. Back soon.") unless $SECURE;
+use xPapers::Follower;
+
+       
+    my %search_args =  (
+        query => [ 
+            uId => $user->id,
+        ], 
+        sort_by => 'original_name',
+    );
+
+    my $f_it = xPapers::FollowerMng->get_objects_iterator( 
+        %search_args,  
+    );
+
+    #my $f_count = xPapers::FollowerMng->get_objects_count( %search_args );
+    #print "count: $f_count, for " . $user->id;
+    my $i;
+    print "<ul>";
+    my %seen;
+    my $not_first;
+    my $i = 0;
+    while( my $f = $f_it->next ) {
+        next if $seen{$f->original_name}++;
+        $i++;
+        my $checked = $f->ok ? 'checked="1"' : '';
+        print "<li><span class='ll'>" . $f->original_name . '</span>';
+    }
+    print '</ul>';
+</%perl>
+
+

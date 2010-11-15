@@ -1,0 +1,5 @@
+drop table _MODEL_;
+drop table _MODEL_CATEGORIES_;
+drop table _MODEL_ADDED_;
+DROP TABLE _MODEL_RELATIONS_;
+DROP TABLE _MODEL_AUTHORS_;

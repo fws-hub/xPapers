@@ -1,0 +1,130 @@
+BASE=/home/xpapers
+BASEB=/home/xpapers/bin
+BASEM=/home/xpapers/bin/routine
+WRAP=/usr/bin/perl -I/home/xpapers/lib /home/xpapers/bin/wrapper.pl 
+# m h  dom mon dow   command
+
+# tunnel for smtp
+#0,10,20,30,40,50 * * * * /usr/bin/ssh -f -N -L19925:127.0.0.1:25 -L19922:127.0.0.1:22 128.86.176.186
+
+# daily maintenance operations such as recompiling journal list
+0 7     * * *   $WRAP $BASEM/daily.pl
+
+###
+# More data crunching
+#
+
+# create book entries for book chapter entries (or match)
+0 2,14  * * *   $WRAP $BASEM/find_book_for_chapter.pl
+
+# update pro status
+11 5,15,23 * * *    $WRAP $BASEM/update-pros.pl
+
+# compute similarity for recently added items
+20 1,6,18    * * *   $WRAP $BASEM/similar.pl recent
+
+# compile editor performance analysis
+0 8     * * *   $WRAP $BASEM/evaleds.pl
+
+# compute free status and make other fixes to links
+3 3     * * *   $WRAP $BASEM/prep-links.pl
+
+
+###
+# Mail and alerts
+#
+
+# Forum notices
+12,43 *    * * *   $WRAP $BASEM/send-mail-notices.pl instant
+25 8    * * *   $WRAP $BASEM/send-mail-notices.pl daily
+45 3    * * mon   $WRAP $BASEM/send-mail-notices.pl weekly
+
+# Generate content alerts
+24 1     * * *   $WRAP $BASEM/email-alerts.pl 
+
+# Distribute any unsent Message objects
+50 * * * * $WRAP $BASEM/distribute-mail.pl
+
+# Deplication check (master side)
+2 *    * * *   $WRAP $BASEM/check-replication.pl master
+
+
+
+###
+# Automatic categorization
+#
+
+# perform journal-based categorization
+20 8,16    * * *   $WRAP $BASEM/autocatj.pl
+
+# 'AI'-based categorization
+10 8,12,16,20     * * *   $WRAP $BASEM/categorize.pl 1 1 recent
+
+
+###
+# Data ingestion
+#
+
+# feed harvester
+1 5     * * * $WRAP $BASEB/harvest/feeds.pl
+
+# oai harvester. this takes long enough to run that it is always running basically.
+48 7,19    * * * $WRAP $BASEB/harvest/oai.pl
+
+# crossref harvester 
+40 20    * * * $WRAP $BASEB/harvest/crossref.pl
+
+# library harvester
+4 19   13,14,15,16,17 * * $WRAP $BASEB/harvest/z3950.pl
+
+# import data from metaparser/opp-tools
+50 1    * * *   $WRAP $BASEB/harvest/web-harvester.pl
+
+# import ftp feed data from ftp server
+10 4    * * *   /usr/bin/rsync -avH mp:$BASE/var/feeds/eup/ $BASE/var/feeds/eup/
+30 4    * * *   $WRAP $BASEM/articles_from_zipped_feeds.pl
+
+# get more isbns for our books
+45 7    * * * $WRAP $BASEM/improve_isbns.pl recent
+45 9    2 * * $WRAP $BASEM/improve_isbns.pl
+
+# get GB links and extra data we can get this way
+30 2     * * *   $WRAP $BASEM/googlebooks.pl
+
+# get Amazon links
+45 8,16    * * * $WRAP $BASEM/get_amazon_data.pl recent
+38 9    * * mon,sun,wed $WRAP $BASEM/get_amazon_data.pl
+
+
+###
+# Polls
+#
+
+15 3    * * * $WRAP $BASE/bin/local/poll2csv.pl 11 _current
+15 4    * * * $WRAP $BASE/bin/local/init_prop_bit.pl _current
+
+
+###
+# infrequent tasks
+#
+
+# send editor's weekly report
+5 5     * * mon $WRAP $BASEM/mkedreports.pl
+
+# compile database of links and do some preliminary check
+30 3    1,15 * * $WRAP $BASEM/checklinks.pl check
+
+# recheck previously bad links to see if they are still bad
+15 0    * * tue,fri $WRAP $BASEM/checklinks.pl recheck 
+
+# recompute similarity for all entries
+10 0    1 * *   $WRAP $BASEM/similar.pl
+
+# rebuild sitemap
+10 0    2,16,28 * * $WRAP $BASEM/mkmap.pl
+
+# perform hard-delete
+1 1     * * *   $WRAP $BASEM/hard-delete.pl
+
+#50 *    * * sat,wed $WRAP $BASE/harvest/scrape.pl --delay=1 --pre-test --emails=david.bourget@gmail.com --harvest etc/harvest/1/* etc/harvest/2/* etc/harvest/3/* 
+

@@ -1,0 +1,110 @@
+<br>
+<br>
+<br>
+<br>
+
+%if ($SECURE) {
+%}
+<!-- closes the #content div -->
+</div>
+
+<div class="footer centered" style="">
+
+<!-- List of areas -->
+<& bits/areas_footer.html &>
+
+<!-- More links -->
+<div class="btnmenu">
+    <a rel="subsection" href="<%$s->{server}%>">Home</a> | 
+    <a rel="subsection" href="/recent">New books and articles</a> |
+    <a rel="subsection" href="/categories.pl">Bibliographies</a> |
+    <a rel="subsection" href="/journals"><% $SUBJECT %> journals</a> |
+    <a rel="subsection" href="/bbs">Discussions</a> |
+    <a rel="subsection" href="/help/categorization.html">The Categorization Project</a> |
+    <a rel="subsection" href="/help/about.html">About <% $s->{niceName} %></a> | 
+    <a rel="subsection" href="/help/oai.html">OAI</a> |
+    <a rel="subsection" href="/help/contact.html">Contact us</a>
+</div>
+
+<br>
+<& project_info.html &>
+%#Page generated <% localtime() . " Canberra time" %>
+<%perl>
+if ($SECURE) {
+    print "<hr>Debug information<br>";
+    if($user->{id}) {
+        print "cached: " . $user->{"__FROM_CACHE__"} . "<br>";
+    }
+    print "<br>" . xPapers::Utils::Profiler::summarize;
+    #print "process cache hit rate: " . ceil(( $Rose::DBx::Object::Cached::CHI::found_in_cache / ($Rose::DBx::Object::Cached::CHI::loads+1) )*1000)/10 . "%<br>";
+    print "<br>pid: $$<br>";
+}
+</%perl>
+<!-- footer -->
+</div>
+
+
+<!-- closes #all -->
+</div>
+
+
+<!-- Containers for YUI dialogs, categorizer, 'loading' widget.z-index=999 to put it above all content in #all -->
+<div class='yui-skin-sam' style='z-index:3000'>
+    <div class="ppskin" id="container"></div>
+    <div id='load_c' style='display:none'>
+        <div id='load_c2'> 
+            <div id='loadmsg'>loading ..</div> 
+            <img id='loadimg' width="16" height="16" src='<% $s->rawFile( 'generic-load.gif' ) %>'>
+        </div>
+    </div>
+    <div id='outer-con' class='ppskin' style='z-index:1000'>
+        <div id='editor-con' style="display:none"> 
+            <div class='hd'></div> 
+            <div class='bd' id='editor-bd' style=""></div> 
+        </div>
+        <div id='categorizer-con' style="display:none">
+        </div>
+    </div>
+</div>
+
+
+<!-- YUI -->
+<script type="text/javascript" src="/dynamic-assets/<% $s->{name} %>/yui.js"></script>
+
+
+<script type="text/javascript">
+var onload_functions = new Array();
+onload_functions[0] = function() { basicOnLoad() };
+%if ($browser->ie and $browser->major <= 6) {
+    onload_functions[1] = function() {
+        $$('.dir').each(function(el) { el.removeClassName('dir') });    
+    };
+%}
+</script>
+
+<script type="text/javascript">
+window.onload = function() {
+    for (x=0;x<onload_functions.length;x++) {
+        onload_functions[x]();
+    }
+}
+</script>
+
+%our $MCAT_DONE;
+%if ($browser->safari and !$MCAT_DONE) {
+    <script type='text/javascript' src='<% $s->rawFile( 'js/mcats.js' ) %>'></script>
+%}
+
+
+<script type="text/javascript">
+// Google analytics
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6029851-1");
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

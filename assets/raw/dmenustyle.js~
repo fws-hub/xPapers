@@ -1,0 +1,189 @@
+/*
+   Deluxe Menu Data File
+   Created by Deluxe Tuner v2.4
+   http://deluxe-menu.com
+*/
+
+
+// -- Deluxe Tuner Style Names
+var itemStylesNames=["Style 1","Style 2","Style 3","Style 4","Style 5","Style 6","Style 7","Style 8","Style 9","Style 10","Style 11","Style 12","Style 13","Style 14","Style 15","Style 16","Style 17","Style 18","Style 19","Style 20","Style 21","Style 22","Style 23","Style 24","Style 25","Style 26","Style 27","Style 28","Style 29","Style 30","Style 31","Style 32","Style 33",];
+var menuStylesNames=[];
+// -- End of Deluxe Tuner Style Names
+
+//--- Common
+var isHorizontal=1;
+var smColumns=1;
+var smOrientation=0;
+var smViewType=0;
+var dmRTL=0;
+var pressedItem=-2;
+var itemCursor="pointer";
+var itemTarget="_blank";
+var statusString="link";
+var blankImage="data-samples/images/blank.gif";
+
+//--- Dimensions
+var menuWidth="";
+var menuHeight="";
+var smWidth="";
+var smHeight="";
+
+//--- Positioning
+var absolutePos=0;
+var posX="0";
+var posY="0";
+var topDX=0;
+var topDY=2;
+var DX=1;
+var DY=0;
+
+//--- Font
+var fontStyle="normal 11px Tahoma";
+var fontColor=["#000000","#000000"];
+var fontDecoration=["none","none"];
+var fontColorDisabled="#AAAAAA";
+
+//--- Appearance
+var menuBackColor="#FFFFFF";
+var menuBackImage="";
+var menuBackRepeat="repeat";
+var menuBorderColor="#AAAAAA";
+var menuBorderWidth=2;
+var menuBorderStyle="solid";
+
+//--- Item Appearance
+var itemBackColor=["#FFFFFF","#E5E5E5"];
+var itemBackImage=["",""];
+var itemBorderWidth=1;
+var itemBorderColor=["#FFFFFF","#AEAEAE"];
+var itemBorderStyle=["solid","solid"];
+var itemSpacing=2;
+var itemPadding="5";
+var itemAlignTop="left";
+var itemAlign="left";
+var subMenuAlign="";
+
+//--- Icons
+var iconTopWidth=24;
+var iconTopHeight=24;
+var iconWidth=16;
+var iconHeight=16;
+var arrowWidth=11;
+var arrowHeight=11;
+var arrowImageMain=["arrow_main1.gif","arrow_main1.gif"];
+var arrowImageSub=["arrow_sub1.gif","arrow_sub1.gif"];
+
+//--- Separators
+var separatorImage="";
+var separatorWidth="100%";
+var separatorHeight="3";
+var separatorAlignment="center";
+var separatorVImage="separv1.gif";
+var separatorVWidth="5";
+var separatorVHeight="20";
+var separatorPadding="0px";
+
+//--- Floatable Menu
+var floatable=0;
+var floatIterations=6;
+var floatableX=1;
+var floatableY=1;
+
+//--- Movable Menu
+var movable=0;
+var moveWidth=12;
+var moveHeight=20;
+var moveColor="#AA0000";
+var moveImage="";
+var moveCursor="default";
+var smMovable=0;
+var closeBtnW=15;
+var closeBtnH=15;
+var closeBtn="";
+
+//--- Transitional Effects & Filters
+var transparency="90";
+var transition=34;
+var transOptions="slidestyle=swap, bands=5";
+var transDuration=300;
+var transDuration2=200;
+var shadowLen=3;
+var shadowColor="#666666";
+var shadowTop=1;
+
+//--- CSS Support (CSS-based Menu)
+var cssStyle=0;
+var cssSubmenu="";
+var cssItem=["",""];
+var cssItemText=["",""];
+
+//--- Advanced
+var dmObjectsCheck=0;
+var saveNavigationPath=1;
+var showByClick=0;
+var noWrap=1;
+var pathPrefix_img="data-samples/images/";
+var pathPrefix_link="data-samples/";
+var smShowPause=200;
+var smHidePause=1000;
+var smSmartScroll=1;
+var topSmartScroll=0;
+var smHideOnClick=1;
+var dm_writeAll=0;
+
+//--- AJAX-like Technology
+var dmAJAX=0;
+var dmAJAXCount=0;
+
+//--- Dynamic Menu
+var dynamic=0;
+
+//--- Keystrokes Support
+var keystrokes=1;
+var dm_focus=1;
+var dm_actKey=113;
+
+var itemStyles = [
+    ["fontColor=#FFFFFF,#000000","itemBorderWidth=0","itemBackColor=#FF0000,#FFFFFF","itemBorderColor=#444444,#FFFFFF","itemWidth=100"],
+    ["fontColor=#FFFFFF,#000000","itemBorderWidth=0","itemBackColor=#1300FF,#FFFFFF","itemBorderColor=#444444,#FFFFFF"],
+    ["fontColor=#FFFFFF,#000000","itemBorderWidth=0","itemBackColor=#2EB700,#FFFFFF","itemBorderColor=#444444,#FFFFFF"],
+    ["fontColor=#000000,#000000","itemBorderWidth=0","itemBackColor=#FFF900,#FFFFFF","itemBorderColor=#444444,#FFFFFF"],
+    ["fontColor=#FFFFFF,#000000","itemBorderWidth=0","itemBackColor=#FF8F06,#FFFFFF","itemBorderColor=#444444,#FFFFFF"],
+    ["fontColor=#FFFFFF,#000000","itemBorderWidth=0","itemBackColor=#EC00FF,#FFFFFF","itemBorderColor=#444444,#FFFFFF"],
+    ["fontColor=#FFFFFF,#000000","itemBorderWidth=0","itemBackColor=#000000,#FFFFFF","itemBorderColor=#444444,#FFFFFF"],
+    ["fontStyle=normal 12px Arial","fontColor=#000000,#FFFFFF","itemBorderWidth=0","itemBorderStyle=none,none","itemBackColor=#FFFFFF,#000000"],
+    ["fontStyle=normal 13px Courier New","fontColor=#000000,#FFFFFF","itemBorderWidth=0","itemBorderStyle=none,none","itemBackColor=#FFFFFF,#000000"],
+    ["fontStyle=normal 12px Microsoft Sans Serif, MS Sans Serif","fontColor=#000000,#FFFFFF","itemBorderWidth=0","itemBorderStyle=none,none","itemBackColor=#FFFFFF,#000000"],
+    ["fontStyle=normal 12px Tahoma","fontColor=#000000,#FFFFFF","itemBorderWidth=0","itemBorderStyle=none,none","itemBackColor=#FFFFFF,#000000"],
+    ["fontStyle=normal 12px Verdana","fontColor=#000000,#FFFFFF","itemBorderWidth=0","itemBorderStyle=none,none","itemBackColor=#FFFFFF,#000000"],
+    ["itemWidth=100","fontStyle=normal 9px Arial","itemBackColor=#FFFFFF,#C2E8FE"],
+    ["fontStyle=normal 10px Arial","itemBackColor=#FFFFFF,#C2E8FE"],
+    ["fontStyle=normal 11px Arial","itemBackColor=#FFFFFF,#C2E8FE"],
+    ["fontStyle=normal 12px Arial","itemBackColor=#FFFFFF,#C2E8FE"],
+    ["fontStyle=normal 15px Arial","itemBackColor=#FFFFFF,#C2E8FE"],
+    ["fontStyle=normal 20px Arial","itemBackColor=#FFFFFF,#C2E8FE"],
+    ["fontStyle=normal 25px Arial","itemBackColor=#FFFFFF,#C2E8FE"],
+    ["fontStyle=normal 35px Arial","itemBackColor=#FFFFFF,#C2E8FE"],
+    ["fontStyle=normal 50px Arial","itemBackColor=#FFFFFF,#C2E8FE"],
+    ["itemBorderStyle=solid,solid","itemBorderWidth=2","itemBackColor=#FFFFFF,#BFFCFF","itemBorderColor=#F90000,#0060FF","itemWidth=100"],
+    ["itemBorderStyle=dotted,dotted","itemBorderWidth=2","itemBackColor=#FFFFFF,#BFFCFF","itemBorderColor=#1300FF,#1300FF"],
+    ["itemBorderStyle=dashed,dashed","itemBorderWidth=2","itemBackColor=#FFFFFF,#BFFCFF","itemBorderColor=#2EB700,#2EB700"],
+    ["itemBorderStyle=double,double","itemBorderWidth=3","itemBackColor=#FFFFFF,#BFFCFF","itemBorderColor=#000000,#000000"],
+    ["itemBorderStyle=groove,groove","itemBorderWidth=3","itemBackColor=#FFFFFF,#BFFCFF","itemBorderColor=#FF8F06,#FF8F06"],
+    ["itemBorderStyle=ridge,ridge","itemBorderWidth=3","itemBackColor=#FFFFFF,#BFFCFF","itemBorderColor=#EC00FF,#EC00FF"],
+    ["itemBorderColor=#AAAAAA,#444444","itemBorderStyle=solid,solid","itemBorderWidth=1","itemBackImage=back1.gif,back1.gif,","itemWidth=100"],
+    ["itemBorderColor=#AAAAAA,#444444","itemBorderStyle=solid,solid","itemBorderWidth=1","itemBackImage=back2.gif,back2.gif,","itemWidth=100"],
+    ["itemBorderColor=#AAAAAA,#444444","itemBorderStyle=solid,solid","itemBorderWidth=1","itemBackImage=back3.gif,back3.gif,","itemWidth=100"],
+    ["itemBorderColor=#AAAAAA,#444444","itemBorderStyle=solid,solid","itemBorderWidth=1","itemBackImage=back4.gif,back4.gif,","itemWidth=100"],
+    ["itemBorderColor=#AAAAAA,#444444","itemBorderStyle=solid,solid","itemBorderWidth=1","itemBackImage=back5.gif,back5.gif,","itemWidth=100"],
+    ["itemBorderColor=#AAAAAA,#444444","itemBorderStyle=solid,solid","itemBorderWidth=1","itemBackImage=back6.gif,back6.gif,","itemWidth=100"],
+];
+
+var menuStyles = [
+   ["menuBackColor=#FFFFFF","itemSpacing=4","itemPadding=4"],
+   ["menuBorderWidth=0","menuBackColor=#BBBBBB","itemSpacing=1","itemPadding=4","smColumns=1"],
+   ["menuBorderWidth=0","menuBackColor=#BBBBBB","itemSpacing=1","itemPadding=4","smColumns=1"],
+   ["menuBorderWidth=0","menuBackColor=#BBBBBB","itemSpacing=1","itemPadding=4","smColumns=1"],
+   ["menuBorderWidth=0","menuBackColor=#BBBBBB","itemSpacing=1","itemPadding=4","smColumns=1"],
+  			  
+];

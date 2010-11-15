@@ -1,0 +1,77 @@
+<%perl>
+
+my @files;
+push @files, qw/cfg.js prototype.js xpapers.js/;
+
+
+# insert script tag(s):
+if ($q->param('debug')) {
+   foreach my $f (@files) {
+      my $module_name = $f;
+      $module_name =~ s/\.js$//;
+      print <<END;
+      <script type='text/javascript' src='/js/$f?debug=1'></script>
+      <script type='text/javascript'>xpa_${module_name}_loaded=true;</script>
+END
+   }
+}
+else {
+   my $compressed = '/dynamic-assets/' . $s->name . '/xpapers.js';
+   print "<script type='text/javascript' src='$compressed'></script>\n";
+}
+
+# combine and compress scripts if modified:
+
+my $intro = <<EOD;
+/*
+ * This file contains part of the Prototype JavaScript framework, v1.6.0.1, (c) 2005-2007 Sam Stephenson,
+ * distributed under the terms of an MIT-style license. See http://www.prototypejs.org. 
+ */
+EOD
+
+my $compressed = $PATHS{LOCAL_BASE} . '/var/dynamic-assets/' . $s->name . '/xpapers.js';
+my $compressed_age = -M $compressed;
+
+foreach my $file (@files) {
+   #my $cfile = $s->masonFile( $file );
+   
+   my $age = -M "$PATHS{LOCAL_BASE}/assets/mason/js/$file";
+   if (!-e $compressed or $age < $compressed_age) {
+      open(F, ">$compressed") or die "$compressed: $!";
+      print F $intro;
+      foreach my $f (@files) {
+#         print F $m->scomp($f,%ARGS);
+         my $module_name = $f;
+         $module_name =~ s/\.js$//;
+         print F compress($m->scomp($f,%ARGS)) . "\nxpa_${module_name}_loaded=true;\n";
+      }
+      close(F);
+
+     # Save a copy of xpapers.js for mp and opc
+     #open F, ">$PATHS{LOCAL_BASE}/raw/xpapers.js";
+     #print F compress($m->scomp('xpapers.js',%ARGS));
+     #close F;
+
+      last;
+   }
+}
+
+sub compress {
+    my $js = shift;
+    my @newjs;
+    my @js = split('\n', $js);
+    foreach my $line (@js) {
+	$line =~ s{(\s|^)//.+}{};
+        $line =~ s/^\s+//;
+        $line =~ s/\s+$//;
+	push @newjs, $line unless $line =~ /^debug/;
+    }
+    $js = join "\n", @newjs;
+    $js =~ s{^/\*.*?\*/}{}gs;
+    $js =~ s{([^\*\"/])/\*.*?\*/}{$1}gs;
+    $js =~ s/\n\n+/\n/g;
+    $js =~ s/   +/ /g;
+    return $js;
+}
+
+</%perl>

@@ -1,0 +1,21 @@
+<%perl>
+my $el = $ARGS{__format} eq 'htm' ? 'div' : 'pre';
+$NOFOOT=1;
+</%perl>
+<& head.html,subtitle=>$ARGS{formatName},%ARGS,noheader=>1 &>
+<h1>Exported entries (<%$ARGS{formatName}%>)</h1>
+<p>
+Export more entries in <%$ARGS{formatName}%> to add them to this list.
+</p>
+<div id='exported' style="">
+<%perl>
+if ($ARGS{eId}) {
+    my $e = xPapers::Entry->new(id=>$ARGS{eId})->load_speculative;
+    return unless $e;
+    my $rend = $FORMATS{$ARGS{__format}}->{renderer}->new;
+    print "<$el class='export'>" . $rend->renderEntry($e) . "</$el>";
+}
+</%perl>
+</div>
+</body>
+</html>

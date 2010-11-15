@@ -1,0 +1,17 @@
+<& ../header.html &>
+testing..
+<%perl>
+
+</%perl>
+<script type="text/javascript">
+
+simpleReq("/utils/single_entry.pl",{noheader:1,eId:"<%$ARGS{eId}%>",format:"json"}, function(r) {
+    try {
+        r.evalJSON();
+    } 
+    catch(e) {
+        alert(e);
+    }
+
+});
+</script>

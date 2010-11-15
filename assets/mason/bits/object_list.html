@@ -1,0 +1,64 @@
+<%perl>
+
+my @items = @{$ARGS{current}};
+if ($#items < 0) {
+    my $n = $ARGS{class}->new;
+    push @items,$n;
+} else {
+}
+    
+my $type = "div";
+my $count = 0;   
+my $id = $ARGS{id};
+my $addLink = "<input type='button' onclick='addToList(\"$id\",1);' value='$ARGS{caption}'>";
+my $removeLink = "<a href='javascript:" . 'deleteFromList("' . $id . '",_COUNT_);' . "'><img class='deleteLink' src='" . $s->rawFile('icons/delete.gif') . "' border='0' alt='delete' title='delete this item'></a>";
+my $c = "<$type id='c_${id}_start'></$type>";
+# Add lines..
+for my $i (0..$#items) {
+    $items[$i]->{rank} = $i;
+    my $in =  $m->scomp($ARGS{render},object=>$items[$i]);
+    my $rl = $removeLink;
+    $rl =~ s/_COUNT_/$i/g;
+    $c .= wrap($in,$rl,$id,$i);
+    $count++;
+}
+# Last line
+print "<div class='dynList'>$c</div>";
+print "<input type='hidden' name='${id}_max' id='${id}_max' value='$count'>\n";
+my $empty = $ARGS{class}->new;
+$empty->{rank} = "_COUNT_";
+my $in = $m->scomp($ARGS{render},object=>$empty);
+my $ltpl = wrap($in,$removeLink,$id,"_COUNT_");
+$ltpl = encode_entities($ltpl);
+my $max = $ARGS{max} || 15;
+$ltpl =~ s/[\r\n]+/ /g;
+print <<END;
+<script type="text/javascript">
+    dynListLine['$id'] = "$ltpl";
+    dynListCount['$id'] = $count-1;
+    dynListTrueCount['$id'] = $count;
+    dynListType['$id'] = "$type";
+    dynListMax['$id'] = $max;
+</script>
+END
+print $addLink unless $ARGS{justOne};
+</%perl>
+
+<%perl>
+sub wrap {
+    my ($in,$removeLink,$id,$i) = @_;
+    return <<END;
+    <div class='dynListItem' id='c_${id}_$i'>
+    <table>
+        <tr><td valign="top">
+        $in
+        </td><td valign="top">
+        $removeLink
+        </td></tr>
+    </table>
+    </div>
+END
+
+}
+</%perl>
+

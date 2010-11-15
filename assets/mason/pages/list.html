@@ -1,0 +1,248 @@
+<%perl>
+use Data::Dumper;
+
+my $authors = xPapers::Pages::AuthorMng->get_pageauthors(
+   with_objects => ['pages','areas'],
+   multi_many_ok => 1,
+   query => [
+      't1.accepted' => 1,
+      't2.accepted' => 1,
+      '!t1.deleted' => 1,
+      '!t2.deleted' => 1,
+   ],
+   sort_by => 't1.lastname',
+);
+my %cats;
+foreach my $author (@$authors) {
+   foreach my $area (@{$author->areas}) {
+      $cats{$area->{id}} = $area;
+   }
+}
+
+sub shortcat {
+   my $cat = shift;
+   $cat =~ s/\s*Philosophy( of)?\s*|, Misc(ellaneous)?| and Philosophy of Logic//ig;
+   $cat = "Gender/Race/Sexuality" if ($cat eq "Gender, Race, and Sexuality");
+   return $cat;
+}
+
+</%perl>
+
+<& ../header.html, subtitle => "Personal Pages" &>
+<& ../bits/alphalist.css &>
+
+<script type="text/javascript">
+Event.observe(window, 'load', function() {
+   $('expandAll').onclick = function() {
+      if (this.innerHTML == 'Expand All') {
+         $$('.e').each(function(e){e.show()});
+         this.innerHTML = 'Collapse All';
+      }
+      else {
+         $$('.e').each(function(e){e.hide()});
+         this.innerHTML = 'Expand All';
+      }
+   }
+   var m = self.location.href.match(/edit=(\d+)&user=(\d+)/);
+   if (m) editAuthor(m[1], m[2]);
+});
+
+function toggleAuthor(a) {
+   $('e'+a.parentNode.id.substr(1)).toggle();
+   return false;
+}
+
+function editAuthor(id, user) {
+    var editor = new YAHOO.widget.Dialog('editor-con', { 
+        width : "640px",
+        height : "480px",
+        draggable: false,
+        fixedcenter : true,
+        modal: true,
+        visible : true,
+        close: true,
+        constraintoviewport : true
+    });
+    $('editor-con').show();
+    editor.setHeader("Edit Author/Page");
+    editor.render();
+    editor.show();
+
+    editor.cfg.queueProperty("buttons", [
+        {
+           text: 'Submit Changes',
+           handler: submitForm
+        },
+        {
+           text: 'Delete Entry',
+           handler: function() {
+	      $('deleted').value = '1';
+              return submitForm();
+           }
+        },
+        {
+	   text: 'Cancel',
+	   handler: closeEditor
+        }
+    ]);
+    editor.render();
+    simpleReq("/pages/pagesedit.pl", { embed:'on', id:id, user:user }, function(response) {
+        $('editor-bd').update(response);
+    });
+
+    function submitForm() {
+        $('editform').request({
+            onSuccess: function(response) {
+                if (response.responseText.length > 100) {
+                    $('editor-bd').innerHTML = response.responseText;
+                }
+                else closeEditor(response);
+            },
+            onFailure: closeEditor
+        });
+        return false; 
+    }
+
+    function closeEditor(response) {
+        editor.hide();
+        // what follows are hacks to get new edit dialogs to re-appear
+	currentBlock = 'basic';
+        $('editor-bd').innerHTML = '';
+        editor.destroy();
+        if ($('editor_con-mask'))
+            $('editor_con-mask').remove();
+        var el = new Element("div");
+        el.id = 'editor-con';
+        el.hide();
+        $('outer-con').insert(el);
+        el.update("<div class='hd'></div><div id='editor-bd' class='bd'></div><div class='ft'></div>");
+        // end of hacks
+        if (response && response.responseText) {
+            alert(response.responseText);
+	}
+    }
+    editor.cancel = closeEditor;
+
+}
+
+function suggest() {
+   editAuthor('0');
+}
+
+
+function filterArea(areaId) {
+   setClassProperty('area', 'display', areaId ? 'none' : 'list-item');
+   setClassProperty('a'+areaId, 'display', 'list-item');
+}
+
+</script>
+
+
+<table class="wrap_table" style="position:relative">
+<tr style="position:relative">
+
+<td class="main_td pages" id="main">
+
+%print gh("Personal Pages We Track");
+
+<p><% $s->{niceName} %> automatically retrieves new documents from the homepage
+of researchers. Here is our current list. Click a name
+for detailed information. You can edit entries to add or change
+addresses and areas. Note that most entries currently have only one associated area,
+drawn from a corresponding area <a rel="nofollow" href="http://consc.net/people.html">here</a>, but up to four areas per entry
+are possible. You can also <a href="#" onclick="suggest()">suggest an addition</a>.
+</p>
+<p>
+Please note that entries harvested from home pages are not automatically categorized and often lack full publication details. Authors are encouraged to complete and categorize their entries in order to make them easier to find. This is easy to do from "My Works" in profiles. Alternatively, <b>your papers will be easier to find if you <span class='ll' onclick="submitEntry2()">submit them directly</span> and provide all these details.</b> 
+</p>
+<form action="list.html" method="get">
+<p>
+Jump to:
+<a href='#A'>A</a>
+<a href='#B'>B</a>
+<a href='#C'>C</a>
+<a href='#D'>D</a>
+<a href='#E'>E</a>
+<a href='#F'>F</a>
+<a href='#G'>G</a>
+<a href='#H'>H</a>
+<a href='#I'>I</a>
+<a href='#J'>J</a>
+<a href='#K'>K</a>
+<a href='#L'>L</a>
+<a href='#M'>M</a>
+<a href='#N'>N</a>
+<a href='#O'>O</a>
+<a href='#P'>P</a>
+<a href='#Q'>Q</a>
+<a href='#R'>R</a>
+<a href='#S'>S</a>
+<a href='#T'>T</a>
+<a href='#U'>U</a>
+<a href='#V'>V</a>
+<a href='#W'>W</a>
+<a href='#X'>X</a>
+<a href='#Y'>Y</a>
+<a href='#Z'>Z</a>
+</p>
+<p>
+Filter by area: 
+<select name="filter-area" id="filter-area" size="1" 
+   onchange="filterArea($F('filter-area'))">
+<option value="">&mdash;</option>
+<%perl>
+foreach my $cat_id (
+    sort { $cats{$a}->{name} cmp $cats{$b}->{name} } 
+    keys %cats
+   ) {
+   my $cat = $cats{$cat_id};
+   print "<option value='$cat_id'>$cat->{name}</option>\n";
+}
+</%perl>
+</select>
+</p>
+<p>
+<a href="#" id="expandAll">Expand All</a>
+</p>
+</form>
+<div class="alphalist">
+<ul id="authorlist">
+
+<%perl>
+my $letter = '';
+foreach my $author (@$authors) {
+   my $initial = substr(ucfirst($author->{lastname}), 0, 1);
+   if ($initial ne $letter && $initial =~ /[A-Z]/) {
+     $letter = $initial;
+     print "<li class='letter' id='$letter'>$letter</li>\n";
+   }
+   my @areas = map shortcat($_->name), @{$author->areas};
+   my $areas = join(', ', @areas);
+   my $area_nums = join ' a', map $_->id, @{$author->areas};
+   print "<li class='area a$area_nums' id='i$author->{id}'>\n"
+        ."<a href='#' class='au' onclick='toggleAuthor(this);return false'>$author->{firstname} $author->{lastname}</a>";
+   print " (<span id='a$author->{id}'>$areas</span>)\n" if @areas;
+   print "<div class='e' id='e$author->{id}' style='display:none'>\n";
+   foreach my $page (@{$author->{pages}}) {
+      print "<a rel='nofollow' href='$page->{url}'>$page->{url}</a><br>\n";
+   }
+   print "<a href='/profile/$author->{user_id}'>$s->{niceName} profile</a><br>\n" if $author->{user_id};
+   print "<a href='javascript:editAuthor($author->{id})'>Edit</a>\n";
+   print "</div>\n"
+        ."</li>\n";
+}
+
+</%perl>
+</ul>
+</div>
+
+</td>
+
+<td valign="top" class="side_td" align="right">
+
+
+</td>
+
+</tr>
+</table>
+

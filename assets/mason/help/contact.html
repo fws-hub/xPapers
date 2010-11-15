@@ -1,0 +1,92 @@
+<& ../header.html, subtitle=>'Contact us'&>
+<% gh('Contacting us') %>
+<%perl>
+
+my $errors = "";;
+if ($ARGS{msg}) {
+    
+    $errors .= "Please provide your name<br>" unless $ARGS{name};
+    $errors .= "Please provide a reply email address<br>" unless $ARGS{mil};
+
+    # Captcha for non-registered users
+    if (!$user->{id}) {
+        use Captcha::reCAPTCHA;
+        my $cap = Captcha::reCAPTCHA->new;
+        my $result = $cap->check_answer(
+            $RECAP_KEY, $ENV{'REMOTE_ADDR'},
+            $ARGS{recaptcha_challenge_field}, $ARGS{recaptcha_response_field}
+        );
+
+        if ( !$result->{is_valid} ) {
+            $errors .= "<b>You didn't pass the Turing test!</b> Please try again. You need to copy the two words in the box, with a space separating them. There is a button to change the challenge if you find it too difficult, and one to get an auditory challenge if you are visually impaired.";
+        }
+
+    }
+
+    if ($errors) {
+        print "<div class='error'>$errors</div>";
+    } else {
+        $ARGS{msg} .= "\n\n";
+        $ARGS{msg} .= "User: " . $rend->renderUserT($user) . "\n" if $user->{id};
+        $ARGS{msg} .= "Browser: $ENV{HTTP_USER_AGENT}\n";
+        $ARGS{msg} .= "IP: $ENV{REMOTE_ADDR}\n";
+        for my $ed (@{xPapers::UserMng->get_objects(query=>[admin=>1])}) {
+            my $msg = xPapers::Mail::Message->new(
+                sender=>"$ARGS{name} <$ARGS{mil}>",
+                brief=>$s->{niceName} . ' Feedback: ' . $ARGS{subject},
+                content=>$ARGS{msg},
+                uId=>$ed->id
+            );
+            $msg->save;
+            $msg->send;
+        }
+        print "Thank you for your feedback.";
+        return;
+    }
+
+}
+
+
+</%perl>
+
+<p>
+<span style="color:#<%$C2%>;font-weight:bold;font-size:16px">If you find an error in an entry, please correct it yourself using the "edit" link under it.</span>  
+</p>
+
+<p>
+<b>Send a message to the editors (David Bourget and David Chalmers)</b>
+<form name=myform method=POST>
+Your name: <input type="text" name="name" size=40 value="<%$user->{id} ? $user->fullname : $ARGS{name}%>"><br>
+Your email: <input type="text" name="mil" size=40 value="<%$user->{id} ? $user->email : $ARGS{mil}%>"><br>
+Subject: <select name="subject">
+%print opt('suggestion','Suggestion',$ARGS{subject});
+%print opt('bug','Bug',$ARGS{subject});
+%print opt('comment','Other',$ARGS{subject});
+</select><br>
+<p>
+<textarea name="msg" cols="70" rows="15"><%$ARGS{msg}%></textarea><br>
+
+%unless ($user->{id}) {
+<p>
+A kind of Turing test (write the two words you see, separated by a space): <br>
+<script type="text/javascript">
+var RecaptchaOptions = { theme : 'clean' };
+</script>
+<script type="text/javascript"
+src="http://api.recaptcha.net/challenge?k=<%$RECAP_PUBKEY%>">
+</script>
+
+<noscript>
+<iframe src="http://api.recaptcha.net/noscript?k=<%$RECAP_PUBKEY%>"
+height="300" width="500" frameborder="0"></iframe><br>
+<textarea name="recaptcha_challenge_field" rows="3" cols="40">
+</textarea>
+<input type="hidden" name="recaptcha_response_field" 
+value="manual_challenge">
+</noscript>
+%}
+
+<p> 
+<input type=submit value="Send">
+</form>
+

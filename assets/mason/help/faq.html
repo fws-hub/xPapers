@@ -1,0 +1,256 @@
+<& ../header.html, %ARGS,subtitle=>"FAQ" &>
+<a name="faq">
+<% gh("Frequently Asked Questions") %>
+</a>
+
+<ul class="normal">
+    <li><b>Content-related questions</b>
+    <ul class="normal">
+        <li><a href="#adding">How can I add a work (to <% $s->{niceName} %>, to such and such list)?</a></li>
+        <li><a href="#filters">I can't find such-and-such work, but I know it's there</a></li>
+        <li><a href="#accept">What works do you accept?</a></li>
+        <li><a href="#sources">What sources are monitored by <% $s->{niceName} %>?</a></li>
+        <li><a href="#addjournal">Could <% $s->{niceName} %> monitor such-and-such journal?</a></li>
+        <li><a href="#addwebsite">Could <% $s->{niceName} %> monitor my personal website?</a></li>
+        <li><a href="#othersources">What about other sources of <% lc $SUBJECT %>?</a></li>
+        <li><a href="#addlarge">How can I add large numbers of articles to <% $s->{niceName} %>?</a></li>
+        <li><a href="#copyright">Do you respect copyright?</a></li>
+        <li><a href="#access">How can I access subscription-only journals?</a></li>
+        <li><a href="#pro">What is a professional author?</a></li>
+        <li><a href="#whatwhere">How do I know if a work belongs to a category?</b></a>
+    </ul>
+    </li>
+    <li><b>Account-related questions</b>
+    <ul class="normal">
+        <li><a href="#myworks">How can I make "my works" appear in my profile?</a></li>
+        <li><a href="#acc">What is the purpose of user accounts?</a></li>
+        <li><a href="#basic">How can I change my password, email, or name?</a></li>
+        <li><a href="#phd">Why do you want to know my affiliations and background?</a></li>
+        <li><a href="#myworksrel">How reliable are the attributions in "my works"?</a></li>
+        <li><a href="#spam">How do you protect my email from spammers?</a></li>
+        <li><a href="#fixit">Something is wrong with one of my papers. Can you fix it please?</a></li>
+    </ul>
+    </li>
+    <li><b>Editors' tools</b>
+    <ul class="normal">
+        <li><a href="#exclusions">What is an exclusion list?</a></li>
+        <li><a href="#timemark">What is a timemark?</a></li>
+    </ul>
+    </li>
+    <li><b>Questions about other features</b>
+    <ul class="normal">
+        <li><a href="#search">How does searching on <% $s->{niceName} %> work?</a></li>
+        <li><a href="#rss">How does RSS work on <% $s->{niceName} %>?</a></li>
+        <li><a href="#alerts">How do email alerts work</a></li>
+        <li><a href="#cats">How do <% $s->{niceName} %> categories and categorization tools work?</a></li>
+        <li><a href="#whomoderated">How does forum moderation work?</a></li>
+        <li><a href="#help">Where can I get more help?</a></li>
+        <li><a href="#relevance">How does relevance work in advanced search?</a></li>
+    </ul>
+    </li>
+</ul>
+
+<h2>Content-related questions</h2>
+
+<a name="adding"><b>How can I add a paper (to <% $s->{niceName} %>, to such and such list)</b></a>
+<p>
+If you want your paper to appear anywhere on <% $s->{niceName} %>, you must first add it to the index by clicking "Submit material" -&gt; "Submit a book or article" in the menu at the top of the page. 
+<br><br>
+Then whether your paper appears in any search results, category listings, your personal bibliography ("my works" in your profile"), or any other kind of listing will depend on several factors which vary with the type of listing (some of which are described below). For "my works", name matching is performed based on your <a href="/profile/aliases.pl">aliases</a>. You can also use a tool provided at the top of the list to explicitly add an already indexed paper to "my works".
+</p>
+
+<a name="filters"><b>I can't find such-and-such work, but I know it's there</b></a>
+<p>
+Not all indexed works appear by default in search, category listings, reading lists, and other listings. By default, only works which have <a href="/help/faq.html#pro">professional status</a> and are available online are displayed. You can adjust display filters using the options on the right hand side of all paper listings.
+</p>
+
+<a name="accept"><b>What works do you accept?</b></a>
+<p>
+Works of all types (articles, books, dissertations) in all areas of academic <% lc $SUBJECT %>, so long as they are of professional quality.  Typically works are available online, but we also accept references to offline works.
+</p>
+
+<a name="sources"><b>What sources are monitored by <% $s->{niceName} %>?</b></a>
+
+We monitor a large number of journals, archives, and personal pages. See the lists below. We also monitor new books through the catalogues of participating libraries. 
+<ul class="normal">
+<li><a href="/pubs.pl?jlist=2">Journals we monitor</a></li>
+<!--
+<li><a href="/archives/list.html">Archives we monitor</a></li>
+-->
+<li><a href="/pages/list.html">People we follow</a></li>
+</ul>
+
+<p>
+
+<a name="addjournal"><b>Could you monitor such-and-such journal?</b></a>
+<p>
+If you are an editor or publisher, see <a href="/help/feeds.html">this page</a>.
+</p>
+<p>
+Please <a href="contact.html">contact us</a>.
+<p>
+We will only monitor professional-quality <% lc $SUBJECT %> journals.  It is difficult and time-consuming to write a separate crawler for every journal website, so we are moving toward a model on which journal editors and publishers will supply information to us in a regimented format.
+</p>
+
+<a name="addwebsite"><b>Could <% $s->{niceName} %> monitor my personal website?</b></a>
+
+<p>Please see the database of <a href="/pages/">monitored
+personal pages</a>.  You can submit a new website for consideration there.</p>
+
+<a name="othersources"><b>What about other sources of <% lc $SUBJECT %>?</b></a>
+
+<p><% $s->{niceName} %> started life as a gateway to online papers in
+<% lc $SUBJECT %>.  As such, it is not intended to cover all <% lc $SUBJECT %> 
+material.  Still, as more material becomes available online, the scope
+of <% $s->{niceName} %> will increase.  It is already the case that the great
+majority of journals in <% lc $SUBJECT %> are available online, and their
+online coverage of back issues is constantly increasing.  We also
+cover many books, using the Library of Congress catalog (to find books
+in <% lc $SUBJECT %>) and Google Books (to link to them where available).
+
+<p>Eventually, <% $s->{niceName} %> should cover the bulk of material published
+in <% lc $SUBJECT %>.  The main exception will be <% lc $SUBJECT %> articles
+published in journals and books that are not primarily <% $s->{subjectAdj} %> 
+journals and books.  For material of this sort, we rely on users to
+submit the relevant information, and we encourage users to do so.</p>
+
+<a name="addlarge"><b>How can I add large numbers of articles to <% $s->{niceName} %>.</b></a>
+<p>
+If you would like to add many papers to the directory (for example, if you
+edit a relevant journal or have a relevant bibliography), we can enable your account for batch submissions of papers. <a href="contact.html">Contact us</a> to enable this feature.
+
+
+<p>
+<a name="copyright"><b>Do you respect copyright?</b></a>
+<p>
+Yes, <% $s->{niceName} %> fully respects all applicable copyright laws. See our <a href="/help/terms.html">terms and conditions</a> for information on our copyright compliance policy.
+</p>
+
+<p>
+<a name="access"><b>How can I access subscription-only journals?</b></a>
+<p>
+To access papers in most journals (except free e-journals and occasional free papers in other journals), you need to belong to an institution with a subscription to that journal.  If you don't, we can't help you.  If you do, then typically you will be able to access that journal directly from on-campus computers, and indirectly from off-campus computers via proxy browsing.  To set up automatic proxy browsing, use the proxy browsing box in the right column of most browsing pages.
+</p>
+
+<a name="whatwhere"><b>How do I know if a work belongs to a category?</b></a>
+<p>
+Every paper should eventually be assigned to 1-3 leaf-level categories.  Higher-level categories can contain entries temporarily, but these should eventually be moved to the leaf level.  There are miscellaneous categories at most levels to collect entries which do not belong anywhere else.
+<p>
+A work belongs to a leaf category when the topic is the main focus of the work, or is at least one of the main foci of the work.  That a work bears on a topic or discusses that topic is not sufficient for it to qualify.  Our expectations is that non-historical, analytic papers will usually be classified under one or two topics, and under three topics just occasionally.
+<p>
+
+<a name="pro"><b>What is a professional author?</b></a>
+<p>
+An author is considered professional if he/she either a) has a doctorate in <% lc $SUBJECT %> or b) is the author of an article on our list of <a href="/journals?listId=1">most popular journals</a>. Conditions (a) and (b) are checked algorithmically based on the data we have about you in our database, so make sure your profile contains all your credentials and articles if you are entitled to professional status. It can take up to several days for your status to be updated and the effects of the change to become visible.
+</p>
+
+
+
+<h2>Account-related questions</h2>
+
+<a name="myworks"><b>How can I make "my works" appear in my profile?</b></a>
+<p>The "my works" section appears automatically when works matching your name in the index are detected. Add your works to the index, and a "my works" section containing them should appear automatically.
+</p>
+
+<a name="acc"><b>What is the purpose of user accounts?</b></a>
+
+<p>User accounts enable many useful features such as personal reading lists, journal filters, content alerts, customized forum subscriptions, and so on.  They are also needed for posting to discussion forums,  and for editing/categorizing entries (this way, if we find vandalization, we can roll back all changes by a given user).
+
+<p>We encourage all frequent users to create an account, but it is perfectly possible to use <% $s->{niceName} %> without an account.  Without an account, you can still use most of the primary browsing functions, but the user-specific functions will be unavailable.</p>
+
+<a name="basic"><b>How can I change my password, email, or name?</b></a>
+<p>
+Log in and go to your profile, then click "Email, identification and password" under "Preferences".
+<p>
+
+<a name="phd"><b>Why do you want to know my affiliations and background?</b></a>
+<p>
+<% $s->{niceName} %> uses affiliation and background information to maintain a
+balance between a focus on professional academic <% lc $SUBJECT %> and
+accessibility to all interested parties.  This information helps to
+determine which submitted papers will be displayed under the default
+"professional authors only" filter (this requires a doctorate in
+<% lc $SUBJECT %> or relevant publications), and it helps to determine
+posting privileges in the forums (posting is unlimited for<% lc $SUBJECT %> 
+faculty/PhDs and graduate students and restricted for others).  Please
+be honest.  The information is easy to check.
+<p>
+There is no obligation to enter affiliation and background
+information.  If you enter this information, you can keep the
+information private by adjusting privacy settings if you choose.  Even
+if you're not planning to submit papers or take part in discussion
+forums, though, we encourage you to submit the information to provide
+a rounded picture of who is using <% $s->{niceName} %>.
+</p>
+
+<a name="myworksrel"><b>How reliable are the attributions in "My Works"?</b></a>
+<p>
+"My Works" (in a personal profile) is generated automatically based on one's name, so the attributions in these lists are not very reliable as a general rule (depending on how common the name is). However, each profile owner can add or remove entries from their "My Works" list as needed.  
+</p>
+
+<a name="spam"><b>How do you protect my email from spammers?</b></a>
+<p>
+<% $s->{niceName} %>' email protection scheme combines the three best known approaches to this problem. First, your email is encoded as a small Javascript program instead of being transmitted "in clear" over the Internet to browsers. Second, your email is rendered partly as an image in the browser instead of text. Third, the text that is rendered as text uses a special encoding for additional safety. We have tested this approach and no spammer appears to have broken our protection.
+</p>
+
+<a name="fixit"><b>Something is wrong with one of my papers. Can you fix it please?</b></a>
+<p>
+Please use the "edit" link under the entry to fix it. 
+</p>
+
+
+<h2>Editors' tools</h2>
+
+<a name="exclusions"><b>What is an exclusion list?</b></a>
+<p>Each category has an exclusion list. A category's exclusion list is used to keep track of entries which are not relevant to it in order to exclude them when trawling. Manual trawling and automated trawling use the same exclusion lists. That is to say that material you exclude while trawling manually will be excluded from your automated trawler's future results as well. If you picked up a category from another editor, it is a good idea to inspect its exclusion list (you can do this from trawl result pages). 
+</p>
+
+<a name="timemark"><b>What is a timemark?</b></a>
+<p>Each category has a timemark. A category's timemark determines how recent entries must be to turn up in automated trawling (timemarks do not affect manual trawling). If you set a timemark on a category, you will ban all <% $s->{niceName} %> entries existing at the time from showing up in trawl results for the category. Timemarks should be used with caution and should always be reset when changing a trawler's configuration in order to discover previously missed entries. 
+</p>
+
+
+<h2>Questions about other features</h2>
+
+<a name="whomoderated"><b>How does forum moderation work?</b></a>
+<p>The <% lc $SUBJECT %> forums are moderated.  The forums for discussion of <% $s->{niceName} %> itself are not.  Moderated posts will not show in public forums until approved by an editor. Although we try to approve posts as fast as possible, this can sometimes take several days.
+</p>
+
+<a name="search"><b>How does searching on <% $s->{niceName} %> work?</b></a>
+<p>
+See our <a href="/help/search.html">search help page</a> for details.
+</p>
+
+<a name="rss"><b>How do RSS feeds work?</b></a>
+<p>
+RSS feeds are pages meant to be monitored automatically by feed reading services such as <a href="http://reader.google.com">Google Reader</a>. Click on the "RSS feed" link usually found on the right hand side of a page on <% $s->{niceName} %> will add the feed corresponding to the page to your RSS reader. You will then be able to see all the new material arriving on this page.
+</p>
+
+<a name="alerts"><b>How do email alerts work?</b></a>
+<p>
+An email alert is a service that will notify you of new material on a page. Your alerts can be seen and modified from your profile.
+</p>
+
+<a name="cats"><b>How do <% $s->{niceName} %> categories and categorization tools work?</b></a>
+<p>
+See our <a href="categorization.html">categorization page</a> for details.
+</p>
+
+<a name="relevance"><b>How does relevance work in advanced search?</b></a>
+<p>
+In "more advanced" mode, the relevance of an entry is the number of times search keywords
+appear in it weighted according to the specified relevance of these keywords. An
+excellent indicator weights 3, a good one 1, and an indicator of
+irrelevance -1. An occurrence of a keyword in an article's title
+counts for twice as much. <br><br>The minimal relevance parameter is mainly useful
+for fine-tuning searches linked to categories (here the "show low
+threshold entries" link on the category's option page is helpful).<br><br>In "normal" mode, relevance is computed in part as a function of word frequency in the database and can range from very low to very high. You will get a feel for how it works by using it.
+</p>
+
+
+<a name="help"><b>Where can I get more help?</b></a>
+<p>
+If you can't find the answer to your question here or in the other entries under the Help menu, feel free to post a question to the <a href="/bbs/threads.pl?eId=&fId=2"><% $s->{niceName} %> help forum</a>.
+</p>
+
+

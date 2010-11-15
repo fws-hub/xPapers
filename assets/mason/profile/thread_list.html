@@ -1,0 +1,26 @@
+<%perl>
+print gh("My threads");
+if ($ARGS{reset}) {
+    unless ($ARGS{confirm}) {
+        print "You are about to cancel ALL your thread subscriptions (but not your forum subscriptions). Are you sure you want to do that? Click <a href='?reset=1&confirm=1'>here</a> to proceed.";
+        return;
+    }
+    $user->thread_subscriptions([]);
+    $user->save;
+    print "All your thread subscriptions have been cancelled.";
+    return;
+}
+print "<p>You will find a list of all threads to which you are currently subscribed below. You will receive an email for every new post in one of these threads.</p>";
+print "<p>Click <a href='?reset=1'>here</a> to cancel all your thread subscriptions.</p>";
+
+my @threads = 
+    sort
+    map {
+        "<b>" . $rend->renderPost($_->firstPost) . "</b>" . " [" . $m->scomp("../bbs/thread_sub.html",%ARGS,__thread=>$_) . "]<p>"
+    } $user->thread_subscriptions;
+
+print $_ for @threads;
+print "<em>You are not subscribed to any threads.</em>" if $#threads <= -1;
+
+</%perl>
+

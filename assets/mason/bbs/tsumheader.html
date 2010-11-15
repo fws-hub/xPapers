@@ -1,0 +1,64 @@
+<%perl>
+$ARGS{dir} ||= '/bbs/';
+</%perl>
+<div class="miniheader">
+<table class="miniheader tsum" width="100%" style='font-weight:bold'>
+<tr>
+    <td class='tsumTD tsum1'>
+%unless ($ARGS{noback}) {
+    <img  src="<% $s->rawFile( 'icons/back-s.png' ) %>" border="0"> <span class='ll' style="font-size:12px;vertical-align:20%" onclick="history.go(-1)">Back</span>
+     &nbsp;&nbsp; 
+    <img  src="<% $s->rawFile( 'icons/back-s.png" border="0' ) %>"> 
+    <span style="vertical-align:20%">
+    <a href="/bbs/all.html">All discussions</a> 
+    </span>
+%}
+    &nbsp;&nbsp;&nbsp;
+    <span>
+%if ($ROFORUMS{$ARGS{forum}->{id}} or $ARGS{adhoc} or ($ARGS{forum}->{cId} and $ARGS{forum}->category->highestLevel < 1 and not $RWFORUMS{$ARGS{forum}->{id}})) {
+%#   print "Please post to sub-forums." unless $ARGS{forum}->{id} == 7;
+%} else {
+    <a href='<%$ARGS{dir}%>newmsg.pl?eId=<%$ARGS{eId}%>&amp;fId=<%$ARGS{fId}%>'>Start a new thread</a> 
+%}
+    <%perl>
+    if ($user->{id} and !$ARGS{adhoc}) {
+        print " | ";
+        $m->comp("../bbs/fsline.html",%ARGS);
+    }
+    </%perl>
+
+
+    </span>
+    </td>
+
+    <td class="tsumTD" style="font-weight:normal;text-align:right">
+    <form id="sortforumform" name="sortforumform" method="GET">
+    <input type="hidden" name="fId" value="<%$ARGS{fId}%>">
+    <input type="hidden" name="eId" value="<%$ARGS{eId}%>">
+    <input type="hidden" name="gId" value="<%$ARGS{gId}%>">
+    <input type="hidden" name="cId" value="<%$ARGS{cId}%>">
+    Order: <select name="tSort" onChange="$('sortforumform').submit();;">
+        <%opt('ct desc',"Most recently started first", $ARGS{tSort})%>
+        <%opt('pt desc',"Most recently active first",$ARGS{tSort})%>
+    </select>
+    </form>
+    </td>
+    <td class="tsumTD" align="right" style="font-weight:normal;width:200px">
+    There <%num($ARGS{found},'thread',1)%> in this forum 
+    </td>
+
+<!--
+    <td class='tsumTD tsum2'>
+    <span class='ll sortable' onclick="sortThreads('ct desc')">First post</span>
+    </td>
+    <td class='tsumTD tsum2'>
+    <span class='ll sortable' onclick="sortThreads('pt desc')">Latest post</span>
+    </td>
+    <td class='tsumTD tsum3' align="center">
+    <span class='ll sortable' onclick="sortThreads('pc desc')">Total</span>
+    </td>
+-->
+
+</tr>
+</table>
+</div>

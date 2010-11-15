@@ -1,0 +1,45 @@
+<%perl>
+use Encode 'decode';
+$NOFOOT = 1;
+use xPapers::Inst;
+
+my %M = (
+    "Inst" => 'insts',
+    "Journal" => 'main_journals',
+    'Author' => 'main_authors'
+);
+
+# For tables that don't have useful id columns..
+my %NAME_AS_ID = (
+    'Author' => 1,
+    'Journal' => 1
+);
+
+my $q = "'%" . quote($ARGS{query}) . "%'";
+my $nq;
+if ($ARGS{class} eq 'Author') {
+    my @parts = map { quote($_) } split(/,?\s+/,$ARGS{query});
+    $nq = " (lastname like '$parts[0]%'";
+    $nq .= " and firstname like '$parts[1]%'" if $#parts > 0;
+    $nq .= ")";
+    $nq .= " or (firstname like '$parts[0]%'";
+    $nq .= " and lastname like '$parts[1]%'" if $#parts > 0;
+    $nq .= ") ";
+} else {
+    $nq = "name like $q";
+}
+my $id_part = $NAME_AS_ID{$ARGS{class}} ? 'name as id' : 'id';
+my $res = xPapers::DB->exec("select name, $id_part from $M{$ARGS{class}} where $nq group by name order by name limit 20");
+
+my @res;
+while (my $h = $res->fetchrow_hashref) {
+    $h->{name} = decode('utf8',$h->{name});
+    push @res, $h;
+}
+
+print encode_json {
+    Found => $#res+1,
+    Results => \@res
+};
+
+</%perl>

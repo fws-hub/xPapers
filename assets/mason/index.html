@@ -1,0 +1,52 @@
+<& header.html,
+    title=>"$s->{niceName}: Online Research in $SUBJECT",
+    description=>"An index of current online research in $SUBJECT. Also contains bibliographies, discussion forums, and advanced research tools for researchers.",
+    keywords=>"$SUBJECT online search research $s->{subjectAdj} bibliography bibliographies forum discussion group message board",
+%ARGS &>
+<style>
+a.blogtitle {
+    color:#<%$C2%>;
+    font-size:20px;
+}
+</style>
+<table>
+
+
+<td valign="top" width="200">
+<div class="home" style='padding-top:15px'>
+<& news.html &>
+<%perl>
+$m->comp("inoff.html", %ARGS, noheader=>1) unless $user->{id};
+</%perl>
+<& credits.html &>
+</div>
+
+</td>
+
+
+<td valign="top" style='padding-left:20px;padding-right:0px'>
+
+<div class="miniheader" style='margin-top:14px;padding:2px;margin-bottom:10px;border-top:1px solid #aaa;border-bottom:1px solid #aaa'>
+<h2 class='home'>Welcome to <% $s->{niceName} %></h2>
+</div>
+
+<div id="intro">
+    <& intro.html &>
+<div class="miniheader" style='margin-top:40px;padding:2px;margin-bottom:12px;border-top:1px solid #aaa;border-bottom:1px solid #aaa'>
+    <h2 class='home'>Table of Contents</h2>
+</div>
+<%perl>
+    $m->comp("browse/struct_c2.pl",__cat__=>$root,depth=>0,level=>0,dlevelOffset=>3);
+</%perl>
+</td>
+</tr>
+
+</table>
+<script type="text/javascript">
+watchForSymbol({symbol:"xpa_yui_loaded",onSuccess: function() {
+YAHOO.util.Event.onDOMReady(function() {
+    $('topSearch').focus() 
+});
+}});
+</script>
+

@@ -1,0 +1,15 @@
+%if ($user->{id} and $m->request_comp->name eq 'recent') {
+<% checkBox("filterByAreas",\%ARGS,"","\$('ap-filterByAreas').value=this.checked?'on':'off'") %> in my areas only<br>
+<span class='hint'>Sorts by classification day.</span><br>
+%}
+%unless ($ARGS{myworks}) {
+%unless ($ARGS{followed}) {
+<% checkBox("proOnly",\%ARGS,"set cookie","\$('ap-proOnly').value=this.checked?'on':'off'") %> professional authors only<br>
+%}
+<% checkBox("onlineOnly",\%ARGS,"set cookie","\$('ap-onlineOnly').value=this.checked?'on':'off';") %> online only <br>
+<% checkBox("freeOnly",\%ARGS,"set cookie","\$('ap-freeOnly').value=this.checked?'on':'off';") %> open access only <br>
+%}
+%#in_j param marks the /recent page
+%unless ($ARGS{in_j}) {
+<% checkBox("publishedOnly",\%ARGS,"set cookie","\$('ap-publishedOnly').value=this.checked?'on':'off'") %> published only<br>
+%}

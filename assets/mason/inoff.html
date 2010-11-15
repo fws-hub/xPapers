@@ -1,0 +1,78 @@
+<%perl>
+if ($ARGS{nonothing}) {
+} elsif (!$ARGS{noheader}) {
+    $m->comp('header.html', title=>"Log in",%ARGS);
+    if ($ARGS{members_only}) {
+    print gh("<% $s->{niceName} %> is currently locked to non-members");
+        print "Due to high traffic, we must restrict access to members only for the time being. We expect things to return to normal within a few days at most.";
+    }
+    print gh($user->{id} ? 'My account' : 'Sign in');
+} else {
+</%perl>
+
+<div class="sideBox">
+<div class='sideBoxH'><%($user->{id} ? 'My account' : 'Sign in')%></div>
+<div class="sideBoxC">
+<%perl>
+}
+
+if ($user->{id}) {
+</%perl>
+    You are signed in as <a href="/profile/<%$user->{id}%>"><%$user->fullname%></a>.<br>
+    <a href="/?logoff=1">Sign out</a>.<br>
+%} else {
+<form id='<%$ARGS{embed} ? "loginf" : "logina"%>' name='<%$ARGS{embed} ? "loginf" : "logina"%>' action="/inoff.html" method=POST>
+<div id="signInForm">
+<%perl>
+    for my $k (keys %ARGS) {
+        next if grep {$k eq $_} qw/after login passwd/
+                or $k =~ /^no/;
+        print "<input type=\"hidden\" name=\"$k\" value=\"$ARGS{$k}\">\n";
+    }
+</%perl>
+    <table>
+    <tr>
+    <td>Email:</td>
+    <td><input type="text" name="login" value="<%$ARGS{login}%>"></td>
+    </tr>
+    <tr>
+    <td>Password:</td>
+    <td><input type="password" name="passwd" value="<%$ARGS{passwd}%>"></td>
+    </tr>
+    </table>
+% if ($ARGS{embed}) {
+    <input type="button" value="Sign in" onclick="
+        $('loginf').request({
+            onSuccess: function(r) {
+                var o = r.responseText.evalJSON();
+                if (o && o.id) {
+                        createCookie('id',o.id);
+                        createCookie('sid',o.sid);
+                        ed.cancel();
+                        ed = new Editor({step:<%$ARGS{step} || 0%>,embed:1,id:'<%$ARGS{id}%>'})
+                } else {
+                    alert('Bad email address or password');
+                } 
+            },
+            onFailure: function(r) {
+                alert('Error contacting the server. Please try again later.');
+            }
+        });
+    ">
+%} else {
+    <input type="submit" name="go" value="Sign in"><br>
+%}
+    <input type="hidden" name="after" value="<%$ARGS{after}||'/profile/profile.pl'%>">
+    <% $ARGS{brief} ? "<a style='font-size:smaller' href='${BASE_URL}user.pl'>Create an account</a> | " : ""%>
+     <span style="font-size:smaller"><a target='_top' href="/users/forgot.html">I forgot my password</a></span>.
+</div>
+</form>
+%if (!$ARGS{brief}) {
+    <p>If you do not already have one, <a target='_top' href="/users/new.html?t=<%$ARGS{t}%>">create an account</a>. 
+    <p><% $s->{niceName} %> accounts are free and enable useful features such as personalized reading lists, journal filters, and saved searches.
+%}
+%}
+% if ($ARGS{noheader} and !$ARGS{nonothing}) {
+</div> <!-- side c -->
+</div> <!-- side box -->
+%}

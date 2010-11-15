@@ -1,0 +1,19 @@
+<%perl>
+my $p = $ARGS{object};
+</%perl>
+<table>
+<tr>
+<td colspan="2">
+<input name="phd" id="phdCheckBox" type="checkbox" <%($p || $ARGS{defaultOn}) ? "checked" : ""%> onclick="
+    if (this.checked) {
+        $('year999').show();
+        $('inst999').show();
+    } else {
+        $('year999').hide();
+        $('inst999').hide();
+    }
+">I hold a doctorate in <% $SUBJECT %>.&nbsp;<br>
+</td>
+</tr>
+    <& ../profile/affil.html, userHasPhD=>$p || $ARGS{defaultOn}, , object=> $p || xPapers::Affil->new(rank=>999), phd=>1 &>
+</table>

@@ -1,0 +1,21 @@
+<%perl>
+    my $level = $ARGS{level} || 1;
+</%perl>
+<div class="cat cat<%$level%>">
+    <div class="catName<%$level%>">
+    <%$ARGS{cat}->name . ($ARGS{ref} ? "*" : "")%>
+    <%perl>
+    $m->comp($ARGS{xcomp}, %ARGS) if $ARGS{xcomp};
+    </%perl>
+    </div>
+    <%perl>
+    if (!$ARGS{ref}) {
+        my $subs = $ARGS{cat}->children_o;
+        if ($#$subs > -1) {
+            print '<div class="catContent">';
+            $m->comp("cat.html",%ARGS,cat=>$_,ref=>($_->{ppId} ne $ARGS{cat}->{id}),level=>$level+1) for @$subs;
+            print '</div>';
+        }
+    }
+    </%perl>
+</div>

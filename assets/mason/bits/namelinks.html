@@ -1,0 +1,35 @@
+<%perl>
+use Encode qw/decode/;
+
+# decode this because this comes straight from the database
+my %authors = map { decode("utf8",$_) => $ARGS{authors}->{$_} } keys %{$ARGS{authors}};
+return unless scalar keys %authors > 1;
+
+</%perl>
+</div></div>
+<div style="margin-top:10px;font-size:<%$TEXT_SIZE-1%>px;background:#eee;padding:5px">
+<b>Disambiguations:</b>
+<table cellpadding="2" style="padding-left:10px;margin-top:4px;margin-bottom:4px">
+<%perl>
+
+print colsplit( 
+    [
+    map { 
+        $rend->renderNameLit($_).
+        " [" . $authors{$_}->{nb} . "]"
+    } 
+    sort {
+        $authors{$b}->{nb} <=> $authors{$a}->{nb}
+    }
+    keys %authors
+    ],
+    4, 20
+);
+
+
+</%perl>
+</table>
+%if (scalar keys %authors > 19) {
+Tip: search with initial or firstname to single out others.
+%}
+</div>

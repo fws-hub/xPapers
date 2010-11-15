@@ -1,0 +1,50 @@
+<%perl>
+my $args = \%ARGS;
+print "<div id='editor'>\n";
+#print gh('Submit an entry: step 1') unless $MP;
+</%perl>
+
+<div id='step1'>
+    Use this tool to add a book or article to  <% $s->{niceNameP} %> index. Make sure to provide an abstract and full publication details (if published), and to associate the new index entry to categories. This will help others find it.
+<br>
+<br><b>Please provide the work's first author and title so we can check whether it is already in the database.</b>
+<br>
+<br>
+<form id='myform' name="myform" action="<%$PATHS{EDIT_SCRIPT}%>">
+<input type="hidden" name="embed" value="<%$args->{embed}%>">
+<input type="hidden" name="addToList" value="<%$args->{addToList}%>">
+<table>
+<tr>
+<td align='right'>
+First author's name:<!--'-->
+</td>
+<td>
+<input type='text' name='author'>
+</td>
+</tr>
+<tr>
+<td align='right'>
+Title:
+</td>
+<td>
+<input type='text' size='50' name='title'>
+</td>
+</tr>
+</table>
+%if (!$args->{nomsg}) {
+<br>Please note that  <% $s->{niceName} %> only accepts works of professional quality written in English. 
+%}
+<br>
+<br>
+<div class="buttons">
+%if ($args->{embed}) {
+<input id='submitbtn' type='button' onclick='ed.submit()' value='Submit'> <input type='button' onclick='ed.cancel()' value='Cancel'>
+%} else {
+<input type='submit' value='Submit'>
+%}
+</div>
+</div>
+</form>
+
+</div>
+

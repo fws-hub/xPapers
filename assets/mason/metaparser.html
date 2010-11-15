@@ -1,0 +1,56 @@
+<& header.html, subtitle=>"Metaparser" &>
+
+<% gh("Metaparser") %>
+<b>By Wolfgang Schwarz</b>
+<p>
+<% $s->{niceNameP} %> home page harvester consists in a crawler, a paper detector, a pre-processor
+and, a metadata extractor.
+<p>
+The crawler regularly checks the tracked pages to look for new
+links. When it finds one, it calls the paper detector, which tries to
+guess whether the linked resource is an academic article (or book)
+rather than, say, the department's homepage, a course handout or a CV.
+This is currently done by combining a Bayesian classifier applied to
+the document content with other heuristics such as file type and
+features of the URL. The results are very reliable: more than 99% of
+irrelevant links are recognized as such, and there are practically no
+false negatives (articles dismissed as junk).
+<p>
+Documents harvested from authors's personal pages vary greatly in
+format and layout. For instance, while most documents have the author
+name(s) right above or below the title, some contain it only at the
+very end of the paper, and a substantial number (over 10%) of papers
+does not specify the author at all. It is therefore important that
+every feature of a text that might be relevant for extracting
+meta-data be preserved. To this end, each paper is first converted
+into an XML document that specifies a) the precise location, font
+size, etc. of every word in the paper, and b) information about the
+source page, the original file type, the text of the anchor that led
+to it, etc. This is what I referred to as 'pre-processing'. A large
+number of tools are currently employed for this task, including
+pdftohtml for processing regular PDF files, a modified version of
+Google's ocropus package for OCR processing of scanned documents, and
+a xulrunner application (based on the Mozilla web browser) written
+from scratch to process HTML pages. All third-party software currently
+employed is open-source.
+<p>
+The meta-data extractor takes the XML document created by the
+pre-processer and tries to estimate author(s), title and abstract of
+the document. As a first step, this involves chunking the content into
+consecutive strings of words that might constitute a title, an author
+line or a paragraph. These chunks are then classified based on
+features such as font size, length, position in the document, presence
+of keywords ('abstract'), etc. In the current prototype, this is done
+by simply assigning a score to each feature, which does not properly
+take into account dependencies and independencies between them. In the
+final version, the classification will probably be carried out by a
+Maximum Entropy Classifier or a Support Vector Machine. The final step
+of the extraction is to filter out the author name(s) from chunks that
+were classified accordingly. (If there are none, the person associated
+with the source page is chosen.) The meta-data extraction currently
+gets about 92% of papers right.
+<p>
+At each step, the system keeps tracks of difficulties it encounters,
+from which it calculates a 'confidence' score. Documents with low
+confidence can thereby be presented to an administrator for
+confirmation before adding them to the main corpus.

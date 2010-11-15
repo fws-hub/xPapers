@@ -1,0 +1,15 @@
+<%perl>
+print gh("My forums");
+print "These are the forums to which you are currently subscribed. You will receive emails summarizing discussions in these forums (click <a href='/profile/$user->{id}/settings.html'>here</a> to adjust the frequency of these emails). Click <a href='/bbs/myforums.html'>here</a> to view their active threads all together.<p>";
+
+my @forums = 
+    sort
+    map {
+        "<b>" . $rend->renderForum($_) . "</b>" . " [" . $m->scomp("../bbs/fsline.html",%ARGS,forum=>$_) . "]<p>"
+    } $user->forums_o;
+
+print $_ for @forums;
+print "<em>You do not have any forums at the moment.</em>" if $#forums <= -1;
+
+</%perl>
+

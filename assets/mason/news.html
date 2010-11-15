@@ -1,0 +1,33 @@
+<%init>
+return if $m->cache_self(key => 'newsbox4', expires_in => '30 minutes');
+</%init>
+<div class="sideBox">
+<div class="sideBoxH">Latest news</div>
+<div class="sideBoxC">
+
+<%perl>
+
+my $f = xPapers::Forum->get(7);
+my @threads = $f->threads_o("true","ct desc",0,2);
+for my $p (map { $_->firstPost } @threads) {
+    my ($c1,$c2) = $rend->wordSplit($p->body,30);
+    #$c1 =~ s/<\/?a[^>]*>?//ig;
+    my $follow = $c2 ? " (<a href='" . $rend->postURL($p) ."'>read more</a>)" : "";
+    $follow = "... $follow" if $follow;
+    $c1 =~ s/^\s*<p>//;
+</%perl>
+
+    <div class="newsHead"><%$p->subject%></div>
+    <div class="newsSubHead">posted <%$rend->renderDate($p->created) %> by <%$rend->renderUserC($p->user,1)%></div>
+    <div class="newsContent"><%$c1.$follow%></div>
+    <p>
+<%perl>
+
+}
+
+</%perl>
+<p>
+<a style='font-size:11px' href="/bbs/threads.pl?fId=7">View older news</a>
+
+</div>
+</div>

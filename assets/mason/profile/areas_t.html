@@ -1,0 +1,35 @@
+<%perl>
+
+my $exclude = $ARGS{exclude} || [-1];
+my $extra = $ARGS{extra} || [-1];
+our $showOther = $ARGS{showOther};
+our @areas = @{xPapers::CatMng->get_objects(query=>[canonical=>1, or=> [pLevel=>1, id=>{in_set=>$extra}], '!id'=>{in_set=>$exclude}], sort_by=>['name'])};
+our $noButton =  $ARGS{noButton};
+our $showNone = $ARGS{showNone};
+
+sub areaPicker {
+    my ($cur) = @_;
+    my $otherHandler = "";
+    $otherHandler = " onchange=\"if(this.value == 'other') {\$('areas_other_COUNT_').show() } else  {\$('areas_other_COUNT_').hide() }\""; 
+    my $line = "<table border='0'><tr><td><select name='areas_COUNT_'$otherHandler>";
+    $line .= opt(0,$showNone||"Select an area") unless ($cur->{id} and !$showNone);
+    $line .= opt("other","Other (write in)") if $showOther;
+    for (@areas) {
+        next if $NONAREAS{$_->{id}};
+        next if $_->{name} =~ /, Misc/;
+        $line .= opt($_->{id},$_->{name},$cur->{id});
+    }
+    $line .= "</select>";
+    $line .= ' <input name="areas_other_COUNT_" id="areas_other_COUNT_" style="display:none"><br>' if $showOther;
+    $line .= "</td><td>" . ($noButton ? "" : "_OPTIONS_") ."</td></tr></table>";
+
+}
+my @careas = exists $ARGS{__current} ? @{$ARGS{__current}} : $user->areas_o;
+@careas = ({id=>0},{id=>0}) if $#careas == -1;
+print mkDynList("areas",[@careas],"<div>_CONTENT_</div>","div", \&areaPicker,{id=>''},($ARGS{max} || 10)); 
+</%perl>
+%unless($ARGS{noButton}) {
+<p>
+<input type="button" onclick="window.addToList('areas')" value="Add another area">
+%}
+

@@ -1,0 +1,7 @@
+<%perl>
+use XML::RSS;
+
+my $threads = xPapers::ThreadMng->get_objects(query=>[blog=>1],sort_by=>['created desc'], limit=>10);
+
+$m->comp("rss_threads.pl", __threads__=>$threads, title=>"The $s->{niceName} Blog", link=>"$DEFAULT_SITE->{server}/blog");
+</%perl>

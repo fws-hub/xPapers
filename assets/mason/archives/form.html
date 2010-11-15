@@ -1,0 +1,76 @@
+<h3>Please specify the following mandatory settings</h3>
+<form method="POST">
+<input type="hidden" name="address" value="<% $ARGS{repo}->handler %>" >
+<input type="hidden" name="undelete" value="<% $ARGS{undelete} %>" >
+<table>
+<tr>
+<td valign='top' width='200px'>Name:</td>
+<td valign='top'>
+    <input type="text" name="name" size="30" value="<% $ARGS{repo}->name %>" >
+<br>
+<span class='subtle'>e.g. <% $s->{niceName} %> Archive</span>
+</td>
+</tr>
+<tr><td valign='top'>What content should we index?</td><td>
+<%perl>
+my $existing_sets = $ARGS{existing_sets};
+my $repo_sets = $ARGS{repo}->sets_hash;
+my @specs;
+@specs = $existing_sets->setSpecs if $existing_sets;
+print '<input type="radio" name="downloadType" value="complete"';
+print ' checked' if $ARGS{repo}->downloadType eq 'complete';
+print '> '; 
+print "The whole archive<br>\n";;
+print '<input type="radio" name="downloadType" value="partial"';
+print ' checked' if $ARGS{repo}->downloadType eq 'partial';
+print '> ';
+print "The whole archive using subject filters<br>\n<span class='hint'>We will look for relevant keywords in entries' subject attributes.</span><br>\n";
+if( @specs ){
+    print '<input type="radio" name="downloadType" value="sets" id="downloadType_sets"';
+    print ' checked' if $ARGS{repo}->downloadType eq 'sets';
+    print '> ';
+    print "Specific sets:\n<br>";
+    print "<table>\n";
+    print "<tr><th>name</th><th>complete</th><th>partial</th><th>no</th></tr>\n";
+    my $i = 1;
+    for my $set ( sort { $existing_sets->setName($a) cmp $existing_sets->setName($b) }  @specs  ){
+        my $col = $i % 2 == 0 ? '#eee' : '#fff';
+        print '<tr>';
+        print "<td bgcolor='$col'>" . $existing_sets->setName( $set );
+        print qq{<input type="hidden" name="set_name_$i" value="} . $existing_sets->setName( $set ) . qq{">\n};
+        print '</td>';
+        my ( $c_checked, $p_checked, $n_checked ) = ( '', '', '' );
+        if( $repo_sets->{$set}{type} eq 'complete' ){
+            $c_checked = 'checked="1"';
+        }
+        elsif( $repo_sets->{$set}{type} eq 'partial' ){
+            $p_checked = 'checked="1"';
+        }
+        else{
+            $n_checked = 'checked="1"';
+        }
+        print qq{<td bgcolor='$col'> <input type="radio" name="sets_$i" value="c_$set" $c_checked onClick="\$('downloadType_sets').checked = 1"></td>};
+        print qq{<td bgcolor='$col'> <input type="radio" name="sets_$i" value="p_$set" $p_checked onClick="\$('downloadType_sets').checked = 1"></td>};
+        print qq{<td bgcolor='$col'> <input type="radio" name="sets_$i" value="n_$set" $n_checked onClick="\$('downloadType_sets').checked = 1"></td></tr>\n};
+        $i++;
+    }
+    print "</table>\n";
+}
+else{
+    print '<input type="radio" name="dummy" disabled> Specific sets (not available - no sets found on this archive)';
+}
+</%perl>
+</td></tr>
+</table>
+<p>
+%if ($SECURE) {
+Maximum records to retrieve:<input type="text" name="limit" value="<% $ARGS{limit} %>"><p>
+%}
+
+% if( $ARGS{stage} == 2 && $ARGS{fetchedRecords} ){
+<input type="submit" name="submit" value="Re-validate settings"> 
+<input type="submit" name="submit" value="Submit archive">
+% } else {
+<input type="submit" name="submit" value="Validate settings"> 
+% }
+</form>

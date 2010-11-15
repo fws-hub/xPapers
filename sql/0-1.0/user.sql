@@ -1,0 +1,11 @@
+alter table users add column admin tinyint(1) unsigned default 0;
+update users set admin = 1 where id <= 2;
+update users set email='HARVESTER',firstname=null,lastname='HARVESTER' where id = 8;
+alter table users add column mereFirstname varchar(100);
+insert into users set email='WEB HARVESTER',firstname=null,lastname='WEB HARVESTER',id =9;
+alter table users add column mysources int unsigned;
+alter table users change column firstname firstname varchar(128);
+alter table users change column lastname lastname varchar(128);
+alter table users drop column cachebin;
+alter table users add column cacheId int unsigned;
+update users set email='HARVESTER' where id = 8;

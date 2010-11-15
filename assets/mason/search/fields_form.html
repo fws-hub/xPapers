@@ -1,0 +1,81 @@
+<table width='700px' cellspacing='0'>
+<tbody>
+
+<tr bgcolor="#eeffee">
+<td nowrap="nowrap" width="15%"><b>Find
+works&nbsp;</b></td>
+<td nowrap="nowrap" width="20%">with <b>all</b> of
+the words</td>
+<td nowrap="nowrap" width="35%"><input name="all" size= "25" type="text" value="<%dquote($ARGS{all})%>"></td>
+</tr>
+
+<tr bgcolor="#eeffee">
+<td>&nbsp;</td>
+<td>with the <b>exact phrase</b></td>
+<td><input size="25" name="exact" type="text" value="<%dquote($ARGS{exact})%>"></td>
+</tr>
+<tr bgcolor="#eeffee">
+<td>&nbsp;</td>
+<td>with <b>at least one</b> of the
+words</td>
+<td><input size="25" name="atleast" type="text" value="<%dquote($ARGS{atleast})%>"></td>
+</tr>
+
+<tr bgcolor="#eeffee">
+<td>&nbsp;</td>
+<td><b>without</b> the words</td>
+<td><input size="25" name="without" type="text" value="<%dquote($ARGS{without})%>"></td>
+</tr>
+
+<tr bgcolor="#eeffee">
+<td>&nbsp;</td>
+<td colspan='2'>matching this extended query:<br>
+    <textarea name="extended" cols="70" lines="2"><%$ARGS{extended}%></textarea>
+    <br>
+    <span class='hint'>Here you can use the same syntax as in the <a class='hint' href="/help/search.html" target='_blank'>main search box</a></span>
+</td>
+</tr>
+
+
+<tr bgcolor="#FFFFFF">
+<td><img alt="" src="<% $s->rawFile( '/spacer.gif' ) %>" height="8" width=
+"1"></td>
+<td><img alt="" src="<% $s->rawFile( '/spacer.gif' ) %>" height="8" width=
+"1"></td>
+<td><img alt="" src="<% $s->rawFile( '/spacer.gif' ) %>" height="8" width=
+"1"></td>
+<td><img alt="" src="<% $s->rawFile( '/spacer.gif' ) %>" height="8" width=
+"1"></td>
+</tr>
+
+
+<tr bgcolor="#FFFFFF">
+<td width="15%"><b>Author&nbsp;</b></td>
+<td nowrap="nowrap" width="40%">Return articles
+written by</td>
+<td><input size="25" maxlength="60" value="<%dquote($ARGS{authors})%>" name=
+"authors"></td>
+<td>&nbsp;</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td nowrap="nowrap" valign="top"><span class='hint'>e.g., <i class='hint' >J Smith</i> or <i class='hint'>Smith</i></span></td>
+<td>&nbsp;</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+<td width="15%"><b>Publication&nbsp;</b></td>
+<td nowrap="nowrap" width="40%">Return articles published in</td>
+<td><input size="25" maxlength="60" value="<%dquote($ARGS{publication})%>" name= "publication"></td>
+<td>&nbsp;</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td nowrap="nowrap" valign="top"><span class='hint'>e.g., <i class='hint'>Journal of <% $SUBJECT %></i></span></td> <td>&nbsp;</td>
+</tr>
+
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+<title>Slider Demo (WebFX)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+
+
+body {
+	font:		MessageBox;	
+	font:		Message-Box;
+}
+
+
+input {
+	width:				50px;
+	text-align:			right;
+	padding:			1px;
+	margin-right:		15px;
+}
+
+input, select, button {
+	vertical-align:		middle;
+}
+
+#slider-1 {
+	margin:	10px;
+	width:	auto;
+}
+
+#slider-2 {
+	margin:	10px;
+}
+
+#color-picker {
+	border:		0; /*1px solid rgb(90,97,90);*/
+	width:		350px;
+	height:		80px;
+}
+
+</style>
+<script type="text/javascript" src="/raw/js/slider-all.js"></script>
+<link type="text/css" rel="StyleSheet" href="css/bluecurve/bluecurve.css" />
+</head>
+<body>
+
+<p>Horizontal</p>
+<div class="slider" id="slider-1" tabIndex="1" style='width:300px'>
+	<input class="slider-input" id="slider-input-1"/>
+</div>
+
+<p>
+Value: <input id="h-value" onchange="s.setValue(parseInt(this.value))"/>
+</p>
+
+<script type="text/javascript">
+
+var s = new Slider(document.getElementById("slider-1"), document.getElementById("slider-input-1"));
+s.onchange = function () {
+	document.getElementById("h-value").value = s.getValue();
+	s2.setValue(s.getValue());
+	s2.setMinimum(s.getMinimum());
+	s2.setMaximum(s.getMaximum());
+};
+s.setValue(50);
+s.setMaximum(100);
+s.setExtent(100);
+
+window.onresize = function () {
+	s.recalculate();
+};
+
+</script>
+
+<p>
+</body>
+</html>

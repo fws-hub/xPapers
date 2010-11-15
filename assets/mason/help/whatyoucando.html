@@ -1,0 +1,122 @@
+<& ../header.html, subtitle=>"Introduction to $s->{niceName}"&>
+<%gh("Introduction to $s->{niceName}")%>
+<style>
+h3 { padding-top:20px }
+ul.whatdo li { padding-bottom:20px; }
+ul.whatdo { margin-top:0; list-style-type: none; padding-left:0; margin-left:0 }
+
+</style>
+DESCRIPTION
+To sample the large number of functions associated with <% $s->{niceName} %>,
+we suggest you try the following:
+
+<br><br>
+<ul class="whatdo">
+<li>
+
+<b>1. Set up a user account. </b> User accounts are not compulsory, and
+you can browse <% $s->{niceName} %> listings without one.  But <a href="/users/new.html">creating an account</a> enables
+many useful functions, including personal reading lists and
+bibliographies, participation in the discussion forums, submission and
+editing of items, and much else.  Every user has a profile page, which
+contains lists of the user's works and their areas of interest, among
+other things, and which can be made public or private as the user
+chooses.
+</li>
+
+<li>
+
+<b>2. Browse recent work.</b> Via the "New items" menu above, you can
+browse the <a href="/recent">latest articles</a> from <% lc $SUBJECT %> journals, from personal
+websites, from online archives, and from user submissions to the
+<% $s->{niceName} %> database.
+</li><li>
+
+<b>3. Browse older journals.</b> In our <a href="/journals">journal archive</a>, you
+can browse all online issues of more than *** journals in <% lc $SUBJECT %>. 
+If you belong to a university with access to commercial journals but
+are currently off-campus, you can set up automatic proxy browsing for
+these journals via a box in the right column of most pages.
+</li><li>
+
+<b>4. Browse by area.</b> 
+<% $s->{niceName} %> aims to categorize every item into
+up to three areas of <% lc $SUBJECT %>, according to a fine-grained <a href="/utils/struct.pl">taxonomy</a>.
+The "Browse by area" menu takes you to pages for about *** broad areas of <% lc $SUBJECT %>, falling under *** major clusters.  From here you
+can select more fine-grained topics and subtopics.  The
+<a href="/help/categorization.html">categorization project</a> is in its early stages, so many items are as
+yet uncategorized, but you can contribute by categorizing some items
+yourself, as discussed below.
+</li><li>
+
+<b>5. Search for items.</b>
+You can search for items containing a given
+keyword via the search box at the top of each page.  Via the <a href="/advanced.html">advanced
+search page</a>, you can set up much more complex searches. Advanced searches can be saved for later use, can be used to build bibliographies (see below), and can be monitored for new material.  
+</li><li>
+
+<b>6. Filter displayed items.</b> In most pages of listings,
+you can filter what is displayed using boxes in the right column.  For
+example, you can choose published work only, or freely available work
+only.  You can also set up your own list of preferred journals and
+display only items from those journals.
+</li><li>
+
+<b>7. Submit items.</b> You can <span class='ll' onclick="submitEntry2()">submit items</span> (papers or books) to the
+<% $s->{niceName} %> database using the "Submit" menu.  You can submit a link to
+an item hosted elsewhere, you can submit information about a published
+item, and/or (if you have the right to do so) you can submit a file
+containing the item itself.  Note that <% $s->{niceName} %> is largely dedicated
+to professional-quality work in academic <% lc $SUBJECT %>, and we reserve
+the right to reject any submissions.
+</li><li>
+
+<b>8. Edit items.</b> If you see mistakes in any <% $s->{niceName} %> entry
+(whether regarding author, title, publication information, or
+something else), please correct it by clicking "Edit".  Most
+information in <% $s->{niceName} %> is gathered by the automatic harvesting
+of websites, and some errors are to be expected.  We particularly
+encourage authors to ensure that entries for their own works are
+correct.  All edits will be monitored by <% $s->{niceName} %> editors.
+</li><li>
+
+<b>9. Categorize items.</b> As discussed above, we aim to classify each
+item in <% $s->{niceName} %> in up to three areas of <% lc $SUBJECT %>.  Users can help
+with this process, either by clicking "categorize" under a paper to
+select fine-grained categories, or by using the categorization tools
+on the browse-by-area pages.  For much more information, see the <a href="/help/categorization.html">
+Categorization Project</a> page.
+</li><li>
+
+<b>10. Discuss <% lc $SUBJECT %>.</b> By clicking the "Discuss" button under any
+paper, you can discuss that paper in our <a href="/bbs/forums.pl">discussion forums</a>.  Every
+item can in principle be the subject of its own forum, typically
+associated with larger forums devoted to various areas of <% lc $SUBJECT %>.
+There are also forums for various other topics, including discussion
+of <% $s->{niceName} %> itself, all available at the forums page.  These forums
+are primarily intended for discussion by professional *** and
+graduate students.
+</li><li>
+
+<b>11. Set up bibliographies.</b> In addition to using the public
+categories, you can set up any number of <a href="/profile/mylists.html">personal bibliographies</a> into
+which entries can be filed, by clicking on "File Under" under a given
+item. You can make these bibliographies
+available publically if you choose.  In addition, clicking "to read"
+under a given entry will add that entry to <a href="/profile/myreadings.html">your personal reading list</a>.
+</li><li>
+
+<b>12. Set up content alerts.</b>   You can set up RSS feeds or e-mail alerts for
+new items satisfying any criteria you choose.  To set up such a feed, simply go
+to a page where those criteria are operative (by using search boxes
+and/or the filter boxes on the right-hand side of the page), and click
+on the relevant link in the "monitor this page" box at the bottom right.
+</li>
+</ul>
+
+For further information about <% $s->{niceName} %>, see:
+<ul class="normal">
+    <li><a href="/help/about.html">About <% $s->{niceName} %></a></li>
+<li><a href="/help/faq.html">Frequently Asked Questions</a></li>
+<li><a href="/help/categorization.html">The <% $s->{niceName} %> Categorization Project</a></li>
+</ul>

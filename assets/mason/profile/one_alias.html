@@ -1,0 +1,17 @@
+<%perl>
+my $o = $ARGS{object};
+</%perl>
+<input type="hidden" name="id<%$o->{rank}%>">
+<table cellspacing=1>
+<tr>
+    <td> 
+        <input name="firstname<%$o->{rank}%>" type="text" size="30" value="<%$o->{firstname}%>">
+        <br><span class="hint">Given name(s)</span>
+    
+    </td>
+    <td>
+        <input name="lastname<%$o->{rank}%>" type="text" size="30" value="<%$o->{lastname}%>">
+        <br><span class="hint">Lastname(s)</span>
+    </td>
+</tr>
+</table>

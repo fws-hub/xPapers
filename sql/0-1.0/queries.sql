@@ -1,0 +1,12 @@
+alter table queries add column proOnly varchar(5);
+alter table queries add column maxYear varchar(5);
+alter table queries add column authors varchar(255);
+alter table queries add column `all` varchar(255);
+alter table queries add column exact varchar(255);
+alter table queries add column without varchar(255);
+alter table queries add column atleast varchar(255);
+alter table queries add column extended varchar(1000);
+alter table queries change column maxYear maxYear int(11);
+alter table queries add column onlineOnly varchar(5);
+alter table queries add column publication varchar(255);
+update queries set searchStr='', filterMode='user' where name like '__Me%';

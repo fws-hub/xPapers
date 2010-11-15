@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns="http://www.openarchives.org/OAI/2.0/"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2010-08-05T17:01:19Z</responseDate>
+  <request verb="ListRecords"
+           metadataPrefix="oai_dc">http://tvm1.philpapers.org/oai_test_server.pl</request>
+  <ListRecords>
+    <record>
+      <header>
+        <identifier>oai:tvm1.philpapers.org/rec/ABE</identifier>
+        <datestamp>2009-11-14T11:41:55Z</datestamp>
+      </header>
+      <metadata>
+        <oai_dc:dc xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>A Brief Explanation of Consciousness</dc:title>
+          <dc:type>info:eu-repo/semantics/article</dc:type>
+          <dc:creator>Tson, M. E.</dc:creator>
+          <dc:subject>Philosophy</dc:subject>
+          <dc:description></dc:description>
+          <dc:date>manuscript</dc:date>
+          <dc:identifier>http://tvm1.philpapers.org/rec/ABE</dc:identifier>
+          <dc:language></dc:language>
+        </oai_dc:dc>
+      </metadata>
+      <about>
+        <rights xmlns="http://www.openarchives.org/OAI/2.0/rights/"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/rights/ http://www.openarchives.org/OAI/2.0/rights.xsd">
+          <rightsReference xmlns=""></rightsReference>
+        </rights>
+      </about>
+    </record>
+    <resumptionToken>;;;99;</resumptionToken>
+  </ListRecords>
+</OAI-PMH> 
+

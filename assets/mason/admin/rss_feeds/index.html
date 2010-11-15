@@ -1,0 +1,66 @@
+<& ../../header.html, subtitle=>"RSS input feeds" &>
+<% gh("RSS input feeds") %>
+<%perl>
+
+if ($ARGS{url_to_add}) {
+
+
+}
+
+</%perl>
+<table>
+<td>
+<!--
+<form>
+Quick add: <input type="text" name="url_to_add"> <input type="submit" value="Add">
+</form>
+-->
+</td>
+<td>
+<a href="edit.pl">Add a new input feed</a>
+</td>
+</table>
+<%perl>
+use xPapers::Harvest::InputFeed;
+
+my $feeds = xPapers::Harvest::InputFeedMng->get_objects_iterator( sort_by => 'name' );
+my @cols = qw/ name url lastStatus harvested harvested_at /;
+my $i = 0;
+sub render_col {
+my( $feed, $col ) = @_;
+    my $value = $feed->$col;
+    if( $col eq 'url' ){
+        $value = substr($value,0,70);
+        return qq{<a href="$value">$value</a>};
+    }
+    else{
+        return $value;
+    }
+}
+</%perl>
+<table>
+<tr>
+    <th></th>
+    <th></th>
+    <th></th>
+% for my $col ( @cols ){
+    <th><% $col %></th>
+% }
+</tr>
+% my $c = 0;
+% while( my $feed = $feeds->next ){
+%     my $style = ( $i++ % 2 ) ? 'style="background-color:#eee"' : '';
+%     $c++;
+<tr <% $style %>>
+<td><a href="items.pl?id=<% $feed->id %>">Contents</a></td>
+<td><a href="edit.pl?id=<% $feed->id %>">Edit</a></td>
+<td><a href="delete.pl?id=<% $feed->id %>">Delete</a></td>
+%     for my $col ( @cols ){
+<td><% render_col( $feed, $col ) %></td>
+%     }
+</tr>
+% }
+</table>
+
+%print "$c input feeds displayed.<br>";
+

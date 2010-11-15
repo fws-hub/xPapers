@@ -1,0 +1,9 @@
+<%perl>
+    my $c = xPapers::Cat->get($ARGS{cId});
+    my $children = $c->children_o;
+    my $first = 0;
+    my $depth = $ARGS{depth} || 1;
+</%perl>
+<ul class='normal'>
+    <% join("\n", map { $m->scomp('toc_item.html', cat=>$_, depth=>$depth, level=>1, first=>($first++==0)) } @$children ) %>
+</ul>

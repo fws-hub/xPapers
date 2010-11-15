@@ -1,0 +1,15 @@
+<%perl>
+my $c = $ARGS{__cat__};
+</%perl>
+<div class="sideBox">
+<div class="sideBoxH"><%$ARGS{cap}%></div>
+<div class="sideBoxC">
+<ul class="normal">
+    <li><a href="/browse2/<%$c->{id}%>/new.html">Most recently added</a></li>
+    <li><a href="/browse2/<%$c->{id}%>/index.html">Categories</a></li>
+    <li><a href="/browse2/<%$c->{id}%>/biblios.pl">Bibliographies</a></li>
+    <li><a href="/browse2/<%$c->{id}%>/threads.pl">Discussion threads</a></li>
+    <li><a href="/browse2/<%$c->{id}%>/people.pl">People</a></li>
+</ul>
+</div>
+</div>

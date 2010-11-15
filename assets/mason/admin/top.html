@@ -1,0 +1,13 @@
+<& ../header.html, subtitle=> 'Top downloaded items' &>
+
+<%perl>
+
+my $it = xPapers::EntryMng->get_objects_iterator(query=>['!deleted'=>1],sort_by=>['viewings desc'],limit=>100);
+
+my $c = 0;
+while (my $e = $it->next) {
+    $e->{topRight} = '#' . ++$c . ", ".  $e->viewings . " downloads";
+    print $rend->renderEntry($e);
+}
+
+</%perl>

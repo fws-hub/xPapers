@@ -1,0 +1,29 @@
+<span class='jlistPickerH'><%$ARGS{header}%></span>
+<br>
+<input id='jlist0' type='radio' name='jlist' value='all' <%$ARGS{jlist} eq 'all' ? "checked" : ""%> onChange="<%$ARGS{onChange}%>"> Show all<br>
+<%perl>
+use xPapers::JournalListMng;
+
+    # determine current list
+    my $jlist = $ARGS{jlist} || $ARGS{default} || 1;
+    my $i = 1;
+    foreach my $h (xPapers::JournalListMng->getListsForUser($user)) {
+        next if $ARGS{skip} and $h->{jlName} =~ /$ARGS{skip}/i;
+        print   "<input id='jlist$i' type='radio' name='jlist' value='$h->{jlId}'" .
+                ($h->{jlId} eq $jlist ? 'checked ' : '') .
+                "onChange=\"$ARGS{onChange}\"" .
+                "> " . ($h->{jlName} eq 'My sources' ? 'My journals' : $h->{jlName}) .
+                ($h->{jlName} eq 'My sources' ? " (<a href='/profile/myjournals.pl'>edit</a>)" : "") .
+                "<br>\n";
+        $i++;
+    }
+    if (!$user->{id}) {
+        </%perl>
+
+        <input type='radio' name='jlist' value='0' disabled> My journals<br><span class='hint2' style='padding-left:25px'>log in required</span>
+        <br>
+        <%perl>
+    }
+</%perl>
+
+

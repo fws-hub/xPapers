@@ -1,0 +1,340 @@
+<%perl>
+my $e = $ARGS{e}; 
+my $new = $ARGS{new};
+
+#print "LINKS: " . join(",", @{$e->{links}});
+entry2form($e);
+my @authors = $e->getAuthors();
+@authors = (',') unless $#authors > -1;
+my @editors = $e->getEditors();
+@editors = (',') unless $#editors > -1;
+my @links = $e->getLinks();
+my @reviewed = $e->reviewed_title;
+@reviewed = ('|') unless $#reviewed > -1;
+#my @reviewedAuthors = $e->reviewed_authors();
+#@reviewedAuthors = (',') unless $#reviewedAuthors > -1;
+@links = ('') unless $#links > -1;
+my @descriptors = split(';',$e->{descriptors});
+@descriptors = ('','','') unless $#descriptors > -1;
+
+</%perl>
+
+<script type="text/javascript">
+YAHOO.util.Event.onContentReady('myform',function() {
+    adjustPub();
+    adjustPubIn();
+});
+</script>
+
+
+<form name="edit" id='myform' enctype="multipart/form-data" method="POST" onsubmit="" action="<%$PATHS{EDIT_SCRIPT}%>">
+
+<input type=hidden name=write value=1>
+<input type="hidden" name="embed" value="<%$q->param('embed') ? 2 : 0%>">
+<input type=hidden name=bookmark value="<%$e->{bookmark}%>">
+<input type=hidden name=slot value="<% $q->param('slot') %>">
+<input type=hidden name=catId value="<% $q->param('catId') %>">
+<input type=hidden name=edit_element value="<% $q->param('edit_element') %>">
+<input type=hidden name=id value="<% $new ? '' : $e->id %>">
+<input type=hidden name=added value="<% $e->{added} %>">
+<input type=hidden name=tabl value="<% $TABLE %>">
+<input id='upsession' type=hidden name='upsession' >
+<input id='uploadInProgress' type=hidden name='uploadInProgress' value="0">
+<input type=hidden name=compact value="<% $q->param('compact') %>">
+<input type=hidden name=sugMode value="<% $q->param('sugMode') %>">
+<input type=hidden name=editMode value="<% $q->param('editMode') %>">
+<input type=hidden name=status value="<% $q->param('status') %>">
+<input type=hidden name=originalId value="<% $e->{originalId} %>">
+<input type=hidden name=flat value="<% $q->param('flat') %>">
+<input type=hidden name=file value="<% $e->{file}%>">
+<input type=hidden name=after value="<% $q->param('after') %>">
+<input type=hidden name=addToList value="<% $e->{addToList} %>">
+<input type=hidden name="showCategories" id='ed-showCategories' value="">
+<input type=hidden id="caption" value="<% encode_entities(substr($e->toString,0,75) . (length($e->toString)>75?"...":"")) %>">
+
+
+<div id='all_pub_info' class='inset'>
+
+<% block('basic','Citation details',$q->param('embed'),'active') %>
+<table cellpadding="2" cellspacing="0" border=0>
+
+<tr>
+<td valign="top" class='editorlabel'>
+Authors:&nbsp;
+</td>
+<td valign="top">
+<div>
+<% mkDynList("authors",\@authors,"<div>_CONTENT_</div>","div", sub {
+    my ($first,$last) = parseName(shift());
+    return " <table border=\"0\" cellpadding=\"0\" cellspacing=\"2\"> <tr> <td> <input class=\"namefield\" id=\"authors_COUNT_in\" type=\"text\" name=\"authors_firstname_COUNT_\" size=25 value=\"$first\"> </td> <td> <input class=\"namefield\" type=\"text\" name=\"authors_lastname_COUNT_\" size=25 value=\"$last\"> </td> <td>_OPTIONS_</td> </tr> <tr><td class=\"hint\">given names (and/or initials)</td><td class=\"hint\">surnames</td><td></td></tr> </table> ";
+}, ",")
+%>
+</div>
+<input type="button" onclick="window.addToList('authors')" value="Add author">
+
+</td>
+</tr>
+
+
+<tr>
+<td valign="top" class='editorlabel'>
+Title:&nbsp;
+</td>
+<td>
+<input name="title" type="text" size="50" id="title" value="<%perl> $e->{title} =~ s/\"/&quot;/g; print $e->{title};</%perl>"><br>
+
+</td>
+</tr>
+
+
+<tr>
+<td class='editorlabel'>
+Type of work:&nbsp; 
+</td>
+<td>
+<select id='typeofwork' name="typeofwork" onChange="
+    adjustPubIn();
+    adjustPub();
+ "> 
+    <% make_select($e->{typeofwork},$e->{typeofwork},["article","book","book review","dissertation"]) %>
+</select>
+</td>
+</tr>
+
+<tr class='tr' id='pub_status_inf' style="display:<% $e->{typeofwork} ne 'dissertation' ? 'table-row' : 'none'%>">
+<td class='editorlabel'>
+Publication status:&nbsp; 
+</td>
+<td>
+<select id="pub_status" name="pub_status" onChange="
+    adjustPubIn();
+    adjustPub();
+	">
+    <% make_select($e->{pub_status},$e->{pub_status},['published','forthcoming','draft','unpublished','unknown']) %> 
+</select>
+</td>
+</tr>
+
+<tr class='tr' id='pub_in_inf' style='display:<% ($e->{pub_status} ne 'unpublished' and $e->{pub_status} ne 'draft' and $e->{typeofwork} eq 'article') ? 'table-row' : 'none'%>'>
+<td class='editorlabel'>
+    In: 
+</td>
+<td>
+    <select id='pub_in' name='pub_in' onChange="
+         adjustPubIn();
+         adjustPub();
+">
+    <% make_select($e->{pub_in},$e->{pub_in},['journal','collection','online collection']) %>
+    </select>
+</td>
+</tr>
+
+
+<tr><td colspan="2">&nbsp;</td></tr>
+
+<tr class='tr' style='display:none' id='school'><td class='editorlabel'>
+    University:
+</td><td>
+    <input name="school" type="text" size="30" value="<% $e->{school} %>"><br>
+</td></tr>
+
+<tr class='tr' style='display:none' id='date'><td class='editorlabel'>
+    Year:
+</td><td>
+    <input name="date" type="text" size="8" value="<% $e->{date} %>">
+</td></tr>
+
+<tr class='tr' style='display:none' id='source_inf'><td class='editorlabel'>
+    <span id="source_label">Journal</span>:
+</td><td>
+%#    <input name="journal" id='journal' type="text" size="50" value="<% $e->pub_type eq 'journal' ? $e->{source} : '' %>">
+    <& search/autocomplete.html, dontForceSelection=>1,field=>'journal',current=>$e->pub_type eq 'journal' ? $e->{source} : '',class=>'Journal',size=>50,px=>300 &>
+    <input name="source" id="source" type="text" size="50" value="<%$e->pub_type eq 'journal' ? '' : $e->{source}%>">
+</td></tr>
+
+<tr class='tr' style='display:none' id='publisher'><td class='editorlabel'>
+    Publisher:
+</td><td>
+    <input name="publisher" type="text" size="18" value="<% $e->{publisher} %>"> (name only, no city) 
+    <input type="checkbox" name="edited" <%$e->{edited} ? "checked" : ""%>> edited book
+</td></tr>
+
+<tr class='tr' style='display:none' id='journal_inf'><td class='editorlabel'>
+    Details:
+</td><td>
+    Volume:<input name="volume" type="text" size="3" value="<%$e->{volume}%>"> 
+    Issue:<input name="issue" type="text" size="3" value="<%$e->{issue}%>"> 
+    Pages:<input name="pages" type="text" size="5" value="<%$e->{pages}%>"><br>
+</td></tr>
+
+<!-- reviewed works -->
+<tr class="tr" style="display:none" id="reviewed_title"><td class='editorlabel' valign="top">
+Reviewed book(s):
+</td><td>
+<% mkDynList("reviewed",\@reviewed,"<div>_CONTENT_</div>","div", sub {
+    my ($auth,$title) = split(/\|/,shift());
+    return " <table border=\"0\" cellpadding=\"0\" cellspacing=\"2\"> <tr> <td> <input class=\"namefield\" id=\"rev_auth_COUNT_in\" type=\"text\" name=\"rev_auth_COUNT_\" size=20 value=\"$auth\"> </td> <td> <input class=\"namefield\" type=\"text\" name=\"rev_title_COUNT_\" size=35 value=\"$title\"> </td> <td>_OPTIONS_</td> </tr> <tr><td class=\"hint\">author(s)</td><td class=\"hint\">title (no publisher)</td><td></td></tr> </table> ";
+}, "|")
+%>
+
+<input type="button" onclick="window.addToList('reviewed')" value="Add another book">
+
+</td></tr>
+<!-- in collection -->
+
+<tr class='tr' style='display:none' id='chapter_inf'>
+<td valign="top" class='editorlabel'>
+Editors:
+</td><td valign="top">
+
+<% mkDynList("ant_editors",\@editors,"<div>_CONTENT_</div>","div", sub {
+    my ($first,$last) = parseName(shift());
+    return " <table border=\"0\" cellpadding=\"0\" cellspacing=\"2\"> <tr> <td> <input class=\"namefield\" id=\"ant_editors_COUNT_in\" type=\"text\" name=\"ant_editors_firstname_COUNT_\" size=25 value=\"$first\"> </td> <td> <input class=\"namefield\" type=\"text\" name=\"ant_editors_lastname_COUNT_\" size=25 value=\"$last\"> </td> <td>_OPTIONS_</td> </tr> <tr><td class=\"hint\">given names (and/or initials)</td><td class=\"hint\">surnames</td><td></td></tr> </table> ";
+}, ",")
+%>
+<div align="left">
+<input type="button" onclick="window.addToList('ant_editors')" value="Add editor">
+</div>
+
+</td></tr>
+
+
+
+
+<tr class="tr" style="display:none" id="ant_publisher"><td class='editorlabel'>
+Publisher:
+</td><td>
+<input name="ant_publisher" type="text" size="18" value="<% $e->{ant_publisher} %>"> (name only, no city)
+</td></tr>
+
+</table> <!-- pub details -->
+
+</div> <!-- block-->
+
+<!-- LINKS -->
+
+<% block('onlineDetails','Online copies',$q->param('embed'))%>
+<p>
+<b>Links</b>
+<p>
+<div style='width:500px'>
+Do <b>not</b> include the "http://" part:
+<% mkDynList("links",\@links,"<div>_CONTENT_</div>","div", sub {
+    my $val = shift;
+    return "_OPTIONS_<span style=\"color:grey\">http://</span><input id=\"links_COUNT_in\" class=\"namefield\" type=\"text\" style=\"width:429px\" name=\"links_COUNT_\" value=\"$val\">",
+}, "")
+%>
+</div>
+<br>
+<input type="button" onclick="window.addToList('links')" value="Add link">
+
+<!-- ARCHIVE -->
+<p>
+<b>Local copy</b>
+<p>
+% if ($e->{file}) {
+There is currently a copy of this paper in the archive (<a target='file' href='<%$PATHS{FILE_SCRIPT}.$e->{file}%>'>open in new window</a>).  
+<p>
+    <input type="radio" name="fileAction" value="none" <% $e->{fileAction} eq 'none' ? 'checked' : ''%>>Keep current copy<br>
+    <input type="radio" name="fileAction" value="delete" <% $e->{fileAction} eq 'delete' ? 'checked' : ''%>>Remove current copy<br>
+% if ($e->{fileAction} eq 'replace2') {
+    <input type="radio" name="fileAction" value="replace2" checked>Replace the archive copy with the copy I uploaded earlier in this editing session.<br>
+%}
+    <input type="radio" id="fileActionReplace"  name="fileAction" value="replace" <% $e->{fileAction} eq 'replace' ? 'checked' : ''%>>Replace current with new copy:<br>
+%} else {
+  There is no local copy of this article in the archive at the moment.
+  <p>
+    <input type="radio" name="fileAction" value="none" <% $e->{fileAction} eq 'none' ? 'checked' : ''%>>No change<br>
+% if ($e->{fileAction} eq 'replace2') {
+    <input type="radio" name="fileAction" value="replace2" checked>Use the copy I uploaded earlier in this editing session.<br>
+%}
+    <input type="radio" id="fileActionReplace" name="fileAction" value="replace" <% $e->{fileAction} eq 'replace' ? 'checked' : ''%>>Upload copy<br>
+%} 
+<iframe id="upframe" name="upframe" frameborder=0 src="/cgi/upload.pl" width="600" height="45" scrolling="no" >Browser supporting iframes is required</iframe>
+
+<br>
+<b>Publisher's policy on self-archival (for journals)</b>
+<br>
+<div id='editor-pub-policy'></div>
+<p>
+<input type="button" onclick="ppAct('checkSherpaRomeo',{journalTitle:$F('journal')}, function(r) { $('editor-pub-policy').update(r) })" value="Check publisher's policy">
+</p>
+
+</div> <!-- block-->
+
+<% block('moreinfo','Abstract / descriptors', $q->param('embed')) %>
+<!-- abstract -->
+<div class='ed_header'>Abstract</div>
+<textarea id='ed_abstract' cols=75 rows=6 scroll=1 name="author_abstract" id="author_abstract"><%$e->{author_abstract}%></textarea>
+
+<p>
+<div style='width:260px'>
+<b>Descriptors</b> (maximum 10)<p>
+<% mkDynList("descriptors",\@descriptors,"<div>_CONTENT_</div>","div", sub {
+    my $val = shift;
+    return "_OPTIONS_<input type=\"text\" id=\"descriptors_COUNT_in\" name=\"descriptors_COUNT_\" class=\"namefield\" style=\"width:230px\" value=\"$val\">",
+}, "", 10)
+%>
+<input type="button" onclick="window.addToList('descriptors')" value="Add descriptor">
+</div>
+<br> <br>
+</div> <!--block-->
+
+
+<% block('classificationDetails','Classification / note to editors',$q->param('embed')) %>
+
+<& bits/cat_edit.pl, current=>[ grep { !$_->owner and !$_->system }  $e->categories ] &>
+<p>
+<b>Any comments for the editors about this entry / update?</b><br>
+<textarea name="note" cols="80" rows="2"><%$q->param('note')%></textarea>
+
+
+%if (0) {
+<% block('adminOnly','Admin only',$q->param('embed')) %>
+<div id='relations'>
+<p>
+<b>Relations (admin only)</b>
+<p>
+<textarea name="relations_txt" cols=50 rows=4>
+<%perl>
+my $r = "";
+foreach my $rel (keys %{$e->{relations}}) {
+    foreach my $relata (@{$e->{relations}->{$rel}}) {
+        if ($rel =~ /^<>(.+)/) {
+            $r .= $relata . ";" . $e->id . ";$1\n";
+        } else {
+            $r .= $e->id . ";$relata;$rel\n";
+        }
+    }
+}
+print $r;
+</%perl>
+</textarea>
+</div>
+</div>
+%}
+
+</div>
+<div class="centered buttons" style="vertical-align:middle;margin-top:3px; ">
+
+%if ($q->param('embed')) {
+<div class='centered'>
+<div class='buttons'>
+    <input type='button' id='submitbtn' onclick='ed.submit()' value='Submit'> <input type='button' onclick='ed.cancel()' value='Cancel'>
+</div>
+
+%#    <input type="button" value="Submit" onClick="
+%#       if (!preSubmit('<%$e->{session}%>')) { return false; } 
+%#      else { 
+%#         if ( submitAjax($('myform')) ) { parent.parent.GB_hide()} 
+%#        else {  } 
+%#   }">
+%#   %#  &nbsp;&nbsp;&nbsp;&nbsp; 
+%# <input type='button' value='Cancel' onClick="parent.parent.GB_hide()">
+%} else {
+    <input type="submit" value="Submit" onClick="if (!preSubmit('<%$e->{session}%>')) { return false; } else {return true;}"
+%}
+</div>
+
+</form>
+

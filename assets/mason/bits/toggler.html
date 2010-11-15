@@ -1,0 +1,21 @@
+<table class='tog'>
+<td class="toggler
+%if (!$ARGS{noicon}) {
+ toggler-<%$ARGS{state} || 'off'%>" onclick="
+    $('<%$ARGS{target}%>').toggle();
+    if (this.hasClassName('toggler-off')) {
+        this.removeClassName('toggler-off');
+        this.addClassName('toggler-on');
+    } else {
+        this.removeClassName('toggler-on');
+        this.addClassName('toggler-off');
+    }
+">&nbsp;&nbsp;&nbsp;
+%} else {
+" onclick="$('<%$ARGS{target}%>').toggle();">
+%}
+</td>
+<td>
+<%$ARGS{text}%>
+</td>
+</table>

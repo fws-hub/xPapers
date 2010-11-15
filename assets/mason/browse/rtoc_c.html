@@ -1,0 +1,43 @@
+<%perl>
+    event('rtoc-children','start');
+    my $c = ($ARGS{_c} || $ARGS{cat} || xPapers::Cat->get($ARGS{cId}));
+    my @chain = ($ARGS{chain} ? @{$ARGS{chain}} : ());
+    my $children = $c->children_o;
+    $c->elog("Do");
+    if ($#$children > -1) {
+
+        print "<ul class='rtoc' id='ct-$ARGS{dId}'>";
+        for my $a (@$children) {
+
+            my $id = uniqueKey(); 
+            my $ok = ($#chain > -1 and $chain[0]->{id} == $a->{id});
+            my $localCount = $a->{catCount} && $a->localCount($s) ? "/<b>".$a->localCount($s)."</b>" : "";
+            my $ref = $a->{ppId} == $c->{id} ? "" : "*";
+            my $link = ( $a->{id} == $ARGS{cId} ? 
+                        "<b>$a->{name}</b>" :
+                        "<a href='/browse/" . $a->id . "'>" . $a->name. "</a>$ref". "&nbsp;<span class='hint'>[" . $a->preCountWhere($s) . "$localCount] " . "</span>"
+                       );
+            my ($class,$event, $content);
+            if ($a->{catCount}) {
+                $class = ( $ok ? 'toggler-on' : 'toggler-off' );
+                $event = " onClick=\"toggleRTOC({cId:$a->{id},dId:'$id'})\"";
+                if ($ok) {
+                    shift @chain;
+                    $content = $m->scomp("rtoc_c.html",dId=>$id,cat=>$a,chain=>\@chain,cId=>$ARGS{cId});
+                } else {
+                    $content = "<div id='ct-$id'></div>";
+                }
+            } else {
+                $class = ( $ok ? 'selectedtog' : 'notoggle' );
+            }
+
+            print "<table class='tog'><td id='t-$id' class='toggler $class' $event>&nbsp;&nbsp;&nbsp;</td><td>$link</b></td></table>$content";
+
+        }
+
+        print "</ul>";
+
+    } 
+    event('rtoc-children','end');
+
+</%perl>

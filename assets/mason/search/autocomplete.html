@@ -1,0 +1,49 @@
+<%perl>
+#print Dumper $ARGS{current};
+#return;
+</%perl>
+<input id="auc-<%$ARGS{field}%>"  name="auc-<%$ARGS{field}%>" size="<%$ARGS{size}%>" type="text" value="<%($ARGS{current} ? (ref($ARGS{current}) ? $ARGS{current}->name : $ARGS{current}):"")%>" onchange="
+    if (!this.value) $('<%$ARGS{field}%>').value = '';
+">
+<input id="<%$ARGS{field}%>" name="<%$ARGS{field}%>" type="hidden" value="<%($ARGS{current} ? (ref($ARGS{current}) ? $ARGS{current}->id : "$ARGS{current}"): "")%>">
+<div class="yui-skin-sam" id="auc-<%$ARGS{field}%>-con" style="width:<%$ARGS{px} ||'350'%>px"></div>
+<script type="text/javascript">
+watchForSymbol(
+{
+symbol:"xpa_yui_loaded",
+onSuccess: function() {
+var <%$ARGS{field}%>_auto = function(){
+    this.oACDS = new YAHOO.util.XHRDataSource("/search/objects.json", ["Results","name"]);
+    this.oACDS.responseType = YAHOO.util.XHRDataSource.TYPE_JSON; 
+    this.oACDS.responseSchema = { resultsList: "Results", fields: ["name","id"] };
+    this.oACDS.queryMatchContains = true;
+    this.oACDS.scriptQueryAppend = "class=<%$ARGS{class}%>";
+
+    this.oAutoComp = new YAHOO.widget.AutoComplete("auc-<%$ARGS{field}%>","auc-<%$ARGS{field}%>-con", this.oACDS);
+    this.oAutoComp.useShadow = true;
+    this.oAutoComp.forceSelection = <%$ARGS{dontForceSelection} ? 'false' : 'true' %>;
+    this.oAutoComp.minQueryLength = 1;
+    this.oAutoComp.formatResult = function(oResultItem, sQuery) {
+        return oResultItem[0];
+    };
+    this.oAutoComp.itemSelectEvent.subscribe ( function(e, args) {
+        $("<%$ARGS{field}%>").value=args[2][1];
+        <%$ARGS{callback} ? "$ARGS{callback}(args[2][1])" : "" %>
+    });
+    this.oAutoComp.selectionEnforceEvent.subscribe ( function(e, args) {
+         $("<%$ARGS{field}%>").value='';
+    });
+
+    this.oAutoComp.doBeforeExpandContainer = function(oTextbox, oContainer, sQuery, aResults) {
+        var pos = YAHOO.util.Dom.getXY(oTextbox);
+        pos[1] += YAHOO.util.Dom.get(oTextbox).offsetHeight + 1;
+        YAHOO.util.Dom.setXY(oContainer,pos);
+        return true;
+    };
+
+    this.validateForm = function() {
+        return true;
+    };
+}();
+}});
+</script>

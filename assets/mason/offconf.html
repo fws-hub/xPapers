@@ -1,0 +1,18 @@
+<div>
+<form onsubmit="return false;" ACTION="" target="_parent" METHOD="POST" name="config">
+    <ol>
+        <li>Open another browser window or tab and access any <b>restricted access page</b> on JSTOR <b>from off campus</b> as you usually do (following a link from your library catalogue; you might not be able to perform the procedure from inside your campus).<p> For example, you could access the information page for a given article in the Journal of <% $SUBJECT %>. A web page from your library's catalogue will not do. The address of the page you are accessing should look something like this: www.jstor.org.something.youruniversity.edu/blahblah</li>
+    <li>Copy the <b>entire</b> web address of this JSTOR page in this box (including "http://"): <input name='jstorlink' id='jstorlink' type="text" size="30" maxlength="400"></li>   
+    <li><a href="javascript:configure(document.config.jstorlink.value);">Click here to guess proxy</a></li>   
+    </ol>
+    <div id="success" style="color:green;display:none;">
+    Your off-campus access has been configured. You may now access subscription-based services from this site. 
+    </div>
+    <div id="failure" style="color:red;display:none;">
+    Your off-campus access configuration was not succesfully updated. The configuration may have failed because your library does not provide the kind of off-campus access supported by this page. You may not be able to access many of the texts linked to article titles when you are off campus. <!--However, you can still access many articles by clicking the "Google" link of entries with a clickable title. Google will provide you with a direct access to the online copy if you configure your preferences properly on its <a href="http://scholar.google.com/scholar_preferences?prev=/">preference page</a>.-->
+    </div>
+
+</form>
+</div>
+
+

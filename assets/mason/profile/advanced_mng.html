@@ -1,0 +1,36 @@
+
+<& ../header.html,subtitle=>'My filters',%ARGS&>
+
+<%perl>
+    print gh('My searches');
+    $m->comp("../checkLogin.html",%ARGS);
+    my $opt = queryOpts(\%ARGS,$user);
+    error($opt) if $opt;
+    my @qs = $user->queries();
+</%perl>
+<div class="expl">
+<% $s->{niceName} %>' advanced search is an excellent way of discovering new papers on your topics of interest. On this page you can manage the advanced searches you have saved. <p>
+</div>
+
+
+%if ($#qs ==-1) {
+    You do not have any saved search stored at the moment.<p> Click <a href="../advanced.html">here</a> to create one. 
+% return;
+%} 
+
+<ul class="big">
+%foreach my $qv (@qs) {
+%   next if $qv->system;
+%   my $qn = urlEncode($qv->name);
+    <li>
+        <!--<div class="query_last_use"><%$qv->executed%></div>-->
+        <div class="list_item_name" style="display:inline"><%$qv->name%></div>
+        <div class="list_options" style="display:inline;font-size:smaller">
+            <span class="list_option"><a href="/search/advanced.pl?fId=<%$qv->id%>">execute</a> |
+            <span class="list_option"><a href="../advanced.html?fId=<%$qv->id%>">edit</a> |
+            <span class="list_option"><span class='ll' onclick="ppAct('deleteFilter',{fId:<%$qv->id%>},refresh)">delete</a>
+        </div>
+    </li>
+%}
+</ul>
+<input type="button" onclick="window.location='/advanced.html'" value="New search">

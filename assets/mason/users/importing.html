@@ -1,0 +1,21 @@
+<& ../header.html, subtitle=>"Importing" &>
+<div style="color:red;font-weight:bold;font-size:18px">this feature is currently broken, please do not use.</div>
+<% gh("Importing entries into $s->{niceName}") %>
+There are two tools for importing large numbers of entries into <% $s->{niceName} %> (including <% $s->{niceName} %> lists &amp categories). Choose the tool that best suits your needs.
+<p>
+%if ($ARGS{addToList}) {
+<a href="list_inject.html?after=<%urlEncode($ENV{HTTP_REFERER})%>&lId=<%$ARGS{addToList}%>" style="font-size:14px;font-weight:bold">The plain text reference list importer</a>
+%} else {
+<span style="font-size:14px;font-weight:bold">The plain text reference list importer.</span>
+%}
+<p>This tool will read a list of references in plain text. Copy-pasting a list from a word processing document, PDF or web page should also work. While this tool is convenient, the parser is not perfect. For this reason, new <% $s->{niceName} %> entries cannot be created with this tool. It can only be used to add existing entries to a list / category.
+%if (!$ARGS{addToList}) {
+<p>
+You have not selected a list prior to reaching this page, so you cannot use this tool now.
+%}
+<p>
+<a href="batch_import.pl?after=<%urlEncode($ENV{HTTP_REFERER})%>&addToList=<%$ARGS{addToList}%>" style="font-size:14px;font-weight:bold">The bibliographic file importer</a>
+<p>This tool reads bibliographic files (e.g. BibTeX files). Entries imported with this tool will be added to <% $s->{niceName} %> if they do not exist in the database already, as well as to a list / category if requested. One of the formats available is very similar to the APA notation. You can write and import files of this kind to save time if you need to add many entries to <% $s->{niceName} %> and don't have a ready-made list of them.
+
+
+

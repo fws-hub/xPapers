@@ -1,0 +1,49 @@
+<& ../header.html, subtitle=>"$s->{niceName} Gadget" &>
+<%perl>
+my $enabled = (-r "$PATHS{LOCAL_BASE}/var/embed/myworks-$user->{id}.js");
+</%perl>
+<% gh("The $s->{niceName} Gadget") %>
+<p>
+Use the <%$s->{niceName}%> Gadget to embed 'my works' on your web site (<a href="http://www.dbourget.com">here</a> is an example of the final result). You can use the <%$s->{niceName}%> Gadget on any site, including a blog. Here is how to proceed.
+</p>
+<h3>Setting up the gadget</h3>
+First, enable the gadget for your account. 
+<p>
+%unless ($enabled) {
+<div id='not-enabled'>
+<input type="button" id="embed-enable" onclick="simpleReq('/profile/myworks.pl',{refresh:1,noheader:1},function() { $('not-enabled').hide(); $('enabled').show() })" value="Enable <%$s->{niceName}%> Gadget">
+</div>
+%}
+<div id='enabled' style='color:#<%$C2%>;display:<%($enabled ? 'block' : 'none')%>'>
+You have enabled the <%$s->{niceName}%> Gadget for your account.
+</div>
+</p>
+<p>
+Once you have enabled the gadget, all you need to do is add this HTML code to the page where you want it to appear:
+<div class="programListing" style='margin:10px 0;max-width:600px'>
+&lt;div id="xpapers_gadget"&gt;&lt;/div&gt;<br>
+&lt;script type="text/javascript" src="http://api.<%$s->{domain}%>/myworks/<%$user->id%>"&gt;&lt;/script&gt;
+</div>
+Note that this code is specific to your <%$s->{niceName}%> account because it contains your unique ID. No one else can use it.
+</p>
+<p>
+<h3>Refreshing your gadget (important!)</h3>
+For security and performance reasons, the content displayed by your gadget will only refresh when you explicitly request a refresh. You can do so by pressing the button below, or by clicking the small "Refresh" link which appears at the bottom right of your gadget. 
+%#DISABLED
+We will email you whenever we detect a new item which appears to belong to your list of works so you can refresh your gadget.
+<p>
+<input type="button" id="refresh" onclick="simpleReq('/profile/myworks.pl',{refresh:1,noheader:1},function() { alert('Your gadget has been refreshed.'); })" value="Refresh my gadget">
+</p>
+<p>
+<h3>Customizing the look of your gadget</h3>
+The look of your gadget can be extensively customized using CSS stylesheets. For example, you could insert the following code inside the HEAD part of your page to make it look a little nicer. <div class="programListing" style='margin:10px 0;max-width:600px'>
+&lt;style&gt;<br>
+.xpapers_abstract { font-size:smaller; padding:2px }<br>
+.xpapers_title { font-weight:bold }<br>
+.xpapers_pubInfo { color : #444 }<br>
+&lt;style&gt;<br>
+</div>
+If you don't know what this 'HEAD' thing is, insert the code right before the first code snippet instead. This isn't the recommended way of doing things, but it works. 
+<p>
+This snippet illustrates the most commonly used CSS classes. Entries are displayed in a list, and each item has the class xpapers_entry. The HTML injected by the <%$s->{niceName}%> Gadget contains more CSS classes, which you can easily discover using <a href="http://getfirebug.com/">FireBug</a> or Chrome's developer tools. 
+

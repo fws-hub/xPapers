@@ -1,0 +1,19 @@
+<%perl>
+my $t = $ARGS{__thread};
+</%perl>
+%if ($user->{id} and $t->subscribers_count({uId=>$user->{id}})) {
+    You are subscribed to this thread <span class='ll hint' onclick="
+        ppAct('unsubscribeThread',
+        {tId: <%$t->id%>, uId: <%$user->{id}%>}, 
+        function() { refresh() }
+        )">(unsubscribe)</span>
+    </span>
+%} elsif ($user->{id}) {
+    <span class='ll' onclick="
+        ppAct('subscribeThread', 
+        {tId: <%$t->id%>, uId: <%$user->{id}%>}, 
+        function() { refresh() }
+        )">Subscribe to this thread</span>
+%}
+
+

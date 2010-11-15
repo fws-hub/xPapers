@@ -1,0 +1,69 @@
+<& ../header.html, subtitle=>"Shopping preferences" &>
+
+<%perl>
+my %locales = (
+    us => 'United States',
+    ca => 'Canada',
+    uk => 'United Kingdom',
+#    au => 'Australia',
+    yy => 'Automatic selection'
+);
+my @locale_order = qw/yy us uk ca/;
+
+if ($ARGS{save}) {
+
+    if ($ARGS{show_links} eq 'no') {
+        $user->locale('xx');
+    } else {
+        error "invalid locale" unless $locales{$ARGS{locale}};
+        $user->locale($ARGS{locale});
+    }
+
+    $user->save;
+    print redirect($s,$q,"/profile/profile.pl?_lmsg=Profile%20updated") unless $ARGS{noredirect};
+
+}
+
+$user->locale('yy') unless $user->locale;
+
+
+</%perl>
+See also: <a href="/utils/bargains.pl">Bargain Finder</a>
+<% gh("Shopping preferences") %>
+
+We only offer links to a limited number of bookselling sites at the moment (Amazon US, Amazon UK, and Amazon Canada). We are working on improving our coverage. All shopping profits go toward maintaining <% $s->{niceName} %>. 
+<form method="POST">
+<p>
+
+<table style="cellspacing:10px">
+
+<tr>
+    <td>
+        Do you want to see shopping links under books and book chapters?<br>
+    </td>
+    <td>
+        <select name="show_links">
+            <option name="yes" value='yes' <%(!$user->locale or $user->locale ne 'xx') ? 'selected' : ''%>>yes</option>
+            <option name="no" value='no' <%$user->locale eq 'xx' ? 'selected' : ''%>>no</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        What do you prefer to use as your shopping region?<br>
+        <span class='hint'>If your country is not listed, pick the most convenient for you.</span>
+    </td>
+    <td>
+           <select name="locale">
+%               print opt($_,$locales{$_},$user->locale) for @locale_order;
+           </select>
+    </td>
+</tr>
+
+
+</table>
+<br>
+<input type="submit" name="save" value="Save">
+<input type="button" value="Cancel" onclick="history.go(-1)">
+</form>

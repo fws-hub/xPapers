@@ -1,0 +1,9 @@
+jstor => 1
+pi => 1
+pi_may7 => 0
+archives => 2
+psyc => 1
+wok => 1
+wos => 1
+people1 => 5
+people2 => 6

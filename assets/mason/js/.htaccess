@@ -1,0 +1,6 @@
+#AddHandler cgi-script css
+
+SetOutputFilter DEFLATE
+
+#RewriteEngine On
+#RewriteRule (.+\.js) /js/js.css?file=$1 [L]

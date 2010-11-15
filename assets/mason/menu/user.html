@@ -1,0 +1,60 @@
+
+<li><a class="dir dropdown-top" href="/profile/<%$user->{id}%>">My profile</a>
+<ul class="submenu">
+    <li><a href="/profile/<%$user->{id}%>/myreadings.html">Reading list</a></li>
+       <%perl>
+           my @forums = $user->forums_o;
+           if ($#forums > -1) {
+                print "<li><a class='dir' href='/profile/$user->{id}/myforums.pl'>My forums</a><ul class='submenu'>";
+                print join("",
+                  sort map { sprintf "<li><a href=\"%s\">%s</a></li>", $rend->forumURL($_), quote($rend->renderForumPT($_))} @forums
+                );
+                print "</ul></li>";
+           }
+           my @areas = $user->areas_o;
+           if ($#areas > -1) {
+                print "<li><a class='dir' href=\"/profile/$user->{id}/areas.html\">My areas</a><ul class='submenu'>";
+                print join("",
+                  map { sprintf "<li><a href=\"/browse/%s\">%s</a></li>", $_->eun,$_->name } @areas
+                );
+                print "</ul></li>";
+           }
+           print "<li><a class='dir' href='/profile/$user->{id}/mylists.html'>Bibliography</a>";
+           if ($user->{id} and $user->{mybib}) {
+               my $lists = $user->myBiblio->children_o; 
+               if ($#$lists > -1) {
+                    print "<ul class='submenu'>";
+                    print join("",
+                      map { sprintf "<li><a href=\"/browse/%d\">%s</a>", $_->id,$_->name } @$lists
+                    );
+                    print "</ul>";
+               }
+           }
+           print "</li>";
+           print "<li><a class='dir' href=\"/profile/$user->{id}/advanced_mng.html\">Advanced search</a><ul class='submenu'>";
+           print "<li><a href=\"/advanced.html\">New search</a></li>";
+           print "<li><a href=\"/profile/$user->{id}/advanced_mng.html\">Saved searches</a></li>";
+            my @qs = $user->queries_o;
+            if ($#qs > -1) {
+                print "<li><span class='dir'>Recently used</span><ul class='submenu'>";
+                print join("",
+                    map {
+                        "<li><a href=\"/search/advanced.pl?fId=" . $_->id . '">' . quote($_->name) . "</a></li>" 
+                        }
+                        @qs
+                    );
+                print "</ul></li>";
+            }
+            print "</ul></li>";
+            </%perl>
+            <li><a href="/profile/<%$user->{id}%>/myfollowings.pl">People I follow</a></li>
+            <%perl>
+            print "<li><a href='/profile/$user->{id}'>Open profile</a></li>";
+       </%perl>
+
+</ul>
+</li>
+%if (xPapers::ES->get_objects_count(query=>[uId=>$user->{id},status=>{ge=>20},end=>undef])) {
+    <li><a class='dropdown-top' href="/utils/edpanel.pl">Editor's panel</a></li>
+%}
+

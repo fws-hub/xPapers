@@ -1,0 +1,18 @@
+<& ../header.html, title=>"Tips", %ARGS &>
+<style>
+li.tip { font-size:14px; padding-bottom:10px }
+.fs {color:#<%$C2%>; font-weight:bold }
+</style>
+<% gh("Tips") %>
+<ul class='normal'>
+<%perl>
+for (0..$#xPapers::Conf::TIPS)  {
+    my $text = $xPapers::Conf::TIPS[$_]->{t};
+    $text =~ s/_SITE_NAME_/$s->{niceName}/g;
+    $text =~ s/^(.+?)(\?|\.|$)(\s+.*$|$)/<div class='fs'>$1$2<\/div>$3/;
+    </%perl>
+    <li class='tip'><%$text%></li>
+    <%perl>
+}
+</%perl>
+</ul>

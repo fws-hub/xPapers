@@ -1,0 +1,20 @@
+create table oai_repos ( id int unsigned auto_increment primary key, rid varchar(32), name varchar(255), handler varchar(255), deleted tinyint(1) unsigned default 0, useSubjectFilter tinyint(1) unsigned default 1, sets varchar(5000), found int unsigned default 0) DEFAULT CHARSET=utf8; 
+alter table oai_repos add column scanned_at datetime;
+alter table oai_repos add column error_log text;
+alter table oai_repos add column fetched_records integer;
+alter table oai_repos add column saved_records integer;
+alter table oai_repos change useSubjectFilter useSubjectFilter varchar(32);
+alter table oai_repos change sets sets text;
+alter table oai_repos add column download_type varchar(32);
+alter table oai_repos add column non_eng_records integer;
+alter table oai_repos add column languages text;
+alter table oai_repos change scanned_at scannedAt datetime;
+alter table oai_repos change error_log errorLog text;
+alter table oai_repos change fetched_records fetchedRecords integer;
+alter table oai_repos change saved_records savedRecords integer;
+alter table oai_repos change download_type downloadType varchar(32);
+alter table oai_repos change non_eng_records nonEngRecords integer;
+alter table oai_repos add column lastSuccess datetime;
+alter table oai_repos add column isSlow tinyint(1);
+alter table oai_repos add column lastHarvestDuration integer;
+

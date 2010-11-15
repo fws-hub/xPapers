@@ -1,0 +1,14 @@
+<%perl>
+if (!$user or !$user->{id}) {
+    my $out = "";
+    unless ($ARGS{noheader}) {
+        $out .= $m->scomp("header.html",subtitle=>"Log in required",force=>1);
+    }
+    $out .= "<div style='padding-left:5px'>";
+    $out .= "<h2 class='gh'>Please sign in before accessing this page</h2>";
+    $out .= $m->scomp("inoff.html", %ARGS, after=>$ENV{REQUEST_URI},nonothing=>1);
+    $out .= "</div>";
+    $m->notes("exception",$out);
+    die "log in required";
+}
+</%perl>

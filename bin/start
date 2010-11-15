@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+$|=1;
+use lib '/home/xpapers/lib';
+use xPapers::Utils::Cache;
+use xPapers::Conf;
+my $cmd = $ARGV[0];
+
+unless ($cmd eq 'start') {
+	print `/etc/init.d/apache2 stop`;
+    print `killall searchd`;
+}
+xPapers::Utils::Cache::init();
+unless ($cmd eq 'stop') {
+	print `/etc/init.d/apache2 start`;
+    print "Starting Sphinx: $SPHINX/searchd\n";
+    exec "$SPHINX/searchd";
+	#print `ps -ef | grep perl`;
+}
+

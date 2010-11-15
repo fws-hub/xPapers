@@ -1,0 +1,81 @@
+<& ../header.html, %ARGS &>
+<%perl>
+
+print gh("Register");
+
+if ($ARGS{emailcheck}) {
+
+    if (length($ARGS{pass1}) < 6) {
+        print "<span style='color:red'>Your password is too short. It must have at least six characters.</span><p>";
+    } elsif ($ARGS{pass1} ne $ARGS{pass2}) {
+        print "<span style='color:red'>You didn't type the same password twice.</span><p>";
+    } else {
+
+        my $us = xPapers::UserMng->get_objects(query=>['email'=>{like=>$ARGS{emailcheck}}]);
+        if ($#$us < 0) {
+            $m->comp("new1.html",postRegistration=>$ARGS{postRegistration},email=>$ARGS{emailcheck},passwd=>$ARGS{pass1});
+            return;
+        } else {
+            if ($us->[0]->confirmed) {
+                </%perl>
+                It looks like you're already registered under this email address. Have you <a href="/users/forgot.html?email=<%$ARGS{emailcheck}%>">forgotten your password</a>?
+                <%perl>
+                return;
+            }
+            if (!$us->[0]->hasFlag('AUTO')) {
+                $m->comp("new1.html",postRegistration=>$ARGS{postRegistration},email=>$ARGS{emailcheck},passwd=>$ARGS{pass1});
+                return;
+            } else {
+
+                my $x = $us->[0]->x;
+                $x->futurePasswd($ARGS{pass1});
+                $x->save;
+                $m->comp("validate.html",postRegistration=>$ARGS{postRegistration},email=>$ARGS{emailcheck},justSend=>1);
+                </%perl>
+                <p style=''>Hi <% $us->[0]->{firstname} %>.</p><p>I sent a message to <%$ARGS{emailcheck}%> in order to validate this email address. My message should arrive in a few minutes max (otherwise it's in your spam box).</p><p>Just click on the link I included in my message and your account will be ready to go!</p>
+                <%perl>
+                return;
+            }
+        }
+
+    }
+
+}
+
+</%perl>
+<form name='emailform' method='post' action='new.html'>
+<input type="hidden" name="postRegistration" value="<%$ARGS{postRegistration}%>">
+<table>
+<tr>
+<td valign="top">Your email address:</td>
+<td>
+<input type='text' name='emailcheck' id='emailcheck' value="<%dquote($ARGS{emailcheck})%>" size=40><br>
+It is recommended to use an institutional address (eg .edu, ac.uk, etc) when possible.<br>
+Your email address will be verified.
+</td>
+</tr>
+<tr>
+<td>
+Choose a password:
+</td>
+<td>
+<input type='password' name='pass1' size=15>
+</td>
+</tr>
+<tr>
+<td>
+Repeat the password:
+</td>
+<td>
+<input type='password' name='pass2' size=15>
+</td>
+</tr>
+</table>
+<p>
+<input type='submit' value='Submit'>
+<script type="text/javascript">YAHOO.util.Event.onDOMReady(function() { $('emailcheck').focus() })</script>
+</p>
+
+</form>
+
+

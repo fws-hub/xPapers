@@ -1,0 +1,30 @@
+<%perl>
+    my $c = xPapers::Cat->get($ARGS{cId});
+    event('ancestry','start');
+    my @a = $c->pAncestry;
+    event('ancestry','end');
+    my $top = shift @a;
+    #print Dumper \@a;
+    #return;
+    my $children = $top->children_o;
+    my $first = 0;
+    #elog("RTOC =====================");
+
+    event('rtoc','start');
+</%perl>
+<div class="miniheader" style="padding-top:5px;padding-bottom:5px;margin-bottom:0;background-color:blue">
+<b>&nbsp;<%format_number($top->preCountWhere($s))%> entries in subcategories</b>
+</div>
+<& rtoc_c.html, caller=>$top->{id},cat=>$top,cId=>$c->{id},chain=>\@a &>
+
+<div style='font-size:smaller;padding-left:20px'>
+* indicates a link to a category in another area.<br>
+<span class='ll' onclick='window.location="/utils/struct.pl?cId=<%$top->{id}%>"'>View all categories</span>.<br>
+<a  href='/help/categorization.html'>About <% $s->{niceName} %> categories</a>.
+</div>
+<p>
+
+
+
+
+%event('rtoc','end');

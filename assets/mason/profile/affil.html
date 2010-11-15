@@ -1,0 +1,60 @@
+<%perl>
+my $af = $ARGS{object} || xPapers::Affil->new;
+</%perl>
+%unless ($ARGS{phd}) {
+<table width="430px" class='affil'>
+%} else {
+<tr id='year<%$af->{rank}%>' style='display:<%$ARGS{userHasPhD} ? "table-row" : "none"%>'>
+<td valign="top" width="200px">
+Year:
+</td>
+<td>
+    <input type="text" id="input_year<%$af->{rank}%>" name="year<%$af->{rank}%>" value="<%$af->{year}%>" size="4">
+</td>
+</tr>
+%}
+<tr id='inst<%$af->{rank}%>' style='display:<%( !$ARGS{phd} || $ARGS{userHasPhD}) ? "table-row" : "none"%>'>
+<td valign="top" width="200px">
+<% $ARGS{phd} ? "Granting" : "Academic" %> institution:<br>
+<span class='hint'>You may enter either a university or college name. No abbreviations.</span>
+</td>
+<td valign="top" width="230px" style="padding-top:5px">
+<& ../search/autocomplete.html, constrain=>1,px=>300,id=>1,field=>"iId$af->{rank}", class=>'Inst', current=>($af->iId ? $af->inst : undef ), size=>30 &> 
+<span class='ll' style="text-decoration:none;font-size:smaller;" onclick="
+    $('other<%$af->{rank}%>').show();
+    $('iId<%$af->{rank}%>').value = '';
+    $('auc-iId<%$af->{rank}%>').value = '';
+    "><br><sup>Can't find your institution?</sup></span><br>
+<div id='other<%$af->{rank}%>' style='display:<%$af->{inst_manual}?'block':'none'%>'>Specify:<input type="text" size="22" maxlength="100" id="inst_manual<%$af->{rank}%>" name="inst_manual<%$af->{rank}%>" value="<%encode_entities($af->{inst_manual})%>"></div>
+</td>
+</tr>
+%unless ($ARGS{phd}) {
+<tr>
+<td valign="top">
+Discipline:<br>
+</td>
+<td valign="top">
+<input type="text" name="discipline<%$af->{rank}%>" value="<%$af->{discipline}||$SUBJECT %>"><br>
+</td>
+</tr>
+<tr>
+<td valign="top">
+Your primary role: 
+</td>
+<td valign="top">
+<select name="role<%$af->{rank}%>">
+    <% opt("Faculty","Faculty",$af->{role})%>
+    <% opt("Research staff","Research staff",$af->{role})%>
+    <% opt("Postdoc","Postdoc",$af->{role})%>
+    <% opt("Graduate student","Graduate student",$af->{role})%>
+    <% opt("Undergraduate student","Undergraduate student",$af->{role})%>
+    <% opt("Administrator","Administrator",$af->{role})%>
+</select>
+</td>
+</tr>
+</table>
+
+%}
+<input type="hidden" name="rank<%$af->{rank}%>" value="<%$af->{rank}%>">
+<p>
+

@@ -1,0 +1,15 @@
+<& ../header.html, %ARGS &>
+
+<%perl>
+
+    print gh("Library of Congress Code Ranges for Z39.50 harvesting");
+
+    $m->comp("../bits/objlist.pl",
+        __comp=>"lcrange.pl",
+        __class=>"xPapers::LCRange",
+        __params=>{}
+    );
+
+</%perl>
+
+

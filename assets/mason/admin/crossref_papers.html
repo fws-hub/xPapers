@@ -1,0 +1,9 @@
+<& ../header.html, subtitle=>"Books and articles by people you follow" &>
+<& ../checkLogin.html, %ARGS &>
+<%perl>
+$ARGS{sort} ||= 'added';
+$ARGS{proOnly} = 'off';
+</%perl>
+<& ../bits/frame.html, %ARGS,__p=>'../search.pl',crossref=>1&>
+
+

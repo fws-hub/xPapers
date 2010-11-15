@@ -1,0 +1,11 @@
+create table followers( id int unsigned auto_increment primary key, uId int unsigned, original_name varchar(128), alias varchar(128), anonymous tinyint(1) unsigned default 0, eId varchar(11), seen tinyint(1) unsigned default 0, ok tinyint(1) unsigned default 0, created timestamp );
+alter table followers add index (uId);
+alter table followers add index (alias);
+alter table followers add unique index (uId, original_name, alias);
+alter table followers drop column anonymous;
+ALTER TABLE followers CONVERT TO CHARACTER SET utf8;
+alter table followers add column origin varchar(16);
+alter table followers drop column origin;
+alter table followers add column facebook_id bigint;
+alter table followers add column followed_id integer;
+alter table followers change followed_id fuId integer;

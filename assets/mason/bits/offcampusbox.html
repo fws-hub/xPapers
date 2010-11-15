@@ -1,0 +1,24 @@
+<div class="sideBox">
+<div class="sideBoxH">Off-campus access</div>
+<div class="sideBoxC">
+%if (!$user->{id} or !$user->{proxy}) {
+Using <% $s->{niceName} %> from home? 
+<p>
+<a href="/offcampus.html">Click here</a> to configure this browser for off-campus access.
+%} else {
+Your proxy server is:
+<code><%$user->{proxy}%></code> 
+<p>
+Proxy browsing is: <b><% $q->cookie('ez-server') ? 'on' : 'off' %></b>
+<p>
+%if (!$q->cookie('ez-server')) {
+<a href='' onclick='ppAct("setUserFlag",{flag:"PROXY"});createCookie("ez-server","<%$user->{proxy}%>",5000);'>Turn on proxy browsing</a>
+%} else {
+<a href='' onclick='ppAct("unsetUserFlag",{flag:"PROXY"});eraseCookie("ez-server");'>Turn off proxy browsing</a>
+%}
+<br><a href='/offcampus.html'>Change proxy server</a>
+%}
+</div>
+</div>
+
+

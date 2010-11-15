@@ -1,0 +1,87 @@
+<%perl>
+use xPapers::OAI::Repository;
+
+#XXX temporary fix for bug #24
+if ($SECURE) {
+
+    $root->dbh->do(" drop table if exists tmp_repos_count ");
+    $root->dbh->do(" create table tmp_repos_count select repo_id as id,count(*) as nb from entry_origin group by repo_id ");
+    $root->dbh->do(" update oai_repos, tmp_repos_count set oai_repos.savedRecords = tmp_repos_count.nb where oai_repos.id=tmp_repos_count.id ");
+
+}
+
+my @query = ( deleted => 0 );
+push @query, savedRecords => { '>' => 0 } if $ARGS{non_empty};
+my $archives = xPapers::OAI::Repository::Manager->get_objects_iterator( query => [ @query ], sort_by => 'name' );
+
+</%perl>
+<& ../header.html, subtitle => "OAI Archives", %ARGS &>
+<& ../bits/alphalist.css &>
+
+<style type="text/css">
+    .pages ul { list-style:none; margin-left:30px; padding-left:0em; }
+    .pages ul li.letter { margin:1em 0 -1.1em -30px; font-weight:bold; font-size:1.6em; color:#333; }
+    .pages ul li { margin-bottom:0.3em; }
+    .pages .e { margin:2px 10px 5px; padding:2px; border-left:1px solid #ccc; } 
+    .pages .e a { text-decoration:none; color:green; } 
+    a:link.badArchive { color: #555 !important }
+    a:visited.badArchive { color: #555 !important }
+    a:link.goodArchive { color: #<%$C2%> !important }
+    a:visited.goodArchive { color: #<%$C2%> !important }
+    legend { font-weight:bold; }
+</style>
+
+%print gh("OAI Archives That We Track");
+
+We automatically index papers found on the archives listed below. Anyone can suggest a new archive to track, but all archives are vetted before being added. The initial list was compiled from the <a href="http://www.opendoar.org/">OpenDOAR</a> directory, and we will continue to add new archives added to OpenDOAR. 
+<p>
+A number of archives are known to be either misconfigured or malfunctioning. These are listed in grey. In most cases, archive administrators need to take action to fix the archive. Click on the archive's name for details.
+<p>
+Most archives are only partially downloaded because they contain material which is not relevant to <%$s->{niceName}%>. You might want to make sure that the method we use to select content from your archive is optimal. There are several filtering methods available. Click on the archive's name for details.
+<p>
+In some cases it might seem that a suboptimal method is used (for example, all content from the archive is excluded) but it is in fact the best method acceptable to <%$s->{niceName}%> due to corrupted / misclassified papers in the archive. <em>A number of archives whose internal category labels do not reliably reflect their contents have been banned partially or completely. </em>
+<p>
+
+<a href="<% url( "add.pl", ) %>">Suggest a new archive</a> &nbsp;&nbsp;&nbsp;<a href="/help/archive_admins.html">Tips for archive admins</a><br>
+<p>
+Jump to:
+%for ('A'..'|') {
+%print "<a href='#$_'>$_</a> ";
+%}
+</p>
+
+<div class="alphalist">
+<ul id="archives">
+
+<%perl>
+my $letter = '';
+#print "<li class='letter' id='$letter'>$letter</li>\n";
+while( my $archive = $archives->next ){
+   my $initial = substr(ucfirst($archive->name), 0, 1);
+   if ($initial ne $letter && $initial =~ /[A-Z]/) {
+     $letter = $initial;
+     print "<li class='letter' id='$letter'>$letter</li>\n";
+   }
+   print "<li id='i$archive->{id}'>\n";
+   print ($SECURE?'<span style="padding:0;padding-right:5px" class="admin">['.$archive->savedRecords.']</span>':'');
+   my $admin = '';
+   if( $SECURE ){
+     $admin .= " <span style='padding:0' class='admin'> (<span class='ll' onclick='admAct(\"deleteArchive\",{rId:" . $archive->id . '}, function() { $("i' . $archive->id . "\").hide() })'>delete</span>)";
+     $admin .= "</span>";
+   }
+   my $class = ( $archive->savedRecords ? " class='goodArchive' " : "");
+   $class = ( !$archive->errorLog ? $class : " class='badArchive' " );
+
+   print "<a$class" .' href="/archives/view.pl?id=' . $archive->id . '">' . $archive->name . '</a> ' 
+   . $admin
+   . "<br>\n"
+   ."</li>\n";
+}
+
+
+</%perl>
+</ul>
+</div>
+<a href="<% url( "add.pl", ) %>">Suggest a new archive</a><br>
+
+

@@ -1,0 +1,116 @@
+<%gh("Follow the work of your Facebook friends")%>
+<& 'social_banner.html' &>
+<%perl>
+use xPapers::Follower;
+use xPapers::Util qw/ calcWeakenings normalizeNameWhitespace parseAuthors parseName2/;
+
+if(! defined( $user->anonymousFollowing ) ){
+</%perl>
+<script type="text/javascript">
+function setAnonymousFollowing(value){
+    ppAct('setAnonymousFollowing', {value:value}, function(r){ window.location.reload() } );
+}
+</script>
+
+<& /followx/firstTimeText.html &>
+
+<br>
+<br>
+<input type="button" onClick="setAnonymousFollowing(0)" value=" OK ">
+
+<%perl>
+}
+else{
+    if( $r->method eq 'POST' ){
+        for my $field ( keys %ARGS ){
+            if( $field =~ /^facebok_f_(\d+)/ ){
+                $user->followName( name => $ARGS{$field}, facebook_id => $1 );
+            }
+        }
+        htmlRedirect( url ( "/profile/myfollowings.pl",  { _lmsg => "Your friends have been added." } ) );
+    }
+    else{
+</%perl>
+
+<div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<script>
+FB.init({appId: '<%$FACEBOOK{APP_ID}%>', status: true, cookie: true, xfbml: true});
+
+FB.getLoginStatus(function(response) {
+    if (response.session) {
+    // logged in and connected user, someone you know
+        fb_step2();    
+    } else {
+    // no user session available, someone you dont know
+    }
+        
+});
+
+FB.Event.subscribe('auth.sessionChange', function(response) {
+    if (response.session) {
+        fb_step2();
+    } else {
+        
+    }
+});
+
+function fb_step2() {
+
+    $('fb-step2').show();
+    $('fb-step1').hide();
+    $('friends-loading').show();
+    FB.api('/me/friends', function(response) {
+
+      var arr = response.data;
+//      alert (JSON.stringify(arr) );
+      var ul = $('facebook_follow_ul');
+      var friend;
+      for( friend in arr ){
+          if(typeof( arr[friend] ) == 'object' && typeof( arr[friend].name ) != 'undefined' ){
+            var li = document.createElement('li');
+            ul.appendChild(li);
+            li.innerHTML = '<input type="checkbox" checked="1" name="facebok_f_' + arr[friend].id + '" value="' + arr[friend].name + '">' + arr[friend].name;
+          }
+      }
+      $('friends-loading').hide();
+      $('friends-list').show();
+    });
+
+
+}
+</script>
+
+<div id='fb-step1'>
+
+<div id="login-button">
+<h3>Step 1. Authorize <% $s->{niceName} %> to access your list of friends</h3>
+Click this button to proceed:<p>
+<fb:login-button>Authorize</fb:login-button> (a Facebook dialog will appear)
+</div>
+Note: we won't access your Facebook friends again without your permission. If you want to add new Facebook friends, you can always come back to this page to repeat the procedure. This will not create duplicates. 
+
+</div>
+
+
+<div id='fb-step2' style='display:none'>
+
+<h3>Confirm which friends you want to follow</h3>
+
+<div id="friends-loading" style='display:none'><img src="<% $s->rawFile( '/loading.gif' ) %>"> <span style="font-size:20px">Loading your friends..</span></div>
+
+<div id="friends-list" style="display:none">
+<form method='POST' id='facebook_follow_form'>
+<input type="submit" value="Follow selected friends">
+<ul id='facebook_follow_ul' style='list-style:none;padding-left:5px'>
+</ul>
+<input type="submit" value="Follow selected friends">
+</form>
+</div>
+
+
+</div>
+<%perl>
+    }
+}
+</%perl>

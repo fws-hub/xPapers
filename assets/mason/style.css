@@ -1,0 +1,2903 @@
+/*
+a { color: inherit }
+a:link, a:visited { text-decoration:none }
+a:hover { color: green; text-decoration:underline; }
+a.article {color:blue;}
+*/
+<%perl>
+    my $lc = 'blue';
+    my $hc = '254481';#_'#222255';
+    my $ghc = '#<%$C4%>';
+    my $ts = $TEXT_SIZE;
+    my $bbg = '#fff';
+    my $mip = $s->rawFile( 'menu/yahoo' );
+    my $leftMargin = '50px';
+    my $rightMargin = '50px';
+    my $minWidth = '800';
+# prev link : 0c417c
+</%perl>
+
+/*
+ * Generic items
+ */
+
+
+a:link, a:visited, a:hover { color: #<%$C4%>; }
+a.discreet { text-decoration:none; color:#<%$C4%>; }
+a.discreet:hover { text-decoration:underline; color:#<%$C4%>;}
+.nl { text-decoration:none; color:#<%$C4%>; }
+.nl:hover { text-decoration: underline; cursor: pointer; color: #<%$C4%>; }
+h3 { margin-top:0; padding-top:0; font-style:normal; font-size:14px }
+.ll { text-decoration: underline; cursor: pointer; color:#<%$C4%>; }
+.clickable { cursor: pointer }
+.helpLink { font-size:smaller; vertical-align:super; }
+.centered { margin-left:auto;margin-right:auto;text-align:center; }
+table.nospace { padding:0px; margin:0px; border-spacing:0px 0px; border-style:none }
+.nospace td { padding:0px; margin:0px; border-spacing:0px 0px; border-style:none }
+.buttons { text-align:center; padding:1px; }
+.bad { color: #808 }
+form { display: inline }
+.ok { color: #<%$C2%> }
+html>input, html>select { 
+    border: 1px #<%$C3%> outset;
+    background: #fff;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+}
+th { text-align:left }
+.addthis_button img { vertical-align:text-bottom;padding-top:2px }
+.topMsg { font-weight: bold; color:#<%$C2%> }
+.topMsgC { width: 100%;text-align:center; } 
+.expMsg { padding-top:10px;padding-bottom:10px;font-style:italic}
+.eMsg { margin-left:20px; font-style:italic; }
+.msgOK {color:green;font-weight:bold; text-align:center;}
+.admin { background-color: #fee }
+.ns { display: none }
+#intro {
+min-width:300px;
+}
+#divider {
+    width:30%;
+    border-top:1px solid #<%$C4%>;
+    margin-left:auto; margin-right:auto;
+}
+#headlinks { font-size:<%$ts-1%>px }
+h2 { font-size:18px; color: #<%$C3%> }
+#load_c { 
+    position: fixed; 
+    top:0; 
+    text-align:
+    center;
+    z-index:2;
+    width:100% 
+}
+#load_c2 {
+    vertical-align:middle;
+    margin-left:auto;
+    margin-right:auto;
+    -moz-border-radius: 0px 0px 5px 5px;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 5px 5px;
+    background-color:#86e08e;
+    width:105px;
+    text-align:left;
+}
+#loadmsg { 
+ /*   background: url(<% $s->rawFile( 'loadbar.gif' ) %>) no-repeat;*/
+    float:right;
+    color:#000;
+    font-weight:bold;
+    font-size:13px;
+    padding-bottom:2px;
+    padding-top:3px;
+    padding-right:12px;
+}
+#loadimg {
+    padding-left:12px;
+}
+#manualScroll div {
+    width:130px;
+    padding:5px;
+    font-size:16px;
+    font-weight:bold;
+    margin-left:auto;
+    margin-right:auto;
+    border:1px #<%$C3%> outset;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+}
+#manualScrollBefore:hover {
+    background-color:#eee;
+}
+#manualScrollBefore {
+    cursor:pointer;
+    text-decoration:underline;
+    color:#<%$C4%>;
+}
+#manualScrollDuring {
+    cursor:default;
+}
+.newFlag { font-size: 10px; margin-right:5px; color: #<%$C2%>; font-weight:bold; display:inline !important; vertical-align:text-top };
+.footer {
+	text-align:center;
+	font-size:smaller;
+    color:#888;
+}
+pre.export {
+    margin:0px;
+    margin-left:10px;
+    padding:0px;
+    white-space: pre;
+}
+.btnmenu a { font-size: 11px }
+
+.programListing {
+    border:1px solid black;
+    background-color:#eee;
+    padding:5px;
+    max-width:300px;
+}
+ 
+
+.horizmenu {
+border:1px solid #aaa;
+padding:5px;
+}
+.horizmenu a, .horizmenu span.ll { 
+    font-weight: bold;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.mainEntry .extras { padding-top:10px }
+.mainEntry .options { margin-bottom:10px }
+.mainEntry .affiliateLinks, .mainEntry .catsCon { margin-bottom:10px }
+.mainEntry .citation  { font-size: 18px }
+.mainEntry .citation .pubInfo { font-size: 14px }
+.mainEntry .articleTitle { color: #<%$C2%> }
+.mainEntry .abstract { font-size: <%$ts%>px }
+
+
+.offcamp a, .offcamp div, .offcamp p { font-size: 11px }
+.tsumTD { font-size: 12px !important }
+
+
+#logo { border:none;margin-left:1px;padding-bottom:4px;margin-top:0px;padding-top:5px; }
+#quote { margin-bottom: 20px; }
+
+
+/* 
+ * Big containers 
+ */
+
+body {
+    font-size:<%$ts%>px;
+    font-family: Arial,Verdana;
+    padding:0;
+    margin:0;
+    text-align:left;
+}
+
+#all {
+    width:100%;
+    padding:0;
+    margin:0;
+    max-width:100%;
+}
+
+h1.header {
+    font-size:12px;
+    font-weight:bold;
+    margin:0;
+    padding:0;
+    display:inline;
+    color:#000;
+}
+h2.home {
+    font-size:20px;
+    color:#<%$C2%>;
+    display:inline;
+    margin:0;
+    padding:0;
+}
+div.sideBox #signInForm td input {
+    width: 120px;
+    font-size:11px;
+}
+
+#head {
+padding-left:<%$leftMargin%>;
+padding-right:<%$rightMargin%>;
+min-width:<%$minWidth%>px;
+vertical-align:bottom;
+padding-bottom:0px;
+margin-bottom:0px;
+/*
+background:url(<% $s->rawFile( 'headbg.png' ) %>) repeat-x 0 -10px;
+*/
+/*
+   background-color:#f5f5ee;
+   */
+}
+
+/* CSS HEADER MENU */ 
+/**
+ * Horizontal CSS Drop-Down Menu Module
+ * @link		http://www.lwis.net/
+ * @copyright	2006-2008 Live Web Institute. All Rights Reserved.
+ *
+ */
+
+ #nav {min-width:900px}
+
+/* Generic part */
+
+ul.dropdown,
+ul.dropdown li,
+ul.dropdown ul {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+
+ul.dropdown {
+ position: relative;
+ z-index: 47;
+ float: left;
+}
+
+ul.dropdown li {
+ float: left;
+ line-height: 1.4em;
+ vertical-align: middle;
+ zoom: 1;
+}
+
+ul.dropdown li.hover,
+ul.dropdown li:hover {
+ position: relative;
+ z-index: 49;
+ cursor: default;
+}
+
+ul.dropdown ul {
+ visibility: hidden;
+ position: absolute;
+ top: 100%;
+ left: 0;
+ z-index: 48;
+ width: 100%;
+}
+
+ul.dropdown ul li {
+ float: none;
+}
+
+ul.dropdown ul ul {
+ top: 1px;
+ left: 99%;
+}
+
+ul.dropdown li:hover > ul {
+ visibility: visible;
+}
+
+
+/* Format-specific part */
+
+ul.dropdown {
+ padding-bottom: 1px;
+ font: bold 12px/normal Arial, sans-serif;
+}
+
+	ul.submenu li {
+    /*
+	 padding: 0 10px !important;
+    */
+%#     border-top: 1px solid #ccc !important;
+     font: bold 12px/normal Arial, sans-serif;
+	}
+
+	ul.dropdown li.divider {
+	 border-top: solid 1px #e5e5e5;
+	}
+
+	ul.dropdown li.hover,
+	ul.dropdown li:hover,
+    ul.dropdown li:hover > .dir {
+	 color: #fff !important;
+     background-color:#<%$C3%>;
+	}
+
+	ul.dropdown a:link,
+	ul.dropdown a:visited	{ color: #000; text-decoration: none; padding-left:10px; }
+	ul.dropdown a:hover,
+	ul.dropdown a:active { color: #fff; text-decoration: none; padding-left:10px; }
+
+    ul.dropdown span.dir { padding-left:10px }
+
+
+	/* -- level mark -- */
+
+	ul.dropdown ul {
+	 width: 180px;
+	 border-style: solid;
+	 border-width: 1px;
+	 border-color: #f0f0f0 #666 #666 #f0f0f0;
+	 background-color: #fff;
+	 font-size: 12px;
+	}
+
+
+/*-------------------------------------------------/
+ * @section		Support Class `dir`
+ * @level sep	ul, .class
+ */
+
+
+ul.dropdown *.dir {
+ padding-right: 20px;
+ background-image: url(<% $s->rawFile( 'submenuindicator-pale.gif' ) %>);
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+ color:#000;
+}
+
+ul.dropdown ul li:hover > *.dir,
+ul.dropdown-vertical li:hover > *.dir {
+    background-image: url(<% $s->rawFile( 'menuitem_submenuindicator.png' ) %>);
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+}
+
+/* Don't quite understand why those !important are necessary, but they are.. */
+/* no good
+ul li:hover >  *.dir {
+    background-image: url(<% $s->rawFile( 'submenuindicator-pale.gif' ) %>) !important;
+    background-position: 100% 50% !important;
+    background-repeat: no-repeat !important;
+}
+*/
+
+
+/* -- Components override -- */
+
+ul.dropdown-vertical ul {
+ top: 0;
+ left: 100%;
+}
+
+ul.dropdown-vertical-rtl ul {
+ right: 100%;
+}
+
+ul.dropdown-horizontal {
+ width: 100%;
+}
+
+ul.dropdown-horizontal ul *.dir {
+ padding-right: 25px;
+ background-image: url(<% $s->rawFile( 'menuitem_submenuindicator.png' ) %>);
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+}
+
+/*-------------------------------------------------/
+ * @section		Base Style Extension
+ */
+
+ul.dropdown a,
+ul.dropdown span {
+ display: block;
+ padding: 3px 8px;
+}
+
+ul.dropdown ul a,
+ul.dropdown ul span {
+ padding: 4px 0;
+}
+
+
+/*-------------------------------------------------/
+ * @section		Base Style Override
+ */
+
+ul.dropdown li {
+ padding: 0;
+ border: none;
+}
+
+
+/*-------------------------------------------------/
+ * @section		Support Class `open` Usage
+ * @source		js, artificial
+ *
+ */
+
+ul.dropdown li.hover *.open {
+ position: relative;
+ z-index: 50;
+ color: #fff;
+ zoom: 1;
+}
+
+ul.dropdown-horizontal li.hover *.open {
+ float: left;
+ color:#fff;
+ zoom: none;
+}
+
+ul.dropdown ul li.hover *.open {
+ position: static;
+ z-index: 0;
+ float: none;
+ margin: 0;
+ padding-top: 4px;
+ padding-bottom: 4px;
+ border: none;
+}
+
+ul.dropdown ul li.hover *.open,
+
+ul.dropdown a.dir:hover {
+/*
+ background-image: url(<% $s->rawFile( 'menubar_submenuindicator.png' ) %>);
+ */
+}
+
+/* Added */
+.dropdown-top {
+    color:#fff !important;
+}
+/* END OF CSS MENU */
+
+
+#menu {
+background:url(<% $s->rawFile( 'sprite.png' ) %>) repeat-x 0 0;
+height:23px;
+vertical-align:top;
+/*min-width:<%$minWidth%>px;*/
+padding-left:<%$leftMargin%>;
+padding-right:<%$rightMargin%>;
+}
+
+#menutable {
+vertical-align:top;
+height:100%;
+}
+
+#menuanchor {
+height:100%;
+}
+
+#content {
+padding-left:<%$leftMargin%>; 
+padding-right:<%$rightMargin%>;
+padding-top:10px;
+min-width:<%$minWidth%>px;
+}
+
+#mainBody {
+   background-color:#fff;
+}
+
+#main { background: none; background-color:white }
+
+td, p {
+    font-size:<%$ts%>px;
+    font-family: Arial,Verdana;
+}
+
+ul.normal { margin-left: 16px; padding: 0px; margin-top:5px; margin-bottom:5px; }
+
+
+#main_table {
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    padding:0px;
+    width:100%;
+}
+
+#main_table tr {
+}
+
+td.all {
+    border: 2px solid #888;
+    background:#fff;
+    padding:20px;
+    padding-top:0px;
+}
+
+table.wrap_table { 
+    padding:0px; margin:0px; 
+    position:relative; 
+    border-spacing:0px 0px; 
+    border-style:none; 
+    width:100%;
+}
+td.main_td { 
+    padding-right:20px; 
+    vertical-align:top; 
+}
+td.side_td { 
+    padding:0px;
+    padding-top:40px;
+    vertical-align:top; 
+    text-align:right; 
+    width:190px; 
+}
+.paper_list .side_td { padding-top: 0 }
+.paper_list .entryList { margin-top: 0 }
+.previewBtn { float:right; cursor:pointer }
+.wrap_td td, wrap_td p { background-color:#fff; }
+.miniheader td, .miniheader input, .miniheader select {
+    vertical-align:baseline;
+    font-size:95%;
+}
+
+#prevNextHtml {
+    vertical-align:middle;
+}
+div.miniheader { background: url(<% $s->rawFile( 'sprite.png' ) %>) 0 -1715px;margin-top:0px;padding: 3px 0; margin-bottom:10px;margin-left:0;padding-left:0 }
+table.miniheader { width: 100% }
+
+#search_td {
+/*
+    background:url(<% $s->rawFile( 'wires1.jpg' ) %>) no-repeat -800px -50px;
+    background:url(<% $s->rawFile( 'faces7tr.png' ) %>) no-repeat 100% 100%;
+    */
+    
+}
+.toptab { 
+    font-size:10px !important; 
+    cursor: pointer !important;
+}
+.toptab span  {
+    padding-left:2px; padding-right:2px;
+}
+.toptab:hover {
+    background-color:#aaa;
+}
+.toptabSelected {
+    font-size:10px !important; 
+    cursor: pointer !important;
+    /*ffbd29*/
+    border-top: 1px solid #<%$C2%>;
+    border-left: 1px solid #<%$C2%>;
+    border-right: 1px solid #<%$C2%>;
+    color:#000;
+}
+.toptabNot {
+    background-color:#fff;
+    color:#666;
+    font-size:10px !important; 
+    cursor: pointer !important;
+    border-top: 1px dotted #aaa;
+    border-left: 1px dotted #aaa;
+    border-right: 1px dotted #aaa;
+}
+
+
+/*
+ * BBS
+ */
+
+<& bbs/style.css &>
+
+/*
+ * Menus
+ */
+
+.cp1, .cp2, .cp3, .cp4, .cp5, .cp6, .cp7 {
+    width:200px;
+}
+
+.nosh { display: none }
+
+
+#menuright {
+    color:#eee;
+    font-size:11px;
+}
+#menuright a { color: #eee }
+
+#menuleft {
+    vertical-align:top;
+}
+
+/*
+a.top {color:black; text-decoration:none}
+a.top:hover {color:white;}
+*/
+a.top { color:inherit; text-decoration:none; cursor:default; }
+.topSearch {   
+    font-size:<%$TEXT_SIZE%>px; 
+    width:200px;
+    border:1px solid #999;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+}
+.topSubmit {
+    padding:0px;
+    font-size:<%$TEXT_SIZE-1%>px;
+    vertical-align:middle;
+    height:19px;
+    background-color:#fff;
+    color:#555;
+    border:1px #<%$C3%> outset;
+    margin-left:3px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+}
+
+/*
+ *
+div.sideBox {
+    
+    text-align:left;
+    width:100%;
+    margin-bottom:20px;
+    margin-left:0px;
+    color:black;
+}
+
+div.sideBoxH {
+    -webkit-border-radius: 8px 8px 0px 0px;
+    -moz-border-radius: 8px 8px 0px 0px;
+    border-radius: 8px 8px 0px 0px;
+    border-bottom: 0px;
+    background:url(<% $s->rawFile( 'sprite.png' ) %>) 0 0;
+    padding-top:3px;
+    padding-bottom:3px;
+    padding-left:8px;
+    padding-right:3px;
+    text-align:left;
+    font-size:<%$ts%>px;
+    color:#fff;
+}
+
+*/
+
+div.sideBox {
+    
+    text-align:left;
+    width:100%;
+    margin-bottom:20px;
+    margin-left:0px;
+    color:black;
+}
+div.sideBoxH {
+    /*
+    background:url(<% $s->rawFile( 'sprite.png' ) %>) 0 -200px;
+    color:black;
+    border:1px solid #<%$C3%>;
+    border-bottom:none;
+    */
+    background:none;
+    background-color:#eee;
+    color:black;
+    font-weight:bold;
+    border-radius: 0 0 0 0;
+    -moz-border-radius: 0 0 0 0;
+    -webkit-border-radius: 0 0 0 0;
+    border: 1px solid #aaa;
+    border-bottom:none;
+    font-size:10px;
+    padding:1px 1px 1px 8px;
+
+    text-align:left;
+}
+
+div.sideBoxC { 
+    border-radius: 0 0 0 0;
+    -moz-border-radius: 0 0 0 0;
+    -webkit-border-radius: 0 0 0 0;
+
+    border:1px solid #aaa;
+    padding:8px;
+    padding-top:8px;
+    margin-top:0px;
+
+    text-align:left;
+}
+
+/*
+div.sideBoxC {
+    -moz-border-radius: 0px 0px 8px 8px;
+    -webkit-border-radius: 0px 0px 8px 8px;
+    border-radius: 0px 0px 8px 8px;
+    border:1px solid #<%$C3%>;
+    padding:8px;
+    padding-top:8px;
+    margin-top:0px;
+}
+*/
+
+div.bigBox {
+    
+    text-align:left;
+    width:100%;
+    margin-bottom:20px;
+    /*
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    border:1px solid #<%$C2%>;
+    */
+    margin-left:0px;
+    /*
+    background-color:#46589e;
+    */
+    color:black;
+}
+
+div.bigBoxH {
+    /*
+    -moz-border-radius: 4px 4px 0px 0px;
+    -webkit-border-radius: 4px 4px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
+    border-bottom: 0px;
+    border-right: 1px solid #aaa;
+    background: url(<% $s->rawFile( 'sprite.png' ) %>) 0 -200px;
+    */
+
+    -moz-border-radius: 4px 4px 0px 0px;
+    -webkit-border-radius: 4px 4px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
+    border:1px solid #<%$C4%>;
+    color:#fff;
+    background-color: #<%$C4%>;
+
+
+    padding-top:2px;
+    line-height:1.5;
+    padding-bottom:2px;
+    padding-left:8px;
+    padding-right:10px;
+    font-weight:bold;
+    text-align:left;
+    font-size:<%$ts-1%>px;
+    display:inline;
+}
+div.bigBoxC {
+    -moz-border-radius: 0px 4px 4px 4px;
+    -webkit-border-radius: 0px 4px 4px 4px;
+    border-radius: 0px 4px 4px 4px;
+    border-right: 1px solid #aaa;
+    border-bottom:1px solid #aaa;
+    border-left:1px solid #e1e2e3;
+    border-top:1px solid #e1f2e3;
+    padding:8px;
+    padding-top:8px;
+}
+
+.inner {
+    font-weight: bold;
+    padding: 5px 2px !important;
+    padding-top: 6px;
+    margin:0;
+}
+
+
+.menuField, .menuButton {
+    font-size:10px;
+}
+
+/* headers: ghc (container),gh (text),ghx (extra text(smaller)) */
+.gh { font-weight:bold; font-size:<%$ts+5%>px; color:#<%$C3%>; }
+h1 { 
+    font-weight:bold;
+    font-size:<%$ts+6%>px; 
+    color:#<%$C3%>;
+    padding-bottom:0;
+    margin-bottom:0;
+}
+.ghx { font-size:<%$ts%>px; color:#333; margin-left:5px}
+.hitem { margin-top:5px;  }
+.ghc { padding-top:5px; padding-bottom:8px; text-align:left; }
+.helpBox {
+    font-size:<%$TEXT_SIZE-1%>px;
+    margin-top:5px;
+    margin-left:5px;
+    margin-bottom:10px;
+}
+
+.newsHead { font-weight:bold; font-size:<%$ts+1%>px; color:#<%$C3%>; }
+.newsSubHead { font-size:<%$ts-2%>px; color: #888 }
+.newsContent { font-size:<%$ts-1%>px; padding-top:5px }
+
+/*
+ * Manager pages
+ */
+
+.list_options {
+    margin-left:15px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.list_options input { font-size:smaller; }
+
+.list_item_name {
+    font-size:<%$ts+1%>px;
+    font-weight:bold;
+}
+
+ul.big li {
+    padding-left:0;
+    margin-left:0;
+    padding-bottom:3px;
+}
+
+ul.big {
+    padding-left:20px;
+    margin-left:0;
+    margin-top:0;
+}
+
+/*
+ * Categories
+ */
+
+.ah { font-weight:bold; margin-bottom:4px; color: #333 }
+.cat {}
+.cat1 { margin-top: 20px; }
+.cat2 { margin-bottom: 15px;  }
+.cat3 { margin-top: 3px; margin-bottom: 3px  }
+.cat4 {  }
+.catName1 { font-size:16px; font-weight:bold}
+.catName2 { font-weight:bold;font-size:14px }
+.catName3 { font-weight: bold } 
+.catName { color: #<%$C4%>; }
+.catArea { font-size: smaller }
+.catIn { font-size: smaller }
+h1 a { text-decoration: none }
+.gh .catName { font-weight:bold; font-size:<%$ts+5%>px; color:#<%$C2%>; }
+.ghx .catName { font-size:<%$ts-1%>px; color:#666; margin-left:0px}
+.ch .catName { color:#<%$C2%>; margin-left:0px}
+.catContent { padding-left: 15px; }
+.paperadd { display:inline }
+.edited { font-style: italic }
+
+.toc .cat2 { margin-bottom:0 }
+.toc .catName1 { font-size:<%$ts%>px; font-weight:bold }
+/* main cat listing */
+/*.toc-1 .toc .catName3 {color: #555 }*/
+.toc-1 .toc .catName4 {font-weight:normal }
+.toc-1 .toc .catContent { padding-bottom: 5px; }
+.toc-all .cat2 { margin-top:10px; margin-bottom: 30px }
+.toc-all .cat2 .catName0 { font-size:15px; color: #555; margin-bottom: 10px;font-weight:bold }
+.toc-all .cat2 .catName1 { font-size:15px; color: #<%$C2%>; margin-bottom:10px;font-weight:bold }
+.toc-all .cat2 .catName2 { margin-bottom:10px; font-style:italic;font-size:13px; }
+.toc-all .cat5 .tocCatName {font-size: 12px }
+.toc-all .cat2 .catName3 { margin-bottom:5px; }
+.toc-all .person { color: #555; text-decoration:none }
+.toc-all .cat3 { margin-top:10px; margin-bottom: 20px }
+.toc-all .cat4 { margin-top: 5px; margin-bottom: 5px }
+.toc-eds { font-size:11px;padding-left:20px;color:#333 }
+.toc-all .affils { font-size:10px; color:#666 }
+
+/*
+ * Search results and entry listings
+ */
+
+#nothingFoundMsg { margin-top:15px }
+
+.listDesc {
+    font-style:italic;
+    padding-bottom:8px;
+}
+
+#entries { margin-top:5px }
+.padded { padding-left:10px }
+.Hi { font-weight:bold }
+.articleTitle .Hi { color: #333 }
+.bigcap { font-size:16px; font-weight:bold;padding-left:2px;padding-bottom:5px;  }
+.catBrower miniheader { background: none }
+#allparams { display:none }
+li.shift, .shift {  }
+.group { padding:0px; margin:0px; }
+.group2 { margin-top: 10px }
+.group2 .entryList { margin-bottom: 0px }
+.dotted { border-top:#ccc dotted 3px }
+.th1 { font-weight: bold; font-size:<%$ts+3%>px; }
+/*
+.tli1 { padding-top:10px; }
+.tl1 { margin-bottom:20px; margin-top: 5px }
+.tl2 { margin-bottom:10px; margin-top: 5px }
+*/
+li.rtoc, ul.rtoc {
+    list-style-type: none;
+    margin-left:8px;
+    padding:0;
+}
+.sh { text-indent:0px; display:block;  }
+.sh0 { 
+    font-weight:bold;width: 100%; 
+    /*border-top: 1px #ccc solid; */
+    /*background:url(<% $s->rawFile( 'headbg2.png' ) %>) repeat-x 0 9px;*/
+    background: url(<% $s->rawFile( 'sprite.png' ) %>) 0 -1700px;
+    padding-top:3px;
+    vertical-align:top;
+    border-top: 1px #ccc solid;
+    height:19px;
+    margin-bottom:12px;
+}
+.header_pubissue { padding-top:2px }
+.header_period { float:right; }
+img.bookmark { margin-left:4px; padding-top:1px;display:none }
+span.bookmark { font-size:<%$ts-2%>px;font-weight:normal;display:none }
+.pub .sh0 {
+    text-align:left;
+    padding-bottom:5px;
+}
+.amp { font-size:14px;color:#000;font-weight:bold;padding-bottom:3px }
+.homelist td { font-size:<%$ts-1%>px;}
+
+.smallh { font-weight: bold }
+.sh1, .sh2 { padding-top:0px; }
+.also .catName { font-size:11px }
+.also { color: #555; font-size:11px;font-weight:normal;margin-bottom:5px }
+.rlist .sh { padding-bottom:0px }
+.rlist .sh0 { height:auto; background:none; border:none;margin:0; font-size:14px; color:#<%$C2%>}
+.rlist .sh1 { font-weight: bold; font-size: 12px;color:#555;margin-top:5px;margin-bottom:5px }
+.rlist .sh2 { font-weight: bold; font-size: 11px }
+.rlist .sh3 { font-weight: bold; color:#888 }
+.rlist .sh4 { font-style: italic }
+.rlist .sh5 { }
+.toc .cat1 { margin:0; padding:0}
+
+
+.tabs {
+    margin-top:10px;
+    border-bottom: 1px #888 solid;
+}
+
+.tab {
+    padding-left: 5px;
+    padding-right: 30px;
+    font-size: <%$ts+2%>px;
+    font-weight:bold;
+    border: 1px solid #fff;
+    -moz-border-radius: 0px 80px 0px 0px;
+    -webkit-border-radius: 0px 80px 0px 0px;
+    border-radius: 0px 80px 0px 0px;
+    border-bottom:none; 
+    background:url(<% $s->rawFile( 'sprite.png' ) %>) 0 -200px;
+}
+
+.selectedTab {
+    background:url(<% $s->rawFile( 'sprite.png' ) %>) 0 0;
+    color:white;
+}
+
+.tab a {
+    text-decoration:none;
+    color: #024;
+}
+.tab a:hover {
+    text-decoration:underline;
+    color: #008;
+}
+
+.header_period {
+    font-size:14px;
+    font-weight:bold;
+    color:#<%$C2%>;
+}
+
+.header_source_type, .header_source {
+    font-size:15px;
+    font-weight:bold;
+    color:#000;
+}
+
+.header_source a { color: #000 }
+
+.header_source_part2 {
+    margin-left:13px;
+    font-size:11px;
+    color:#<%$C2%>;
+
+}
+
+.header_issue {
+    display:block;
+    margin-left:0px;
+    font-size:11px;
+    color:#<%$C2%>;
+    padding-top:5px
+}
+
+.entry {
+     padding-bottom:0px;
+     padding-bottom:10px;
+     display:block;
+     margin-left:0px;
+}
+.rec .entry { font-size: 16px; font-weight:bold }
+.autocomp .entry {
+    font-size:<%$ts-1%>px;
+    padding:0;
+    margin:0;
+}
+.itemSide {
+    float:left;
+    position:relative;
+    left:-2px;
+    /*
+    position:relative;
+    left:-20px;
+    top:+20px;
+    */
+}
+
+.itemSide img { cursor:pointer }
+
+.ldiv { display:inline }
+
+.homeList { display:block; margin-left:5px; padding-left:0; }
+ul.home { margin-bottom:10px; padding-left:0px; margin-left:20px; margin-top:0; padding-top:0 }
+ul.home li { padding-bottom: 3px }
+
+#intro { text-align:justify; padding:4px }
+
+.prevNext { font-weight:bold; margin:10px;margin-top:20px}
+.nothing { }
+#foundCap { text-align:right;font-weight:bold }
+.nb_found { float:right; font-size:<%$ts-1%>px; text-align:right; color:#666; }
+.nb_found select { font-size:<%$ts-1%>px }
+.deleted {
+    font-weight:bold;
+    margin-right:5px;
+}
+.relevance {
+    border: 1px dotted #AAAAAA;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-right: 2px;
+    margin-bottom: 1px;
+    font-size: <%$ts-2%>px;
+}
+
+.editors {
+    font-size:11px;
+    color:#555555;
+    text-align:left;
+    vertical-align:middle;
+
+    /*
+filter:alpha(opacity=50);
+opacity: 0.5;
+-moz-opacity:0.5;
+*/
+}
+.pubName {  }
+.pubInfo { color:#555555; }
+.articleTitle { font-weight:bold; }
+.name { font-weight:bold;  }
+.extra { font-size:<%$ts-1%>px; margin-left:10px; }
+.options { margin-top:5px; color:#666; font-size: <%$ts-2%>px;text-decoration:none }
+.options a, .options .ll { color: #666; text-decoration:none }
+.options a:hover, .options .ll:hover { text-decoration:none; color:#0c417c;}
+.options .yui-skin-sam a:hover { color: #fff }
+.affiliateLinks { margin-bottom: 5px }
+ 
+.subtle { color:#666; font-size: <%$ts-2%>px;text-decoration:none }
+.subtle a, .options .ll { color: #666; text-decoration:none }
+.subtle a:hover, .options .ll:hover { text-decoration:none; color:#0c417c;}
+
+.optRight { float: right }
+input.cbox { vertical-align: middle; margin:0px; }
+input.checkbox { vertical-align: middle }
+.acbox-on { padding-left:13px; background: url(<% $s->rawFile( 'sprite.png' ) %>) no-repeat 0 -701px; cursor:pointer; }
+.acbox-off { padding-left:13px; background: url(<% $s->rawFile( 'sprite.png' ) %>) no-repeat 0 -648px; cursor:pointer; }
+.extraLink { 
+    border: 1px #AAC dotted; 
+    padding-top:0px;
+    padding-bottom:0px;
+    padding-left: 2px; 
+    padding-right: 2px; 
+    font-size:<%$ts-2%>px;
+}
+.abstract { 
+    margin-top:5px; 
+    font-size:<%$ts%>px;
+    color:#444;
+    text-align:justify;
+    display:block;
+}
+
+.minih {
+    font-size:<%$ts%>px;
+    color:#888;
+    display:none;
+    font-weight:bold;
+}
+
+.entryList {
+    list-style:none;
+    margin-left:0px;
+    padding-left:0px;
+    marker-offset:0px;
+}
+
+html>.entryList {
+    padding-left:0px;
+    margin-left:0px;
+}
+
+.pageBoundary { border-bottom: 1px dotted #888; margin-bottom:10px }
+
+.deleteLink {
+    height:14px;
+    width:14px;
+    margin-left:3px;
+    float:right;
+}
+.deleteLink:hover {
+    background-color:#decdcd; 
+}
+
+
+.query_last_use { display:inline; margin-right:20px;}
+.query_name { display:inline; width:200px; margin-right:20px; }
+.query_options { display:inline; }
+
+.affilslist .dynListItem table { border: 1px dotted #aaa }
+.affilslist .dynListItem table table { border-style: none }
+.affils { font-weight:normal }
+
+/*
+ *
+ * For editor
+ *
+ */
+
+
+.editorlabel { font-weight:bold }
+#selectedcats { width: 260px }
+#selectedcats div {  }
+
+
+#editor {
+    text-align:left;
+    background-color:<%$bbg%>;
+    padding:0px;
+    margin:0px;
+    width:100%;
+}
+
+
+
+.block {
+    background-color:#FAFAFF;
+    border-top:#DDDDDD 5px solid;
+    padding:2px;
+    margin-bottom:10px;
+    width:'620px';
+}
+html>div.block {
+   width:610px; 
+}
+
+#step1, .step1 { padding: 10px }
+
+.acBlockH {
+    background-color:#<%$C4%>;
+    padding:0;
+    color:#ddd;
+    margin-bottom:2px;
+    cursor:pointer;
+    font-weight:bold;
+    width:100%;
+}
+
+.acBlockHI {
+    padding: 3px;
+}
+
+.acBlockHact {
+    font-weight:bold;
+}
+
+.acBlockHna { }
+
+
+.acBlockHHover { background-color:#<%$C3%>; }
+
+.acBlockC { 
+    padding:5px;
+    height:305px;
+    width:630px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    padding-bottom:10px;
+}
+
+#ed_abstract {  }
+
+.ed_header { font-weight:bold; margin-bottom:5px; margin-top:10px; }
+.ed_header_opt {display:none; }
+.oneMore { margin-top:5px; }
+
+
+.hint {
+    font-size:10px;
+    vertical-align:top;
+    color:#555555;
+}
+.hint2 {
+    font-size:10px;
+    color:#555555;
+}
+.serious_error { font-weight:bold; color:red; }
+
+
+/* Uploader */
+
+#upframe { 
+    border:none;
+    text-align:left;
+    padding:0px;
+    margin:0px;
+    overflow:hidden; 
+    background-color:<%$bbg%>;
+}
+
+#uploadBody {     background-color:<%$bbg%>; }
+
+.fileName {
+  float: left;
+  margin-right: .5em;
+}
+
+
+/*
+ * Categories
+ */
+
+.toggler {
+    width:10px;
+    height:10px;
+    cursor:default;
+    padding-right:3px;
+}
+
+.toggler-on {
+    background:url(<% $s->rawFile( 'sprite.png' ) %>) 0 -398px no-repeat;
+}
+
+.toggler-off {
+    background:url(<% $s->rawFile( 'sprite.png' ) %>) 0 -348px no-repeat;
+}
+.notoggle {
+    background:url(<% $s->rawFile( 'sprite.png' ) %>) -30px -294px no-repeat;
+}
+.selectedtog {
+    background:url(<% $s->rawFile( 'sprite.png' ) %>) -29px -396px no-repeat;
+}
+
+.categories .catName {
+font-weight:normal;
+font-size: <%$ts-1%>px;
+}
+
+table.quickCat td {
+    font-size: <%$ts-2%>px !important;
+    padding:2px;
+    white-space:nowrap;
+}
+td.quickCatLabel { padding-top:5px !important; min-width:100px }
+.qcmsg { text-align:center; padding-top:3px; padding-left:13px }
+.qc {font-weight:bold}
+.qc:hover { color: #<%$C2%> }
+.qc2 { font-size:smaller;font-weight:normal}
+
+#noentry, #nbentries, #nocats {
+text-align:center;
+padding-top:40px;
+}
+
+/************
+    
+    FORUMS
+
+*/
+
+.tSummary { border-bottom: 1px #ccc dotted }
+ul.forum_menu {
+    list-style:none;
+    margin-left:0px;
+    padding-left:10px;
+    marker-offset:0px;
+}
+
+html>ul.forum_menu {
+    padding-left:10px;
+    margin-left:0px;
+}
+a.forum_item_depth1 {
+    font-weight:bold;
+}
+div.forum_item_depth1 {
+    margin-top:5px;
+}
+div.forum_item_depth2 { font-size:<%$ts-2%>px; }
+div.forum_item_depth3 { font-size:<%$ts-2%>px; }
+td.postSubject {
+    height:30px;
+}
+td.postSubjectInner div {
+    vertical-align:50%;
+}
+a.forum_item_selected {
+    color:#000;
+}
+
+
+/******
+
+    SHARETHIS 
+
+**/
+
+a.stbar.chicklet img {border:0;height:16px;width:16px;margin-right:3px;vertical-align:middle;}
+a.stbar.chicklet {height:16px;line-height:16px;}
+
+
+
+
+/* selected parent */
+
+#catin {
+    padding-left:1px;
+    font-size:11px;
+    font-weight:bold;
+    text-align:center;
+    padding-top:1px;
+    padding-bottom:1px;
+    background-color:#eee;
+}
+
+.sym { width:17px }
+#cpp { width:100% }
+#cpp td { font-size:12px !important; cursor:pointer !important; }
+#catback { background:#eee url(<% $s->rawFile( 'icons/go-previous.png' ) %>) 1px 2px no-repeat }
+#cathome { background:#eee url(<% $s->rawFile( 'icons/user-home.png' ) %>) 1px 2px no-repeat }
+.catpo td { 
+    border:1px #eee outset !important; 
+    background-color:#eee; 
+    width: 50%; 
+    padding-left:26px; 
+    vertical-align:middle;
+}
+
+.catdirect { 
+    padding-left: 0; 
+    border-top: 2px solid #888 !important; 
+}
+
+table.catpo { width: 100%; height:30px }
+#catback:hover, #cathome:hover {
+    border:1px  #E4FFE5 outset !important;
+    background-color:#D4F0D5 !important;
+}
+
+/*
+table.catpo:hover {
+    border:1px  #E4FFE5 outset !important;
+    background-color:#D4F0D5 !important;
+}
+*/
+
+/* available container */
+#cpc { 
+    width:218px; 
+    font-size:10px; 
+    height:230px;
+    overflow-x:hidden;
+    overflow-y:auto;
+
+}
+#catizer .ft { border-bottom: 1px solid black; }
+#cpc td { cursor:pointer; font-size:11px !important; };
+
+/* cats to select */
+.catpc { width:100% !important; }
+.catpc:hover { 
+    border:1px  #E4FFE5 outset !important;
+    background-color:#D4F0D5 !important;
+}
+
+/* leaf and non-leaf */
+.leaf { width:100%; border: 1px solid white } 
+.leaf .sym { background:url(<% $s->rawFile( 'icons/list-add.png' ) %>) 0 -1px no-repeat; }
+/*for header cat finder */
+#tab2 .leaf .sym { background:url(<% $s->rawFile( 'icons/addcat.png' ) %>) 0 -1px no-repeat; }
+
+
+.nonleaf { width:100%; border: 1px solid white }
+.nonleaf .sym { background:url(<% $s->rawFile( 'icons/folder.png' ) %>) 0 0 no-repeat; }
+
+#catizerhd {
+    color:black;
+    font-weight:bold;
+    font-size:11px;
+}
+#catizer .catIn, #editor .catIn { display: block }
+.cathd {
+    font-size:11px;
+    color:#555;
+}
+#catizer_h {
+    line-height:1 !important;
+    font-weight:normal !important;
+    padding:2px;
+    /*
+    border:1px black solid !important;
+    border-bottom:none !important;
+    border-top:none!important;
+    */
+}
+#catizer .container-close { top: 2px }
+
+#catizer { 
+    width: 230px; 
+    text-align:center;
+    height: 520px;
+    border:1px solid grey;
+    background-color:#fff !important; 
+}
+#catizer .hd {
+    font-weight:bold !important;
+}
+#catizer-mode-expl { font-size: 11px;height:55px;overflow:auto;padding:3px;margin-bottom:3px }
+#catizer #cpp, #catizer #cpc {
+    margin-left:auto;
+    margin-right:auto;
+}
+#catizer-con {text-align:left}
+#catizer-selected { 
+    border: 1px solid #888;
+    margin-bottom: 5px;
+    font-size: 11px;
+    text-align:left;
+}
+#catizer .bd { }
+
+#catizer-selected-hd { font-size:11px; background-color:#f8f8f8;  }
+#catizer-opts { }
+
+.entryOver {
+    background:#eaefff;
+    cursor:default;
+}
+
+.entrySelected {
+    background:#d4f0d5;
+    border:1px dotted #888;
+}
+
+.catsCon { padding-top:5px; color:#444; font-size:<%$ts-2%>px; }
+.catsCon a.catName  { color:#104b98; font-weight:normal; text-decoration:none }
+.catsCon a.catArea { color:#444; font-weight:normal; text-decoration:none }
+.catsCon div { display: inline; padding-right: 10px }
+
+.acCatIn {
+    margin-left:20px;
+    font-size:10px;
+    margin-top:0;
+    padding-top:0;
+    color:#888;
+}
+.yui-ac-highlight .acCatIn { color: #ddd }
+  
+/*
+ * Yahoo menu
+ * */
+<& bits/menu.css, C2=>$C2,C3=>$C3,C4=>$C4,mip=>$mip,s=>$ts &>
+.catpicker .bd {
+    border: 1px solid #888;
+}
+
+/*
+ * Yahoo autocomplete
+ */
+
+.yui-skin-sam .yui-ac {
+position:relative;
+font-family:arial;
+font-size:100%;
+}
+
+.yui-ac-ft {
+    font-size:11px;
+    background-color: #d6d6f6;
+    border-top:1px solid gray;
+    text-align:right;
+}
+
+.yui-skin-sam .yui-ac-input {
+/*width:100%;*/
+}
+
+.yui-skin-sam .yui-ac-container {
+position:absolute;
+top:1.6em;
+width:100px;
+}
+
+.yui-skin-sam .yui-ac-content {
+position:absolute;
+border:1px solid gray;
+background:#fff;
+overflow:hidden;
+z-index:9050;
+}
+
+.yui-skin-sam .yui-ac-shadow {
+position:absolute;
+width:100%;
+background:#000;
+-moz-opacity:0.1px;
+opacity:.10;
+filter:alpha(opacity=10);
+z-index:9049;
+margin:.3em;
+}
+
+.yui-skin-sam .yui-ac-content ul {
+width:100%;
+margin:0;
+padding:0;
+}
+
+.yui-skin-sam .yui-ac-content li {
+cursor:default;
+/*
+white-space:nowrap;
+*/
+margin:0;
+padding:2px 5px;
+}
+
+.autocompLink {
+    color:blue;
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+.yui-ac-highlight .autocompLink {
+    color:white;
+}
+.yui-ac-bd .nonleaf, .yui-ac-bd .leaf { border: none !important}
+
+.yui-skin-sam .yui-ac-content li.yui-ac-prehighlight {
+background:#B3D4FF;
+}
+
+.yui-skin-sam .yui-ac-content li.yui-ac-highlight {
+background:#<%$C4%>;
+color:#FFF;
+}
+
+/* Yahoo container */
+
+<& bits/container.css &>
+.yui-skin-sam .ppskin #editor-con .yui-panel .hd, .ppskin #editor-con .yui-panel .bd, #editor-con .ft {
+border:0 !important;
+border-color:gray;
+border-style:solid;
+border-width:0 0px !important;
+margin:0;
+background-color:#fff !important;
+}
+#editor-bd { padding:0;height:460px;background-color:white }
+#container .bd {
+    max-height:400px;
+    overflow:auto;
+}
+.yui-skin-sam .ppskin .yui-dialog .bd { padding: 5px; background-color:white }
+.yui-skin-sam .ppskin .yui-panel .hd{background:url(<% $s->rawFile( 'sprite.png' ) %>) repeat-x 0 -200px; color: #<%$C4%>; font-size:<%$ts+2%>px}
+.yui-skin-sam .ppskin .container-close{background:url(<% $s->rawFile( 'sprite.png' ) %>) no-repeat 0 -300px;}
+.yui-skin-sam .ppskin .yui-simple-dialog .bd .yui-icon{background:url(<% $s->rawFile( 'sprite.png' ) %>) no-repeat 0 0;}
+.
+
+/*
+ * YUI Rich text editor
+ *
+ */
+
+/*
+ * Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+ * Code licensed under the BSD License:
+ * http://developer.yahoo.net/yui/license.txt
+ * version: 2.6.0
+* */
+
+/* Set the cursor to busy when we are doing something */
+.yui-busy {
+cursor: wait !important;
+}
+.yui-toolbar-container fieldset {
+padding: 0;
+margin: 0;
+border: 0;
+}
+.yui-toolbar-container legend {
+display: none;
+}
+/* Setup the container with some padding and zoom it for IE's hasLayout */
+.yui-toolbar-container .yui-toolbar-subcont {
+padding: .25em 0;
+zoom: 1;
+}
+/* When collapsed set the toolbars container to display none */
+.yui-toolbar-container-collapsed .yui-toolbar-subcont {
+display: none;
+}
+/* Setup the :after so that compliant browsers don't loose the bounding box */
+.yui-toolbar-container .yui-toolbar-subcont:after { display: block; clear: both; visibility: hidden; content: '.'; height: 0;}
+
+/* Drag handle for the toolbar's draggable property */
+.yui-toolbar-container span.yui-toolbar-draghandle {
+cursor: move;
+border-left: 1px solid #999;
+border-right: 1px solid #999;
+overflow: hidden;
+text-indent: 77777px;
+width: 2px;
+height: 20px;
+display: block;
+clear: none;
+float: left;
+margin: 0 0 0 .2em;
+}
+/* If the titlebar is draggable, the set the cursor */
+.yui-toolbar-container .yui-toolbar-titlebar.draggable {
+cursor: move;
+}
+/* Set the titlebar to relative so we can position the collapse button */
+.yui-toolbar-container .yui-toolbar-titlebar {
+position: relative;
+}
+/* Toolbar's titlebar styles */
+.yui-toolbar-container .yui-toolbar-titlebar h2 {
+font-weight: bold;
+letter-spacing: 0;
+border: none;
+color: #000;
+margin: 0;
+padding: .2em;
+}
+.yui-toolbar-container .yui-toolbar-titlebar h2 a {
+text-decoration: none;
+color: #000;
+cursor: default;
+}
+/* If the toolbar is grouped the draghandle needs to be bigger */
+.yui-toolbar-container.yui-toolbar-grouped span.yui-toolbar-draghandle {
+height: 40px;
+}
+
+/* Float the groups so they position nicely and zoom them for IE */
+.yui-toolbar-container .yui-toolbar-group {
+float: left;
+margin-right: .5em;
+zoom: 1;
+}
+/* Setup the :after so that compliant browsers don't loose the bounding box */
+.yui-toolbar-container .yui-toolbar-group:after { display: block; clear: both; visibility: hidden; content: '.'; height: 0;}
+/* Grouped title styles */
+.yui-toolbar-container .yui-toolbar-group h3 {
+font-size: 75%;
+padding: 0 0 0 .25em;
+margin: 0;
+}
+/* Style the separators with a left border */
+.yui-toolbar-container span.yui-toolbar-separator {
+width: 2px;
+padding: 0;
+height: 18px;
+margin: .2em 0 .2em .1em;
+display: none;
+float: left;
+
+}
+/* Set the height of a grouped separator to a little bit bigger */
+.yui-toolbar-container.yui-toolbar-grouped span.yui-toolbar-separator {
+height: 45px;
+*height: 50px;
+}
+
+/* Reset the height of a separator inside of a group */
+.yui-toolbar-container.yui-toolbar-grouped .yui-toolbar-group span.yui-toolbar-separator {
+height: 18px;
+display: block;
+}
+
+/* Kill the default styles of the list */
+.yui-toolbar-container ul li {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+/* Hide the group labels when the .yui-toolbar-nogrouplabels class is applied */
+.yui-toolbar-container .yui-toolbar-nogrouplabels h3 {
+display: none;
+}
+
+/* Setup the default style of a button in the toolbar */
+.yui-toolbar-container .yui-push-button,
+.yui-toolbar-container .yui-color-button,
+.yui-toolbar-container .yui-menu-button {
+/*.yui-toolbar-container .yui-button {*/
+position: relative;
+cursor: pointer;
+}
+
+/* setup the default style of the A inside of the toolbar button */
+.yui-toolbar-container .yui-button .first-child, .yui-toolbar-container .yui-button .first-child a {
+height: 100%;
+width: 100%;
+overflow: hidden;
+font-size: 0px;
+}
+
+/* Setup the disabled state of a button */
+.yui-toolbar-container .yui-button-disabled {
+cursor: default;
+}
+/* Disable the icon too */
+.yui-toolbar-container .yui-button-disabled .yui-toolbar-icon {
+opacity: .5;
+filter: alpha(opacity=50);
+}
+/*Disabled Spin button arrows*/
+.yui-toolbar-container .yui-button-disabled .up,
+.yui-toolbar-container .yui-button-disabled .down {
+opacity: .5;
+filter: alpha(opacity=50);
+}
+/* remove any padding from the A */
+.yui-toolbar-container .yui-button a {
+overflow: hidden;
+}
+
+/* Override the default Button style for select menu*/
+.yui-toolbar-container .yui-toolbar-select .first-child a {
+cursor: pointer;
+}
+
+/* Font Family Menu Style - This styles the menu items and the selected menu item */
+.yui-toolbar-fontname-arial { font-family: Arial; }
+.yui-toolbar-fontname-arial-black { font-family: Arial Black; }
+.yui-toolbar-fontname-comic-sans-ms { font-family: Comic Sans MS; }
+.yui-toolbar-fontname-courier-new { font-family: Courier New; }
+.yui-toolbar-fontname-times-new-roman { font-family: Times New Roman; }
+.yui-toolbar-fontname-verdana { font-family: Verdana; }
+.yui-toolbar-fontname-impact { font-family: Impact; }
+.yui-toolbar-fontname-lucida-console { font-family: Lucida Console; }
+.yui-toolbar-fontname-tahoma { font-family: Tahoma; }
+.yui-toolbar-fontname-trebuchet-ms { font-family: Trebuchet MS; }
+
+/* Spin Button */
+.yui-toolbar-container .yui-toolbar-spinbutton {
+position: relative;
+}
+
+/* Setup the default style for the A */
+.yui-toolbar-container .yui-toolbar-spinbutton .first-child a {
+z-index: 0;
+opacity: 1;
+}
+
+/* Setup the position and style for the up and down arrows */
+.yui-toolbar-container .yui-toolbar-spinbutton a.up, .yui-toolbar-container .yui-toolbar-spinbutton a.down {
+position: absolute;
+display: block
+right: 0;
+cursor: pointer;
+z-index: 1;
+padding: 0;
+margin: 0;
+}
+/* Position all panels/overlays as absolute by default */
+.yui-toolbar-container .yui-overlay {
+position: absolute;
+}
+/* Smash the default style for lists */
+.yui-toolbar-container .yui-overlay ul li {
+margin: 0;
+list-style-type: none;
+}
+
+/* Reset the z-index of the toolbar container so that menu's appear over the iframe in IE and Safari */
+.yui-toolbar-container {
+z-index: 1;
+}
+
+/* The div around the iFrame */
+.yui-editor-container .yui-editor-editable-container {
+position: relative;
+z-index: 0;
+width: 100%;
+}
+/* The disbled state of the Editor */
+.yui-editor-container .yui-editor-masked {
+background-color: #CCC;
+}
+/* Style the editable iframe to hide it */
+.yui-editor-container iframe {
+border: 0px;
+padding: 0;
+margin: 0;
+zoom: 1;
+display: block;
+}
+/* Reset some padding on the editable iframes container */
+.yui-editor-container .yui-editor-editable {
+padding: 0;
+margin: 0;
+}
+/* Style the dom path box at the bottom of the editor */
+.yui-editor-container .dompath {
+font-size: 85%;
+}
+/* Header styles for the Property Editor */
+.yui-editor-panel .hd {
+text-align: left;
+position: relative;
+}
+/* Setup some padding around the h3 */
+.yui-editor-panel .hd h3 {
+font-weight: bold;
+padding: 0.25em 0pt 0.25em 0.25em;
+margin: 0;
+}
+
+/* set it to relative so we can position the close button - Zoom it for IE */
+.yui-editor-panel .bd {
+width: 100%;
+zoom: 1;
+position: relative;
+}
+/* Setup some padding for the body container - Zoom it for IE */
+.yui-editor-panel .bd div.yui-editor-body-cont {
+padding: .25em .1em;
+zoom: 1;
+}
+/* Get the caret back in Geckp */
+.yui-editor-panel .bd .gecko form {
+overflow: auto;
+}
+
+/* Setup the :after so that compliant browsers don't loose the bounding box */
+.yui-editor-panel .bd div.yui-editor-body-cont:after { display: block; clear: both; visibility: hidden; content: '.'; height: 0;}
+
+/* style the footer of the property editor */
+.yui-editor-panel .ft {
+text-align: right;
+width: 99%;
+float: left;
+clear: both;
+}
+
+/* Style the "tip" icon */
+.yui-editor-panel .ft span.tip {
+display: block;
+position: relative;
+padding: .5em .5em .5em 23px;
+text-align:left;
+zoom: 1;
+}
+
+
+/* setup some form fields */
+.yui-editor-panel label {
+clear: both;
+float: left;
+padding: 0;
+width: 100%;
+text-align: left;
+zoom: 1;
+}
+/* This fixes the caret issue in Firefox */
+.yui-editor-panel .gecko label {
+overflow: auto; 
+}
+/* more form fields */
+.yui-editor-panel label strong {
+float: left;
+width: 6em;
+}
+
+/* The remove link in the Link Property Editor */
+.yui-editor-panel .removeLink {
+width: 80%;
+text-align: right;
+}
+
+/* More form styling */
+.yui-editor-panel label input {
+margin-left: .25em;
+float: left;
+}
+
+.yui-editor-panel .yui-toolbar-group {
+margin-bottom: 0.75em;
+}
+
+/* Image Padding in the Property Editor */
+.yui-editor-panel .yui-toolbar-group-padding {
+}
+
+/* Image Border in the Property Editor */
+.yui-editor-panel .yui-toolbar-group-border {
+}
+
+/* Image Text Flow in the Property Editor */
+.yui-editor-panel .yui-toolbar-group-textflow {
+}
+
+/* Image Height/Width in the Property Editor */
+.yui-editor-panel .height-width {
+float: left;
+}
+/* Image Height/Width title */
+.yui-editor-panel .height-width h3 {
+}
+/* Image Height/Width container */
+.yui-editor-panel .height-width span {
+font-style: italic;
+display: block;
+float: left;
+overflow: visible;
+}
+/* Image Height/Width original info container */
+.yui-editor-panel .height-width span.info {
+font-size: 70%;
+margin-top: 3px;
+}
+
+/* Border Size/Type button widths */
+.yui-editor-panel .yui-toolbar-bordersize, .yui-editor-panel .yui-toolbar-bordertype {
+font-size: 75%;
+}
+
+/* Kill the separators in the Property Editor */
+.yui-editor-panel .yui-toolbar-container span.yui-toolbar-separator {
+border: none;
+}
+
+/* Border Type solid */
+.yui-editor-panel .yui-toolbar-bordersize span a span,
+.yui-editor-panel .yui-toolbar-bordertype span a span {
+display: block;
+height: 8px;
+left: 4px;
+position: absolute;
+top: 3px;
+_top: -5px;
+width: 24px;
+text-indent: 52px;
+font-size: 0%;
+}
+/* Border Type solid */
+.yui-editor-panel .yui-toolbar-bordertype span a span.yui-toolbar-bordertype-solid {
+border-bottom: 1px solid black;
+}
+/* Border Type dotted */
+.yui-editor-panel .yui-toolbar-bordertype span a span.yui-toolbar-bordertype-dotted {
+border-bottom: 1px dotted black;
+}
+/* Border Type dashed */
+.yui-editor-panel .yui-toolbar-bordertype span a span.yui-toolbar-bordertype-dashed {
+border-bottom: 1px dashed black;
+}
+/* Border Size 0 */
+.yui-editor-panel .yui-toolbar-bordersize span a span.yui-toolbar-bordersize-0 {
+*top: 0px;
+text-indent: 0px;
+font-size: 75%;
+}
+/* Border Size 1 */
+.yui-editor-panel .yui-toolbar-bordersize span a span.yui-toolbar-bordersize-1 {
+border-bottom: 1px solid black;
+}
+/* Border Size 2 */
+.yui-editor-panel .yui-toolbar-bordersize span a span.yui-toolbar-bordersize-2 {
+border-bottom: 2px solid black;
+}
+/* Border Size 3 */
+.yui-editor-panel .yui-toolbar-bordersize span a span.yui-toolbar-bordersize-3 {
+top: 2px;
+*top: -5px;
+border-bottom: 3px solid black;
+}
+/* Border Size 4 */
+.yui-editor-panel .yui-toolbar-bordersize span a span.yui-toolbar-bordersize-4 {
+top: 1px;
+*top: -5px;
+border-bottom: 4px solid black;
+}
+/* Border Size 5 */
+.yui-editor-panel .yui-toolbar-bordersize span a span.yui-toolbar-bordersize-5 {
+top: 1px;
+*top: -5px;
+border-bottom: 5px solid black;
+}
+
+/* Border Size menu size */
+.yui-toolbar-container .yui-toolbar-bordersize-menu,
+.yui-toolbar-container .yui-toolbar-bordertype-menu {
+width: 95px !important;
+}
+/* Border Size menu styles */
+.yui-toolbar-bordersize-menu .yuimenuitemlabel, .yui-toolbar-bordertype-menu .yuimenuitemlabel, 
+.yui-toolbar-bordersize-menu .yuimenuitemlabel, .yui-toolbar-bordertype-menu .yuimenuitemlabel:hover {
+margin:0px 3px 7px 17px;
+}
+/* Border Size menu styles - Checked */
+.yui-toolbar-bordersize-menu .yuimenuitemlabel .checkedindicator, .yui-toolbar-bordertype-menu .yuimenuitemlabel .checkedindicator {
+position: absolute;
+left: -12px;
+*top: 14px;
+*left: 0px;
+}
+
+/* Border Size 1 - Menu Item */
+.yui-toolbar-bordersize-menu li.yui-toolbar-bordersize-1 a {
+border-bottom: 1px solid black;
+height: 14px;
+}
+/* Border Size 2 - Menu Item */
+.yui-toolbar-bordersize-menu li.yui-toolbar-bordersize-2 a {
+border-bottom: 2px solid black;
+height: 14px;
+}
+/* Border Size 3 - Menu Item */
+.yui-toolbar-bordersize-menu li.yui-toolbar-bordersize-3 a {
+border-bottom: 3px solid black;
+height: 14px;
+}
+/* Border Size 4 - Menu Item */
+.yui-toolbar-bordersize-menu li.yui-toolbar-bordersize-4 a {
+border-bottom: 4px solid black;
+height: 14px;
+}
+/* Border Size 5 - Menu Item */
+.yui-toolbar-bordersize-menu li.yui-toolbar-bordersize-5 a {
+border-bottom: 5px solid black;
+height: 14px;
+}
+
+
+/* Border Type Solid - Menu Item */
+.yui-toolbar-bordertype-menu li.yui-toolbar-bordertype-solid a {
+border-bottom: 1px solid black;
+height: 14px;
+}
+/* Border Type Dashed - Menu Item */
+.yui-toolbar-bordertype-menu li.yui-toolbar-bordertype-dashed a {
+border-bottom: 1px dashed black;
+height: 14px;
+}
+/* Border Type Dotted - Menu Item */
+.yui-toolbar-bordertype-menu li.yui-toolbar-bordertype-dotted a {
+border-bottom: 1px dotted black;
+height: 14px;
+}
+
+/* Hidden Headers for Accessibility */
+h2.yui-editor-skipheader, h3.yui-editor-skipheader {
+height: 0;
+margin: 0;
+padding: 0;
+border: none;
+width: 0;
+overflow: hidden;
+position: absolute;
+}
+
+/* Setup the default look of a color menu and Zoom it for IE */
+.yui-toolbar-colors {
+width: 133px;
+zoom: 1;
+display: none;
+z-index: 100;
+overflow: hidden;
+}
+
+/* Setup the :after so that compliant browsers don't loose the bounding box */
+.yui-toolbar-colors:after { display: block; clear: both; visibility: hidden; content: '.'; height: 0;}
+/* Style all of the A's so the float properly */
+.yui-toolbar-colors a {
+height: 9px;
+width: 9px;
+float: left;
+display: block;
+overflow: hidden;
+text-indent: 999px;
+margin: 0;
+cursor: pointer;
+border: 1px solid #F6F7EE;
+}
+/* Put a little border around one that is hovered over */
+.yui-toolbar-colors a:hover {
+border: 1px solid black;
+}
+
+/* Smash the inhertited Menu style */
+.yui-color-button-menu {
+overflow: visible;
+background-color: transparent;
+}
+
+/* This is the preview box at the bottom of the menu - Zoom it for IE */
+.yui-toolbar-colors span {
+position: relative;
+display: block;
+padding: 3px;
+overflow: hidden;
+float: left;
+width: 100%;
+zoom: 1;
+}
+/* Setup the :after so that compliant browsers don't loose the bounding box */
+.yui-toolbar-colors span:after { display: block; clear: both; visibility: hidden; content: '.'; height: 0;}
+
+/* This is the box with the color preview in it */
+.yui-toolbar-colors span em {
+height: 35px;
+width: 30px;
+float: left;
+display: block;
+overflow: hidden;
+text-indent: 999px;
+margin: 0.75px;
+border: 1px solid black;
+}
+
+/* The container for the name and hex code */
+.yui-toolbar-colors span strong {
+font-weight: normal;
+padding-left: 3px;
+display: block;
+font-size: 85%;
+float: left;
+width: 65%;
+}
+
+
+.yui-toolbar-group-undoredo h3,
+.yui-toolbar-group-insertitem h3,
+.yui-toolbar-group-indentlist h3 {
+width: 68px;
+}
+.yui-toolbar-group-indentlist2 h3 {
+width: 122px;
+}
+.yui-toolbar-group-alignment h3 {
+width: 130px;
+}
+
+
+/*
+* Sam skin for yui rich text
+*
+*/
+
+/* Place the border around the editor */
+.yui-skin-sam .yui-editor-container {
+    border: 1px #<%$C3%> outset;
+}
+/* Color the border of the container */
+.yui-skin-sam .yui-toolbar-container {
+padding-top:5px;
+
+zoom: 1;
+}
+/* Load the background image on the Toolbars titlebar */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-titlebar {
+/*background: url(<% $s->rawFile( 'sprite.png' ) %>) repeat-x 0 -200px;*/
+position: relative;
+}
+.yui-skin-sam .yui-editor-container .draggable .yui-toolbar-titlebar {
+cursor: move;
+}
+
+/* Give the titlebar some color and padding */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-titlebar h2 {
+color: #000000;
+font-weight: bold;
+margin: 0;
+padding: 0.3em 1em;
+font-size: 100%;
+text-align: left;
+}
+
+/* Give the toolbars groups titles some color and padding */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-group h3 {
+color: #808080;
+font-size: 75%;
+margin: 1em 0 0;
+padding-bottom: 0;
+padding-left: 0.25em;
+text-align: left;
+}
+
+/* Hide all of the sepatators borders */
+.yui-toolbar-container span.yui-toolbar-separator {
+border: none;
+text-indent: 33px;
+overflow: hidden;
+margin: 0 .25em;
+}
+
+/* Background color of the toolbar */
+.yui-skin-sam .yui-toolbar-container {
+}
+
+/* Add some padding to the toolbars sub container */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-subcont {
+padding: 0 1em 0.35em;
+border-bottom:1px solid #808080;
+}
+/* When the collapsed class is added, add a border to the bottom of the titlebar (since the toolbar itself is display none) */
+.yui-skin-sam .yui-toolbar-container-collapsed .yui-toolbar-titlebar {
+border-bottom:1px solid #808080;
+}
+
+/* Remove the shadows from the menus in the toolbar - Menu.css override */
+.yui-skin-sam .yui-editor-container .visible .yui-menu-shadow,
+.yui-skin-sam .yui-editor-panel .visible .yui-menu-shadow {
+display: none;
+}
+
+/* Remove padding/margin from lists */
+.yui-skin-sam .yui-editor-container ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+/* Remove padding/margin from list items */
+.yui-skin-sam .yui-editor-container ul li {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+/* Float the LI's that wrap the buttons */
+.yui-skin-sam .yui-toolbar-group ul li.yui-toolbar-groupitem {
+float: left;
+}
+
+/* Set the color and the border of the dompath container at the bottom of the editor */
+.yui-skin-sam .yui-editor-container .dompath {
+background-color: #F2F2F2;
+border-top:1px solid #808080;
+color: #999;
+text-align: left;
+padding: 0.25em;
+}
+
+/* Set the image for the collapse button on the toolbar */
+.yui-skin-sam .yui-toolbar-container .collapse {
+background: url(<% $s->rawFile( 'sprite.png' ) %>) no-repeat 0 -400px;
+}
+/* Position the image and the container */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-titlebar span.collapse {
+cursor: pointer;
+position: absolute;
+top: 4px;
+right: 2px;
+display: block;
+overflow: hidden;
+height: 15px;
+width: 15px;
+text-indent: 9999px;
+}
+
+/* Set the default styles for the buttons */
+.yui-skin-sam .yui-toolbar-container .yui-push-button,
+.yui-skin-sam .yui-toolbar-container .yui-color-button,
+.yui-skin-sam .yui-toolbar-container .yui-menu-button {
+background: url(<% $s->rawFile( 'sprite.png' ) %>) repeat-x 0 -1800px;
+position: relative;
+display: block;
+height: 22px;
+width: 30px;
+margin: 0;
+border-color: #808080;
+color: #f2f2f2;
+border-style: solid;
+border-width: 1px 0;
+zoom: 1;
+}
+/* Set the height of the buttons and pad them on the left for the icon */
+.yui-skin-sam .yui-toolbar-container .yui-push-button a,
+.yui-skin-sam .yui-toolbar-container .yui-color-button a,
+.yui-skin-sam .yui-toolbar-container .yui-menu-button a {
+padding-left: 35px;
+height: 20px;
+text-decoration: none;
+font-size: 0px;
+line-height: 2;
+display: block;
+color: #000;
+overflow: hidden;
+white-space: nowrap;
+}
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-spinbutton a,
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-select a {
+font-size: 12px;
+}
+/* Set the height of the buttons and pad them on the left for the icon */
+.yui-skin-sam .yui-toolbar-container .yui-push-button .first-child,
+.yui-skin-sam .yui-toolbar-container .yui-color-button .first-child,
+.yui-skin-sam .yui-toolbar-container .yui-menu-button .first-child {
+border-color: #808080;
+border-style: solid;
+border-width: 0 1px;
+margin: 0 -1px;
+display: block;
+position: relative;
+}
+.yui-skin-sam .yui-toolbar-container .yui-push-button-disabled .first-child,
+.yui-skin-sam .yui-toolbar-container .yui-color-button-disabled .first-child,
+.yui-skin-sam .yui-toolbar-container .yui-menu-button-disabled .first-child {
+border-color: #ccc;
+}
+.yui-skin-sam .yui-toolbar-container .yui-push-button-disabled a,
+.yui-skin-sam .yui-toolbar-container .yui-color-button-disabled a,
+.yui-skin-sam .yui-toolbar-container .yui-menu-button-disabled a {
+color: #A6A6A6;
+cursor: default;
+}
+.yui-skin-sam .yui-toolbar-container .yui-push-button-disabled,
+.yui-skin-sam .yui-toolbar-container .yui-color-button-disabled,
+.yui-skin-sam .yui-toolbar-container .yui-menu-button-disabled {
+border-color: #ccc;
+}
+/* IE needs a little help positioning the first child */
+.yui-skin-sam .yui-toolbar-container .yui-button .first-child {
+*left: 0px;
+}
+
+/* Font Family Drop Down */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-fontname {
+width: 135px;
+}
+
+/* Header Drop Down */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-heading {
+width: 92px;
+}
+
+/* Handle the hover state of the buttons */
+.yui-skin-sam .yui-toolbar-container .yui-button-hover {
+background:url(<% $s->rawFile( 'sprite.png' ) %>) repeat-x 0 -1300px;
+border-color: #808080;
+}
+
+/* Handle the selected state of the buttons */
+.yui-skin-sam .yui-toolbar-container .yui-button-selected {
+background: url(<% $s->rawFile( 'sprite.png' ) %>) repeat-x 0 -1700px;
+border-color: #808080;
+}
+/* When the nogrouplabels class is applied, set the h3's to display none */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-nogrouplabels h3 {
+display: none;
+}
+/* When not showing the h3 group labels, add some margin to make up for them*/
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-nogrouplabels .yui-toolbar-group {
+margin-top: .75em;
+}
+
+
+/* Handle the icon placeholder for the buttons
+*     This is very important - position of this must be absolute.
+*         If it is not positioned absolute, IE will place it over the a in the Toolbar
+*             Doing this will cause the editor to loose focus and loose the selection.
+*             */
+.yui-skin-sam .yui-toolbar-container .yui-push-button span.yui-toolbar-icon,
+.yui-skin-sam .yui-toolbar-container .yui-color-button span.yui-toolbar-icon,
+.yui-skin-sam .yui-toolbar-container .yui-menu-button span.yui-toolbar-icon {
+display: block;
+position: absolute;
+top: 2px;
+height: 18px;
+width: 18px;
+overflow: hidden;
+background: url(<% $s->rawFile( 'editor-sprite.gif' ) %>) no-repeat 30px 30px;
+}
+
+/* Swap out the image to an active image */
+.yui-skin-sam .yui-toolbar-container .yui-button-selected span.yui-toolbar-icon, .yui-skin-sam .yui-toolbar-container .yui-button-hover span.yui-toolbar-icon {
+background-image: url(<% $s->rawFile( 'editor-sprite-active.gif' ) %>);
+}
+/* Change the defaults to make them look more like the editor */
+.yui-skin-sam .yui-toolbar-container .visible .yuimenuitemlabel {
+cursor: pointer;
+/*color: #000;*/
+*position: relative;
+}
+
+/* Set the background color of all menu containers */
+.yui-skin-sam .yui-toolbar-container .yui-button-menu {
+background-color: #fff;
+}
+/* Adding this style to Menu's allows the scrolled menu to work in IE */
+.yui-skin-sam .yui-toolbar-container .yui-button-menu .yui-menu-body-scrolled {
+position: relative;
+}
+/* Set the background of all menu items that are selected */
+.yui-skin-sam div.yuimenu li.selected {
+background-color: #B3D4FF;
+}
+/* Set the color of the hrefs in a selected menu item */
+.yui-skin-sam div.yuimenu li.selected a.selected {
+color: #000;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-bold span.yui-toolbar-icon {
+background-position: 0 0;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-strikethrough span.yui-toolbar-icon {
+background-position: 0 -108px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-italic span.yui-toolbar-icon {
+background-position: 0 -36px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-undo span.yui-toolbar-icon {
+background-position: 0 -1326px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-redo span.yui-toolbar-icon {
+background-position: 0 -1355px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-underline span.yui-toolbar-icon {
+background-position: 0 -72px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-subscript span.yui-toolbar-icon {
+background-position: 0 -180px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-superscript span.yui-toolbar-icon {
+background-position: 0 -144px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-forecolor span.yui-toolbar-icon {
+background-position: 0 -216px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-backcolor span.yui-toolbar-icon {
+background-position: 0 -288px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-justifyleft span.yui-toolbar-icon {
+background-position: 0 -324px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-justifycenter span.yui-toolbar-icon {
+background-position: 0 -360px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-justifyright span.yui-toolbar-icon {
+background-position: 0 -396px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-justifyfull span.yui-toolbar-icon {
+background-position: 0 -432px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-indent span.yui-toolbar-icon {
+background-position: 0 -720px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-outdent span.yui-toolbar-icon {
+background-position: 0 -684px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-createlink span.yui-toolbar-icon {
+background-position: 0 -792px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-insertimage span.yui-toolbar-icon {
+background-position: 1px -756px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-left span.yui-toolbar-icon {
+background-position: 0 -972px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-right span.yui-toolbar-icon {
+background-position: 0 -936px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-inline span.yui-toolbar-icon {
+background-position: 0 -900px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-block span.yui-toolbar-icon {
+background-position: 0 -864px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-bordercolor span.yui-toolbar-icon {
+background-position: 0 -252px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-removeformat span.yui-toolbar-icon {
+background-position: 0 -1080px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-hiddenelements span.yui-toolbar-icon {
+background-position: 0 -1044px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-insertunorderedlist span.yui-toolbar-icon {
+background-position: 0 -468px;
+left: 5px;
+}
+/* Setting the background position of the sprite */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-insertorderedlist span.yui-toolbar-icon {
+background-position: 0 -504px;
+left: 5px;
+}
+/* Set the width of the spin buttons */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-spinbutton,
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-spinbutton .first-child {
+width: 35px;
+}
+/* Pad the first child */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-spinbutton .first-child a {
+padding-left: 2px;
+text-align: left;    
+}
+
+/* Spin Buttons - Remove the icon holder, they don't need it */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-spinbutton span.yui-toolbar-icon {
+display: none;
+}
+
+/* Spin Buttons - Prep the arrows */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-spinbutton a.up,
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-spinbutton a.down {
+right: 2px;
+background: url(<% $s->rawFile( 'editor-sprite.gif' ) %>) no-repeat 0 -1222px;
+overflow: hidden;
+height: 6px;
+width: 7px;
+min-height: 0;
+padding: 0;
+}
+/* Spin Buttons - The up arrow */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-spinbutton a.up {
+top: 2px;
+background-position: 0 -1222px;
+}
+/* Spin Buttons - The down arrow */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-spinbutton a.down {
+bottom: 2px;
+background-position: 0 -1187px;
+}
+/* Handle plain Select Elements */
+.yui-skin-sam .yui-toolbar-container select {
+height: 22px;
+border: 1px solid #808080;
+}
+/* Pad and align the Select Menus */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-select .first-child a {
+padding-left: 5px;
+text-align: left;    
+}
+/* Set the icon of the select menu for the drop down arrow */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-select span.yui-toolbar-icon {
+background: url(<% $s->rawFile( 'editor-sprite.gif ' ) %>) no-repeat 0 -1144px;
+overflow: hidden;
+right: -2px;
+top: 0px;
+height: 20px;
+}
+/* Fix the color menu background if it's inside a Property Editor */
+.yui-skin-sam .yui-editor-panel .yui-color-button-menu .bd {
+background-color: transparent;
+border: none;
+width: 135px;
+}
+
+/* Place a border around the color menu */
+.yui-skin-sam .yui-color-button-menu .yui-toolbar-colors {
+border: 1px solid #808080;
+}
+
+
+/* Property Editor Panel styles */
+.yui-skin-sam .yui-editor-panel {
+padding: 0;
+margin: 0;
+border: none;
+background-color: transparent;
+overflow: visible;
+position: absolute;
+}
+
+/* Margins on the header of the Property Editor */
+.yui-skin-sam .yui-editor-panel .hd {
+margin: 10px 0 0;
+padding: 0;
+border: none;
+}
+/* Setup the background image on the title bar
+*     We are styling the h3 instead if the div so we can make room
+*         for the "knob" that floats on the top of the window.
+*         */
+.yui-skin-sam .yui-editor-panel .hd h3 {
+color: #000;
+border: 1px solid #808080;
+background: url(<% $s->rawFile( 'sprite.png' ) %>) repeat-x 0 -200px;
+width: 99%;
+position: relative;
+margin: 0;
+padding: 3px 0 0 0;
+font-size: 93%;
+text-indent: 5px;
+height: 20px;
+}
+/* Style the body of the Property Editor */
+.yui-skin-sam .yui-editor-panel .bd {
+background-color: #F2F2F2;
+border-left: 1px solid #808080;
+border-right: 1px solid #808080;
+width: 99%;
+margin: 0;
+padding: 0;
+overflow: visible;
+}
+/* Remove the padding/margin on lists in the Property Editor */
+.yui-skin-sam .yui-editor-panel ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+
+/* Remove the padding/margin on list items in the Property Editor */
+.yui-skin-sam .yui-editor-panel ul li {
+margin: 0;
+padding: 0;
+}
+/* IE is havig trouble with our menu sizes here */
+.yui-skin-sam .yui-editor-panel .yuimenu {
+/**width: 90px !important;*/
+}
+/* Remove the border from the toolbar's container and add some margin to it */
+.yui-skin-sam .yui-editor-panel .yui-toolbar-container .yui-toolbar-subcont {
+padding: 0;
+border: none;
+margin-top: 0.35em;
+}
+/* Set the width of the bordersize and bordertype menu buttons */
+.yui-skin-sam .yui-editor-panel .yui-toolbar-bordersize, .yui-skin-sam .yui-editor-panel .yui-toolbar-bordertype {
+width: 50px;
+}
+
+/* Form styling */
+.yui-skin-sam .yui-editor-panel label {
+display: block;
+float: none;
+padding: 4px 0;
+margin-bottom: 7px;
+}
+/* Form styling */
+.yui-skin-sam .yui-editor-panel label strong {
+font-weight: normal;
+font-size: 93%;
+text-align: right;
+padding-top: 2px;
+}
+
+/* Form styling */
+.yui-skin-sam .yui-editor-panel label input {
+width: 75%;
+}
+/* Form styling */
+.yui-skin-sam .yui-editor-panel .createlink_target,
+.yui-skin-sam .yui-editor-panel .insertimage_target {
+width: auto;
+margin-right: 5px;
+}
+
+/* Form styling */
+.yui-skin-sam .yui-editor-panel .removeLink {
+width: 98%;
+}
+/* Color the input yellow if it has the warning class applied */
+.yui-skin-sam .yui-editor-panel label input.warning {
+background-color: #FFEE69;
+}
+
+/* Style the titles of the toolbar groups */
+.yui-skin-sam .yui-editor-panel .yui-toolbar-group h3 {
+color: #000;
+float: left;
+font-weight: normal;
+font-size: 93%;
+margin: 5px 0 0 0;
+padding: 0 3px 0 0;
+text-align: right;
+}
+/* Style the header for the Height and Width boxes */
+.yui-skin-sam .yui-editor-panel .height-width h3 {
+margin: 3px 0 0 10px;
+}
+/* Style the height and width container */
+.yui-skin-sam .yui-editor-panel .height-width {
+margin: 3px 0 0 35px;
+*margin-left: 14px;
+width: 42%;
+*width: 44%;
+}
+/* Give the border group a width */
+.yui-skin-sam .yui-editor-panel .yui-toolbar-group-border {
+width: 190px;
+}
+.yui-skin-sam .yui-editor-panel .no-button .yui-toolbar-group-border {
+width: 210px;
+}
+/* Give the padding group a width */
+.yui-skin-sam .yui-editor-panel .yui-toolbar-group-padding {
+width: 203px;
+_width: 198px;
+}
+.yui-skin-sam .yui-editor-panel .no-button .yui-toolbar-group-padding {
+width: 172px;
+}
+/* Fix some margins for the H3's */
+.yui-skin-sam .yui-editor-panel .yui-toolbar-group-padding h3 {
+margin-left: 25px;
+*margin-left: 12px;
+}
+/* Image Properties - Text flow container size */
+.yui-skin-sam .yui-editor-panel .yui-toolbar-group-textflow {
+width: 182px;
+}
+
+/* Remove the background image set in Panel.css */
+.yui-skin-sam .yui-editor-panel .hd {
+background: none;
+}
+
+/* Give the footer som color and a border */
+.yui-skin-sam .yui-editor-panel .ft {
+background-color: #F2F2F2;
+border: 1px solid #808080;
+border-top: none;
+padding: 0;
+margin: 0 0 2px 0;
+}
+
+/* Style the close button in the Property Editor */
+.yui-skin-sam .yui-editor-panel .hd span.close {
+background:url(<% $s->rawFile( 'sprite.png' ) %>) no-repeat 0 -300px;
+cursor:pointer;
+display:block;
+height:16px;
+overflow:hidden;
+position:absolute;
+right:5px;
+text-indent:500px;
+top:2px;
+width:26px;
+}
+/* Style the tip in the footer */
+.yui-skin-sam .yui-editor-panel .ft span.tip {
+background-color: #EDF5FF;
+border-top: 1px solid #808080;
+font-size: 85%;
+}
+/* Style the tip in the footer */
+.yui-skin-sam .yui-editor-panel .ft span.tip strong {
+display: block;
+float: left;
+margin: 0 2px 8px 0;
+}
+
+
+/* Setup the icon for a tip */
+.yui-skin-sam .yui-editor-panel .ft span.tip span.icon {
+background: url(<% $s->rawFile( 'editor-sprite.gif ' ) %>) no-repeat 0 -1260px;
+display: block;
+height: 20px;
+left: 2px;
+position: absolute;
+top: 8px;
+width: 20px;
+}
+/* Setup the background image for an info icon */
+.yui-skin-sam .yui-editor-panel .ft span.tip span.icon-info {
+background-position: 2px -1260px;
+}
+/* Setup the background image for a warning icon */
+.yui-skin-sam .yui-editor-panel .ft span.tip span.icon-warn {
+background-position: 2px -1296px;
+}
+
+/* Handle the knob that floats on top of the panel */
+.yui-skin-sam .yui-editor-panel .hd span.knob {
+position: absolute;
+height: 10px;
+width: 28px;
+top: -10px;
+left: 25px;
+text-indent: 9999px;
+overflow: hidden;
+background: url(<% $s->rawFile( 'editor-knob.gif ' ) %>) no-repeat 0 0;
+}
+/* Reset some styles from the editor toolbar, when a toolbar is inside the Property Editor */
+.yui-skin-sam .yui-editor-panel .yui-toolbar-container {
+float: left;
+width: 100%;
+background-image: none;
+border: none;
+}
+/* Reset styles for menu buttons inside the Property Editor */
+.yui-skin-sam .yui-editor-panel .yui-toolbar-container .bd {
+background-color: #ffffff;
+}
+
+/* This image is the one used to place the blankimage placeholder into the editor when you click on Insert an Image */
+.yui-editor-blankimage {
+background-image: url(<% $s->rawFile( 'spacer.gif' ) %>);
+}
+
+.yui-skin-sam .yui-editor-container .yui-resize-handle-br {
+/* Make the handle a little bigger than the default */
+height: 11px;
+width: 11px;
+/* Resposition the image */
+background-position: -20px -60px;
+/* Kill the hover on the handle */
+background-color: transparent;
+}
+
+/* ADDED */
+
+/*  */
+.yui-skin-sam .yui-toolbar-container .yui-toolbar-cite {
+width: 70px;
+}
+
+

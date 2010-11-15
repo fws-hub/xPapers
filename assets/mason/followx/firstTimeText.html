@@ -1,0 +1,19 @@
+
+This is the first time you follow anyone.  Following allows you to track works by a specified group of authors on a dedicated page, including new works as they appear.  
+<p>
+<em>Confidentiality settings</em>
+<p>
+We will not show the world at large who you follow.  However, by default, the people you follow (if they have <% $s->{niceName} %> accounts) will be able to see that you follow them, and they will be given the opportunity to follow your work in turn.  If you prefer to remain completely anonymous, so that people you follow do not know that you are following them, check the box below.
+<p>
+<%$rend->checkboxAuto($user,"I prefer to follow anonymously",'anonymousFollowing')%> 
+<p>
+Would you like us to send you e-mail notices of new books and articles by people you follow?
+<p>
+<%$rend->checkboxAuto($user,"Yes, send me these notices",'alertFollowed')%>  (Note that this is the main use of this feature)
+<p>
+You might also want to <a href="/profile/facebook.html" target="_blank">add your Facebook friends</a> to the 
+list of people you follow. (This link opens a new window).
+<p>
+This message will only appear once. You can adjust these settings from 
+<a href='/profile/<% $user->id %>' target='_blank'>your profile</a> (new window).
+

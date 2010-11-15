@@ -1,0 +1,13 @@
+^\s*New Books
+^\s*Editorial\.?$
+^\s*Book\s+Review.{0,6}$
+^\s*Reviews?.{0,2}$
+^\s*Announcements
+^\s*Notices
+^\s*News and Notes
+^\s*Books received
+^\s*From the Editor
+^\s*Rezensionen
+^\s*Booknotes\s*\.?$
+^\s*Critical Notices\s*$
+^\s*Abstracts\s*(Of Comments)?\s*$

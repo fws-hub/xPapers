@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD Journal Archiving and Interchange DTD v2.2 20060430//EN" "nlm-dtd/archivearticle.dtd">
+<article article-type="review-article" dtd-version="2.2" xml:lang="en">
+<front>
+<journal-meta>
+<journal-id journal-id-type="publisher-id">jsp</journal-id>
+<abbrev-journal-title abbrev-type="full">Journal of XXXXXXXX</abbrev-journal-title>
+<abbrev-journal-title abbrev-type="publisher">jxx</abbrev-journal-title>
+<issn pub-type="epub">1111-2222</issn>
+<issn pub-type="ppub">3333-7777</issn>
+<publisher>
+<publisher-name>Xxxxxxx University Press</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="publisher-id">jxx.xxxx.x.x</article-id>
+<article-id pub-id-type="doi">1111.3333/jxx.xxxx.x.x</article-id>
+<ext-link xlink:href="http://www.example.com/files/articles1.pdf"/>
+<title-group>
+<article-title>The Xxxxx of Xxxxxx Xxxxxx</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name name-style="western">
+<given-names>Xxxxxx X.</given-names><x> </x><surname>Xxxxx</surname></name>
+<bio><p>University of Xxxxxxx</p></bio>
+</contrib>
+</contrib-group>
+<pub-date pub-type="ppub">
+<year>2000</year>
+</pub-date>
+<volume>4</volume>
+<issue>2</issue>
+<fpage>777</fpage>
+<lpage>999</lpage>
+<product>
+<name><surname>Lapeyre</surname>
+<given-names>Deborah A.</given-names>
+</name>
+<name><surname>Usdin</surname>
+<given-names>B. Tommie</given-names>
+</name>
+<source>Wildflowers of the Washington Area</source>
+<year>2002</year>
+<publisher-name>Lippman, Ltd.</publisher-name>
+<isbn>0-23-8675-309</isbn>
+</product>
+<copyright-statement>&copy; Xxxxxxxx University Press</copyright-statement>
+<copyright-year>2000</copyright-year>
+</article-meta>
+</front>
+</article>

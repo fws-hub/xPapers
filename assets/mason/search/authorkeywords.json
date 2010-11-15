@@ -1,0 +1,23 @@
+<%perl>
+
+if (!$ARGS{author} or $ARGS{keywords};
+my $comma = ($ARGS{author} =~ /,/ ? "" : ',');
+my $author = squote($ARGS{author});
+my $r = xPapers::EntryMng->get_objects_from_sql(
+    sql=>"
+        select id,authors,date,title,source,volume,issue,ant_editors,publisher,ant_publisher
+        from main
+        where authors like '%;$author$comma%' and match ($FT_FIELDS_S) against (?) 
+        ",
+    args=> [ $ARGS{keywords} ]
+);
+#print Dumper $r;
+#return;
+
+print $rend->startBiblio;
+#print $rend->startCategory;
+print $rend->renderEntry($_) for @$r;
+#print $rend->endCategory;
+print $rend->endBiblio;
+
+</%perl>
