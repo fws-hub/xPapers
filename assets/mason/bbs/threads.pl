@@ -80,6 +80,19 @@ unless ($HTML) {
     return;
 }
 
+# type: the things being paged (entries, issues). 
+# showText: whether to show next
+# caption: to put in the middle
+# prevLink: link to previous page. undef for no page.
+# nextLink: link to next page. "
+my %pager = (
+    type => '',
+    showText => 0,
+    caption => $ARGS{start}+1 . " - " . min($ARGS{start}+$ARGS{limit},$ARGS{start}+$res->{found}) . " / $res->{found}",
+    prevLink => $ARGS{start} > 0 ? sparseURL('',%ARGS,start=>$ARGS{start}-$ARGS{limit}) : undef,
+    nextLink => $ARGS{start}-1+$ARGS{limit} < $res->{found} ? sparseURL('',%ARGS,start=>$ARGS{start}+$ARGS{limit}) : undef
+);
+#print Dumper(\%pager) if $SECURE;
 
 </%perl>
 
@@ -92,6 +105,9 @@ unless ($HTML) {
 <input type="hidden" name="fId" value="<%$ARGS{fId}%>">
 <input type="hidden" name="group" value="<%$ARGS{group}%>">
 <input type="hidden" name="cId" value="<%$ARGS{cId}%>">
+<input id="ap-start" type="hidden" name="start" value="<%$ARGS{start}%>">
+<input id="ap-limit" type="hidden" name="limit" value="<%$ARGS{limit}%>">
+
 <div>
 <table>
 <tr>
@@ -139,7 +155,8 @@ if ($config{special} eq 'MY') {
 unless ($res->{found}) {
     print "<p><em>Nothing found</em</p>";
 }
-print prevNext($ENV{REQUEST_URI},\%ARGS,$ARGS{limit},$res->{found}) unless $ARGS{limit} == 5;
+#print prevNext($ENV{REQUEST_URI},\%ARGS,$ARGS{limit},$res->{found}) unless $ARGS{limit} == 5;
+print pager(%pager);
 event('tsummary','start');
 for (@{$res->{results}}) {
     my $thread = xPapers::Thread->get($_);
@@ -151,7 +168,7 @@ for (@{$res->{results}}) {
 event('tsummary','end');
 
 print "<p>";
-print prevNext($ENV{REQUEST_URI},\%ARGS,$ARGS{limit},$res->{found}) unless $ARGS{limit} == 5;
+print pager(%pager);
 
 
 print "</td>";

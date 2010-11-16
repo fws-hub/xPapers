@@ -1,7 +1,14 @@
 <%perl>
-$NOFOOT = 1;
 my $comp = $m->request_comp;
-$comp = $ARGS{__comp} if $ARGS{__comp}; # this allows us to use this autohandler when the child comp isn't requested through http
+
+# When we are embedded
+if ($ARGS{__comp}) {
+    $comp = $ARGS{__comp};
+} 
+# When we are AJAX-loaded
+else {
+    $NOFOOT=1; 
+}
 
 # add the contextual params to the request arg
 my $params;

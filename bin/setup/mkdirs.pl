@@ -10,7 +10,7 @@ my ($login,$pass,$uid,$gid) = getpwnam($user)
     or die "$user not in passwd file";
 
 my @dirs = qw(
-    var/mason
+    var/mason/default_site
     var/files/tmp
     var/files/arch
     var/dynamic-assets/default_site

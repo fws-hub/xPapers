@@ -25,9 +25,20 @@ while (my $e = $it->next) {
     #print $e->pub_type . "\n";
     #print "before:$e->{source}\n";
     cleanAll($e,$PATHS{INTEL_FILES});
+
+    #my @au = map { fix($_)  } $e->getAuthors;
+    #$e->deleteAuthors;
+    #$e->addAuthors(@au);
+
     print "Cleaned " . $e->toString . "\n";
     #print "after:$e->{source}\n";
     $e->save;
 
+}
+
+sub fix {
+    my $in = shift;
+    $in =~ s/Kirk, Robert E./Kirk, Robert/;
+    return $in;
 }
 

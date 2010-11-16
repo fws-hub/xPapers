@@ -30,4 +30,4 @@ xPapers::Harvest::Z3950PrefixMng->delete_objects(
     where => [ '!prefix' => [ @prefixes ] ],
 );
 
-
+1;

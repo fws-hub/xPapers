@@ -17,7 +17,7 @@ use Try::Tiny;
 use xPapers::Link::HarvestJournal;
 use xPapers::Entry;
 use xPapers::Conf '$HARVESTER_USER','%PATHS';
-use xPapers::Util qw/ cleanAll parseAuthors rmTags/;
+use xPapers::Util qw/cleanAll parseAuthors rmTags/;
 use Data::Dumper;
 
 use Moose;

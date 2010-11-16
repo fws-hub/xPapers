@@ -47,20 +47,18 @@ if (!$user->{id}) {
                 Configure which forums appear <a href="/bbs/myforums.html">here</a>.
             </td>
         </tr>
-% print '<!--' unless( $user->{id} && $user->betaTester );
         <tr>
             <td valign="top">
             </td>
             <td valign="top">
-                <b><%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2010,month=>10,day=>1),"social")%><% $s->{niceName} %> Social:
-</b><br>
-                <a href="/profile/myfollowings.pl">People I follow</a> | 
-                <a href="/followx/papers.html">Their works</a> | 
-                <a href="/profile/myfollowers.pl">My followers (<%$user->followerCount%>)</a> | 
-                <a href="/profile/facebook.html">Facebook import</a>
+               <%l("/utils/bargains.pl","Bargain Finder",$user->{id})%>
+               <%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2010,month=>11,day=>15),"bargains")%>
+               <br>
+                Find bargains on Amazon based on your interests.
             </td>
         </tr>
-% print '-->' unless( $user->{id} && $user->betaTester );
+
+
 
     </table>
 
@@ -117,11 +115,6 @@ if (!$user->{id}) {
 </td>
 </tr>
 </table>
-
-<p>
-See also:
-<a style='font-weight:bold' href="/utils/bargains.pl">Bargain Finder</a>
-<%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2010,month=>11,day=>15),"bargains")%>
 
 </div>
 </div>

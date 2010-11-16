@@ -146,13 +146,14 @@ sub addOrDiff {
 
     for my $m (@m) {
         if (sameEntry($m,$e)) {
+            $found = 1;
             my $diff = xPapers::Diff->new;
             $diff->before($m);
             if ($m->{deleted}) {
                 if ($undelete) {
                     $m->deleted(0);
                 } else {
-                    return ();        
+                    next;
                 }
             }
 
@@ -168,7 +169,6 @@ sub addOrDiff {
             #print Dumper($diff->{diff});
 
             $diff->accept unless $diff->is_null;
-            $found = 1;
             push @mod,$diff;
         }
     }

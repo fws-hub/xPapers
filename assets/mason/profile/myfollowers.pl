@@ -10,6 +10,8 @@
 #error("This feature is currently disabled, sorry. Back soon.") unless $SECURE;
 use xPapers::Follower;
 
+error("Not allowed") unless $ARGS{__same};
+
 my $limit = 100;
 $ARGS{fpage} ||= 0;
 
@@ -24,7 +26,7 @@ if( $f_count ){
     concat( ifnull( users.lastname, ''), ', ', ifnull( users.firstname, '') ) as fname
     from aliases join followers on aliases.name = followers.alias join users on followers.uId = users.id
     where aliases.uId = ? and users.anonymousFollowing = 0 and users.hide = 0 and users.confirmed
-    group by fuId, fname order by users.lastname,users.firstname
+    group by users.id, fname order by users.lastname,users.firstname
     limit $limit offset $offset
     ";
     my $sth = $dbh->prepare( $query );

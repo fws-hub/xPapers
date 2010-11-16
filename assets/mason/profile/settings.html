@@ -8,7 +8,7 @@ if ($ARGS{do} eq "save") {
     if ($user->noticeMode eq $user->newNoticeMode) {
         $user->{newNoticeMode} = undef;
     }
-    if( $user->{id} && $user->betaTester ){
+    if( $user->{id}  ){
 
         if ($ARGS{followedNotice} eq 'on') {
             $user->rmFlag('NOFOLLOWERS');
@@ -17,7 +17,6 @@ if ($ARGS{do} eq "save") {
         }
     
     }
-    $user->anonymousFollowing(undef) unless $user->{id} && $user->betaTester;
     $user->save;
     print redirect($s,$q,"/profile/profile.pl?_lmsg=Profile%20updated");
     return;
@@ -40,12 +39,10 @@ $p->noticeMode($p->newNoticeMode) if $p->newNoticeMode;
 <p>
 <input type="checkbox" name="publish" <%$p->publish ? 'checked' : ''%>> Show me on relevant listings on this site.  
 <p>
-% print '<!--' unless( $user->{id} && $user->betaTester );
 <input type="checkbox" name="anonymousFollowing" <%$p->anonymousFollowing ? 'checked' : ''%>> I want to follow people anonymously.
 <p>
 <input type="checkbox" name="followedNotice" <%$p->hasFlag('NOFOLLOWERS') ? '' : 'checked'%>> Send me a daily notice of the new people following me (if any).
 <p>
-% print '-->' unless( $user->{id} && $user->betaTester );
 <input type="checkbox" name="alert" <%$p->alert ? 'checked' : ''%>> Send me a notice when someone writes about one of my papers in the forums. <br>
 <p>
 Frequency of forum notices:<br>

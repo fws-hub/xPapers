@@ -29,6 +29,9 @@ WRAP=/usr/bin/perl -I/home/xpapers/lib /home/xpapers/bin/wrapper.pl
 # compute free status and make other fixes to links
 3 3     * * *   $WRAP $BASEM/prep-links.pl
 
+# user ratings, e.g. publication counts
+19 4    * * *   $WRAP $BASEM/calc-ratings.pl recent
+
 
 ###
 # Mail and alerts
@@ -42,12 +45,26 @@ WRAP=/usr/bin/perl -I/home/xpapers/lib /home/xpapers/bin/wrapper.pl
 # Generate content alerts
 24 1     * * *   $WRAP $BASEM/email-alerts.pl 
 
+# Followers' works, every 7 days
+52 22   * * tue $WRAP $BASEM/following-alerts.pl 7 
+
+# Followers' works, every (approx) 14 days
+39 3   27,11 * * $WRAP $BASEM/following-alerts.pl 14 
+
+# Followers' works, every (approx) 28 days
+39 4   27 * * $WRAP $BASEM/following-alerts.pl 28 
+
+# New followers
+19 9    * * *   $WRAP $BASEM/followers-alert.pl
+
 # Distribute any unsent Message objects
 50 * * * * $WRAP $BASEM/distribute-mail.pl
 
-# Deplication check (master side)
+# Replication check (master side)
 2 *    * * *   $WRAP $BASEM/check-replication.pl master
 
+# Archive old notices
+19 7    * * *   $WRAP $BASEM/archive_notices.pl
 
 
 ###
@@ -75,7 +92,8 @@ WRAP=/usr/bin/perl -I/home/xpapers/lib /home/xpapers/bin/wrapper.pl
 40 20    * * * $WRAP $BASEB/harvest/crossref.pl
 
 # library harvester
-4 19   13,14,15,16,17 * * $WRAP $BASEB/harvest/z3950.pl
+44 18   21,22,23,24,25 * * $WRAP $BASEM/generate_prefixes.pl
+44 19   21,22,23,24,25 * * $WRAP $BASEB/harvest/z3950.pl
 
 # import data from metaparser/opp-tools
 50 1    * * *   $WRAP $BASEB/harvest/web-harvester.pl
@@ -112,19 +130,23 @@ WRAP=/usr/bin/perl -I/home/xpapers/lib /home/xpapers/bin/wrapper.pl
 5 5     * * mon $WRAP $BASEM/mkedreports.pl
 
 # compile database of links and do some preliminary check
-30 3    1,15 * * $WRAP $BASEM/checklinks.pl check
+30 1    1,15 * * $WRAP $BASEM/checklinks.pl check
 
 # recheck previously bad links to see if they are still bad
-15 0    * * tue,fri $WRAP $BASEM/checklinks.pl recheck 
+15 6    * * tue,fri $WRAP $BASEM/checklinks.pl recheck 
 
 # recompute similarity for all entries
 10 0    1 * *   $WRAP $BASEM/similar.pl
 
 # rebuild sitemap
-10 0    2,16,28 * * $WRAP $BASEM/mkmap.pl
+10 1    2,16,28 * * $WRAP $BASEM/mkmap.pl
 
 # perform hard-delete
 1 1     * * *   $WRAP $BASEM/hard-delete.pl
+
+# user ratings, e.g. publication counts
+19 7    * * sun   $WRAP $BASEM/calc-ratings.pl 
+
 
 #50 *    * * sat,wed $WRAP $BASE/harvest/scrape.pl --delay=1 --pre-test --emails=david.bourget@gmail.com --harvest etc/harvest/1/* etc/harvest/2/* etc/harvest/3/* 
 

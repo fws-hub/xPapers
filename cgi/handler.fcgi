@@ -1,4 +1,4 @@
-#!/usr/bin/perl -X                                                                
+#!/usr/bin/perl -X
 use lib '/home/xpapers/lib';
 use CGI::Fast;                                                                 
 use xPapers::Conf;

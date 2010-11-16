@@ -101,7 +101,7 @@ sub classes {
 sub class_behavior {
     my $me = shift;
     my $class = shift;
-    print "Check $class\n";
+    #print "Check $class\n";
     my $r = xPapers::DB->exec("select description,sum(end-start) as breadth,lc_class,min(exclude)+max(exclude)/2 as score from lc_ranges where lc_class=? group by lc_class",$class);
     my $row = $r->fetchrow_hashref;
     return undef unless $row;

@@ -193,9 +193,9 @@ sub dorecs {
         #}
         $self->pluginMng->applyAll($e);
 
-        unless (length($e->title) > 1) {
-            warn "=" x 50 if $self->DEBUG;
-            warn "No title for item in journal $e->{source}. Dumping to /tmp/notitle/" if $self->DEBUG;
+        if ( ! ( length($e->title) > 1 ) && $self->DEBUG > 1) {
+            warn "=" x 50;
+            warn "No title for item in journal $e->{source}. Dumping to /tmp/notitle/";
             make_path("/tmp/notitle");
             my $in = $records->file;
             `cp $in /tmp/notitle`;
@@ -209,8 +209,8 @@ sub dorecs {
             $citation->save;
             #warn $citation;
         }
-        warn '*' x 30 if $self->DEBUG;
-        warn "\n\n\n" if $self->DEBUG;
+        warn '*' x 30 if $self->DEBUG > 1;
+        warn "\n\n\n" if $self->DEBUG > 1;
     }
 }
 

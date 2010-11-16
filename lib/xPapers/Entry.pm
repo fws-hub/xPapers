@@ -909,8 +909,8 @@ sub completeWith {
             $changed = 1;
         } else {
             next unless $source->{$k};
-            # if it's the same source, we will update the fields that have not been user-modified
-            if ($better || !$e->{$k} || ( $sameSource and !$e->userModified($k)) ) {
+            # if it's the same source, we will update the fields that have not been user-modified. except for LOC items which can have source_id clashes (#FIXME!)
+            if ($better || !$e->{$k} || ( $sameSource and !$e->userModified($k) and $e->source_id !~ /^loc/) ) {
                 $e->{$k} = $source->{$k}; 
                 $changed = 1;
             } 

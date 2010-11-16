@@ -24,7 +24,7 @@ unique(1,'crossref.pl');
 
 binmode ( STDOUT, ':encoding(utf8)' );
 
-xPapers::EntryMng->oldifyMode(1);
+#xPapers::EntryMng->oldifyMode(1);
 
 local $ENV{TMPDIR} = $PATHS{HARVESTER} . '/tmp';
 
@@ -35,7 +35,7 @@ print "Harvesting CrossRef\n";
 
 my $h;
 $h = xPapers::OAI::Harvester::CrossRef->new( 
-    DEBUG => 0, 
+    DEBUG => 1, 
     rescan => (defined $ARGV[0] and $ARGV[0] =~ /rescan/) ? 1 : 0,
     isSlow => 2,
 );

@@ -155,7 +155,9 @@ function DatePicker(field,selected) {
 %$m->notes("datepickerjs",1);
 %}
 
+onYUI(function(){
 YAHOO.util.Event.onContentReady("<%$id%>", function() {
     <%$ARGS{field}%>_obj = new DatePicker("<%$ARGS{field}%>","<%$selectedDateString%>");
+});
 });
 </script>

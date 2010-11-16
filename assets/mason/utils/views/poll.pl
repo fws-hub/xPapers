@@ -3,6 +3,7 @@
     <div style="display:none">
     <& "../../bits/datepicker.html",field=>"__dummy"&>
     </div>
+
     <script type="text/javascript">
     function validateObjectForm(f) {
         if (!f['cId'].value || f['cId'].value == '0') {

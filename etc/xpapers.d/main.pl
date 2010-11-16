@@ -89,8 +89,8 @@ $TZ_OFFSET_STR = formatTZ($TZ_OFFSET);
 
 # Your Facebook App details
 %FACEBOOK = (
-    APP_ID => "CHANGEME",
-    API_KEY => "CHANGME"
+    APP_ID => "c77437fbbdab367f5d888b26b140a337",
+    API_KEY => "148977641796357"
 );
 
 # Your ReCAPTCHA credentials

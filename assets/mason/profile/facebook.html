@@ -1,8 +1,10 @@
 <%gh("Follow the work of your Facebook friends")%>
 <& 'social_banner.html' &>
+<& ../checkLogin.html, %ARGS &>
 <%perl>
 use xPapers::Follower;
 use xPapers::Util qw/ calcWeakenings normalizeNameWhitespace parseAuthors parseName2/;
+error("Not allowed") unless $ARGS{__same};
 
 if(! defined( $user->anonymousFollowing ) ){
 </%perl>

@@ -9,7 +9,7 @@ use warnings;
 use xPapers::Conf;
 use xPapers::OAI::Repository;
 use xPapers::OAI;
-use xPapers::Util qw(parseName parseAuthors);
+use xPapers::Util;
 use xPapers::Entry;
 use xPapers::Mail::MessageMng;
 

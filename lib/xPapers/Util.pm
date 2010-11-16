@@ -1228,6 +1228,9 @@ sub cleanName {
 
     #print "Cleaning name: $n\n";
 
+    # if ", john doe"
+    if ($n =~ s/^\s*,\s+//) { }
+
     # if 'john doe,'
     if ($n =~ s/^([^,]+?)\s*,\s*$/$1/) { }
 

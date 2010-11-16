@@ -790,8 +790,8 @@ sub prepTpl {
         fields=>['openURL']
         }, 
 # rendering followers
-        $me->{cur}->{user}->{id} && $me->{cur}->{user}->betaTester ? {
-         tpl => '&nbsp;|&nbsp<span class="ll" onclick="%s">Follow the author(s)</span> ',
+        $me->{cur}->{user}->{id} ? {
+         tpl => '&nbsp;|&nbsp<span class="ll" onclick="%s"><span class="newFlag">NEW:</span> Follow the author(s)</span> ',
          fields=>['FollowAuthors'],
         }
         : (), 
@@ -1068,7 +1068,10 @@ sub makePostsList {
     my @posts = @_; 
     my @links = map { '<a href="' . $self->postURL($_) . '">' . $_->user->fullname . '</a>' } @posts; 
     my $lastlink = pop @links; 
-    return join ( ' and ', join ( ', ', @links ), $lastlink ); 
+    if( @links ){
+        return join ( ', ', @links ) . " and $lastlink";
+    }
+    return $lastlink;
 } 
 
 1;
@@ -1322,7 +1325,7 @@ sub renderCatTO {
         }
 
     } else {
-        return $r . "<span class='hint'> (<b class='hint'>" . format_number($c->preCountWhere($s)) . "</b>" . ($c->{catCount} && $c->localCount($s) ? " | ".format_number($c->localCount($s)) : "") . ")</span>";
+        return $r . "<span class='hint'> (<b class='hint'>" . format_number($c->preCountWhere($s)) . "</b>" . ($c->{catCount} && $c->localCount($s) && $c->{pLevel} > 1 ? " | ".format_number($c->localCount($s)) : "") . ")</span>";
     }
 }
 

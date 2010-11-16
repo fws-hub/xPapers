@@ -18,7 +18,12 @@ sub lock {
             return 1;
         } else {
             my $dur = DateTime->now->subtract(hours=>1)->subtract_datetime($lock->time);
-            return 0 if $dur->is_negative;
+            if ($dur->is_negative) {
+                return 0;
+            } else {
+                # old lock, we override
+                $lock->delete;
+            }
         }
     }
     xPapers::Lock->new(

@@ -22,7 +22,7 @@ my $oldThread = DateTime->now->subtract(days=>30);
 my $rend = new xPapers::Render::HTML;
 $rend->{cur}={};
 $rend->{cur}->{site} = $DEFAULT_SITE;
-my $debug = 0;
+my $debug = 0; # set to a user id to a) not save/send anything and b) see only msgs for that user
 
 my $mode = $ARGV[0];
 if ($mode eq 'distrib') {
@@ -178,8 +178,10 @@ sub make_forum_notices {
             next;
         }
         next if $ROFORUMS{$p->thread->forum->id} and $p->target; #no make notices for readonly forums except for threads (created by admins)
+        my %seen;
         foreach my $u ( $p->thread->forum->gather_subscribers) {
 
+            next if $seen{$u->id}++;
             next if $p->user->id == $u->id;
             next unless $u->noticeMode eq $mode and $u->confirmed;
             $msgs{$u->id} = {user=>$u, posts=>{new=>{},old=>{}}} unless exists $msgs{$u->id};
@@ -187,6 +189,8 @@ sub make_forum_notices {
                 $msgs{$u->id}->{posts}->{old}->{$p->tId} = {} unless exists $msgs{$u->id}->{posts}->{old}->{$p->tId};
                 $msgs{$u->id}->{posts}->{old}->{$p->tId}->{thread} = $p->thread; 
                 $msgs{$u->id}->{posts}->{old}->{$p->tId}->{count}++; 
+                $msgs{$u->id}->{posts}->{old}->{$p->tId}->{list} ||= []; 
+                push @{ $msgs{$u->id}->{posts}->{old}->{$p->tId}->{list} }, $p;
             } else {
                 $msgs{$u->id}->{posts}->{new}->{$p->id} = $p;
             }
@@ -238,10 +242,11 @@ sub make_forum_notices {
             $c .= "In old threads:\n" if $#oldthreads > -1;
             for my $t (@oldthreads) {
                 my $fp = $t->{thread}->firstPost;
-                $c .= num($t->{count},"follow-up") . ' by: ' . $rend->makePostsList( $t->{thread}->posts ) . "\n";
+                $c .= num($t->{count},"follow-up") . ' in thread "' . $fp->subject . '". Authors: ' . $rend->makePostsList( @{$t->{list} } ) . "\n";
             }
         }
         $c .= $myfolink; 
+        #print "$c\n";
         print $c if $debug;
         $n->content($c);
         $n->save unless $debug;

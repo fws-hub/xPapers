@@ -48,7 +48,6 @@ my ($jlA,$aA,$fA) = xPapers::AlertManager->basicAlerts($user,1);
 
 %}
         </tr>
-% print '<!--' unless( $user->{id} && $user->betaTester );
         <tr>
 %if ($fA) {
             <td><a href="<%$fA->humanURL%>"><b>New works by people you follow</b></a></td>
@@ -63,7 +62,6 @@ my ($jlA,$aA,$fA) = xPapers::AlertManager->basicAlerts($user,1);
 
 %}
         </tr>
-% print '-->' unless( $user->{id} && $user->betaTester );
 %       for my $a (@$alerts) {
         <tr id='al-<%$a->id%>'>
             <td><a href="<%$a->humanURL%>"><b><%encode_entities($a->{name})%></b></a></td>

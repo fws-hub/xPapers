@@ -14,7 +14,7 @@ use File::Slurp 'slurp';
 
 use xPapers::OAI::Repository;
 use xPapers::OAI;
-use xPapers::Util qw(parseName parseAuthors url2hash hash2url);
+use xPapers::Util;
 use xPapers::Entry;
 use xPapers::Render::Regimented;
 use xPapers::Conf;
@@ -195,6 +195,11 @@ sub get_set {
                 $token = $1;
                 warn "resumption token $token found, trying to recover\n" if $self->DEBUG;
                 $self->add_error( "resumption token $token found, trying to recover\n" );
+                $retries++;
+                $self->repo->isSlow( $self->repo->isSlow + 1 );
+                my $delay = 10;
+                warn "Retrying $retries time in $delay\n";
+                sleep $delay;
             } else {
                 $token = undef;
             }

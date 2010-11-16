@@ -28,6 +28,7 @@ if ($p->hide and !($same or $SECURE)) {
     $m->comp("private.html");
     return;
 } elsif (!$same and !$public{$m->request_comp->name} and !$SECURE) {
+    $m->comp("../checkLogin.html",%ARGS);
     error("Not allowed");
 }
 
@@ -56,7 +57,6 @@ if ($ARGS{foreign}) {
 <span style="padding-left:10px;font-size:16px"><%$affil_str%></span>
 
 %unless ($same or !$user->{id}) {
-% print '<!--' unless( $user->{id} && $user->betaTester );
 <span class='hint' style="float:right" >
 <%perl>
     my $oname = $user->lastname . ', ' . $user->firstname;
@@ -72,7 +72,6 @@ if ($ARGS{foreign}) {
 <span id='unfollow_button' <% $hidden_un %>>You are following this user (<span class='ll hint' onclick='removeFollow(0,"<% $oname %>")'>unfollow</span>)</span>
 <span id='follow_button' class='ll' onclick='updateFollowXUser(<% $p->{id} %>)' <% $hidden_fo %>>follow <% $name %></span>
 </span>
-% print '-->' unless( $user->{id} && $user->betaTester );
 %}
 
 <br>
@@ -150,8 +149,7 @@ print "<li>None specified</li>" if $#areas == -1;
 </%perl>
 </ul>
 
-%#DISABLED
-%if ($user->{betaTester}) { #($same or $x->publishView) {
+%if (0) { #$same or $x->publishView) {
 <p>
 <& nav_extra.html, x => $x, p => $p &>
 </p>

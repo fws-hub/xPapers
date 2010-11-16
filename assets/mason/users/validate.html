@@ -6,7 +6,7 @@ if (!$ARGS{key}) {
 # check valid email and create conf token
 
 my $us = xPapers::UserMng::getByEmail($ARGS{email});
-if (!$us or !$us->{id}) {
+if (!$us or !$us->{id} or ($ARGS{checkNotAuto} and !$us->confirmed and $us->hasFlag('AUTO'))) {
     print "<h2>Email address '$ARGS{email}' not known</h2><p>Did you register under another address?</h2>";
     return;
 } else {

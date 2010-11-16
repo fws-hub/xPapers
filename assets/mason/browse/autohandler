@@ -32,7 +32,6 @@ if ($ARGS{noheader} or !$HTML) {
     return;
 }
 
-
 my %H;
 $H{subtitle} = $cat->name;
 $H{canonical} = "/browse/" . $cat->eun;
@@ -67,7 +66,7 @@ $cat->{__user_is_editor} = 1 if grep { $user->{id} == $_->{id} } @eds;
 
 
 if (!$cat->marginal and $cat->{pLevel} > 0 and $#eds == -1 and $m->request_comp->name eq 'index.html') {
-    print "<div class='centered'><div style='background-color:yellow;font-weight:bold;border:1px black dotted;padding:3px'>This category needs an editor. Please help if you are qualified.<br><a href='/browse/". $cat->eun . "/application.html'>Apply</a>, or <a href=\"/help/editors.html\">read more about what this involves</a>.</div></div>";
+    print "<div class='centered'><div style='background-color:#efe;font-weight:bold;border:1px black dotted;padding:3px'>This category needs an editor. We encourage you to help if you are qualified.<br><a href='/browse/". $cat->eun . "/application.html'>Apply</a>, or <a href=\"/help/editors.html\">read more about what this involves</a>.</div></div>";
 }
 
 my $in;
@@ -112,6 +111,7 @@ unless ($cat->{pLevel} <= 1) {
 
 %$rend->{cur}->{root} = $cat;
 %$rend->{cur}->{currentList} = $cat->id if $cat->canDo("DeletePapers",$user->{id});
+
 
 <% $m->call_next(%ARGS,_c=>$cat,__cat__=>$cat) %>
 

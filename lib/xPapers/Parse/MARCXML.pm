@@ -315,7 +315,9 @@ sub parserec {
             #xPapers::EntryMng->addOrDiff( $ch, $HARVESTER_USER );
 
             my @m2 = xPapers::EntryMng->addOrDiff( $ch, $HARVESTER_USER );
-            if ($#m2 > -1 && $m2[0]->isa( 'xPapers::Diff' ) ){
+            next if !@m2;
+
+            if ($m2[0]->isa( 'xPapers::Diff' ) ){
                 $ch = $m2[0]->object;
             }
 

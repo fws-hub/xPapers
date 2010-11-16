@@ -17,8 +17,8 @@ my $dbh = $db->dbh;
 
 my $time = time();
 my $last = xPapers::Prop::get('followers_alerts');
-# the first run will generate alerts from 10 days before now
-$last ||= $time - (10 * 24 * 60 * 60); 
+# the first run will generate alerts from 30 days before now. this is arbitrary.
+$last ||= $time - (30 * 24 * 60 * 60); 
 
 my $date = DateTime->from_epoch(epoch=>$last,time_zone=>$TIMEZONE);
 #$date->subtract(days=>30);
@@ -37,9 +37,8 @@ join users u2 on aliases.uid = u2.id
 where 
 followers.created > ?  and 
 u1.anonymousFollowing = 0 and 
+u2.confirmed and
 #u2.id=1 and
-#TMP
-u2.betaTester and
 not(u1.hide=1) and
 (isnull(u2.flags) or not find_in_set('NOFOLLOWERS',u2.flags)) 
 order by u1.pubRating desc
@@ -86,8 +85,9 @@ for my $uId ( keys %users ){
         $content .= "<li>$user_link</li>\n";
     }
     $content = "[HELLO]<br><br>" . ($count > 1 ? 'These people have' : 'This person has') . " started following your work on $DEFAULT_SITE->{niceName}:<ul>$content";
-    $email->brief( $users_first{$uId}->fullname . ($count > 1 ? ' and others are now following': ' is now following') . ' your work' );
-    $content .= "</ul>People who follow your work will normally receive email notices of new papers you publish, whether indexed by $DEFAULT_SITE->{niceName} automatically or posted by you.<p>";
+    $email->brief( ($count > 1 ? "$count new people are now following": "$first is now following") . " your work on $DEFAULT_SITE->{niceName}" );
+#    $email->brief( $users_first{$uId}->fullname . ($count > 1 ? ' and others are now following': ' is now following') . ' your work' );
+    $content .= "</ul>People who follow your work will normally receive email notices of new papers you publish, whether indexed by $DEFAULT_SITE->{niceName} automatically or posted by you. Click <a href='$DEFAULT_SITE->{server}/profile/myfollowers.pl'>here</a> to view all your followers or learn more about $DEFAULT_SITE->{niceName} Social. Click <a href='$DEFAULT_SITE->{server}/profile/add_followers.pl'>here</a> to start following people.<p>";
     $content .= "If you prefer not to be notified of new followers in the future, click <a href=\"$DEFAULT_SITE->{server}/profile/$uId/settings.pl\">here</a> to change this setting.<br><br>";
     $content .= "[BYE]";
     $email->content( $content );
@@ -103,4 +103,5 @@ for my $uId ( keys %users ){
 
 }
 
+1;
 

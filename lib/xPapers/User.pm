@@ -281,7 +281,7 @@ sub calcDefaultAliases {
     my ( $warnings, @weakenings ) = calcWeakenings( $me->firstname, $me->lastname );
     for my $alias ( @weakenings ) {
         $alias->{uId} = $me->id;
-        push @aliases, xPapers::Alias->new( %$alias )->save;
+        push @aliases, xPapers::Alias->new( %$alias, name=>composeName($alias->{firstname},$alias->{lastname}) )->save;
     }
 
     #
@@ -305,7 +305,7 @@ sub calcDefaultAliases {
         }
         # $richest is defined if all compat. then we add all the names.
         if ($richest) {
-                push @aliases,xPapers::Alias->new(uId=>$me->id,firstname=>$_->{firstname},lastname=>$_->{lastname})->save for @found;
+                push @aliases,xPapers::Alias->new(uId=>$me->id,firstname=>$_->{firstname},lastname=>$_->{lastname},name=>composeName($_->{firstname},$_->{lastname}))->save for @found;
         } else {
                 my @nice = map { "$_->{lastname}, $_->{firstname}" } @found;
                 #print $me->fullname . ", $me->{id} : " . join("; ",@nice) . "\n";        

@@ -12,6 +12,7 @@ my $failWall = DateTime->now(time_zone=>$TIMEZONE)->subtract(days=>3);
 
 sub distribute {
 
+    my $showId = shift;
     #print localtime() . ": Distributing notices..\n";
     #open L,">>/var/log/xpapers-mail.log";
 
@@ -21,6 +22,8 @@ sub distribute {
 
     sendn($_) for @$notices;
     #print L localtime() . ": sent " . ($#$notices+1) . " notices.\n";
+        
+    print $notices->[-1]->id . "\n" if $showId and $#$notices > -1;
 
     #close L;
 }
@@ -33,6 +36,12 @@ sub sendn {
 
     # this is necessary when message hasn't been saved (in test mode)
     $n->complete unless $n->email;
+
+    # junk goes in a blackhole
+    unless ($n->email) {
+        $n->delete;
+        return;
+    }
 
 #    return unless $n->uId == 2;
 #    unless ($n->email eq 'david.bourget@anu.edu.au') { print "skipped\n"; return; }
@@ -73,7 +82,7 @@ Content-Transfer-Encoding: quoted-printable
 $boundary--
 END
 
-    if ($TEST_MODE and $n->uId != 1) {
+    if ($TEST_MODE) {
         open O, ">>/tmp/xpapers_mail_not_sent";
         open U, ">/tmp/xpapers_last_mail_not_sent";
         use Data::Dumper;

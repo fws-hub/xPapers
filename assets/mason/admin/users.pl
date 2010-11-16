@@ -34,7 +34,7 @@ if ($ARGS{filterField} and $ARGS{filterValue}) {
 }
 my $q = "
    select 
-    u.id,nbCatL,pubRatingW,pubRating,pro,blocked,confirmed,u.lastname,u.firstname,u.email,u.created,u.lastLogin,
+    u.id,nbCatL,pubRatingW,pubRating,pro,fixedPro,blocked,betaTester,confirmed,u.lastname,u.firstname,u.email,u.created,u.lastLogin,
     affils.role,insts.name,inst_manual,
     count(*) as nb
     from users u 
@@ -101,14 +101,18 @@ while (my $u = $sth->fetchrow_hashref) {
     </td>
 
     <td>
-    <%$rend->checkboxAuto($u,"confirmed","confirmed","xPapers::User")%>
-    <%$rend->checkboxAuto($u,"blocked","blocked","xPapers::User")%>
-    <a href="inspect.pl?oId=<%$u->{id}%>&amp;class=xPapers::User">inspect</a>,
+    <%$rend->checkboxAuto($u,"confirmed","confirmed","xPapers::User")%> 
+    <%$rend->checkboxAuto($u,"beta tester","betaTester","xPapers::User")%> 
+    <%$rend->checkboxAuto($u,"fixedPro","fixedPro","xPapers::User")%> 
+    <%$rend->checkboxAuto($u,"blocked","blocked","xPapers::User")%> 
+    <a href="inspect.pl?oId=<%$u->{id}%>&amp;class=xPapers::User">inspect</a>
+    <span class='ll' onclick='createCookie("fakeId",<%$u->{id}%>);window.location="<%$s->{server}%>/profile"'>impersonate</span>
+    <!--
     <a href="log.pl?uId=<%$u->{id}%>">actions</a>,
     <a href="errors.pl?uId=<%$u->{id}%>">errors</a>,
-    <span class='ll' onclick='createCookie("fakeId",<%$u->{id}%>);window.location="<%$s->{server}%>/profile"'>impersonate</span>,
     <span class='ll' onclick='admAct("optOut",{uId:<%$u->{id}%>,poId:8})'>opt out</span>,
     <span class='ll' onclick='admAct("resend",{uId:<%$u->{id}%>,poId:8})'>resend</span>
+    -->
     </td>
 
     </tr>

@@ -6,7 +6,7 @@ use xPapers::Render::Email;
 use xPapers::DB;
 use xPapers::Mail::Message;
 use xPapers::Prop;
-use xPapers::Conf '$TIMEZONE';
+use xPapers::Conf;
 
 binmode STDOUT,":utf8";
 
@@ -47,29 +47,33 @@ print "Doing new article alerts (from $date)\n";
 
 $sth->execute( $period, $date );
 my %users;
+my %pairs;
 while( my $match = $sth->fetchrow_hashref ){
-    print Dumper($match);use Data::Dumper;
+    #print Dumper($match);use Data::Dumper;
     my $e = xPapers::Entry->get($match->{id});
     $users{ $match->{uid} } ||= [];
+    next if $pairs{"$match->{uid} - $e->{id}"}++;
     push @{$users{ $match->{uid} }}, $e;
 }
 
 for my $uId ( keys %users ){
+    #next unless $uId == 1;
     my $r = xPapers::Render::Email->new;
     $r->{showAbstract} = 1;
+    $r->{cur}->{site} = $DEFAULT_SITE;
     my $email = xPapers::Mail::Message->new;
     $email->uId($uId);
-    $email->brief( "New works by people you follow" );
-    my $content = "[HELLO]There are some new works by people you follow:";
+    $email->brief( "New works by people you follow on PhilPapers" );
+    my $content = "[HELLO]<p>There are some new works by people you follow on PhilPapers:";
     $content .= $r->startBiblio({noDataHeader=>1});
     for my $e ( @{ $users{$uId} } ){
         $content .= $r->renderEntry($e);
     }
     $content .= $r->endBiblio;
-    $email->content( $content  . '[BYE]');
+    $email->content( $content );
     $email->isHTML(1);
     $email->save;
-    print $content;
-    print "\n";
+    #print $content;
+    #print "\n";
 }
 

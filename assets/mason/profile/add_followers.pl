@@ -4,6 +4,7 @@
 if( !defined( $user->anonymousFollowing ) ){
     $m->comp("../followx/firstTimeDialog.pl");
 }
+error("Not allowed") unless $ARGS{__same};
 
 </%perl>
 <script type="text/javascript">

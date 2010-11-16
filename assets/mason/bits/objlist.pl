@@ -109,11 +109,6 @@ function moveDown(id) {
 }
 </script>
 
-<input type="button" value="New ..." onclick="insertNew()"><br>
-<p>
-<div id='ow-' style='display:none' class="objListItem objListItemSelected">
-</div>
-
 <& "../utils/views/$ARGS{__comp}:header", %ARGS &>
 
 <div id='oc-all'>
@@ -142,8 +137,16 @@ while (my $i = $it->next) {
 
 </%perl>
 </div>
+
+<div id='ow-' style='display:none' class="objListItem objListItemSelected">
+</div>
+
+<input type="button" value="New ..." onclick="insertNew()"><br>
 <p>
-<b><span id='objsFound'><%$found%></span> found.
+
+
+<p>
+<b><span id='objsFound'><%$found%></span> found.</b>
 </p>
 
 

@@ -26,7 +26,6 @@
 
 <%perl>
 
-$NOFOOT = 1;
 my $qu;
 my $poll;
 if ($ARGS{id} and !$ARGS{__obj}) {
@@ -70,15 +69,15 @@ if ($ARGS{c} eq 'delete') {
 
     unless ($qu->id) {
         push @others, ("Accept both", "Reject both", "Reject the question", "Agnostic", "Ignorant", "No fact of the matter", "Undecided");
-        push @yesno_others, ("Reject the question", "Agnostic", "Ignorant", "No fact of the matter", "Undecided");
+        # push @yesno_others, ("Reject the question", "Agnostic", "Ignorant", "No fact of the matter", "Undecided");
     }
 
     </%perl>
 
     <script type="text/javascript">
-        YAHOO.util.Event.onDOMReady(function() {
+        onYUI(function(){ YAHOO.util.Event.onContentReady('multichoice-<%$qu->id%>',function() {
             adjustOptions($('qtype<%$qu->id%>'),<%$qu->id||"''"%>);
-        });
+        })});
     </script>
 
     <table>
@@ -116,7 +115,7 @@ if ($ARGS{c} eq 'delete') {
         return "_OPTIONS_<input id=\"answers_COUNT_in\" class=\"namefield\" type=\"text\" style=\"width:340px\" name=\"answers_COUNT_\" value=\"$val\">",
     }, "")
     %>
-    <input type="button" onclick="window.addToList('answers')" value="Add answer">
+    <input type="button" onclick="window.addToList('answers');" value="Add answer">
     </td>
     </tr>
 

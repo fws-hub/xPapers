@@ -82,5 +82,14 @@ num(format_number($e->viewings),"download") .
 $ARGS{dir} = "/bbs/";
 $m->comp("bbs/threads-basic.pl",%ARGS,__entry__=>$e,nocap=>1,separate=>1,noheader=>1);
 
+if ($ARGS{edit}) {
+    </%perl>
+        <script type="text/javascript">
+            onYUI(function() { editEntry2('<%$e->id%>') });
+        </script>
+    <%perl>
+}
+
+
 </%perl>
 

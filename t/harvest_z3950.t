@@ -5,12 +5,6 @@ use Test::More;
 
 use xPapers::Harvest::Z3950;
 my $conn = xPapers::Harvest::Z3950::conn();
-<<<<<<< HEAD:t/harvest_z3950.t
-warn( xPapers::Harvest::Z3950::checkSize( $conn, 'B395', 2008 ) );
-#warn( xPapers::Harvest::Z3950::checkSplit( $conn, 'B1.' ) );
-=======
->>>>>>> 6b8416319e27816ede394425dff47b9279936c14:t/harvest_z3950.t
-
 is_deeply( 
    [ xPapers::Harvest::Z3950::prefixesForRange( 0, 999 ) ],
    [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]

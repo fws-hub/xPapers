@@ -20,3 +20,4 @@ while (my $u = $it->next) {
 
 }
 
+1;

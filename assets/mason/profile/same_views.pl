@@ -9,7 +9,7 @@ error("Unknown user") unless $luser;
 error("Answers unavailable or access restricted") unless $ARGS{__same} or $luser->x->publishView;
 
 print gh("People with views similar to those of " . $luser->fullname);
-print "Note: similarity is computed nightly<p>";
+print "Note: similarity is computed nightly based on current answers as seen <a href='/profile/$luser->{id}/myview.html'>here</a>.<p>";
 my @top;
 my %scores;
 tie @top, "Tie::Array::Sorted", sub { $scores{$_[1]} <=> $scores{$_[0]} };

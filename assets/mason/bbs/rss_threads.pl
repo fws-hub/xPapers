@@ -17,6 +17,7 @@ $x->channel(
 );
 
 for my $t (@{$ARGS{__threads__}}) {
+    next unless $t;
     my $fp = $t->firstPost;
     next unless $fp;
     my ($desc,$b) = $fp->body; #$rend->wordSplit($fp->body,100);

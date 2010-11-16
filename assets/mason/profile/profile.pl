@@ -11,6 +11,8 @@
 
 %if ($ARGS{__same}) {
 
+<& followers.html, %ARGS &>
+
 <table width="100%" cellspacing="0">
 <tr>
 <td width="50%" valign="top">

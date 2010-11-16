@@ -18,3 +18,4 @@ while( my $todel = $it->next ){
 }
 print "$i records deleted\n" if $i > 0;
 
+1;
