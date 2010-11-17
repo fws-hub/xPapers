@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 use File::Path 'make_path';
+use xPapers::Conf;
 
 print "www user (enter empty to accept the default www-data): ";
 chomp( my $user = <STDIN> );
@@ -9,16 +10,16 @@ $user ||= 'www-data';
 my ($login,$pass,$uid,$gid) = getpwnam($user)
     or die "$user not in passwd file";
 
-my @dirs = qw(
-    var/mason/default_site
-    var/files/tmp
-    var/files/arch
-    var/dynamic-assets/default_site
-    var/data/harvester/log
-    var/data/harvester/tmp
-    var/data/abebooks
-    var/sphinx
-    var/libcache
+my @dirs = (
+    "var/mason/$DEFAULT_SITE_NAME",
+    'var/files/tmp',
+    'var/files/arch',
+    "var/dynamic-assets/$DEFAULT_SITE_NAME",
+    'var/data/harvester/log',
+    'var/data/harvester/tmp',
+    'var/data/abebooks',
+    'var/sphinx',
+    'var/libcache',
 );
 
 make_path( @dirs );
