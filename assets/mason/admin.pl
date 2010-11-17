@@ -11,7 +11,7 @@ use xPapers::Pages::PageAuthor;
 use xPapers::OAI::Repository;
 use xPapers::Utils::System;
 
-my ($entry,$diff,$post,$forum,$thread,$tuser,$repository,$feed,$journal);
+my ($entry,$diff,$post,$forum,$thread,$tuser,$repository,$feed,$journal, $poll);
 
 if ($ARGS{eId}) {
     $entry = xPapers::Entry->get($ARGS{eId});
@@ -49,6 +49,12 @@ if ($ARGS{jId}) {
     $journal = xPapers::Journal->get($ARGS{jId});
     error("bad journal id") unless $journal;
 }
+
+if ($ARGS{poId}) {
+    $poll = xPapers::Polls::Poll->get($ARGS{poId});
+    jserror("Invalid poll") unless $poll;
+}
+
 
 if ($ARGS{c} eq "deleteArchive") {
     $user->dbh->do("update main set deleted = 1 where source_id like 'oai://" . $repository->id . "/%'");
@@ -262,6 +268,12 @@ The $s->{niceName} Team
     $diff->checked(1);
     $diff->accept;
     return;
+} elsif ($ARGS{c} eq 'updateMenu') {
+    my $file = "$PATHS{LOCAL_BASE}/s/p/inc/menustatic.html"; 
+    open F,">$file";
+    print F $ARGS{menuhtml};
+    close F;
+    return;
 } elsif ($ARGS{c} eq 'deleteApplication') {
     my $app = xPapers::Editorship->get($ARGS{id});
     jserror("Not found") unless $app;
@@ -294,6 +306,12 @@ elsif( $ARGS{c} eq 'downgradeSet' ){
     $repo->downgrade_set( $ARGS{set_spec}, $ARGS{type} );
     $m->comp( 'archives/setEntryList.pl', %ARGS );
 }
+if ($ARGS{c} eq 'closePoll') {
+    $poll->close(DateTime->now(time_zone=>$TIMEZONE));
+    $poll->save;
+    return;
+}
+
 
 
 sub update_opp {

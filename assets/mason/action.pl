@@ -21,61 +21,66 @@ $QUESTIONS{catExists} = 'select id as answer from cats where canonical and name 
 <%perl>
 
 if ($ARGS{c} eq 'go') {
-    writeLog($root->dbh,$q,$tracker,"go");
-    return;
+writeLog($root->dbh,$q,$tracker,"go");
+return;
 }
 
 #jserror(join("  ", map { "$_ : $ARGS{$_}" } keys %ARGS));
 
 # Generic params
-my ($tuser, $entry, $forum, $thread, $list, $filter, $cat, $group, $alert, $lo);
+my ($tuser, $entry, $forum, $thread, $list, $filter, $cat, $group, $alert, $lo, $poll);
 #
 # Check and preload some common params
 #
 
 if ($ARGS{eId}) {
-    $entry = xPapers::Entry->get($ARGS{eId});
-    jserror("Entry not found") unless $entry;
+$entry = xPapers::Entry->get($ARGS{eId});
+jserror("Entry not found") unless $entry;
 }
 
 if ($ARGS{lId}) {
-    $list = xPapers::Cat->get($ARGS{lId});
-    jserror("List not found") unless $list;
+$list = xPapers::Cat->get($ARGS{lId});
+jserror("List not found") unless $list;
 }
 
 if ($ARGS{fId}) {
-    $filter = xPapers::Query->get($ARGS{fId});
-    jserror("Invalid filter") unless $filter;
+$filter = xPapers::Query->get($ARGS{fId});
+jserror("Invalid filter") unless $filter;
 }
 
 if ($ARGS{cId}) {
-    $cat = xPapers::Cat->get($ARGS{cId});
-    jserror("Invalid category") unless $cat;
+$cat = xPapers::Cat->get($ARGS{cId});
+jserror("Invalid category") unless $cat;
 }
 
 if ($ARGS{bId}) {
-    $forum = xPapers::Forum->get($ARGS{bId});
-    jserror("Invalid forum") unless $forum;
+$forum = xPapers::Forum->get($ARGS{bId});
+jserror("Invalid forum") unless $forum;
 }
 
 if ($ARGS{tId}) {
-    $thread = xPapers::Thread->get($ARGS{tId});
-    jserror("Invalid thread") unless $thread;
+$thread = xPapers::Thread->get($ARGS{tId});
+jserror("Invalid thread") unless $thread;
 }
 
 if ($ARGS{gId}) {
-    $group = xPapers::Group->get($ARGS{gId});
-    jserror("Invalid group") unless $group;
+$group = xPapers::Group->get($ARGS{gId});
+jserror("Invalid group") unless $group;
 }
 
 if ($ARGS{uId}) {
-    $tuser = xPapers::User->get($ARGS{uId});
-    jserror("Invalid user") unless $tuser;
+$tuser = xPapers::User->get($ARGS{uId});
+jserror("Invalid user") unless $tuser;
 }
 
 if ($ARGS{aId}) {
-    $alert = xPapers::Alert->get($ARGS{aId});
-    jserror("Invalid alert") unless $alert;
+$alert = xPapers::Alert->get($ARGS{aId});
+jserror("Invalid alert") unless $alert;
+}
+
+if ($ARGS{poId}) {
+    $poll = xPapers::Polls::Poll->get($ARGS{poId});
+    jserror("Invalid poll") unless $poll;
 }
 
 

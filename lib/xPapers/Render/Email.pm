@@ -33,7 +33,7 @@ body li div span { font-family: Arial,Verdana; font-size:12px }
 .pub_name { font-style: italic; }
 .header_source { font-weight: bold }
 .entryList{ margin-bottom: 10px }
-.entry { padding-bottom:5px; display:block; margin-left:0px; }
+.entry { padding-bottom:0px; display:block; margin-left:0px; }
 .sh0 { color: #$C2; font-weight:bold; margin-left: auto; margin-right:auto; text-decoration:underline; padding-bottom:10px;; font-weight:bold }
 .sh3 { font-size: 11px; font-color:#555; padding-top:4px }
 .abstract { font-size: 12px; color: #333 }
@@ -49,6 +49,7 @@ sub renderEntry {
     $me->{showAbstract} = 1;
     $me->{linkNames} = 0;
     my $e = shift;
+    $e->{extraOptions} .= '<br>';
     my @xtra;
     if (my $link = $e->firstComputedLink(affiliateLink=>1)) {
         $me->{jsLinks} = 1;

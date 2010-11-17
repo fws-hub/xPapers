@@ -149,7 +149,7 @@ print "<li>None specified</li>" if $#areas == -1;
 </%perl>
 </ul>
 
-%if (0) { #$same or $x->publishView) {
+%if ($same or $x->publishView) {
 <p>
 <& nav_extra.html, x => $x, p => $p &>
 </p>

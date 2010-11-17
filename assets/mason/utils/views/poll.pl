@@ -98,8 +98,11 @@ if ($ARGS{c} eq 'delete') {
         print " (randomized)" if $po->randomize;
     </%perl>
     <br>
-    <a href="/polls/editq.pl?poId=<%$po->{id}%>">View / edit questions</a> | <a href="/polls/answer.pl?poId=<%$po->id%>">Take this poll</a> |
-    <a href="/polls/results.pl?poId=<%$po->{id}%>">View results</a>
+    <a href="/polls/editq.pl?poId=<%$po->{id}%>">View / edit questions</a> | 
+    <a href="/polls/answer.pl?poId=<%$po->id%>">Take this poll</a> |
+    <a href="/polls/results.pl?poId=<%$po->{id}%>">View results</a> |
+    <span class='ll' onclick="admAct('closePoll',{poId:<%$po->id%>},function() {alert('done')})">Close</span>
+
     </td>
     </tr>
 

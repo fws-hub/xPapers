@@ -1,0 +1,16 @@
+<& ../header.html, subtitle=>'Fulltext items' &>
+<%gh("Records with locally archived fulltext copies")%>
+
+<%perl>
+my $it = xPapers::EntryMng->get_objects_iterator(clauses=>['not isnull(file) and length(file) > 1 and not deleted']);
+my $count = 0;
+while (my $e = $it->next) {
+
+    print $rend->renderEntry($e);
+    $count++;
+
+
+}
+print "<p><b>$count</b> records shown</p>";
+
+</%perl>

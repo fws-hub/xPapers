@@ -9,6 +9,7 @@ error("Unknown user") unless $luser;
 error("Answers unavailable or access restricted") unless $ARGS{__same} or $luser->x->publishView;
 
 print gh("People with views similar to those of " . $luser->fullname);
+print "See also:<ul><li><a href='/profile/$luser->{id}/myview.html'>Answers</a></li><li><a href='/surveys/public_respondents.html'>Browse public respondents</a></li><li><a href='/surveys/'>PhilPapers Survey results</a></li></ul><p>";
 print "Note: similarity is computed nightly based on current answers as seen <a href='/profile/$luser->{id}/myview.html'>here</a>.<p>";
 my @top;
 my %scores;
