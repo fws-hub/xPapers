@@ -25,6 +25,6 @@ my @dirs = (
 make_path( @dirs );
 chown( $uid, $gid, @dirs ) ||
     warn "Could not change the owner to uid: $uid (this script probably needs to be run under sudo - you can run it again)\n";
-chmod( 0775, 'var/dynamic-assets/default_site' ) ||
-    warn "Could not change the permissions of 'var/dynamic-assets/default_site'\n";
+chmod( 0775, "var/dynamic-assets/$DEFAULT_SITE_NAME" ) ||
+    warn "Could not change the permissions of 'var/dynamic-assets/$DEFAULT_SITE_NAME'\n";
 
