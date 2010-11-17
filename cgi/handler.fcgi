@@ -46,6 +46,7 @@ use xPapers::Site;
     use xPapers::Conf;
     use xPapers::Conf::Forums;
     use xPapers::Conf::Cats;
+    use xPapers::Conf::Surveys;
     use xPapers::Utils::CGI;
     use xPapers::Diff;
     use xPapers::User;
