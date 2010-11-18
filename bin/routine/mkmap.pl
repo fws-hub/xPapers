@@ -45,7 +45,7 @@ while (my $c = $cats->next) {
 	$count{categories}++;
 }
 
-$m->write("$LOCAL_BASE/raw/sitemap.gz");
+$m->write("$LOCAL_BASE/assets/raw/sitemap.gz");
 
 # Now we make maps that contain users, threads, and entries with good content
 my @items;

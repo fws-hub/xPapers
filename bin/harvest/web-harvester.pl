@@ -41,7 +41,7 @@ for (@list) {
     $e->{defective} = 1;
     $e->{pub_type} = 'unknown';
     print $e->toString . "\n";
-    cleanAll($e,"$PATHS{LOCAL_BASE}/etc");
+    cleanAll($e);
     if ($e->{deleted}) {
         warn "Dropped by cleanAll: " . $e->toString . "\n";
         next;

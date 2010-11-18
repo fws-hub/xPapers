@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use xPapers::Conf '%PATHS';
+use xPapers::Conf '$DEFAULT_SITE';
 use Text::Aspell;
 use xPapers::Utils::Lang 'getSuggestion';
 use utf8;
@@ -10,7 +10,7 @@ use Devel::Peek;
 binmode(STDOUT,":utf8");
 
 my $speller = Text::Aspell->new;
-$speller->set_option('personal', "$PATHS{INTEL_FILES}dictionary.philpapers");
+$speller->set_option('personal', $DEFAULT_SITE->fullConfFile( 'dictionary' ) );
 
 # my $misspelled =  "Npûs";
 # Dump( $misspelled );

@@ -844,7 +844,7 @@ sub authors_string {
     
 sub hasGoodTitle {
     my $self = shift;
-    my $regexes = file2array( "$PATHS{LOCAL_BASE}/etc/exclusions/titles.txt" );
+    my $regexes = file2array( $DEFAULT_SITE->fullConfFile( 'exclusions/titles.txt' ) );
     for my $rx ( @$regexes ){
         return 0 if $self->title =~ /$rx/;
     }

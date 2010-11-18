@@ -3,10 +3,10 @@
     domain   => 'production',
     type     => 'main',
     driver   => 'mysql',
-    database => 'xpapers',
+    database => 'db',
     host     => 'localhost;enable_mysql_utf8=1',
     username => 'xpapers',
-    password => 'CHANGEME',
+    password => 'k1w1br0k4r',
     server_time_zone => 'GMT',
 );
 
@@ -24,18 +24,14 @@ $CACHE_FILE = '/dev/shm/xpapers';
 # Your subject matter
 $SUBJECT = 'Philosophy';
 
-# Your color scheme
-$C1 = '666666';
-$C2 = '000000'; 
-$C3 = '1f5d5d';
-$C4 = '1f5d5d';
-
 # Emails to send messages from the contact form
 @EDITORS_EMAILS = ('david.bourget@anu.edu.au','chalmers@anu.edu.au');
 
 # The advertised name and email of the sender for email notices
 $EMAIL_SENDER = 'PhilPapers <noreply@philpapers.org>';
 
+# User ids of forum moderators
+@MODERATORS = qw/1/;
 #$SMTPHOST = "localhost:587";
 $SMTPHOST = "localhost";
 
@@ -43,8 +39,7 @@ $SMTPHOST = "localhost";
 $TEST_MODE = 0;
 
 # For the password crypt function. Any string here. Maybe 5-10 chars long.
-$PASSWD_SALT = "CHANGEME";
-$PASSKEY = "CHANGEME to some random characters";
+$PASSWD_SALT = "0-20~~~~~~~~";
 
 # Domains whose links are considered unlikely to break. You should add any domain from which you have many links here.
 # These will be checked less systematically by the link checker, saving a lot of time.
@@ -52,9 +47,6 @@ $PASSKEY = "CHANGEME to some random characters";
 
 # Safe URLs used to check if we are connected to the net. 
 @SAFE_URLS = ("http://www.google.com","http://www.microsoft.com");
-
-# Your fatal error message
-$ERROR_MESSAGE = "<h1>Oops, an error has occurred</h1>";
 
 #
 # Harvesting settings
@@ -94,14 +86,14 @@ $TZ_OFFSET_STR = formatTZ($TZ_OFFSET);
 );
 
 # Your ReCAPTCHA credentials
-$RECAP_KEY = 'CHANGEME';
-$RECAP_PUBKEY = 'CHANGEME';
+$RECAP_KEY = '6LdDNAMAAAAAAOJ1_JBkyr7g_zTzNcmvG8Y18w9r';
+$RECAP_PUBKEY = '6LdDNAMAAAAAAB2nJfM_g7jPAyYR5xmReCTJVvYW';
 
 # Your Amazon Affiliate credentials
 %AMAZON = (
     data_dir => "$PATHS{LOCAL_BASE}/var/data/amazon",
-    key    => 'CHANGEME', 
-    secret => 'CHANGEME',
+    key    => '1CYYSXRPEAM0Q99H1WR2', 
+    secret => '5Jl9oCqqQPt3tv9C1xIfxJ2bF2q48i9FPqZll8Jt',
     associate_tag => {
         uk => 'philp-21', # change that too 
         us => 'philp-20',
@@ -110,7 +102,7 @@ $RECAP_PUBKEY = 'CHANGEME';
 );
 
 %ABEBOOKS = (
-    clientkey => 'CHANGEME',
+    clientkey => '060d105b-6d78-4f95-b520-da98c97def75',
     data_dir  => "$PATHS{LOCAL_BASE}/var/data/abebooks",
     locales   => { us => 'USD', uk => 'GBP', ca => 'CAD', au => 'AUD' },
 );
@@ -123,7 +115,7 @@ $RECAP_PUBKEY = 'CHANGEME';
 my $hostname = `hostname`;
 chomp $hostname;
 %SITES = (
-    default_site => {
+    philpapers => {
         paths => {
             QUICK_SEARCH_SCRIPT=>'/autosense.pl',
             SEARCH_SCRIPT=>'/asearch.pl',
@@ -138,11 +130,11 @@ chomp $hostname;
         defaultFilter=>['!deleted'=>1],
         root=>1,
         BASE_URL=>'/',
-        niceName=>'XPapers',
-        niceNameP => "XPapers'",
-        subjectAdj => 'subject_adjective',
+        niceName=>'PhilPapers',
+        niceNameP => "PhilPapers'",
+        subjectAdj => 'philosophical',
         feedServer => 'feeds.philpapers.org',
-        name=>'default_site',
+        name=>'philpapers',
         domain => $hostname,
         server=>"http://$hostname",
         defaultRenderer=>'xPapers::Render::HTML',
@@ -150,7 +142,7 @@ chomp $hostname;
     }
 );
 
-$DEFAULT_SITE_NAME = 'default_site';
+$DEFAULT_SITE_NAME = 'philpapers';
 
 # Where to point for your license for OAI-PMH data
 $OAI_METADATA_RIGHTS_REF = $DEFAULT_SITE->{server} . '/help/terms.html';
@@ -169,5 +161,11 @@ $OAI_METADATA_RIGHTS_REF = $DEFAULT_SITE->{server} . '/help/terms.html';
     most_viewed => {where=>'duplicate=0',order=>'viewings desc, authors, date',limit=>'100',desc=>"100 most viewed works",prefix=>'viewings'}
 );
 
+
+# Our colour scheme
+$C1 = '666666';
+$C2 = '10A010'; 
+$C3 = '133d9f';
+$C4 = '104bb8';
 
 #print "Extra config loaded.\n";

@@ -9,7 +9,7 @@ my $it = xPapers::EntryMng->get_objects_iterator(query=>[
 ]);
 while (my $e = $it->next) {
     print "Before: " . $e->source . "\n";
-    $e->source(cleanJournal($e->source,$PATHS{INTEL_FILES}));
+    $e->source(cleanJournal($e->source));
     print "After: " . $e->source . "\n";
     $e->save;
 }

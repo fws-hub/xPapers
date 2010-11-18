@@ -82,7 +82,7 @@ sub entry_from_item {
     $entry->publishAbstract( 1 );
     $entry->pubHarvest( 1 );
     $entry->author_abstract( $item->{description} );
-    cleanAll( $entry, $PATHS{INTEL_FILES} );
+    cleanAll( $entry );
     return $entry;
 }
 

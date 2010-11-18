@@ -39,7 +39,7 @@ local $ENV{TMPDIR} = $PATHS{HARVESTER} . '/tmp';
 
     sub handle_entry {
         my ( $self, $entry, $opts ) = @_;
-        cleanAll($entry,"$PATHS{INTEL_FILES}");
+        cleanAll($entry);
         return if $entry->{deleted};
         print "Got " . $entry->toString . "\n";
         my ( $diff ) = xPapers::EntryMng->addOrDiff( $entry, $HARVESTER_USER );

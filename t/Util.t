@@ -3,7 +3,7 @@ use strict;
 use Test::More;
 
 use xPapers::Util;
-use xPapers::Conf qw/ %PATHS $DEFAULT_SITE /;
+use xPapers::Conf qw/ $DEFAULT_SITE /;
 use xPapers::Entry;
 
 
@@ -53,13 +53,13 @@ is( xPapers::Util::fixNameParens( 'Aiyar, Review author[s]: C. P. Ramaswami' ), 
 
 my $entry = xPapers::Entry->new;
 $entry->addAuthor( 'Hoebel, E. Adamson (Edward Adamson), 1906-1993.' );
-cleanAll($entry, "$PATHS{LOCAL_BASE}/etc");
+cleanAll($entry);
 my @authors = $entry->getAuthors;
 is_deeply( \@authors, [ 'Hoebel, Edward Adamson' ] );
 
 $entry = xPapers::Entry->new;
 $entry->addAuthor( 'Drucker, Peter F. (Peter Ferdinand), 1909-2005' );
-cleanAll($entry, "$PATHS{LOCAL_BASE}/etc");
+cleanAll($entry);
 my @authors = $entry->getAuthors;
 is_deeply( \@authors, [ 'Drucker, Peter Ferdinand' ] );
 

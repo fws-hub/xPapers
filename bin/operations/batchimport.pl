@@ -97,7 +97,7 @@ for my $e (@$res) {
    $e->{source_id} = "import//" . $b->id . ":$count";
    $e->{db_src} = 'user';
 
-   cleanAll($e,"$PATHS{LOCAL_BASE}/etc");
+   cleanAll($e);
    
    # Try to find the item
    my $ei = xPapers::EntryMng->fuzzyFind($e,undef,1);
