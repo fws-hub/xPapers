@@ -14,6 +14,7 @@ my @dirs = (
     "var/mason/$DEFAULT_SITE_NAME",
     'var/files/tmp',
     'var/files/arch',
+    'var/embed',
     "var/dynamic-assets/$DEFAULT_SITE_NAME",
     'var/data/harvester/log',
     'var/data/harvester/tmp',

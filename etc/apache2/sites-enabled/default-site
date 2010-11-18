@@ -14,13 +14,14 @@
     Alias /assets /home/xpapers/assets/
 	Alias /dynamic-assets /home/xpapers/var/dynamic-assets
 	Alias /archive "/home/xpapers/var/files/arch/"
+    Alias /embed "/home/xpapers/var/embed/"
 	ScriptAlias /cgi/ /home/xpapers/cgi/
 
 	RewriteEngine on
 	RewriteLog /var/log/apache2/rewrite.log
 	RewriteLogLevel 9
 
-    # That's how the right [xpapers]/sites/* files are used
+    # That's how the right [xpapers]/sites/* files are found
 	SetEnv SITE default_site
 
     RewriteRule ^/assets\/raw/ - [L]
