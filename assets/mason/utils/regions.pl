@@ -3,20 +3,7 @@
 my $sth = $root->dbh->prepare($ARGS{__query});
 $sth->execute;
 
-=old
-my $eu = file2hash("$LOCAL_BASE/etc/european_codes.txt");
-$eu->{$_} = 'Europe' for keys %$eu;
-$eu->{US} = 'United States';
-$eu->{CA} = 'Canada';
-$eu->{NZ} = 'Australasia';
-$eu->{PG} = 'Australasia';
-$eu->{AU} = 'Australasia';
-$eu->{UK} = 'United Kingdom';
-$eu->{GB} = 'United Kingdom';
-$eu->{'??'} = 'Unknown region';
-=cut
-my $names = file2hash("$LOCAL_BASE/etc/country_codes.txt");
-
+my $names = file2hash( $DEFAULT_SITE->fullConfFile( 'country_codes.txt' ));
 
 my %res;
 my $unknown = 0;

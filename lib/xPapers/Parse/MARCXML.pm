@@ -248,7 +248,7 @@ sub parserec {
         }
     }
 
-    cleanAll($e,"$PATHS{LOCAL_BASE}/etc");
+    cleanAll($e);
     #$e->setKey("*");
 
     $e->{__not_savable} = 0;
@@ -309,7 +309,7 @@ sub parserec {
             $ch->db_src('lib');
             $ch->forcePro(1);
             print "Got chapter: " . $ch->toString . "\n";
-            cleanAll($ch,"$PATHS{LOCAL_BASE}/etc");
+            cleanAll($ch);
             print "$chf: " . $ch->toString . "\n";
             #$ch->setKey("*");
             #xPapers::EntryMng->addOrDiff( $ch, $HARVESTER_USER );
