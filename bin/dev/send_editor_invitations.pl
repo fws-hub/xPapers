@@ -45,7 +45,7 @@ for my $uId ( keys %editorships ){
     my $email = xPapers::Mail::Message->new;
     $email->uId($uId);
     $email->brief($DEFAULT_SITE->{niceName} . "invitest you to be an editor");
-    my $content = slurp( "$PATHS{INTEL_FILES}/msg_tmpl/editor_invite.txt" );
+    my $content = slurp( $DEFAULT_SITE->fullConfFile( "msg_tmpl/editor_invite.txt" ) );
     my $cats;
     for my $cat ( @{ $editorships{$uId} } ){
         my $editorship = xPapers::Editorship->new(

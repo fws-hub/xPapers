@@ -179,8 +179,8 @@ The $s->{niceName} Team
     return;
 } elsif ($ARGS{c} eq 'processEdApps') {
     my $edships = xPapers::ES->get_objects(query=>[cId=>$ARGS{cId}]);
-    my $acceptTpl = getFileContent("$PATHS{LOCAL_BASE}/etc/msg_tmpl/ed_app_accepted.txt");
-    my $rejectTpl = getFileContent("$PATHS{LOCAL_BASE}/etc/msg_tmpl/ed_app_rejected.txt");
+    my $acceptTpl = getFileContent($DEFAULT_SITE->fullConfFile( 'msg_tmpl/ed_app_accepted.txt' ));
+    my $rejectTpl = getFileContent($DEFAULT_SITE->fullConfFile( 'msg_tmpl/ed_app_rejected.txt' ));
     my $cat = xPapers::Cat->get($ARGS{cId});
     for my $eds (@$edships) {
         if ($ARGS{choice} == $eds->uId and !$ARGS{declineAll}) {

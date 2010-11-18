@@ -20,14 +20,14 @@ Message templates:<br>
 <td width="400px" valign="top">
     <%perl>
     print "Acceptance message:<br>";
-    my $c = getFileContent("$PATHS{LOCAL_BASE}/etc/msg_tmpl/ed_app_accepted.txt");
+    my $c = getFileContent($DEFAULT_SITE->fullConfFile( 'msg_tmpl/ed_app_accepted.txt' ));
     print textile($c);
     </%perl>
 </td>
 <td width="400px" valign="top">
     <%perl>
     print "Rejection message:<br>";
-    $c = getFileContent("$PATHS{LOCAL_BASE}/etc/msg_tmpl/ed_app_rejected.txt");
+    $c = getFileContent($DEFAULT_SITE->fullConfFile( 'msg_tmpl/ed_app_rejected.txt' ));
     print textile($c);
     </%perl>
 </td>
