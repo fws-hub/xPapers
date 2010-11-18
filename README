@@ -43,7 +43,7 @@ Hardware-wise, it all depends on the amount of traffic you have to support. At t
 INSTALLATION INSTRUCTIONS
 =========================
 
-With a bit of luck, you should be able to get xPapers going in little time by following these instructions to the letter on a brand new Debian or Ubuntu system. Installing on a RHEL-style system will require that you do a bit of research to find the RPM packages that correspond to the deb packages used here. These instructions assumes that you don't have any of the external dependencies (e.g. MySQL, Apache) installed. Adjust as appropriate. 
+With a bit of luck, you should be able to get xPapers going in little time by following these instructions to the letter on a brand new Debian or Ubuntu system. Installing on a RHEL-style system will require that you do a bit of research to find the RPM packages that correspond to the deb packages used here. These instructions assume that you don't have any of the external dependencies (e.g. MySQL, Apache) installed. Adjust as appropriate. 
 
 
 APT dependencies
