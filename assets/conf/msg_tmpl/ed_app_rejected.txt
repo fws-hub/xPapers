@@ -1,0 +1,6 @@
+[HELLO]We have processed applications for the editorship of category [CAT]. Unfortunately, we are unable to grant you the editorship at the moment. [HOWEVER][CUSTOM_MSG] 
+
+There are still many categories without editors. We hope that you will consider editing another category, or consider editing this category at a later point in the future. 
+
+"View my pending applications":http://philpapers.org/utils/edpending.pl
+[BYE]

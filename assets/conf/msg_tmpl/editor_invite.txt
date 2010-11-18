@@ -1,0 +1,7 @@
+[HELLO]We are pleased to invite you to become an editor of following categories: 
+[CAT]
+
+You will become editor of these categories as soon as you confirm your intent. You have one week to confirm, after which the position will be offered to someone else. Please follow the link below to accept or decline this offer.
+
+"Open confirmation page":[CONFLINK]
+[BYE]
