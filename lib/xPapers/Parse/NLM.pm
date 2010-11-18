@@ -87,7 +87,7 @@ sub entryFromXml {
         $entry->addLink( $link_node->string_value );
     }
 
-    cleanAll( $entry, $PATHS{INTEL_FILES} );
+    cleanAll( $entry );
 
     $entry->title( $entry->title);
     xPapers::EntryMng->addOrUpdate( $entry );
