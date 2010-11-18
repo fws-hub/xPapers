@@ -2,7 +2,6 @@ package xPapers::Render::HTML;
 use utf8;
 use xPapers::Render::Basic;
 use xPapers::Link::GoogleScholar;
-use xPapers::Link::Free;
 use xPapers::Util qw(capitalize toUTF rmTags parseName urlEncode isIncomplete sameEntry mkNumId lastname strip quote reverseName);
 use HTML::Entities qw/encode_entities/;
 use Number::Format qw(format_number);

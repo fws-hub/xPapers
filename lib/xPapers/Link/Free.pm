@@ -3,16 +3,17 @@ use strict;
 
 sub new {
  	my $class = shift;
- 	my $self = {};
+ 	my $self = { @_ };
 	bless $self, $class;
 	return $self;
 }
 
+sub site { shift->{site} }
+
 sub init {
-    my ($me,$file) = @_;
-    $file =~ s!/$!!;
-    $me->{re} = file2array($file."/nonfree.txt");
-    $me->{bad} = file2array($file."/exclusions/links.txt");
+    my ($me) = @_;
+    $me->{re} = file2array($me->site( 'nonfree.txt' ) );
+    $me->{bad} = file2array($me->site('exclusions/links.txt' ) );
 }
 
 sub free {

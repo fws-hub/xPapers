@@ -1,7 +1,7 @@
 use xPapers::Conf;
 use File::Slurp 'slurp';
 my $base = $PATHS{LOCAL_BASE};
-my @dirs = map { "$base/$_" } qw/lib comp bin cgi t/;
+my @dirs = map { "$base/$_" } qw(lib assets/mason sites bin cgi t);
 my %seen;
 my %omit = ( strict => 1, warnings => 1);
 

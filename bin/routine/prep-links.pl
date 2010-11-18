@@ -1,7 +1,6 @@
 $|=1;
 # usage: prep-links.pl infile settings
 
-use xPapers::Link::Free;
 use HTML::Entities;
 use xPapers::Util qw/file2array cleanAll cleanLinks/;
 use xPapers::Conf;

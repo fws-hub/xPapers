@@ -18,7 +18,7 @@ use xPapers::Link::Free;
 use Unicode::Normalize;
 use Language::Guess;
 use Data::Dumper;
-use xPapers::Conf qw/%SITES/;
+use xPapers::Conf;
 
 my $DS = 0;
 
@@ -856,17 +856,16 @@ sub getFileContent {
 
 sub cleanAll {
 
-    my ($e,$cfgDir) = @_;
-    $cfgDir =~ s/\/$//;
+    my ($e) = @_;
     if (!$np) {
         $np = new xPapers::Parse::NamePicker;
-        $np->init("$cfgDir/names/names.txt");
+        $np->init( $DEFAULT_SITE->fullConfFile( 'names/names.txt' ) );
     }
-    $nocaps2 = file2hash("$cfgDir/names/nocap-s.txt") unless $nocaps2;
-    $decap = file2hash("$cfgDir/names/decap.txt") unless $decap;
-    $excludeTitle = file2array("$cfgDir/exclusions/titles.txt") unless $excludeTitle;
-    $excludeAuthors = file2array("$cfgDir/exclusions/authors.txt") unless $excludeAuthors;
-    $excludeJournals = file2array("$cfgDir/exclusions/journal_names.txt") unless $excludeJournals;
+    $nocaps2 = file2hash($DEFAULT_SITE->fullConfFile( 'names/nocap-s.txt' ) ) unless $nocaps2;
+    $decap = file2hash($DEFAULT_SITE->fullConfFile( 'names/decap.txt' ) ) unless $decap;
+    $excludeTitle = file2array($DEFAULT_SITE->fullConfFile( 'exclusions/titles.txt' ) ) unless $excludeTitle;
+    $excludeAuthors = file2array($DEFAULT_SITE->fullConfFile( 'exclusions/authors.txt' ) ) unless $excludeAuthors;
+    $excludeJournals = file2array($DEFAULT_SITE->fullConfFile( 'exclusions/journal_names.txt' ) ) unless $excludeJournals;
 
     my $changed = 0;
     my @authors;
@@ -947,9 +946,9 @@ sub cleanAll {
 	ed_fix($e);
 	cleanNames($e);
 	mark_defective($e,$np);
-    cleanLinks($e,$cfgDir);
+    cleanLinks($e);
     if ($e->{pub_type} eq 'journal') {
-        $e->source(cleanJournal($e->source,$cfgDir));
+        $e->source(cleanJournal($e->source) );
     }
     $e->{pub_type} = "manuscript" . ($e->{date} =~ /(\d\d\d\d)/ ? "/$1" : '') if $e->{source} =~ /^\s*Manuscript[.\s]*$/i;
 
@@ -990,34 +989,23 @@ sub _regexp_for_our_resolvers {
 
 sub cleanLinks {
 
-    my ($e,$cfgDir) = @_;
-
-    $cfgDir =~ s!/$!!;
+    my ($e) = @_;
 
     #print "Cleaning " . $e->toString . "\n";
     # load the info and tools we need if not already there
 
     if (!$freeChecker) {
         $freeChecker = new Free;
-        $freeChecker->init($cfgDir);
+        $freeChecker->init( site => $DEFAULT_SITE );
     }
 
-    $badtypes = file2array("$cfgDir/banned_types.txt") if !$badtypes and -r "$cfgDir/banned_types.txt";
-    $banned = file2array("$cfgDir/exclusions/links.txt") if !$banned and -r "$cfgDir/exclusions/links.txt";
-    $antiban = file2array("$cfgDir/antibanned.txt") if !$antibad and -r "$cfgDir/antibanned.txt";
-    $bad_sources = file2array("$cfgDir/bad_domains.txt") if !$bad_sources and -r "$cfgDir/bad_domains.txt";
+    $badtypes = file2array( $DEFAULT_SITE->fullConfFile( 'banned_types.txt' ) ) if !$badtypes and -r $DEFAULT_SITE->fullConfFile( 'banned_types.txt' );
+    $banned = file2array($DEFAULT_SITE->fullConfFile( 'exclusions/links.txt' ) ) if !$banned and -r $DEFAULT_SITE->fullConfFile( 'exclusions/links.txt' );
+    $antiban = file2array($DEFAULT_SITE->fullConfFile( 'antibanned.txt' ) ) if !$antibad and -r $DEFAULT_SITE->fullConfFile( 'antibanned.txt' );
+    $bad_sources = file2array($DEFAULT_SITE->fullConfFile( 'bad_domains.txt' ) ) if !$bad_sources and -r $DEFAULT_SITE->fullConfFile( 'bad_domains.txt' );
 
     my $c = 0;
     my $u = 0;
-
-   # remove links if banned type and entry does not match antiban 
-   if ( $cfgDir =~ "online" and 
-        grep {$e->{pub_type} eq $_} @$badtypes and
-        !grep {$e->toString =~ /$_/i} @$antiban
-        ) {
-       $e->{links} = [];
-       return;
-   }
 
    my @links = $e->getLinks;
    my %new;
@@ -1286,9 +1274,8 @@ sub cleanName {
 sub cleanJournal {
 #    die "this needs to be updated: add journal name mapping";
     my $source = shift;
-    my $cfgDir = shift;
     unless ($journal_map) {
-        $journal_map = file2hash("$cfgDir/journal_map.txt");
+        $journal_map = file2hash($DEFAULT_SITE->fullConfFile( 'journal_map.txt' ) );
         $journal_map->{lc $_} = $journal_map->{$_} for keys %$journal_map;
     }
     return "" if $source eq '[Journal (Paginated)]';
