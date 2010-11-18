@@ -1,12 +1,38 @@
-=============================================================================
+================================================================================
+XPapers: A subject repository and virtual research environment platform
+================================================================================
 
-This is an experimental release of xPapers.
-A more stable, easier to use, better documented version is coming soon. 
+ABOUT THIS RELEASE (1.0-experimental)
 
-=============================================================================
+This is an experimental release of xPapers. This should not even be considered beta yet. A more stable, easier to use, better documented version is coming soon. 
+
+LEGAL
+
+xPapers is (c)opyright David Bourget 2006-2010 and the University of London 2009-2010. 
+
+xPapers is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3 as published by the Free Software Foundation. See http://www.gnu.org/licenses/ for a copy of the license.  
+
+xPapers is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+
+SPONSOR
+
+This software has been developed with the financial support of the Join Information Systems Committee (JISC) as part of the Information Environment Programme (PhilPapers 2.0 project). For more information on JISC's programmes, see http://www.jisc.ac.uk.
+
+AUTHORS & PARTICIPANTS
+
+David Bourget (lead developer)
+Zbigniew Lukasiak (developer)
+Wolfgang Schwarz (developer)
+David Chalmers (scientific expert)
+
+FOR MORE INFORMATION
+
+Project's web site at http://xpapers.org
+Github page at https://github.com/xPapers/xPapers
 
 
-System requirements
+
+SYSTEM REQUIREMENTS
 ===================
 
 xPapers should run fine on any Linux-based system. It may also work in a Cygwin environment on Windows, but this has not been tested. 
@@ -14,18 +40,22 @@ xPapers should run fine on any Linux-based system. It may also work in a Cygwin 
 Hardware-wise, it all depends on the amount of traffic you have to support. At the time of writing PhilPapers.org runs on an 8-core machine with 32GB of ram. We comfortably serve about 300K visitors per month with this hardware. As a rule of thumb, plan to have one resident fastcgi handler per concurrent non-static request you have to handle. Each resident process consumes about 150MB of ram and should have about half a CPU. Try also to have enough ram to fit all your data so the MySQL database files are always fully cached. For example, the PhilPapers database currently has 10GB and we want to support about 20 concurrent dynamic requests, so we should plan a minimum of 13GB just for xPapers. In addition, we need to have a lot of free RAM for some RAM-hungry maintenance processes like the automated classifier (at least 8GB). We'd probably be fine with 24GB, but we got 32 to be safe. 
 
 
-Installation instructions
+INSTALLATION INSTRUCTIONS
 =========================
 
-With a bit of luck, you should be able to get xPapers going in little time by following these instructions to the letter on a brand new Debian or Ubuntu system. Installing on a RHEL-style system will require that you do a bit of research to find the RPM packages that correspond to the deb packages used here. These instructions assuming that you don't have any of the external dependencies (e.g. MySQL, Apache) installed. Adjust as appropriate. 
+With a bit of luck, you should be able to get xPapers going in little time by following these instructions to the letter on a brand new Debian or Ubuntu system. Installing on a RHEL-style system will require that you do a bit of research to find the RPM packages that correspond to the deb packages used here. These instructions assume that you don't have any of the external dependencies (e.g. MySQL, Apache) installed. Adjust as appropriate. 
 
-h2. YUM/APT dependencies
+
+APT dependencies
+----------------
 
 sudo apt-get install automake libtool libncurses5-dev g++ sysstat aspell libaspell-dev perl apache2 libapache2-mod-fastcgi git
 
 Note: we need to install MySQL from source to compile it with Sphinx. If you have MySQL installed with your distribution's packaging system, you should preferably remove it. 
 
-h2. xPapers
+
+xPapers source
+---------------
 
 You may already have done this, but if not check out the xPapers distrib where you would like xpapers to live. We recommend that you set it up in /home/xpapers because that's the default directory we use in all the examples provided. Using this directory is going to make things significantly simpler for you. Also, it makes sense if you set up a separate xpapers user to run your cron jobs and all, which we also recommend. Let's assume you want to do this:
 
@@ -37,12 +67,16 @@ While at it, we recommend adding yourself (or xpapers) to the www-data group for
 Now let's pull the xpapers code.
 
 cd /home
-git clone git@github.com:xPapers/xPapers.git
+sudo git clone git@github.com:xPapers/xPapers.git
+sudo mv xPapers xpapers 
+sudo chown -R DESIRED_USER xpapers
 
 let's set an environment variable to the xPapers home directory for future reference:
 $XPAPERS=/home/xpapers
 
-h2. MYSQL+SPHINX
+
+MySQL and Sphinx
+----------------
 
 Download MySQL 5.1 or more, source distribution
 Download Sphinx 1.10-beta or more
@@ -110,7 +144,8 @@ Then build your first index:
 sudo /usr/local/sphinx/bin/indexer --all 
 
 
-h2. Perl modules
+Perl modules
+------------
 
 Make sure cpan works.
 # cpan
@@ -124,7 +159,9 @@ IMPORTANT: The Algorithm::SVM package has been broken for a long time and may re
 
 The default answers to all questions should be fine. 
 
-h2. Bibutils
+
+Bibutils
+--------
 
 A binary distribution of bibutils is in $XPAPERS/bin/bibutils by default. If you are not on 64 bit Linux you will need to recompile these programs from source. Just uncompress the tarball provided in $XPAPERS/src and follow the instructions inside. Then copy or link the resulting executables on top of those in $XPAPERS/bin/bibutils. Bibutils is required for some bibliographic file import/export options.
 
@@ -133,13 +170,17 @@ h2. Tweak your xPapers configuration
 Copy $XPAPERS/etc/xpapers.d to /etc/
 Then adapt /etc/xpapers.d/main.pl to your needs. You should at least change the database settings and the $SUBJECT variable before proceeding to the next step. The rest can be adjusted later. There are more configuration variables available than this. For a complete list, check the documentation of the xPapers::Conf and xPapers::Conf::* packages. Each variable in these packages can be overriden by a variable under /etc/xpapers.d/
 
-h2. Initialize your database and xpapers subdirectories
+
+Initialize your database and xpapers subdirectories
+---------------------------------------------------
 
 cd $XPAPERS
 perl -Ilib bin/setup/init-database.pl
 sudo perl -Ilib bin/setup/mkdirs.pl
 
-h2. Apache configuration
+
+Apache configuration
+--------------------
 
 Use $XPAPERS/etc/apache2 as an example set of Apache configuration files. The important (xPapers-specific) files are mason.conf, sites-enabled/default-site, and mods-enabled/fastcgi*. Adapt to your needs. You should change the admin email, domain name, etc, but this default config should work out of the box. 
 
@@ -161,8 +202,18 @@ You might see a warning about Sphinx not running, that's OK.
 
 Now try your new xPapers site with a web browser (http://localhost, or whatever you domain name is).
 
-h2. Sign up for reCAPTCHA
 
-You will need to sign up for reCAPTCHA and update your keys in /etc/xpapers.d/main.pl before you can complete the sign up process on your new xPapers site.
+Sign up for external services
+------------------------------
 
-h2. Set up your cron tasks. There is sample crontab in $XPAPERS/etc/contrab.example
+xPapers is configured to connect up with several external services:
+
+- reCAPTCHA (necessary): you need to get reCAPTCHA credentials and save them in /etc/xpapers.d/main.pl
+- Facebook (option): unless you want to unplug the Facebook option in the Followers module, register your app and input your credentials in /etc/xpapers.d/main.pl
+- Amazon Affiliate: unlesss you plan to turn off Amazon links, register yourself as an affiliate on the US, UK and CA sites (the only three supported for now) and register your credentials in /etc/xpapers.d/main.pl
+
+Set up your cron tasks 
+----------------------
+
+A large number of tasks are accomplished through cron scripts, including periodic re-building of the Sphinx index for search.  There is sample crontab in $XPAPERS/etc/contrab.example. Not all the services are necessary, but many are.
+
