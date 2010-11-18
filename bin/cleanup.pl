@@ -24,7 +24,7 @@ while (my $e = $it->next) {
     print "Cleaning ". $e->toString ."\n";
     #print $e->pub_type . "\n";
     #print "before:$e->{source}\n";
-    cleanAll($e,$PATHS{INTEL_FILES});
+    cleanAll($e);
 
     #my @au = map { fix($_)  } $e->getAuthors;
     #$e->deleteAuthors;
