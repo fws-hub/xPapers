@@ -2,7 +2,7 @@ package xPapers::Link::Affiliate::QuoteMng;
 
 use base qw(Rose::DB::Object::Manager);
 use xPapers::Util qw/file2hash/;
-use xPapers::Conf qw/%PATHS/;
+use xPapers::Conf qw/$DEFAULT_SITE/;
 
 sub object_class { 'xPapers::Link::Affiliate::Quote' }
 
@@ -20,7 +20,7 @@ my $european_countries;
 
 sub mapCodes {
     my( $self, $code ) = @_;
-    $european_countries = file2hash( "$PATHS{LOCAL_BASE}/etc/european_codes.txt" ) unless defined $european_countries;
+    $european_countries = file2hash( $DEFAULT_SITE->fullConfFile( 'european_codes.txt' ) ) unless defined $european_countries;
     return $exception_locales{ $code } if $exception_locales{ $code };
     return 'uk' if $european_countries->{$code};
     return 'au' if $code eq 'AU' or $code eq 'NZ';
