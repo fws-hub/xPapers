@@ -11,7 +11,6 @@ use File::Slurp 'slurp';
 
 use xPapers::Parse::NLM;
 
-xPapers::Parse::NLM->makeCatalogs;
 my $parser = xPapers::Parse::NLM->new();
 
 my $it = xPapers::FTPUser::Manager->get_main_iterator();

@@ -8,28 +8,14 @@ use xPapers::Conf qw/%SOURCE_TYPE_ORDER $TIMEZONE %INDEXES %PATHS/;
 use xPapers::Util qw/cleanAll file2hash/;
 use xPapers::Entry;
 
-sub makeCatalogs {
-    my $root = $PATHS{INTEL_FILES} . 'nlm-dtd';
-    for my $dir( glob( "$root/*" ) ){
-        next if ! -d "$dir";
-        my ( $catalog ) = glob ( "$dir/catalog*.xml" );
-        next if !$catalog;
-        open my $input_fh, '<', $catalog or die "Cannot read from $catalog : $!";
-        open my $output_fh, '>', "$dir-catalog.xml" or die "Cannot write to $dir-catalog.xml : $!";
-        while(<$input_fh>){
-            s/xml:base="(.*?)"/xml:base="$dir\/"/;
-            print $output_fh $_;
-        }
-    }
-}
-
 sub new {
     my $class = shift;
 
     my $self  = $class->SUPER::new();
 
-    my $root = $PATHS{INTEL_FILES} . 'nlm-dtd';
-    for my $catalog ( glob( "$root/*-catalog.xml" ) ){
+    my $root = $PATHS{LOCAL_BASE} . '/assets/conf/nlm-dtd';
+    for my $catalog ( glob( "$root/*/*catalog*.xml" ) ){
+        warn "loading $catalog";
         $self->load_catalog( $catalog );
     }
     return $self;

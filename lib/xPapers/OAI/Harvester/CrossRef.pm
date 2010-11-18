@@ -258,7 +258,7 @@ sub _build_citation {
 
 sub handle_entry {
     my ( $self, $entry, $opts ) = @_;
-    cleanAll($entry,"$PATHS{INTEL_FILES}");
+    cleanAll($entry);
     return if $entry->{deleted};
     if( isIncomplete( $entry ) ){
         warn "Incomplete entry rejected. source_id: $entry->{source_id}\n" if $self->DEBUG;

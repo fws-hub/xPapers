@@ -8,8 +8,6 @@ use xPapers::Parse::NLM;
 use File::Slurp 'slurp';
 use String::Random qw(random_regex random_string);
 
-xPapers::Parse::NLM->makeCatalogs;
-
 my $parser = xPapers::Parse::NLM->new();
 
 is( $parser->_extract_isbn( "asdlkfj ISBN: 778877890X." ), '778877890X', 'dot at end' );

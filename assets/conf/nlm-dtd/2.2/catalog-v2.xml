@@ -108,7 +108,7 @@ Version  Reason/Occasion                   (who) vx.x (yyyy-mm-dd)
      The SYSTEM identifier is resolved with respect to the xml:base
      attribute which is set on the group element. Thus, for example:
 
-        xml:base="file:///C:/Work/Tasks/DTDJournal/"
+        xml:base="."
         +
         uri="journalpublishing.dtd"
         =
@@ -116,7 +116,7 @@ Version  Reason/Occasion                   (who) vx.x (yyyy-mm-dd)
         
      The XML looks like this:
      
-     <group xml:base="file:///C:/Work/Tasks/DTDJournal/">
+     <group xml:base=".">
      
        <public publicId="-//NLM//DTD Journal Publishing DTD v2.1 20050630//EN"
                uri="journalpublishing.dtd"/>
@@ -212,7 +212,7 @@ Version  Reason/Occasion                   (who) vx.x (yyyy-mm-dd)
 <!--                    JOURNAL PUBLISHING DTD (BLUE)               -->
 <!-- ============================================================== -->
 
-<group xml:base="file:///C:/Work/Tasks/DTDJournal/"
+<group xml:base="."
          prefer="public">
 
   <public publicId="-//NLM//DTD Journal Publishing DTD v2.2 20060430//EN" 
@@ -241,7 +241,7 @@ Version  Reason/Occasion                   (who) vx.x (yyyy-mm-dd)
 <!-- ============================================================== -->
 
 
-<group xml:base="file:///C:/Work/Tasks/DTDArchiving/"
+<group xml:base="."
          prefer="public">
 
   <public publicId="-//NLM//DTD Journal Archiving and Interchange DTD v2.2 20060430//EN" 
@@ -267,7 +267,7 @@ Version  Reason/Occasion                   (who) vx.x (yyyy-mm-dd)
 <!-- ============================================================== -->
 
 
-<group xml:base="file:///C:/Work/Tasks/DTDAuthoring/"
+<group xml:base="."
          prefer="public">
 
   <public publicId="-//NLM//DTD Article Authoring DTD v2.2 20060430//EN" 
@@ -291,7 +291,7 @@ Version  Reason/Occasion                   (who) vx.x (yyyy-mm-dd)
 <!--                    NCBI BOOK DTDS (PURPLE)                     -->
 <!-- ============================================================== -->
 
-<group xml:base="file:///C:/Work/Tasks/DTDBook/"
+<group xml:base="."
          prefer="public">
 
 <!-- .............................................................. -->
@@ -375,7 +375,7 @@ Version  Reason/Occasion                   (who) vx.x (yyyy-mm-dd)
 <!--                    MODULAR LIBRARY                             -->
 <!-- ============================================================== -->
 
-<group xml:base="file:///C:/Work/Tasks/Common/"
+<group xml:base="."
          prefer="public">
 
 <!--                    MODULE OF MODULES                           -->
@@ -469,7 +469,7 @@ Version  Reason/Occasion                   (who) vx.x (yyyy-mm-dd)
 <!--                    CHARACTER-ENTITY SETS USED IN THE SUITE    -->
 <!-- ============================================================= -->
 
-<group xml:base="file:///C:/Work/Entities/"
+<group xml:base="."
          prefer="public">
 
 <!-- .............................................................. -->

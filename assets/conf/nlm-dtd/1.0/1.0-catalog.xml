@@ -6,7 +6,7 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
     prefer="public">
 
-<group xml:base="/home/xpapers/etc/nlm-dtd/1.0/"
+<group xml:base="."
          prefer="public">
 
 <!-- 

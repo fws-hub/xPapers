@@ -63,7 +63,7 @@ sub journals_from_files {
                 $rec{issn} = $issn;
                 $rec{issn2} = $issn2;
                 $rec{doi} = $row->[4];
-                $rec{localName} = cleanJournal( $rec{name}, $PATHS{INTEL_FILES} );
+                $rec{localName} = cleanJournal( $rec{name} );
                 if( !exists( $names{ $name } ) ){
                     $names{$name} = \%rec;
                 }

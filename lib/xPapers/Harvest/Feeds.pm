@@ -255,7 +255,7 @@ sub entry_from_item {
         $entry->source_id( join '/', ( 'feed:/', $self->feed->id, $entry->doi || $item->{'link'} ) );
     }
 
-    cleanAll( $entry, $PATHS{INTEL_FILES} );
+    cleanAll( $entry );
     #print "pub:$entry->{pub_type}\n";
     #warn "volume:$entry->{volume}\n";
     #warn "date:$entry->{date}\n";
