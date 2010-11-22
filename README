@@ -143,7 +143,7 @@ mysql>GRANT ALL PRIVILEGES ON *.* TO 'xpapers'@'localhost';
 
 You need to set up Sphinx's configuration. Our configuration file should work just fine if your XPAPERS directory is /home/xpapers:
 
-sudo cp /home/xpapers/etc/sphinx.conf /usr/local/sphinx/etc/
+sudo cp $XPAPERS/etc/sphinx.conf /usr/local/sphinx/etc/
 Then change the database connection details in that file.
 
 Then build your first index:
