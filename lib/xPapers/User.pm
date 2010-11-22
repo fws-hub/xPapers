@@ -735,20 +735,24 @@ sub add_to_followers_of {
     my( $self, $name, $eId ) = @_;
     $name = normalizeNameWhitespace( $name );
     my $a_it = xPapers::AuthorAliasMng->get_objects_iterator( query => [  name => $name ] );
+    my $f;
     while( my $alias = $a_it->next ){
-        my $f = xPapers::Follower->new( uId => $self->id, original_name => $name, alias => $alias->alias, eId => $eId, ok => 1 );
+        $f = xPapers::Follower->new( uId => $self->id, original_name => $name, alias => $alias->alias, eId => $eId, ok => 1 );
         $f->load;
         $f->save;
     }
+    return $f;
 }
 
 
 sub remove_from_followers_of {
-    my( $self, $name, $eId ) = @_;
-    $name = normalizeNameWhitespace( $name );
-    my $f_it = xPapers::FollowerMng->get_objects_iterator( query => [ uId => $self->id, original_name => $name ] );
-    while( my $f = $f_it->next ){
-        $f->delete;
+    my( $self, $fid, $eId ) = @_;
+    my $f = xPapers::Follower->get( $fid );
+    if( $f ){
+        my $f_it = xPapers::FollowerMng->get_objects_iterator( query => [ uId => $self->id, original_name => $f->original_name ] );
+        while( my $f = $f_it->next ){
+            $f->delete;
+        }
     }
 }
 
@@ -766,13 +770,14 @@ sub follows_some_alias_of {
 sub follow_all_aliases_of {
     my( $self, $fuId ) = @_;
     my $follower = xPapers::User->get( $fuId );
+    my $f;
     for my $alias( $follower->aliases ){
-        my $f = xPapers::FollowerMng->get_objects_iterator( 
+        $f = xPapers::FollowerMng->get_objects_iterator( 
             query => [ uId => $self->id, alias => $alias->name ]
         )->next;
         return 0 if !$f;
     }
-    return 1;
+    return $f;
 }
 
 sub followName {

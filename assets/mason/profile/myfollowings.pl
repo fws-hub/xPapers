@@ -57,7 +57,7 @@ if( @$followings ){
             print '</ul>' if $not_first++;
             print "<li id='follow-li-$i'><span class='ll' onclick='toggleAliases($id,$i)' id='followInput_$i' ><span>[<span id='followPlus_$i'>+</span>]</span> " . reverseName($oname) . "</span>";
             print "&nbsp;&nbsp;<span class='hint'>(";
-            print "<a class='hint' style='color:#555' href=\"$s->{server}/s/" . urlEncode(reverseName($oname)) . "\">search</a>, <span class='ll hint' id='rmfx-$i' onclick='removeFollow($i,\"$oname\")'>unfollow</span>)</span>";
+            print "<a class='hint' style='color:#555' href=\"$s->{server}/s/" . urlEncode(reverseName($oname)) . "\">search</a>, <span class='ll hint' id='rmfx-$i' onclick='removeFollow($i,$id)'>unfollow</span>)</span>";
             print "<ul id='followUl_$i' style='display:none;list-style:none;padding-left:5px'>";
         }
         print "<li> <input type='checkbox' name='alias_$i' id='alias_$i' onclick='updateFollowAlias($id,$i)' value='$id' $checked >" . $f->{alias} . " <span id='change_indicator_$i'></span>";

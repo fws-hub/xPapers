@@ -643,7 +643,7 @@ function updateFollowXUser(fuId){
 }
 
 
-function removeFollow(i, name) {
+function removeFollow(i, fid) {
     if (!checklogin()) {
         window.location='/inoff.html?feature=1&after='+escape(window.location);
         return;
@@ -651,7 +651,7 @@ function removeFollow(i, name) {
     var ul = $( 'followUl_' + i );
     var followb = $( 'follow_button' );
     var unfollowb = $( 'unfollow_button' );
-    ppAct('removeFollow', {author:name} , function(r) {
+    ppAct('removeFollow', {fId:fid} , function(r) {
             /*
             $('rmfx-' + i ).update().insert('removed');
             $('rmfx-' + i ).removeClassName('ll');
