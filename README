@@ -67,6 +67,7 @@ Now let's pull the xpapers code.
 
 cd /home
 sudo git clone git@github.com:xPapers/xPapers.git
+(remove /home/xpapers if required: sudo rm -rf /home/xpapers)
 sudo mv xPapers xpapers 
 sudo chown -R DESIRED_USER xpapers
 
