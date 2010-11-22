@@ -42,7 +42,7 @@ sub sendPageDiff {
     else{
         $action = 'add';
     }
-    $address->query_form( action => $action, id => $page->url, crawl => $OPP_CRAWL_DEPTH );
+    $address->query_form( action => $action, id => $page->url, crawl => $OPP_CRAWL_DEPTH, author=> $page->author->fullname );
     warn $address;
     my $json = get( $address );
     return $json;
