@@ -112,7 +112,6 @@ $PATHS{ADMIN_SCRIPT} = "/admin.pl";
 $PATHS{FILE_SCRIPT} = "http://philpapers.org/archive/";
 $PATHS{UPLOAD} = "$PATHS{LOCAL_BASE}/var/files/tmp";
 $PATHS{ARCHIVE} = "$PATHS{LOCAL_BASE}/var/files/arch";
-$PATHS{INTEL_FILES} = "$PATHS{LOCAL_BASE}/etc/";
 $PATHS{BACKUP} = "$PATHS{LOCAL_BASE}/back/";
 $PATHS{HARVESTER}= "$PATHS{LOCAL_BASE}/var/data/harvester/";
 

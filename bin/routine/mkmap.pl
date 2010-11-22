@@ -90,7 +90,7 @@ my $used = 0;
 my $in_this = 0;
 for (my $i=0; $i <= $#items; $i++) {
 	if ($in_this >= 9990) {
-		$map->write("$LOCAL_BASE/raw/xmap-$used.gz");
+		$map->write("$LOCAL_BASE/assets/raw/xmap-$used.gz");
 		$map = Search::Sitemap->new();
 		$used++;
 		$in_this = 0;
@@ -98,7 +98,7 @@ for (my $i=0; $i <= $#items; $i++) {
 	$in_this++;
 	$map->add($items[$i]);
 }
-$map->write("$LOCAL_BASE/raw/xmap-$used.gz");
+$map->write("$LOCAL_BASE/assets/raw/xmap-$used.gz");
 
 for (sort keys %count) {
 	print "$_: $count{$_}\n";
