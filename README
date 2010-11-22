@@ -90,7 +90,10 @@ MySQL, first time around:
 (Everything here should be optional except the innobase plugin and the utf8 charset, both required by xPapers. However what follows assumes that you are using the same paths.)
 
 cd [MySQL source dir]
-sudo ./configure  --prefix=/usr/local/mysql --exec-prefix=/usr/local/mysql --with-charset=utf8 --with-mysqld-user=mysql --localstatedir=/var/lib/mysql --enable-assembler --with-unix-socket-path=/var/run/mysqld/mysqld.sock --with-plugins=innobase --sysconfdir=/usr/local/mysql/etc;sudo make;sudo make install
+sudo ./configure  --prefix=/usr/local/mysql --exec-prefix=/usr/local/mysql --with-charset=utf8 \
+--with-mysqld-user=mysql --localstatedir=/var/lib/mysql --enable-assembler \ 
+--with-unix-socket-path=/var/run/mysqld/mysqld.sock --with-plugins=innobase \
+--sysconfdir=/usr/local/mysql/etc;sudo make;sudo make install
 
 Then:
 
@@ -117,7 +120,8 @@ You will want to customize the /etc/my.cnf configuration file.
 Sphinx:
 
 cd [Sphinx source dir]
-sudo ./configure --with-mysql=/usr/local/mysql --prefix=/usr/local/sphinx --exec-prefix=/usr/local/sphinx;sudo make;sudo make install
+sudo ./configure --with-mysql=/usr/local/mysql --prefix=/usr/local/sphinx --exec-prefix=/usr/local/sphinx;
+sudo make;sudo make install
 
 MySQL with SphinxSE
 
@@ -125,7 +129,10 @@ cp -r [Sphinx source dir]/mysqlse [Mysql source dir]/storage/sphinx
 
 cd [MySQL source dir]
 sh BUILD/autorun.sh
-sudo ./configure  --prefix=/usr/local/mysql --exec-prefix=/usr/local/mysql --with-charset=utf8 --with-mysqld-user=mysql --localstatedir=/var/lib/mysql --enable-assembler --with-unix-socket-path=/var/run/mysqld/mysqld.sock --with-plugins=sphinx,innobase --sysconfdir=/usr/local/mysql/etc;sudo make;sudo make install
+sudo ./configure  --prefix=/usr/local/mysql --exec-prefix=/usr/local/mysql --with-charset=utf8 \
+--with-mysqld-user=mysql --localstatedir=/var/lib/mysql --enable-assembler \ 
+--with-unix-socket-path=/var/run/mysqld/mysqld.sock --with-plugins=sphinx,innobase \
+--sysconfdir=/usr/local/mysql/etc;sudo make;sudo make install
 sudo /etc/init.d/mysql restart
 
 Now if you open the mysql client (sudo mysql) and do "show engines;" you should see the SPHINX engine. Consult the Sphinx documentation for more help.
