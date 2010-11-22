@@ -17,6 +17,27 @@ my $test = $ARGV[0] ? " and userworks.uId=$ARGV[0] " : "";
 my $db = xPapers::DB->new;
 my $dbh = $db->dbh;
 my $sth = $dbh->prepare( 
+    "select main.id, title, author_abstract, pub_type, main.catCount, online, draft, uId 
+    from main 
+    join userworks on main.id = eId
+    join users on userworks.uId=users.id
+    left join ( cats_me join cats on cats_me.cId = cats.id )
+    on cats_me.eId = main.id  and canonical and dfo=edfo
+     where ( deleted = 0 or deleted is null ) and 
+     ( users.confirmed ) and
+     main.catCount > 0 and
+     cats_me.id is null
+     $test
+    "
+);
+my %list;
+$sth->execute;
+while( my $entry = $sth->fetchrow_hashref ){
+    $entry->{no_leaf} = 1;
+    push @{ $list{$entry->{uId}} }, $entry;
+}
+
+$sth = $dbh->prepare( 
     "select main.id, title, author_abstract, pub_type, catCount, online, draft, uId 
     from main 
     join userworks on main.id = eId
@@ -32,12 +53,12 @@ my $sth = $dbh->prepare(
     "
 );
 $sth->execute;
-my %list;
 while( my $entry = $sth->fetchrow_hashref ){
     push @{ $list{$entry->{uId}} }, $entry;
 }
 
 for my $uId ( keys %list ){
+    die unless $uId == 2;
     my $body = "[HELLO]Some of your works on $DEFAULT_SITE->{niceName} appear to have incomplete records. You might want to complete their records, as this will make it easier for others to find your work. A list of records with potential defects is provided below for your convenience.\n\n$advice\n"; 
     my ($major, $other) = generateMessages( $list{$uId} );
     if( %$major ){
@@ -64,7 +85,7 @@ for my $uId ( keys %list ){
     $email->brief("Some of your works appear to have incomplete records on $DEFAULT_SITE->{niceName}");
     $email->content( $body );
     #TMP
-    #$email->save;
+    $email->save;
 
     print "$body\n\n\n";
 }
@@ -79,6 +100,9 @@ sub generateMessages {
         if( !$entry->{catCount} ){
             push @{ $entry->{messages} }, "$bullet This item is not in any category. This will make it very hard to find.\n";
             $major{$entry->{id}} = 1;
+        } elsif( $entry->{no_leaf} ){
+            push @{ $entry->{messages} }, "$bullet This paper is not in any leaf category.\n";
+            $other{$entry->{id}} = 1;
         }
         if( $entry->{pub_type} eq 'unknown' ){
             push @{ $entry->{messages} }, "$bullet This item has incomplete publication details (publication status unknown).\n";

@@ -22,7 +22,6 @@ AUTHORS & PARTICIPANTS
 
 David Bourget (lead developer)
 Zbigniew Lukasiak (developer)
-Wolfgang Schwarz (developer)
 David Chalmers (scientific expert)
 
 FOR MORE INFORMATION
@@ -68,6 +67,7 @@ Now let's pull the xpapers code.
 
 cd /home
 sudo git clone git@github.com:xPapers/xPapers.git
+(remove /home/xpapers if required: sudo rm -rf /home/xpapers)
 sudo mv xPapers xpapers 
 sudo chown -R DESIRED_USER xpapers
 
@@ -90,7 +90,10 @@ MySQL, first time around:
 (Everything here should be optional except the innobase plugin and the utf8 charset, both required by xPapers. However what follows assumes that you are using the same paths.)
 
 cd [MySQL source dir]
-sudo ./configure  --prefix=/usr/local/mysql --exec-prefix=/usr/local/mysql --with-charset=utf8 --with-mysqld-user=mysql --localstatedir=/var/lib/mysql --enable-assembler --with-unix-socket-path=/var/run/mysqld/mysqld.sock --with-plugins=innobase --sysconfdir=/usr/local/mysql/etc;sudo make;sudo make install
+sudo ./configure  --prefix=/usr/local/mysql --exec-prefix=/usr/local/mysql --with-charset=utf8 \
+--with-mysqld-user=mysql --localstatedir=/var/lib/mysql --enable-assembler \ 
+--with-unix-socket-path=/var/run/mysqld/mysqld.sock --with-plugins=innobase \
+--sysconfdir=/usr/local/mysql/etc;sudo make;sudo make install
 
 Then:
 
@@ -117,7 +120,8 @@ You will want to customize the /etc/my.cnf configuration file.
 Sphinx:
 
 cd [Sphinx source dir]
-sudo ./configure --with-mysql=/usr/local/mysql --prefix=/usr/local/sphinx --exec-prefix=/usr/local/sphinx;sudo make;sudo make install
+sudo ./configure --with-mysql=/usr/local/mysql --prefix=/usr/local/sphinx --exec-prefix=/usr/local/sphinx;
+sudo make;sudo make install
 
 MySQL with SphinxSE
 
@@ -125,7 +129,10 @@ cp -r [Sphinx source dir]/mysqlse [Mysql source dir]/storage/sphinx
 
 cd [MySQL source dir]
 sh BUILD/autorun.sh
-sudo ./configure  --prefix=/usr/local/mysql --exec-prefix=/usr/local/mysql --with-charset=utf8 --with-mysqld-user=mysql --localstatedir=/var/lib/mysql --enable-assembler --with-unix-socket-path=/var/run/mysqld/mysqld.sock --with-plugins=sphinx,innobase --sysconfdir=/usr/local/mysql/etc;sudo make;sudo make install
+sudo ./configure  --prefix=/usr/local/mysql --exec-prefix=/usr/local/mysql --with-charset=utf8 \
+--with-mysqld-user=mysql --localstatedir=/var/lib/mysql --enable-assembler \ 
+--with-unix-socket-path=/var/run/mysqld/mysqld.sock --with-plugins=sphinx,innobase \
+--sysconfdir=/usr/local/mysql/etc;sudo make;sudo make install
 sudo /etc/init.d/mysql restart
 
 Now if you open the mysql client (sudo mysql) and do "show engines;" you should see the SPHINX engine. Consult the Sphinx documentation for more help.
@@ -136,7 +143,7 @@ mysql>GRANT ALL PRIVILEGES ON *.* TO 'xpapers'@'localhost';
 
 You need to set up Sphinx's configuration. Our configuration file should work just fine if your XPAPERS directory is /home/xpapers:
 
-sudo cp /home/xpapers/etc/sphinx.conf /usr/local/sphinx/etc/
+sudo cp $XPAPERS/etc/sphinx.conf /usr/local/sphinx/etc/
 Then change the database connection details in that file.
 
 Then build your first index:
