@@ -172,7 +172,9 @@ Bibutils
 
 A binary distribution of bibutils is in $XPAPERS/bin/bibutils by default. If you are not on 64 bit Linux you will need to recompile these programs from source. Just uncompress the tarball provided in $XPAPERS/src and follow the instructions inside. Then copy or link the resulting executables on top of those in $XPAPERS/bin/bibutils. Bibutils is required for some bibliographic file import/export options.
 
-h2. Tweak your xPapers configuration
+
+Tweak your xPapers configuration
+--------------------------------
 
 Copy $XPAPERS/etc/xpapers.d to /etc/
 Then adapt /etc/xpapers.d/main.pl to your needs. You should at least change the database settings and the $SUBJECT variable before proceeding to the next step. The rest can be adjusted later. There are more configuration variables available than this. For a complete list, check the documentation of the xPapers::Conf and xPapers::Conf::* packages. Each variable in these packages can be overriden by a variable under /etc/xpapers.d/
