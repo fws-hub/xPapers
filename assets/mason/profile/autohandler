@@ -62,14 +62,15 @@ if ($ARGS{foreign}) {
     my $oname = $user->lastname . ', ' . $user->firstname;
     my $hidden_un = '';
     my $hidden_fo = '';
-    if( $user->follow_all_aliases_of( $p->{id} ) ){
+    my $f;
+    if( $f = $user->follow_all_aliases_of( $p->{id} ) ){
         $hidden_fo = 'style="display:none"';
     }
     else{
         $hidden_un = 'style="display:none"';
     }
 </%perl>
-<span id='unfollow_button' <% $hidden_un %>>You are following this user (<span class='ll hint' onclick='removeFollow(0,"<% $oname %>")'>unfollow</span>)</span>
+<span id='unfollow_button' <% $hidden_un %>>You are following this user (<span class='ll hint' onclick='removeFollow(0,"<% $f ? $f->id : '' %>")'>unfollow</span>)</span>
 <span id='follow_button' class='ll' onclick='updateFollowXUser(<% $p->{id} %>)' <% $hidden_fo %>>follow <% $name %></span>
 </span>
 %}

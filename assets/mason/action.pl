@@ -516,7 +516,7 @@ if ($ARGS{c} eq 'followName') {
     my $id = $fs[0]->id;
     print "<li id='follow-li-$i'><span class='ll' onclick='toggleAliases($id,$i)' id='followInput_$i' ><span>[<span id='followPlus_$i'>+</span>]</span> " . reverseName($name) . "</span>";
     print "&nbsp;&nbsp;<span class='hint'>(";
-    print "<a class='hint' style='color:#555' href=\"/s/" . urlEncode(reverseName($name)) . "\">search</a>, <span class='ll hint' id='rmfx-$i' onclick='removeFollow($i,\"$name\")'>unfollow</span>)</span>";
+    print "<a class='hint' style='color:#555' href=\"/s/" . urlEncode(reverseName($name)) . "\">search</a>, <span class='ll hint' id='rmfx-$i' onclick='removeFollow($i,$id)'>unfollow</span>)</span>";
     print "<ul id='followUl_$i' style='display:none;list-style:none;padding-left:5px'>";
     my $j = 0;
     for my $f ( @fs ){
@@ -543,11 +543,13 @@ if ($ARGS{c} eq 'updateFollowX') {
     my @authors;
     for my $author ( $entry->getAuthors ){
         push @authors, $author;
-        if( !xPapers::FollowerMng->get_objects_iterator( query => [ uId => $user->id, original_name => $author ] )->next ){
-            $user->add_to_followers_of( $author );
+        my $f = xPapers::FollowerMng->get_objects_iterator( query => [ uId => $user->id, original_name => $author ] )->next;
+        if( !$f ){
+            $f = $user->add_to_followers_of( $author );
         }
         my $rev_auth = reverseName( $author ); 
-        push @msgs, qq{$rev_auth (<span class='ll' id='rmfx-$i' onclick='removeFollow($i,"$author")'>unfollow</span>)};
+        my $fid = $f->id;
+        push @msgs, qq{$rev_auth (<span class='ll' id='rmfx-$i' onclick='removeFollow($i,$fid)'>unfollow</span>)};
         $i++;
     }
     print 'Following: ' . ( join ', ', @msgs ) . '.';
@@ -574,8 +576,8 @@ if ($ARGS{c} eq 'markAliasesAsSeen') {
 }
 
 if ($ARGS{c} eq 'removeFollow') {
-    my $author = $ARGS{author};
-    $user->remove_from_followers_of( $author );
+    my $fid = $ARGS{fId};
+    $user->remove_from_followers_of( $fid );
     return;
 }
 
