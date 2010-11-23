@@ -651,14 +651,14 @@ function removeFollow(i, name) {
     var ul = $( 'followUl_' + i );
     var followb = $( 'follow_button' );
     var unfollowb = $( 'unfollow_button' );
+    if (! $('rmfx-' + i ).hasClassName('ll'))
+        return
     ppAct('removeFollow', {author:name} , function(r) {
-            /*
             $('rmfx-' + i ).update().insert('removed');
             $('rmfx-' + i ).removeClassName('ll');
             if( ul ){
                 ul.innerHTML = '';
             }
-            */
 
             var el = $('follow-li-' + i);
             if (el) { el.hide() }
@@ -668,6 +668,8 @@ function removeFollow(i, name) {
     );
     return true;
 }
+
+
 
 function toggleFollow(ul_no){
     var ul_obj = $('followUl_' + ul_no );
