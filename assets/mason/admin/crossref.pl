@@ -4,7 +4,7 @@
 use xPapers::Link::HarvestJournal;
 use URI::Escape;
 
-my @columns = qw/issn name publisher subjects lastSuccess fetched newEntries oldEntries suggestion/;
+my @columns = qw/issn name publisher subjects lastSuccess lastFetchSuccess fetched lastFetched newEntries lastNewEntries oldEntries suggestion/;
 my $page = $ARGS{p} || 0;
 $ARGS{to_harvest} ||= 'h';
 
@@ -42,8 +42,11 @@ if( $r->method eq 'GET' ){
     print "<th>publisher</th>";
     print "<th>subjects</th>";
     print "<th>last success</th>";
+    print "<th>last fetch</th>";
     print "<th>fetched</th>";
+    print "<th>fetched in last run</th>";
     print "<th>new</th>";
+    print "<th>new in last run</th>";
     print "<th>old</th>";
     print "<th>suggested?</th>";
     print "<th>entries</th>";

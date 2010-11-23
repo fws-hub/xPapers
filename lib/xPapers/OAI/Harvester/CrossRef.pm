@@ -75,6 +75,7 @@ sub increment_fetched {
 
 sub incrementField {
     my( $self, $set, $field ) = @_;
+    $self->{thisRunStats}{$field}++;
     $self->repo->dbh->do("update harvest_journals set $field = $field + 1 where oai_set = ?", {}, $set->{spec});
 }
 
@@ -219,6 +220,12 @@ sub save_set_time {
     warn "save_set_time $opts->{set}{spec} harvested\n"; # if $self->DEBUG;
     my ( $journal ) = xPapers::Link::HarvestJournalMng->get_objects_iterator( query => [ oai_set => $opts->{set}{spec} ] )->next;
     $journal->lastSuccess( DateTime->now );
+    if( $self->{thisRunStats}{fetched} ){
+        $journal->lastFetchSuccess( DateTime->now );
+        $journal->lastFetched( $self->{thisRunStats}{fetched} );
+        $journal->lastNewEntries( $self->{thisRunStats}{newEntries} );
+    }
+    $self->{thisRunStats} = {};
     $journal->save;
 }
 

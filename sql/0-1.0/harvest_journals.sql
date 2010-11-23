@@ -14,4 +14,7 @@ alter table harvest_journals add oldEntries integer default 0;
 alter table harvest_journals add origin char(1);
 alter table harvest_journals add noTitle integer default 0;
 alter table harvest_journals add suggestion tinyint(1) unsigned default 0;
+alter table harvest_journals add lastFetched integer default 0;
+alter table harvest_journals add lastNewEntries integer default 0;
+alter table harvest_journals add lastFetchSuccess datetime;
 
