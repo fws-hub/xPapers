@@ -17,4 +17,5 @@ alter table harvest_journals add suggestion tinyint(1) unsigned default 0;
 alter table harvest_journals add lastFetched integer default 0;
 alter table harvest_journals add lastNewEntries integer default 0;
 alter table harvest_journals add lastFetchSuccess datetime;
+alter table harvest_journals add lastPaper varchar(128);
 

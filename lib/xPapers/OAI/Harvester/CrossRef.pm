@@ -193,6 +193,7 @@ sub dorecs {
         #    my $t = <STDIN>;
         #}
         $self->pluginMng->applyAll($e);
+        $self->{thisRunStats}{lastPaper} = $e->date . ' ' . $e->volume . ' ' . $e->issue;
 
         if ( ! ( length($e->title) > 1 ) && $self->DEBUG > 1) {
             warn "=" x 50;
@@ -224,6 +225,7 @@ sub save_set_time {
         $journal->lastFetchSuccess( DateTime->now );
         $journal->lastFetched( $self->{thisRunStats}{fetched} );
         $journal->lastNewEntries( $self->{thisRunStats}{newEntries} );
+        $journal->lastPaper( $self->{thisRunStats}{lastPaper} );
     }
     $self->{thisRunStats} = {};
     $journal->save;
