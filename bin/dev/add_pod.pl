@@ -14,6 +14,7 @@ my @files = File::Find::Rule->file()
 my $outbuf;
 my $interp = HTML::Mason::Interp->new( comp_root => '/home/xpapers/bin/dev', out_method => \$outbuf );
 for my $file( @files ){
+    print "fixing $file\n";
     my $package;
     for my $line ( read_file( $file ) ){
         if( $line =~ /package\s*((\w|::)+)\b/ ){
@@ -28,7 +29,7 @@ for my $file( @files ){
     my $pc = Pod::Coverage->new( package => $package );
     if( ! defined( $pc->coverage  ) ){
         if( $pc->why_unrated =~ /couldn't find pod/ ){
-            $pc = Pod::Coverage->new( package => $package, pod_from => 'empty.pod' );
+            $pc = Pod::Coverage->new( package => $package, pod_from => 'bin/dev/empty.pod' );
         }
         else{
             die $pc->why_unrated;
