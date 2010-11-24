@@ -4,7 +4,7 @@ package xPapers::Render::Records;
 use strict;
 #use vars qw/@ISA @EXPORT @EXPORT_OK/;
 use xPapers::Render::HTML;
-use xPapers::Util qw/rmTags lastname/;
+use xPapers::Util qw/capitalize rmTags lastname/;
 use Unicode::Normalize 'decompose';
 use TeX::Encode;
 use HTML::Entities;
@@ -86,7 +86,9 @@ sub fields {
     my $r = "";
     my $map = $me->fieldMap;
     foreach my $f (keys %$map) {
-       $r .= $me->field($f, $e->{$map->{$f} || $f});
+       my $value = $e->{$map->{$f} || $f};
+       $value = capitalize( $value ) if $f eq 'title';
+       $r .= $me->field($f, $value);
     }
     return $r;
 }
