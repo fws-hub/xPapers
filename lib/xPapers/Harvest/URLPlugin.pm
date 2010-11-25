@@ -63,7 +63,7 @@ sub process {
         return;
     }
     if ($found) {
-        #print $found->toString . "\n";
+        #print "URLPlugin: found: ". $found->toString . "\n";
         $entry->completeWith($found);
     } else {
         warn "No entry fetched.";

@@ -13,15 +13,16 @@ while( my $feed = $feeds->next ){
     my @entries = $harvester->harvest();
     for my $entry ( @entries ){
 #        next unless $entry->firstAuthor =~ /Colyvan/;
-        print "Got " . $entry->toString ."\n";
+        print "Got " . $entry->toString . " (";
 #        print "Links: \n";
 #        print join("\n", $entry->getLinks);
 #        print "\n";
         if ($entry->deleted) {
-            print " (rejected)\n";
+            print "rejected)\n";
             next;
         }
-        xPapers::EntryMng->addOrDiff( $entry, $HARVESTER_USER );
+        print xPapers::EntryMng->diffStatus(xPapers::EntryMng->addOrDiff( $entry, $HARVESTER_USER ));
+        print ")\n";
     }
     $harvester->feed->save;
 }

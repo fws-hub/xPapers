@@ -28,17 +28,19 @@ sub process {
 }
 
 sub getContent {
-    my ($me,$url) = @_;
-    my $result = $me->get($url);
+    my ($me,$url,$defaultEncoding) = @_;
+    my $result = $me->get($url,$defaultEncoding);
+    $defaultEncoding ||= 'cp1252';
     if ($result->is_success) {
-        return decodeResp($result,'cp1252');
+        return decodeResp($result,$defaultEncoding);
     } else {
         return undef;
     }
 }
 
 sub get {
-	my ($me, $url) = @_;
+	my ($me, $url,$defaultEncoding) = @_;
+    $defaultEncoding ||= 'cp1252';
     my $result;
     if (ref($url)) {
         $result = $me->userAgent->request($url);
@@ -51,7 +53,7 @@ sub get {
     make_path $me->debug_dir;
     open F, ">$file";
     binmode(F,":utf8");
-    print F decodeResp($result,'cp1252');
+    print F decodeResp($result,$defaultEncoding);
     close F;
     $me->{step}++;
     $me->logRequest($result);
