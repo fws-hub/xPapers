@@ -6,6 +6,7 @@ use HTML::Mason;
 
 use File::Slurp qw/ slurp read_file/;
 use File::Find::Rule;
+use File::Path qw(make_path );
 use YAML qw/LoadFile DumpFile/;
 use Hash::Merge 'merge';
 
@@ -91,7 +92,10 @@ for my $file( @files ){
     else{
         $pod_gen{AUTHORS} = "David Bourget\nwith contibutions from Zbigniew Lukasiak\n\n";
     }
-    my $pod_file = $file . '.yaml_pod';
+    my $pod_file = 'src/doc/' . $file . '.yaml_pod';
+    my $dir = $pod_file;
+    $dir =~ s{(.*)/.*}{$1};
+    make_path( $dir );
     my $pod_old = {};
     if( -f $pod_file ){
         $pod_old = LoadFile( $pod_file );
