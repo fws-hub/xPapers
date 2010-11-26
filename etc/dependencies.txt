@@ -107,4 +107,5 @@ List::Util
 Crypt::SSLeay
 Test::Deep
 Test::Vars
+Pod::Coverage
 #RRDs (only on aptitude)
