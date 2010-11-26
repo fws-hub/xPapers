@@ -22,7 +22,9 @@ for my $file( @files ){
     my $pod = LoadFile( $pod_file );
     $outbuf = '';
     $interp->exec( '/pod_template.mason', %$pod );
-    write_file( $file, {append => 1}, $outbuf ) ;
+    my $content = slurp( $file );
+    $content =~ s/^__POD__.*//ms;
+    write_file( $file, $content, $outbuf ) ;
 }
 
 

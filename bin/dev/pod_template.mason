@@ -35,6 +35,14 @@ __POD__
 %   }
 %}
 
+% if( $ARGS{SUBROUTINES} ){
+=head1 SUBROUTINES
+% for my $method ( sort keys %{ $ARGS{SUBROUTINES} } ) {
+
+=head2 <% $method %>
+%   }
+%}
+
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
