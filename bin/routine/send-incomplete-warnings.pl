@@ -9,10 +9,10 @@ use xPapers::User;
 use xPapers::Conf;
 
 my $advice=<<END;
-To help others access your work, please make sure that each of your publications 1) is in the index; 2) has an associated online copy; 3) has full publication details; 4) has an associated abstract in our database; 5) has associated categories at the leaf level in our database. The leaf categories are the narrowest in the category structure. To add a new item to the index, click 'Submit material' -> 'Submit a book or article' in the top menu. "Open your profile":http://philpapers.org/profile to see the works currently attributed to you. 
+To help others access your work, please make sure that each of your publications 1) is in the index; 2) has an associated online copy; 3) has full publication details; 4) has an associated abstract in our database; 5) has associated categories at the leaf level in our database. The leaf categories are the narrowest in the category structure. To add a new item to the index, click 'Submit material' -> 'Submit a book or article' in the top menu. "Open your profile":http://philpapers.org/profile to see the works currently attributed to you. You can edit any index entry on the site by clicking the small 'edit' link under it. 
 END
 my $DEBUG = 1;
-my $test = $ARGV[0] ? " and userworks.uId=$ARGV[0] " : "";
+my $test = $ARGV[0] ? " and userworks.uId=$ARGV[0] " : " and users.betaTester ";
 
 my $db = xPapers::DB->new;
 my $dbh = $db->dbh;
@@ -58,7 +58,6 @@ while( my $entry = $sth->fetchrow_hashref ){
 }
 
 for my $uId ( keys %list ){
-    die unless $uId == 2;
     my $body = "[HELLO]Some of your works on $DEFAULT_SITE->{niceName} appear to have incomplete records. You might want to complete their records, as this will make it easier for others to find your work. A list of records with potential defects is provided below for your convenience.\n\n$advice\n"; 
     my ($major, $other) = generateMessages( $list{$uId} );
     if( %$major ){
@@ -71,7 +70,7 @@ for my $uId ( keys %list ){
         }
     }
     if( %$other){
-        $body .= "\n*Records with minor defects:*\n\n";
+        $body .= "*Records with minor defects:*\n\n";
         for my $entry ( @{ $list{$uId} } ){
             next if $major->{  $entry->{id} };
             $body .= qq|$entry->{title} (["Fix it":$DEFAULT_SITE->{server}/rec/$entry->{id}?edit=1], ["Not mine":$DEFAULT_SITE->{server}/profile/$uId/not_mine.pl?eId=$entry->{id}])\n\n|;
@@ -84,10 +83,9 @@ for my $uId ( keys %list ){
     $email->uId($uId);
     $email->brief("Some of your works appear to have incomplete records on $DEFAULT_SITE->{niceName}");
     $email->content( $body );
-    #TMP
     $email->save;
 
-    print "$body\n\n\n";
+    #print "$body\n\n\n";
 }
 
 sub generateMessages {

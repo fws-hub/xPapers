@@ -1065,10 +1065,16 @@ sub id2 {
 }
 
 sub addAuthors {
-	my $self = shift;
-	while (my $a = shift) {
+    my $self = shift;
+    for $a (@_) {
         $self->addAuthor($a);
-	}
+    }
+}
+
+sub setAuthors {
+    my $self = shift;
+    $self->deleteAuthors;
+    $self->addAuthors(@_);
 }
 
 

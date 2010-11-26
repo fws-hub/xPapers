@@ -185,6 +185,19 @@ sub addOrDiff {
     return ($diff);
 }
 
+sub diffStatus {
+    my ($me,@list) = @_;
+    if (!@list) {
+        return "Found deleted";
+    } elsif (grep {$_->{type} eq 'update'} @list) {
+        return "Found"; 
+    } elsif (grep {$_->{type} eq 'add'} @list) {
+        return "Added";
+    } else {
+        return "Unknown (?!)";
+    }
+}
+
 sub similar {
     my ($me, $e, $q) = @_;
     $q ||= [];

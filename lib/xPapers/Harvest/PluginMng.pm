@@ -22,7 +22,7 @@ sub init {
         my @bits = split(m!/!,$file);
         my $mod = $bits[-1];
         require $file;
-        print "Loading $file..\n";
+        #print "Loading $file..\n";
         $mod =~ s/\.pm$//;
         push @{$me->{plugins}}, $mod->new;
     }

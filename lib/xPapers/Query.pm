@@ -190,7 +190,7 @@ sub sql {
     $q .= "\n having $me->{having}" if $me->{having};
     $q .= ")" if $me->{cfg}->{union};
     $q .= "\n union " . $me->{cfg}->{unionWith}->sql if $me->{cfg}->{unionWith};
-    warn $q;
+    #warn $q;
     return $q;
 }
 
