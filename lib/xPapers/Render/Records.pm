@@ -83,14 +83,14 @@ sub begin {
 
 sub fields {
     my ($me,$e) = @_;
-    my $r = "";
+    my @r;
     my $map = $me->fieldMap;
     foreach my $f (keys %$map) {
        my $value = $e->{$map->{$f} || $f};
        $value = capitalize( $value ) if $f eq 'title';
-       $r .= $me->field($f, $value);
+       push @r, $me->field($f, $value);
     }
-    return $r;
+    return join( ",\n", @r ) . "\n";
 }
 
 sub end {
@@ -115,11 +115,11 @@ sub field {
                                         join(" ", reverse split(/\s*,\s*/,$_)) 
                                     } 
                                     @$value 
-                               ) ) . "},\n"; 
+                               ) ) . "}"; 
     } elsif (ref($value) eq 'ARRAY') {
-        return "\t$field = {" . join($me->listSep, map { $me->quote($_) } @$value) . "},\n";
+        return "\t$field = {" . join($me->listSep, map { $me->quote($_) } @$value) . "}";
     } else {
-        return "\t$field = {" . $me->quote($value) . "},\n"; 
+        return "\t$field = {" . $me->quote($value) . "}"; 
     }
 }
 
