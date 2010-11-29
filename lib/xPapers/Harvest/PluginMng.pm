@@ -17,7 +17,7 @@ sub new {
 sub init {
     my $me = shift;
     $me->{plugins} = [];
-    my @files = sort <$PATHS{LOCAL_BASE}/etc/harvest_plugins/*>;
+    my @files = sort <$PATHS{LOCAL_BASE}/lib/plugins/*>;
     for my $file (@files) {
         my @bits = split(m!/!,$file);
         my $mod = $bits[-1];

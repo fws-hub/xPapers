@@ -20,15 +20,18 @@ sub new {
 sub startBiblio { 
 
     my $me = shift;
-    my $user = $me->{cur}->{user};
-    $me->{cur}->{events} = "";
 
-    die "Must be logged in to use Embed renderer" unless $user;
+    if ($me->{cur}->{personalBiblio}) {
+        my $user = $me->{cur}->{user};
+        $me->{cur}->{events} = "";
 
-    # Initialize aliases
-    my %aliases = map { +"$_->{lastname}, $_->{firstname}" => 1 } $user->aliases;
+        die "Must be logged in to use Embed renderer" unless $user;
 
-    $me->{aliases} = \%aliases;
+        # Initialize aliases
+        my %aliases = map { +"$_->{lastname}, $_->{firstname}" => 1 } $user->aliases;
+
+        $me->{aliases} = \%aliases;
+    }
     #use Data::Dumper;
     #print Dumper($me->{aliases});
     return "var xpapers_embed_buffer = '';\n" 
@@ -37,13 +40,14 @@ sub startBiblio {
 
 sub endBiblio { 
     my $me = shift;
+    my $refresh = $me->{cur}->{personalBiblio} ? "&nbsp;&nbsp;|&nbsp;&nbsp;<a href='$me->{cur}->{site}->{server}/profile/$me->{cur}->{user}->{id}/myworks.pl?refresh=1'>Refresh</a>" : "";
     return <<END;
 function xpapers_embed_init() {
     if (arguments.callee.done) return;
     arguments.callee.done = true;
     var el = document.getElementById('xpapers_gadget');
     if (el) {
-        el.innerHTML = xpapers_embed_buffer + "<div style='font-size:smaller;text-align:right'>powered by <a href='$me->{cur}->{site}->{server}'>$me->{cur}->{site}->{niceName}</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='$me->{cur}->{site}->{server}/profile/$me->{cur}->{user}->{id}/myworks.pl?refresh=1'>Refresh</a>";
+        el.innerHTML = xpapers_embed_buffer + "<div style='font-size:smaller;text-align:right'>powered by <a href='$me->{cur}->{site}->{server}'>$me->{cur}->{site}->{niceName}</a>$refresh";
     } 
 }
 
@@ -99,9 +103,16 @@ sub strip {
 
 sub prepCit {
 	my ($me, $e) = @_;
+
+    my $link = "$me->{cur}->{site}->{server}/rec/$e->{id}";
+    $e->setDisplayLink($link);
+
+    unless ($me->{cur}->{personalBiblio}) {
+        return $me->SUPER::prepCit($e);    
+    }
     my $title = encode_entities($e->title);
     $title .= "." unless $title =~ /\W$/;
-    my $r = "<a class='title' href=\"$me->{cur}->{site}->{server}/rec/$e->{id}\">$title</a>";
+    my $r = "<a class='title' href=\"$link\">$title</a>";
     $r .= "<span class='pubInfo'>" . encode_nontag($me->prepPubInfo($e)); 
     my @coauthors;
     for ($e->getAuthors) {

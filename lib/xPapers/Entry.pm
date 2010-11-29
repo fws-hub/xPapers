@@ -256,8 +256,16 @@ sub slinks {
         ( $b =~ /\.pdf$/i ? 1 : 0 );
 }
 
+sub setDisplayLink {
+    my ($e,$link) = @_;
+    $e->{displayLink} = $link;
+}
+
 sub getAllLinks {
     my ($e,%args) = @_;
+    if ($e->{displayLink}) {
+        return ($e->{displayLink});
+    }
     return @{$e->{__computedLinks}} if exists $e->{__computedLinks};
     my @links = $e->getLinks;
     if ($e->{file}) {
@@ -1064,11 +1072,12 @@ sub id2 {
 	return "AU:$a1[0]|TI:$self->{title}";
 }
 
+
 sub addAuthors {
-    my $self = shift;
-    for $a (@_) {
+	my $self = shift;
+	while (my $a = shift) {
         $self->addAuthor($a);
-    }
+	}
 }
 
 sub setAuthors {
