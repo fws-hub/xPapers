@@ -2,35 +2,56 @@ __POD__
 
 =head1 NAME
 
-<% $ARGS{package} %>
-
-=head1 VERSION
-
-...
+<% $ARGS{NAME} %>
 
 =head1 SYNOPSIS
 
-...
+<% $ARGS{SYNOPSIS} %>
 
 =head1 DESCRIPTION
 
-...
+<% $ARGS{DESCRIPTION} %>
+% if( $ARGS{FIELDS} ){
+=head1 FIELDS
+%   for my $field ( sort keys %{ $ARGS{FIELDS} } ) {
 
-=head1 ATTRIBUTES and METHODS
+=head2 <% $field %> <% $ARGS{FIELDS}{$field} %>
+%    }
+%}
 
-% for my $method ( @{ $ARGS{methods} } ){
-=head2 <% $method %>
+% if( $ARGS{ATTRIBUTES} ){
+=head1 ATTRIBUTES
+% for my $field ( sort keys %{ $ARGS{ATTRIBUTES} } ) {
 
-...
+=head2 <% $field %> <% $ARGS{FIELDS}{$field} %>
+%   }
+%}
 
+% if( $ARGS{METHODS} ){
+=head1 METHODS
+% for my $method ( sort keys %{ $ARGS{METHODS} } ) {
+
+=head2 <% $method %> <% $ARGS{FIELDS}{$method} %>
+%   }
+%}
+
+% if( $ARGS{SUBROUTINES} ){
+=head1 SUBROUTINES
+% for my $method ( sort keys %{ $ARGS{SUBROUTINES} } ) {
+
+=head2 <% $method %> <% $ARGS{FIELDS}{$method} %>
+%   }
 %}
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
+<% $ARGS{AUTHORS} %>
 
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
 
 
 
