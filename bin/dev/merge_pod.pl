@@ -44,7 +44,7 @@ for my $file( @files ){
             die $pc->why_unrated;
         }
     }
-    my %methods = map { $_ => 1 } $pc->naked;
+    my %methods = map { $_ => '' } $pc->naked;
    
     $pod_gen{NAME} = $package;
     my $ismoose;
@@ -83,7 +83,7 @@ for my $file( @files ){
     }
 
     for my $method ( sort keys %methods ){
-        $pod_gen{$field}{$method} = 1;
+        $pod_gen{$field}{$method} = '';
     }
 
     if( $ismoose ){
