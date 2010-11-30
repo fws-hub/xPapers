@@ -88,3 +88,64 @@ sub __xrdbopriv_clone {
 }
 =cut
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Object::WithDBCache
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 cache 
+
+
+
+=head2 cache_obj 
+
+
+
+=head2 clear_all_caches 
+
+
+
+=head2 clear_cache 
+
+
+
+=head2 flush_cache 
+
+
+
+=head2 forget_cache 
+
+
+
+=head2 save_cache 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

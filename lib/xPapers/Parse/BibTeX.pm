@@ -171,3 +171,44 @@ sub p {
     $in =~ s/\\emph\{([^}]*)\}/_$1_/ig;
     return rmTags(compose(TeX::Encode->decode(decode_entities($in))));
 }
+__END__
+
+=head1 NAME
+
+xPapers::Parse::BibTeX
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 p 
+
+
+
+=head2 parse 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

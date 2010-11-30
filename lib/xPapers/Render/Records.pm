@@ -145,3 +145,132 @@ sub renderCat {};
 
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Render::Records
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 afterEntry 
+
+
+
+=head2 afterGroup 
+
+
+
+=head2 beforeGroup 
+
+
+
+=head2 begin 
+
+
+
+=head2 beginCategory 
+
+
+
+=head2 end 
+
+
+
+=head2 endBiblio 
+
+
+
+=head2 endCategory 
+
+
+
+=head2 entryId 
+
+
+
+=head2 field 
+
+
+
+=head2 fieldMap 
+
+
+
+=head2 fields 
+
+
+
+=head2 headerId 
+
+
+
+=head2 init 
+
+
+
+=head2 listSep 
+
+
+
+=head2 new 
+
+
+
+=head2 nothingMsg 
+
+
+
+=head2 quote 
+
+
+
+=head2 quoteChars 
+
+
+
+=head2 renderCat 
+
+
+
+=head2 renderEntry 
+
+
+
+=head2 renderHeader 
+
+
+
+=head2 renderNav 
+
+
+
+=head2 startBiblio 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

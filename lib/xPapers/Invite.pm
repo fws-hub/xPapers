@@ -41,3 +41,58 @@ sub object_class { 'xPapers::Invite' }
 __PACKAGE__->make_manager_methods('invites');
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Invite
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: invites
+
+
+=head1 FIELDS
+
+=head2 created (datetime):
+
+=head2 gId (integer):
+
+=head2 id (integer):
+
+=head2 key (varchar):
+
+=head2 rEmail (varchar):
+
+=head2 rId (integer):
+
+=head2 status (varchar):
+
+=head2 uId (integer):
+
+=head2 updated (datetime):
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

@@ -72,3 +72,48 @@ sub sendAuthorDiff {
 }
 
 
+__END__
+
+=head1 NAME
+
+xPapers::Link::OPPTools
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 sendAuthorDiff 
+
+
+
+=head2 sendDiff 
+
+
+
+=head2 sendPageDiff 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

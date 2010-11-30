@@ -152,3 +152,85 @@ use xPapers::PostMng;
 1;
 
 
+__END__
+
+=head1 NAME
+
+xPapers::Post
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object::Cached>
+
+Table: posts
+
+
+=head1 FIELDS
+
+=head2 accepted (integer):
+
+=head2 body (text):
+
+=head2 created (datetime):
+
+=head2 id (integer):
+
+=head2 notified (integer):
+
+=head2 notifiedMode (SET):
+
+=head2 private (integer):
+
+=head2 subject (varchar):
+
+=head2 submitted (datetime):
+
+=head2 tId (integer):
+
+=head2 target (integer):
+
+=head2 uId (integer):
+
+
+=head1 METHODS
+
+=head2 accept 
+
+
+
+=head2 addToThread 
+
+
+
+=head2 excerpt 
+
+
+
+=head2 notUserFields 
+
+
+
+=head2 postAllowed 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

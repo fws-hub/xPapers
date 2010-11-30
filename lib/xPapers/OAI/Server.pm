@@ -295,3 +295,78 @@ sub rights {
 }
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::OAI::Server
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+This is a class implementing an OAI server serving bibliografic data from the xPapers database.
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 GetRecord 
+
+
+
+=head2 Identify 
+
+
+
+=head2 ListMetadataFormats 
+
+
+
+=head2 decode_args 
+
+
+
+=head2 encode_args 
+
+
+
+=head2 entry_to_xml 
+
+
+
+=head2 make_list 
+
+
+
+=head2 record_header 
+
+
+
+=head2 response 
+
+
+
+=head2 rights 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

@@ -21,3 +21,46 @@ columns =>
 );
 
 1
+__END__
+
+=head1 NAME
+
+xPapers::Relations::PageAuthorArea
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: pagearea_m
+
+
+=head1 FIELDS
+
+=head2 area_id (integer):
+
+=head2 id (serial):
+
+=head2 pageauthor_id (integer):
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

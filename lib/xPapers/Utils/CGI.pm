@@ -1040,3 +1040,324 @@ sub form2entry {
 }
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Utils::CGI
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 addCookie 
+
+
+
+=head2 areaPicker 
+
+
+
+=head2 cap 
+
+
+
+=head2 checkBox 
+
+
+
+=head2 checkParams 
+
+
+
+=head2 colsplit 
+
+
+
+=head2 createCookie 
+
+
+
+=head2 decodeURL 
+
+
+
+=head2 digest 
+
+
+
+=head2 ecode 
+
+
+
+=head2 encode 
+
+
+
+=head2 entry2form 
+
+
+
+=head2 error 
+
+
+
+=head2 field_picker 
+
+
+
+=head2 fields2array 
+
+
+
+=head2 fields2objects 
+
+
+
+=head2 form2entry 
+
+
+
+=head2 format_datetime 
+
+
+
+=head2 format_time 
+
+
+
+=head2 getAreas 
+
+
+
+=head2 gh 
+
+
+
+=head2 gh2 
+
+
+
+=head2 heavyUsers 
+
+
+
+=head2 hh 
+
+
+
+=head2 hideLink 
+
+
+
+=head2 htmlRedirect 
+
+
+
+=head2 ifp 
+
+
+
+=head2 intercept 
+
+
+
+=head2 jYears 
+
+
+
+=head2 joina 
+
+
+
+=head2 joino 
+
+
+
+=head2 jsLoader 
+
+
+
+=head2 ldebug 
+
+
+
+=head2 max 
+
+
+
+=head2 menuTree 
+
+
+
+=head2 min 
+
+
+
+=head2 mkDynList 
+
+
+
+=head2 mkform 
+
+
+
+=head2 mkquery 
+
+
+
+=head2 mkt 
+
+
+
+=head2 mktabs 
+
+
+
+=head2 mydigest 
+
+
+
+=head2 nbFound 
+
+
+
+=head2 newFlag 
+
+
+
+=head2 noBells 
+
+
+
+=head2 num 
+
+
+
+=head2 op 
+
+
+
+=head2 opt 
+
+
+
+=head2 opt2 
+
+
+
+=head2 optck 
+
+
+
+=head2 pager 
+
+
+
+=head2 pdir 
+
+
+
+=head2 prevAfter 
+
+
+
+=head2 prevNext 
+
+
+
+=head2 qt 
+
+
+
+=head2 queryOpts 
+
+
+
+=head2 rankSort 
+
+
+
+=head2 rssURL 
+
+
+
+=head2 sendCookie 
+
+
+
+=head2 setSite 
+
+
+
+=head2 setUser 
+
+
+
+=head2 showLink 
+
+
+
+=head2 sorter 
+
+
+
+=head2 space 
+
+
+
+=head2 sparseURL 
+
+
+
+=head2 tracker 
+
+
+
+=head2 treeItem 
+
+
+
+=head2 trimRSSArgs 
+
+
+
+=head2 uniqueKey 
+
+
+
+=head2 url 
+
+
+
+=head2 writeLog 
+
+
+
+=head2 you 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

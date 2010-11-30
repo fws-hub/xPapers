@@ -359,3 +359,116 @@ sub handle_entry {
 
 1;
 
+__END__
+
+=head1 NAME
+
+xPapers::OAI::Harvester
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<Moose::Object>.
+
+The C<harvestRepo> method retrieves data from the OAI repository saved in the C<repo> attribute and creates C<xPapers::Entry>
+objects out of it.  The objects are then handled to the C<handle_entry> method that does nothing in this class.
+The also included C<xPapers::OAI::Harvester::Acumulator> overrides the C<handle_entry> method and saves the entries
+into the array in the C<entries> attribute.  This can be used for checking out entries from an OAI repository.
+
+
+
+=head1 ATTRIBUTES
+
+=head2 DEBUG 
+
+
+
+=head2 errors 
+
+
+
+=head2 fetchedRecords 
+
+
+
+=head2 handledRecords 
+
+
+
+=head2 limit 
+
+
+
+=head2 metadataPrefix 
+
+
+
+=head2 netHarvester 
+
+
+
+=head2 nonEngRecords 
+
+
+
+=head2 repo 
+
+
+
+=head2 rescan 
+
+
+
+=head1 METHODS
+
+=head2 dorecs 
+
+
+
+=head2 get_set 
+
+
+
+=head2 handle_entry 
+
+
+
+=head2 harvestRepo 
+
+
+
+=head2 increment_fetched 
+
+
+
+=head2 increment_handled 
+
+
+
+=head2 increment_non_eng_records 
+
+
+
+=head2 save_set_time 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+Zbigniew Lukasiak
+with contibutions David Bourget
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

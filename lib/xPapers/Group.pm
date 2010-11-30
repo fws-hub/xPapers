@@ -153,3 +153,119 @@ sub openForum {
 
 1;
 
+__END__
+
+=head1 NAME
+
+xPapers::Group
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object::Cached>
+
+Table: groups
+
+
+=head1 FIELDS
+
+=head2 cId (integer):
+
+=head2 created (datetime):
+
+=head2 dId (integer):
+
+=head2 description (varchar):
+
+=head2 fId (integer):
+
+=head2 id (serial):
+
+=head2 memberCount (integer):
+
+=head2 name (varchar):
+
+=head2 owner (integer):
+
+=head2 permAddPapers (integer):
+
+=head2 permAddPosts (integer):
+
+=head2 permBan (integer):
+
+=head2 permDeletePapers (integer):
+
+=head2 permDeletePosts (integer):
+
+=head2 permInvite (integer):
+
+=head2 permJoin (integer):
+
+=head2 permViewPapers (integer):
+
+=head2 permViewPosts (integer):
+
+=head2 publish (integer):
+
+=head2 system (integer):
+
+=head2 updated (timestamp):
+
+
+=head1 METHODS
+
+=head2 addUser 
+
+
+
+=head2 canDo 
+
+
+
+=head2 deleteUser 
+
+
+
+=head2 forum_o 
+
+
+
+=head2 hasLevel 
+
+
+
+=head2 moderators 
+
+
+
+=head2 openForum 
+
+
+
+=head2 setDefaults 
+
+
+
+=head2 usersAt 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

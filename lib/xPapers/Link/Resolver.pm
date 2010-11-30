@@ -115,3 +115,61 @@ __PACKAGE__->make_manager_methods('resolvers');
 
 1;
 
+__END__
+
+=head1 NAME
+
+xPapers::Link::Resolver
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: resolvers
+
+
+=head1 FIELDS
+
+=head2 iId (integer):
+
+=head2 id (serial):
+
+=head2 url (varchar):
+
+=head2 weight (float):
+
+
+=head1 METHODS
+
+=head2 link_for_entry 
+
+
+
+=head2 link_for_entry_new 
+
+
+
+=head2 link_for_entry_old 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

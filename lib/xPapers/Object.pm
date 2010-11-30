@@ -16,3 +16,39 @@ sub get {
 
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Object
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<Rose::DB::Object>
+
+Table: objects
+
+
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

@@ -169,3 +169,104 @@ sub dump {
 
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Harvest::URLPlugin
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 check 
+
+
+
+=head2 compare 
+
+
+
+=head2 domain 
+
+
+
+=head2 dump 
+
+
+
+=head2 findForm 
+
+
+
+=head2 nonewline 
+
+
+
+=head2 normalize 
+
+
+
+=head2 parsePage 
+
+
+
+=head2 prepareTests 
+
+
+
+=head2 process 
+
+
+
+=head2 processURL 
+
+
+
+=head2 runTests 
+
+
+
+=head2 serialize 
+
+
+
+=head2 showForms 
+
+
+
+=head2 testURLs 
+
+
+
+=head2 validLinks 
+
+
+
+=head2 version 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

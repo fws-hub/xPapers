@@ -1570,3 +1570,449 @@ sub findPotentialEditors{
 1;
 
 
+__END__
+
+=head1 NAME
+
+xPapers::Cat
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object::WithDBCache>, L<xPapers::Object::Cached>, L<xPapers::Object::Secured>, L<xPapers::Object::Diffable>
+
+Table: cats
+
+
+=head1 FIELDS
+
+=head2 cacheId (integer):
+
+=head2 canonical (integer):
+
+=head2 catCount (integer):
+
+=head2 condCounts (blob):
+
+=head2 count (integer):
+
+=head2 created (datetime):
+
+=head2 description (varchar):
+
+=head2 dfo (integer):
+
+=head2 edEnd (datetime):
+
+=head2 edfChecked (datetime):
+
+=head2 edfId (integer):
+
+=head2 edfo (integer):
+
+=head2 exclusions (integer):
+
+=head2 fId (integer):
+
+=head2 filter_id (integer):
+
+=head2 flags (SET):
+
+=head2 fnumid (varchar):
+
+=head2 gId (integer):
+
+=head2 greedy (integer):
+
+=head2 highestLevel (integer):
+
+=head2 id (serial):
+
+=head2 ifId (integer):
+
+=head2 level (integer):
+
+=head2 marginal (integer):
+
+=head2 mp (integer):
+
+=head2 name (varchar):
+
+=head2 negative (integer):
+
+=head2 numid (varchar):
+
+=head2 owner (integer):
+
+=head2 pLevel (integer):
+
+=head2 postCount (integer):
+
+=head2 ppId (integer):
+
+=head2 publish (integer):
+
+=head2 related (integer):
+
+=head2 seeAlso (integer):
+
+=head2 system (integer):
+
+=head2 uName (varchar):
+
+=head2 updated (timestamp):
+
+=head2 useAutoCat (integer):
+
+=head2 writable (integer):
+
+
+=head1 METHODS
+
+=head2 addAncestor 
+
+
+
+=head2 addDescendant 
+
+
+
+=head2 addEntries 
+
+
+
+=head2 addEntry 
+
+
+
+=head2 addPAncestor 
+
+
+
+=head2 add_child 
+
+
+
+=head2 add_child_o 
+
+
+
+=head2 ancestry 
+
+
+
+=head2 area 
+
+
+
+=head2 areas 
+
+
+
+=head2 buildGraph 
+
+
+
+=head2 calcCountWhere 
+
+
+
+=head2 calcLevels 
+
+
+
+=head2 calcRecCount 
+
+
+
+=head2 calcUName 
+
+
+
+=head2 canWrite 
+
+
+
+=head2 checkboxes 
+
+
+
+=head2 children_o 
+
+
+
+=head2 cleanAncestry 
+
+
+
+=head2 cleanPAncestry 
+
+
+
+=head2 clearCacheRec 
+
+
+
+=head2 contains 
+
+
+
+=head2 containsUnder 
+
+
+
+=head2 containsUnderP 
+
+
+
+=head2 contains_cat 
+
+
+
+=head2 contentIterator 
+
+
+
+=head2 countWhere 
+
+
+
+=head2 create_child 
+
+
+
+=head2 delete 
+
+
+
+=head2 deleteEntry 
+
+
+
+=head2 delete_child_o 
+
+
+
+=head2 diffable 
+
+
+
+=head2 diffable_relationships 
+
+
+
+=head2 edTerm 
+
+
+
+=head2 eun 
+
+
+
+=head2 exclude 
+
+
+
+=head2 filteredEntries 
+
+
+
+=head2 findPotentialEditors 
+
+
+
+=head2 firstParent 
+
+
+
+=head2 forum_o 
+
+
+
+=head2 gatherCats 
+
+
+
+=head2 gatherPCats 
+
+
+
+=head2 getByNumId 
+
+
+
+=head2 getByUName 
+
+
+
+=head2 getCategories 
+
+
+
+=head2 getEntries 
+
+
+
+=head2 hasAncestor 
+
+
+
+=head2 hasDescendant 
+
+
+
+=head2 hasPAncestor 
+
+
+
+=head2 hasPDescendant 
+
+
+
+=head2 isEditor 
+
+
+
+=head2 isExcluded 
+
+
+
+=head2 lastChild 
+
+
+
+=head2 listFromParams 
+
+
+
+=head2 localCount 
+
+
+
+=head2 makeLast 
+
+
+
+=head2 mcat 
+
+
+
+=head2 minTree 
+
+
+
+=head2 mkDiffs 
+
+
+
+=head2 nextSibling 
+
+
+
+=head2 notUserFields 
+
+
+
+=head2 numId 
+
+
+
+=head2 openForum 
+
+
+
+=head2 pAncestry 
+
+
+
+=head2 pArea 
+
+
+
+=head2 parsetree 
+
+
+
+=head2 pchildren_o 
+
+
+
+=head2 ppLost 
+
+
+
+=head2 preCountWhere 
+
+
+
+=head2 prepTrawler 
+
+
+
+=head2 prepTrawlerWithQ 
+
+
+
+=head2 primary_children 
+
+
+
+=head2 primary_descendants_o 
+
+
+
+=head2 recCount 
+
+
+
+=head2 remove_child 
+
+
+
+=head2 rename 
+
+
+
+=head2 resolverefs 
+
+
+
+=head2 save 
+
+
+
+=head2 setPP 
+
+
+
+=head2 sibling_o 
+
+
+
+=head2 toString 
+
+
+
+=head2 updateStruct 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+
