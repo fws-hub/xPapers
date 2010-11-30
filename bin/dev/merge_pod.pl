@@ -37,7 +37,7 @@ for my $file( @files ){
     }
     my $pc = Pod::Coverage->new( package => $package );
     if( ! defined( $pc->coverage  ) ){
-        if( $pc->why_unrated =~ /couldn't find pod/ ){
+        if( $pc->why_unrated =~ /couldn't find pod|no public symbols defined/ ){
             $pc = Pod::Coverage->new( package => $package, pod_from => 'bin/dev/empty.pod' );
         }
         else{
@@ -100,7 +100,7 @@ for my $file( @files ){
     if( -f $pod_file ){
         $pod_old = LoadFile( $pod_file );
     }
-    my $pod_merged = merge( \%pod_gen, $pod_old );
+    my $pod_merged = merge( $pod_old, \%pod_gen, );
     DumpFile( $pod_file, $pod_merged );
 }
 
