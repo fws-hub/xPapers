@@ -87,10 +87,10 @@ for my $file( @files ){
     }
 
     if( $ismoose ){
-        $pod_gen{AUTHORS} = "Zbigniew Lukasiak\nwith contibutions David Bourget\n\n";
+        $pod_gen{AUTHORS} = "Zbigniew Lukasiak with contributions from David Bourget\n\n";
     }
     else{
-        $pod_gen{AUTHORS} = "David Bourget\nwith contibutions from Zbigniew Lukasiak\n\n";
+        $pod_gen{AUTHORS} = "David Bourget with contributions from Zbigniew Lukasiak\n\n";
     }
     my $pod_file = 'src/doc/' . $file . '.yaml_pod';
     my $dir = $pod_file;

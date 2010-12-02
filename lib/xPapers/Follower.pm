@@ -26,60 +26,93 @@ __PACKAGE__->make_manager_methods('followers');
 
 1;
 
-__END__
+__POD__
 
 =head1 NAME
 
-xPapers::Follower
+
+
+=head1 VERSION
+
+...
 
 =head1 SYNOPSIS
 
-
+...
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
+...
 
-Table: followers
-
-
-=head1 FIELDS
-
-=head2 alias (varchar):
-
-=head2 created (timestamp):
-
-=head2 eId (varchar):
-
-=head2 facebook_id (bigint):
-
-=head2 fuId (integer):
-
-=head2 id (serial):
-
-=head2 ok (integer):
-
-=head2 original_name (varchar):
-
-=head2 seen (integer):
-
-=head2 uId (integer):
-
-
+=head1 ATTRIBUTES and METHODS
 
 
 =head1 DIAGNOSTICS
 
-=head1 AUTHORS
+...
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
-
+LICENCING_STUFF
 
 
-=head1 COPYRIGHT AND LICENSE
 
-See accompanying README file for licensing information.
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
+
+
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
 
 
 

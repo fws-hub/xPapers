@@ -54,65 +54,93 @@ sub notUserFields {
 }
 
 1;
-__END__
+__POD__
 
 =head1 NAME
 
-xPapers::Pages::Page
+
+
+=head1 VERSION
+
+...
 
 =head1 SYNOPSIS
 
-
+...
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
+...
 
-Table: pages
-
-
-=head1 FIELDS
-
-=head2 accepted (integer):
-
-=head2 author_id (integer):
-
-=head2 deleted (integer):
-
-=head2 id (serial):
-
-=head2 title (varchar):
-
-=head2 url (varchar):
-
-
-=head1 METHODS
-
-=head2 diffable 
-
-
-
-=head2 diffable_relationships 
-
-
-
-=head2 notUserFields 
-
-
+=head1 ATTRIBUTES and METHODS
 
 
 =head1 DIAGNOSTICS
 
-=head1 AUTHORS
+...
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
-
+LICENCING_STUFF
 
 
-=head1 COPYRIGHT AND LICENSE
 
-See accompanying README file for licensing information.
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
+
+
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
 
 
 

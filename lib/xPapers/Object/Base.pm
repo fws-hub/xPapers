@@ -278,116 +278,93 @@ sub clear_owner_cache {
     return unless $o;
     $o->clear_cache;
 }
-__END__
+__POD__
 
 =head1 NAME
 
-xPapers::Object::Base
+
+
+=head1 VERSION
+
+...
 
 =head1 SYNOPSIS
 
-
+...
 
 =head1 DESCRIPTION
 
+...
 
-
-
-
-=head1 SUBROUTINES
-
-=head2 add_preload_trigger 
-
-
-
-=head2 checkboxes 
-
-
-
-=head2 clear_owner_cache 
-
-
-
-=head2 elog 
-
-
-
-=head2 fieldModified 
-
-
-
-=head2 get 
-
-
-
-=head2 getField 
-
-
-
-=head2 hasFlag 
-
-
-
-=head2 init_db 
-
-
-
-=head2 loadUserFields 
-
-
-
-=head2 make_list_methods 
-
-
-
-=head2 notUserFields 
-
-
-
-=head2 overflow_config 
-
-
-
-=head2 rmFlag 
-
-
-
-=head2 setField 
-
-
-
-=head2 setFlag 
-
-
-
-=head2 set_my_defaults 
-
-
-
-=head2 toString 
-
-
-
-=head2 userFields 
-
-
-
-=head2 value_separators 
-
+=head1 ATTRIBUTES and METHODS
 
 
 =head1 DIAGNOSTICS
 
-=head1 AUTHORS
+...
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
-
+LICENCING_STUFF
 
 
-=head1 COPYRIGHT AND LICENSE
 
-See accompanying README file for licensing information.
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
+
+
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
 
 
 
