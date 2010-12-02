@@ -21,6 +21,9 @@ xPapers::NoteMng
 
 =head1 DESCRIPTION
 
+Inherits from L<Rose::DB::Object::Manager>.  This is a manager class for the
+xPapers::Note class.
+
 
 
 
@@ -35,8 +38,8 @@ xPapers::NoteMng
 
 =head1 AUTHORS
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
+Zbigniew Lukasiak
+with contibutions from David Bourget
 
 
 
