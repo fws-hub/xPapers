@@ -108,4 +108,6 @@ Crypt::SSLeay
 Test::Deep
 Test::Vars
 Pod::Coverage
+Hash::Merge
+XML::Atom::Client
 #RRDs (only on aptitude)
