@@ -30,3 +30,52 @@ __PACKAGE__->make_manager_methods('editor_invitations');
 
 1;
 
+__END__
+
+=head1 NAME
+
+xPapers::EditorInvitation
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: editor_invitations
+
+
+=head1 FIELDS
+
+=head2 cId (integer):
+
+=head2 created (timestamp):
+
+=head2 id (serial):
+
+=head2 sent_at (datetime):
+
+=head2 status (character):
+
+=head2 uId (integer):
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

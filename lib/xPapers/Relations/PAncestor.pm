@@ -32,3 +32,46 @@ __PACKAGE__->make_manager_methods('primary_ancestors');
 
 1;
 
+__END__
+
+=head1 NAME
+
+xPapers::Relations::PAncestor
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: primary_ancestors
+
+
+=head1 FIELDS
+
+=head2 aId (integer):
+
+=head2 cId (integer):
+
+=head2 distance (integer):
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

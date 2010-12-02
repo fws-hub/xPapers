@@ -85,3 +85,68 @@ sub _summarize {
 }
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Utils::Profiler
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 compile_durations 
+
+
+
+=head2 event 
+
+
+
+=head2 event_duration 
+
+
+
+=head2 initProfiling 
+
+
+
+=head2 profile 
+
+
+
+=head2 summarize 
+
+
+
+=head2 summarize_html 
+
+
+
+=head2 summarize_text 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

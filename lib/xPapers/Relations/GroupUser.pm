@@ -28,3 +28,48 @@ columns =>
  
 );
 
+__END__
+
+=head1 NAME
+
+xPapers::Relations::GroupUser
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: groups_m
+
+
+=head1 FIELDS
+
+=head2 gId (integer):
+
+=head2 id (serial):
+
+=head2 level (integer):
+
+=head2 uId (integer):
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

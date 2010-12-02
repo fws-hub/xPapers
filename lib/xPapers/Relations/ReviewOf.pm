@@ -31,3 +31,46 @@ sub object_class { 'xPapers::Relations::ReviewOf' }
 __PACKAGE__->make_manager_methods('review_relation');
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Relations::ReviewOf
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: review_relation
+
+
+=head1 FIELDS
+
+=head2 id (integer):
+
+=head2 reviewed_id (varchar):
+
+=head2 reviewer_id (varchar):
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

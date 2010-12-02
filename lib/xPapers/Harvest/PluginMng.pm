@@ -17,7 +17,7 @@ sub new {
 sub init {
     my $me = shift;
     $me->{plugins} = [];
-    my @files = sort <$PATHS{LOCAL_BASE}/etc/harvest_plugins/*>;
+    my @files = sort <$PATHS{LOCAL_BASE}/lib/plugins/*>;
     for my $file (@files) {
         my @bits = split(m!/!,$file);
         my $mod = $bits[-1];
@@ -55,4 +55,57 @@ sub applyAll {
         $_->process($entry,$context);
     }
 }
+
+__END__
+
+=head1 NAME
+
+xPapers::Harvest::PluginMng
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 applyAll 
+
+
+
+=head2 init 
+
+
+
+=head2 new 
+
+
+
+=head2 prepareTests 
+
+
+
+=head2 runTests 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
 

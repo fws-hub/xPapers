@@ -329,3 +329,68 @@ sub _parse_authors {
 
 1;
 
+__END__
+
+=head1 NAME
+
+xPapers::Parse::Text
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 parse 
+
+
+
+=head2 parse_as_book 
+
+
+
+=head2 parse_as_book_section 
+
+
+
+=head2 parse_as_incomplete 
+
+
+
+=head2 parse_as_journal_article 
+
+
+
+=head2 parse_as_manuscript 
+
+
+
+=head2 parse_as_thesis 
+
+
+
+=head2 parse_list 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

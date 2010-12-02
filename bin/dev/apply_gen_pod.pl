@@ -17,13 +17,13 @@ my $outbuf;
 my $interp = HTML::Mason::Interp->new( comp_root => '/home/xpapers/bin/dev', out_method => \$outbuf );
 for my $file( @files ){
     print "fixing $file\n";
-    my $pod_file = $file . '.yaml_pod';
+    my $pod_file = 'src/doc/' . $file . '.yaml_pod';
     next if ! -f $pod_file;
     my $pod = LoadFile( $pod_file );
     $outbuf = '';
     $interp->exec( '/pod_template.mason', %$pod );
     my $content = slurp( $file );
-    $content =~ s/^__POD__.*//ms;
+    $content =~ s/^__END__.*//ms;
     write_file( $file, $content, $outbuf ) ;
 }
 

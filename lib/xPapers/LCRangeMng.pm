@@ -118,3 +118,68 @@ sub class_behavior {
 }
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::LCRangeMng
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+=head1 METHODS
+
+=head2 class_behavior 
+
+
+
+=head2 classes 
+
+
+
+=head2 is_excluded 
+
+
+
+=head2 match 
+
+
+
+=head2 object_class 
+
+
+
+=head2 prep_cache 
+
+
+
+=head2 search_list 
+
+
+
+=head2 verdict 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

@@ -43,6 +43,7 @@ if ($ARGS{refresh}) {
      my $prev_rend = $rend;
      $rend = xPapers::Render::Embed->new;
      $rend->{cur} = $prev_rend->{cur};
+     $rend->{cur}->{personalBiblio} = 1;
      my $prev_HTML = $HTML;
      $HTML = 0;
 

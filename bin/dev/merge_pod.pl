@@ -6,6 +6,7 @@ use HTML::Mason;
 
 use File::Slurp qw/ slurp read_file/;
 use File::Find::Rule;
+use File::Path qw(make_path );
 use YAML qw/LoadFile DumpFile/;
 use Hash::Merge 'merge';
 
@@ -36,14 +37,14 @@ for my $file( @files ){
     }
     my $pc = Pod::Coverage->new( package => $package );
     if( ! defined( $pc->coverage  ) ){
-        if( $pc->why_unrated =~ /couldn't find pod/ ){
+        if( $pc->why_unrated =~ /couldn't find pod|no public symbols defined/ ){
             $pc = Pod::Coverage->new( package => $package, pod_from => 'bin/dev/empty.pod' );
         }
         else{
             die $pc->why_unrated;
         }
     }
-    my %methods = map { $_ => 1 } $pc->naked;
+    my %methods = map { $_ => '' } $pc->naked;
    
     $pod_gen{NAME} = $package;
     my $ismoose;
@@ -82,7 +83,7 @@ for my $file( @files ){
     }
 
     for my $method ( sort keys %methods ){
-        $pod_gen{$field}{$method} = 1;
+        $pod_gen{$field}{$method} = '';
     }
 
     if( $ismoose ){
@@ -91,12 +92,15 @@ for my $file( @files ){
     else{
         $pod_gen{AUTHORS} = "David Bourget\nwith contibutions from Zbigniew Lukasiak\n\n";
     }
-    my $pod_file = $file . '.yaml_pod';
+    my $pod_file = 'src/doc/' . $file . '.yaml_pod';
+    my $dir = $pod_file;
+    $dir =~ s{(.*)/.*}{$1};
+    make_path( $dir );
     my $pod_old = {};
     if( -f $pod_file ){
         $pod_old = LoadFile( $pod_file );
     }
-    my $pod_merged = merge( \%pod_gen, $pod_old );
+    my $pod_merged = merge( $pod_old, \%pod_gen, );
     DumpFile( $pod_file, $pod_merged );
 }
 

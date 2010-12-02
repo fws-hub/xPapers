@@ -41,3 +41,59 @@ sub add {
 use xPapers::JournalListMng;
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::JournalList
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: main_jlists
+
+
+=head1 FIELDS
+
+=head2 jlId (serial):
+
+=head2 jlName (varchar):
+
+=head2 jlOwner (integer):
+
+
+=head1 METHODS
+
+=head2 add 
+
+
+
+=head2 get 
+
+
+
+=head2 reset 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

@@ -272,3 +272,69 @@ sub mkFollowAlert {
 
 
 
+__END__
+
+=head1 NAME
+
+xPapers::Alert
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: alerts
+
+
+=head1 FIELDS
+
+=head2 deprecated (integer):
+
+=head2 failures (integer):
+
+=head2 id (integer):
+
+=head2 lastChecked (datetime):
+
+=head2 name (varchar):
+
+=head2 notes (varchar):
+
+=head2 uId (integer):
+
+=head2 url (varchar):
+
+
+=head1 METHODS
+
+=head2 fetch 
+
+
+
+=head2 humanURL 
+
+
+
+=head2 post 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

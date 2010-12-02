@@ -22,6 +22,6 @@ $rend = xPapers::Render::BibTeX->new( );
 $rend->init( CGI->new, undef, $site );
 
 my $e = xPapers::Entry->new( title => 'Aaaa aaa aaa' );
-like( $rend->renderEntry( $e ), qr/title = {Aaaa Aaa Aaa}/, 'Title capitalized' );
-
+like( $rend->renderEntry( $e ), qr/title = {Aaaa Aaa Aaa}$/m, 'Title capitalized, no comma' );
+#warn $rend->renderEntry( $e );
 done_testing;

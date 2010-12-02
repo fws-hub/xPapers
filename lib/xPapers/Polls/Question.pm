@@ -70,3 +70,81 @@ __PACKAGE__->make_manager_methods('questions');
 
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Polls::Question
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::WithDBCache>
+
+Table: questions
+
+
+=head1 FIELDS
+
+=head2 cacheId (integer):
+
+=head2 cachebin (blob):
+
+=head2 id (serial):
+
+=head2 metaOf (integer):
+
+=head2 optional (integer):
+
+=head2 options (varchar):
+
+=head2 poId (integer):
+
+=head2 prototype (integer):
+
+=head2 question (varchar):
+
+=head2 rank (integer):
+
+=head2 showOtherOptions (integer):
+
+=head2 type (enum):
+
+
+=head1 METHODS
+
+=head2 checkboxes 
+
+
+
+=head2 delete_o 
+
+
+
+=head2 hasAnswered 
+
+
+
+=head2 mk_std_string 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+
