@@ -19,3 +19,44 @@ columns =>
 );
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Relations::UserAffil
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: affils_m
+
+
+=head1 FIELDS
+
+=head2 aId (integer):
+
+=head2 uId (integer):
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

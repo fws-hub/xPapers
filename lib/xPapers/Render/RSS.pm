@@ -98,3 +98,72 @@ sub np {
     while ($i =~ s/\s+\(.+?\)\s*//g) {};
     return $i;
 }
+__END__
+
+=head1 NAME
+
+xPapers::Render::RSS
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 a 
+
+
+
+=head2 d 
+
+
+
+=head2 endBiblio 
+
+
+
+=head2 new 
+
+
+
+=head2 np 
+
+
+
+=head2 p 
+
+
+
+=head2 renderEntry 
+
+
+
+=head2 renderQuotes 
+
+
+
+=head2 startBiblio 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

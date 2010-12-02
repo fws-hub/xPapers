@@ -53,3 +53,61 @@ sub clear {
     $me->save;
 }
 
+__END__
+
+=head1 NAME
+
+xPapers::Object::CacheObject
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object::Cached>
+
+Table: cache_objects
+
+
+=head1 FIELDS
+
+=head2 class (varchar):
+
+=head2 content (blob):
+
+=head2 id (serial):
+
+=head2 oId (varchar):
+
+
+=head1 METHODS
+
+=head2 clear 
+
+
+
+=head2 load 
+
+
+
+=head2 save 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

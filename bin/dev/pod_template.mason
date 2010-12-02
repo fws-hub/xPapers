@@ -1,4 +1,4 @@
-__POD__
+__END__
 
 =head1 NAME
 
@@ -23,7 +23,9 @@ __POD__
 =head1 ATTRIBUTES
 % for my $field ( sort keys %{ $ARGS{ATTRIBUTES} } ) {
 
-=head2 <% $field %> <% $ARGS{FIELDS}{$field} %>
+=head2 <% $field %> 
+
+<% $ARGS{ATTRIBUTES}{$field} %>
 %   }
 %}
 
@@ -31,7 +33,9 @@ __POD__
 =head1 METHODS
 % for my $method ( sort keys %{ $ARGS{METHODS} } ) {
 
-=head2 <% $method %> <% $ARGS{FIELDS}{$method} %>
+=head2 <% $method %> 
+
+<% $ARGS{METHODS}{$method} %>
 %   }
 %}
 
@@ -39,7 +43,9 @@ __POD__
 =head1 SUBROUTINES
 % for my $method ( sort keys %{ $ARGS{SUBROUTINES} } ) {
 
-=head2 <% $method %> <% $ARGS{FIELDS}{$method} %>
+=head2 <% $method %> 
+
+<% $ARGS{SUBROUTINES}{$method} %>
 %   }
 %}
 

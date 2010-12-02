@@ -57,3 +57,56 @@ sub fieldMap {
 }
 
 
+__END__
+
+=head1 NAME
+
+xPapers::Render::RIS
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 begin 
+
+
+
+=head2 end 
+
+
+
+=head2 fieldMap 
+
+
+
+=head2 new 
+
+
+
+=head2 quoteChars 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

@@ -47,3 +47,59 @@ __PACKAGE__->make_manager_methods('affils');
 
 1;
 
+__END__
+
+=head1 NAME
+
+xPapers::Affil
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: affils
+
+
+=head1 FIELDS
+
+=head2 discipline (varchar):
+
+=head2 iId (integer):
+
+=head2 id (integer):
+
+=head2 inst_manual (varchar):
+
+=head2 rank (integer):
+
+=head2 role (varchar):
+
+=head2 year (integer):
+
+
+=head1 METHODS
+
+=head2 instName 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

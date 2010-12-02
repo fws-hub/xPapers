@@ -102,3 +102,72 @@ sub strip {
 
 1;
 
+__END__
+
+=head1 NAME
+
+xPapers::Render::Email
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 endBiblio 
+
+
+
+=head2 new 
+
+
+
+=head2 nothingMsg 
+
+
+
+=head2 prepTitle 
+
+
+
+=head2 renderEntry 
+
+
+
+=head2 renderNameLit 
+
+
+
+=head2 renderNav 
+
+
+
+=head2 startBiblio 
+
+
+
+=head2 strip 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

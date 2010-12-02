@@ -48,3 +48,48 @@ sub unlock {
 
 1;
 
+__END__
+
+=head1 NAME
+
+xPapers::Object::Lockable
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 lock 
+
+
+
+=head2 lockId 
+
+
+
+=head2 unlock 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

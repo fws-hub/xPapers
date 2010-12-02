@@ -36,3 +36,66 @@ __PACKAGE__->make_manager_methods('citations');
 1;
 
 
+__END__
+
+=head1 NAME
+
+xPapers::Citation
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: citations
+
+
+=head1 FIELDS
+
+=head2 authors (varchar):
+
+=head2 date (varchar):
+
+=head2 doi (varchar):
+
+=head2 fromeId (varchar):
+
+=head2 id (serial):
+
+=head2 issn (varchar):
+
+=head2 issue (varchar):
+
+=head2 pages (varchar):
+
+=head2 source (varchar):
+
+=head2 title (varchar):
+
+=head2 toeId (varchar):
+
+=head2 volume (integer):
+
+=head2 xml (text):
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

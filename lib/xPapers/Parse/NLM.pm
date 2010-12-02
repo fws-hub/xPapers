@@ -157,3 +157,50 @@ sub _extract_isbn {
 
 1;
 
+__END__
+
+=head1 NAME
+
+xPapers::Parse::NLM
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+This module parses the NLM xml strings and builds Entries out of it.
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 create_reviewed 
+
+
+
+=head2 entryFromXml 
+
+
+
+=head2 new 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

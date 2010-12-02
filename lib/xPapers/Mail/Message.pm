@@ -95,3 +95,93 @@ sub send {
 use xPapers::Mail::MessageMng;
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Mail::Message
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: notices
+
+
+=head1 FIELDS
+
+=head2 brief (varchar):
+
+=head2 content (text):
+
+=head2 created (datetime):
+
+=head2 email (varchar):
+
+=head2 failures (integer):
+
+=head2 id (serial):
+
+=head2 isHTML (integer):
+
+=head2 replyTo (integer):
+
+=head2 sender (varchar):
+
+=head2 sent (integer):
+
+=head2 sent_time (datetime):
+
+=head2 uId (integer):
+
+
+=head1 METHODS
+
+=head2 complete 
+
+
+
+=head2 greetings 
+
+
+
+=head2 html 
+
+
+
+=head2 interpolate 
+
+
+
+=head2 save 
+
+
+
+=head2 send 
+
+
+
+=head2 signature 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

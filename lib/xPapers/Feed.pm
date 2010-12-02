@@ -75,3 +75,71 @@ sub setKey {
     $me->save;
 }
 
+__END__
+
+=head1 NAME
+
+xPapers::Feed
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: feeds
+
+
+=head1 FIELDS
+
+=head2 created (datetime):
+
+=head2 id (integer):
+
+=head2 k (varchar):
+
+=head2 lastChecked (datetime):
+
+=head2 lastIP (varchar):
+
+=head2 uId (integer):
+
+=head2 url (varchar):
+
+
+=head1 METHODS
+
+=head2 create 
+
+
+
+=head2 directURL 
+
+
+
+=head2 params 
+
+
+
+=head2 setKey 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

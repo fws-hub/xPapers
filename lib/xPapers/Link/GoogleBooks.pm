@@ -132,3 +132,64 @@ sub mkentry {
 
 
 
+__END__
+
+=head1 NAME
+
+xPapers::Link::GoogleBooks
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+=head1 SUBROUTINES
+
+=head2 cleanGB 
+
+
+
+=head2 complete 
+
+
+
+=head2 completeAll 
+
+
+
+=head2 completeWithQuery 
+
+
+
+=head2 mkentry 
+
+
+
+=head2 queries 
+
+
+
+=head2 trunc 
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

@@ -92,3 +92,91 @@ sub toString {
 }
 
 1;
+__END__
+
+=head1 NAME
+
+xPapers::Pages::PageAuthor
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
+
+Table: pageauthors
+
+
+=head1 FIELDS
+
+=head2 accepted (integer):
+
+=head2 created (datetime):
+
+=head2 deleted (integer):
+
+=head2 firstname (varchar):
+
+=head2 id (serial):
+
+=head2 lastname (varchar):
+
+=head2 opp_id (integer):
+
+=head2 people_cat (varchar):
+
+=head2 people_descr (text):
+
+=head2 pro (integer):
+
+=head2 user_id (integer):
+
+
+=head1 METHODS
+
+=head2 checkboxes 
+
+
+
+=head2 diffable 
+
+
+
+=head2 diffable_relationships 
+
+
+
+=head2 fullname 
+
+
+
+=head2 fullname_r 
+
+
+
+=head2 notUserFields 
+
+
+
+=head2 toString 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+David Bourget
+with contibutions from Zbigniew Lukasiak
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

@@ -465,3 +465,155 @@ sub print_result {
 
 1;
 
+__END__
+
+=head1 NAME
+
+xPapers::AI::Categorizer
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<Moose::Object>
+
+
+
+=head1 ATTRIBUTES
+
+=head2 cat_level 
+
+
+
+=head2 cat_root 
+
+
+
+=head2 categories 
+
+
+
+=head2 comment 
+
+
+
+=head2 cw 
+
+
+
+=head2 data_dir 
+
+
+
+=head2 data_root 
+
+
+
+=head2 db_limit 
+
+
+
+=head2 do_intersection 
+
+
+
+=head2 features_kept 
+
+
+
+=head2 learners 
+
+
+
+=head2 max_tests 
+
+
+
+=head2 tf 
+
+
+
+=head2 train_with 
+
+
+
+=head1 METHODS
+
+=head2 categorize 
+
+
+
+=head2 deflate_entry 
+
+
+
+=head2 entry2doc 
+
+
+
+=head2 find_all_cats 
+
+
+
+=head2 generate_sets 
+
+
+
+=head2 make 
+
+
+
+=head2 make_or_retrieve 
+
+
+
+=head2 print_errors 
+
+
+
+=head2 print_result 
+
+
+
+=head2 record_errors 
+
+
+
+=head2 report_testing 
+
+
+
+=head2 str2cats 
+
+
+
+=head2 suggest 
+
+
+
+=head2 train 
+
+
+
+=head2 transform 
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+Zbigniew Lukasiak
+with contibutions David Bourget
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+
