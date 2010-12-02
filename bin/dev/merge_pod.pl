@@ -12,7 +12,7 @@ use Hash::Merge 'merge';
 
 my @files = File::Find::Rule->file()
     ->name( '*.pm' )
-    ->in( 'lib/xPapers' );
+    ->in( 'lib/' );
 
 my $outbuf;
 my $interp = HTML::Mason::Interp->new( comp_root => '/home/xpapers/bin/dev', out_method => \$outbuf );
