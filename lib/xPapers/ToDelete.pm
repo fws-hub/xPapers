@@ -37,6 +37,8 @@ Inherits from: L<xPapers::Object>
 
 Table: to_delete
 
+This table contains entries that are planned to be deleted.
+
 
 =head1 FIELDS
 
@@ -51,8 +53,8 @@ Table: to_delete
 
 =head1 AUTHORS
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
+Zbigniew Lukasiak
+with contibutions from David Bourget
 
 
 
