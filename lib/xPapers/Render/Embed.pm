@@ -11,6 +11,8 @@ sub new {
   my $self = $class->SUPER::new();
   $self->{noOptions} = 1;
   $self->{fullAbstract} = 1;
+  $self->{noMousing} = 1;
+  $self->{jsLinks} = 1;
   $self->{noDate} = 1;
 
   bless $self, $class;
@@ -108,8 +110,14 @@ sub prepCit {
     $e->setDisplayLink($link);
 
     unless ($me->{cur}->{personalBiblio}) {
-        return $me->SUPER::prepCit($e);    
+        $me->{noDate} = 0;
+        my $r = $me->SUPER::prepCit($e);
+        if ($e->{date} =~ /\d\d\d\d|forthcoming/) {
+            $r .= " $e->{date}.";
+        }
+        return $r;
     }
+
     my $title = encode_entities($e->title);
     $title .= "." unless $title =~ /\W$/;
     my $r = "<a class='title' href=\"$link\">$title</a>";

@@ -43,66 +43,93 @@ __PACKAGE__->make_manager_methods('errors');
 
 
 
-__END__
+__POD__
 
 =head1 NAME
 
-xPapers::Utils::Error
+
+
+=head1 VERSION
+
+...
 
 =head1 SYNOPSIS
 
-
+...
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
+...
 
-Table: errors
-
-
-=head1 FIELDS
-
-=head2 args (text):
-
-=head2 cookies (text):
-
-=head2 host (varchar):
-
-=head2 id (integer):
-
-=head2 info (text):
-
-=head2 ip (varchar):
-
-=head2 pid (integer):
-
-=head2 referer (varchar):
-
-=head2 request_uri (varchar):
-
-=head2 time (timestamp):
-
-=head2 type (integer):
-
-=head2 uId (integer):
-
-=head2 user_agent (varchar):
-
-
+=head1 ATTRIBUTES and METHODS
 
 
 =head1 DIAGNOSTICS
 
-=head1 AUTHORS
+...
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
-
+LICENCING_STUFF
 
 
-=head1 COPYRIGHT AND LICENSE
 
-See accompanying README file for licensing information.
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
+
+
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
 
 
 

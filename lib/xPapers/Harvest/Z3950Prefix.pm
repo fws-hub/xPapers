@@ -17,48 +17,93 @@ use xPapers::DB;
 sub object_class { 'xPapers::Harvest::Z3950Prefix' }
 
 1;
-__END__
+__POD__
 
 =head1 NAME
 
-xPapers::Harvest::Z3950Prefix
+
+
+=head1 VERSION
+
+...
 
 =head1 SYNOPSIS
 
-
+...
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
+...
 
-Table: z3950_prefixes
-
-
-=head1 FIELDS
-
-=head2 created (timestamp):
-
-=head2 id (serial):
-
-=head2 lastSuccess (datetime):
-
-=head2 prefix (varchar):
-
-
+=head1 ATTRIBUTES and METHODS
 
 
 =head1 DIAGNOSTICS
 
-=head1 AUTHORS
+...
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
-
+LICENCING_STUFF
 
 
-=head1 COPYRIGHT AND LICENSE
 
-See accompanying README file for licensing information.
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
+
+
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
 
 
 

@@ -64,77 +64,93 @@ use xPapers::JournalMng;
 1;
 
 
-__END__
+__POD__
 
 =head1 NAME
 
-xPapers::Journal
+
+
+=head1 VERSION
+
+...
 
 =head1 SYNOPSIS
 
-
+...
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object::Cached>
+...
 
-Table: main_journals
-
-
-=head1 FIELDS
-
-=head2 archive (integer):
-
-=head2 browsable (integer):
-
-=head2 cId (integer):
-
-=head2 hide (integer):
-
-=head2 id (serial):
-
-=head2 latestVolume (integer):
-
-=head2 listCount (integer):
-
-=head2 maxVol (varchar):
-
-=head2 minVol (varchar):
-
-=head2 name (varchar):
-
-=head2 nb (integer):
-
-=head2 nbHarvest (integer):
-
-=head2 nbVol (integer):
-
-=head2 showIssues (integer):
-
-
-=head1 METHODS
-
-=head2 getByName 
-
-
-
-=head2 popular 
-
-
+=head1 ATTRIBUTES and METHODS
 
 
 =head1 DIAGNOSTICS
 
-=head1 AUTHORS
+...
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
-
+LICENCING_STUFF
 
 
-=head1 COPYRIGHT AND LICENSE
 
-See accompanying README file for licensing information.
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
+
+
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
 
 
 

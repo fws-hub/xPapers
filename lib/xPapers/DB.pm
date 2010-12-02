@@ -79,72 +79,93 @@ sub moveTable {
 }
 
 1;
-__END__
+__POD__
 
 =head1 NAME
 
-xPapers::DB
+
+
+=head1 VERSION
+
+...
 
 =head1 SYNOPSIS
 
-
+...
 
 =head1 DESCRIPTION
 
+...
 
-
-
-
-=head1 SUBROUTINES
-
-=head2 count 
-
-
-
-=head2 countWhere 
-
-
-
-=head2 countWith 
-
-
-
-=head2 dbi_connect 
-
-
-
-=head2 debugOff 
-
-
-
-=head2 debugOn 
-
-
-
-=head2 exec 
-
-
-
-=head2 foundRows 
-
-
-
-=head2 moveTable 
-
+=head1 ATTRIBUTES and METHODS
 
 
 =head1 DIAGNOSTICS
 
-=head1 AUTHORS
+...
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
-
+LICENCING_STUFF
 
 
-=head1 COPYRIGHT AND LICENSE
 
-See accompanying README file for licensing information.
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
+
+
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
 
 
 

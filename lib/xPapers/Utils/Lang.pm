@@ -207,68 +207,93 @@ sub getSuggestion {
 
 1;
 
-__END__
+__POD__
 
 =head1 NAME
 
-xPapers::Utils::Lang
+
+
+=head1 VERSION
+
+...
 
 =head1 SYNOPSIS
 
-
+...
 
 =head1 DESCRIPTION
 
+...
 
-
-
-
-=head1 SUBROUTINES
-
-=head2 addWordToOur 
-
-
-
-=head2 checkLang 
-
-
-
-=head2 getSuggestion 
-
-
-
-=head2 hasLang 
-
-
-
-=head2 isLang 
-
-
-
-=head2 remove_accents 
-
-
-
-=head2 saveOur 
-
-
-
-=head2 splitToWords 
-
+=head1 ATTRIBUTES and METHODS
 
 
 =head1 DIAGNOSTICS
 
-=head1 AUTHORS
+...
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
-
+LICENCING_STUFF
 
 
-=head1 COPYRIGHT AND LICENSE
 
-See accompanying README file for licensing information.
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
+
+
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
 
 
 

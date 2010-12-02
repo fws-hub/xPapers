@@ -234,68 +234,93 @@ push @extensions, '.';
 
 1;
 
-__END__
+__POD__
 
 =head1 NAME
 
-xPapers::Harvest::Z3950
+
+
+=head1 VERSION
+
+...
 
 =head1 SYNOPSIS
 
-
+...
 
 =head1 DESCRIPTION
 
+...
 
-
-
-
-=head1 SUBROUTINES
-
-=head2 checkSize 
-
-
-
-=head2 checkSplit 
-
-
-
-=head2 conn 
-
-
-
-=head2 countrecs 
-
-
-
-=head2 doyear 
-
-
-
-=head2 mkqueries 
-
-
-
-=head2 prefixesForRange 
-
-
-
-=head2 reducePrefixList 
-
+=head1 ATTRIBUTES and METHODS
 
 
 =head1 DIAGNOSTICS
 
-=head1 AUTHORS
+...
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
-
+LICENCING_STUFF
 
 
-=head1 COPYRIGHT AND LICENSE
 
-See accompanying README file for licensing information.
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
+
+
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
 
 
 

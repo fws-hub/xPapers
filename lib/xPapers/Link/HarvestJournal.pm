@@ -100,106 +100,93 @@ sub updateFromFile {
 
 1;
 
-__END__
+__POD__
 
 =head1 NAME
 
-xPapers::Link::HarvestJournal
+
+
+=head1 VERSION
+
+...
 
 =head1 SYNOPSIS
 
-
+...
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
+...
 
-Table: harvest_journals
-
-This class represents journal sets from the OAI server at CrossRef.
-
-The also included C<xPapers::Link::HarvestJournalMng> class contains C<updateFromFile> method that construct
-or updates the records according to the csv file normally found at C<http://www.crossref.org/titlelist/titleFile.csv>.
-
-
-=head1 FIELDS
-
-=head2 deleted (character):
-
-=head2 doi (varchar):
-
-=head2 fetched (integer):
-
-=head2 id (serial):
-
-=head2 inCrossRef (integer):
-
-=head2 issn (varchar):
-
-=head2 issn2 (varchar):
-
-=head2 lastFetchSuccess (datetime):
-
-=head2 lastFetched (integer):
-
-=head2 lastFound (datetime):
-
-=head2 lastIssue (varchar):
-
-=head2 lastNewEntries (integer):
-
-=head2 lastPaper (varchar):
-
-=head2 lastSuccess (datetime):
-
-=head2 localName (varchar):
-
-=head2 name (varchar):
-
-=head2 newEntries (integer):
-
-=head2 noTitle (integer):
-
-=head2 nonEng (integer):
-
-=head2 oai_set (varchar):
-
-=head2 oldEntries (integer):
-
-=head2 origin (character):
-
-=head2 publisher (varchar):
-
-=head2 subjects (text):
-
-=head2 suggestion (integer):
-
-=head2 toHarvest (integer):
-
-
-=head1 METHODS
-
-=head2 canonical_issn 
-
-
-
-=head2 canonical_issn2 
-
-
+=head1 ATTRIBUTES and METHODS
 
 
 =head1 DIAGNOSTICS
 
-=head1 AUTHORS
+...
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
-
+LICENCING_STUFF
 
 
-=head1 COPYRIGHT AND LICENSE
 
-See accompanying README file for licensing information.
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
+
+
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
 
 
 

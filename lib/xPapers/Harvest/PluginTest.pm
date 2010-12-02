@@ -16,56 +16,93 @@ __PACKAGE__->make_manager_methods('plugin_tests');
 
 1;
 
-__END__
+__POD__
 
 =head1 NAME
 
-xPapers::Harvest::PluginTest
+
+
+=head1 VERSION
+
+...
 
 =head1 SYNOPSIS
 
-
+...
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
+...
 
-Table: plugin_tests
-
-
-=head1 FIELDS
-
-=head2 created (datetime):
-
-=head2 expected (text):
-
-=head2 id (serial):
-
-=head2 last (text):
-
-=head2 lastChecked (datetime):
-
-=head2 lastStatus (varchar):
-
-=head2 plugin (varchar):
-
-=head2 url (varchar):
-
-
+=head1 ATTRIBUTES and METHODS
 
 
 =head1 DIAGNOSTICS
 
-=head1 AUTHORS
+...
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
-
+LICENCING_STUFF
 
 
-=head1 COPYRIGHT AND LICENSE
 
-See accompanying README file for licensing information.
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
+
+
+
+__POD__
+
+=head1 NAME
+
+
+
+=head1 VERSION
+
+...
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head1 ATTRIBUTES and METHODS
+
+
+=head1 DIAGNOSTICS
+
+...
+
+LICENCING_STUFF
+
 
 
 
