@@ -18,9 +18,11 @@ my $interp = HTML::Mason::Interp->new( comp_root => '/home/xpapers/bin/dev', out
 for my $file( @files ){
     print "fixing $file\n";
     my $pod_file = 'src/doc/' . $file . '.yaml_pod';
-    next if ! -f $pod_file;
-    my $pod = LoadFile( $pod_file );
     $outbuf = '';
+    my $pod = {};
+    if( -f $pod_file ){
+        $pod = LoadFile( $pod_file );
+    }
     $interp->exec( '/pod_template.mason', %$pod );
     my $content = slurp( $file );
     $content =~ s/^__POD__.*//ms;
