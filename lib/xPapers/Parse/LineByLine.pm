@@ -1,4 +1,4 @@
-package LineParser;
+package xPapers::Parse::LineByLine;
 use xPapers::Legacy::Biblio;
 use xPapers::Legacy::Category;
 use xPapers::Entry;

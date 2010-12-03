@@ -8,7 +8,7 @@ my $DATE = '(?:(?:forthcoming|presentation|web|online|manuscript|local)?\/?(?:\d
 my $MONTH='January|February|March|April|May|June|July|August|September|October|November|December';
 #my $DATE = 'Forthcoming|Unpublished|Draft|Web|(?:\d\d\d\d)|(?:.{0,2})';
 
-@ISA = qw(LineParser);
+@ISA = qw(xPapers::Parse::LineByLine);
 #require 'test.pl';
 
 my %LABELS = ('SID' => 'source_id', 'T' => 'updated', 'X' => 'reprint', 'C' => 'citations', 'CL' => 'citationsLink' , 'R' => 'reply-to', 'SRC' => 'db_src');
