@@ -45,63 +45,32 @@ sub fullConfFile { my $self = shift; return $self->{LOCAL_BASE} . $self->assetFi
 
 1;
 
-__POD__
+__END__
 
 =head1 NAME
 
 
 
-=head1 VERSION
-
-...
-
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
 
-=head1 ATTRIBUTES and METHODS
+
+
 
 
 =head1 DIAGNOSTICS
 
-...
-
-LICENCING_STUFF
+=head1 AUTHORS
 
 
 
+=head1 COPYRIGHT AND LICENSE
 
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

@@ -41,7 +41,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Conf::Forums
+
 
 =head1 SYNOPSIS
 
@@ -57,9 +57,6 @@ xPapers::Conf::Forums
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

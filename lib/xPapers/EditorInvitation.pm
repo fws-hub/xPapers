@@ -34,7 +34,7 @@ __END__
 
 =head1 NAME
 
-xPapers::EditorInvitation
+
 
 =head1 SYNOPSIS
 
@@ -42,24 +42,7 @@ xPapers::EditorInvitation
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: editor_invitations
-
-
-=head1 FIELDS
-
-=head2 cId (integer):
-
-=head2 created (timestamp):
-
-=head2 id (serial):
-
-=head2 sent_at (datetime):
-
-=head2 status (character):
-
-=head2 uId (integer):
 
 
 
@@ -67,9 +50,6 @@ Table: editor_invitations
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

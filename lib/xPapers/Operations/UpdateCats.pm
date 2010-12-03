@@ -24,7 +24,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Operations::UpdateCats
+
 
 =head1 SYNOPSIS
 
@@ -32,22 +32,7 @@ xPapers::Operations::UpdateCats
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: cat_edits
-
-
-=head1 FIELDS
-
-=head2 cmds (text):
-
-=head2 created (datetime):
-
-=head2 id (integer):
-
-=head2 status (varchar):
-
-=head2 uId (integer):
 
 
 
@@ -55,9 +40,6 @@ Table: cat_edits
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

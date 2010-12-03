@@ -714,123 +714,214 @@ sub test {
 
 }
 1;
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::Query
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
+Inherits from: L<xPapers::Object>
 
-=head1 ATTRIBUTES and METHODS
+Table: queries
+
+
+=head1 FIELDS
+
+=head2 advMode (varchar):
+
+=head2 all (text):
+
+=head2 appendMSets (integer):
+
+=head2 atleast (text):
+
+=head2 authors (text):
+
+=head2 draftsOnly (integer):
+
+=head2 exact (text):
+
+=head2 examplar (integer):
+
+=head2 executed (datetime):
+
+=head2 extended (text):
+
+=head2 filterMode (varchar):
+
+=head2 freeOnly (varchar):
+
+=head2 id (serial):
+
+=head2 inter (integer):
+
+=head2 interval (integer):
+
+=head2 maxYear (integer):
+
+=head2 minRelevance (float):
+
+=head2 minYear (integer):
+
+=head2 mode (varchar):
+
+=head2 name (varchar):
+
+=head2 onlineOnly (varchar):
+
+=head2 owner (integer):
+
+=head2 proOnly (varchar):
+
+=head2 publication (text):
+
+=head2 publishedOnly (varchar):
+
+=head2 searchStr (text):
+
+=head2 system (integer):
+
+=head2 trawler (integer):
+
+=head2 w_a (text):
+
+=head2 w_e (text):
+
+=head2 w_ez (text):
+
+=head2 w_ezn (text):
+
+=head2 w_ezn2 (text):
+
+=head2 w_g (text):
+
+=head2 w_n (text):
+
+=head2 w_p (text):
+
+=head2 without (text):
+
+
+=head1 METHODS
+
+=head2 authorQuery 
+
+
+
+=head2 basicWhere 
+
+
+
+=head2 cdec 
+
+
+
+=head2 checkboxes 
+
+
+
+=head2 cjoin 
+
+
+
+=head2 delete 
+
+
+
+=head2 execute 
+
+
+
+=head2 foundRows 
+
+
+
+=head2 ftQuery 
+
+
+
+=head2 ftQuote 
+
+
+
+=head2 ftstrn 
+
+
+
+=head2 loadForm 
+
+
+
+=head2 next 
+
+
+
+=head2 notUserFields 
+
+
+
+=head2 prepFilter 
+
+
+
+=head2 prepare 
+
+
+
+=head2 preparePureSQL 
+
+
+
+=head2 prepareSQL 
+
+
+
+=head2 pt 
+
+
+
+=head2 save 
+
+
+
+=head2 saveForm 
+
+
+
+=head2 sql 
+
+
+
+=head2 test 
+
+
+
+=head2 toString 
+
+
+
+=head2 tokenize 
+
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

@@ -27,7 +27,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Polls::Answer
+
 
 =head1 SYNOPSIS
 
@@ -35,30 +35,7 @@ xPapers::Polls::Answer
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: answers
-
-
-=head1 FIELDS
-
-=head2 anId (integer):
-
-=head2 comment (text):
-
-=head2 created (timestamp):
-
-=head2 id (serial):
-
-=head2 qId (integer):
-
-=head2 skipped (integer):
-
-=head2 superseded (datetime):
-
-=head2 text (varchar):
-
-=head2 uId (integer):
 
 
 
@@ -66,9 +43,6 @@ Table: answers
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

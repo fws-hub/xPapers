@@ -410,7 +410,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Parse::MARCXML
+
 
 =head1 SYNOPSIS
 
@@ -422,54 +422,10 @@ xPapers::Parse::MARCXML
 
 
 
-=head1 SUBROUTINES
-
-=head2 cache_find 
-
-
-
-=head2 cache_save 
-
-
-
-=head2 countrecs 
-
-
-
-=head2 f 
-
-
-
-=head2 fixprefix 
-
-
-
-=head2 parse 
-
-
-
-=head2 parserec 
-
-
-
-=head2 processdir 
-
-
-
-=head2 title 
-
-
-
-=head2 trim 
-
-
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

@@ -72,7 +72,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Render::EndNote
+
 
 =head1 SYNOPSIS
 
@@ -84,38 +84,10 @@ xPapers::Render::EndNote
 
 
 
-=head1 SUBROUTINES
-
-=head2 begin 
-
-
-
-=head2 end 
-
-
-
-=head2 field 
-
-
-
-=head2 fieldMap 
-
-
-
-=head2 new 
-
-
-
-=head2 quoteChars 
-
-
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

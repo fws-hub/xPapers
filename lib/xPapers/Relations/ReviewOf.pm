@@ -35,7 +35,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Relations::ReviewOf
+
 
 =head1 SYNOPSIS
 
@@ -43,18 +43,7 @@ xPapers::Relations::ReviewOf
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: review_relation
-
-
-=head1 FIELDS
-
-=head2 id (integer):
-
-=head2 reviewed_id (varchar):
-
-=head2 reviewer_id (varchar):
 
 
 
@@ -62,9 +51,6 @@ Table: review_relation
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

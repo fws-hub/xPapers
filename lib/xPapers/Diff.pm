@@ -603,123 +603,164 @@ odiff:
     reject
 
 =cut
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::Diff
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
+Inherits from: L<xPapers::Object>
 
-=head1 ATTRIBUTES and METHODS
+Table: diffs
+
+
+=head1 FIELDS
+
+=head2 checked (integer):
+
+=head2 class (varchar):
+
+=head2 created (datetime):
+
+=head2 dgId (integer):
+
+=head2 diffb (blob):
+
+=head2 host (varchar):
+
+=head2 id (serial):
+
+=head2 note (varchar):
+
+=head2 oId (varchar):
+
+=head2 relo1 (varchar):
+
+=head2 relo2 (varchar):
+
+=head2 reverse_of (integer):
+
+=head2 reversed (integer):
+
+=head2 session (varchar):
+
+=head2 status (integer):
+
+=head2 status_changed (datetime):
+
+=head2 type (varchar):
+
+=head2 uId (integer):
+
+=head2 updated (timestamp):
+
+=head2 version (integer):
+
+
+=head1 METHODS
+
+=head2 accept 
+
+
+
+=head2 after 
+
+
+
+=head2 apply 
+
+
+
+=head2 before 
+
+
+
+=head2 compute 
+
+
+
+=head2 create_object 
+
+
+
+=head2 delete_object 
+
+
+
+=head2 dump 
+
+
+
+=head2 followedBy 
+
+
+
+=head2 is_null 
+
+
+
+=head2 is_object 
+
+
+
+=head2 load 
+
+
+
+=head2 map_to_class 
+
+
+
+=head2 object 
+
+
+
+=head2 object_back_then 
+
+
+
+=head2 reject 
+
+
+
+=head2 reverse 
+
+
+
+=head2 same 
+
+
+
+=head2 save 
+
+
+
+=head2 serialize 
+
+
+
+=head2 trim_object 
+
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

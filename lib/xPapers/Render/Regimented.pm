@@ -248,7 +248,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Render::Regimented
+
 
 =head1 SYNOPSIS
 
@@ -260,78 +260,10 @@ xPapers::Render::Regimented
 
 
 
-=head1 SUBROUTINES
-
-=head2 em1 
-
-
-
-=head2 em2 
-
-
-
-=head2 gl 
-
-
-
-=head2 gr 
-
-
-
-=head2 joinif 
-
-
-
-=head2 new 
-
-
-
-=head2 preif 
-
-
-
-=head2 q1 
-
-
-
-=head2 q2 
-
-
-
-=head2 quote 
-
-
-
-=head2 renderAuthors 
-
-
-
-=head2 renderEntry 
-
-
-
-=head2 renderExtra 
-
-
-
-=head2 sb 
-
-
-
-=head2 startBiblio 
-
-
-
-=head2 unquote 
-
-
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

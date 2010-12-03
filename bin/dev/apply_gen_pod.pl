@@ -14,7 +14,9 @@ my @files = File::Find::Rule->file()
     ->in( 'lib/xPapers' );
 
 my $outbuf;
-my $interp = HTML::Mason::Interp->new( comp_root => '/home/xpapers/bin/dev', out_method => \$outbuf );
+my $cdir = `pwd`;
+chomp $cdir;
+my $interp = HTML::Mason::Interp->new( comp_root => "$cdir/bin/dev", out_method => \$outbuf );
 for my $file( @files ){
     print "fixing $file\n";
     my $pod_file = 'src/doc/' . $file . '.yaml_pod';

@@ -21,7 +21,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Render::Text
+
 
 =head1 SYNOPSIS
 
@@ -33,22 +33,10 @@ xPapers::Render::Text
 
 
 
-=head1 SUBROUTINES
-
-=head2 renderEntry 
-
-
-
-=head2 startBiblio 
-
-
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

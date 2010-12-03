@@ -25,7 +25,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Relations::EntryArea
+
 
 =head1 SYNOPSIS
 
@@ -33,16 +33,7 @@ xPapers::Relations::EntryArea
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: areas_me
-
-
-=head1 FIELDS
-
-=head2 aId (integer):
-
-=head2 mId (integer):
 
 
 
@@ -50,9 +41,6 @@ Table: areas_me
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

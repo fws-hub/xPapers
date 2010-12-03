@@ -184,7 +184,7 @@ __END__
 
 =head1 NAME
 
-xPapers::UserMng
+
 
 =head1 SYNOPSIS
 
@@ -195,55 +195,11 @@ xPapers::UserMng
 
 
 
-=head1 METHODS
-
-=head2 auth 
-
-
-
-=head2 crypt 
-
-
-
-=head2 getByEmail 
-
-
-
-=head2 getById 
-
-
-
-=head2 getByName 
-
-
-
-=head2 getWhere 
-
-
-
-=head2 object_class 
-
-
-
-=head2 pkauth 
-
-
-
-=head2 proName 
-
-
-
-=head2 sauth 
-
-
 
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

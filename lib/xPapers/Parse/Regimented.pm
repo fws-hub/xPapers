@@ -343,7 +343,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Parse::Regimented
+
 
 =head1 SYNOPSIS
 
@@ -355,46 +355,10 @@ xPapers::Parse::Regimented
 
 
 
-=head1 SUBROUTINES
-
-=head2 catchAll 
-
-
-
-=head2 new 
-
-
-
-=head2 parseCategory 
-
-
-
-=head2 parseCategoryInline 
-
-
-
-=head2 parseEntryExtraLine 
-
-
-
-=head2 parseEntryFirstLine 
-
-
-
-=head2 parseSpecial 
-
-
-
-=head2 youParsed 
-
-
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

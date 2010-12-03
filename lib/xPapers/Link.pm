@@ -108,7 +108,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Link
+
 
 =head1 SYNOPSIS
 
@@ -116,33 +116,7 @@ xPapers::Link
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: links
-
-
-=head1 FIELDS
-
-=head2 dead (integer):
-
-=head2 failures (integer):
-
-=head2 firstFailed (datetime):
-
-=head2 lastChecked (datetime):
-
-=head2 safe (integer):
-
-=head2 url (varchar):
-
-
-=head1 METHODS
-
-=head2 check 
-
-
-
-=head2 ok 
 
 
 
@@ -150,9 +124,6 @@ Table: links
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

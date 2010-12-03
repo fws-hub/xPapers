@@ -84,7 +84,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Inst
+
 
 =head1 SYNOPSIS
 
@@ -92,31 +92,7 @@ xPapers::Inst
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: insts
-
-
-=head1 FIELDS
-
-=head2 country (varchar):
-
-=head2 domain (varchar):
-
-=head2 id (serial):
-
-=head2 name (varchar):
-
-=head2 phdName (varchar):
-
-
-=head1 METHODS
-
-=head2 proxies 
-
-
-
-=head2 redirectors 
 
 
 
@@ -124,9 +100,6 @@ Table: insts
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

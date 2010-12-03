@@ -151,7 +151,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Render::JSON
+
 
 =head1 SYNOPSIS
 
@@ -163,62 +163,10 @@ xPapers::Render::JSON
 
 
 
-=head1 SUBROUTINES
-
-=head2 afterGroup 
-
-
-
-=head2 beforeGroup 
-
-
-
-=head2 beginCategory 
-
-
-
-=head2 cleanch 
-
-
-
-=head2 endBiblio 
-
-
-
-=head2 endCategory 
-
-
-
-=head2 new 
-
-
-
-=head2 renderEntry 
-
-
-
-=head2 renderHeader 
-
-
-
-=head2 renderNav 
-
-
-
-=head2 startBiblio 
-
-
-
-=head2 tpl 
-
-
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

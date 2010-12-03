@@ -28,7 +28,7 @@ __END__
 
 =head1 NAME
 
-xPapers::UserX
+
 
 =head1 SYNOPSIS
 
@@ -36,39 +36,7 @@ xPapers::UserX
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object::Cached>
 
-Table: usersx
-
-
-=head1 FIELDS
-
-=head2 asKey (varchar):
-
-=head2 futurePasswd (varchar):
-
-=head2 gender (enum):
-
-=head2 id (serial):
-
-=head2 nationality (varchar):
-
-=head2 pollKey (varchar):
-
-=head2 publishView (integer):
-
-=head2 tradition (varchar):
-
-=head2 uId (integer):
-
-=head2 xian (varchar):
-
-=head2 yob (integer):
-
-
-=head1 METHODS
-
-=head2 save 
 
 
 
@@ -76,9 +44,6 @@ Table: usersx
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

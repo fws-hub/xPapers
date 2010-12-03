@@ -253,7 +253,7 @@ __END__
 
 =head1 NAME
 
-xPapers::OAI::Repository
+
 
 =head1 SYNOPSIS
 
@@ -261,93 +261,7 @@ xPapers::OAI::Repository
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
 
-Table: oai_repos
-
-This class represents the OAI repository to be harvested.
-
-
-=head1 FIELDS
-
-=head2 deleted (integer):
-
-=head2 downloadType (varchar):
-
-=head2 errorLog (text):
-
-=head2 fetchedRecords (integer):
-
-=head2 found (integer):
-
-=head2 handler (varchar):
-
-=head2 id (serial):
-
-=head2 isSlow (integer):
-
-=head2 languages (ARRAY):
-
-=head2 lastHarvestDuration (integer):
-
-=head2 lastSuccess (datetime):
-
-=head2 name (varchar):
-
-=head2 nonEngRecords (integer):
-
-=head2 rid (varchar):
-
-=head2 savedRecords (integer):
-
-=head2 scannedAt (datetime):
-
-=head2 sets (ARRAY):
-
-
-=head1 METHODS
-
-=head2 diff_test_url 
-
-
-
-=head2 diffable 
-
-
-
-=head2 downgrade_set 
-
-
-
-=head2 pingdb 
-
-
-
-=head2 pushError 
-
-
-
-=head2 render_diffable_array_element 
-
-
-
-=head2 set_sets_hash 
-
-
-
-=head2 set_was_deleted 
-
-
-
-=head2 sets_hash 
-
-
-
-=head2 toString 
-
-
-
-=head2 updateSetsFromRemote 
 
 
 
@@ -355,9 +269,6 @@ This class represents the OAI repository to be harvested.
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

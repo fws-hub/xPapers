@@ -1682,123 +1682,283 @@ sub variations {
 
 
 1;
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::Util
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
 
-=head1 ATTRIBUTES and METHODS
+
+
+
+=head1 SUBROUTINES
+
+=head2 bad 
+
+
+
+=head2 bareName 
+
+
+
+=head2 calcWeakenings 
+
+
+
+=head2 cap_except 
+
+
+
+=head2 capitalize 
+
+
+
+=head2 case_fix 
+
+
+
+=head2 cleanAll 
+
+
+
+=head2 cleanJournal 
+
+
+
+=head2 cleanLinks 
+
+
+
+=head2 cleanName 
+
+
+
+=head2 cleanNames 
+
+
+
+=head2 cleanParseName 
+
+
+
+=head2 clean_field 
+
+
+
+=head2 composeName 
+
+
+
+=head2 cond_cap 
+
+
+
+=head2 dbg 
+
+
+
+=head2 decodeHTMLEntities 
+
+
+
+=head2 decodeResp 
+
+
+
+=head2 dquote 
+
+
+
+=head2 ed_fix 
+
+
+
+=head2 fcmp 
+
+
+
+=head2 file2array 
+
+
+
+=head2 file2hash 
+
+
+
+=head2 fixNameParens 
+
+
+
+=head2 fuzzyGrep 
+
+
+
+=head2 getFileContent 
+
+
+
+=head2 guessDecode 
+
+
+
+=head2 hasMangledTitle 
+
+
+
+=head2 hash2file 
+
+
+
+=head2 hash2sql 
+
+
+
+=head2 hash2url 
+
+
+
+=head2 isArticle 
+
+
+
+=head2 isIncomplete 
+
+
+
+=head2 lastname 
+
+
+
+=head2 links_fix 
+
+
+
+=head2 mark_defective 
+
+
+
+=head2 mkNumId 
+
+
+
+=head2 my_dist 
+
+
+
+=head2 my_dist_text 
+
+
+
+=head2 normalizeNameWhitespace 
+
+
+
+=head2 numdiff 
+
+
+
+=head2 parseAuthorList 
+
+
+
+=head2 parseAuthors 
+
+
+
+=head2 parseName 
+
+
+
+=head2 parseName2 
+
+
+
+=head2 quote 
+
+
+
+=head2 reverseName 
+
+
+
+=head2 rmDiacritics 
+
+
+
+=head2 rmTags 
+
+
+
+=head2 rmWindowsChars 
+
+
+
+=head2 safe_decode 
+
+
+
+=head2 sameAuthors 
+
+
+
+=head2 sameEntry 
+
+
+
+=head2 samePerson 
+
+
+
+=head2 squote 
+
+
+
+=head2 strip 
+
+
+
+=head2 text2relations 
+
+
+
+=head2 toUTF 
+
+
+
+=head2 url2hash 
+
+
+
+=head2 urlDecode 
+
+
+
+=head2 urlEncode 
+
+
+
+=head2 variations 
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

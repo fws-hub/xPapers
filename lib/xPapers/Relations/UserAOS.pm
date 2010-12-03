@@ -24,7 +24,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Relations::UserAOS
+
 
 =head1 SYNOPSIS
 
@@ -32,18 +32,7 @@ xPapers::Relations::UserAOS
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: aos_m
-
-
-=head1 FIELDS
-
-=head2 aId (integer):
-
-=head2 mId (integer):
-
-=head2 rank (integer):
 
 
 
@@ -51,9 +40,6 @@ Table: aos_m
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

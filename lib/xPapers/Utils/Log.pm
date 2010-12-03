@@ -143,3 +143,32 @@ sub lookup {
     return $dnscache{$ip} || $ip;
 }
 1;
+__END__
+
+=head1 NAME
+
+
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
+
+

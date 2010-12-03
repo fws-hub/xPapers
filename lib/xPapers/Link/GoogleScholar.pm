@@ -314,7 +314,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Link::GoogleScholar
+
 
 =head1 SYNOPSIS
 
@@ -326,62 +326,10 @@ xPapers::Link::GoogleScholar
 
 
 
-=head1 SUBROUTINES
-
-=head2 URLDecode 
-
-
-
-=head2 URLEncode 
-
-
-
-=head2 get 
-
-
-
-=head2 getLink 
-
-
-
-=head2 getLinks 
-
-
-
-=head2 goodLink 
-
-
-
-=head2 match 
-
-
-
-=head2 new 
-
-
-
-=head2 parseEntry 
-
-
-
-=head2 parsePage 
-
-
-
-=head2 setAgent 
-
-
-
-=head2 setProxy 
-
-
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

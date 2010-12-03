@@ -24,7 +24,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Relations::InstUser
+
 
 =head1 SYNOPSIS
 
@@ -32,16 +32,7 @@ xPapers::Relations::InstUser
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: insts_m
-
-
-=head1 FIELDS
-
-=head2 iId (integer):
-
-=head2 uId (integer):
 
 
 
@@ -49,9 +40,6 @@ Table: insts_m
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

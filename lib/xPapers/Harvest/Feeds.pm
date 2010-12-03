@@ -276,7 +276,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Harvest::Feeds
+
 
 =head1 SYNOPSIS
 
@@ -284,55 +284,7 @@ xPapers::Harvest::Feeds
 
 =head1 DESCRIPTION
 
-Inherits from: L<Moose::Object>
 
-
-
-=head1 ATTRIBUTES
-
-=head2 content 
-
-
-
-=head2 feed 
-
-
-
-=head2 pluginMng 
-
-
-
-=head2 rss 
-
-
-
-=head2 since 
-
-
-
-=head2 startOfHarvesting 
-
-
-
-=head2 url 
-
-
-
-=head2 user_agent 
-
-
-
-=head1 METHODS
-
-=head2 entries_from_rss 
-
-
-
-=head2 entry_from_item 
-
-
-
-=head2 harvest 
 
 
 
@@ -340,9 +292,6 @@ Inherits from: L<Moose::Object>
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-Zbigniew Lukasiak
-with contibutions David Bourget
 
 
 

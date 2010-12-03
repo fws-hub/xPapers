@@ -23,7 +23,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Relations::Subscription
+
 
 =head1 SYNOPSIS
 
@@ -31,16 +31,7 @@ xPapers::Relations::Subscription
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: posts_sub
-
-
-=head1 FIELDS
-
-=head2 thread_id (integer):
-
-=head2 user_id (integer):
 
 
 
@@ -48,9 +39,6 @@ Table: posts_sub
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

@@ -37,7 +37,7 @@ __END__
 
 =head1 NAME
 
-xPapers::JournalListMng
+
 
 =head1 SYNOPSIS
 
@@ -48,27 +48,11 @@ xPapers::JournalListMng
 
 
 
-=head1 METHODS
-
-=head2 getListsByOwner 
-
-
-
-=head2 getListsForUser 
-
-
-
-=head2 object_class 
-
-
 
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

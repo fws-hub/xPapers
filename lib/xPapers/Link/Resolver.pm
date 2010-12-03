@@ -5,7 +5,9 @@ package xPapers::Link::Resolver;
 
 use xPapers::Conf;
 use URI::OpenURL;
+use xPapers::Inst;
 use URI;
+
 use base qw/xPapers::Object/;
 
 __PACKAGE__->meta->table('resolvers');
@@ -119,7 +121,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Link::Resolver
+
 
 =head1 SYNOPSIS
 
@@ -127,33 +129,7 @@ xPapers::Link::Resolver
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: resolvers
-
-
-=head1 FIELDS
-
-=head2 iId (integer):
-
-=head2 id (serial):
-
-=head2 url (varchar):
-
-=head2 weight (float):
-
-
-=head1 METHODS
-
-=head2 link_for_entry 
-
-
-
-=head2 link_for_entry_new 
-
-
-
-=head2 link_for_entry_old 
 
 
 
@@ -161,9 +137,6 @@ Table: resolvers
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

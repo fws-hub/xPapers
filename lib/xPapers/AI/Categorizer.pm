@@ -469,7 +469,7 @@ __END__
 
 =head1 NAME
 
-xPapers::AI::Categorizer
+
 
 =head1 SYNOPSIS
 
@@ -477,135 +477,7 @@ xPapers::AI::Categorizer
 
 =head1 DESCRIPTION
 
-Inherits from: L<Moose::Object>.
 
-This is a categorizer based on L<AI::Categorizer>.  The C<generate_sets> method generates data for training, 
-this data is saved into the C<data_dir> and later a categorizer object can be trained on it 
-with the C<train> method.
-This categorizer is fine tuned for the PhilPapers database and categories - but it should be
-usable for other scientific articles databases and other taxonomies with some adjustments.
-The algorithm puts an entry into a category if both L<AI::Categorizer::Learner::NaiveBayes>
-and L<AI::Categorizer::Learner::SVM>(trained on the same data) agree.
-
-
-
-=head1 ATTRIBUTES
-
-=head2 cat_level 
-
-
-
-=head2 cat_root 
-
-
-
-=head2 categories 
-
-
-
-=head2 comment 
-
-
-
-=head2 cw 
-
-
-
-=head2 data_dir 
-
-
-
-=head2 data_root 
-
-
-
-=head2 db_limit 
-
-
-
-=head2 do_intersection 
-
-
-
-=head2 features_kept 
-
-
-
-=head2 learners 
-
-
-
-=head2 max_tests 
-
-
-
-=head2 tf 
-
-
-
-=head2 train_with 
-
-
-
-=head1 METHODS
-
-=head2 categorize 
-
-
-
-=head2 deflate_entry 
-
-
-
-=head2 entry2doc 
-
-
-
-=head2 find_all_cats 
-
-
-
-=head2 generate_sets 
-
-
-
-=head2 make 
-
-
-
-=head2 make_or_retrieve 
-
-
-
-=head2 print_errors 
-
-
-
-=head2 print_result 
-
-
-
-=head2 record_errors 
-
-
-
-=head2 report_testing 
-
-
-
-=head2 str2cats 
-
-
-
-=head2 suggest 
-
-
-
-=head2 train 
-
-
-
-=head2 transform 
 
 
 
@@ -613,9 +485,6 @@ and L<AI::Categorizer::Learner::SVM>(trained on the same data) agree.
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-Zbigniew Lukasiak
-with contibutions David Bourget
 
 
 

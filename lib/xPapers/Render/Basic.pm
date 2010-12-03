@@ -119,7 +119,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Render::Basic
+
 
 =head1 SYNOPSIS
 
@@ -131,58 +131,10 @@ xPapers::Render::Basic
 
 
 
-=head1 SUBROUTINES
-
-=head2 beginCategory 
-
-
-
-=head2 endBiblio 
-
-
-
-=head2 endCategory 
-
-
-
-=head2 init 
-
-
-
-=head2 new 
-
-
-
-=head2 renderBiblio 
-
-
-
-=head2 renderCatHeading 
-
-
-
-=head2 renderCategory 
-
-
-
-=head2 renderEntry 
-
-
-
-=head2 renderTOC 
-
-
-
-=head2 startBiblio 
-
-
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

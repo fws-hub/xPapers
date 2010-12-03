@@ -290,123 +290,103 @@ sub countWorks {
 
 
 1;
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::EntryMng
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
 
-=head1 ATTRIBUTES and METHODS
+
+
+=head1 METHODS
+
+=head2 addAdded 
+
+
+
+=head2 addOrDiff 
+
+
+
+=head2 addOrUpdate 
+
+
+
+=head2 addXAdded 
+
+
+
+=head2 authorExists 
+
+
+
+=head2 countWorks 
+
+
+
+=head2 count_all 
+
+
+
+=head2 count_where 
+
+
+
+=head2 diffStatus 
+
+
+
+=head2 findWhere 
+
+
+
+=head2 fuzzyFind 
+
+
+
+=head2 fuzzyMatch 
+
+
+
+=head2 object_class 
+
+
+
+=head2 oldifyMode 
+
+
+
+=head2 similar 
+
+
+
+=head2 similar_sphinx 
+
+
+
+=head2 srcmap 
+
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

@@ -148,7 +148,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Thread
+
 
 =head1 SYNOPSIS
 
@@ -156,83 +156,7 @@ xPapers::Thread
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::WithDBCache>
 
-Table: threads
-
-
-=head1 FIELDS
-
-=head2 accepted (integer):
-
-=head2 blog (integer):
-
-=head2 cacheId (integer):
-
-=head2 created (datetime):
-
-=head2 fId (integer):
-
-=head2 firstPostId (integer):
-
-=head2 id (integer):
-
-=head2 latestPostId (integer):
-
-=head2 latestPostTime (datetime):
-
-=head2 noReplies (integer):
-
-=head2 postCount (integer):
-
-=head2 private (integer):
-
-=head2 sticky (integer):
-
-
-=head1 METHODS
-
-=head2 accept 
-
-
-
-=head2 addPost 
-
-
-
-=head2 ct 
-
-
-
-=head2 deletePost 
-
-
-
-=head2 latestReplies 
-
-
-
-=head2 pc 
-
-
-
-=head2 pt 
-
-
-
-=head2 subscribe 
-
-
-
-=head2 toString 
-
-
-
-=head2 unsubscribe 
-
-
-
-=head2 unsubscribeFromAll 
 
 
 
@@ -240,9 +164,6 @@ Table: threads
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

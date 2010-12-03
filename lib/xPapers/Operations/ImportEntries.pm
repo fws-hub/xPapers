@@ -62,7 +62,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Operations::ImportEntries
+
 
 =head1 SYNOPSIS
 
@@ -70,48 +70,7 @@ xPapers::Operations::ImportEntries
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: batch
-
-
-=head1 FIELDS
-
-=head2 cId (integer):
-
-=head2 categorized (integer):
-
-=head2 checked (integer):
-
-=head2 completed (datetime):
-
-=head2 createMissing (integer):
-
-=head2 created (datetime):
-
-=head2 errors (text):
-
-=head2 finished (integer):
-
-=head2 format (varchar):
-
-=head2 found (integer):
-
-=head2 id (integer):
-
-=head2 inputFile (varchar):
-
-=head2 inserted (integer):
-
-=head2 msg (varchar):
-
-=head2 notFound (integer):
-
-=head2 ok (integer):
-
-=head2 ticket (varchar):
-
-=head2 uId (integer):
 
 
 
@@ -119,9 +78,6 @@ Table: batch
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

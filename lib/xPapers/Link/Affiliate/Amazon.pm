@@ -212,123 +212,78 @@ sub is_change_text {
 
 1;
 
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::Link::Affiliate::Amazon
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
+Inherits from: L<Moose::Object>
 
-=head1 ATTRIBUTES and METHODS
+
+
+=head1 ATTRIBUTES
+
+=head2 associate_tag 
+
+
+
+=head2 handler 
+
+
+
+=head2 locale 
+
+
+
+=head2 parser 
+
+
+
+=head2 ua 
+
+
+
+=head1 METHODS
+
+=head2 getData 
+
+
+
+=head2 is_change_num 
+
+
+
+=head2 is_change_text 
+
+
+
+=head2 mkQuotes 
+
+
+
+=head2 my_findnodes 
+
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+Zbigniew Lukasiak with contributions from David Bourget
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

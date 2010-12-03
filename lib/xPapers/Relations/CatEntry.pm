@@ -56,7 +56,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Relations::CatEntry
+
 
 =head1 SYNOPSIS
 
@@ -64,39 +64,7 @@ xPapers::Relations::CatEntry
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
 
-Table: cats_me
-
-
-=head1 FIELDS
-
-=head2 cId (integer):
-
-=head2 created (datetime):
-
-=head2 eId (varchar):
-
-=head2 editor (integer):
-
-=head2 id (serial):
-
-=head2 rank (integer):
-
-=head2 setAside (integer):
-
-
-=head1 METHODS
-
-=head2 diffable 
-
-
-
-=head2 diffable_relationships 
-
-
-
-=head2 toString 
 
 
 
@@ -104,9 +72,6 @@ Table: cats_me
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

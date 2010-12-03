@@ -76,7 +76,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Render::RichText
+
 
 =head1 SYNOPSIS
 
@@ -88,74 +88,10 @@ xPapers::Render::RichText
 
 
 
-=head1 SUBROUTINES
-
-=head2 afterEntry 
-
-
-
-=head2 afterGroup 
-
-
-
-=head2 beforeGroup 
-
-
-
-=head2 beginCategory 
-
-
-
-=head2 endBiblio 
-
-
-
-=head2 endCategory 
-
-
-
-=head2 entryId 
-
-
-
-=head2 headerId 
-
-
-
-=head2 new 
-
-
-
-=head2 nothingMsg 
-
-
-
-=head2 renderEntry 
-
-
-
-=head2 renderHeader 
-
-
-
-=head2 renderNameLit 
-
-
-
-=head2 renderNav 
-
-
-
-=head2 startBiblio 
-
-
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

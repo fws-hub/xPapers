@@ -58,7 +58,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Render::BibTeX
+
 
 =head1 SYNOPSIS
 
@@ -70,30 +70,10 @@ xPapers::Render::BibTeX
 
 
 
-=head1 SUBROUTINES
-
-=head2 fieldMap 
-
-
-
-=head2 listSep 
-
-
-
-=head2 new 
-
-
-
-=head2 quote 
-
-
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

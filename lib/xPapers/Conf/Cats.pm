@@ -23,7 +23,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Conf::Cats
+
 
 =head1 SYNOPSIS
 
@@ -39,9 +39,6 @@ xPapers::Conf::Cats
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

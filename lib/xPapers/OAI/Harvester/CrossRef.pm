@@ -386,7 +386,7 @@ __END__
 
 =head1 NAME
 
-xPapers::OAI::Harvester::CrossRef
+
 
 =head1 SYNOPSIS
 
@@ -394,85 +394,7 @@ xPapers::OAI::Harvester::CrossRef
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::OAI::Harvester>
 
-Uses its own XML parser to parse the answers - because the CrossRef OAI server uses a special vocabulary.
-
-
-
-=head1 ATTRIBUTES
-
-=head2 DEBUG 
-
-
-
-=head2 errors 
-
-
-
-=head2 fetchedRecords 
-
-
-
-=head2 handledRecords 
-
-
-
-=head2 limit 
-
-
-
-=head2 metadataPrefix 
-
-
-
-=head2 netHarvester 
-
-
-
-=head2 nonEngRecords 
-
-
-
-=head2 parser 
-
-
-
-=head2 pluginMng 
-
-
-
-=head2 repo 
-
-
-
-=head2 rescan 
-
-
-
-=head1 METHODS
-
-=head2 dorecs 
-
-
-
-=head2 handle_entry 
-
-
-
-=head2 incrementField 
-
-
-
-=head2 increment_fetched 
-
-
-
-=head2 save_set_time 
-
-
-
-=head2 updateJournalSets 
 
 
 
@@ -480,9 +402,6 @@ Uses its own XML parser to parse the answers - because the CrossRef OAI server u
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-Zbigniew Lukasiak
-with contibutions David Bourget
 
 
 

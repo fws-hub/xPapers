@@ -23,7 +23,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Relations::UserAffil
+
 
 =head1 SYNOPSIS
 
@@ -31,16 +31,7 @@ xPapers::Relations::UserAffil
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: affils_m
-
-
-=head1 FIELDS
-
-=head2 aId (integer):
-
-=head2 uId (integer):
 
 
 
@@ -48,9 +39,6 @@ Table: affils_m
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

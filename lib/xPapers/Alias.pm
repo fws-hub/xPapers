@@ -19,7 +19,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Alias
+
 
 =head1 SYNOPSIS
 
@@ -27,22 +27,7 @@ xPapers::Alias
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object>
 
-Table: aliases
-
-
-=head1 FIELDS
-
-=head2 firstname (varchar):
-
-=head2 id (serial):
-
-=head2 lastname (varchar):
-
-=head2 name (varchar):
-
-=head2 uId (integer):
 
 
 
@@ -50,9 +35,6 @@ Table: aliases
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

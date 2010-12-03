@@ -155,7 +155,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Render::Embed
+
 
 =head1 SYNOPSIS
 
@@ -167,54 +167,10 @@ xPapers::Render::Embed
 
 
 
-=head1 SUBROUTINES
-
-=head2 encode_nontag 
-
-
-
-=head2 endBiblio 
-
-
-
-=head2 new 
-
-
-
-=head2 nothingMsg 
-
-
-
-=head2 prepCit 
-
-
-
-=head2 renderEntry 
-
-
-
-=head2 renderNav 
-
-
-
-=head2 startBiblio 
-
-
-
-=head2 strip 
-
-
-
-=head2 wrap 
-
-
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 

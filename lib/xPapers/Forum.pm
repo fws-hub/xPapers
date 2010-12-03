@@ -205,7 +205,7 @@ __END__
 
 =head1 NAME
 
-xPapers::Forum
+
 
 =head1 SYNOPSIS
 
@@ -213,57 +213,7 @@ xPapers::Forum
 
 =head1 DESCRIPTION
 
-Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::Secured>, L<xPapers::Object::WithDBCache>
 
-Table: forums
-
-
-=head1 FIELDS
-
-=head2 cId (integer):
-
-=head2 cacheId (integer):
-
-=head2 eId (varchar):
-
-=head2 gId (integer):
-
-=head2 id (serial):
-
-=head2 name (varchar):
-
-
-=head1 METHODS
-
-=head2 addThread 
-
-
-
-=head2 gather_subscribers 
-
-
-
-=head2 min 
-
-
-
-=head2 owner 
-
-
-
-=head2 threads_cat 
-
-
-
-=head2 threads_cat_sql 
-
-
-
-=head2 threads_o 
-
-
-
-=head2 threads_reg 
 
 
 
@@ -271,9 +221,6 @@ Table: forums
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
-
-David Bourget
-with contibutions from Zbigniew Lukasiak
 
 
 
