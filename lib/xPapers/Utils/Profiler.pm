@@ -85,93 +85,68 @@ sub _summarize {
 }
 
 1;
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::Utils::Profiler
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
 
-=head1 ATTRIBUTES and METHODS
+
+
+
+=head1 SUBROUTINES
+
+=head2 compile_durations 
+
+
+
+=head2 event 
+
+
+
+=head2 event_duration 
+
+
+
+=head2 initProfiling 
+
+
+
+=head2 profile 
+
+
+
+=head2 summarize 
+
+
+
+=head2 summarize_html 
+
+
+
+=head2 summarize_text 
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+David Bourget
+with contibutions from Zbigniew Lukasiak
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

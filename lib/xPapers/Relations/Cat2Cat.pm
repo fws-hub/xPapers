@@ -37,93 +37,53 @@ sub object_class { 'xPapers::Relations::Cat2Cat' }
 __PACKAGE__->make_manager_methods('cats_m');
 
 1;
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::Relations::Cat2Cat
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
+Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
 
-=head1 ATTRIBUTES and METHODS
+Table: cats_m
+
+
+=head1 FIELDS
+
+=head2 cId (integer):
+
+=head2 id (serial):
+
+=head2 pId (integer):
+
+=head2 rank (integer):
+
+
+=head1 METHODS
+
+=head2 diffable 
+
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+David Bourget
+with contibutions from Zbigniew Lukasiak
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

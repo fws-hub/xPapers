@@ -23,93 +23,60 @@ __PACKAGE__->make_manager_methods('input_feeds');
 
 1;
 
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::Harvest::InputFeed
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
+Inherits from: L<xPapers::Object>
 
-=head1 ATTRIBUTES and METHODS
+Table: input_feeds
+
+
+=head1 FIELDS
+
+=head2 db_src (varchar):
+
+=head2 harvested (varchar):
+
+=head2 harvested_at (timestamp):
+
+=head2 id (serial):
+
+=head2 lastStatus (varchar):
+
+=head2 name (varchar):
+
+=head2 pass (varchar):
+
+=head2 type (varchar):
+
+=head2 url (varchar):
+
+=head2 useSince (integer):
+
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+David Bourget
+with contibutions from Zbigniew Lukasiak
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

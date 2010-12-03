@@ -21,93 +21,53 @@ sub get {
     return ($p->load_speculative ? JSON::XS->new->utf8->allow_nonref->decode($p->value) : undef);
 }
 
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::Prop
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
+Inherits from: L<xPapers::Object>
 
-=head1 ATTRIBUTES and METHODS
+Table: props
+
+
+=head1 FIELDS
+
+=head2 name (varchar):
+
+=head2 value (text):
+
+
+=head1 METHODS
+
+=head2 get 
+
+
+
+=head2 set 
+
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+David Bourget
+with contibutions from Zbigniew Lukasiak
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

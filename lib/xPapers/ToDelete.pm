@@ -21,6 +21,46 @@ __PACKAGE__->make_manager_methods('to_delete');
 
 1;
 
-__POD__
+__END__
+
+=head1 NAME
+
+xPapers::ToDelete
+
+=head1 SYNOPSIS
+
+
+
+=head1 DESCRIPTION
+
+Inherits from: L<xPapers::Object>
+
+Table: to_delete
+
+This table contains entries that are to be deleted.
+
+
+=head1 FIELDS
+
+=head2 created (timestamp):
+
+=head2 id (varchar):
+
+
+
+
+=head1 DIAGNOSTICS
+
+=head1 AUTHORS
+
+Zbigniew Lukasiak
+with contibutions from David Bourget
+
+
+
+=head1 COPYRIGHT AND LICENSE
+
+See accompanying README file for licensing information.
+
 
 

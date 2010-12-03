@@ -188,93 +188,88 @@ sub catsWithNoEditors {
 }
 
 1;
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::CatMng
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
 
-=head1 ATTRIBUTES and METHODS
+
+
+=head1 METHODS
+
+=head2 catsJS 
+
+
+
+=head2 catsWithNoEditors 
+
+
+
+=head2 deincest 
+
+
+
+=head2 deincestMembershipSet 
+
+
+
+=head2 deincestSet 
+
+
+
+=head2 intersect 
+
+
+
+=head2 minus 
+
+
+
+=head2 mkAncestors 
+
+
+
+=head2 mkPAncestors 
+
+
+
+=head2 move 
+
+
+
+=head2 notin 
+
+
+
+=head2 object_class 
+
+
+
+=head2 union 
+
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+David Bourget
+with contibutions from Zbigniew Lukasiak
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

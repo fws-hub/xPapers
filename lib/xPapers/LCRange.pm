@@ -36,93 +36,58 @@ use xPapers::LCRangeMng;
 
 
 
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::LCRange
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
+Inherits from: L<xPapers::Object>
 
-=head1 ATTRIBUTES and METHODS
+Table: lc_ranges
+
+
+=head1 FIELDS
+
+=head2 cId (integer):
+
+=head2 description (varchar):
+
+=head2 end (float):
+
+=head2 exclude (integer):
+
+=head2 id (integer):
+
+=head2 lc_class (varchar):
+
+=head2 start (float):
+
+=head2 subrange (varchar):
+
+=head2 xwords (varchar):
+
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+David Bourget
+with contibutions from Zbigniew Lukasiak
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
-
-
-
-=head1 VERSION
-
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 

@@ -45,63 +45,76 @@ sub fullConfFile { my $self = shift; return $self->{LOCAL_BASE} . $self->assetFi
 
 1;
 
-__POD__
+__END__
 
 =head1 NAME
 
-
-
-=head1 VERSION
-
-...
+xPapers::Site
 
 =head1 SYNOPSIS
 
-...
+
 
 =head1 DESCRIPTION
 
-...
 
-=head1 ATTRIBUTES and METHODS
+
+
+
+=head1 SUBROUTINES
+
+=head2 assetFile 
+
+
+
+=head2 base 
+
+
+
+=head2 confFile 
+
+
+
+=head2 fullConfFile 
+
+
+
+=head2 masonDataRoot 
+
+
+
+=head2 masonFile 
+
+
+
+=head2 masonRoots 
+
+
+
+=head2 name 
+
+
+
+=head2 new 
+
+
+
+=head2 rawFile 
+
 
 
 =head1 DIAGNOSTICS
 
-...
+=head1 AUTHORS
 
-LICENCING_STUFF
-
-
-
-
-__POD__
-
-=head1 NAME
+David Bourget
+with contibutions from Zbigniew Lukasiak
 
 
 
-=head1 VERSION
+=head1 COPYRIGHT AND LICENSE
 
-...
-
-=head1 SYNOPSIS
-
-...
-
-=head1 DESCRIPTION
-
-...
-
-=head1 ATTRIBUTES and METHODS
-
-
-=head1 DIAGNOSTICS
-
-...
-
-LICENCING_STUFF
-
+See accompanying README file for licensing information.
 
 
 
