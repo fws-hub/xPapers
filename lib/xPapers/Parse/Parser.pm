@@ -36,7 +36,7 @@ sub parseEntryMultiLine {
 
 sub parseCategory {
 	my ($self,$text) = @_;
-	return Category->new;
+	return xPapers::Legacy::Category->new;
 }
 
 sub parseBiblio {

@@ -1,4 +1,4 @@
-package Category;
+package xPapers::Legacy::Category;
 
 sub new {
   my ($class, $name, $level) = @_;

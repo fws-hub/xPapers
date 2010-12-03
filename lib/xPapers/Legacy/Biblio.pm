@@ -3,7 +3,7 @@ use xPapers::Legacy::Category;
 
 sub new {
  	my ($class) = @_;
- 	my $root = Category->new("__ANONYMOUS__");
+ 	my $root = xPapers::Legacy::Category->new("__ANONYMOUS__");
  	my $self = {
 		root => $root,
 		entryIndex => {},
@@ -83,7 +83,7 @@ sub createCategory {
 		# if level 1, add to root
 		if ($#sp <= 0) {
 			#print "adding $qname to root\n";
-			my $ca = new Category($qname);
+			my $ca = new xPapers::Legacy::Category($qname);
 			$me->addCategory($ca);
 			return $ca;
 		} else {
@@ -92,7 +92,7 @@ sub createCategory {
 			if (!$me->getCategory($parentQName)) {
 				$me->createCategory($parentQName);
 			}
-			my $ca = new Category($shortName);
+			my $ca = new xPapers::Legacy::Category($shortName);
 			$me->addCategory($ca,$parentQName);
 			return $ca;
 		}
