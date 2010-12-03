@@ -1,4 +1,4 @@
-package Biblio;
+package xPapers::Legacy::Biblio;
 use xPapers::Legacy::Category;
 
 sub new {
