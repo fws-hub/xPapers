@@ -1,4 +1,4 @@
-package Free;
+package xPapers::Link::Free;
 use strict;
 
 sub new {

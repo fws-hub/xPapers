@@ -995,7 +995,7 @@ sub cleanLinks {
     # load the info and tools we need if not already there
 
     if (!$freeChecker) {
-        $freeChecker = new Free;
+        $freeChecker = xPapers::Link::Free->new;
         $freeChecker->init( site => $DEFAULT_SITE );
     }
 
