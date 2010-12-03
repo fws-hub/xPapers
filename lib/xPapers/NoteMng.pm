@@ -38,8 +38,7 @@ xPapers::Note class.
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak
-with contibutions from David Bourget
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

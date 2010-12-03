@@ -1,6 +1,7 @@
 package xPapers::Utils::Log;
 use IP::Country::Fast;
 use POSIX qw/ceil floor/;
+use xPapers::Render::HTML;
 our @ISA = qw/Exporter/;
 our @EXPORT_OK = qw/country action lookup getcolor showeetry mycmp myjoin/;
 our @EXPORT = @EXPORT_OK;
@@ -147,7 +148,7 @@ __END__
 
 =head1 NAME
 
-
+xPapers::Utils::Log
 
 =head1 SYNOPSIS
 
@@ -159,10 +160,41 @@ __END__
 
 
 
+=head1 SUBROUTINES
+
+=head2 action 
+
+
+
+=head2 country 
+
+
+
+=head2 getcolor 
+
+
+
+=head2 lookup 
+
+
+
+=head2 mycmp 
+
+
+
+=head2 myjoin 
+
+
+
+=head2 showentry 
+
+
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
+
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

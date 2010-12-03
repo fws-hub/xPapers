@@ -158,8 +158,7 @@ Finds the best offer for a given book in a given locale
 
 =head1 AUTHORS
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

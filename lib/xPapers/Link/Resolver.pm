@@ -5,7 +5,9 @@ package xPapers::Link::Resolver;
 
 use xPapers::Conf;
 use URI::OpenURL;
+use xPapers::Inst;
 use URI;
+
 use base qw/xPapers::Object/;
 
 __PACKAGE__->meta->table('resolvers');
@@ -162,8 +164,7 @@ Table: resolvers
 
 =head1 AUTHORS
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

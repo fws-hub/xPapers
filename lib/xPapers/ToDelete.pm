@@ -53,8 +53,7 @@ This table contains entries that are to be deleted.
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak
-with contibutions from David Bourget
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

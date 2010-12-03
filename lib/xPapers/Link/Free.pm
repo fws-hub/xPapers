@@ -71,7 +71,7 @@ __END__
 
 =head1 NAME
 
-
+xPapers::Link::Free
 
 =head1 SYNOPSIS
 
@@ -83,10 +83,41 @@ __END__
 
 
 
+=head1 SUBROUTINES
+
+=head2 bad 
+
+
+
+=head2 file2array 
+
+
+
+=head2 free 
+
+
+
+=head2 freeEntry 
+
+
+
+=head2 init 
+
+
+
+=head2 new 
+
+
+
+=head2 site 
+
+
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
+
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

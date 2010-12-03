@@ -103,8 +103,7 @@ xPapers::OAI
 
 =head1 AUTHORS
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

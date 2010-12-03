@@ -245,7 +245,7 @@ __END__
 
 =head1 NAME
 
-
+xPapers::Legacy::Biblio
 
 =head1 SYNOPSIS
 
@@ -257,10 +257,89 @@ __END__
 
 
 
+=head1 SUBROUTINES
+
+=head2 addCategory 
+
+
+
+=head2 addEntry 
+
+
+
+=head2 count 
+
+
+
+=head2 createCategory 
+
+
+
+=head2 deleteEntry 
+
+
+
+=head2 filter 
+
+
+
+=head2 forceId 
+
+
+
+=head2 gather 
+
+
+
+=head2 gatherCats 
+
+
+
+=head2 getCategory 
+
+
+
+=head2 getCategoryIds 
+
+
+
+=head2 getEntry 
+
+
+
+=head2 getRoot 
+
+
+
+=head2 initIterator 
+
+
+
+=head2 merge 
+
+
+
+=head2 new 
+
+
+
+=head2 nextEntry 
+
+
+
+=head2 stub 
+
+
+
+=head2 updateEntry 
+
+
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
+
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

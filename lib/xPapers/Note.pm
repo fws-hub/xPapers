@@ -59,8 +59,7 @@ Private notes a user can save for an Entry.
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak
-with contibutions from David Bourget
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

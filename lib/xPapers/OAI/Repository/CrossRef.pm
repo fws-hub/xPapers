@@ -111,8 +111,7 @@ with the overridden C<sets_hash> method.
 
 =head1 AUTHORS
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

@@ -178,7 +178,7 @@ __END__
 
 =head1 NAME
 
-
+xPapers::Parse::LineByLine
 
 =head1 SYNOPSIS
 
@@ -190,10 +190,37 @@ __END__
 
 
 
+=head1 SUBROUTINES
+
+=head2 catchAll 
+
+
+
+=head2 parseBiblio 
+
+
+
+=head2 parseBiblioFile 
+
+
+
+=head2 parseCategoryInline 
+
+
+
+=head2 parseEntry 
+
+
+
+=head2 youParsed 
+
+
 
 =head1 DIAGNOSTICS
 
 =head1 AUTHORS
+
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

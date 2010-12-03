@@ -403,7 +403,9 @@ sub setPP {
         $me->dbh->do($s);
     }
     $me->clear_cache;
+    $me->save;
     $pp->clear_cache;
+    $pp->save;
 
 }
 
@@ -2005,8 +2007,7 @@ Table: cats
 
 =head1 AUTHORS
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

@@ -68,8 +68,7 @@ This class links the Entry with the OAI repository and set where it's data origi
 
 =head1 AUTHORS
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

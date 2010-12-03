@@ -193,8 +193,7 @@ This module parses the NLM xml strings and builds Entries out of it.
 
 =head1 AUTHORS
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

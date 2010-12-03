@@ -75,8 +75,7 @@ Note that an author can use many variants of his name to sign articles - we call
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak
-with contibutions from David Bourget
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

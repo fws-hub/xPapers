@@ -359,8 +359,7 @@ This is a class implementing an OAI server serving bibliografic data from the xP
 
 =head1 AUTHORS
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

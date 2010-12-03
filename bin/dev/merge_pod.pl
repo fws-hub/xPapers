@@ -9,13 +9,16 @@ use File::Find::Rule;
 use File::Path qw(make_path );
 use YAML qw/LoadFile DumpFile/;
 use Hash::Merge 'merge';
+use xPapers::Conf;
 
 my @files = File::Find::Rule->file()
     ->name( '*.pm' )
     ->in( 'lib/xPapers' );
 
 my $outbuf;
-my $interp = HTML::Mason::Interp->new( comp_root => '/home/xpapers/bin/dev', out_method => \$outbuf );
+my $dir = `pwd`;
+chomp $dir;
+my $interp = HTML::Mason::Interp->new( comp_root => "$dir/bin/dev", out_method => \$outbuf );
 for my $file( @files ){
     print "fixing $file\n";
     my %pod_gen;

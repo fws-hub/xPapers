@@ -137,8 +137,7 @@ xPapers::DB
 
 =head1 AUTHORS
 
-David Bourget
-with contibutions from Zbigniew Lukasiak
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 
