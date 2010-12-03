@@ -6,7 +6,7 @@ use xPapers::Parse::Parser;
 use xPapers::Util;
 use xPapers::Render::Regimented;
 
-@ISA = qw/Parser/;
+@ISA = qw/xPapers::Parse::Parser/;
 
 sub parseBiblio {
 	my ($me, $text, $restrict) = @_;

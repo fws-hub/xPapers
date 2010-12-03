@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-package Parser;
+package xPapers::Parse::Parser;
 use xPapers::Entry;
 use xPapers::Legacy::Biblio;
 use xPapers::Legacy::Category;
