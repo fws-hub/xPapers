@@ -94,19 +94,33 @@ Table: feeds
 
 =head1 FIELDS
 
-=head2 created (datetime):
+=head2 created (datetime): 
 
-=head2 id (integer):
 
-=head2 k (varchar):
 
-=head2 lastChecked (datetime):
+=head2 id (integer): 
 
-=head2 lastIP (varchar):
 
-=head2 uId (integer):
 
-=head2 url (varchar):
+=head2 k (varchar): 
+
+
+
+=head2 lastChecked (datetime): 
+
+
+
+=head2 lastIP (varchar): 
+
+
+
+=head2 uId (integer): 
+
+
+
+=head2 url (varchar): 
+
+
 
 
 =head1 METHODS

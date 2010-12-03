@@ -51,11 +51,17 @@ Table: primary_ancestors
 
 =head1 FIELDS
 
-=head2 aId (integer):
+=head2 aId (integer): 
 
-=head2 cId (integer):
 
-=head2 distance (integer):
+
+=head2 cId (integer): 
+
+
+
+=head2 distance (integer): 
+
+
 
 
 

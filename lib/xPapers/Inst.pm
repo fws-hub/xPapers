@@ -99,15 +99,25 @@ Table: insts
 
 =head1 FIELDS
 
-=head2 country (varchar):
+=head2 country (varchar): 
 
-=head2 domain (varchar):
 
-=head2 id (serial):
 
-=head2 name (varchar):
+=head2 domain (varchar): 
 
-=head2 phdName (varchar):
+
+
+=head2 id (serial): 
+
+
+
+=head2 name (varchar): 
+
+
+
+=head2 phdName (varchar): 
+
+
 
 
 =head1 METHODS

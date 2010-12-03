@@ -73,17 +73,29 @@ Table: pages
 
 =head1 FIELDS
 
-=head2 accepted (integer):
+=head2 accepted (integer): 
 
-=head2 author_id (integer):
 
-=head2 deleted (integer):
 
-=head2 id (serial):
+=head2 author_id (integer): 
 
-=head2 title (varchar):
 
-=head2 url (varchar):
+
+=head2 deleted (integer): 
+
+
+
+=head2 id (serial): 
+
+
+
+=head2 title (varchar): 
+
+
+
+=head2 url (varchar): 
+
+
 
 
 =head1 METHODS

@@ -55,23 +55,41 @@ Table: lc_ranges
 
 =head1 FIELDS
 
-=head2 cId (integer):
+=head2 cId (integer): 
 
-=head2 description (varchar):
 
-=head2 end (float):
 
-=head2 exclude (integer):
+=head2 description (varchar): 
 
-=head2 id (integer):
 
-=head2 lc_class (varchar):
 
-=head2 start (float):
+=head2 end (float): 
 
-=head2 subrange (varchar):
 
-=head2 xwords (varchar):
+
+=head2 exclude (integer): 
+
+
+
+=head2 id (integer): 
+
+
+
+=head2 lc_class (varchar): 
+
+
+
+=head2 start (float): 
+
+
+
+=head2 subrange (varchar): 
+
+
+
+=head2 xwords (varchar): 
+
+
 
 
 

@@ -89,29 +89,53 @@ Table: questions
 
 =head1 FIELDS
 
-=head2 cacheId (integer):
+=head2 cacheId (integer): 
 
-=head2 cachebin (blob):
 
-=head2 id (serial):
 
-=head2 metaOf (integer):
+=head2 cachebin (blob): 
 
-=head2 optional (integer):
 
-=head2 options (varchar):
 
-=head2 poId (integer):
+=head2 id (serial): 
 
-=head2 prototype (integer):
 
-=head2 question (varchar):
 
-=head2 rank (integer):
+=head2 metaOf (integer): 
 
-=head2 showOtherOptions (integer):
 
-=head2 type (enum):
+
+=head2 optional (integer): 
+
+
+
+=head2 options (varchar): 
+
+
+
+=head2 poId (integer): 
+
+
+
+=head2 prototype (integer): 
+
+
+
+=head2 question (varchar): 
+
+
+
+=head2 rank (integer): 
+
+
+
+=head2 showOtherOptions (integer): 
+
+
+
+=head2 type (enum): 
+
+
 
 
 =head1 METHODS

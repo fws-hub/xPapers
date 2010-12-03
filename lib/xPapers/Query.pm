@@ -733,79 +733,153 @@ Table: queries
 
 =head1 FIELDS
 
-=head2 advMode (varchar):
+=head2 advMode (varchar): 
 
-=head2 all (text):
 
-=head2 appendMSets (integer):
 
-=head2 atleast (text):
+=head2 all (text): 
 
-=head2 authors (text):
 
-=head2 draftsOnly (integer):
 
-=head2 exact (text):
+=head2 appendMSets (integer): 
 
-=head2 examplar (integer):
 
-=head2 executed (datetime):
 
-=head2 extended (text):
+=head2 atleast (text): 
 
-=head2 filterMode (varchar):
 
-=head2 freeOnly (varchar):
 
-=head2 id (serial):
+=head2 authors (text): 
 
-=head2 inter (integer):
 
-=head2 interval (integer):
 
-=head2 maxYear (integer):
+=head2 draftsOnly (integer): 
 
-=head2 minRelevance (float):
 
-=head2 minYear (integer):
 
-=head2 mode (varchar):
+=head2 exact (text): 
 
-=head2 name (varchar):
 
-=head2 onlineOnly (varchar):
 
-=head2 owner (integer):
+=head2 examplar (integer): 
 
-=head2 proOnly (varchar):
 
-=head2 publication (text):
 
-=head2 publishedOnly (varchar):
+=head2 executed (datetime): 
 
-=head2 searchStr (text):
 
-=head2 system (integer):
 
-=head2 trawler (integer):
+=head2 extended (text): 
 
-=head2 w_a (text):
 
-=head2 w_e (text):
 
-=head2 w_ez (text):
+=head2 filterMode (varchar): 
 
-=head2 w_ezn (text):
 
-=head2 w_ezn2 (text):
 
-=head2 w_g (text):
+=head2 freeOnly (varchar): 
 
-=head2 w_n (text):
 
-=head2 w_p (text):
 
-=head2 without (text):
+=head2 id (serial): 
+
+
+
+=head2 inter (integer): 
+
+
+
+=head2 interval (integer): 
+
+
+
+=head2 maxYear (integer): 
+
+
+
+=head2 minRelevance (float): 
+
+
+
+=head2 minYear (integer): 
+
+
+
+=head2 mode (varchar): 
+
+
+
+=head2 name (varchar): 
+
+
+
+=head2 onlineOnly (varchar): 
+
+
+
+=head2 owner (integer): 
+
+
+
+=head2 proOnly (varchar): 
+
+
+
+=head2 publication (text): 
+
+
+
+=head2 publishedOnly (varchar): 
+
+
+
+=head2 searchStr (text): 
+
+
+
+=head2 system (integer): 
+
+
+
+=head2 trawler (integer): 
+
+
+
+=head2 w_a (text): 
+
+
+
+=head2 w_e (text): 
+
+
+
+=head2 w_ez (text): 
+
+
+
+=head2 w_ezn (text): 
+
+
+
+=head2 w_ezn2 (text): 
+
+
+
+=head2 w_g (text): 
+
+
+
+=head2 w_n (text): 
+
+
+
+=head2 w_p (text): 
+
+
+
+=head2 without (text): 
+
+
 
 
 =head1 METHODS

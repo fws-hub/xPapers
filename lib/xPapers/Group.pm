@@ -172,47 +172,89 @@ Table: groups
 
 =head1 FIELDS
 
-=head2 cId (integer):
+=head2 cId (integer): 
 
-=head2 created (datetime):
 
-=head2 dId (integer):
 
-=head2 description (varchar):
+=head2 created (datetime): 
 
-=head2 fId (integer):
 
-=head2 id (serial):
 
-=head2 memberCount (integer):
+=head2 dId (integer): 
 
-=head2 name (varchar):
 
-=head2 owner (integer):
 
-=head2 permAddPapers (integer):
+=head2 description (varchar): 
 
-=head2 permAddPosts (integer):
 
-=head2 permBan (integer):
 
-=head2 permDeletePapers (integer):
+=head2 fId (integer): 
 
-=head2 permDeletePosts (integer):
 
-=head2 permInvite (integer):
 
-=head2 permJoin (integer):
+=head2 id (serial): 
 
-=head2 permViewPapers (integer):
 
-=head2 permViewPosts (integer):
 
-=head2 publish (integer):
+=head2 memberCount (integer): 
 
-=head2 system (integer):
 
-=head2 updated (timestamp):
+
+=head2 name (varchar): 
+
+
+
+=head2 owner (integer): 
+
+
+
+=head2 permAddPapers (integer): 
+
+
+
+=head2 permAddPosts (integer): 
+
+
+
+=head2 permBan (integer): 
+
+
+
+=head2 permDeletePapers (integer): 
+
+
+
+=head2 permDeletePosts (integer): 
+
+
+
+=head2 permInvite (integer): 
+
+
+
+=head2 permJoin (integer): 
+
+
+
+=head2 permViewPapers (integer): 
+
+
+
+=head2 permViewPosts (integer): 
+
+
+
+=head2 publish (integer): 
+
+
+
+=head2 system (integer): 
+
+
+
+=head2 updated (timestamp): 
+
+
 
 
 =head1 METHODS

@@ -47,13 +47,21 @@ Table: groups_m
 
 =head1 FIELDS
 
-=head2 gId (integer):
+=head2 gId (integer): 
 
-=head2 id (serial):
 
-=head2 level (integer):
 
-=head2 uId (integer):
+=head2 id (serial): 
+
+
+
+=head2 level (integer): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 

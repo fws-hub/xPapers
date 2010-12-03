@@ -43,31 +43,57 @@ Table: affiliate_quotes
 
 =head1 FIELDS
 
-=head2 bargain_ratio (integer):
+=head2 bargain_ratio (integer): 
 
-=head2 company (varchar):
 
-=head2 currency (varchar):
 
-=head2 detailsURL (varchar):
+=head2 company (varchar): 
 
-=head2 eId (varchar):
 
-=head2 found (timestamp):
 
-=head2 id (bigserial):
+=head2 currency (varchar): 
 
-=head2 link (varchar):
 
-=head2 link_class (varchar):
 
-=head2 locale (varchar):
+=head2 detailsURL (varchar): 
 
-=head2 price (numeric):
 
-=head2 state (varchar):
 
-=head2 usd_price (numeric):
+=head2 eId (varchar): 
+
+
+
+=head2 found (timestamp): 
+
+
+
+=head2 id (bigserial): 
+
+
+
+=head2 link (varchar): 
+
+
+
+=head2 link_class (varchar): 
+
+
+
+=head2 locale (varchar): 
+
+
+
+=head2 price (numeric): 
+
+
+
+=head2 state (varchar): 
+
+
+
+=head2 usd_price (numeric): 
+
+
 
 
 

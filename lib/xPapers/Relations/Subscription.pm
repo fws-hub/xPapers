@@ -38,9 +38,13 @@ Table: posts_sub
 
 =head1 FIELDS
 
-=head2 thread_id (integer):
+=head2 thread_id (integer): 
 
-=head2 user_id (integer):
+
+
+=head2 user_id (integer): 
+
+
 
 
 

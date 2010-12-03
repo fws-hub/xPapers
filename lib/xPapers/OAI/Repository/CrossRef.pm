@@ -61,39 +61,73 @@ with the overridden C<sets_hash> method.
 
 =head1 FIELDS
 
-=head2 deleted (integer):
+=head2 deleted (integer): 
 
-=head2 downloadType (varchar):
 
-=head2 errorLog (text):
 
-=head2 fetchedRecords (integer):
+=head2 downloadType (varchar): 
 
-=head2 found (integer):
 
-=head2 handler (varchar):
 
-=head2 id (serial):
+=head2 errorLog (text): 
 
-=head2 isSlow (integer):
 
-=head2 languages (ARRAY):
 
-=head2 lastHarvestDuration (integer):
+=head2 fetchedRecords (integer): 
 
-=head2 lastSuccess (datetime):
 
-=head2 name (varchar):
 
-=head2 nonEngRecords (integer):
+=head2 found (integer): 
 
-=head2 rid (varchar):
 
-=head2 savedRecords (integer):
 
-=head2 scannedAt (datetime):
+=head2 handler (varchar): 
 
-=head2 sets (ARRAY):
+
+
+=head2 id (serial): 
+
+
+
+=head2 isSlow (integer): 
+
+
+
+=head2 languages (ARRAY): 
+
+
+
+=head2 lastHarvestDuration (integer): 
+
+
+
+=head2 lastSuccess (datetime): 
+
+
+
+=head2 name (varchar): 
+
+
+
+=head2 nonEngRecords (integer): 
+
+
+
+=head2 rid (varchar): 
+
+
+
+=head2 savedRecords (integer): 
+
+
+
+=head2 scannedAt (datetime): 
+
+
+
+=head2 sets (ARRAY): 
+
+
 
 
 =head1 METHODS

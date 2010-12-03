@@ -38,9 +38,13 @@ Table: affils_m
 
 =head1 FIELDS
 
-=head2 aId (integer):
+=head2 aId (integer): 
 
-=head2 uId (integer):
+
+
+=head2 uId (integer): 
+
+
 
 
 

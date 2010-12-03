@@ -114,29 +114,53 @@ Table: notices
 
 =head1 FIELDS
 
-=head2 brief (varchar):
+=head2 brief (varchar): 
 
-=head2 content (text):
 
-=head2 created (datetime):
 
-=head2 email (varchar):
+=head2 content (text): 
 
-=head2 failures (integer):
 
-=head2 id (serial):
 
-=head2 isHTML (integer):
+=head2 created (datetime): 
 
-=head2 replyTo (integer):
 
-=head2 sender (varchar):
 
-=head2 sent (integer):
+=head2 email (varchar): 
 
-=head2 sent_time (datetime):
 
-=head2 uId (integer):
+
+=head2 failures (integer): 
+
+
+
+=head2 id (serial): 
+
+
+
+=head2 isHTML (integer): 
+
+
+
+=head2 replyTo (integer): 
+
+
+
+=head2 sender (varchar): 
+
+
+
+=head2 sent (integer): 
+
+
+
+=head2 sent_time (datetime): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 =head1 METHODS

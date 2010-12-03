@@ -48,11 +48,17 @@ Table: cats_e
 
 =head1 FIELDS
 
-=head2 cId (integer):
+=head2 cId (integer): 
 
-=head2 id (serial):
 
-=head2 uId (integer):
+
+=head2 id (serial): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 

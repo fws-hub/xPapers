@@ -66,19 +66,33 @@ Table: affils
 
 =head1 FIELDS
 
-=head2 discipline (varchar):
+=head2 discipline (varchar): 
 
-=head2 iId (integer):
 
-=head2 id (integer):
 
-=head2 inst_manual (varchar):
+=head2 iId (integer): 
 
-=head2 rank (integer):
 
-=head2 role (varchar):
 
-=head2 year (integer):
+=head2 id (integer): 
+
+
+
+=head2 inst_manual (varchar): 
+
+
+
+=head2 rank (integer): 
+
+
+
+=head2 role (varchar): 
+
+
+
+=head2 year (integer): 
+
+
 
 
 =head1 METHODS

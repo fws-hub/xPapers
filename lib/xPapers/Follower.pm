@@ -48,25 +48,45 @@ Note that an author can use many variants of his name to sign articles - we call
 
 =head1 FIELDS
 
-=head2 alias (varchar):
+=head2 alias (varchar): 
 
-=head2 created (timestamp):
 
-=head2 eId (varchar):
 
-=head2 facebook_id (bigint):
+=head2 created (timestamp): 
 
-=head2 fuId (integer):
 
-=head2 id (serial):
 
-=head2 ok (integer):
+=head2 eId (varchar): 
 
-=head2 original_name (varchar):
 
-=head2 seen (integer):
 
-=head2 uId (integer):
+=head2 facebook_id (bigint): 
+
+
+
+=head2 fuId (integer): 
+
+
+
+=head2 id (serial): 
+
+
+
+=head2 ok (integer): 
+
+
+
+=head2 original_name (varchar): 
+
+
+
+=head2 seen (integer): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 

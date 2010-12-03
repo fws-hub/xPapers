@@ -1307,143 +1307,281 @@ Table: main
 
 =head1 FIELDS
 
-=head2 addToList (integer):
+=head2 addToList (integer): 
 
-=head2 added (datetime):
 
-=head2 ant_date (varchar):
 
-=head2 ant_editors (varchar):
+=head2 added (datetime): 
 
-=head2 ant_publisher (varchar):
 
-=head2 author_abstract (text):
 
-=head2 authors (varchar):
+=head2 ant_date (varchar): 
 
-=head2 book (varchar):
 
-=head2 cacheId (integer):
 
-=head2 catCount (integer):
+=head2 ant_editors (varchar): 
 
-=head2 citations (float):
 
-=head2 citationsLink (varchar):
 
-=head2 cn_alpha (varchar):
+=head2 ant_publisher (varchar): 
 
-=head2 cn_class (varchar):
 
-=head2 cn_full (varchar):
 
-=head2 cn_num (float):
+=head2 author_abstract (text): 
 
-=head2 date (varchar):
 
-=head2 dateRP (varchar):
 
-=head2 db_src (varchar):
+=head2 authors (varchar): 
 
-=head2 defective (integer):
 
-=head2 deleted (integer):
 
-=head2 descriptors (varchar):
+=head2 book (varchar): 
 
-=head2 doi (varchar):
 
-=head2 draft (integer):
 
-=head2 duplicate (integer):
+=head2 cacheId (integer): 
 
-=head2 duplicateOf (varchar):
 
-=head2 edited (integer):
 
-=head2 etal (integer):
+=head2 catCount (integer): 
 
-=head2 extra (varchar):
 
-=head2 fId (integer):
 
-=head2 file (varchar):
+=head2 citations (float): 
 
-=head2 flags (SET):
 
-=head2 forcePro (integer):
 
-=head2 free (integer):
+=head2 citationsLink (varchar): 
 
-=head2 googleBooksQuery (varchar):
 
-=head2 hasChapters (integer):
 
-=head2 id (varchar):
+=head2 cn_alpha (varchar): 
 
-=head2 isbn (ARRAY):
 
-=head2 issn (varchar):
 
-=head2 issue (varchar):
+=head2 cn_class (varchar): 
 
-=head2 lang (character):
 
-=head2 lccn (ARRAY):
 
-=head2 links (varchar):
+=head2 cn_full (varchar): 
 
-=head2 notes (varchar):
 
-=head2 online (integer):
 
-=head2 online_book (integer):
+=head2 cn_num (float): 
 
-=head2 originalId (varchar):
 
-=head2 pages (varchar):
 
-=head2 postCount (integer):
+=head2 date (varchar): 
 
-=head2 pro (integer):
 
-=head2 pubHarvest (integer):
 
-=head2 pub_type (varchar):
+=head2 dateRP (varchar): 
 
-=head2 published (integer):
 
-=head2 publisher (varchar):
 
-=head2 replyto (varchar):
+=head2 db_src (varchar): 
 
-=head2 reprint (varchar):
 
-=head2 review (integer):
 
-=head2 reviewed_title (ARRAY):
+=head2 defective (integer): 
 
-=head2 school (varchar):
 
-=head2 serial (serial):
 
-=head2 sites (SET):
+=head2 deleted (integer): 
 
-=head2 source (varchar):
 
-=head2 source_id (varchar):
 
-=head2 source_subjects (varchar):
+=head2 descriptors (varchar): 
 
-=head2 title (varchar):
 
-=head2 type (varchar):
 
-=head2 updated (datetime):
+=head2 doi (varchar): 
 
-=head2 viewings (integer):
 
-=head2 volume (integer):
+
+=head2 draft (integer): 
+
+
+
+=head2 duplicate (integer): 
+
+
+
+=head2 duplicateOf (varchar): 
+
+
+
+=head2 edited (integer): 
+
+
+
+=head2 etal (integer): 
+
+
+
+=head2 extra (varchar): 
+
+
+
+=head2 fId (integer): 
+
+
+
+=head2 file (varchar): 
+
+
+
+=head2 flags (SET): 
+
+
+
+=head2 forcePro (integer): 
+
+
+
+=head2 free (integer): 
+
+
+
+=head2 googleBooksQuery (varchar): 
+
+
+
+=head2 hasChapters (integer): 
+
+
+
+=head2 id (varchar): 
+
+
+
+=head2 isbn (ARRAY): 
+
+
+
+=head2 issn (varchar): 
+
+
+
+=head2 issue (varchar): 
+
+
+
+=head2 lang (character): 
+
+
+
+=head2 lccn (ARRAY): 
+
+
+
+=head2 links (varchar): 
+
+
+
+=head2 notes (varchar): 
+
+
+
+=head2 online (integer): 
+
+
+
+=head2 online_book (integer): 
+
+
+
+=head2 originalId (varchar): 
+
+
+
+=head2 pages (varchar): 
+
+
+
+=head2 postCount (integer): 
+
+
+
+=head2 pro (integer): 
+
+
+
+=head2 pubHarvest (integer): 
+
+
+
+=head2 pub_type (varchar): 
+
+
+
+=head2 published (integer): 
+
+
+
+=head2 publisher (varchar): 
+
+
+
+=head2 replyto (varchar): 
+
+
+
+=head2 reprint (varchar): 
+
+
+
+=head2 review (integer): 
+
+
+
+=head2 reviewed_title (ARRAY): 
+
+
+
+=head2 school (varchar): 
+
+
+
+=head2 serial (serial): 
+
+
+
+=head2 sites (SET): 
+
+
+
+=head2 source (varchar): 
+
+
+
+=head2 source_id (varchar): 
+
+
+
+=head2 source_subjects (varchar): 
+
+
+
+=head2 title (varchar): 
+
+
+
+=head2 type (varchar): 
+
+
+
+=head2 updated (datetime): 
+
+
+
+=head2 viewings (integer): 
+
+
+
+=head2 volume (integer): 
+
+
 
 
 =head1 METHODS

@@ -39,9 +39,13 @@ Table: forums_m
 
 =head1 FIELDS
 
-=head2 fId (integer):
+=head2 fId (integer): 
 
-=head2 uId (integer):
+
+
+=head2 uId (integer): 
+
+
 
 
 

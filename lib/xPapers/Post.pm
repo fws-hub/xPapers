@@ -171,29 +171,53 @@ Table: posts
 
 =head1 FIELDS
 
-=head2 accepted (integer):
+=head2 accepted (integer): 
 
-=head2 body (text):
 
-=head2 created (datetime):
 
-=head2 id (integer):
+=head2 body (text): 
 
-=head2 notified (integer):
 
-=head2 notifiedMode (SET):
 
-=head2 private (integer):
+=head2 created (datetime): 
 
-=head2 subject (varchar):
 
-=head2 submitted (datetime):
 
-=head2 tId (integer):
+=head2 id (integer): 
 
-=head2 target (integer):
 
-=head2 uId (integer):
+
+=head2 notified (integer): 
+
+
+
+=head2 notifiedMode (SET): 
+
+
+
+=head2 private (integer): 
+
+
+
+=head2 subject (varchar): 
+
+
+
+=head2 submitted (datetime): 
+
+
+
+=head2 tId (integer): 
+
+
+
+=head2 target (integer): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 =head1 METHODS

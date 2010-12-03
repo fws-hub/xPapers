@@ -40,17 +40,29 @@ Private notes a user can save for an Entry.
 
 =head1 FIELDS
 
-=head2 body (text):
+=head2 body (text): 
 
-=head2 created (datetime):
 
-=head2 eId (varchar):
 
-=head2 id (serial):
+=head2 created (datetime): 
 
-=head2 modified (timestamp):
 
-=head2 uId (integer):
+
+=head2 eId (varchar): 
+
+
+
+=head2 id (serial): 
+
+
+
+=head2 modified (timestamp): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 

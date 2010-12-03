@@ -51,15 +51,25 @@ This class links the Entry with the OAI repository and set where it's data origi
 
 =head1 FIELDS
 
-=head2 eId (varchar):
+=head2 eId (varchar): 
 
-=head2 repo_id (integer):
 
-=head2 set_name (varchar):
 
-=head2 set_spec (varchar):
+=head2 repo_id (integer): 
 
-=head2 type (varchar):
+
+
+=head2 set_name (varchar): 
+
+
+
+=head2 set_spec (varchar): 
+
+
+
+=head2 type (varchar): 
+
+
 
 
 

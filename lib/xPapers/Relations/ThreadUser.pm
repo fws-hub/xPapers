@@ -39,9 +39,13 @@ Table: threads_m
 
 =head1 FIELDS
 
-=head2 tId (integer):
+=head2 tId (integer): 
 
-=head2 uId (integer):
+
+
+=head2 uId (integer): 
+
+
 
 
 

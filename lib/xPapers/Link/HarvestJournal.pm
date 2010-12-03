@@ -124,57 +124,109 @@ or updates the records according to the csv file normally found at C<http://www.
 
 =head1 FIELDS
 
-=head2 deleted (character):
+=head2 deleted (character): 
 
-=head2 doi (varchar):
 
-=head2 fetched (integer):
 
-=head2 id (serial):
+=head2 doi (varchar): 
 
-=head2 inCrossRef (integer):
 
-=head2 issn (varchar):
 
-=head2 issn2 (varchar):
+=head2 fetched (integer): 
 
-=head2 lastFetchSuccess (datetime):
 
-=head2 lastFetched (integer):
 
-=head2 lastFound (datetime):
+=head2 id (serial): 
 
-=head2 lastIssue (varchar):
 
-=head2 lastNewEntries (integer):
 
-=head2 lastPaper (varchar):
+=head2 inCrossRef (integer): 
 
-=head2 lastSuccess (datetime):
 
-=head2 localName (varchar):
 
-=head2 name (varchar):
+=head2 issn (varchar): 
 
-=head2 newEntries (integer):
 
-=head2 noTitle (integer):
 
-=head2 nonEng (integer):
+=head2 issn2 (varchar): 
 
-=head2 oai_set (varchar):
 
-=head2 oldEntries (integer):
 
-=head2 origin (character):
+=head2 lastFetchSuccess (datetime): 
 
-=head2 publisher (varchar):
 
-=head2 subjects (text):
 
-=head2 suggestion (integer):
+=head2 lastFetched (integer): 
 
-=head2 toHarvest (integer):
+
+
+=head2 lastFound (datetime): 
+
+
+
+=head2 lastIssue (varchar): 
+
+
+
+=head2 lastNewEntries (integer): 
+
+
+
+=head2 lastPaper (varchar): 
+
+
+
+=head2 lastSuccess (datetime): 
+
+
+
+=head2 localName (varchar): 
+
+
+
+=head2 name (varchar): 
+
+
+
+=head2 newEntries (integer): 
+
+
+
+=head2 noTitle (integer): 
+
+
+
+=head2 nonEng (integer): 
+
+
+
+=head2 oai_set (varchar): 
+
+
+
+=head2 oldEntries (integer): 
+
+
+
+=head2 origin (character): 
+
+
+
+=head2 publisher (varchar): 
+
+
+
+=head2 subjects (text): 
+
+
+
+=head2 suggestion (integer): 
+
+
+
+=head2 toHarvest (integer): 
+
+
 
 
 =head1 METHODS

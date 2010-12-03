@@ -42,25 +42,45 @@ Table: input_feeds
 
 =head1 FIELDS
 
-=head2 db_src (varchar):
+=head2 db_src (varchar): 
 
-=head2 harvested (varchar):
 
-=head2 harvested_at (timestamp):
 
-=head2 id (serial):
+=head2 harvested (varchar): 
 
-=head2 lastStatus (varchar):
 
-=head2 name (varchar):
 
-=head2 pass (varchar):
+=head2 harvested_at (timestamp): 
 
-=head2 type (varchar):
 
-=head2 url (varchar):
 
-=head2 useSince (integer):
+=head2 id (serial): 
+
+
+
+=head2 lastStatus (varchar): 
+
+
+
+=head2 name (varchar): 
+
+
+
+=head2 pass (varchar): 
+
+
+
+=head2 type (varchar): 
+
+
+
+=head2 url (varchar): 
+
+
+
+=head2 useSince (integer): 
+
+
 
 
 

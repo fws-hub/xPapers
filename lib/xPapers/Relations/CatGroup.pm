@@ -46,11 +46,17 @@ Table: cats_mg
 
 =head1 FIELDS
 
-=head2 cId (integer):
+=head2 cId (integer): 
 
-=head2 gId (integer):
 
-=head2 id (serial):
+
+=head2 gId (integer): 
+
+
+
+=head2 id (serial): 
+
+
 
 
 

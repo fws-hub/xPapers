@@ -163,31 +163,57 @@ Table: threads
 
 =head1 FIELDS
 
-=head2 accepted (integer):
+=head2 accepted (integer): 
 
-=head2 blog (integer):
 
-=head2 cacheId (integer):
 
-=head2 created (datetime):
+=head2 blog (integer): 
 
-=head2 fId (integer):
 
-=head2 firstPostId (integer):
 
-=head2 id (integer):
+=head2 cacheId (integer): 
 
-=head2 latestPostId (integer):
 
-=head2 latestPostTime (datetime):
 
-=head2 noReplies (integer):
+=head2 created (datetime): 
 
-=head2 postCount (integer):
 
-=head2 private (integer):
 
-=head2 sticky (integer):
+=head2 fId (integer): 
+
+
+
+=head2 firstPostId (integer): 
+
+
+
+=head2 id (integer): 
+
+
+
+=head2 latestPostId (integer): 
+
+
+
+=head2 latestPostTime (datetime): 
+
+
+
+=head2 noReplies (integer): 
+
+
+
+=head2 postCount (integer): 
+
+
+
+=head2 private (integer): 
+
+
+
+=head2 sticky (integer): 
+
+
 
 
 =head1 METHODS

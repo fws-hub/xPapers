@@ -291,21 +291,37 @@ Table: alerts
 
 =head1 FIELDS
 
-=head2 deprecated (integer):
+=head2 deprecated (integer): 
 
-=head2 failures (integer):
 
-=head2 id (integer):
 
-=head2 lastChecked (datetime):
+=head2 failures (integer): 
 
-=head2 name (varchar):
 
-=head2 notes (varchar):
 
-=head2 uId (integer):
+=head2 id (integer): 
 
-=head2 url (varchar):
+
+
+=head2 lastChecked (datetime): 
+
+
+
+=head2 name (varchar): 
+
+
+
+=head2 notes (varchar): 
+
+
+
+=head2 uId (integer): 
+
+
+
+=head2 url (varchar): 
+
+
 
 
 =head1 METHODS

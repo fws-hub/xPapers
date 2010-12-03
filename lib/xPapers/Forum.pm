@@ -220,17 +220,29 @@ Table: forums
 
 =head1 FIELDS
 
-=head2 cId (integer):
+=head2 cId (integer): 
 
-=head2 cacheId (integer):
 
-=head2 eId (varchar):
 
-=head2 gId (integer):
+=head2 cacheId (integer): 
 
-=head2 id (serial):
 
-=head2 name (varchar):
+
+=head2 eId (varchar): 
+
+
+
+=head2 gId (integer): 
+
+
+
+=head2 id (serial): 
+
+
+
+=head2 name (varchar): 
+
+
 
 
 =head1 METHODS

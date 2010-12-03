@@ -40,9 +40,13 @@ Table: props
 
 =head1 FIELDS
 
-=head2 name (varchar):
+=head2 name (varchar): 
 
-=head2 value (text):
+
+
+=head2 value (text): 
+
+
 
 
 =head1 METHODS

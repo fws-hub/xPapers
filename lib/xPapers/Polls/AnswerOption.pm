@@ -44,17 +44,29 @@ Table: answer_opts
 
 =head1 FIELDS
 
-=head2 follow (integer):
+=head2 follow (integer): 
 
-=head2 hidden (integer):
 
-=head2 id (serial):
 
-=head2 other (integer):
+=head2 hidden (integer): 
 
-=head2 qId (integer):
 
-=head2 value (varchar):
+
+=head2 id (serial): 
+
+
+
+=head2 other (integer): 
+
+
+
+=head2 qId (integer): 
+
+
+
+=head2 value (varchar): 
+
+
 
 
 =head1 METHODS
