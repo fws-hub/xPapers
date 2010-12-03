@@ -52,7 +52,7 @@ my @emails = split(/[,;\s]/,$emails);
 my @post_harvest = split(/;/,$post_harvest);
 
 # Initialize
-my $h = new Common();
+my $h = new xPapers::Harvest::Common();
 binmode(STDOUT,":utf8");
 print "*" x 50 . "\n";
 print "Harvester started " . localtime() . "\n";

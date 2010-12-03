@@ -1,4 +1,4 @@
-package Common;
+package xPapers::Harvest::Common;
 use xPapers::Util qw/decodeResp decodeHTMLEntities rmTags toUTF getFileContent parseAuthors file2hash hash2file lastname sameEntry/;
 use xPapers::Render::Regimented;
 use xPapers::Entry;
