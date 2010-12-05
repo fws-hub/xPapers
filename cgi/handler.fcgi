@@ -103,8 +103,8 @@ use xPapers::Site;
     #$CGI::Fast::DISABLE_UPLOADS;
     #$CGI::DISABLE_UPLOADS;
 
-    our $freeChecker = new Free;
-    $freeChecker->init("$PATHS{LOCAL_BASE}/sites/default_site/etc");
+    our $freeChecker = new xPapers::Link::Free;
+    $freeChecker->init("$PATHS{LOCAL_BASE}/sites/$DEFAULT_SITE_NAME/etc");
     our $REQ_LOGGED;
     our %ORIG_ARGS;
     my $s = $DEFAULT_SITE;
@@ -310,16 +310,16 @@ FCGI: while ($q = new CGI::Fast) {
             $new_path = "/pages/list.html";
         }
     }
-    warn 'PATH_INFO: ' . $q->path_info . "\n";
-    warn 'SCRIPT_NAME: ' . $q->script_name. "\n";
-    warn 'PATH_TRANSLATED: ' . $q->path_translated . "\n";
-    warn "new_path: $new_path\n";
-    warn 'query params: ' . Dumper( scalar $q->Vars ); use Data::Dumper;
-    warn $ENV{REQUEST_URI};
+    #warn 'PATH_INFO: ' . $q->path_info . "\n";
+    #warn 'SCRIPT_NAME: ' . $q->script_name. "\n";
+    #warn 'PATH_TRANSLATED: ' . $q->path_translated . "\n";
+    #warn "new_path: $new_path\n";
+    #warn 'query params: ' . Dumper( scalar $q->Vars ); use Data::Dumper;
+    #warn $ENV{REQUEST_URI};
     $q->path_info( $new_path );
 
     # hand off to mason
-    my $h = $handlers{$ENV{SITE}};
+    my $h = $handlers{$ENV{SITE}||$DEFAULT_SITE_NAME};
     $q->{__site__} = $s;
     eval { $h->handle_cgi_object($q) };                                      
 
@@ -336,8 +336,14 @@ FCGI: while ($q = new CGI::Fast) {
         }
         print $q->header unless $HTTP_HEADER_SENT;
         print "<center><br><br><br><br>";
-        print $ERROR_MESSAGE;
-        print "<hr>$raw_error";
+        my $msg = $ERROR_MESSAGE;
+        if ($SECURE) {
+           $msg =~ s/__DETAILS__/$raw_error/; 
+        } else {
+           $msg =~ s/__DETAILS__//;
+        }
+        print $msg;
+        #print "<hr>$raw_error";
         my $err = xPapers::Utils::Error->new(
             type=>10, 
             ip=>$ENV{REMOTE_ADDR}, 
@@ -351,7 +357,6 @@ FCGI: while ($q = new CGI::Fast) {
         );
         $err->save;
 
-        #print "<h1>Ooops</h1>";
     }                                                                          
 
     exit 0 if $served_reqs >= $max_reqs;

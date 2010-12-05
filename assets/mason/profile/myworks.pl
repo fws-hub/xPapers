@@ -23,7 +23,7 @@ if ($ARGS{__same} and !$ARGS{refresh}) {
     print <<END;
     <div style="padding-bottom:5px">
     $flag
-    <a href="/profile/$u->{id}/gadget.html">Embed this list on your web site</a> with the new <% $s->{niceName} %> Gadget.
+    <a href="/profile/$u->{id}/gadget.html">Embed this list on your web site</a> with the new $s->{niceName} Gadget.
     &nbsp;
     &nbsp;
     &nbsp;

@@ -402,7 +402,6 @@ templatized > templatised
 templatizing > templatising
 theater > theatre
 thumbtack > drawing pin
-tic-tac-toe > noughts and crosses
 tidbit > titbit
 totaled > totalled
 totaler > totaller
