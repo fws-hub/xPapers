@@ -265,8 +265,6 @@ Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
 
 Table: oai_repos
 
-This class represents the OAI repository to be harvested.
-
 
 =head1 FIELDS
 
@@ -356,7 +354,7 @@ This class represents the OAI repository to be harvested.
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak with contibutions from David Bourget
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

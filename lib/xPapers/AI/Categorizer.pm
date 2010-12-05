@@ -477,15 +477,7 @@ xPapers::AI::Categorizer
 
 =head1 DESCRIPTION
 
-Inherits from: L<Moose::Object>.
-
-This is a categorizer based on L<AI::Categorizer>.  The C<generate_sets> method generates data for training, 
-this data is saved into the C<data_dir> and later a categorizer object can be trained on it 
-with the C<train> method.
-This categorizer is fine tuned for the PhilPapers database and categories - but it should be
-usable for other scientific articles databases and other taxonomies with some adjustments.
-The algorithm puts an entry into a category if both L<AI::Categorizer::Learner::NaiveBayes>
-and L<AI::Categorizer::Learner::SVM>(trained on the same data) agree.
+Inherits from: L<Moose::Object>
 
 
 
@@ -614,8 +606,7 @@ and L<AI::Categorizer::Learner::SVM>(trained on the same data) agree.
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak
-with contibutions David Bourget
+Zbigniew Lukasiak with contributions from David Bourget
 
 
 

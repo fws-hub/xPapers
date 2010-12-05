@@ -1122,6 +1122,10 @@ xPapers::Utils::CGI
 
 
 
+=head2 fip 
+
+
+
 =head2 form2entry 
 
 
@@ -1147,6 +1151,10 @@ xPapers::Utils::CGI
 
 
 =head2 heavyUsers 
+
+
+
+=head2 helpLink 
 
 
 
@@ -1251,6 +1259,10 @@ xPapers::Utils::CGI
 
 
 =head2 opt2 
+
+
+
+=head2 optcheck 
 
 
 

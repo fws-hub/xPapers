@@ -46,8 +46,6 @@ Inherits from: L<xPapers::Object>
 
 Table: entry_origin
 
-This class links the Entry with the OAI repository and set where it's data originated.
-
 
 =head1 FIELDS
 
@@ -68,7 +66,7 @@ This class links the Entry with the OAI repository and set where it's data origi
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak with contibutions from David Bourget
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

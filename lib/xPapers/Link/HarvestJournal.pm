@@ -116,11 +116,6 @@ Inherits from: L<xPapers::Object>
 
 Table: harvest_journals
 
-This class represents journal sets from the OAI server at CrossRef.
-
-The also included C<xPapers::Link::HarvestJournalMng> class contains C<updateFromFile> method that construct
-or updates the records according to the csv file normally found at C<http://www.crossref.org/titlelist/titleFile.csv>.
-
 
 =head1 FIELDS
 
@@ -138,17 +133,9 @@ or updates the records according to the csv file normally found at C<http://www.
 
 =head2 issn2 (varchar):
 
-=head2 lastFetchSuccess (datetime):
-
-=head2 lastFetched (integer):
-
 =head2 lastFound (datetime):
 
 =head2 lastIssue (varchar):
-
-=head2 lastNewEntries (integer):
-
-=head2 lastPaper (varchar):
 
 =head2 lastSuccess (datetime):
 

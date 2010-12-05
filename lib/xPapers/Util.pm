@@ -1896,6 +1896,10 @@ xPapers::Util
 
 
 
+=head2 rmWindowsChars 
+
+
+
 =head2 safe_decode 
 
 

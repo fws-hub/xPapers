@@ -10,6 +10,7 @@ use File::Path qw(make_path );
 use YAML qw/LoadFile DumpFile/;
 use Hash::Merge 'merge';
 use xPapers::Conf;
+use xPapers::Entry;
 
 my @files = File::Find::Rule->file()
     ->name( '*.pm' )

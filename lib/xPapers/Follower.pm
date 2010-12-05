@@ -42,9 +42,6 @@ Inherits from: L<xPapers::Object>
 
 Table: followers
 
-Registers that a user wants to follow an alias, i.e. wants to receive all articles signed by a particular name.
-Note that an author can use many variants of his name to sign articles - we call these variants 'aliases'.
-
 
 =head1 FIELDS
 
@@ -75,7 +72,7 @@ Note that an author can use many variants of his name to sign articles - we call
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak with contibutions from David Bourget
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

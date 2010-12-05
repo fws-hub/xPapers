@@ -35,8 +35,6 @@ Inherits from: L<xPapers::Object>
 
 Table: notes
 
-Private notes a user can save for an Entry.
-
 
 =head1 FIELDS
 
@@ -59,7 +57,7 @@ Private notes a user can save for an Entry.
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak with contibutions from David Bourget
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

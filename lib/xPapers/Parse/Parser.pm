@@ -61,31 +61,6 @@ xPapers::Parse::Parser
 
 
 
-=head1 SUBROUTINES
-
-=head2 new 
-
-
-
-=head2 parseBiblio 
-
-
-
-=head2 parseCategory 
-
-
-
-=head2 parseEntryExtraLine 
-
-
-
-=head2 parseEntryFirstLine 
-
-
-
-=head2 parseEntryMultiLine 
-
-
 
 =head1 DIAGNOSTICS
 

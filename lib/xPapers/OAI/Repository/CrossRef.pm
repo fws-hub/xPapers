@@ -54,9 +54,7 @@ xPapers::OAI::Repository::CrossRef
 
 Inherits from: L<xPapers::OAI::Repository>
 
-This is a subclass of the C<xPapers::OAI::Repository> class - but it is not saved 
-in the same table - but instead it's data retrieved from the C<harvest_journals> table
-with the overridden C<sets_hash> method.
+Table: oai_repos
 
 
 =head1 FIELDS
@@ -111,7 +109,7 @@ with the overridden C<sets_hash> method.
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak with contibutions from David Bourget
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

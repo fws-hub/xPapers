@@ -37,8 +37,6 @@ Inherits from: L<xPapers::Object>
 
 Table: to_delete
 
-This table contains entries that are to be deleted.
-
 
 =head1 FIELDS
 
@@ -53,7 +51,7 @@ This table contains entries that are to be deleted.
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak with contibutions from David Bourget
+David Bourget with contributions from Zbigniew Lukasiak
 
 
 

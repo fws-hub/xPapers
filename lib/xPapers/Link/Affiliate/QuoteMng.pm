@@ -129,8 +129,6 @@ xPapers::Link::Affiliate::QuoteMng
 
 
 
-
-
 =head1 METHODS
 
 =head2 chooseQuote 
@@ -139,7 +137,7 @@ xPapers::Link::Affiliate::QuoteMng
 
 =head2 chooseQuotes 
 
-Finds the best offer for a given book in a given locale
+
 
 =head2 computeLocale 
 

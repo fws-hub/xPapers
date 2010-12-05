@@ -833,7 +833,7 @@ Table: users
 
 =head1 FIELDS
 
-=head2 addToGroup (integer):
+=head2 addToGroup (integer): group id to add the user to after confirmation
 
 =head2 admin (integer):
 
@@ -952,6 +952,9 @@ Table: users
 
 =head2 addAffil 
 
+Parameters: xPapers::Affil object.
+
+Add the affiliation.
 
 
 =head2 add_to_followers_of 

@@ -396,8 +396,6 @@ xPapers::OAI::Harvester::CrossRef
 
 Inherits from: L<xPapers::OAI::Harvester>
 
-Uses its own XML parser to parse the answers - because the CrossRef OAI server uses a special vocabulary.
-
 
 
 =head1 ATTRIBUTES
@@ -481,8 +479,7 @@ Uses its own XML parser to parse the answers - because the CrossRef OAI server u
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak
-with contibutions David Bourget
+Zbigniew Lukasiak with contributions from David Bourget
 
 
 

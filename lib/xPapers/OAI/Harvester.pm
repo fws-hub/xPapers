@@ -371,12 +371,7 @@ xPapers::OAI::Harvester
 
 =head1 DESCRIPTION
 
-Inherits from: L<Moose::Object>.
-
-The C<harvestRepo> method retrieves data from the OAI repository saved in the C<repo> attribute and creates C<xPapers::Entry>
-objects out of it.  The objects are then handled to the C<handle_entry> method that does nothing in this class.
-The also included C<xPapers::OAI::Harvester::Acumulator> overrides the C<handle_entry> method and saves the entries
-into the array in the C<entries> attribute.  This can be used for checking out entries from an OAI repository.
+Inherits from: L<Moose::Object>
 
 
 
@@ -461,8 +456,7 @@ into the array in the C<entries> attribute.  This can be used for checking out e
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak
-with contibutions David Bourget
+Zbigniew Lukasiak with contributions from David Bourget
 
 
 

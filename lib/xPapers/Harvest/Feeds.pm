@@ -341,8 +341,7 @@ Inherits from: L<Moose::Object>
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak
-with contibutions David Bourget
+Zbigniew Lukasiak with contributions from David Bourget
 
 
 
