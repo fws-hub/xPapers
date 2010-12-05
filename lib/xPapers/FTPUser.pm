@@ -40,21 +40,37 @@ Table: ftp_users
 
 =head1 FIELDS
 
-=head2 gid (integer):
+=head2 gid (integer): 
 
-=head2 homedir (varchar):
 
-=head2 id (serial):
 
-=head2 last_scan_time (bigint):
+=head2 homedir (varchar): 
 
-=head2 passwd (varchar):
 
-=head2 shell (varchar):
 
-=head2 uid (integer):
+=head2 id (serial): 
 
-=head2 userid (varchar):
+
+
+=head2 last_scan_time (bigint): 
+
+
+
+=head2 passwd (varchar): 
+
+
+
+=head2 shell (varchar): 
+
+
+
+=head2 uid (integer): 
+
+
+
+=head2 userid (varchar): 
+
+
 
 
 

@@ -50,11 +50,17 @@ Table: review_relation
 
 =head1 FIELDS
 
-=head2 id (integer):
+=head2 id (integer): 
 
-=head2 reviewed_id (varchar):
 
-=head2 reviewer_id (varchar):
+
+=head2 reviewed_id (varchar): 
+
+
+
+=head2 reviewer_id (varchar): 
+
+
 
 
 

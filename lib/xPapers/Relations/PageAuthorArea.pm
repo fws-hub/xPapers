@@ -40,11 +40,17 @@ Table: pagearea_m
 
 =head1 FIELDS
 
-=head2 area_id (integer):
+=head2 area_id (integer): 
 
-=head2 id (serial):
 
-=head2 pageauthor_id (integer):
+
+=head2 id (serial): 
+
+
+
+=head2 pageauthor_id (integer): 
+
+
 
 
 

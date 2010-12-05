@@ -136,13 +136,21 @@ Table: resolvers
 
 =head1 FIELDS
 
-=head2 iId (integer):
+=head2 iId (integer): 
 
-=head2 id (serial):
 
-=head2 url (varchar):
 
-=head2 weight (float):
+=head2 id (serial): 
+
+
+
+=head2 url (varchar): 
+
+
+
+=head2 weight (float): 
+
+
 
 
 =head1 METHODS

@@ -39,15 +39,25 @@ Table: cat_edits
 
 =head1 FIELDS
 
-=head2 cmds (text):
+=head2 cmds (text): 
 
-=head2 created (datetime):
 
-=head2 id (integer):
 
-=head2 status (varchar):
+=head2 created (datetime): 
 
-=head2 uId (integer):
+
+
+=head2 id (integer): 
+
+
+
+=head2 status (varchar): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 

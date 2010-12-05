@@ -36,13 +36,21 @@ Table: z3950_prefixes
 
 =head1 FIELDS
 
-=head2 created (timestamp):
+=head2 created (timestamp): 
 
-=head2 id (serial):
 
-=head2 lastSuccess (datetime):
 
-=head2 prefix (varchar):
+=head2 id (serial): 
+
+
+
+=head2 lastSuccess (datetime): 
+
+
+
+=head2 prefix (varchar): 
+
+
 
 
 

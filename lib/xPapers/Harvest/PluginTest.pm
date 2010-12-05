@@ -35,21 +35,37 @@ Table: plugin_tests
 
 =head1 FIELDS
 
-=head2 created (datetime):
+=head2 created (datetime): 
 
-=head2 expected (text):
 
-=head2 id (serial):
 
-=head2 last (text):
+=head2 expected (text): 
 
-=head2 lastChecked (datetime):
 
-=head2 lastStatus (varchar):
 
-=head2 plugin (varchar):
+=head2 id (serial): 
 
-=head2 url (varchar):
+
+
+=head2 last (text): 
+
+
+
+=head2 lastChecked (datetime): 
+
+
+
+=head2 lastStatus (varchar): 
+
+
+
+=head2 plugin (varchar): 
+
+
+
+=head2 url (varchar): 
+
+
 
 
 

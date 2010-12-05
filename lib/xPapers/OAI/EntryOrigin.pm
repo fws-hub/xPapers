@@ -49,15 +49,25 @@ Table: entry_origin
 
 =head1 FIELDS
 
-=head2 eId (varchar):
+=head2 eId (varchar): 
 
-=head2 repo_id (integer):
 
-=head2 set_name (varchar):
 
-=head2 set_spec (varchar):
+=head2 repo_id (integer): 
 
-=head2 type (varchar):
+
+
+=head2 set_name (varchar): 
+
+
+
+=head2 set_spec (varchar): 
+
+
+
+=head2 type (varchar): 
+
+
 
 
 

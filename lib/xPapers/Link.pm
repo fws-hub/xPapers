@@ -123,17 +123,29 @@ Table: links
 
 =head1 FIELDS
 
-=head2 dead (integer):
+=head2 dead (integer): 
 
-=head2 failures (integer):
 
-=head2 firstFailed (datetime):
 
-=head2 lastChecked (datetime):
+=head2 failures (integer): 
 
-=head2 safe (integer):
 
-=head2 url (varchar):
+
+=head2 firstFailed (datetime): 
+
+
+
+=head2 lastChecked (datetime): 
+
+
+
+=head2 safe (integer): 
+
+
+
+=head2 url (varchar): 
+
+
 
 
 =head1 METHODS

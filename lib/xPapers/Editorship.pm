@@ -83,43 +83,81 @@ Table: cats_eterms
 
 =head1 FIELDS
 
-=head2 GIO (integer):
+=head2 GIO (integer): 
 
-=head2 IO (integer):
 
-=head2 auto (integer):
 
-=head2 cId (integer):
+=head2 IO (integer): 
 
-=head2 checked (integer):
 
-=head2 comment (text):
 
-=head2 confirmBy (datetime):
+=head2 auto (integer): 
 
-=head2 confirmWarnings (integer):
 
-=head2 created (datetime):
 
-=head2 current (integer):
+=head2 cId (integer): 
 
-=head2 end (datetime):
 
-=head2 excluded (integer):
 
-=head2 id (serial):
+=head2 checked (integer): 
 
-=head2 imports (integer):
 
-=head2 recursive (integer):
 
-=head2 renew (integer):
+=head2 comment (text): 
 
-=head2 start (datetime):
 
-=head2 status (integer):
 
-=head2 uId (integer):
+=head2 confirmBy (datetime): 
+
+
+
+=head2 confirmWarnings (integer): 
+
+
+
+=head2 created (datetime): 
+
+
+
+=head2 current (integer): 
+
+
+
+=head2 end (datetime): 
+
+
+
+=head2 excluded (integer): 
+
+
+
+=head2 id (serial): 
+
+
+
+=head2 imports (integer): 
+
+
+
+=head2 recursive (integer): 
+
+
+
+=head2 renew (integer): 
+
+
+
+=head2 start (datetime): 
+
+
+
+=head2 status (integer): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 

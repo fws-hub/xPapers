@@ -43,27 +43,49 @@ Table: usersx
 
 =head1 FIELDS
 
-=head2 asKey (varchar):
+=head2 asKey (varchar): 
 
-=head2 futurePasswd (varchar):
 
-=head2 gender (enum):
 
-=head2 id (serial):
+=head2 futurePasswd (varchar): 
 
-=head2 nationality (varchar):
 
-=head2 pollKey (varchar):
 
-=head2 publishView (integer):
+=head2 gender (enum): 
 
-=head2 tradition (varchar):
 
-=head2 uId (integer):
 
-=head2 xian (varchar):
+=head2 id (serial): 
 
-=head2 yob (integer):
+
+
+=head2 nationality (varchar): 
+
+
+
+=head2 pollKey (varchar): 
+
+
+
+=head2 publishView (integer): 
+
+
+
+=head2 tradition (varchar): 
+
+
+
+=head2 uId (integer): 
+
+
+
+=head2 xian (varchar): 
+
+
+
+=head2 yob (integer): 
+
+
 
 
 =head1 METHODS

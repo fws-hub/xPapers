@@ -15,7 +15,9 @@ __END__
 =head1 FIELDS
 %   for my $field ( sort keys %{ $ARGS{FIELDS} } ) {
 
-=head2 <% $field %> <% $ARGS{FIELDS}{$field} %>
+=head2 <% $field . " ($ARGS{FIELDS}{$field}{type}):" %> 
+
+<% $ARGS{FIELDS}{$field}{desc} %>
 %    }
 %}
 

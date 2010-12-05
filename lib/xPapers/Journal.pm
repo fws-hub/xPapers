@@ -83,33 +83,61 @@ Table: main_journals
 
 =head1 FIELDS
 
-=head2 archive (integer):
+=head2 archive (integer): 
 
-=head2 browsable (integer):
 
-=head2 cId (integer):
 
-=head2 hide (integer):
+=head2 browsable (integer): 
 
-=head2 id (serial):
 
-=head2 latestVolume (integer):
 
-=head2 listCount (integer):
+=head2 cId (integer): 
 
-=head2 maxVol (varchar):
 
-=head2 minVol (varchar):
 
-=head2 name (varchar):
+=head2 hide (integer): 
 
-=head2 nb (integer):
 
-=head2 nbHarvest (integer):
 
-=head2 nbVol (integer):
+=head2 id (serial): 
 
-=head2 showIssues (integer):
+
+
+=head2 latestVolume (integer): 
+
+
+
+=head2 listCount (integer): 
+
+
+
+=head2 maxVol (varchar): 
+
+
+
+=head2 minVol (varchar): 
+
+
+
+=head2 name (varchar): 
+
+
+
+=head2 nb (integer): 
+
+
+
+=head2 nbHarvest (integer): 
+
+
+
+=head2 nbVol (integer): 
+
+
+
+=head2 showIssues (integer): 
+
+
 
 
 =head1 METHODS

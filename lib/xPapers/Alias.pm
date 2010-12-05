@@ -34,15 +34,25 @@ Table: aliases
 
 =head1 FIELDS
 
-=head2 firstname (varchar):
+=head2 firstname (varchar): 
 
-=head2 id (serial):
 
-=head2 lastname (varchar):
 
-=head2 name (varchar):
+=head2 id (serial): 
 
-=head2 uId (integer):
+
+
+=head2 lastname (varchar): 
+
+
+
+=head2 name (varchar): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 

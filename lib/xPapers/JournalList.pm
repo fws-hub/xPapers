@@ -60,11 +60,17 @@ Table: main_jlists
 
 =head1 FIELDS
 
-=head2 jlId (serial):
+=head2 jlId (serial): 
 
-=head2 jlName (varchar):
 
-=head2 jlOwner (integer):
+
+=head2 jlName (varchar): 
+
+
+
+=head2 jlOwner (integer): 
+
+
 
 
 =head1 METHODS

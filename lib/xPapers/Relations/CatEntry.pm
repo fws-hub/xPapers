@@ -71,19 +71,33 @@ Table: cats_me
 
 =head1 FIELDS
 
-=head2 cId (integer):
+=head2 cId (integer): 
 
-=head2 created (datetime):
 
-=head2 eId (varchar):
 
-=head2 editor (integer):
+=head2 created (datetime): 
 
-=head2 id (serial):
 
-=head2 rank (integer):
 
-=head2 setAside (integer):
+=head2 eId (varchar): 
+
+
+
+=head2 editor (integer): 
+
+
+
+=head2 id (serial): 
+
+
+
+=head2 rank (integer): 
+
+
+
+=head2 setAside (integer): 
+
+
 
 
 =head1 METHODS

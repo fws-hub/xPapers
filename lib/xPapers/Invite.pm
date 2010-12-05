@@ -60,23 +60,41 @@ Table: invites
 
 =head1 FIELDS
 
-=head2 created (datetime):
+=head2 created (datetime): 
 
-=head2 gId (integer):
 
-=head2 id (integer):
 
-=head2 key (varchar):
+=head2 gId (integer): 
 
-=head2 rEmail (varchar):
 
-=head2 rId (integer):
 
-=head2 status (varchar):
+=head2 id (integer): 
 
-=head2 uId (integer):
 
-=head2 updated (datetime):
+
+=head2 key (varchar): 
+
+
+
+=head2 rEmail (varchar): 
+
+
+
+=head2 rId (integer): 
+
+
+
+=head2 status (varchar): 
+
+
+
+=head2 uId (integer): 
+
+
+
+=head2 updated (datetime): 
+
+
 
 
 

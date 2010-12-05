@@ -39,11 +39,17 @@ Table: main_jlm
 
 =head1 FIELDS
 
-=head2 jId (integer):
+=head2 jId (integer): 
 
-=head2 jlId (integer):
 
-=head2 jlmId (serial):
+
+=head2 jlId (integer): 
+
+
+
+=head2 jlmId (serial): 
+
+
 
 
 

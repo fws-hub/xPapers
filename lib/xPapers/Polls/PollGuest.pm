@@ -43,13 +43,21 @@ Table: poll_guests
 
 =head1 FIELDS
 
-=head2 iId (integer):
+=head2 iId (integer): 
 
-=head2 invites (integer):
 
-=head2 isOut (integer):
 
-=head2 uId (integer):
+=head2 invites (integer): 
+
+
+
+=head2 isOut (integer): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 

@@ -622,45 +622,85 @@ Table: diffs
 
 =head1 FIELDS
 
-=head2 checked (integer):
+=head2 checked (integer): 
 
-=head2 class (varchar):
 
-=head2 created (datetime):
 
-=head2 dgId (integer):
+=head2 class (varchar): 
 
-=head2 diffb (blob):
 
-=head2 host (varchar):
 
-=head2 id (serial):
+=head2 created (datetime): 
 
-=head2 note (varchar):
 
-=head2 oId (varchar):
 
-=head2 relo1 (varchar):
+=head2 dgId (integer): 
 
-=head2 relo2 (varchar):
 
-=head2 reverse_of (integer):
 
-=head2 reversed (integer):
+=head2 diffb (blob): 
 
-=head2 session (varchar):
 
-=head2 status (integer):
 
-=head2 status_changed (datetime):
+=head2 host (varchar): 
 
-=head2 type (varchar):
 
-=head2 uId (integer):
 
-=head2 updated (timestamp):
+=head2 id (serial): 
 
-=head2 version (integer):
+
+
+=head2 note (varchar): 
+
+
+
+=head2 oId (varchar): 
+
+
+
+=head2 relo1 (varchar): 
+
+
+
+=head2 relo2 (varchar): 
+
+
+
+=head2 reverse_of (integer): 
+
+
+
+=head2 reversed (integer): 
+
+
+
+=head2 session (varchar): 
+
+
+
+=head2 status (integer): 
+
+
+
+=head2 status_changed (datetime): 
+
+
+
+=head2 type (varchar): 
+
+
+
+=head2 uId (integer): 
+
+
+
+=head2 updated (timestamp): 
+
+
+
+=head2 version (integer): 
+
+
 
 
 =head1 METHODS

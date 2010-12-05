@@ -66,7 +66,8 @@ for my $file( @files ){
             for my $col ( sort $meta->columns ){
                 my $type = $col->type;
                 $type = uc $type if $type eq 'set' || $type eq 'array';
-                $pod_gen{FIELDS}{$col->name} = "($type):";
+                $pod_gen{FIELDS}{$col->name}{type} = $type;
+                $pod_gen{FIELDS}{$col->name}{desc} = '';
                 delete $methods{$col->name};
             }
         }

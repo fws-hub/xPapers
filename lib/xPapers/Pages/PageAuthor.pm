@@ -111,27 +111,49 @@ Table: pageauthors
 
 =head1 FIELDS
 
-=head2 accepted (integer):
+=head2 accepted (integer): 
 
-=head2 created (datetime):
 
-=head2 deleted (integer):
 
-=head2 firstname (varchar):
+=head2 created (datetime): 
 
-=head2 id (serial):
 
-=head2 lastname (varchar):
 
-=head2 opp_id (integer):
+=head2 deleted (integer): 
 
-=head2 people_cat (varchar):
 
-=head2 people_descr (text):
 
-=head2 pro (integer):
+=head2 firstname (varchar): 
 
-=head2 user_id (integer):
+
+
+=head2 id (serial): 
+
+
+
+=head2 lastname (varchar): 
+
+
+
+=head2 opp_id (integer): 
+
+
+
+=head2 people_cat (varchar): 
+
+
+
+=head2 people_descr (text): 
+
+
+
+=head2 pro (integer): 
+
+
+
+=head2 user_id (integer): 
+
+
 
 
 =head1 METHODS

@@ -1591,85 +1591,165 @@ Table: cats
 
 =head1 FIELDS
 
-=head2 cacheId (integer):
+=head2 cacheId (integer): 
 
-=head2 canonical (integer):
 
-=head2 catCount (integer):
 
-=head2 condCounts (blob):
+=head2 canonical (integer): 
 
-=head2 count (integer):
 
-=head2 created (datetime):
 
-=head2 description (varchar):
+=head2 catCount (integer): 
 
-=head2 dfo (integer):
 
-=head2 edEnd (datetime):
 
-=head2 edfChecked (datetime):
+=head2 condCounts (blob): 
 
-=head2 edfId (integer):
 
-=head2 edfo (integer):
 
-=head2 exclusions (integer):
+=head2 count (integer): 
 
-=head2 fId (integer):
 
-=head2 filter_id (integer):
 
-=head2 flags (SET):
+=head2 created (datetime): 
 
-=head2 fnumid (varchar):
 
-=head2 gId (integer):
 
-=head2 greedy (integer):
+=head2 description (varchar): 
 
-=head2 highestLevel (integer):
 
-=head2 id (serial):
 
-=head2 ifId (integer):
+=head2 dfo (integer): 
 
-=head2 level (integer):
 
-=head2 marginal (integer):
 
-=head2 mp (integer):
+=head2 edEnd (datetime): 
 
-=head2 name (varchar):
 
-=head2 negative (integer):
 
-=head2 numid (varchar):
+=head2 edfChecked (datetime): 
 
-=head2 owner (integer):
 
-=head2 pLevel (integer):
 
-=head2 postCount (integer):
+=head2 edfId (integer): 
 
-=head2 ppId (integer):
 
-=head2 publish (integer):
 
-=head2 related (integer):
+=head2 edfo (integer): 
 
-=head2 seeAlso (integer):
 
-=head2 system (integer):
 
-=head2 uName (varchar):
+=head2 exclusions (integer): 
 
-=head2 updated (timestamp):
 
-=head2 useAutoCat (integer):
 
-=head2 writable (integer):
+=head2 fId (integer): 
+
+
+
+=head2 filter_id (integer): 
+
+
+
+=head2 flags (SET): 
+
+
+
+=head2 fnumid (varchar): 
+
+
+
+=head2 gId (integer): 
+
+
+
+=head2 greedy (integer): 
+
+
+
+=head2 highestLevel (integer): 
+
+
+
+=head2 id (serial): 
+
+
+
+=head2 ifId (integer): 
+
+
+
+=head2 level (integer): 
+
+
+
+=head2 marginal (integer): 
+
+
+
+=head2 mp (integer): 
+
+
+
+=head2 name (varchar): 
+
+
+
+=head2 negative (integer): 
+
+
+
+=head2 numid (varchar): 
+
+
+
+=head2 owner (integer): 
+
+
+
+=head2 pLevel (integer): 
+
+
+
+=head2 postCount (integer): 
+
+
+
+=head2 ppId (integer): 
+
+
+
+=head2 publish (integer): 
+
+
+
+=head2 related (integer): 
+
+
+
+=head2 seeAlso (integer): 
+
+
+
+=head2 system (integer): 
+
+
+
+=head2 uName (varchar): 
+
+
+
+=head2 updated (timestamp): 
+
+
+
+=head2 useAutoCat (integer): 
+
+
+
+=head2 writable (integer): 
+
+
 
 
 =head1 METHODS

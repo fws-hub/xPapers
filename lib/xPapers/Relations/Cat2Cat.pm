@@ -56,13 +56,21 @@ Table: cats_m
 
 =head1 FIELDS
 
-=head2 cId (integer):
+=head2 cId (integer): 
 
-=head2 id (serial):
 
-=head2 pId (integer):
 
-=head2 rank (integer):
+=head2 id (serial): 
+
+
+
+=head2 pId (integer): 
+
+
+
+=head2 rank (integer): 
+
+
 
 
 =head1 METHODS

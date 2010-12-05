@@ -88,27 +88,49 @@ Table: polls
 
 =head1 FIELDS
 
-=head2 cId (integer):
+=head2 cId (integer): 
 
-=head2 close (datetime):
 
-=head2 created (timestamp):
 
-=head2 description (text):
+=head2 close (datetime): 
 
-=head2 guestListId (integer):
 
-=head2 id (serial):
 
-=head2 name (varchar):
+=head2 created (timestamp): 
 
-=head2 open (datetime):
 
-=head2 owner (integer):
 
-=head2 randomize (integer):
+=head2 description (text): 
 
-=head2 rolling (integer):
+
+
+=head2 guestListId (integer): 
+
+
+
+=head2 id (serial): 
+
+
+
+=head2 name (varchar): 
+
+
+
+=head2 open (datetime): 
+
+
+
+=head2 owner (integer): 
+
+
+
+=head2 randomize (integer): 
+
+
+
+=head2 rolling (integer): 
+
+
 
 
 =head1 METHODS

@@ -72,13 +72,21 @@ Table: cache_objects
 
 =head1 FIELDS
 
-=head2 class (varchar):
+=head2 class (varchar): 
 
-=head2 content (blob):
 
-=head2 id (serial):
 
-=head2 oId (varchar):
+=head2 content (blob): 
+
+
+
+=head2 id (serial): 
+
+
+
+=head2 oId (varchar): 
+
+
 
 
 =head1 METHODS

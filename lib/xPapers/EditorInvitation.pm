@@ -49,17 +49,29 @@ Table: editor_invitations
 
 =head1 FIELDS
 
-=head2 cId (integer):
+=head2 cId (integer): 
 
-=head2 created (timestamp):
 
-=head2 id (serial):
 
-=head2 sent_at (datetime):
+=head2 created (timestamp): 
 
-=head2 status (character):
 
-=head2 uId (integer):
+
+=head2 id (serial): 
+
+
+
+=head2 sent_at (datetime): 
+
+
+
+=head2 status (character): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 

@@ -833,119 +833,232 @@ Table: users
 
 =head1 FIELDS
 
-=head2 addToGroup (integer): group id to add the user to after confirmation
+=head2 addToGroup (integer): 
 
-=head2 admin (integer):
 
-=head2 alert (integer):
+=head2 admin (integer): 
 
-=head2 alertAreas (integer):
 
-=head2 alertChecked (datetime):
 
-=head2 alertFollowed (integer):
+=head2 alert (integer): 
 
-=head2 alertFreq (integer):
 
-=head2 alertJournals (integer):
 
-=head2 anonymousFollowing (integer):
+=head2 alertAreas (integer): 
 
-=head2 betaTester (integer):
 
-=head2 blocked (integer):
 
-=head2 blurb (text):
+=head2 alertChecked (datetime): 
 
-=head2 cacheId (integer):
 
-=head2 confToken (varchar):
 
-=head2 confirmed (integer):
+=head2 alertFollowed (integer): 
 
-=head2 created (datetime):
 
-=head2 email (varchar):
 
-=head2 failedAttempts (integer):
+=head2 alertFreq (integer): 
 
-=head2 firstname (varchar):
 
-=head2 fixedPro (integer):
 
-=head2 flags (SET):
+=head2 alertJournals (integer): 
 
-=head2 hide (integer):
 
-=head2 homePage (varchar):
 
-=head2 id (serial):
+=head2 anonymousFollowing (integer): 
 
-=head2 lastIp (varchar):
 
-=head2 lastLogin (datetime):
 
-=head2 lastname (varchar):
+=head2 betaTester (integer): 
 
-=head2 locale (varchar):
 
-=head2 mereFirstname (varchar):
 
-=head2 mybib (integer):
+=head2 blocked (integer): 
 
-=head2 mysources (integer):
 
-=head2 myworks (integer):
 
-=head2 nbAct (integer):
+=head2 blurb (text): 
 
-=head2 nbCatAdd (integer):
 
-=head2 nbCatDelete (integer):
 
-=head2 nbCatL (integer):
+=head2 cacheId (integer): 
 
-=head2 nbEdit (integer):
 
-=head2 nbEditL (integer):
 
-=head2 nbSubmit (integer):
+=head2 confToken (varchar): 
 
-=head2 newNoticeMode (varchar):
 
-=head2 noticeMode (varchar):
 
-=head2 passwd (varchar):
+=head2 confirmed (integer): 
 
-=head2 phd (integer):
 
-=head2 pk (varchar):
 
-=head2 postQuota (integer):
+=head2 created (datetime): 
 
-=head2 pro (integer):
 
-=head2 proxy (varchar):
 
-=head2 pubRating (integer):
+=head2 email (varchar): 
 
-=head2 pubRatingW (integer):
 
-=head2 publish (integer):
 
-=head2 rId (integer):
+=head2 failedAttempts (integer): 
 
-=head2 readingList (integer):
 
-=head2 showEmail (integer):
 
-=head2 subAreas (integer):
+=head2 firstname (varchar): 
 
-=head2 tz (varchar):
 
-=head2 updated (timestamp):
 
-=head2 xId (integer):
+=head2 fixedPro (integer): 
+
+
+
+=head2 flags (SET): 
+
+
+
+=head2 hide (integer): 
+
+
+
+=head2 homePage (varchar): 
+
+
+
+=head2 id (serial): 
+
+
+
+=head2 lastIp (varchar): 
+
+
+
+=head2 lastLogin (datetime): 
+
+
+
+=head2 lastname (varchar): 
+
+
+
+=head2 locale (varchar): 
+
+
+
+=head2 mereFirstname (varchar): 
+
+
+
+=head2 mybib (integer): 
+
+
+
+=head2 mysources (integer): 
+
+
+
+=head2 myworks (integer): 
+
+
+
+=head2 nbAct (integer): 
+
+
+
+=head2 nbCatAdd (integer): 
+
+
+
+=head2 nbCatDelete (integer): 
+
+
+
+=head2 nbCatL (integer): 
+
+
+
+=head2 nbEdit (integer): 
+
+
+
+=head2 nbEditL (integer): 
+
+
+
+=head2 nbSubmit (integer): 
+
+
+
+=head2 newNoticeMode (varchar): 
+
+
+
+=head2 noticeMode (varchar): 
+
+
+
+=head2 passwd (varchar): 
+
+
+
+=head2 phd (integer): 
+
+
+
+=head2 pk (varchar): 
+
+
+
+=head2 postQuota (integer): 
+
+
+
+=head2 pro (integer): 
+
+
+
+=head2 proxy (varchar): 
+
+
+
+=head2 pubRating (integer): 
+
+
+
+=head2 pubRatingW (integer): 
+
+
+
+=head2 publish (integer): 
+
+
+
+=head2 rId (integer): 
+
+
+
+=head2 readingList (integer): 
+
+
+
+=head2 showEmail (integer): 
+
+
+
+=head2 subAreas (integer): 
+
+
+
+=head2 tz (varchar): 
+
+
+
+=head2 updated (timestamp): 
+
+
+
+=head2 xId (integer): 
+
+
 
 
 =head1 METHODS

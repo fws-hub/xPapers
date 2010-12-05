@@ -62,31 +62,57 @@ Table: errors
 
 =head1 FIELDS
 
-=head2 args (text):
+=head2 args (text): 
 
-=head2 cookies (text):
 
-=head2 host (varchar):
 
-=head2 id (integer):
+=head2 cookies (text): 
 
-=head2 info (text):
 
-=head2 ip (varchar):
 
-=head2 pid (integer):
+=head2 host (varchar): 
 
-=head2 referer (varchar):
 
-=head2 request_uri (varchar):
 
-=head2 time (timestamp):
+=head2 id (integer): 
 
-=head2 type (integer):
 
-=head2 uId (integer):
 
-=head2 user_agent (varchar):
+=head2 info (text): 
+
+
+
+=head2 ip (varchar): 
+
+
+
+=head2 pid (integer): 
+
+
+
+=head2 referer (varchar): 
+
+
+
+=head2 request_uri (varchar): 
+
+
+
+=head2 time (timestamp): 
+
+
+
+=head2 type (integer): 
+
+
+
+=head2 uId (integer): 
+
+
+
+=head2 user_agent (varchar): 
+
+
 
 
 

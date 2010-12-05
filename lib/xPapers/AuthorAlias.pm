@@ -42,17 +42,29 @@ Table: author_aliases
 
 =head1 FIELDS
 
-=head2 alias (varchar):
+=head2 alias (varchar): 
 
-=head2 id (serial):
 
-=head2 is_dead (integer):
 
-=head2 is_strengthening (integer):
+=head2 id (serial): 
 
-=head2 name (varchar):
 
-=head2 to_display (integer):
+
+=head2 is_dead (integer): 
+
+
+
+=head2 is_strengthening (integer): 
+
+
+
+=head2 name (varchar): 
+
+
+
+=head2 to_display (integer): 
+
+
 
 
 

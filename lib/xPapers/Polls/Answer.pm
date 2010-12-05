@@ -42,23 +42,41 @@ Table: answers
 
 =head1 FIELDS
 
-=head2 anId (integer):
+=head2 anId (integer): 
 
-=head2 comment (text):
 
-=head2 created (timestamp):
 
-=head2 id (serial):
+=head2 comment (text): 
 
-=head2 qId (integer):
 
-=head2 skipped (integer):
 
-=head2 superseded (datetime):
+=head2 created (timestamp): 
 
-=head2 text (varchar):
 
-=head2 uId (integer):
+
+=head2 id (serial): 
+
+
+
+=head2 qId (integer): 
+
+
+
+=head2 skipped (integer): 
+
+
+
+=head2 superseded (datetime): 
+
+
+
+=head2 text (varchar): 
+
+
+
+=head2 uId (integer): 
+
+
 
 
 
