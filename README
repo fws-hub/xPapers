@@ -186,6 +186,7 @@ Initialize your database and xpapers subdirectories
 cd $XPAPERS
 perl -Ilib bin/setup/init-database.pl
 sudo perl -Ilib bin/setup/mkdirs.pl
+sudo perl -Ilib bin/setup/compileyui.pl
 
 
 Apache configuration
