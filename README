@@ -225,5 +225,7 @@ xPapers is configured to connect up with several external services:
 Set up your cron tasks 
 ----------------------
 
-A large number of tasks are accomplished through cron scripts, including periodic re-building of the Sphinx index for search.  There is sample crontab in $XPAPERS/etc/contrab.example. Not all the services are necessary, but many are.
+A large number of tasks are accomplished through cron scripts, including periodic re-building of the Sphinx index for search.  There is sample crontab in $XPAPERS/etc/contrab.example. Not all the services are necessary, but many are. The example includes all required tasks but Sphinx re-indexing. This is done as follows:
+
+$SPHINX/bin/indexer --all --rotate
 
