@@ -46,7 +46,7 @@ WRAP=/usr/bin/perl -I/home/xpapers/lib /home/xpapers/bin/wrapper.pl
 24 1     * * *   $WRAP $BASEM/email-alerts.pl 
 
 # Followers' works, every 7 days
-52 22   * * tue $WRAP $BASEM/following-alerts.pl 7 
+52 8   * * tue $WRAP $BASEM/following-alerts.pl 7 
 
 # Followers' works, every (approx) 14 days
 39 3   27,11 * * $WRAP $BASEM/following-alerts.pl 14 
@@ -85,6 +85,9 @@ WRAP=/usr/bin/perl -I/home/xpapers/lib /home/xpapers/bin/wrapper.pl
 # feed harvester
 1 5     * * * $WRAP $BASEB/harvest/feeds.pl
 
+# check that our RSS plugins are working
+5 14    * * *   $WRAP $BASEB/harvest/plugin-manager.pl run-tests
+
 # oai harvester. this takes long enough to run that it is always running basically.
 48 7,19    * * * $WRAP $BASEB/harvest/oai.pl
 
@@ -112,6 +115,10 @@ WRAP=/usr/bin/perl -I/home/xpapers/lib /home/xpapers/bin/wrapper.pl
 # get Amazon links
 45 8,16    * * * $WRAP $BASEM/get_amazon_data.pl recent
 38 9    * * mon,sun,wed $WRAP $BASEM/get_amazon_data.pl
+
+# OPP-tools ingestion (installed separately)
+15,35,55 *    * * * cd /usr/local/opp;./process_links;./process_pages
+
 
 
 ###
