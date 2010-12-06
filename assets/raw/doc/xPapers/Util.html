@@ -1,0 +1,639 @@
+<html>
+ <head>
+  <base href="">
+  <link href="/assets/raw/tmp/style.css" rel="stylesheet" type="text/css">
+  <title>xPapers::Util</title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <h1>xPapers::Util</h1>
+  <div class=pod> 
+  <div class=toc>
+  <UL>
+<LI><A HREF="#NAME">NAME
+
+</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
+
+
+
+</A><LI><A HREF="#DESCRIPTION">DESCRIPTION
+
+
+
+
+
+</A><LI><A HREF="#SUBROUTINES">SUBROUTINES
+
+</A><UL>
+<LI><A HREF="#bad">bad 
+
+
+
+</A><LI><A HREF="#bareName">bareName 
+
+
+
+</A><LI><A HREF="#calcWeakenings">calcWeakenings 
+
+
+
+</A><LI><A HREF="#cap_except">cap_except 
+
+
+
+</A><LI><A HREF="#capitalize">capitalize 
+
+
+
+</A><LI><A HREF="#case_fix">case_fix 
+
+
+
+</A><LI><A HREF="#cleanAll">cleanAll 
+
+
+
+</A><LI><A HREF="#cleanJournal">cleanJournal 
+
+
+
+</A><LI><A HREF="#cleanLinks">cleanLinks 
+
+
+
+</A><LI><A HREF="#cleanName">cleanName 
+
+
+
+</A><LI><A HREF="#cleanNames">cleanNames 
+
+
+
+</A><LI><A HREF="#cleanParseName">cleanParseName 
+
+
+
+</A><LI><A HREF="#clean_field">clean_field 
+
+
+
+</A><LI><A HREF="#composeName">composeName 
+
+
+
+</A><LI><A HREF="#cond_cap">cond_cap 
+
+
+
+</A><LI><A HREF="#dbg">dbg 
+
+
+
+</A><LI><A HREF="#decodeHTMLEntities">decodeHTMLEntities 
+
+
+
+</A><LI><A HREF="#decodeResp">decodeResp 
+
+
+
+</A><LI><A HREF="#dquote">dquote 
+
+
+
+</A><LI><A HREF="#ed_fix">ed_fix 
+
+
+
+</A><LI><A HREF="#fcmp">fcmp 
+
+
+
+</A><LI><A HREF="#file2array">file2array 
+
+
+
+</A><LI><A HREF="#file2hash">file2hash 
+
+
+
+</A><LI><A HREF="#fixNameParens">fixNameParens 
+
+
+
+</A><LI><A HREF="#fuzzyGrep">fuzzyGrep 
+
+
+
+</A><LI><A HREF="#getFileContent">getFileContent 
+
+
+
+</A><LI><A HREF="#guessDecode">guessDecode 
+
+
+
+</A><LI><A HREF="#hasMangledTitle">hasMangledTitle 
+
+
+
+</A><LI><A HREF="#hash2file">hash2file 
+
+
+
+</A><LI><A HREF="#hash2sql">hash2sql 
+
+
+
+</A><LI><A HREF="#hash2url">hash2url 
+
+
+
+</A><LI><A HREF="#isArticle">isArticle 
+
+
+
+</A><LI><A HREF="#isIncomplete">isIncomplete 
+
+
+
+</A><LI><A HREF="#lastname">lastname 
+
+
+
+</A><LI><A HREF="#links_fix">links_fix 
+
+
+
+</A><LI><A HREF="#mark_defective">mark_defective 
+
+
+
+</A><LI><A HREF="#mkNumId">mkNumId 
+
+
+
+</A><LI><A HREF="#my_dist">my_dist 
+
+
+
+</A><LI><A HREF="#my_dist_text">my_dist_text 
+
+
+
+</A><LI><A HREF="#normalizeNameWhitespace">normalizeNameWhitespace 
+
+
+
+</A><LI><A HREF="#numdiff">numdiff 
+
+
+
+</A><LI><A HREF="#parseAuthorList">parseAuthorList 
+
+
+
+</A><LI><A HREF="#parseAuthors">parseAuthors 
+
+
+
+</A><LI><A HREF="#parseName">parseName 
+
+
+
+</A><LI><A HREF="#parseName2">parseName2 
+
+
+
+</A><LI><A HREF="#quote">quote 
+
+
+
+</A><LI><A HREF="#reverseName">reverseName 
+
+
+
+</A><LI><A HREF="#rmDiacritics">rmDiacritics 
+
+
+
+</A><LI><A HREF="#rmTags">rmTags 
+
+
+
+</A><LI><A HREF="#rmWindowsChars">rmWindowsChars 
+
+
+
+</A><LI><A HREF="#safe_decode">safe_decode 
+
+
+
+</A><LI><A HREF="#sameAuthors">sameAuthors 
+
+
+
+</A><LI><A HREF="#sameEntry">sameEntry 
+
+
+
+</A><LI><A HREF="#samePerson">samePerson 
+
+
+
+</A><LI><A HREF="#squote">squote 
+
+
+
+</A><LI><A HREF="#strip">strip 
+
+
+
+</A><LI><A HREF="#text2relations">text2relations 
+
+
+
+</A><LI><A HREF="#toUTF">toUTF 
+
+
+
+</A><LI><A HREF="#url2hash">url2hash 
+
+
+
+</A><LI><A HREF="#urlDecode">urlDecode 
+
+
+
+</A><LI><A HREF="#urlEncode">urlEncode 
+
+
+
+</A><LI><A HREF="#variations">variations 
+
+
+
+</A></UL>
+<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
+
+</A><LI><A HREF="#AUTHORS">AUTHORS
+
+</A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></UL>
+<HR>
+
+  </div>
+  <H1><A NAME="NAME">NAME
+
+</A></H1>
+
+<P>xPapers::Util
+
+</P><H1><A NAME="SYNOPSIS">SYNOPSIS
+
+
+
+</A></H1>
+<H1><A NAME="DESCRIPTION">DESCRIPTION
+
+
+
+
+
+</A></H1>
+<H1><A NAME="SUBROUTINES">SUBROUTINES
+
+</A></H1>
+<H2><A NAME="bad">bad 
+
+
+
+</A></H2>
+<H2><A NAME="bareName">bareName 
+
+
+
+</A></H2>
+<H2><A NAME="calcWeakenings">calcWeakenings 
+
+
+
+</A></H2>
+<H2><A NAME="cap_except">cap_except 
+
+
+
+</A></H2>
+<H2><A NAME="capitalize">capitalize 
+
+
+
+</A></H2>
+<H2><A NAME="case_fix">case_fix 
+
+
+
+</A></H2>
+<H2><A NAME="cleanAll">cleanAll 
+
+
+
+</A></H2>
+<H2><A NAME="cleanJournal">cleanJournal 
+
+
+
+</A></H2>
+<H2><A NAME="cleanLinks">cleanLinks 
+
+
+
+</A></H2>
+<H2><A NAME="cleanName">cleanName 
+
+
+
+</A></H2>
+<H2><A NAME="cleanNames">cleanNames 
+
+
+
+</A></H2>
+<H2><A NAME="cleanParseName">cleanParseName 
+
+
+
+</A></H2>
+<H2><A NAME="clean_field">clean_field 
+
+
+
+</A></H2>
+<H2><A NAME="composeName">composeName 
+
+
+
+</A></H2>
+<H2><A NAME="cond_cap">cond_cap 
+
+
+
+</A></H2>
+<H2><A NAME="dbg">dbg 
+
+
+
+</A></H2>
+<H2><A NAME="decodeHTMLEntities">decodeHTMLEntities 
+
+
+
+</A></H2>
+<H2><A NAME="decodeResp">decodeResp 
+
+
+
+</A></H2>
+<H2><A NAME="dquote">dquote 
+
+
+
+</A></H2>
+<H2><A NAME="ed_fix">ed_fix 
+
+
+
+</A></H2>
+<H2><A NAME="fcmp">fcmp 
+
+
+
+</A></H2>
+<H2><A NAME="file2array">file2array 
+
+
+
+</A></H2>
+<H2><A NAME="file2hash">file2hash 
+
+
+
+</A></H2>
+<H2><A NAME="fixNameParens">fixNameParens 
+
+
+
+</A></H2>
+<H2><A NAME="fuzzyGrep">fuzzyGrep 
+
+
+
+</A></H2>
+<H2><A NAME="getFileContent">getFileContent 
+
+
+
+</A></H2>
+<H2><A NAME="guessDecode">guessDecode 
+
+
+
+</A></H2>
+<H2><A NAME="hasMangledTitle">hasMangledTitle 
+
+
+
+</A></H2>
+<H2><A NAME="hash2file">hash2file 
+
+
+
+</A></H2>
+<H2><A NAME="hash2sql">hash2sql 
+
+
+
+</A></H2>
+<H2><A NAME="hash2url">hash2url 
+
+
+
+</A></H2>
+<H2><A NAME="isArticle">isArticle 
+
+
+
+</A></H2>
+<H2><A NAME="isIncomplete">isIncomplete 
+
+
+
+</A></H2>
+<H2><A NAME="lastname">lastname 
+
+
+
+</A></H2>
+<H2><A NAME="links_fix">links_fix 
+
+
+
+</A></H2>
+<H2><A NAME="mark_defective">mark_defective 
+
+
+
+</A></H2>
+<H2><A NAME="mkNumId">mkNumId 
+
+
+
+</A></H2>
+<H2><A NAME="my_dist">my_dist 
+
+
+
+</A></H2>
+<H2><A NAME="my_dist_text">my_dist_text 
+
+
+
+</A></H2>
+<H2><A NAME="normalizeNameWhitespace">normalizeNameWhitespace 
+
+
+
+</A></H2>
+<H2><A NAME="numdiff">numdiff 
+
+
+
+</A></H2>
+<H2><A NAME="parseAuthorList">parseAuthorList 
+
+
+
+</A></H2>
+<H2><A NAME="parseAuthors">parseAuthors 
+
+
+
+</A></H2>
+<H2><A NAME="parseName">parseName 
+
+
+
+</A></H2>
+<H2><A NAME="parseName2">parseName2 
+
+
+
+</A></H2>
+<H2><A NAME="quote">quote 
+
+
+
+</A></H2>
+<H2><A NAME="reverseName">reverseName 
+
+
+
+</A></H2>
+<H2><A NAME="rmDiacritics">rmDiacritics 
+
+
+
+</A></H2>
+<H2><A NAME="rmTags">rmTags 
+
+
+
+</A></H2>
+<H2><A NAME="rmWindowsChars">rmWindowsChars 
+
+
+
+</A></H2>
+<H2><A NAME="safe_decode">safe_decode 
+
+
+
+</A></H2>
+<H2><A NAME="sameAuthors">sameAuthors 
+
+
+
+</A></H2>
+<H2><A NAME="sameEntry">sameEntry 
+
+
+
+</A></H2>
+<H2><A NAME="samePerson">samePerson 
+
+
+
+</A></H2>
+<H2><A NAME="squote">squote 
+
+
+
+</A></H2>
+<H2><A NAME="strip">strip 
+
+
+
+</A></H2>
+<H2><A NAME="text2relations">text2relations 
+
+
+
+</A></H2>
+<H2><A NAME="toUTF">toUTF 
+
+
+
+</A></H2>
+<H2><A NAME="url2hash">url2hash 
+
+
+
+</A></H2>
+<H2><A NAME="urlDecode">urlDecode 
+
+
+
+</A></H2>
+<H2><A NAME="urlEncode">urlEncode 
+
+
+
+</A></H2>
+<H2><A NAME="variations">variations 
+
+
+
+</A></H2>
+<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
+
+</A></H1>
+<H1><A NAME="AUTHORS">AUTHORS
+
+</A></H1>
+
+<P>David Bourget with contributions from Zbigniew Lukasiak
+
+
+
+</P><H1><A NAME="COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></H1>
+
+<P>See accompanying README file for licensing information.
+
+
+
+</P>
+  </div>
+ </body>
+</html>

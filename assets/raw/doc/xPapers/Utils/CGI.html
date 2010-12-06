@@ -1,0 +1,756 @@
+<html>
+ <head>
+  <base href="">
+  <link href="/assets/raw/tmp/style.css" rel="stylesheet" type="text/css">
+  <title>xPapers::Utils::CGI</title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <h1>xPapers::Utils::CGI</h1>
+  <div class=pod> 
+  <div class=toc>
+  <UL>
+<LI><A HREF="#NAME">NAME
+
+</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
+
+
+
+</A><LI><A HREF="#DESCRIPTION">DESCRIPTION
+
+
+
+
+
+</A><LI><A HREF="#SUBROUTINES">SUBROUTINES
+
+</A><UL>
+<LI><A HREF="#addCookie">addCookie 
+
+
+
+</A><LI><A HREF="#areaPicker">areaPicker 
+
+
+
+</A><LI><A HREF="#cap">cap 
+
+
+
+</A><LI><A HREF="#checkBox">checkBox 
+
+
+
+</A><LI><A HREF="#checkParams">checkParams 
+
+
+
+</A><LI><A HREF="#colsplit">colsplit 
+
+
+
+</A><LI><A HREF="#createCookie">createCookie 
+
+
+
+</A><LI><A HREF="#decodeURL">decodeURL 
+
+
+
+</A><LI><A HREF="#digest">digest 
+
+
+
+</A><LI><A HREF="#ecode">ecode 
+
+
+
+</A><LI><A HREF="#encode">encode 
+
+
+
+</A><LI><A HREF="#entry2form">entry2form 
+
+
+
+</A><LI><A HREF="#error">error 
+
+
+
+</A><LI><A HREF="#field_picker">field_picker 
+
+
+
+</A><LI><A HREF="#fields2array">fields2array 
+
+
+
+</A><LI><A HREF="#fields2objects">fields2objects 
+
+
+
+</A><LI><A HREF="#fip">fip 
+
+
+
+</A><LI><A HREF="#form2entry">form2entry 
+
+
+
+</A><LI><A HREF="#format_datetime">format_datetime 
+
+
+
+</A><LI><A HREF="#format_time">format_time 
+
+
+
+</A><LI><A HREF="#getAreas">getAreas 
+
+
+
+</A><LI><A HREF="#gh">gh 
+
+
+
+</A><LI><A HREF="#gh2">gh2 
+
+
+
+</A><LI><A HREF="#heavyUsers">heavyUsers 
+
+
+
+</A><LI><A HREF="#helpLink">helpLink 
+
+
+
+</A><LI><A HREF="#hh">hh 
+
+
+
+</A><LI><A HREF="#hideLink">hideLink 
+
+
+
+</A><LI><A HREF="#htmlRedirect">htmlRedirect 
+
+
+
+</A><LI><A HREF="#ifp">ifp 
+
+
+
+</A><LI><A HREF="#intercept">intercept 
+
+
+
+</A><LI><A HREF="#jYears">jYears 
+
+
+
+</A><LI><A HREF="#joina">joina 
+
+
+
+</A><LI><A HREF="#joino">joino 
+
+
+
+</A><LI><A HREF="#jsLoader">jsLoader 
+
+
+
+</A><LI><A HREF="#ldebug">ldebug 
+
+
+
+</A><LI><A HREF="#max">max 
+
+
+
+</A><LI><A HREF="#menuTree">menuTree 
+
+
+
+</A><LI><A HREF="#min">min 
+
+
+
+</A><LI><A HREF="#mkDynList">mkDynList 
+
+
+
+</A><LI><A HREF="#mkform">mkform 
+
+
+
+</A><LI><A HREF="#mkquery">mkquery 
+
+
+
+</A><LI><A HREF="#mkt">mkt 
+
+
+
+</A><LI><A HREF="#mktabs">mktabs 
+
+
+
+</A><LI><A HREF="#mydigest">mydigest 
+
+
+
+</A><LI><A HREF="#nbFound">nbFound 
+
+
+
+</A><LI><A HREF="#newFlag">newFlag 
+
+
+
+</A><LI><A HREF="#noBells">noBells 
+
+
+
+</A><LI><A HREF="#num">num 
+
+
+
+</A><LI><A HREF="#op">op 
+
+
+
+</A><LI><A HREF="#opt">opt 
+
+
+
+</A><LI><A HREF="#opt2">opt2 
+
+
+
+</A><LI><A HREF="#optcheck">optcheck 
+
+
+
+</A><LI><A HREF="#optck">optck 
+
+
+
+</A><LI><A HREF="#pager">pager 
+
+
+
+</A><LI><A HREF="#pdir">pdir 
+
+
+
+</A><LI><A HREF="#prevAfter">prevAfter 
+
+
+
+</A><LI><A HREF="#prevNext">prevNext 
+
+
+
+</A><LI><A HREF="#qt">qt 
+
+
+
+</A><LI><A HREF="#queryOpts">queryOpts 
+
+
+
+</A><LI><A HREF="#rankSort">rankSort 
+
+
+
+</A><LI><A HREF="#rssURL">rssURL 
+
+
+
+</A><LI><A HREF="#sendCookie">sendCookie 
+
+
+
+</A><LI><A HREF="#setSite">setSite 
+
+
+
+</A><LI><A HREF="#setUser">setUser 
+
+
+
+</A><LI><A HREF="#showLink">showLink 
+
+
+
+</A><LI><A HREF="#sorter">sorter 
+
+
+
+</A><LI><A HREF="#space">space 
+
+
+
+</A><LI><A HREF="#sparseURL">sparseURL 
+
+
+
+</A><LI><A HREF="#tracker">tracker 
+
+
+
+</A><LI><A HREF="#treeItem">treeItem 
+
+
+
+</A><LI><A HREF="#trimRSSArgs">trimRSSArgs 
+
+
+
+</A><LI><A HREF="#uniqueKey">uniqueKey 
+
+
+
+</A><LI><A HREF="#url">url 
+
+
+
+</A><LI><A HREF="#writeLog">writeLog 
+
+
+
+</A><LI><A HREF="#you">you 
+
+
+
+</A></UL>
+<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
+
+</A><LI><A HREF="#AUTHORS">AUTHORS
+
+</A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></UL>
+<HR>
+
+  </div>
+  <H1><A NAME="NAME">NAME
+
+</A></H1>
+
+<P>xPapers::Utils::CGI
+
+</P><H1><A NAME="SYNOPSIS">SYNOPSIS
+
+
+
+</A></H1>
+<H1><A NAME="DESCRIPTION">DESCRIPTION
+
+
+
+
+
+</A></H1>
+<H1><A NAME="SUBROUTINES">SUBROUTINES
+
+</A></H1>
+<H2><A NAME="addCookie">addCookie 
+
+
+
+</A></H2>
+<H2><A NAME="areaPicker">areaPicker 
+
+
+
+</A></H2>
+<H2><A NAME="cap">cap 
+
+
+
+</A></H2>
+<H2><A NAME="checkBox">checkBox 
+
+
+
+</A></H2>
+<H2><A NAME="checkParams">checkParams 
+
+
+
+</A></H2>
+<H2><A NAME="colsplit">colsplit 
+
+
+
+</A></H2>
+<H2><A NAME="createCookie">createCookie 
+
+
+
+</A></H2>
+<H2><A NAME="decodeURL">decodeURL 
+
+
+
+</A></H2>
+<H2><A NAME="digest">digest 
+
+
+
+</A></H2>
+<H2><A NAME="ecode">ecode 
+
+
+
+</A></H2>
+<H2><A NAME="encode">encode 
+
+
+
+</A></H2>
+<H2><A NAME="entry2form">entry2form 
+
+
+
+</A></H2>
+<H2><A NAME="error">error 
+
+
+
+</A></H2>
+<H2><A NAME="field_picker">field_picker 
+
+
+
+</A></H2>
+<H2><A NAME="fields2array">fields2array 
+
+
+
+</A></H2>
+<H2><A NAME="fields2objects">fields2objects 
+
+
+
+</A></H2>
+<H2><A NAME="fip">fip 
+
+
+
+</A></H2>
+<H2><A NAME="form2entry">form2entry 
+
+
+
+</A></H2>
+<H2><A NAME="format_datetime">format_datetime 
+
+
+
+</A></H2>
+<H2><A NAME="format_time">format_time 
+
+
+
+</A></H2>
+<H2><A NAME="getAreas">getAreas 
+
+
+
+</A></H2>
+<H2><A NAME="gh">gh 
+
+
+
+</A></H2>
+<H2><A NAME="gh2">gh2 
+
+
+
+</A></H2>
+<H2><A NAME="heavyUsers">heavyUsers 
+
+
+
+</A></H2>
+<H2><A NAME="helpLink">helpLink 
+
+
+
+</A></H2>
+<H2><A NAME="hh">hh 
+
+
+
+</A></H2>
+<H2><A NAME="hideLink">hideLink 
+
+
+
+</A></H2>
+<H2><A NAME="htmlRedirect">htmlRedirect 
+
+
+
+</A></H2>
+<H2><A NAME="ifp">ifp 
+
+
+
+</A></H2>
+<H2><A NAME="intercept">intercept 
+
+
+
+</A></H2>
+<H2><A NAME="jYears">jYears 
+
+
+
+</A></H2>
+<H2><A NAME="joina">joina 
+
+
+
+</A></H2>
+<H2><A NAME="joino">joino 
+
+
+
+</A></H2>
+<H2><A NAME="jsLoader">jsLoader 
+
+
+
+</A></H2>
+<H2><A NAME="ldebug">ldebug 
+
+
+
+</A></H2>
+<H2><A NAME="max">max 
+
+
+
+</A></H2>
+<H2><A NAME="menuTree">menuTree 
+
+
+
+</A></H2>
+<H2><A NAME="min">min 
+
+
+
+</A></H2>
+<H2><A NAME="mkDynList">mkDynList 
+
+
+
+</A></H2>
+<H2><A NAME="mkform">mkform 
+
+
+
+</A></H2>
+<H2><A NAME="mkquery">mkquery 
+
+
+
+</A></H2>
+<H2><A NAME="mkt">mkt 
+
+
+
+</A></H2>
+<H2><A NAME="mktabs">mktabs 
+
+
+
+</A></H2>
+<H2><A NAME="mydigest">mydigest 
+
+
+
+</A></H2>
+<H2><A NAME="nbFound">nbFound 
+
+
+
+</A></H2>
+<H2><A NAME="newFlag">newFlag 
+
+
+
+</A></H2>
+<H2><A NAME="noBells">noBells 
+
+
+
+</A></H2>
+<H2><A NAME="num">num 
+
+
+
+</A></H2>
+<H2><A NAME="op">op 
+
+
+
+</A></H2>
+<H2><A NAME="opt">opt 
+
+
+
+</A></H2>
+<H2><A NAME="opt2">opt2 
+
+
+
+</A></H2>
+<H2><A NAME="optcheck">optcheck 
+
+
+
+</A></H2>
+<H2><A NAME="optck">optck 
+
+
+
+</A></H2>
+<H2><A NAME="pager">pager 
+
+
+
+</A></H2>
+<H2><A NAME="pdir">pdir 
+
+
+
+</A></H2>
+<H2><A NAME="prevAfter">prevAfter 
+
+
+
+</A></H2>
+<H2><A NAME="prevNext">prevNext 
+
+
+
+</A></H2>
+<H2><A NAME="qt">qt 
+
+
+
+</A></H2>
+<H2><A NAME="queryOpts">queryOpts 
+
+
+
+</A></H2>
+<H2><A NAME="rankSort">rankSort 
+
+
+
+</A></H2>
+<H2><A NAME="rssURL">rssURL 
+
+
+
+</A></H2>
+<H2><A NAME="sendCookie">sendCookie 
+
+
+
+</A></H2>
+<H2><A NAME="setSite">setSite 
+
+
+
+</A></H2>
+<H2><A NAME="setUser">setUser 
+
+
+
+</A></H2>
+<H2><A NAME="showLink">showLink 
+
+
+
+</A></H2>
+<H2><A NAME="sorter">sorter 
+
+
+
+</A></H2>
+<H2><A NAME="space">space 
+
+
+
+</A></H2>
+<H2><A NAME="sparseURL">sparseURL 
+
+
+
+</A></H2>
+<H2><A NAME="tracker">tracker 
+
+
+
+</A></H2>
+<H2><A NAME="treeItem">treeItem 
+
+
+
+</A></H2>
+<H2><A NAME="trimRSSArgs">trimRSSArgs 
+
+
+
+</A></H2>
+<H2><A NAME="uniqueKey">uniqueKey 
+
+
+
+</A></H2>
+<H2><A NAME="url">url 
+
+
+
+</A></H2>
+<H2><A NAME="writeLog">writeLog 
+
+
+
+</A></H2>
+<H2><A NAME="you">you 
+
+
+
+</A></H2>
+<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
+
+</A></H1>
+<H1><A NAME="AUTHORS">AUTHORS
+
+</A></H1>
+
+<P>David Bourget with contributions from Zbigniew Lukasiak
+
+
+
+</P><H1><A NAME="COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></H1>
+
+<P>See accompanying README file for licensing information.
+
+
+
+</P>
+  </div>
+ </body>
+</html>

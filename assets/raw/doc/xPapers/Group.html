@@ -1,0 +1,277 @@
+<html>
+ <head>
+  <base href="">
+  <link href="/assets/raw/tmp/style.css" rel="stylesheet" type="text/css">
+  <title>xPapers::Group</title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <h1>xPapers::Group</h1>
+  <div class=pod> 
+  <div class=toc>
+  <UL>
+<LI><A HREF="#NAME">NAME
+
+</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
+
+
+
+</A><LI><A HREF="#DESCRIPTION">DESCRIPTION
+
+</A><LI><A HREF="#FIELDS">FIELDS
+
+</A><UL>
+<LI><A HREF="#cId%20(integer)%3a">cId (integer):
+
+</A><LI><A HREF="#created%20(datetime)%3a">created (datetime):
+
+</A><LI><A HREF="#dId%20(integer)%3a">dId (integer):
+
+</A><LI><A HREF="#description%20(varchar)%3a">description (varchar):
+
+</A><LI><A HREF="#fId%20(integer)%3a">fId (integer):
+
+</A><LI><A HREF="#id%20(serial)%3a">id (serial):
+
+</A><LI><A HREF="#memberCount%20(integer)%3a">memberCount (integer):
+
+</A><LI><A HREF="#name%20(varchar)%3a">name (varchar):
+
+</A><LI><A HREF="#owner%20(integer)%3a">owner (integer):
+
+</A><LI><A HREF="#permAddPapers%20(integer)%3a">permAddPapers (integer):
+
+</A><LI><A HREF="#permAddPosts%20(integer)%3a">permAddPosts (integer):
+
+</A><LI><A HREF="#permBan%20(integer)%3a">permBan (integer):
+
+</A><LI><A HREF="#permDeletePapers%20(integer)%3a">permDeletePapers (integer):
+
+</A><LI><A HREF="#permDeletePosts%20(integer)%3a">permDeletePosts (integer):
+
+</A><LI><A HREF="#permInvite%20(integer)%3a">permInvite (integer):
+
+</A><LI><A HREF="#permJoin%20(integer)%3a">permJoin (integer):
+
+</A><LI><A HREF="#permViewPapers%20(integer)%3a">permViewPapers (integer):
+
+</A><LI><A HREF="#permViewPosts%20(integer)%3a">permViewPosts (integer):
+
+</A><LI><A HREF="#publish%20(integer)%3a">publish (integer):
+
+</A><LI><A HREF="#system%20(integer)%3a">system (integer):
+
+</A><LI><A HREF="#updated%20(timestamp)%3a">updated (timestamp):
+
+
+</A></UL>
+<LI><A HREF="#METHODS">METHODS
+
+</A><UL>
+<LI><A HREF="#addUser">addUser 
+
+
+
+</A><LI><A HREF="#canDo">canDo 
+
+
+
+</A><LI><A HREF="#deleteUser">deleteUser 
+
+
+
+</A><LI><A HREF="#forum_o">forum_o 
+
+
+
+</A><LI><A HREF="#hasLevel">hasLevel 
+
+
+
+</A><LI><A HREF="#moderators">moderators 
+
+
+
+</A><LI><A HREF="#openForum">openForum 
+
+
+
+</A><LI><A HREF="#setDefaults">setDefaults 
+
+
+
+</A><LI><A HREF="#usersAt">usersAt 
+
+
+
+
+</A></UL>
+<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
+
+</A><LI><A HREF="#AUTHORS">AUTHORS
+
+</A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></UL>
+<HR>
+
+  </div>
+  <H1><A NAME="NAME">NAME
+
+</A></H1>
+
+<P>xPapers::Group
+
+</P><H1><A NAME="SYNOPSIS">SYNOPSIS
+
+
+
+</A></H1>
+<H1><A NAME="DESCRIPTION">DESCRIPTION
+
+</A></H1>
+
+<P>Inherits from: <A HREF="../xPapers/Object/Cached.html">xPapers::Object::Cached</A>
+
+</P>
+<P>Table: groups
+
+
+</P><H1><A NAME="FIELDS">FIELDS
+
+</A></H1>
+<H2><A NAME="cId%20(integer)%3a">cId (integer):
+
+</A></H2>
+<H2><A NAME="created%20(datetime)%3a">created (datetime):
+
+</A></H2>
+<H2><A NAME="dId%20(integer)%3a">dId (integer):
+
+</A></H2>
+<H2><A NAME="description%20(varchar)%3a">description (varchar):
+
+</A></H2>
+<H2><A NAME="fId%20(integer)%3a">fId (integer):
+
+</A></H2>
+<H2><A NAME="id%20(serial)%3a">id (serial):
+
+</A></H2>
+<H2><A NAME="memberCount%20(integer)%3a">memberCount (integer):
+
+</A></H2>
+<H2><A NAME="name%20(varchar)%3a">name (varchar):
+
+</A></H2>
+<H2><A NAME="owner%20(integer)%3a">owner (integer):
+
+</A></H2>
+<H2><A NAME="permAddPapers%20(integer)%3a">permAddPapers (integer):
+
+</A></H2>
+<H2><A NAME="permAddPosts%20(integer)%3a">permAddPosts (integer):
+
+</A></H2>
+<H2><A NAME="permBan%20(integer)%3a">permBan (integer):
+
+</A></H2>
+<H2><A NAME="permDeletePapers%20(integer)%3a">permDeletePapers (integer):
+
+</A></H2>
+<H2><A NAME="permDeletePosts%20(integer)%3a">permDeletePosts (integer):
+
+</A></H2>
+<H2><A NAME="permInvite%20(integer)%3a">permInvite (integer):
+
+</A></H2>
+<H2><A NAME="permJoin%20(integer)%3a">permJoin (integer):
+
+</A></H2>
+<H2><A NAME="permViewPapers%20(integer)%3a">permViewPapers (integer):
+
+</A></H2>
+<H2><A NAME="permViewPosts%20(integer)%3a">permViewPosts (integer):
+
+</A></H2>
+<H2><A NAME="publish%20(integer)%3a">publish (integer):
+
+</A></H2>
+<H2><A NAME="system%20(integer)%3a">system (integer):
+
+</A></H2>
+<H2><A NAME="updated%20(timestamp)%3a">updated (timestamp):
+
+
+</A></H2>
+<H1><A NAME="METHODS">METHODS
+
+</A></H1>
+<H2><A NAME="addUser">addUser 
+
+
+
+</A></H2>
+<H2><A NAME="canDo">canDo 
+
+
+
+</A></H2>
+<H2><A NAME="deleteUser">deleteUser 
+
+
+
+</A></H2>
+<H2><A NAME="forum_o">forum_o 
+
+
+
+</A></H2>
+<H2><A NAME="hasLevel">hasLevel 
+
+
+
+</A></H2>
+<H2><A NAME="moderators">moderators 
+
+
+
+</A></H2>
+<H2><A NAME="openForum">openForum 
+
+
+
+</A></H2>
+<H2><A NAME="setDefaults">setDefaults 
+
+
+
+</A></H2>
+<H2><A NAME="usersAt">usersAt 
+
+
+
+
+</A></H2>
+<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
+
+</A></H1>
+<H1><A NAME="AUTHORS">AUTHORS
+
+</A></H1>
+
+<P>David Bourget with contributions from Zbigniew Lukasiak
+
+
+
+</P><H1><A NAME="COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></H1>
+
+<P>See accompanying README file for licensing information.
+
+
+
+</P>
+  </div>
+ </body>
+</html>

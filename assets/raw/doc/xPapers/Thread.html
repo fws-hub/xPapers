@@ -1,0 +1,255 @@
+<html>
+ <head>
+  <base href="">
+  <link href="/assets/raw/tmp/style.css" rel="stylesheet" type="text/css">
+  <title>xPapers::Thread</title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <h1>xPapers::Thread</h1>
+  <div class=pod> 
+  <div class=toc>
+  <UL>
+<LI><A HREF="#NAME">NAME
+
+</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
+
+
+
+</A><LI><A HREF="#DESCRIPTION">DESCRIPTION
+
+</A><LI><A HREF="#FIELDS">FIELDS
+
+</A><UL>
+<LI><A HREF="#accepted%20(integer)%3a">accepted (integer):
+
+</A><LI><A HREF="#blog%20(integer)%3a">blog (integer):
+
+</A><LI><A HREF="#cacheId%20(integer)%3a">cacheId (integer):
+
+</A><LI><A HREF="#created%20(datetime)%3a">created (datetime):
+
+</A><LI><A HREF="#fId%20(integer)%3a">fId (integer):
+
+</A><LI><A HREF="#firstPostId%20(integer)%3a">firstPostId (integer):
+
+</A><LI><A HREF="#id%20(integer)%3a">id (integer):
+
+</A><LI><A HREF="#latestPostId%20(integer)%3a">latestPostId (integer):
+
+</A><LI><A HREF="#latestPostTime%20(datetime)%3a">latestPostTime (datetime):
+
+</A><LI><A HREF="#noReplies%20(integer)%3a">noReplies (integer):
+
+</A><LI><A HREF="#postCount%20(integer)%3a">postCount (integer):
+
+</A><LI><A HREF="#private%20(integer)%3a">private (integer):
+
+</A><LI><A HREF="#sticky%20(integer)%3a">sticky (integer):
+
+
+</A></UL>
+<LI><A HREF="#METHODS">METHODS
+
+</A><UL>
+<LI><A HREF="#accept">accept 
+
+
+
+</A><LI><A HREF="#addPost">addPost 
+
+
+
+</A><LI><A HREF="#ct">ct 
+
+
+
+</A><LI><A HREF="#deletePost">deletePost 
+
+
+
+</A><LI><A HREF="#latestReplies">latestReplies 
+
+
+
+</A><LI><A HREF="#pc">pc 
+
+
+
+</A><LI><A HREF="#pt">pt 
+
+
+
+</A><LI><A HREF="#subscribe">subscribe 
+
+
+
+</A><LI><A HREF="#toString">toString 
+
+
+
+</A><LI><A HREF="#unsubscribe">unsubscribe 
+
+
+
+</A><LI><A HREF="#unsubscribeFromAll">unsubscribeFromAll 
+
+
+
+
+</A></UL>
+<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
+
+</A><LI><A HREF="#AUTHORS">AUTHORS
+
+</A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></UL>
+<HR>
+
+  </div>
+  <H1><A NAME="NAME">NAME
+
+</A></H1>
+
+<P>xPapers::Thread
+
+</P><H1><A NAME="SYNOPSIS">SYNOPSIS
+
+
+
+</A></H1>
+<H1><A NAME="DESCRIPTION">DESCRIPTION
+
+</A></H1>
+
+<P>Inherits from: <A HREF="../xPapers/Object/Cached.html">xPapers::Object::Cached</A>, <A HREF="../xPapers/Object/WithDBCache.html">xPapers::Object::WithDBCache</A>
+
+</P>
+<P>Table: threads
+
+
+</P><H1><A NAME="FIELDS">FIELDS
+
+</A></H1>
+<H2><A NAME="accepted%20(integer)%3a">accepted (integer):
+
+</A></H2>
+<H2><A NAME="blog%20(integer)%3a">blog (integer):
+
+</A></H2>
+<H2><A NAME="cacheId%20(integer)%3a">cacheId (integer):
+
+</A></H2>
+<H2><A NAME="created%20(datetime)%3a">created (datetime):
+
+</A></H2>
+<H2><A NAME="fId%20(integer)%3a">fId (integer):
+
+</A></H2>
+<H2><A NAME="firstPostId%20(integer)%3a">firstPostId (integer):
+
+</A></H2>
+<H2><A NAME="id%20(integer)%3a">id (integer):
+
+</A></H2>
+<H2><A NAME="latestPostId%20(integer)%3a">latestPostId (integer):
+
+</A></H2>
+<H2><A NAME="latestPostTime%20(datetime)%3a">latestPostTime (datetime):
+
+</A></H2>
+<H2><A NAME="noReplies%20(integer)%3a">noReplies (integer):
+
+</A></H2>
+<H2><A NAME="postCount%20(integer)%3a">postCount (integer):
+
+</A></H2>
+<H2><A NAME="private%20(integer)%3a">private (integer):
+
+</A></H2>
+<H2><A NAME="sticky%20(integer)%3a">sticky (integer):
+
+
+</A></H2>
+<H1><A NAME="METHODS">METHODS
+
+</A></H1>
+<H2><A NAME="accept">accept 
+
+
+
+</A></H2>
+<H2><A NAME="addPost">addPost 
+
+
+
+</A></H2>
+<H2><A NAME="ct">ct 
+
+
+
+</A></H2>
+<H2><A NAME="deletePost">deletePost 
+
+
+
+</A></H2>
+<H2><A NAME="latestReplies">latestReplies 
+
+
+
+</A></H2>
+<H2><A NAME="pc">pc 
+
+
+
+</A></H2>
+<H2><A NAME="pt">pt 
+
+
+
+</A></H2>
+<H2><A NAME="subscribe">subscribe 
+
+
+
+</A></H2>
+<H2><A NAME="toString">toString 
+
+
+
+</A></H2>
+<H2><A NAME="unsubscribe">unsubscribe 
+
+
+
+</A></H2>
+<H2><A NAME="unsubscribeFromAll">unsubscribeFromAll 
+
+
+
+
+</A></H2>
+<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
+
+</A></H1>
+<H1><A NAME="AUTHORS">AUTHORS
+
+</A></H1>
+
+<P>David Bourget with contributions from Zbigniew Lukasiak
+
+
+
+</P><H1><A NAME="COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></H1>
+
+<P>See accompanying README file for licensing information.
+
+
+
+</P>
+  </div>
+ </body>
+</html>
