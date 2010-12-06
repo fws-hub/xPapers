@@ -1,4 +1,5 @@
 package xPapers::Mail::Message;
+use xPapers::Conf;
 use xPapers::User;
 use xPapers::UserMng;
 use xPapers::Mail::Postmaster;
@@ -58,7 +59,7 @@ sub complete {
 
 sub interpolate {
     my $i = shift;
-    my $niceName = shift;
+    my $niceName = $DEFAULT_SITE->{niceName};
     # fill in the templates
     $i->{content} =~ s/\[FIRSTNAME\]/$i->user->firstname/ge;
     $i->{content} =~ s/\[HELLO\]/$i->greetings/ge;
