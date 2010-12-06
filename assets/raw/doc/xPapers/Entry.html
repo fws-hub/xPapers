@@ -1,0 +1,1250 @@
+<html>
+ <head>
+  <base href="">
+  <link href="/assets/raw/tmp/style.css" rel="stylesheet" type="text/css">
+  <title>xPapers::Entry</title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <h1>xPapers::Entry</h1>
+  <div class=pod> 
+  <div class=toc>
+  <UL>
+<LI><A HREF="#NAME">NAME
+
+</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
+
+</A><LI><A HREF="#DESCRIPTIONS">DESCRIPTIONS
+
+</A><UL>
+<LI><A HREF="#Class%20methods">Class methods
+
+</A><LI><A HREF="#Accessor%20methods">Accessor methods 
+
+</A></UL>
+<LI><A HREF="#NAME">NAME
+
+</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
+
+
+
+</A><LI><A HREF="#DESCRIPTION">DESCRIPTION
+
+</A><LI><A HREF="#FIELDS">FIELDS
+
+</A><UL>
+<LI><A HREF="#addToList%20(integer)%3a">addToList (integer):
+
+</A><LI><A HREF="#added%20(datetime)%3a">added (datetime):
+
+</A><LI><A HREF="#ant_date%20(varchar)%3a">ant_date (varchar):
+
+</A><LI><A HREF="#ant_editors%20(varchar)%3a">ant_editors (varchar):
+
+</A><LI><A HREF="#ant_publisher%20(varchar)%3a">ant_publisher (varchar):
+
+</A><LI><A HREF="#author_abstract%20(text)%3a">author_abstract (text):
+
+</A><LI><A HREF="#authors%20(varchar)%3a">authors (varchar):
+
+</A><LI><A HREF="#book%20(varchar)%3a">book (varchar):
+
+</A><LI><A HREF="#cacheId%20(integer)%3a">cacheId (integer):
+
+</A><LI><A HREF="#catCount%20(integer)%3a">catCount (integer):
+
+</A><LI><A HREF="#citations%20(float)%3a">citations (float):
+
+</A><LI><A HREF="#citationsLink%20(varchar)%3a">citationsLink (varchar):
+
+</A><LI><A HREF="#cn_alpha%20(varchar)%3a">cn_alpha (varchar):
+
+</A><LI><A HREF="#cn_class%20(varchar)%3a">cn_class (varchar):
+
+</A><LI><A HREF="#cn_full%20(varchar)%3a">cn_full (varchar):
+
+</A><LI><A HREF="#cn_num%20(float)%3a">cn_num (float):
+
+</A><LI><A HREF="#date%20(varchar)%3a">date (varchar):
+
+</A><LI><A HREF="#dateRP%20(varchar)%3a">dateRP (varchar):
+
+</A><LI><A HREF="#db_src%20(varchar)%3a">db_src (varchar):
+
+</A><LI><A HREF="#defective%20(integer)%3a">defective (integer):
+
+</A><LI><A HREF="#deleted%20(integer)%3a">deleted (integer):
+
+</A><LI><A HREF="#descriptors%20(varchar)%3a">descriptors (varchar):
+
+</A><LI><A HREF="#doi%20(varchar)%3a">doi (varchar):
+
+</A><LI><A HREF="#draft%20(integer)%3a">draft (integer):
+
+</A><LI><A HREF="#duplicate%20(integer)%3a">duplicate (integer):
+
+</A><LI><A HREF="#duplicateOf%20(varchar)%3a">duplicateOf (varchar):
+
+</A><LI><A HREF="#edited%20(integer)%3a">edited (integer):
+
+</A><LI><A HREF="#etal%20(integer)%3a">etal (integer):
+
+</A><LI><A HREF="#extra%20(varchar)%3a">extra (varchar):
+
+</A><LI><A HREF="#fId%20(integer)%3a">fId (integer):
+
+</A><LI><A HREF="#file%20(varchar)%3a">file (varchar):
+
+</A><LI><A HREF="#flags%20(SET)%3a">flags (SET):
+
+</A><LI><A HREF="#forcePro%20(integer)%3a">forcePro (integer):
+
+</A><LI><A HREF="#free%20(integer)%3a">free (integer):
+
+</A><LI><A HREF="#googleBooksQuery%20(varchar)%3a">googleBooksQuery (varchar):
+
+</A><LI><A HREF="#hasChapters%20(integer)%3a">hasChapters (integer):
+
+</A><LI><A HREF="#id%20(varchar)%3a">id (varchar):
+
+</A><LI><A HREF="#isbn%20(ARRAY)%3a">isbn (ARRAY):
+
+</A><LI><A HREF="#issn%20(varchar)%3a">issn (varchar):
+
+</A><LI><A HREF="#issue%20(varchar)%3a">issue (varchar):
+
+</A><LI><A HREF="#lang%20(character)%3a">lang (character):
+
+</A><LI><A HREF="#lccn%20(ARRAY)%3a">lccn (ARRAY):
+
+</A><LI><A HREF="#links%20(varchar)%3a">links (varchar):
+
+</A><LI><A HREF="#notes%20(varchar)%3a">notes (varchar):
+
+</A><LI><A HREF="#online%20(integer)%3a">online (integer):
+
+</A><LI><A HREF="#online_book%20(integer)%3a">online_book (integer):
+
+</A><LI><A HREF="#originalId%20(varchar)%3a">originalId (varchar):
+
+</A><LI><A HREF="#pages%20(varchar)%3a">pages (varchar):
+
+</A><LI><A HREF="#postCount%20(integer)%3a">postCount (integer):
+
+</A><LI><A HREF="#pro%20(integer)%3a">pro (integer):
+
+</A><LI><A HREF="#pubHarvest%20(integer)%3a">pubHarvest (integer):
+
+</A><LI><A HREF="#pub_type%20(varchar)%3a">pub_type (varchar):
+
+</A><LI><A HREF="#published%20(integer)%3a">published (integer):
+
+</A><LI><A HREF="#publisher%20(varchar)%3a">publisher (varchar):
+
+</A><LI><A HREF="#replyto%20(varchar)%3a">replyto (varchar):
+
+</A><LI><A HREF="#reprint%20(varchar)%3a">reprint (varchar):
+
+</A><LI><A HREF="#review%20(integer)%3a">review (integer):
+
+</A><LI><A HREF="#reviewed_title%20(ARRAY)%3a">reviewed_title (ARRAY):
+
+</A><LI><A HREF="#school%20(varchar)%3a">school (varchar):
+
+</A><LI><A HREF="#serial%20(serial)%3a">serial (serial):
+
+</A><LI><A HREF="#sites%20(SET)%3a">sites (SET):
+
+</A><LI><A HREF="#source%20(varchar)%3a">source (varchar):
+
+</A><LI><A HREF="#source_id%20(varchar)%3a">source_id (varchar):
+
+</A><LI><A HREF="#source_subjects%20(varchar)%3a">source_subjects (varchar):
+
+</A><LI><A HREF="#title%20(varchar)%3a">title (varchar):
+
+</A><LI><A HREF="#type%20(varchar)%3a">type (varchar):
+
+</A><LI><A HREF="#updated%20(datetime)%3a">updated (datetime):
+
+</A><LI><A HREF="#viewings%20(integer)%3a">viewings (integer):
+
+</A><LI><A HREF="#volume%20(integer)%3a">volume (integer):
+
+
+</A></UL>
+<LI><A HREF="#METHODS">METHODS
+
+</A><UL>
+<LI><A HREF="#absorb">absorb 
+
+
+
+</A><LI><A HREF="#addAuthor">addAuthor 
+
+
+
+</A><LI><A HREF="#addAuthorAliases">addAuthorAliases 
+
+
+
+</A><LI><A HREF="#addAuthors">addAuthors 
+
+
+
+</A><LI><A HREF="#addEditor">addEditor 
+
+
+
+</A><LI><A HREF="#addEditors">addEditors 
+
+
+
+</A><LI><A HREF="#addLink">addLink 
+
+
+
+</A><LI><A HREF="#addLinks">addLinks 
+
+
+
+</A><LI><A HREF="#addSite">addSite 
+
+
+
+</A><LI><A HREF="#ancestorIds">ancestorIds 
+
+
+
+</A><LI><A HREF="#archive">archive 
+
+
+
+</A><LI><A HREF="#augment">augment 
+
+
+
+</A><LI><A HREF="#authors_string">authors_string 
+
+
+
+</A><LI><A HREF="#bad">bad 
+
+
+
+</A><LI><A HREF="#bestLink">bestLink 
+
+
+
+</A><LI><A HREF="#betterThan">betterThan 
+
+
+
+</A><LI><A HREF="#calcPro">calcPro 
+
+
+
+</A><LI><A HREF="#calcPublished">calcPublished 
+
+
+
+</A><LI><A HREF="#calcSimilar">calcSimilar 
+
+
+
+</A><LI><A HREF="#canonical_categories_o">canonical_categories_o 
+
+
+
+</A><LI><A HREF="#categories_o">categories_o 
+
+
+
+</A><LI><A HREF="#clearCatsCache">clearCatsCache 
+
+
+
+</A><LI><A HREF="#commitFile">commitFile 
+
+
+
+</A><LI><A HREF="#completeWith">completeWith 
+
+
+
+</A><LI><A HREF="#decode_fields">decode_fields 
+
+
+
+</A><LI><A HREF="#deleteAuthors">deleteAuthors 
+
+
+
+</A><LI><A HREF="#deleteEditors">deleteEditors 
+
+
+
+</A><LI><A HREF="#deleteLink">deleteLink 
+
+
+
+</A><LI><A HREF="#deleteLinkMatch">deleteLinkMatch 
+
+
+
+</A><LI><A HREF="#deleteLinks">deleteLinks 
+
+
+
+</A><LI><A HREF="#diffable">diffable 
+
+
+
+</A><LI><A HREF="#diffable_relationships">diffable_relationships 
+
+
+
+</A><LI><A HREF="#digest">digest 
+
+
+
+</A><LI><A HREF="#downloads">downloads 
+
+
+
+</A><LI><A HREF="#firstAuthor">firstAuthor 
+
+
+
+</A><LI><A HREF="#firstComputedLink">firstComputedLink 
+
+
+
+</A><LI><A HREF="#firstLink">firstLink 
+
+
+
+</A><LI><A HREF="#forall">forall 
+
+
+
+</A><LI><A HREF="#forum_o">forum_o 
+
+
+
+</A><LI><A HREF="#fromHash">fromHash 
+
+
+
+</A><LI><A HREF="#fromLegacy">fromLegacy 
+
+
+
+</A><LI><A HREF="#fromarrays">fromarrays 
+
+
+
+</A><LI><A HREF="#get">get 
+
+
+
+</A><LI><A HREF="#getAllLinks">getAllLinks 
+
+
+
+</A><LI><A HREF="#getAuthors">getAuthors 
+
+
+
+</A><LI><A HREF="#getEditors">getEditors 
+
+
+
+</A><LI><A HREF="#getLinks">getLinks 
+
+
+
+</A><LI><A HREF="#getQuotes">getQuotes 
+
+
+
+</A><LI><A HREF="#googleBooksId">googleBooksId 
+
+
+
+</A><LI><A HREF="#gotAutoId">gotAutoId 
+
+
+
+</A><LI><A HREF="#hardDelete">hardDelete 
+
+
+
+</A><LI><A HREF="#hasGoodTitle">hasGoodTitle 
+
+
+
+</A><LI><A HREF="#id2">id2 
+
+
+
+</A><LI><A HREF="#insert">insert 
+
+
+
+</A><LI><A HREF="#journalInList">journalInList 
+
+
+
+</A><LI><A HREF="#keyExists">keyExists 
+
+
+
+</A><LI><A HREF="#new">new 
+
+
+
+</A><LI><A HREF="#new_from_deflated_tree">new_from_deflated_tree 
+
+
+
+</A><LI><A HREF="#openForum">openForum 
+
+
+
+</A><LI><A HREF="#popularity">popularity 
+
+
+
+</A><LI><A HREF="#post_save">post_save 
+
+
+
+</A><LI><A HREF="#pre_save">pre_save 
+
+
+
+</A><LI><A HREF="#publicCats">publicCats 
+
+
+
+</A><LI><A HREF="#publicCatsHTML">publicCatsHTML 
+
+
+
+</A><LI><A HREF="#remember">remember 
+
+
+
+</A><LI><A HREF="#removeSite">removeSite 
+
+
+
+</A><LI><A HREF="#same">same 
+
+
+
+</A><LI><A HREF="#setAuthors">setAuthors 
+
+
+
+</A><LI><A HREF="#setDisplayLink">setDisplayLink 
+
+
+
+</A><LI><A HREF="#setKey">setKey 
+
+
+
+</A><LI><A HREF="#similar">similar 
+
+
+
+</A><LI><A HREF="#slinks">slinks 
+
+
+
+</A><LI><A HREF="#syncSite">syncSite 
+
+
+
+</A><LI><A HREF="#syncSites">syncSites 
+
+
+
+</A><LI><A HREF="#toString">toString 
+
+
+
+</A><LI><A HREF="#toarrays">toarrays 
+
+
+
+</A><LI><A HREF="#update">update 
+
+
+
+</A><LI><A HREF="#update_author_index">update_author_index 
+
+
+
+</A><LI><A HREF="#userAuthors">userAuthors 
+
+
+
+</A><LI><A HREF="#userFields">userFields 
+
+
+
+</A><LI><A HREF="#userModified">userModified 
+
+
+
+</A><LI><A HREF="#value_separators">value_separators 
+
+
+
+
+</A></UL>
+<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
+
+</A><LI><A HREF="#AUTHORS">AUTHORS
+
+</A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></UL>
+<HR>
+
+  </div>
+  <H1><A NAME="NAME">NAME
+
+</A></H1>
+
+<P>xPapers::Entry - represents a bibliographic entry
+
+</P><H1><A NAME="SYNOPSIS">SYNOPSIS
+
+</A></H1>
+
+<PRE>	my $entry = xPapers::Entry-&gt;new;
+	$entry-&gt;type('article');
+	$entry-&gt;pub_type('journal');
+	$entry-&gt;title('Article Title');
+	$entry-&gt;source('Some Journal');
+	$entry-&gt;volume(300);
+	$entry-&gt;issue(4);
+	$entry-&gt;pages('1-23');
+	$entry-&gt;date(2010);
+	$entry-&gt;addAuthor('Doe, John');
+	$entry-&gt;addLink('http://...');</PRE>
+<H1><A NAME="DESCRIPTIONS">DESCRIPTIONS
+
+</A></H1>
+
+<P>This Rose class represents a bibliographic entry. Most xPapers applications and utilities depend on this class.
+
+</P><H2><A NAME="Class%20methods">Class methods
+
+</A></H2>
+
+<P><B>new()</B>
+
+</P>
+<P>Create a new, empty instance.
+
+</P><H2><A NAME="Accessor%20methods">Accessor methods 
+
+</A></H2>
+
+<P><B>type(string)</B>
+
+</P>
+<P>Sets/return the entry type, which is really its format. The only two valid types are 'article' and 'book'.
+
+</P>
+<P><B>pub_type(string)</B>
+
+</P>
+<P>Sets/return the publication type. Valid values are 'journal' (published or forthcoming in a journal article), 'chapter' (published or forthcoming in a collection), 'book' (published or forthcoming as a book), 'online collection', 'manuscript','unknown'.
+
+</P>
+<P><B>date(string)</B>
+
+</P>
+<P>Set/return the publication year, or, if not published (yet), one of 'manuscript', 'draft', or 'forthcoming'. A reprinted work can have a two-part date such as '1805/2010', where the first part is the original publication year and the second part the new publication year. Most xPapers utilities assume that the most recent edition is described by the other field.  
+
+</P>
+<P><B>addAuthor(string)</B>
+
+</P>
+<P>Add an author. The first argument should be an author's name in the <CODE>Smith, John</CODE> format. Correctly formated names can be obtained using the parseAuthors routine in xPapers::Util. 
+
+
+</P><H1><A NAME="NAME">NAME
+
+</A></H1>
+
+<P>xPapers::Entry
+
+</P><H1><A NAME="SYNOPSIS">SYNOPSIS
+
+
+
+</A></H1>
+<H1><A NAME="DESCRIPTION">DESCRIPTION
+
+</A></H1>
+
+<P>Inherits from: <A HREF="../xPapers/Object/Cached.html">xPapers::Object::Cached</A>, <A HREF="../xPapers/Object/Diffable.html">xPapers::Object::Diffable</A>, <A HREF="../xPapers/Object/WithDBCache.html">xPapers::Object::WithDBCache</A>, <A HREF="../xPapers/Object/Lockable.html">xPapers::Object::Lockable</A>
+
+</P>
+<P>Table: main
+
+
+</P><H1><A NAME="FIELDS">FIELDS
+
+</A></H1>
+<H2><A NAME="addToList%20(integer)%3a">addToList (integer):
+
+</A></H2>
+<H2><A NAME="added%20(datetime)%3a">added (datetime):
+
+</A></H2>
+<H2><A NAME="ant_date%20(varchar)%3a">ant_date (varchar):
+
+</A></H2>
+<H2><A NAME="ant_editors%20(varchar)%3a">ant_editors (varchar):
+
+</A></H2>
+<H2><A NAME="ant_publisher%20(varchar)%3a">ant_publisher (varchar):
+
+</A></H2>
+<H2><A NAME="author_abstract%20(text)%3a">author_abstract (text):
+
+</A></H2>
+<H2><A NAME="authors%20(varchar)%3a">authors (varchar):
+
+</A></H2>
+<H2><A NAME="book%20(varchar)%3a">book (varchar):
+
+</A></H2>
+<H2><A NAME="cacheId%20(integer)%3a">cacheId (integer):
+
+</A></H2>
+<H2><A NAME="catCount%20(integer)%3a">catCount (integer):
+
+</A></H2>
+<H2><A NAME="citations%20(float)%3a">citations (float):
+
+</A></H2>
+<H2><A NAME="citationsLink%20(varchar)%3a">citationsLink (varchar):
+
+</A></H2>
+<H2><A NAME="cn_alpha%20(varchar)%3a">cn_alpha (varchar):
+
+</A></H2>
+<H2><A NAME="cn_class%20(varchar)%3a">cn_class (varchar):
+
+</A></H2>
+<H2><A NAME="cn_full%20(varchar)%3a">cn_full (varchar):
+
+</A></H2>
+<H2><A NAME="cn_num%20(float)%3a">cn_num (float):
+
+</A></H2>
+<H2><A NAME="date%20(varchar)%3a">date (varchar):
+
+</A></H2>
+<H2><A NAME="dateRP%20(varchar)%3a">dateRP (varchar):
+
+</A></H2>
+<H2><A NAME="db_src%20(varchar)%3a">db_src (varchar):
+
+</A></H2>
+<H2><A NAME="defective%20(integer)%3a">defective (integer):
+
+</A></H2>
+<H2><A NAME="deleted%20(integer)%3a">deleted (integer):
+
+</A></H2>
+<H2><A NAME="descriptors%20(varchar)%3a">descriptors (varchar):
+
+</A></H2>
+<H2><A NAME="doi%20(varchar)%3a">doi (varchar):
+
+</A></H2>
+<H2><A NAME="draft%20(integer)%3a">draft (integer):
+
+</A></H2>
+<H2><A NAME="duplicate%20(integer)%3a">duplicate (integer):
+
+</A></H2>
+<H2><A NAME="duplicateOf%20(varchar)%3a">duplicateOf (varchar):
+
+</A></H2>
+<H2><A NAME="edited%20(integer)%3a">edited (integer):
+
+</A></H2>
+<H2><A NAME="etal%20(integer)%3a">etal (integer):
+
+</A></H2>
+<H2><A NAME="extra%20(varchar)%3a">extra (varchar):
+
+</A></H2>
+<H2><A NAME="fId%20(integer)%3a">fId (integer):
+
+</A></H2>
+<H2><A NAME="file%20(varchar)%3a">file (varchar):
+
+</A></H2>
+<H2><A NAME="flags%20(SET)%3a">flags (SET):
+
+</A></H2>
+<H2><A NAME="forcePro%20(integer)%3a">forcePro (integer):
+
+</A></H2>
+<H2><A NAME="free%20(integer)%3a">free (integer):
+
+</A></H2>
+<H2><A NAME="googleBooksQuery%20(varchar)%3a">googleBooksQuery (varchar):
+
+</A></H2>
+<H2><A NAME="hasChapters%20(integer)%3a">hasChapters (integer):
+
+</A></H2>
+<H2><A NAME="id%20(varchar)%3a">id (varchar):
+
+</A></H2>
+<H2><A NAME="isbn%20(ARRAY)%3a">isbn (ARRAY):
+
+</A></H2>
+<H2><A NAME="issn%20(varchar)%3a">issn (varchar):
+
+</A></H2>
+<H2><A NAME="issue%20(varchar)%3a">issue (varchar):
+
+</A></H2>
+<H2><A NAME="lang%20(character)%3a">lang (character):
+
+</A></H2>
+<H2><A NAME="lccn%20(ARRAY)%3a">lccn (ARRAY):
+
+</A></H2>
+<H2><A NAME="links%20(varchar)%3a">links (varchar):
+
+</A></H2>
+<H2><A NAME="notes%20(varchar)%3a">notes (varchar):
+
+</A></H2>
+<H2><A NAME="online%20(integer)%3a">online (integer):
+
+</A></H2>
+<H2><A NAME="online_book%20(integer)%3a">online_book (integer):
+
+</A></H2>
+<H2><A NAME="originalId%20(varchar)%3a">originalId (varchar):
+
+</A></H2>
+<H2><A NAME="pages%20(varchar)%3a">pages (varchar):
+
+</A></H2>
+<H2><A NAME="postCount%20(integer)%3a">postCount (integer):
+
+</A></H2>
+<H2><A NAME="pro%20(integer)%3a">pro (integer):
+
+</A></H2>
+<H2><A NAME="pubHarvest%20(integer)%3a">pubHarvest (integer):
+
+</A></H2>
+<H2><A NAME="pub_type%20(varchar)%3a">pub_type (varchar):
+
+</A></H2>
+<H2><A NAME="published%20(integer)%3a">published (integer):
+
+</A></H2>
+<H2><A NAME="publisher%20(varchar)%3a">publisher (varchar):
+
+</A></H2>
+<H2><A NAME="replyto%20(varchar)%3a">replyto (varchar):
+
+</A></H2>
+<H2><A NAME="reprint%20(varchar)%3a">reprint (varchar):
+
+</A></H2>
+<H2><A NAME="review%20(integer)%3a">review (integer):
+
+</A></H2>
+<H2><A NAME="reviewed_title%20(ARRAY)%3a">reviewed_title (ARRAY):
+
+</A></H2>
+<H2><A NAME="school%20(varchar)%3a">school (varchar):
+
+</A></H2>
+<H2><A NAME="serial%20(serial)%3a">serial (serial):
+
+</A></H2>
+<H2><A NAME="sites%20(SET)%3a">sites (SET):
+
+</A></H2>
+<H2><A NAME="source%20(varchar)%3a">source (varchar):
+
+</A></H2>
+<H2><A NAME="source_id%20(varchar)%3a">source_id (varchar):
+
+</A></H2>
+<H2><A NAME="source_subjects%20(varchar)%3a">source_subjects (varchar):
+
+</A></H2>
+<H2><A NAME="title%20(varchar)%3a">title (varchar):
+
+</A></H2>
+<H2><A NAME="type%20(varchar)%3a">type (varchar):
+
+</A></H2>
+<H2><A NAME="updated%20(datetime)%3a">updated (datetime):
+
+</A></H2>
+<H2><A NAME="viewings%20(integer)%3a">viewings (integer):
+
+</A></H2>
+<H2><A NAME="volume%20(integer)%3a">volume (integer):
+
+
+</A></H2>
+<H1><A NAME="METHODS">METHODS
+
+</A></H1>
+<H2><A NAME="absorb">absorb 
+
+
+
+</A></H2>
+<H2><A NAME="addAuthor">addAuthor 
+
+
+
+</A></H2>
+<H2><A NAME="addAuthorAliases">addAuthorAliases 
+
+
+
+</A></H2>
+<H2><A NAME="addAuthors">addAuthors 
+
+
+
+</A></H2>
+<H2><A NAME="addEditor">addEditor 
+
+
+
+</A></H2>
+<H2><A NAME="addEditors">addEditors 
+
+
+
+</A></H2>
+<H2><A NAME="addLink">addLink 
+
+
+
+</A></H2>
+<H2><A NAME="addLinks">addLinks 
+
+
+
+</A></H2>
+<H2><A NAME="addSite">addSite 
+
+
+
+</A></H2>
+<H2><A NAME="ancestorIds">ancestorIds 
+
+
+
+</A></H2>
+<H2><A NAME="archive">archive 
+
+
+
+</A></H2>
+<H2><A NAME="augment">augment 
+
+
+
+</A></H2>
+<H2><A NAME="authors_string">authors_string 
+
+
+
+</A></H2>
+<H2><A NAME="bad">bad 
+
+
+
+</A></H2>
+<H2><A NAME="bestLink">bestLink 
+
+
+
+</A></H2>
+<H2><A NAME="betterThan">betterThan 
+
+
+
+</A></H2>
+<H2><A NAME="calcPro">calcPro 
+
+
+
+</A></H2>
+<H2><A NAME="calcPublished">calcPublished 
+
+
+
+</A></H2>
+<H2><A NAME="calcSimilar">calcSimilar 
+
+
+
+</A></H2>
+<H2><A NAME="canonical_categories_o">canonical_categories_o 
+
+
+
+</A></H2>
+<H2><A NAME="categories_o">categories_o 
+
+
+
+</A></H2>
+<H2><A NAME="clearCatsCache">clearCatsCache 
+
+
+
+</A></H2>
+<H2><A NAME="commitFile">commitFile 
+
+
+
+</A></H2>
+<H2><A NAME="completeWith">completeWith 
+
+
+
+</A></H2>
+<H2><A NAME="decode_fields">decode_fields 
+
+
+
+</A></H2>
+<H2><A NAME="deleteAuthors">deleteAuthors 
+
+
+
+</A></H2>
+<H2><A NAME="deleteEditors">deleteEditors 
+
+
+
+</A></H2>
+<H2><A NAME="deleteLink">deleteLink 
+
+
+
+</A></H2>
+<H2><A NAME="deleteLinkMatch">deleteLinkMatch 
+
+
+
+</A></H2>
+<H2><A NAME="deleteLinks">deleteLinks 
+
+
+
+</A></H2>
+<H2><A NAME="diffable">diffable 
+
+
+
+</A></H2>
+<H2><A NAME="diffable_relationships">diffable_relationships 
+
+
+
+</A></H2>
+<H2><A NAME="digest">digest 
+
+
+
+</A></H2>
+<H2><A NAME="downloads">downloads 
+
+
+
+</A></H2>
+<H2><A NAME="firstAuthor">firstAuthor 
+
+
+
+</A></H2>
+<H2><A NAME="firstComputedLink">firstComputedLink 
+
+
+
+</A></H2>
+<H2><A NAME="firstLink">firstLink 
+
+
+
+</A></H2>
+<H2><A NAME="forall">forall 
+
+
+
+</A></H2>
+<H2><A NAME="forum_o">forum_o 
+
+
+
+</A></H2>
+<H2><A NAME="fromHash">fromHash 
+
+
+
+</A></H2>
+<H2><A NAME="fromLegacy">fromLegacy 
+
+
+
+</A></H2>
+<H2><A NAME="fromarrays">fromarrays 
+
+
+
+</A></H2>
+<H2><A NAME="get">get 
+
+
+
+</A></H2>
+<H2><A NAME="getAllLinks">getAllLinks 
+
+
+
+</A></H2>
+<H2><A NAME="getAuthors">getAuthors 
+
+
+
+</A></H2>
+<H2><A NAME="getEditors">getEditors 
+
+
+
+</A></H2>
+<H2><A NAME="getLinks">getLinks 
+
+
+
+</A></H2>
+<H2><A NAME="getQuotes">getQuotes 
+
+
+
+</A></H2>
+<H2><A NAME="googleBooksId">googleBooksId 
+
+
+
+</A></H2>
+<H2><A NAME="gotAutoId">gotAutoId 
+
+
+
+</A></H2>
+<H2><A NAME="hardDelete">hardDelete 
+
+
+
+</A></H2>
+<H2><A NAME="hasGoodTitle">hasGoodTitle 
+
+
+
+</A></H2>
+<H2><A NAME="id2">id2 
+
+
+
+</A></H2>
+<H2><A NAME="insert">insert 
+
+
+
+</A></H2>
+<H2><A NAME="journalInList">journalInList 
+
+
+
+</A></H2>
+<H2><A NAME="keyExists">keyExists 
+
+
+
+</A></H2>
+<H2><A NAME="new">new 
+
+
+
+</A></H2>
+<H2><A NAME="new_from_deflated_tree">new_from_deflated_tree 
+
+
+
+</A></H2>
+<H2><A NAME="openForum">openForum 
+
+
+
+</A></H2>
+<H2><A NAME="popularity">popularity 
+
+
+
+</A></H2>
+<H2><A NAME="post_save">post_save 
+
+
+
+</A></H2>
+<H2><A NAME="pre_save">pre_save 
+
+
+
+</A></H2>
+<H2><A NAME="publicCats">publicCats 
+
+
+
+</A></H2>
+<H2><A NAME="publicCatsHTML">publicCatsHTML 
+
+
+
+</A></H2>
+<H2><A NAME="remember">remember 
+
+
+
+</A></H2>
+<H2><A NAME="removeSite">removeSite 
+
+
+
+</A></H2>
+<H2><A NAME="same">same 
+
+
+
+</A></H2>
+<H2><A NAME="setAuthors">setAuthors 
+
+
+
+</A></H2>
+<H2><A NAME="setDisplayLink">setDisplayLink 
+
+
+
+</A></H2>
+<H2><A NAME="setKey">setKey 
+
+
+
+</A></H2>
+<H2><A NAME="similar">similar 
+
+
+
+</A></H2>
+<H2><A NAME="slinks">slinks 
+
+
+
+</A></H2>
+<H2><A NAME="syncSite">syncSite 
+
+
+
+</A></H2>
+<H2><A NAME="syncSites">syncSites 
+
+
+
+</A></H2>
+<H2><A NAME="toString">toString 
+
+
+
+</A></H2>
+<H2><A NAME="toarrays">toarrays 
+
+
+
+</A></H2>
+<H2><A NAME="update">update 
+
+
+
+</A></H2>
+<H2><A NAME="update_author_index">update_author_index 
+
+
+
+</A></H2>
+<H2><A NAME="userAuthors">userAuthors 
+
+
+
+</A></H2>
+<H2><A NAME="userFields">userFields 
+
+
+
+</A></H2>
+<H2><A NAME="userModified">userModified 
+
+
+
+</A></H2>
+<H2><A NAME="value_separators">value_separators 
+
+
+
+
+</A></H2>
+<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
+
+</A></H1>
+<H1><A NAME="AUTHORS">AUTHORS
+
+</A></H1>
+
+<P>David Bourget with contributions from Zbigniew Lukasiak
+
+
+
+</P><H1><A NAME="COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></H1>
+
+<P>See accompanying README file for licensing information.
+
+
+
+</P>
+  </div>
+ </body>
+</html>

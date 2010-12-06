@@ -1,0 +1,275 @@
+<html>
+ <head>
+  <base href="">
+  <link href="/assets/raw/tmp/style.css" rel="stylesheet" type="text/css">
+  <title>xPapers::OAI::Repository</title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <h1>xPapers::OAI::Repository</h1>
+  <div class=pod> 
+  <div class=toc>
+  <UL>
+<LI><A HREF="#NAME">NAME
+
+</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
+
+
+
+</A><LI><A HREF="#DESCRIPTION">DESCRIPTION
+
+</A><LI><A HREF="#FIELDS">FIELDS
+
+</A><UL>
+<LI><A HREF="#deleted%20(integer)%3a">deleted (integer):
+
+</A><LI><A HREF="#downloadType%20(varchar)%3a">downloadType (varchar):
+
+</A><LI><A HREF="#errorLog%20(text)%3a">errorLog (text):
+
+</A><LI><A HREF="#fetchedRecords%20(integer)%3a">fetchedRecords (integer):
+
+</A><LI><A HREF="#found%20(integer)%3a">found (integer):
+
+</A><LI><A HREF="#handler%20(varchar)%3a">handler (varchar):
+
+</A><LI><A HREF="#id%20(serial)%3a">id (serial):
+
+</A><LI><A HREF="#isSlow%20(integer)%3a">isSlow (integer):
+
+</A><LI><A HREF="#languages%20(ARRAY)%3a">languages (ARRAY):
+
+</A><LI><A HREF="#lastHarvestDuration%20(integer)%3a">lastHarvestDuration (integer):
+
+</A><LI><A HREF="#lastSuccess%20(datetime)%3a">lastSuccess (datetime):
+
+</A><LI><A HREF="#name%20(varchar)%3a">name (varchar):
+
+</A><LI><A HREF="#nonEngRecords%20(integer)%3a">nonEngRecords (integer):
+
+</A><LI><A HREF="#rid%20(varchar)%3a">rid (varchar):
+
+</A><LI><A HREF="#savedRecords%20(integer)%3a">savedRecords (integer):
+
+</A><LI><A HREF="#scannedAt%20(datetime)%3a">scannedAt (datetime):
+
+</A><LI><A HREF="#sets%20(ARRAY)%3a">sets (ARRAY):
+
+
+</A></UL>
+<LI><A HREF="#METHODS">METHODS
+
+</A><UL>
+<LI><A HREF="#diff_test_url">diff_test_url 
+
+
+
+</A><LI><A HREF="#diffable">diffable 
+
+
+
+</A><LI><A HREF="#downgrade_set">downgrade_set 
+
+
+
+</A><LI><A HREF="#pingdb">pingdb 
+
+
+
+</A><LI><A HREF="#pushError">pushError 
+
+
+
+</A><LI><A HREF="#render_diffable_array_element">render_diffable_array_element 
+
+
+
+</A><LI><A HREF="#set_sets_hash">set_sets_hash 
+
+
+
+</A><LI><A HREF="#set_was_deleted">set_was_deleted 
+
+
+
+</A><LI><A HREF="#sets_hash">sets_hash 
+
+
+
+</A><LI><A HREF="#toString">toString 
+
+
+
+</A><LI><A HREF="#updateSetsFromRemote">updateSetsFromRemote 
+
+
+
+
+</A></UL>
+<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
+
+</A><LI><A HREF="#AUTHORS">AUTHORS
+
+</A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></UL>
+<HR>
+
+  </div>
+  <H1><A NAME="NAME">NAME
+
+</A></H1>
+
+<P>xPapers::OAI::Repository
+
+</P><H1><A NAME="SYNOPSIS">SYNOPSIS
+
+
+
+</A></H1>
+<H1><A NAME="DESCRIPTION">DESCRIPTION
+
+</A></H1>
+
+<P>Inherits from: <A HREF="../../xPapers/Object.html">xPapers::Object</A>, <A HREF="../../xPapers/Object/Diffable.html">xPapers::Object::Diffable</A>
+
+</P>
+<P>Table: oai_repos
+
+
+</P><H1><A NAME="FIELDS">FIELDS
+
+</A></H1>
+<H2><A NAME="deleted%20(integer)%3a">deleted (integer):
+
+</A></H2>
+<H2><A NAME="downloadType%20(varchar)%3a">downloadType (varchar):
+
+</A></H2>
+<H2><A NAME="errorLog%20(text)%3a">errorLog (text):
+
+</A></H2>
+<H2><A NAME="fetchedRecords%20(integer)%3a">fetchedRecords (integer):
+
+</A></H2>
+<H2><A NAME="found%20(integer)%3a">found (integer):
+
+</A></H2>
+<H2><A NAME="handler%20(varchar)%3a">handler (varchar):
+
+</A></H2>
+<H2><A NAME="id%20(serial)%3a">id (serial):
+
+</A></H2>
+<H2><A NAME="isSlow%20(integer)%3a">isSlow (integer):
+
+</A></H2>
+<H2><A NAME="languages%20(ARRAY)%3a">languages (ARRAY):
+
+</A></H2>
+<H2><A NAME="lastHarvestDuration%20(integer)%3a">lastHarvestDuration (integer):
+
+</A></H2>
+<H2><A NAME="lastSuccess%20(datetime)%3a">lastSuccess (datetime):
+
+</A></H2>
+<H2><A NAME="name%20(varchar)%3a">name (varchar):
+
+</A></H2>
+<H2><A NAME="nonEngRecords%20(integer)%3a">nonEngRecords (integer):
+
+</A></H2>
+<H2><A NAME="rid%20(varchar)%3a">rid (varchar):
+
+</A></H2>
+<H2><A NAME="savedRecords%20(integer)%3a">savedRecords (integer):
+
+</A></H2>
+<H2><A NAME="scannedAt%20(datetime)%3a">scannedAt (datetime):
+
+</A></H2>
+<H2><A NAME="sets%20(ARRAY)%3a">sets (ARRAY):
+
+
+</A></H2>
+<H1><A NAME="METHODS">METHODS
+
+</A></H1>
+<H2><A NAME="diff_test_url">diff_test_url 
+
+
+
+</A></H2>
+<H2><A NAME="diffable">diffable 
+
+
+
+</A></H2>
+<H2><A NAME="downgrade_set">downgrade_set 
+
+
+
+</A></H2>
+<H2><A NAME="pingdb">pingdb 
+
+
+
+</A></H2>
+<H2><A NAME="pushError">pushError 
+
+
+
+</A></H2>
+<H2><A NAME="render_diffable_array_element">render_diffable_array_element 
+
+
+
+</A></H2>
+<H2><A NAME="set_sets_hash">set_sets_hash 
+
+
+
+</A></H2>
+<H2><A NAME="set_was_deleted">set_was_deleted 
+
+
+
+</A></H2>
+<H2><A NAME="sets_hash">sets_hash 
+
+
+
+</A></H2>
+<H2><A NAME="toString">toString 
+
+
+
+</A></H2>
+<H2><A NAME="updateSetsFromRemote">updateSetsFromRemote 
+
+
+
+
+</A></H2>
+<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
+
+</A></H1>
+<H1><A NAME="AUTHORS">AUTHORS
+
+</A></H1>
+
+<P>David Bourget with contributions from Zbigniew Lukasiak
+
+
+
+</P><H1><A NAME="COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></H1>
+
+<P>See accompanying README file for licensing information.
+
+
+
+</P>
+  </div>
+ </body>
+</html>

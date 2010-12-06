@@ -1,0 +1,348 @@
+<html>
+ <head>
+  <base href="">
+  <link href="/assets/raw/tmp/style.css" rel="stylesheet" type="text/css">
+  <title>xPapers::AI::Categorizer</title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <h1>xPapers::AI::Categorizer</h1>
+  <div class=pod> 
+  <div class=toc>
+  <UL>
+<LI><A HREF="#NAME">NAME
+
+</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
+
+
+
+</A><LI><A HREF="#DESCRIPTION">DESCRIPTION
+
+</A><LI><A HREF="#ATTRIBUTES">ATTRIBUTES
+
+</A><UL>
+<LI><A HREF="#cat_level">cat_level 
+
+
+
+</A><LI><A HREF="#cat_root">cat_root 
+
+
+
+</A><LI><A HREF="#categories">categories 
+
+
+
+</A><LI><A HREF="#comment">comment 
+
+
+
+</A><LI><A HREF="#cw">cw 
+
+
+
+</A><LI><A HREF="#data_dir">data_dir 
+
+
+
+</A><LI><A HREF="#data_root">data_root 
+
+
+
+</A><LI><A HREF="#db_limit">db_limit 
+
+
+
+</A><LI><A HREF="#do_intersection">do_intersection 
+
+
+
+</A><LI><A HREF="#features_kept">features_kept 
+
+
+
+</A><LI><A HREF="#learners">learners 
+
+
+
+</A><LI><A HREF="#max_tests">max_tests 
+
+
+
+</A><LI><A HREF="#tf">tf 
+
+
+
+</A><LI><A HREF="#train_with">train_with 
+
+
+
+</A></UL>
+<LI><A HREF="#METHODS">METHODS
+
+</A><UL>
+<LI><A HREF="#categorize">categorize 
+
+
+
+</A><LI><A HREF="#deflate_entry">deflate_entry 
+
+
+
+</A><LI><A HREF="#entry2doc">entry2doc 
+
+
+
+</A><LI><A HREF="#find_all_cats">find_all_cats 
+
+
+
+</A><LI><A HREF="#generate_sets">generate_sets 
+
+
+
+</A><LI><A HREF="#make">make 
+
+
+
+</A><LI><A HREF="#make_or_retrieve">make_or_retrieve 
+
+
+
+</A><LI><A HREF="#print_errors">print_errors 
+
+
+
+</A><LI><A HREF="#print_result">print_result 
+
+
+
+</A><LI><A HREF="#record_errors">record_errors 
+
+
+
+</A><LI><A HREF="#report_testing">report_testing 
+
+
+
+</A><LI><A HREF="#str2cats">str2cats 
+
+
+
+</A><LI><A HREF="#suggest">suggest 
+
+
+
+</A><LI><A HREF="#train">train 
+
+
+
+</A><LI><A HREF="#transform">transform 
+
+
+
+
+</A></UL>
+<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
+
+</A><LI><A HREF="#AUTHORS">AUTHORS
+
+</A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></UL>
+<HR>
+
+  </div>
+  <H1><A NAME="NAME">NAME
+
+</A></H1>
+
+<P>xPapers::AI::Categorizer
+
+</P><H1><A NAME="SYNOPSIS">SYNOPSIS
+
+
+
+</A></H1>
+<H1><A NAME="DESCRIPTION">DESCRIPTION
+
+</A></H1>
+
+<P>Inherits from: <A HREF="../../Moose/Object.html">Moose::Object</A>
+
+
+
+</P><H1><A NAME="ATTRIBUTES">ATTRIBUTES
+
+</A></H1>
+<H2><A NAME="cat_level">cat_level 
+
+
+
+</A></H2>
+<H2><A NAME="cat_root">cat_root 
+
+
+
+</A></H2>
+<H2><A NAME="categories">categories 
+
+
+
+</A></H2>
+<H2><A NAME="comment">comment 
+
+
+
+</A></H2>
+<H2><A NAME="cw">cw 
+
+
+
+</A></H2>
+<H2><A NAME="data_dir">data_dir 
+
+
+
+</A></H2>
+<H2><A NAME="data_root">data_root 
+
+
+
+</A></H2>
+<H2><A NAME="db_limit">db_limit 
+
+
+
+</A></H2>
+<H2><A NAME="do_intersection">do_intersection 
+
+
+
+</A></H2>
+<H2><A NAME="features_kept">features_kept 
+
+
+
+</A></H2>
+<H2><A NAME="learners">learners 
+
+
+
+</A></H2>
+<H2><A NAME="max_tests">max_tests 
+
+
+
+</A></H2>
+<H2><A NAME="tf">tf 
+
+
+
+</A></H2>
+<H2><A NAME="train_with">train_with 
+
+
+
+</A></H2>
+<H1><A NAME="METHODS">METHODS
+
+</A></H1>
+<H2><A NAME="categorize">categorize 
+
+
+
+</A></H2>
+<H2><A NAME="deflate_entry">deflate_entry 
+
+
+
+</A></H2>
+<H2><A NAME="entry2doc">entry2doc 
+
+
+
+</A></H2>
+<H2><A NAME="find_all_cats">find_all_cats 
+
+
+
+</A></H2>
+<H2><A NAME="generate_sets">generate_sets 
+
+
+
+</A></H2>
+<H2><A NAME="make">make 
+
+
+
+</A></H2>
+<H2><A NAME="make_or_retrieve">make_or_retrieve 
+
+
+
+</A></H2>
+<H2><A NAME="print_errors">print_errors 
+
+
+
+</A></H2>
+<H2><A NAME="print_result">print_result 
+
+
+
+</A></H2>
+<H2><A NAME="record_errors">record_errors 
+
+
+
+</A></H2>
+<H2><A NAME="report_testing">report_testing 
+
+
+
+</A></H2>
+<H2><A NAME="str2cats">str2cats 
+
+
+
+</A></H2>
+<H2><A NAME="suggest">suggest 
+
+
+
+</A></H2>
+<H2><A NAME="train">train 
+
+
+
+</A></H2>
+<H2><A NAME="transform">transform 
+
+
+
+
+</A></H2>
+<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
+
+</A></H1>
+<H1><A NAME="AUTHORS">AUTHORS
+
+</A></H1>
+
+<P>Zbigniew Lukasiak with contributions from David Bourget
+
+
+
+</P><H1><A NAME="COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></H1>
+
+<P>See accompanying README file for licensing information.
+
+
+
+</P>
+  </div>
+ </body>
+</html>

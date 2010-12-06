@@ -1,0 +1,1029 @@
+<html>
+ <head>
+  <base href="">
+  <link href="/assets/raw/tmp/style.css" rel="stylesheet" type="text/css">
+  <title>xPapers::Cat</title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <h1>xPapers::Cat</h1>
+  <div class=pod> 
+  <div class=toc>
+  <UL>
+<LI><A HREF="#NAME">NAME
+
+</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
+
+
+
+</A><LI><A HREF="#DESCRIPTION">DESCRIPTION
+
+</A><LI><A HREF="#FIELDS">FIELDS
+
+</A><UL>
+<LI><A HREF="#cacheId%20(integer)%3a">cacheId (integer):
+
+</A><LI><A HREF="#canonical%20(integer)%3a">canonical (integer):
+
+</A><LI><A HREF="#catCount%20(integer)%3a">catCount (integer):
+
+</A><LI><A HREF="#condCounts%20(blob)%3a">condCounts (blob):
+
+</A><LI><A HREF="#count%20(integer)%3a">count (integer):
+
+</A><LI><A HREF="#created%20(datetime)%3a">created (datetime):
+
+</A><LI><A HREF="#description%20(varchar)%3a">description (varchar):
+
+</A><LI><A HREF="#dfo%20(integer)%3a">dfo (integer):
+
+</A><LI><A HREF="#edEnd%20(datetime)%3a">edEnd (datetime):
+
+</A><LI><A HREF="#edfChecked%20(datetime)%3a">edfChecked (datetime):
+
+</A><LI><A HREF="#edfId%20(integer)%3a">edfId (integer):
+
+</A><LI><A HREF="#edfo%20(integer)%3a">edfo (integer):
+
+</A><LI><A HREF="#exclusions%20(integer)%3a">exclusions (integer):
+
+</A><LI><A HREF="#fId%20(integer)%3a">fId (integer):
+
+</A><LI><A HREF="#filter_id%20(integer)%3a">filter_id (integer):
+
+</A><LI><A HREF="#flags%20(SET)%3a">flags (SET):
+
+</A><LI><A HREF="#fnumid%20(varchar)%3a">fnumid (varchar):
+
+</A><LI><A HREF="#gId%20(integer)%3a">gId (integer):
+
+</A><LI><A HREF="#greedy%20(integer)%3a">greedy (integer):
+
+</A><LI><A HREF="#highestLevel%20(integer)%3a">highestLevel (integer):
+
+</A><LI><A HREF="#id%20(serial)%3a">id (serial):
+
+</A><LI><A HREF="#ifId%20(integer)%3a">ifId (integer):
+
+</A><LI><A HREF="#level%20(integer)%3a">level (integer):
+
+</A><LI><A HREF="#marginal%20(integer)%3a">marginal (integer):
+
+</A><LI><A HREF="#mp%20(integer)%3a">mp (integer):
+
+</A><LI><A HREF="#name%20(varchar)%3a">name (varchar):
+
+</A><LI><A HREF="#negative%20(integer)%3a">negative (integer):
+
+</A><LI><A HREF="#numid%20(varchar)%3a">numid (varchar):
+
+</A><LI><A HREF="#owner%20(integer)%3a">owner (integer):
+
+</A><LI><A HREF="#pLevel%20(integer)%3a">pLevel (integer):
+
+</A><LI><A HREF="#postCount%20(integer)%3a">postCount (integer):
+
+</A><LI><A HREF="#ppId%20(integer)%3a">ppId (integer):
+
+</A><LI><A HREF="#publish%20(integer)%3a">publish (integer):
+
+</A><LI><A HREF="#related%20(integer)%3a">related (integer):
+
+</A><LI><A HREF="#seeAlso%20(integer)%3a">seeAlso (integer):
+
+</A><LI><A HREF="#system%20(integer)%3a">system (integer):
+
+</A><LI><A HREF="#uName%20(varchar)%3a">uName (varchar):
+
+</A><LI><A HREF="#updated%20(timestamp)%3a">updated (timestamp):
+
+</A><LI><A HREF="#useAutoCat%20(integer)%3a">useAutoCat (integer):
+
+</A><LI><A HREF="#writable%20(integer)%3a">writable (integer):
+
+
+</A></UL>
+<LI><A HREF="#METHODS">METHODS
+
+</A><UL>
+<LI><A HREF="#addAncestor">addAncestor 
+
+
+
+</A><LI><A HREF="#addDescendant">addDescendant 
+
+
+
+</A><LI><A HREF="#addEntries">addEntries 
+
+
+
+</A><LI><A HREF="#addEntry">addEntry 
+
+
+
+</A><LI><A HREF="#addPAncestor">addPAncestor 
+
+
+
+</A><LI><A HREF="#add_child">add_child 
+
+
+
+</A><LI><A HREF="#add_child_o">add_child_o 
+
+
+
+</A><LI><A HREF="#ancestry">ancestry 
+
+
+
+</A><LI><A HREF="#area">area 
+
+
+
+</A><LI><A HREF="#areas">areas 
+
+
+
+</A><LI><A HREF="#buildGraph">buildGraph 
+
+
+
+</A><LI><A HREF="#calcCountWhere">calcCountWhere 
+
+
+
+</A><LI><A HREF="#calcLevels">calcLevels 
+
+
+
+</A><LI><A HREF="#calcRecCount">calcRecCount 
+
+
+
+</A><LI><A HREF="#calcUName">calcUName 
+
+
+
+</A><LI><A HREF="#canWrite">canWrite 
+
+
+
+</A><LI><A HREF="#checkboxes">checkboxes 
+
+
+
+</A><LI><A HREF="#children_o">children_o 
+
+
+
+</A><LI><A HREF="#cleanAncestry">cleanAncestry 
+
+
+
+</A><LI><A HREF="#cleanPAncestry">cleanPAncestry 
+
+
+
+</A><LI><A HREF="#clearCacheRec">clearCacheRec 
+
+
+
+</A><LI><A HREF="#contains">contains 
+
+
+
+</A><LI><A HREF="#containsUnder">containsUnder 
+
+
+
+</A><LI><A HREF="#containsUnderP">containsUnderP 
+
+
+
+</A><LI><A HREF="#contains_cat">contains_cat 
+
+
+
+</A><LI><A HREF="#contentIterator">contentIterator 
+
+
+
+</A><LI><A HREF="#countWhere">countWhere 
+
+
+
+</A><LI><A HREF="#create_child">create_child 
+
+
+
+</A><LI><A HREF="#delete">delete 
+
+
+
+</A><LI><A HREF="#deleteEntry">deleteEntry 
+
+
+
+</A><LI><A HREF="#delete_child_o">delete_child_o 
+
+
+
+</A><LI><A HREF="#diffable">diffable 
+
+
+
+</A><LI><A HREF="#diffable_relationships">diffable_relationships 
+
+
+
+</A><LI><A HREF="#edTerm">edTerm 
+
+
+
+</A><LI><A HREF="#eun">eun 
+
+
+
+</A><LI><A HREF="#exclude">exclude 
+
+
+
+</A><LI><A HREF="#filteredEntries">filteredEntries 
+
+
+
+</A><LI><A HREF="#findPotentialEditors">findPotentialEditors 
+
+
+
+</A><LI><A HREF="#firstParent">firstParent 
+
+
+
+</A><LI><A HREF="#forum_o">forum_o 
+
+
+
+</A><LI><A HREF="#gatherCats">gatherCats 
+
+
+
+</A><LI><A HREF="#gatherPCats">gatherPCats 
+
+
+
+</A><LI><A HREF="#getByNumId">getByNumId 
+
+
+
+</A><LI><A HREF="#getByUName">getByUName 
+
+
+
+</A><LI><A HREF="#getCategories">getCategories 
+
+
+
+</A><LI><A HREF="#getEntries">getEntries 
+
+
+
+</A><LI><A HREF="#hasAncestor">hasAncestor 
+
+
+
+</A><LI><A HREF="#hasDescendant">hasDescendant 
+
+
+
+</A><LI><A HREF="#hasPAncestor">hasPAncestor 
+
+
+
+</A><LI><A HREF="#hasPDescendant">hasPDescendant 
+
+
+
+</A><LI><A HREF="#isEditor">isEditor 
+
+
+
+</A><LI><A HREF="#isExcluded">isExcluded 
+
+
+
+</A><LI><A HREF="#lastChild">lastChild 
+
+
+
+</A><LI><A HREF="#listFromParams">listFromParams 
+
+
+
+</A><LI><A HREF="#localCount">localCount 
+
+
+
+</A><LI><A HREF="#makeLast">makeLast 
+
+
+
+</A><LI><A HREF="#mcat">mcat 
+
+
+
+</A><LI><A HREF="#minTree">minTree 
+
+
+
+</A><LI><A HREF="#mkDiffs">mkDiffs 
+
+
+
+</A><LI><A HREF="#nextSibling">nextSibling 
+
+
+
+</A><LI><A HREF="#notUserFields">notUserFields 
+
+
+
+</A><LI><A HREF="#numId">numId 
+
+
+
+</A><LI><A HREF="#openForum">openForum 
+
+
+
+</A><LI><A HREF="#pAncestry">pAncestry 
+
+
+
+</A><LI><A HREF="#pArea">pArea 
+
+
+
+</A><LI><A HREF="#parsetree">parsetree 
+
+
+
+</A><LI><A HREF="#pchildren_o">pchildren_o 
+
+
+
+</A><LI><A HREF="#ppLost">ppLost 
+
+
+
+</A><LI><A HREF="#preCountWhere">preCountWhere 
+
+
+
+</A><LI><A HREF="#prepTrawler">prepTrawler 
+
+
+
+</A><LI><A HREF="#prepTrawlerWithQ">prepTrawlerWithQ 
+
+
+
+</A><LI><A HREF="#primary_children">primary_children 
+
+
+
+</A><LI><A HREF="#primary_descendants_o">primary_descendants_o 
+
+
+
+</A><LI><A HREF="#recCount">recCount 
+
+
+
+</A><LI><A HREF="#remove_child">remove_child 
+
+
+
+</A><LI><A HREF="#rename">rename 
+
+
+
+</A><LI><A HREF="#resolverefs">resolverefs 
+
+
+
+</A><LI><A HREF="#save">save 
+
+
+
+</A><LI><A HREF="#setPP">setPP 
+
+
+
+</A><LI><A HREF="#sibling_o">sibling_o 
+
+
+
+</A><LI><A HREF="#toString">toString 
+
+
+
+</A><LI><A HREF="#updateStruct">updateStruct 
+
+
+
+
+</A></UL>
+<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
+
+</A><LI><A HREF="#AUTHORS">AUTHORS
+
+</A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></UL>
+<HR>
+
+  </div>
+  <H1><A NAME="NAME">NAME
+
+</A></H1>
+
+<P>xPapers::Cat
+
+</P><H1><A NAME="SYNOPSIS">SYNOPSIS
+
+
+
+</A></H1>
+<H1><A NAME="DESCRIPTION">DESCRIPTION
+
+</A></H1>
+
+<P>Inherits from: <A HREF="../xPapers/Object/WithDBCache.html">xPapers::Object::WithDBCache</A>, <A HREF="../xPapers/Object/Cached.html">xPapers::Object::Cached</A>, <A HREF="../xPapers/Object/Secured.html">xPapers::Object::Secured</A>, <A HREF="../xPapers/Object/Diffable.html">xPapers::Object::Diffable</A>
+
+</P>
+<P>Table: cats
+
+
+</P><H1><A NAME="FIELDS">FIELDS
+
+</A></H1>
+<H2><A NAME="cacheId%20(integer)%3a">cacheId (integer):
+
+</A></H2>
+<H2><A NAME="canonical%20(integer)%3a">canonical (integer):
+
+</A></H2>
+<H2><A NAME="catCount%20(integer)%3a">catCount (integer):
+
+</A></H2>
+<H2><A NAME="condCounts%20(blob)%3a">condCounts (blob):
+
+</A></H2>
+<H2><A NAME="count%20(integer)%3a">count (integer):
+
+</A></H2>
+<H2><A NAME="created%20(datetime)%3a">created (datetime):
+
+</A></H2>
+<H2><A NAME="description%20(varchar)%3a">description (varchar):
+
+</A></H2>
+<H2><A NAME="dfo%20(integer)%3a">dfo (integer):
+
+</A></H2>
+<H2><A NAME="edEnd%20(datetime)%3a">edEnd (datetime):
+
+</A></H2>
+<H2><A NAME="edfChecked%20(datetime)%3a">edfChecked (datetime):
+
+</A></H2>
+<H2><A NAME="edfId%20(integer)%3a">edfId (integer):
+
+</A></H2>
+<H2><A NAME="edfo%20(integer)%3a">edfo (integer):
+
+</A></H2>
+<H2><A NAME="exclusions%20(integer)%3a">exclusions (integer):
+
+</A></H2>
+<H2><A NAME="fId%20(integer)%3a">fId (integer):
+
+</A></H2>
+<H2><A NAME="filter_id%20(integer)%3a">filter_id (integer):
+
+</A></H2>
+<H2><A NAME="flags%20(SET)%3a">flags (SET):
+
+</A></H2>
+<H2><A NAME="fnumid%20(varchar)%3a">fnumid (varchar):
+
+</A></H2>
+<H2><A NAME="gId%20(integer)%3a">gId (integer):
+
+</A></H2>
+<H2><A NAME="greedy%20(integer)%3a">greedy (integer):
+
+</A></H2>
+<H2><A NAME="highestLevel%20(integer)%3a">highestLevel (integer):
+
+</A></H2>
+<H2><A NAME="id%20(serial)%3a">id (serial):
+
+</A></H2>
+<H2><A NAME="ifId%20(integer)%3a">ifId (integer):
+
+</A></H2>
+<H2><A NAME="level%20(integer)%3a">level (integer):
+
+</A></H2>
+<H2><A NAME="marginal%20(integer)%3a">marginal (integer):
+
+</A></H2>
+<H2><A NAME="mp%20(integer)%3a">mp (integer):
+
+</A></H2>
+<H2><A NAME="name%20(varchar)%3a">name (varchar):
+
+</A></H2>
+<H2><A NAME="negative%20(integer)%3a">negative (integer):
+
+</A></H2>
+<H2><A NAME="numid%20(varchar)%3a">numid (varchar):
+
+</A></H2>
+<H2><A NAME="owner%20(integer)%3a">owner (integer):
+
+</A></H2>
+<H2><A NAME="pLevel%20(integer)%3a">pLevel (integer):
+
+</A></H2>
+<H2><A NAME="postCount%20(integer)%3a">postCount (integer):
+
+</A></H2>
+<H2><A NAME="ppId%20(integer)%3a">ppId (integer):
+
+</A></H2>
+<H2><A NAME="publish%20(integer)%3a">publish (integer):
+
+</A></H2>
+<H2><A NAME="related%20(integer)%3a">related (integer):
+
+</A></H2>
+<H2><A NAME="seeAlso%20(integer)%3a">seeAlso (integer):
+
+</A></H2>
+<H2><A NAME="system%20(integer)%3a">system (integer):
+
+</A></H2>
+<H2><A NAME="uName%20(varchar)%3a">uName (varchar):
+
+</A></H2>
+<H2><A NAME="updated%20(timestamp)%3a">updated (timestamp):
+
+</A></H2>
+<H2><A NAME="useAutoCat%20(integer)%3a">useAutoCat (integer):
+
+</A></H2>
+<H2><A NAME="writable%20(integer)%3a">writable (integer):
+
+
+</A></H2>
+<H1><A NAME="METHODS">METHODS
+
+</A></H1>
+<H2><A NAME="addAncestor">addAncestor 
+
+
+
+</A></H2>
+<H2><A NAME="addDescendant">addDescendant 
+
+
+
+</A></H2>
+<H2><A NAME="addEntries">addEntries 
+
+
+
+</A></H2>
+<H2><A NAME="addEntry">addEntry 
+
+
+
+</A></H2>
+<H2><A NAME="addPAncestor">addPAncestor 
+
+
+
+</A></H2>
+<H2><A NAME="add_child">add_child 
+
+
+
+</A></H2>
+<H2><A NAME="add_child_o">add_child_o 
+
+
+
+</A></H2>
+<H2><A NAME="ancestry">ancestry 
+
+
+
+</A></H2>
+<H2><A NAME="area">area 
+
+
+
+</A></H2>
+<H2><A NAME="areas">areas 
+
+
+
+</A></H2>
+<H2><A NAME="buildGraph">buildGraph 
+
+
+
+</A></H2>
+<H2><A NAME="calcCountWhere">calcCountWhere 
+
+
+
+</A></H2>
+<H2><A NAME="calcLevels">calcLevels 
+
+
+
+</A></H2>
+<H2><A NAME="calcRecCount">calcRecCount 
+
+
+
+</A></H2>
+<H2><A NAME="calcUName">calcUName 
+
+
+
+</A></H2>
+<H2><A NAME="canWrite">canWrite 
+
+
+
+</A></H2>
+<H2><A NAME="checkboxes">checkboxes 
+
+
+
+</A></H2>
+<H2><A NAME="children_o">children_o 
+
+
+
+</A></H2>
+<H2><A NAME="cleanAncestry">cleanAncestry 
+
+
+
+</A></H2>
+<H2><A NAME="cleanPAncestry">cleanPAncestry 
+
+
+
+</A></H2>
+<H2><A NAME="clearCacheRec">clearCacheRec 
+
+
+
+</A></H2>
+<H2><A NAME="contains">contains 
+
+
+
+</A></H2>
+<H2><A NAME="containsUnder">containsUnder 
+
+
+
+</A></H2>
+<H2><A NAME="containsUnderP">containsUnderP 
+
+
+
+</A></H2>
+<H2><A NAME="contains_cat">contains_cat 
+
+
+
+</A></H2>
+<H2><A NAME="contentIterator">contentIterator 
+
+
+
+</A></H2>
+<H2><A NAME="countWhere">countWhere 
+
+
+
+</A></H2>
+<H2><A NAME="create_child">create_child 
+
+
+
+</A></H2>
+<H2><A NAME="delete">delete 
+
+
+
+</A></H2>
+<H2><A NAME="deleteEntry">deleteEntry 
+
+
+
+</A></H2>
+<H2><A NAME="delete_child_o">delete_child_o 
+
+
+
+</A></H2>
+<H2><A NAME="diffable">diffable 
+
+
+
+</A></H2>
+<H2><A NAME="diffable_relationships">diffable_relationships 
+
+
+
+</A></H2>
+<H2><A NAME="edTerm">edTerm 
+
+
+
+</A></H2>
+<H2><A NAME="eun">eun 
+
+
+
+</A></H2>
+<H2><A NAME="exclude">exclude 
+
+
+
+</A></H2>
+<H2><A NAME="filteredEntries">filteredEntries 
+
+
+
+</A></H2>
+<H2><A NAME="findPotentialEditors">findPotentialEditors 
+
+
+
+</A></H2>
+<H2><A NAME="firstParent">firstParent 
+
+
+
+</A></H2>
+<H2><A NAME="forum_o">forum_o 
+
+
+
+</A></H2>
+<H2><A NAME="gatherCats">gatherCats 
+
+
+
+</A></H2>
+<H2><A NAME="gatherPCats">gatherPCats 
+
+
+
+</A></H2>
+<H2><A NAME="getByNumId">getByNumId 
+
+
+
+</A></H2>
+<H2><A NAME="getByUName">getByUName 
+
+
+
+</A></H2>
+<H2><A NAME="getCategories">getCategories 
+
+
+
+</A></H2>
+<H2><A NAME="getEntries">getEntries 
+
+
+
+</A></H2>
+<H2><A NAME="hasAncestor">hasAncestor 
+
+
+
+</A></H2>
+<H2><A NAME="hasDescendant">hasDescendant 
+
+
+
+</A></H2>
+<H2><A NAME="hasPAncestor">hasPAncestor 
+
+
+
+</A></H2>
+<H2><A NAME="hasPDescendant">hasPDescendant 
+
+
+
+</A></H2>
+<H2><A NAME="isEditor">isEditor 
+
+
+
+</A></H2>
+<H2><A NAME="isExcluded">isExcluded 
+
+
+
+</A></H2>
+<H2><A NAME="lastChild">lastChild 
+
+
+
+</A></H2>
+<H2><A NAME="listFromParams">listFromParams 
+
+
+
+</A></H2>
+<H2><A NAME="localCount">localCount 
+
+
+
+</A></H2>
+<H2><A NAME="makeLast">makeLast 
+
+
+
+</A></H2>
+<H2><A NAME="mcat">mcat 
+
+
+
+</A></H2>
+<H2><A NAME="minTree">minTree 
+
+
+
+</A></H2>
+<H2><A NAME="mkDiffs">mkDiffs 
+
+
+
+</A></H2>
+<H2><A NAME="nextSibling">nextSibling 
+
+
+
+</A></H2>
+<H2><A NAME="notUserFields">notUserFields 
+
+
+
+</A></H2>
+<H2><A NAME="numId">numId 
+
+
+
+</A></H2>
+<H2><A NAME="openForum">openForum 
+
+
+
+</A></H2>
+<H2><A NAME="pAncestry">pAncestry 
+
+
+
+</A></H2>
+<H2><A NAME="pArea">pArea 
+
+
+
+</A></H2>
+<H2><A NAME="parsetree">parsetree 
+
+
+
+</A></H2>
+<H2><A NAME="pchildren_o">pchildren_o 
+
+
+
+</A></H2>
+<H2><A NAME="ppLost">ppLost 
+
+
+
+</A></H2>
+<H2><A NAME="preCountWhere">preCountWhere 
+
+
+
+</A></H2>
+<H2><A NAME="prepTrawler">prepTrawler 
+
+
+
+</A></H2>
+<H2><A NAME="prepTrawlerWithQ">prepTrawlerWithQ 
+
+
+
+</A></H2>
+<H2><A NAME="primary_children">primary_children 
+
+
+
+</A></H2>
+<H2><A NAME="primary_descendants_o">primary_descendants_o 
+
+
+
+</A></H2>
+<H2><A NAME="recCount">recCount 
+
+
+
+</A></H2>
+<H2><A NAME="remove_child">remove_child 
+
+
+
+</A></H2>
+<H2><A NAME="rename">rename 
+
+
+
+</A></H2>
+<H2><A NAME="resolverefs">resolverefs 
+
+
+
+</A></H2>
+<H2><A NAME="save">save 
+
+
+
+</A></H2>
+<H2><A NAME="setPP">setPP 
+
+
+
+</A></H2>
+<H2><A NAME="sibling_o">sibling_o 
+
+
+
+</A></H2>
+<H2><A NAME="toString">toString 
+
+
+
+</A></H2>
+<H2><A NAME="updateStruct">updateStruct 
+
+
+
+
+</A></H2>
+<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
+
+</A></H1>
+<H1><A NAME="AUTHORS">AUTHORS
+
+</A></H1>
+
+<P>David Bourget with contributions from Zbigniew Lukasiak
+
+
+
+</P><H1><A NAME="COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
+
+</A></H1>
+
+<P>See accompanying README file for licensing information.
+
+
+
+</P>
+  </div>
+ </body>
+</html>
