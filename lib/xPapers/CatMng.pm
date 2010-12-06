@@ -187,6 +187,18 @@ sub catsWithNoEditors {
     );
 }
 
+sub findByOlduName {
+    my ( $self, $uName ) = @_;
+
+    my $row = xPapers::DB->new->dbh->selectrow_hashref(
+        "select cId from old_url_names where id = ( select max( id ) from old_url_names where uName = ? )", 
+        undef,
+        $uName,
+    );
+    return $row->{cId} if $row;
+}
+
+
 1;
 __END__
 
