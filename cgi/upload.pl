@@ -3,7 +3,6 @@
 use strict;
 use warnings;
 
-use lib '/home/xpapers/lib';
 use xPapers::Conf;
 
 use CGI;
@@ -14,8 +13,7 @@ use Data::Dumper::HTML 'dumper_html';
 
 my $upload_id = $ENV{PATH_INFO};
 $upload_id =~ s{^/}{};
-#FIXME hardcoded path
-my $tmp_file = "/home/xpapers/var/files/tmp/$upload_id";
+my $tmp_file = "$PATHS{LOCAL_BASE}/var/files/tmp/$upload_id";
 my $fh = IO::File->new;
 if( $upload_id ){
     unlink $tmp_file . '.finished' if -f $tmp_file . '.finished';
