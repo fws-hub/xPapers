@@ -42,7 +42,7 @@ sub parseCategory {
 sub parseBiblio {
 	my ($self, $text) = @_;
 	# do something ..
-	return Biblio->new;
+	return xPapers::Legacy::Biblio->new;
 }
 1;
 __END__

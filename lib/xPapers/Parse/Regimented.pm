@@ -209,7 +209,7 @@ sub parseCategory {
            $oldId = $1; 
         }
 		# create category
-		my $c = Category->new($t,length($lev));
+		my $c = xPapers::Legacy::Category->new($t,length($lev));
         $c->{oldId} = $oldId;
 		# remove extra whitespace
 		$c->{name} =~ s/^\s+//;

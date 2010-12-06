@@ -233,7 +233,7 @@ sub gatherCats {
 
 sub stub {
  	my $me = shift;
- 	my $b = new Biblio;
+ 	my $b = new xPapers::Legacy::Biblio;
  	$b->createCategory($_->id()) for $me->getRoot->gatherCats();
  	return $b;
 }

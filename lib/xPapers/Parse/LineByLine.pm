@@ -34,7 +34,7 @@ sub parseBiblioFile {
     }
 
     $restrict = $restrict ? $restrict : 0;
-    my $bib = Biblio->new;
+    my $bib = xPapers::Legacy::Biblio->new;
     my $current_cat = $bib->getRoot;
     my $current_ent;
     my $nb = 0;

@@ -208,7 +208,7 @@ sub getEntriesRecur {
 
 sub flatten {
  	my $self = shift;
- 	my $nc = new Category($self->{$name},$self->{level});
+ 	my $nc = new xPapers::Legacy::Category($self->{$name},$self->{level});
     foreach my $e (@{$self->getEntriesRecur}) {
      	push @{$nc->{entries}}, $e;
     }
