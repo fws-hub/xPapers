@@ -500,8 +500,10 @@ sub edTerm {
 sub rename {
     my ($me,$name) = @_;
     return if $name eq $me->name;
+    my $uName = $me->uName;
     $me->name($name);
     $me->calcUName;
+    $me->dbh->do( 'INSERT INTO old_url_names( cId, uName )  VALUES (?, ? )', undef, $me->id, $uName ) if $me->canonical;
 }
 
 sub calcUName {

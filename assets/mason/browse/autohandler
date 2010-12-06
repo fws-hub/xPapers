@@ -1,4 +1,6 @@
 <%perl>
+use xPapers::CatMng;
+
 $ARGS{cId} = $ARGS{cId}->[0] if ref($ARGS{cId}) eq 'ARRAY';
 $ARGS{cn} = $ARGS{cn}->[0] if ref($ARGS{cn}) eq 'ARRAY';
 
@@ -8,7 +10,17 @@ my $cat;
 if ($ARGS{cn}) {
     $cat = xPapers::Cat->getByUName(lc $ARGS{cn});     
     unless ($cat) {
-        error("Category not found: $ARGS{cn}");
+        my $row = xPapers::DB->new->dbh->selectrow_hashref(
+            "select cId from old_url_names where id = ( select max( id ) from old_url_names where uName = ? )",
+            undef,
+            lc($ARGS{cn}),
+        );
+        if( $row ){
+            redirect( $s, $q, url( "/browse/", { cId => $row->{cId},  _mmsg => "This category changed name" } ) );
+        }
+        else{
+            error("Category not found: $ARGS{cn}");
+        }
     }
     $ARGS{cId} = $cat->{id};
     $q->param('cId',$cat->{id});
