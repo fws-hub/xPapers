@@ -41,6 +41,7 @@ Ethics International Affairs => Ethics and International Affairs
 re:Ntm Zeitschrift F.{1,4}r Geschichte Der Wissenschaften, Technik Und Medizin  => NTM International Journal of History and Ethics of Natural Sciences, Technology and Medicine
 Ntm International Journal of History and Ethics of Natural Sciences, Technology and Medicine => NTM International Journal of History and Ethics of Natural Sciences, Technology and Medicine
 Ai and society => AI and Society
+Médecine and Droit => Médecine et Droit
 
 
 

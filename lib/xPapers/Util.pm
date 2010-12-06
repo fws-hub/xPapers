@@ -1292,7 +1292,7 @@ sub cleanJournal {
         my $exp = $1;
         $source = $journal_map->{$re} if $source =~ /$exp/i;
     }
-    return $source;
+    return capitalize($source,notSentence=>1);
 }
 
 sub mark_defective {

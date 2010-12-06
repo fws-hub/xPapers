@@ -998,7 +998,7 @@ sub form2entry {
                     $e->{issue} = $q->param('issue');
                     $e->{pages} = $q->param('pages');
                     $e->{pub_type} = 'journal';
-                    $e->{source} = $q->param('journal');
+                    $e->{source} = cleanJournal($q->param('journal'));
                 } elsif ($q->param('pub_in') eq 'collection') {
                     $e->{ant_publisher} = $q->param('ant_publisher'); 
                     $e->{ant_date} = $e->{date};
@@ -1006,7 +1006,7 @@ sub form2entry {
                     $e->{source} = $q->param('source');
                 } elsif ($q->param('pub_in') eq 'online collection') {
                     $e->{pub_type} = 'online collection';
-                    $e->{source} = $q->param('source');
+                    $e->{source} = cleanJournal($q->param('source'));
                 }
 
             }
