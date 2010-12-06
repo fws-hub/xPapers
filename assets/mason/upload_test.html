@@ -6,6 +6,8 @@ if( $r->method eq 'GET' ){
 </%perl>
 <form method="post">
     <input type="hidden" name="upsession" id="upsession">
+    <input id='uploadInProgress' type=hidden name='uploadInProgress' value="0">
+    <input type="radio" id="fileActionReplace" name="fileAction" value="replace" >Upload copy<br>
     <iframe src="/cgi/upload.pl" width="40%" height="120" name="upload_frame">Browser supporting iframes is required</iframe>
     <input type="submit" id="mainFormSubmit" disabled >
 </form>
