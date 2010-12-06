@@ -52,7 +52,7 @@ if (!$user->{id}) {
             </td>
             <td valign="top">
                <%l("/utils/bargains.pl","Bargain Finder",$user->{id})%>
-               <%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2010,month=>11,day=>15),"bargains")%>
+               <%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2011,month=>3,day=>15),"bargains")%>
                <br>
                 Find bargains on Amazon based on your interests.
             </td>

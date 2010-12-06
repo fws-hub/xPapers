@@ -6,8 +6,7 @@ $entry = $ARGS{__entry__};
 $ARGS{eId} = $entry->id;
 my $note = $user->note_for_entry( $entry );
 
-$subt = newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2010,month=>10,day=>1),"notes") .
-        "Your private notes on" . rmTags($rend->renderEntryT($entry));
+$subt = "Your private notes on" . rmTags($rend->renderEntryT($entry));
 
 $m->comp('../header.html',%ARGS, subtitle=>$subt, description=>$subt);
 my $note_address = '../notes/edit.pl?eId=' . $entry->id;

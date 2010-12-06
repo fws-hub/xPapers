@@ -92,7 +92,7 @@ window.onload = function() {
 
 %our $MCAT_DONE;
 %if ($browser->safari and !$MCAT_DONE) {
-    <script type='text/javascript' src='<% $s->rawFile( 'js/mcats.js' ) %>'></script>
+    <script type='text/javascript' src='/dynamic-assets/<% $s->{name} %>/mcats.js'></script>
 %}
 
 

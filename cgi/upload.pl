@@ -14,6 +14,7 @@ use Data::Dumper::HTML 'dumper_html';
 
 my $upload_id = $ENV{PATH_INFO};
 $upload_id =~ s{^/}{};
+#FIXME hardcoded path
 my $tmp_file = "/home/xpapers/var/files/tmp/$upload_id";
 my $fh = IO::File->new;
 if( $upload_id ){
@@ -30,6 +31,7 @@ print $q->header;
 if( $q->request_method eq 'GET' ){ 
     my $upload_id = random_regex('\w\w\w\w\w\w\w\w\w\w');
     while(<DATA>){
+        s/_SITE_/$DEFAULT_SITE->{name}/g;
         s/upload_id_value/$upload_id/;
         s/progress_bar_colour/$C4/;
         print;
@@ -74,13 +76,11 @@ __DATA__
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>PhilPapers</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-language" content="en">
-<link rel="icon" type="image/gif" href="/raw/icons/favicon-pp.gif">
-<link rel="stylesheet" type="text/css" href="/raw/style.css">
+<link rel="stylesheet" type="text/css" href="/dynamic-assets/_SITE_/style.css">
 
-<script type='text/javascript' src='/raw/js/xpapers-p-j.js'></script>
+<script type='text/javascript' src='/dynamic-assets/_SITE_/xpapers.js'></script>
 
 <style>
 .progressBox {
@@ -157,5 +157,5 @@ function updateProgress() {
 </div>
 </form>
 
-<iframe frameborder=0 style="border:none" name="form1_iframe" id="form1_iframe" src="/raw/ld/blank.html" class="loader"></iframe> 
+<iframe frameborder=0 style="border:none" name="form1_iframe" id="form1_iframe" src="/assets/raw/blank.html" class="loader"></iframe> 
 

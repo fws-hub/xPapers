@@ -405,6 +405,8 @@ if (-d '/etc/xpapers.d') {
 
 our $DEFAULT_SITE = xPapers::Site->new( LOCAL_BASE => $LOCAL_BASE, %{ $SITES{$DEFAULT_SITE_NAME} } );
 
+our $SAFARI_MCAT = $PATHS{LOCAL_BASE} . '/var/dynamic-assets/' . $DEFAULT_SITE->{name} . '/mcats.js';
+
 1;
 
 __END__

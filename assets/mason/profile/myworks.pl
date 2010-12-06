@@ -19,15 +19,12 @@ print <<END;
 <div class="bigBoxC">
 END
 if ($ARGS{__same} and !$ARGS{refresh}) {
-    my $flag = newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2010,month=>9,day=>15),"Embed");
     print <<END;
     <div style="padding-bottom:5px">
-    $flag
     <a href="/profile/$u->{id}/gadget.html">Embed this list on your web site</a> with the new $s->{niceName} Gadget.
     &nbsp;
     &nbsp;
     &nbsp;
-    $flag
     <a href="/profile/$u->{id}/aliases.pl">Configure aliases</a> to accommodate variations in your name.
     </div>
 END

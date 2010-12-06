@@ -45,7 +45,7 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
     <p>
     <p>
     <div class='ah'>
-%   print newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2010,month=>11,day=>15),"Bargains");
+%   print newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2011,month=>3,day=>15),"Bargains");
     <a href="/utils/bargains.pl?bmode=<%$cat->id%>">Discounted books in this area</a></div>
 %#    <& biblios.pl, %ARGS &>
     <p>

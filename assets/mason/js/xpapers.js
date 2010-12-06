@@ -314,7 +314,7 @@ function Editor(params) {
        
         if (_this.step != 1) {
 
-            $('journal').value=$F('auc-journal');
+            //$('journal').value=$F('auc-journal');
 
             // check that there are cats if new entry
             if (!_this.eId) {
@@ -1037,7 +1037,7 @@ var pf = new Hash();
 pf.set('school',false);
 pf.set('date',false);
 pf.set('publisher',false);
-pf.set('auc-journal',false);
+//pf.set('auc-journal',false);
 pf.set('source',false);
 pf.set('source_inf',false);
 pf.set('journal_inf',false);
@@ -1075,7 +1075,7 @@ function adjustPub() {
 
             if ($F('pub_in') == 'journal' || $F('typeofwork') == 'book review') { 
                 $('source_label').innerHTML = 'Journal';
-                pf.set('auc-journal',true);
+                //pf.set('auc-journal',true);
                 if ($F('pub_status') == 'published') {
                     pf.set('journal_inf',true);
                 }
