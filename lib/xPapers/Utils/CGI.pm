@@ -810,7 +810,7 @@ sub mkDynList {
         return "<input type='text' size='90' name='${id}_COUNT_' value='$_[0]'>";
     } unless $lineMaker;
     my $addLink = "<a href='javascript:addToList(\"$id\");'>Add ..</a>";
-    my $removeLink = "<a href='javascript:" . 'deleteFromList("' . $id . '",_COUNT_);' . "'><img class='deleteLink' src='${IMG_PATH}icons/delete.gif' border='0' alt='delete' title='delete this item'></a>";
+    my $removeLink = "<a href='javascript:" . 'deleteFromList("' . $id . '",_COUNT_);' . "'><img class='deleteLink' src='/assets/raw/icons/delete.gif' border='0' alt='delete' title='delete this item'></a>";
     my $c = "<$type id='c_${id}_start'></$type>";
     # Add lines..
     for my $i (0..$#$items) {

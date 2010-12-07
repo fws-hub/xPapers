@@ -41,7 +41,7 @@ error("Not allowed") unless $ARGS{__same};
 <& '../checkLogin.html', %ARGS &>
 There are several ways to follow people on <% $s->{niceName} %>:
 <ol>
-<li>You can <a href="facebook.html">import your Facebook</a>. Even if you have thousands of friends we will only show you those that have papers in <% $s->{niceName} %> by default, so in most cases there's no need handpick who you follow. Importing your Facebook friends is not going to remove existing people from your list.</li>
+<li>You can <a href="facebook.html">import your Facebook friends</a>. Even if you have thousands of friends we will only show you those that have papers in <% $s->{niceName} %> by default, so in most cases there's no need handpick who you follow. Importing your Facebook friends is not going to remove existing people from your list.</li>
 <li>You can opt to follow the authors of a given book or article by clicking 'follow the authors' under it.</li>
 <li>You can follow an individual <% $s->{niceName} %> user by clicking 'follow this person' on their profile.</li>
 <li>Finally, you can type in the names of people you would like to follow below.</li>

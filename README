@@ -20,8 +20,9 @@ This software has been developed with the financial support of the Join Informat
 
 AUTHORS & PARTICIPANTS
 
-David Bourget (lead developer)
+David Bourget (architect and lead developer)
 Zbigniew Lukasiak (developer)
+Wolfgang Schwarz (developer)
 David Chalmers (scientific expert)
 
 FOR MORE INFORMATION
@@ -34,15 +35,15 @@ Github page at https://github.com/xPapers/xPapers
 SYSTEM REQUIREMENTS
 ===================
 
-xPapers should run fine on any Linux-based system. It may also work in a Cygwin environment on Windows, but this has not been tested. 
+xPapers should run fine on any Linux-based system. It may also work in a Cygwin environment on Windows, but this has not been tested and would probably require some patching. 
 
-Hardware-wise, it all depends on the amount of traffic you have to support. At the time of writing PhilPapers.org runs on an 8-core machine with 32GB of ram. We comfortably serve about 300K visitors per month with this hardware. As a rule of thumb, plan to have one resident fastcgi handler per concurrent non-static request you have to handle. Each resident process consumes about 150MB of ram and should have about half a CPU. Try also to have enough ram to fit all your data so the MySQL database files are always fully cached. For example, the PhilPapers database currently has 10GB and we want to support about 20 concurrent dynamic requests, so we should plan a minimum of 13GB just for xPapers. In addition, we need to have a lot of free RAM for some RAM-hungry maintenance processes like the automated classifier (at least 8GB). We'd probably be fine with 24GB, but we got 32 to be safe. 
+Hardware-wise, it all depends on the amount of traffic you have to support. At the time of writing, PhilPapers.org runs on an 8-core machine with 32GB of ram. We comfortably serve about 300K visitors per month with this hardware. As a rule of thumb, plan to have one resident fastcgi handler per concurrent non-static request you have to handle. Each resident process consumes about 150MB of ram and should have about half a CPU. Try also to have enough ram to fit all your data so the MySQL database files are always fully cached. For example, the PhilPapers database currently has 10GB and we want to support about 20 concurrent dynamic requests, so we should plan a minimum of 13GB just for xPapers. In addition, we need to have a lot of free RAM for some RAM-hungry maintenance processes like the automated classifier (at least 8GB). We'd probably be fine with 24GB, but we got 32 to be safe. 
 
 
 INSTALLATION INSTRUCTIONS
 =========================
 
-With a bit of luck, you should be able to get xPapers going in little time by following these instructions to the letter on a brand new Debian or Ubuntu system. Installing on a RHEL-style system will require that you do a bit of research to find the RPM packages that correspond to the deb packages used here. These instructions assume that you don't have any of the external dependencies (e.g. MySQL, Apache) installed. Adjust as appropriate. 
+With a bit of luck, you should be able to get xPapers going in little time by following these instructions to the letter on a brand new Debian or Ubuntu system. Installing on a RHEL-style system will require that you do a bit of research to find the RPM packages that correspond to the deb packages used here. These instructions assume that you don't have any of the external dependencies (e.g. MySQL, Apache) installed and will only use them for xPapers. Adjust as appropriate. 
 
 
 APT dependencies
@@ -72,7 +73,7 @@ sudo mv xPapers xpapers
 sudo chown -R DESIRED_USER xpapers
 
 let's set an environment variable to the xPapers home directory for future reference:
-$XPAPERS=/home/xpapers
+export XPAPERS=/home/xpapers
 
 
 MySQL and Sphinx
@@ -160,7 +161,7 @@ cpan> o conf init
 [ choose to do everything automatically ]
 
 cd $XPAPERS
-sudo perl -Ilib bin/setup/cpan.pl assets/conf/dependencies.txt
+sudo perl -Ilib bin/setup/cpan.pl etc/dependencies.txt
 
 IMPORTANT: The Algorithm::SVM package has been broken for a long time and may require manual intervention to install. If the installation fails, follow the instructions found on RT here: https://rt.cpan.org/Public/Bug/Display.html?id=43669  Once you've done that, run the cpan.pl script again, it will pick up where it left.
 
@@ -202,13 +203,13 @@ sudo update-rc.d xpapers defaults 21
 Now this script will start apache2, so we need to remove apache2:
 sudo update-rc.d -f apache2 remove
 
-**You should always control apache2 through /etc/init.d/xpapers or your memory cache may become corrupt **
+** You should always control apache2 through /etc/init.d/xpapers or your memory cache may become corrupt **
 
 The xpapers init script also controls Sphinx for convenience.  It assumes the paths used here, so you may have to modify it if you are using other paths. Now try it:
 
 sudo /etc/init.d/xpapers restart
 
-You might see a warning about Sphinx not running, that's OK.
+You might see a warning about Sphinx not running, that's OK. Our init script is a little sloppy but it works.
 
 Now try your new xPapers site with a web browser (http://localhost, or whatever you domain name is).
 
