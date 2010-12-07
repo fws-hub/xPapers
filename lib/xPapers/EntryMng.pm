@@ -59,11 +59,11 @@ sub computeIncompleteWarnings {
         push @{ $list{$entry->{uId}} }, $entry;
     }
 
-    my @warnings;
+    my %warnings;
     for my $uId ( keys %list ){
-        push @warnings, [ generateMessages( $list{$uId} ) ];
+        $warnings{$uId} = { generateMessages( $list{$uId} ) };
     }
-    return @warnings;
+    return %warnings;
 }
 
 sub generateMessages {
@@ -71,6 +71,7 @@ sub generateMessages {
     my %major;
     my %other;
     my $bullet = "*";
+    my %new_entries;
     for my $entry (@$entries) {
         $entry->{messages} = [];
         if( !$entry->{catCount} ){
@@ -96,8 +97,9 @@ sub generateMessages {
             push @{ $entry->{messages} }, "$bullet This item is flagged as a manuscript, but not a draft. Is it really a manuscript you don't intend to publish?\n";
             $other{$entry->{id}} = 1 if !$major{$entry->{id}};
         }
+        $new_entries{$entry->{id}} = $entry;
     }
-    return \%major, \%other;
+    return major => \%major, other => \%other, entries => \%new_entries;
 }
 
 
