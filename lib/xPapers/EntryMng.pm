@@ -70,32 +70,31 @@ sub generateMessages {
     my $entries = shift;
     my %major;
     my %other;
-    my $bullet = "*";
     my %new_entries;
     for my $entry (@$entries) {
         $entry->{messages} = [];
         if( !$entry->{catCount} ){
-            push @{ $entry->{messages} }, "$bullet This item is not in any category. This will make it very hard to find.\n";
+            push @{ $entry->{messages} }, "This item is not in any category. This will make it very hard to find.\n";
             $major{$entry->{id}} = 1;
         } elsif( $entry->{no_leaf} ){
-            push @{ $entry->{messages} }, "$bullet This paper is not in any leaf category.\n";
+            push @{ $entry->{messages} }, "This paper is not in any leaf category.\n";
             $other{$entry->{id}} = 1;
         }
         if( $entry->{pub_type} eq 'unknown' ){
-            push @{ $entry->{messages} }, "$bullet This item has incomplete publication details (publication status unknown).\n";
+            push @{ $entry->{messages} }, "This item has incomplete publication details (publication status unknown).\n";
             $major{$entry->{id}} = 1;
         }
         if( length( $entry->{author_abstract} ) < 40 ){
-            push @{ $entry->{messages} }, "$bullet This item has no abstract.\n";
-            $other{$entry->{id}} = 1 if !$major{$entry->{id}};
+            push @{ $entry->{messages} }, "This item has no abstract.\n";
+            $other{$entry->{id}} = 1;
         }
         if( !$entry->{online} ){
-            push @{ $entry->{messages} }, "$bullet This item has no associated link or locally archived copy.\n";
-            $other{$entry->{id}} = 1 if !$major{$entry->{id}};
+            push @{ $entry->{messages} }, "This item has no associated link or locally archived copy.\n";
+            $other{$entry->{id}} = 1;
         }
         if( $entry->{pub_type} eq 'manuscript' && !$entry->{draft} ){
-            push @{ $entry->{messages} }, "$bullet This item is flagged as a manuscript, but not a draft. Is it really a manuscript you don't intend to publish?\n";
-            $other{$entry->{id}} = 1 if !$major{$entry->{id}};
+            push @{ $entry->{messages} }, "This item is flagged as a manuscript, but not a draft. Is it really a manuscript you don't intend to publish?\n";
+            $other{$entry->{id}} = 1;
         }
         $new_entries{$entry->{id}} = $entry;
     }
