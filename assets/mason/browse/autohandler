@@ -16,7 +16,8 @@ if ($ARGS{cn}) {
             lc($ARGS{cn}),
         );
         if( $row ){
-            redirect( $s, $q, url( "/browse/", { cId => $row->{cId},  _mmsg => "This category changed name" } ) );
+            redirect( $s, $q, url( "/browse/", { cId => $row->{cId},  _mmsg => "This category changed name" } ), 301 );
+            return;
         }
         else{
             error("Category not found: $ARGS{cn}");
