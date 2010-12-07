@@ -12,6 +12,98 @@ sub object_class { 'xPapers::Entry' }
 
 __PACKAGE__->make_manager_methods('main');
 
+sub computeIncompleteWarnings {
+    my( $self, $uId ) = @_;
+
+    my $db = xPapers::DB->new;
+    my $dbh = $db->dbh;
+    my $user_sql = $uId ? " and userworks.uId=$uId" : " and users.betaTester ";
+    my $sth = $dbh->prepare( 
+        "select main.id, title, author_abstract, pub_type, main.catCount, online, draft, uId 
+        from main 
+        join userworks on main.id = eId
+        join users on userworks.uId=users.id
+        left join ( cats_me join cats on cats_me.cId = cats.id )
+        on cats_me.eId = main.id  and canonical and dfo=edfo
+         where ( deleted = 0 or deleted is null ) and 
+         ( users.confirmed ) and
+         main.catCount > 0 and
+         cats_me.id is null
+         $user_sql
+        "
+    );
+    my %list;
+    $sth->execute;
+    while( my $entry = $sth->fetchrow_hashref ){
+        $entry->{no_leaf} = 1;
+        push @{ $list{$entry->{uId}} }, $entry;
+    }
+
+    $sth = $dbh->prepare( 
+        "select main.id, title, author_abstract, pub_type, catCount, online, draft, uId 
+        from main 
+        join userworks on main.id = eId
+        join users on userworks.uId=users.id
+         where ( deleted = 0 or deleted is null ) and 
+         ( pub_type='unknown' or 
+         pub_type = 'manuscript' and ( not draft or draft is null ) or
+         not catCount or catCount is null or
+         length( author_abstract ) < 40 or author_abstract is null or
+         not online or online is null) and
+         ( users.confirmed )
+         $user_sql
+        "
+    );
+    $sth->execute;
+    while( my $entry = $sth->fetchrow_hashref ){
+        push @{ $list{$entry->{uId}} }, $entry;
+    }
+
+    my %warnings;
+    for my $uId ( keys %list ){
+        $warnings{$uId} = { generateMessages( $list{$uId} ) };
+    }
+    return %warnings;
+}
+
+sub generateMessages {
+    my $entries = shift;
+    my %major;
+    my %other;
+    my $bullet = "*";
+    my %new_entries;
+    for my $entry (@$entries) {
+        $entry->{messages} = [];
+        if( !$entry->{catCount} ){
+            push @{ $entry->{messages} }, "$bullet This item is not in any category. This will make it very hard to find.\n";
+            $major{$entry->{id}} = 1;
+        } elsif( $entry->{no_leaf} ){
+            push @{ $entry->{messages} }, "$bullet This paper is not in any leaf category.\n";
+            $other{$entry->{id}} = 1;
+        }
+        if( $entry->{pub_type} eq 'unknown' ){
+            push @{ $entry->{messages} }, "$bullet This item has incomplete publication details (publication status unknown).\n";
+            $major{$entry->{id}} = 1;
+        }
+        if( length( $entry->{author_abstract} ) < 40 ){
+            push @{ $entry->{messages} }, "$bullet This item has no abstract.\n";
+            $other{$entry->{id}} = 1 if !$major{$entry->{id}};
+        }
+        if( !$entry->{online} ){
+            push @{ $entry->{messages} }, "$bullet This item has no associated link or locally archived copy.\n";
+            $other{$entry->{id}} = 1 if !$major{$entry->{id}};
+        }
+        if( $entry->{pub_type} eq 'manuscript' && !$entry->{draft} ){
+            push @{ $entry->{messages} }, "$bullet This item is flagged as a manuscript, but not a draft. Is it really a manuscript you don't intend to publish?\n";
+            $other{$entry->{id}} = 1 if !$major{$entry->{id}};
+        }
+        $new_entries{$entry->{id}} = $entry;
+    }
+    return major => \%major, other => \%other, entries => \%new_entries;
+}
+
+
+
 sub oldifyMode {
     my ($me, $mode) = @_;
     $OLDIFY_MODE = $mode if defined $mode;
