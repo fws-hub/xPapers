@@ -4,37 +4,43 @@
 use xPapers::EntryMng;
 #use Smart::Comments;
 
-my $uId;# = $user->{id};
-$uId = 1;
+my $uId = $user->{id};
 
-my %warnings = ( 1 => { major => { 1 => 1, 2 => 1 }, minor => { 3 => 1 }, entries => { 1 => { messages => [ 'aaa', 'bbb' ] } , 2 => { messages => [ 'aaa' ] } , 3 => { messages => [ 'ccc' ] } } } );
-
-#xPapers::EntryMng->computeIncompleteWarnings( $uId );
+my %warnings = xPapers::EntryMng->computeIncompleteWarnings( $uId );
 
 my @major = keys % { $warnings{$uId}{major} };
+my @other = keys % { $warnings{$uId}{major} };
+
+if( @major || @other ){
+    print "Some of your works appear to have incomplete records<br>";
+}
+else{
+    print "There are no incomplete records about your works";
+}
+
 if( @major ){
-    print "Major defects:<ul>\n";
+    print "<h3>Entries with major defects:</h3><ul>\n";
     for my $eId ( @major ){
-        print "<li>$eId:<ul>\n";
-        for my $message ( @{ $warnings{$uId}{entries}{$eId}{messages} } ){
-            $message =~ s/\*//;
-            print "<li>$message\n";
-        }
-        print "</ul>\n";
+        print_entry_messages( $warnings{$uId}{entries}{$eId} );
     }
     print "</ul>\n";
 }
 
-my @other = keys % { $warnings{$uId}{major} };
 if( @other ){
-    print "\nOther defects:<ul>\n";
+    print "<h3>Entries with other defects:</h3><ul>\n";
     for my $eId ( @other ){
-        print "<li>$eId:<ul>\n";
-        for my $message ( @{ $warnings{$uId}{entries}{$eId}{messages} } ){
-            $message =~ s/\*/<li>/;
-            print $message;
-        }
-        print "</ul>\n";
+        print_entry_messages( $warnings{$uId}{entries}{$eId} );
+    }
+    print "</ul>\n";
+}
+
+sub print_entry_messages {
+    my $entry = shift;
+    print qq|<li>$entry->{title} (<a href="/rec/$entry->{id}?edit=1">Fix it</a>, <a href="/profile/$uId/not_mine.pl?eId=$entry->{id}">Not mine</a>):\n|;
+    print "<ul>\n";
+    for my $message ( @{ $entry->{messages} } ){
+        $message =~ s/\*//;
+        print "<li>$message\n";
     }
     print "</ul>\n";
 }
