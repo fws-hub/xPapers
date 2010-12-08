@@ -11,12 +11,12 @@ if ($ARGS{cn}) {
     $cat = xPapers::Cat->getByUName(lc $ARGS{cn});     
     unless ($cat) {
         my $row = xPapers::DB->new->dbh->selectrow_hashref(
-            "select cId from old_url_names where id = ( select max( id ) from old_url_names where uName = ? )",
+            "select cats.uName from old_url_names join cats on cId = cats.id where old_url_names.id = ( select max( id ) from old_url_names where uName =  ? )",
             undef,
             lc($ARGS{cn}),
         );
         if( $row ){
-            redirect( $s, $q, url( "/browse/", { cId => $row->{cId},  _mmsg => "This category changed name" } ), 301 );
+            redirect( $s, $q, url( "/browse/" . $row->{uName}, { _mmsg => "This category changed name" } ), 301 );
             return;
         }
         else{
