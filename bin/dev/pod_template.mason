@@ -4,13 +4,17 @@ __END__
 
 <% $ARGS{NAME} %>
 
+% if( $ARGS{SYNOPSIS} ){
 =head1 SYNOPSIS
 
 <% $ARGS{SYNOPSIS} %>
 
+%}
+% if( $ARGS{DESCRIPTION} ){
 =head1 DESCRIPTION
 
 <% $ARGS{DESCRIPTION} %>
+%}
 % if( $ARGS{FIELDS} ){
 =head1 FIELDS
 %   for my $field ( sort keys %{ $ARGS{FIELDS} } ) {
@@ -51,7 +55,12 @@ __END__
 %   }
 %}
 
+% if( $ARGS{DIAGNOSTICS} ){
 =head1 DIAGNOSTICS
+
+<% $ARGS{DIAGNOSTICS} %>
+
+%}
 
 =head1 AUTHORS
 
