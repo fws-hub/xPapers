@@ -17,7 +17,7 @@ sub init {
 #    $S{enable_stats} = 1 if shift();
     $S{init_file} = 1;
     Cache::FastMmap->new(%S);
-    `chown $WWW_USER.$WWW_USER $CACHE_FILE`;
+    `chown $WWW_USER.$CACHE_GROUP $CACHE_FILE`;
     `chmod 770 $CACHE_FILE`;
 
 }

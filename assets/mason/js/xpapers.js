@@ -1747,7 +1747,7 @@ function loadScript(scriptName,callback) {
     head = $$('head')[0];
     if (head) {
 
-        script = new Element('script', { type: 'text/javascript', src: '<% $PATHS{LOCAL_BASE} %>/assets/mason/js/' + scriptName + '.js' });
+        script = new Element('script', { type: 'text/javascript', src: '/dynamic-assets/<%$DEFAULT_SITE->{name}%>/' + scriptName + '.js' });
         head.appendChild(script);
         watchForSymbol({symbol:'xpa_'+scriptName+'_loaded',onSuccess: function() {
             if (callback)

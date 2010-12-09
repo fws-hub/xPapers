@@ -104,7 +104,8 @@ use xPapers::Site;
     #$CGI::DISABLE_UPLOADS;
 
     our $freeChecker = new xPapers::Link::Free;
-    $freeChecker->init("$PATHS{LOCAL_BASE}/sites/$DEFAULT_SITE_NAME/etc");
+    $freeChecker->init(site=>$DEFAULT_SITE);
+
     our $REQ_LOGGED;
     our %ORIG_ARGS;
     my $s = $DEFAULT_SITE;

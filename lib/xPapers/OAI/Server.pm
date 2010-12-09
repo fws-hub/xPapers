@@ -16,7 +16,7 @@ our $ID_PREFIX = 'oai:' . $DEFAULT_SITE->{domain} . '/rec/';
 our $MY_ADDRESS = $DEFAULT_SITE->{server} . '/oai.pl';
 our $EARLIEST_DATESTAMP = DateTime->new( year => 1990, month => 1, day => 1 );
 our $LIMIT = 100;
-our $OAI_REPO_DESCRIPTION = xPapers::Site->new( %{ $DEFAULT_SITE } )->confFile( 'oai_description.xml' );
+our $OAI_REPO_DESCRIPTION = $DEFAULT_SITE->fullConfFile( 'oai_description.xml' );
 
 sub record_header {
     my ( $gen, $entry ) = @_;

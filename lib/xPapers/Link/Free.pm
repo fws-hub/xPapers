@@ -11,9 +11,11 @@ sub new {
 sub site { shift->{site} }
 
 sub init {
-    my ($me) = @_;
-    $me->{re} = file2array($me->site( 'nonfree.txt' ) );
-    $me->{bad} = file2array($me->site('exclusions/links.txt' ) );
+    my $me = shift;
+    my %p = @_;
+    $me->{site} = $p{site};
+    $me->{re} = file2array($me->site->fullConfFile( 'nonfree.txt' ) );
+    $me->{bad} = file2array($me->site->fullConfFile('exclusions/links.txt' ) );
 }
 
 sub free {
