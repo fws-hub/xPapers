@@ -94,13 +94,6 @@ __END__
 
 xPapers::Object::WithDBCache
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -134,7 +127,6 @@ xPapers::Object::WithDBCache
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

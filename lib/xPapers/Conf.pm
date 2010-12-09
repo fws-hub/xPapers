@@ -415,11 +415,10 @@ __END__
 
 xPapers::Conf
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
+
+Defines constants used across the project.  Near the end of the file it also loads the C</etc/xpapers.d/main.pl> file
+where it is possible to locally override the constants defined in this file.
 
 
 
@@ -431,7 +430,6 @@ xPapers::Conf
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

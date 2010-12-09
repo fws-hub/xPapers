@@ -70,10 +70,6 @@ __END__
 
 xPapers::Editorship
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -162,7 +158,6 @@ Table: cats_eterms
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

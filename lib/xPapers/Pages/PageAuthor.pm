@@ -98,10 +98,6 @@ __END__
 
 xPapers::Pages::PageAuthor
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
@@ -187,7 +183,6 @@ Table: pageauthors
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

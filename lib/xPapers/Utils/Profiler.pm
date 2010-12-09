@@ -91,13 +91,6 @@ __END__
 
 xPapers::Utils::Profiler
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -135,7 +128,6 @@ xPapers::Utils::Profiler
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

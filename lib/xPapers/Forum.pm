@@ -207,10 +207,6 @@ __END__
 
 xPapers::Forum
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::Secured>, L<xPapers::Object::WithDBCache>
@@ -280,7 +276,6 @@ Table: forums
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -27,10 +27,6 @@ __END__
 
 xPapers::Prop
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -60,7 +56,6 @@ Table: props
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

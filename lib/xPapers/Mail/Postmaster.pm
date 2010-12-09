@@ -117,13 +117,6 @@ __END__
 
 xPapers::Mail::Postmaster
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -141,7 +134,6 @@ xPapers::Mail::Postmaster
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

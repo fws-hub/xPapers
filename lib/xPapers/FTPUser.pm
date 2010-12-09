@@ -27,10 +27,6 @@ __END__
 
 xPapers::FTPUser
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -75,7 +71,6 @@ Table: ftp_users
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

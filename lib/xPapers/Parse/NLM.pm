@@ -163,11 +163,9 @@ __END__
 
 xPapers::Parse::NLM
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
+
+This module parses the NLM xml strings and builds Entries out of it.
 
 
 
@@ -183,19 +181,14 @@ xPapers::Parse::NLM
 
 
 
-=head2 makeCatalogs 
-
-
-
 =head2 new 
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
-David Bourget with contributions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

@@ -1688,13 +1688,6 @@ __END__
 
 xPapers::Util
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -1896,10 +1889,6 @@ xPapers::Util
 
 
 
-=head2 rmWindowsChars 
-
-
-
 =head2 safe_decode 
 
 
@@ -1948,7 +1937,6 @@ xPapers::Util
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

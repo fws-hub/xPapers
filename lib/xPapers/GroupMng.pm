@@ -15,13 +15,6 @@ __END__
 
 xPapers::GroupMng
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 =head1 METHODS
@@ -31,7 +24,6 @@ xPapers::GroupMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -25,18 +25,10 @@ __END__
 
 xPapers::Conf::Cats
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
 
 
 
 
-
-
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

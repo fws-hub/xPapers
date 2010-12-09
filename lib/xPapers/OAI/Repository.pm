@@ -255,15 +255,13 @@ __END__
 
 xPapers::OAI::Repository
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
 
 Table: oai_repos
+
+This class represents the OAI repository to be harvested.
 
 
 =head1 FIELDS
@@ -384,11 +382,10 @@ Table: oai_repos
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
-David Bourget with contributions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

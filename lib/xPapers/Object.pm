@@ -22,10 +22,6 @@ __END__
 
 xPapers::Object
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<Rose::DB::Object>
@@ -37,7 +33,6 @@ Table: objects
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

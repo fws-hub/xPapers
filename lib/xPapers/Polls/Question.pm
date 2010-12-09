@@ -76,10 +76,6 @@ __END__
 
 xPapers::Polls::Question
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::WithDBCache>
@@ -157,7 +153,6 @@ Table: questions
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

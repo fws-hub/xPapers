@@ -37,10 +37,6 @@ __END__
 
 xPapers::Relations::ReviewOf
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -65,7 +61,6 @@ Table: review_relation
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -78,13 +78,6 @@ __END__
 
 xPapers::Link::OPPTools
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -102,7 +95,6 @@ xPapers::Link::OPPTools
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

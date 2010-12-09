@@ -29,13 +29,6 @@ __END__
 
 xPapers::Mail::MessageMng
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 =head1 METHODS
@@ -49,7 +42,6 @@ xPapers::Mail::MessageMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

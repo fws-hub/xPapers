@@ -49,10 +49,6 @@ __END__
 
 xPapers::Utils::Error
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -117,7 +113,6 @@ Table: errors
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

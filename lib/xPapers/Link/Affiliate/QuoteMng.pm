@@ -120,11 +120,9 @@ __END__
 
 xPapers::Link::Affiliate::QuoteMng
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
+
+
 
 
 
@@ -137,7 +135,7 @@ xPapers::Link::Affiliate::QuoteMng
 
 =head2 chooseQuotes 
 
-
+Finds the best offer for a given book in a given locale
 
 =head2 computeLocale 
 
@@ -152,7 +150,6 @@ xPapers::Link::Affiliate::QuoteMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

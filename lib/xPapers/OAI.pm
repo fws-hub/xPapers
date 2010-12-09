@@ -83,13 +83,6 @@ __END__
 
 xPapers::OAI
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -99,11 +92,10 @@ xPapers::OAI
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
-David Bourget with contributions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

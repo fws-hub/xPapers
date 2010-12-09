@@ -29,10 +29,6 @@ __END__
 
 xPapers::Polls::Answer
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -81,7 +77,6 @@ Table: answers
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

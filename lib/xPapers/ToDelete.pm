@@ -27,15 +27,13 @@ __END__
 
 xPapers::ToDelete
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
 
 Table: to_delete
+
+This table contains entries that are to be deleted.
 
 
 =head1 FIELDS
@@ -51,11 +49,10 @@ Table: to_delete
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
-David Bourget with contributions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

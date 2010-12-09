@@ -75,10 +75,6 @@ __END__
 
 xPapers::Polls::Poll
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::Cached>
@@ -144,7 +140,6 @@ Table: polls
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -25,10 +25,6 @@ __END__
 
 xPapers::Relations::Subscription
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -49,7 +45,6 @@ Table: posts_sub
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

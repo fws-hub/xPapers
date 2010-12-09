@@ -26,10 +26,6 @@ __END__
 
 xPapers::Relations::ForumUser
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -50,7 +46,6 @@ Table: forums_m
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -17,13 +17,6 @@ __END__
 
 xPapers::Object::Diffable
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -45,7 +38,6 @@ xPapers::Object::Diffable
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

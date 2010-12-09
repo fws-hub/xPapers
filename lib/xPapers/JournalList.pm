@@ -47,10 +47,6 @@ __END__
 
 xPapers::JournalList
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -88,7 +84,6 @@ Table: main_jlists
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

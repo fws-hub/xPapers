@@ -43,10 +43,6 @@ __END__
 
 xPapers::Relations::Cat2Cat
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
@@ -80,7 +76,6 @@ Table: cats_m
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

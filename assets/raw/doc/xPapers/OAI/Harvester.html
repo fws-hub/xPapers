@@ -1,7 +1,7 @@
 <html>
  <head>
   <base href="">
-  <link href="/assets/raw/tmp/style.css" rel="stylesheet" type="text/css">
+  <link href="/assets/raw/doc/xPapers/style.css" rel="stylesheet" type="text/css">
   <title>xPapers::OAI::Harvester</title>
  </head>
  <body bgcolor="#ffffff" text="#000000">
@@ -10,10 +10,6 @@
   <div class=toc>
   <UL>
 <LI><A HREF="#NAME">NAME
-
-</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
-
-
 
 </A><LI><A HREF="#DESCRIPTION">DESCRIPTION
 
@@ -97,10 +93,9 @@
 
 
 
-</A></UL>
-<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
 
-</A><LI><A HREF="#AUTHORS">AUTHORS
+</A></UL>
+<LI><A HREF="#AUTHORS">AUTHORS
 
 </A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
 
@@ -114,16 +109,17 @@
 
 <P>xPapers::OAI::Harvester
 
-</P><H1><A NAME="SYNOPSIS">SYNOPSIS
-
-
-
-</A></H1>
-<H1><A NAME="DESCRIPTION">DESCRIPTION
+</P><H1><A NAME="DESCRIPTION">DESCRIPTION
 
 </A></H1>
 
-<P>Inherits from: <A HREF="../../Moose/Object.html">Moose::Object</A>
+<P>Inherits from: <A HREF="../../Moose/Object.html">Moose::Object</A>.
+
+</P>
+<P>The <CODE>harvestRepo</CODE> method retrieves data from the OAI repository saved in the <CODE>repo</CODE> attribute and creates <CODE>xPapers::Entry</CODE>
+objects out of it.  The objects are then handled to the <CODE>handle_entry</CODE> method that does nothing in this class.
+The also included <CODE>xPapers::OAI::Harvester::Acumulator</CODE> overrides the <CODE>handle_entry</CODE> method and saves the entries
+into the array in the <CODE>entries</CODE> attribute.  This can be used for checking out entries from an OAI repository.
 
 
 
@@ -223,15 +219,14 @@
 
 
 
-</A></H2>
-<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
 
-</A></H1>
+</A></H2>
 <H1><A NAME="AUTHORS">AUTHORS
 
 </A></H1>
 
-<P>Zbigniew Lukasiak with contributions from David Bourget
+<P>Zbigniew Lukasiak
+with contibutions David Bourget
 
 
 

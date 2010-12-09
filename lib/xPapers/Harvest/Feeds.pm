@@ -278,10 +278,6 @@ __END__
 
 xPapers::Harvest::Feeds
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<Moose::Object>
@@ -337,11 +333,11 @@ Inherits from: L<Moose::Object>
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak with contributions from David Bourget
+Zbigniew Lukasiak
+with contibutions David Bourget
 
 
 

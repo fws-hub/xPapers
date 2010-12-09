@@ -36,10 +36,6 @@ __END__
 
 xPapers::EditorInvitation
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -76,7 +72,6 @@ Table: editor_invitations
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

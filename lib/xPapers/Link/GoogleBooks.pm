@@ -138,13 +138,6 @@ __END__
 
 xPapers::Link::GoogleBooks
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -178,7 +171,6 @@ xPapers::Link::GoogleBooks
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

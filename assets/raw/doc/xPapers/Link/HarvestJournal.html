@@ -1,7 +1,7 @@
 <html>
  <head>
   <base href="">
-  <link href="/assets/raw/tmp/style.css" rel="stylesheet" type="text/css">
+  <link href="/assets/raw/doc/xPapers/style.css" rel="stylesheet" type="text/css">
   <title>xPapers::Link::HarvestJournal</title>
  </head>
  <body bgcolor="#ffffff" text="#000000">
@@ -11,58 +11,114 @@
   <UL>
 <LI><A HREF="#NAME">NAME
 
-</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
-
-
-
 </A><LI><A HREF="#DESCRIPTION">DESCRIPTION
 
 </A><LI><A HREF="#FIELDS">FIELDS
 
 </A><UL>
-<LI><A HREF="#deleted%20(character)%3a">deleted (character):
+<LI><A HREF="#deleted%20(character)%3a">deleted (character): 
 
-</A><LI><A HREF="#doi%20(varchar)%3a">doi (varchar):
 
-</A><LI><A HREF="#fetched%20(integer)%3a">fetched (integer):
 
-</A><LI><A HREF="#id%20(serial)%3a">id (serial):
+</A><LI><A HREF="#doi%20(varchar)%3a">doi (varchar): 
 
-</A><LI><A HREF="#inCrossRef%20(integer)%3a">inCrossRef (integer):
 
-</A><LI><A HREF="#issn%20(varchar)%3a">issn (varchar):
 
-</A><LI><A HREF="#issn2%20(varchar)%3a">issn2 (varchar):
+</A><LI><A HREF="#fetched%20(integer)%3a">fetched (integer): 
 
-</A><LI><A HREF="#lastFound%20(datetime)%3a">lastFound (datetime):
 
-</A><LI><A HREF="#lastIssue%20(varchar)%3a">lastIssue (varchar):
 
-</A><LI><A HREF="#lastSuccess%20(datetime)%3a">lastSuccess (datetime):
+</A><LI><A HREF="#id%20(serial)%3a">id (serial): 
 
-</A><LI><A HREF="#localName%20(varchar)%3a">localName (varchar):
 
-</A><LI><A HREF="#name%20(varchar)%3a">name (varchar):
 
-</A><LI><A HREF="#newEntries%20(integer)%3a">newEntries (integer):
+</A><LI><A HREF="#inCrossRef%20(integer)%3a">inCrossRef (integer): 
 
-</A><LI><A HREF="#noTitle%20(integer)%3a">noTitle (integer):
 
-</A><LI><A HREF="#nonEng%20(integer)%3a">nonEng (integer):
 
-</A><LI><A HREF="#oai_set%20(varchar)%3a">oai_set (varchar):
+</A><LI><A HREF="#issn%20(varchar)%3a">issn (varchar): 
 
-</A><LI><A HREF="#oldEntries%20(integer)%3a">oldEntries (integer):
 
-</A><LI><A HREF="#origin%20(character)%3a">origin (character):
 
-</A><LI><A HREF="#publisher%20(varchar)%3a">publisher (varchar):
+</A><LI><A HREF="#issn2%20(varchar)%3a">issn2 (varchar): 
 
-</A><LI><A HREF="#subjects%20(text)%3a">subjects (text):
 
-</A><LI><A HREF="#suggestion%20(integer)%3a">suggestion (integer):
 
-</A><LI><A HREF="#toHarvest%20(integer)%3a">toHarvest (integer):
+</A><LI><A HREF="#lastFetchSuccess%20(datetime)%3a">lastFetchSuccess (datetime): 
+
+
+
+</A><LI><A HREF="#lastFetched%20(integer)%3a">lastFetched (integer): 
+
+
+
+</A><LI><A HREF="#lastFound%20(datetime)%3a">lastFound (datetime): 
+
+
+
+</A><LI><A HREF="#lastIssue%20(varchar)%3a">lastIssue (varchar): 
+
+
+
+</A><LI><A HREF="#lastNewEntries%20(integer)%3a">lastNewEntries (integer): 
+
+
+
+</A><LI><A HREF="#lastPaper%20(varchar)%3a">lastPaper (varchar): 
+
+
+
+</A><LI><A HREF="#lastSuccess%20(datetime)%3a">lastSuccess (datetime): 
+
+
+
+</A><LI><A HREF="#localName%20(varchar)%3a">localName (varchar): 
+
+
+
+</A><LI><A HREF="#name%20(varchar)%3a">name (varchar): 
+
+
+
+</A><LI><A HREF="#newEntries%20(integer)%3a">newEntries (integer): 
+
+
+
+</A><LI><A HREF="#noTitle%20(integer)%3a">noTitle (integer): 
+
+
+
+</A><LI><A HREF="#nonEng%20(integer)%3a">nonEng (integer): 
+
+
+
+</A><LI><A HREF="#oai_set%20(varchar)%3a">oai_set (varchar): 
+
+
+
+</A><LI><A HREF="#oldEntries%20(integer)%3a">oldEntries (integer): 
+
+
+
+</A><LI><A HREF="#origin%20(character)%3a">origin (character): 
+
+
+
+</A><LI><A HREF="#publisher%20(varchar)%3a">publisher (varchar): 
+
+
+
+</A><LI><A HREF="#subjects%20(text)%3a">subjects (text): 
+
+
+
+</A><LI><A HREF="#suggestion%20(integer)%3a">suggestion (integer): 
+
+
+
+</A><LI><A HREF="#toHarvest%20(integer)%3a">toHarvest (integer): 
+
+
 
 
 </A></UL>
@@ -78,10 +134,9 @@
 
 
 
-</A></UL>
-<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
 
-</A><LI><A HREF="#AUTHORS">AUTHORS
+</A></UL>
+<LI><A HREF="#AUTHORS">AUTHORS
 
 </A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
 
@@ -95,12 +150,7 @@
 
 <P>xPapers::Link::HarvestJournal
 
-</P><H1><A NAME="SYNOPSIS">SYNOPSIS
-
-
-
-</A></H1>
-<H1><A NAME="DESCRIPTION">DESCRIPTION
+</P><H1><A NAME="DESCRIPTION">DESCRIPTION
 
 </A></H1>
 
@@ -109,74 +159,145 @@
 </P>
 <P>Table: harvest_journals
 
+</P>
+<P>This class represents journal sets from the OAI server at CrossRef.
+
+</P>
+<P>The also included <CODE>xPapers::Link::HarvestJournalMng</CODE> class contains <CODE>updateFromFile</CODE> method that construct
+or updates the records according to the csv file normally found at <CODE>http://www.crossref.org/titlelist/titleFile.csv</CODE>.
+
 
 </P><H1><A NAME="FIELDS">FIELDS
 
 </A></H1>
-<H2><A NAME="deleted%20(character)%3a">deleted (character):
+<H2><A NAME="deleted%20(character)%3a">deleted (character): 
+
+
 
 </A></H2>
-<H2><A NAME="doi%20(varchar)%3a">doi (varchar):
+<H2><A NAME="doi%20(varchar)%3a">doi (varchar): 
+
+
 
 </A></H2>
-<H2><A NAME="fetched%20(integer)%3a">fetched (integer):
+<H2><A NAME="fetched%20(integer)%3a">fetched (integer): 
+
+
 
 </A></H2>
-<H2><A NAME="id%20(serial)%3a">id (serial):
+<H2><A NAME="id%20(serial)%3a">id (serial): 
+
+
 
 </A></H2>
-<H2><A NAME="inCrossRef%20(integer)%3a">inCrossRef (integer):
+<H2><A NAME="inCrossRef%20(integer)%3a">inCrossRef (integer): 
+
+
 
 </A></H2>
-<H2><A NAME="issn%20(varchar)%3a">issn (varchar):
+<H2><A NAME="issn%20(varchar)%3a">issn (varchar): 
+
+
 
 </A></H2>
-<H2><A NAME="issn2%20(varchar)%3a">issn2 (varchar):
+<H2><A NAME="issn2%20(varchar)%3a">issn2 (varchar): 
+
+
 
 </A></H2>
-<H2><A NAME="lastFound%20(datetime)%3a">lastFound (datetime):
+<H2><A NAME="lastFetchSuccess%20(datetime)%3a">lastFetchSuccess (datetime): 
+
+
 
 </A></H2>
-<H2><A NAME="lastIssue%20(varchar)%3a">lastIssue (varchar):
+<H2><A NAME="lastFetched%20(integer)%3a">lastFetched (integer): 
+
+
 
 </A></H2>
-<H2><A NAME="lastSuccess%20(datetime)%3a">lastSuccess (datetime):
+<H2><A NAME="lastFound%20(datetime)%3a">lastFound (datetime): 
+
+
 
 </A></H2>
-<H2><A NAME="localName%20(varchar)%3a">localName (varchar):
+<H2><A NAME="lastIssue%20(varchar)%3a">lastIssue (varchar): 
+
+
 
 </A></H2>
-<H2><A NAME="name%20(varchar)%3a">name (varchar):
+<H2><A NAME="lastNewEntries%20(integer)%3a">lastNewEntries (integer): 
+
+
 
 </A></H2>
-<H2><A NAME="newEntries%20(integer)%3a">newEntries (integer):
+<H2><A NAME="lastPaper%20(varchar)%3a">lastPaper (varchar): 
+
+
 
 </A></H2>
-<H2><A NAME="noTitle%20(integer)%3a">noTitle (integer):
+<H2><A NAME="lastSuccess%20(datetime)%3a">lastSuccess (datetime): 
+
+
 
 </A></H2>
-<H2><A NAME="nonEng%20(integer)%3a">nonEng (integer):
+<H2><A NAME="localName%20(varchar)%3a">localName (varchar): 
+
+
 
 </A></H2>
-<H2><A NAME="oai_set%20(varchar)%3a">oai_set (varchar):
+<H2><A NAME="name%20(varchar)%3a">name (varchar): 
+
+
 
 </A></H2>
-<H2><A NAME="oldEntries%20(integer)%3a">oldEntries (integer):
+<H2><A NAME="newEntries%20(integer)%3a">newEntries (integer): 
+
+
 
 </A></H2>
-<H2><A NAME="origin%20(character)%3a">origin (character):
+<H2><A NAME="noTitle%20(integer)%3a">noTitle (integer): 
+
+
 
 </A></H2>
-<H2><A NAME="publisher%20(varchar)%3a">publisher (varchar):
+<H2><A NAME="nonEng%20(integer)%3a">nonEng (integer): 
+
+
 
 </A></H2>
-<H2><A NAME="subjects%20(text)%3a">subjects (text):
+<H2><A NAME="oai_set%20(varchar)%3a">oai_set (varchar): 
+
+
 
 </A></H2>
-<H2><A NAME="suggestion%20(integer)%3a">suggestion (integer):
+<H2><A NAME="oldEntries%20(integer)%3a">oldEntries (integer): 
+
+
 
 </A></H2>
-<H2><A NAME="toHarvest%20(integer)%3a">toHarvest (integer):
+<H2><A NAME="origin%20(character)%3a">origin (character): 
+
+
+
+</A></H2>
+<H2><A NAME="publisher%20(varchar)%3a">publisher (varchar): 
+
+
+
+</A></H2>
+<H2><A NAME="subjects%20(text)%3a">subjects (text): 
+
+
+
+</A></H2>
+<H2><A NAME="suggestion%20(integer)%3a">suggestion (integer): 
+
+
+
+</A></H2>
+<H2><A NAME="toHarvest%20(integer)%3a">toHarvest (integer): 
+
+
 
 
 </A></H2>
@@ -193,10 +314,8 @@
 
 
 
-</A></H2>
-<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
 
-</A></H1>
+</A></H2>
 <H1><A NAME="AUTHORS">AUTHORS
 
 </A></H1>

@@ -387,13 +387,6 @@ __END__
 
 xPapers::EntryMng
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 =head1 METHODS
@@ -467,7 +460,6 @@ xPapers::EntryMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

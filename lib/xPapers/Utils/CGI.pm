@@ -1046,13 +1046,6 @@ __END__
 
 xPapers::Utils::CGI
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -1122,10 +1115,6 @@ xPapers::Utils::CGI
 
 
 
-=head2 fip 
-
-
-
 =head2 form2entry 
 
 
@@ -1151,10 +1140,6 @@ xPapers::Utils::CGI
 
 
 =head2 heavyUsers 
-
-
-
-=head2 helpLink 
 
 
 
@@ -1262,10 +1247,6 @@ xPapers::Utils::CGI
 
 
 
-=head2 optcheck 
-
-
-
 =head2 optck 
 
 
@@ -1358,7 +1339,6 @@ xPapers::Utils::CGI
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

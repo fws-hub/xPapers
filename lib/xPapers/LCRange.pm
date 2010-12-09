@@ -42,10 +42,6 @@ __END__
 
 xPapers::LCRange
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -94,7 +90,6 @@ Table: lc_ranges
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

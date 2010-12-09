@@ -102,10 +102,6 @@ __END__
 
 xPapers::Mail::Message
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -195,7 +191,6 @@ Table: notices
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

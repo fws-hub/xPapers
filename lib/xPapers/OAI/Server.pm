@@ -301,11 +301,9 @@ __END__
 
 xPapers::OAI::Server
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
+
+This is a class implementing an OAI server serving bibliografic data from the xPapers database.
 
 
 
@@ -353,11 +351,10 @@ xPapers::OAI::Server
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
-David Bourget with contributions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

@@ -51,18 +51,35 @@ __END__
 
 xPapers::Parse::Parser
 
-=head1 SYNOPSIS
 
 
 
-=head1 DESCRIPTION
+=head1 SUBROUTINES
+
+=head2 new 
 
 
 
+=head2 parseBiblio 
 
 
 
-=head1 DIAGNOSTICS
+=head2 parseCategory 
+
+
+
+=head2 parseEntryExtraLine 
+
+
+
+=head2 parseEntryFirstLine 
+
+
+
+=head2 parseEntryMultiLine 
+
+
+
 
 =head1 AUTHORS
 

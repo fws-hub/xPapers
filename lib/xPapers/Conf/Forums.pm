@@ -43,18 +43,10 @@ __END__
 
 xPapers::Conf::Forums
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
 
 
 
 
-
-
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

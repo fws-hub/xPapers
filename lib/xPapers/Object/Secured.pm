@@ -19,13 +19,6 @@ __END__
 
 xPapers::Object::Secured
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -35,7 +28,6 @@ xPapers::Object::Secured
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

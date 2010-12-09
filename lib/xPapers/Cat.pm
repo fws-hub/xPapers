@@ -1580,10 +1580,6 @@ __END__
 
 xPapers::Cat
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::WithDBCache>, L<xPapers::Object::Cached>, L<xPapers::Object::Secured>, L<xPapers::Object::Diffable>
@@ -2085,7 +2081,6 @@ Table: cats
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

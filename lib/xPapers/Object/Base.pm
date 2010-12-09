@@ -284,13 +284,6 @@ __END__
 
 xPapers::Object::Base
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -376,7 +369,6 @@ xPapers::Object::Base
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

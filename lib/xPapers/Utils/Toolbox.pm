@@ -16,13 +16,6 @@ __END__
 
 xPapers::Utils::Toolbox
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -32,7 +25,6 @@ xPapers::Utils::Toolbox
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

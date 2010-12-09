@@ -124,13 +124,6 @@ __END__
 
 xPapers::LCRangeMng
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 =head1 METHODS
@@ -168,7 +161,6 @@ xPapers::LCRangeMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

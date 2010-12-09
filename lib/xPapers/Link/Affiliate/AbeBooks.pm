@@ -17,13 +17,6 @@ __END__
 
 xPapers::Link::Affiliate::AbeBooks
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -33,7 +26,6 @@ xPapers::Link::Affiliate::AbeBooks
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

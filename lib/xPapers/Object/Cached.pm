@@ -40,10 +40,6 @@ __END__
 
 xPapers::Object::Cached
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<Rose::DBx::Object::Cached::FastMmap>
@@ -60,7 +56,6 @@ Table: cacheds
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

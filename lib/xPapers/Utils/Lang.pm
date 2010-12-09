@@ -213,13 +213,6 @@ __END__
 
 xPapers::Utils::Lang
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -257,7 +250,6 @@ xPapers::Utils::Lang
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

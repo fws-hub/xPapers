@@ -316,13 +316,6 @@ __END__
 
 xPapers::Link::GoogleScholar
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -376,7 +369,6 @@ xPapers::Link::GoogleScholar
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

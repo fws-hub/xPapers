@@ -39,13 +39,6 @@ __END__
 
 xPapers::JournalListMng
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 =head1 METHODS
@@ -63,7 +56,6 @@ xPapers::JournalListMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

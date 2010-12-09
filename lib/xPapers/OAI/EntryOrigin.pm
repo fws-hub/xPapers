@@ -36,15 +36,13 @@ __END__
 
 xPapers::OAI::EntryOrigin
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
 
 Table: entry_origin
+
+This class links the Entry with the OAI repository and set where it's data originated.
 
 
 =head1 FIELDS
@@ -72,11 +70,10 @@ Table: entry_origin
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
-David Bourget with contributions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

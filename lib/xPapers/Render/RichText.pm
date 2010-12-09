@@ -78,13 +78,6 @@ __END__
 
 xPapers::Render::RichText
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -150,7 +143,6 @@ xPapers::Render::RichText
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -26,10 +26,6 @@ __END__
 
 xPapers::Relations::UserAOI
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -54,7 +50,6 @@ Table: areas_m
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

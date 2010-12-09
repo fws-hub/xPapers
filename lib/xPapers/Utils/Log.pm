@@ -150,13 +150,6 @@ __END__
 
 xPapers::Utils::Log
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -190,7 +183,6 @@ xPapers::Utils::Log
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

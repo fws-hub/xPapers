@@ -23,13 +23,6 @@ __END__
 
 xPapers::Render::Text
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -43,7 +36,6 @@ xPapers::Render::Text
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
