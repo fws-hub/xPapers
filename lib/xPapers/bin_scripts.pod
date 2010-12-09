@@ -1,0 +1,306 @@
+=head1 Top level 'bin' scripts and miscellaneous.
+
+Scripts
+
+=head2 cleanup.pl
+
+Calls cleanAll on entries.
+
+=head2 cmd.pl
+
+xPapers shell.
+
+=head2 eval.pl
+
+Imports config and then evals ARGV[0].
+
+=head2 plugin-manager.pl
+
+Tests harvester plugins.
+
+=head2 printdiff.pl
+
+Pretty prints xPapers::Diff objects.
+
+=head2 sshblock.sh
+
+
+
+=head2 start
+
+Restarts the Apache and Sphinx servers.
+
+=head2 wrapper.pl
+
+Executes scripts, logs resutls and notifies administrators in case of errors.
+
+=head2 operations/batchimport.pl
+
+Imports entries from files.
+
+=head2 operations/update_cats.pl
+
+Applies changes to categories batched in the cat_edits table.
+
+=head1 bin/harvest scripts
+
+
+=head2 crossref.pl
+
+Fetches records from the CrossRef site.
+
+=head2 feeds.pl
+
+Fetches records from the registered RSS feeds.
+
+=head2 lib-harvest.pl
+
+
+
+=head2 oai.pl
+
+Fetches records from the OAI archives registered.
+
+=head2 opendoar-fetch.pl
+
+
+
+=head2 plugin-manager.pl
+
+
+
+=head2 scrape.pl
+
+
+
+=head2 web-harvester.pl
+
+
+
+=head2 z3950.pl
+
+
+
+
+=head1 bin/routine
+
+Scripts run routinely.
+
+=head2 bin/routine/archive_notices.pl
+
+Moves old notices to archive.notices.
+
+=head2 bin/routine/articles_from_zipped_feeds.pl
+
+Retrieves NLM packages with articles.
+
+=head2 bin/routine/autocatj.pl
+
+Automatically categorizes articles from journals. Uses the categories which can be set by admins on journals' pages.
+
+=head2 bin/routine/calc-ratings.pl
+
+Calculates user ratings, for example, publication ratings.
+
+=head2 bin/routine/categorize.pl
+
+Categorizes articles using the AI categorizer. Needs to be run manually with options explained inside for training.
+
+=head2 bin/routine/catlinks.pl
+
+Updates table catlinks_tmp
+
+=head2 bin/routine/checklinks.pl
+
+Checks links or recompiles links table.
+
+=head2 bin/routine/check-replication.pl
+
+Checks if replication is working (run on master and slave with options explained inside).
+
+=head2 bin/routine/check_tunnel.sh
+
+Checks/sets up ssh tunnel for mysql connection between master and slave. 
+
+=head2 bin/routine/compile-journals.pl
+
+Recompiles main_journals table (the list(s) shown in the journal archive section).
+
+=head2 bin/routine/crossref-fetch.pl
+
+Fetches list of journals from the CrossRef website and updates the C<harvest_journals> table.
+
+=head2 bin/routine/daily.pl
+
+Various daily maintenance.
+
+=head2 bin/routine/distribute-mail.pl
+
+Passes email messages from our database to the MTA.
+
+=head2 bin/routine/email-alerts.pl
+
+Computes content alerts.
+
+=head2 bin/routine/evaleds.pl
+
+Computes the data shown on the editor performance page.
+
+=head2 bin/routine/failing_rss_alert.pl
+
+Checks for failed RSS feeds.
+
+=head2 bin/routine/find_book_for_chapter.pl
+
+Links chapters to books (creates the book entries if not present).
+
+=head2 bin/routine/followers-alert.pl
+
+Generates notifications about new followers.
+
+=head2 bin/routine/following-alerts.pl
+
+Generates notifications about new works by followed authors.
+
+=head2 bin/routine/frequently.pl
+
+Passes email messages from our database to the MTA. (duplicate?)
+
+=head2 bin/routine/generate_prefixes.pl
+
+Generates query set for Z39.50 harvester. Must be run after updating the call number database.
+
+=head2 bin/routine/get_abebooks_data.pl
+
+Gets pricing and other info from AbeBooks. (deprecated)
+
+=head2 bin/routine/get_amazon_data.pl
+
+Gets pricing and other info from Amazon.
+
+=head2 bin/routine/googlebooks.pl
+
+Gets book info from GoogleBooks.
+
+=head2 bin/routine/hard-delete.pl
+
+Slowly hard deletes entries listed in the to_delete table.
+
+=head2 bin/routine/import-from-master.pl
+
+Synchronizes archived on the master server.
+
+=head2 bin/routine/improve_isbns.pl
+
+Improves isbn data by matching with records from Amazon.
+
+=head2 bin/routine/mkancestors.pl
+
+Rebuilds the ancestor and primary_ancestors computed tables.
+
+=head2 bin/routine/mkauthors.pl
+
+Rebuilds the main_authors computed table.
+
+=head2 bin/routine/mkdfo.pl
+
+Rebuilds the dfo and edfo values of Cat objects (used to speed up tree operations using the primary membership relation)
+
+=head2 bin/routine/mkdict.pl
+
+Generates a local spelling dictionary.
+
+=head2 bin/routine/mkedreports.pl
+
+Notifies editors about work needed in their categories.
+
+=head2 bin/routine/mkmap.pl
+
+Makes site map. Generates a bunch of xmap-N.gz files under /assets/raw that Google should be told about.
+
+=head2 bin/routine/pack-db.sh
+
+Generates a compressed backup of database tables in $XPAPERS/back.
+
+=head2 bin/routine/prep-links.pl
+
+Cleans up links
+
+=head2 bin/routine/send-incomplete-warnings.pl
+
+Generates emails prompting completion of entries by a user.
+
+=head2 bin/routine/send-mail-notices.pl
+
+Generates emails notifying about new events in subscribed areas.
+
+=head2 bin/routine/similar.pl
+
+
+=head2 bin/routine/train-categorizer.pl
+
+Trains the categorizer.
+
+=head2 bin/routine/update-pros.pl
+
+
+=head2 bin/routine/viewings.pl
+
+
+=head2 bin/routine/weekly.pl
+
+
+=head2 bin/routine/worldcat.pl
+
+Updates WorldCat resolver weights.
+
+=head1 bin/setup
+
+Scripts needed to setup the environment.
+
+
+=head2 apply-sql-patches.pl
+
+Applies patches from the appropriate sql patches directory.
+Patches need to be correct SQL statement taking up one line.
+The correctly applied patches are remembered and are not applied second time.
+
+=head2 compileyui.pl
+
+Compiles the yui Javascript libraries into one file.
+
+=head2 cpan.pl
+
+This can be replaced by 'cpanm'
+
+=head2 import-feeds-springer.pl
+
+
+
+=head2 import-feeds-wiley.pl
+
+
+
+=head2 init-database.pl
+
+Creates the database in MySQL and fills it in with initial data.
+
+=head2 init-entry-cache.pl
+
+Initialized the cache with the Entries data.
+
+=head2 load-unis.pl
+
+Initializes the insts table with data from 'etc/uni.txt'.
+
+=head2 mkdirs.pl
+
+Creates directories that are not stored in the git repository.
+
+=head2 mkforums.pl
+
+
+
+=head2 mkinstlist.pl
+
+
