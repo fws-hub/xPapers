@@ -159,11 +159,19 @@ END
 
     sub redirect {
         my ($s, $q, $url, $code) = @_;
-        $code ||= 307;
-        #print $q->header('text/html');
-        print STDOUT $q->header(-code=>$code, -location=>$url);
-        #print STDERR $q->header('text/html');
-        #print STDERR $q->header(-code=>307, -location=>$url);
+        $code ||= 302;
+        if( $url =~ /^\// ){
+            $url = "$s->{server}$url";
+        }
+        elsif( $url !~ /^http/i ){
+            my $ref = $ENV{HTTP_REFERER};
+            $ref =~ s{[^/]*$}{};
+            $url = "$ref$url";
+        }
+        print STDOUT $q->redirect(
+            -status=>$code, 
+            -uri=>$url
+        );
         $m->flush_buffer;
         $m->abort;
     }
