@@ -1526,7 +1526,7 @@ sub mklnk {
     #    $url =~ s/&lt;/</i; 
     #}
     if ($me->{jsLinks}) {
-        return $me->{RESOLVER} . "?id=" . $e->id . "&amp;u=" . urlEncode($url);  
+        return $me->{cur}->{site}->{server} . "/go.pl?id=" . $e->id . "&amp;u=" . urlEncode($url);  
     } else {
         $url = encode_entities($url);
     }
