@@ -26,10 +26,6 @@ __END__
 
 xPapers::Operations::UpdateCats
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -62,7 +58,6 @@ Table: cat_edits
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

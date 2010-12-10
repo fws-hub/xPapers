@@ -51,13 +51,6 @@ __END__
 
 xPapers::Site
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -103,7 +96,6 @@ xPapers::Site
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

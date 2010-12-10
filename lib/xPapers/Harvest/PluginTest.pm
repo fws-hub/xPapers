@@ -22,10 +22,6 @@ __END__
 
 xPapers::Harvest::PluginTest
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -70,7 +66,6 @@ Table: plugin_tests
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -89,13 +89,6 @@ __END__
 
 xPapers::Utils::System
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -125,7 +118,6 @@ xPapers::Utils::System
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

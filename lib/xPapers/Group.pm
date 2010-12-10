@@ -159,10 +159,6 @@ __END__
 
 xPapers::Group
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::Cached>
@@ -296,7 +292,6 @@ Table: groups
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

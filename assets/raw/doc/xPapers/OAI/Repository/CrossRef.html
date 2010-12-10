@@ -11,16 +11,13 @@
   <UL>
 <LI><A HREF="#NAME">NAME
 
-</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
-
-
-
 </A><LI><A HREF="#DESCRIPTION">DESCRIPTION
 
 </A><LI><A HREF="#FIELDS">FIELDS
 
 </A><UL>
 <LI><A HREF="#deleted%20(integer)%3a">deleted (integer): 
+<<<<<<< HEAD
 
 
 
@@ -87,6 +84,74 @@
 </A><LI><A HREF="#sets%20(ARRAY)%3a">sets (ARRAY): 
 
 
+=======
+
+
+
+</A><LI><A HREF="#downloadType%20(varchar)%3a">downloadType (varchar): 
+
+
+
+</A><LI><A HREF="#errorLog%20(text)%3a">errorLog (text): 
+
+
+
+</A><LI><A HREF="#fetchedRecords%20(integer)%3a">fetchedRecords (integer): 
+
+
+
+</A><LI><A HREF="#found%20(integer)%3a">found (integer): 
+
+
+
+</A><LI><A HREF="#handler%20(varchar)%3a">handler (varchar): 
+
+
+
+</A><LI><A HREF="#id%20(serial)%3a">id (serial): 
+
+
+
+</A><LI><A HREF="#isSlow%20(integer)%3a">isSlow (integer): 
+
+
+
+</A><LI><A HREF="#languages%20(ARRAY)%3a">languages (ARRAY): 
+
+
+
+</A><LI><A HREF="#lastHarvestDuration%20(integer)%3a">lastHarvestDuration (integer): 
+
+
+
+</A><LI><A HREF="#lastSuccess%20(datetime)%3a">lastSuccess (datetime): 
+
+
+
+</A><LI><A HREF="#name%20(varchar)%3a">name (varchar): 
+
+
+
+</A><LI><A HREF="#nonEngRecords%20(integer)%3a">nonEngRecords (integer): 
+
+
+
+</A><LI><A HREF="#rid%20(varchar)%3a">rid (varchar): 
+
+
+
+</A><LI><A HREF="#savedRecords%20(integer)%3a">savedRecords (integer): 
+
+
+
+</A><LI><A HREF="#scannedAt%20(datetime)%3a">scannedAt (datetime): 
+
+
+
+</A><LI><A HREF="#sets%20(ARRAY)%3a">sets (ARRAY): 
+
+
+>>>>>>> 1a2300d29d50b0c0957a210d783113f2b407bff6
 
 
 </A></UL>
@@ -102,10 +167,9 @@
 
 
 
-</A></UL>
-<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
 
-</A><LI><A HREF="#AUTHORS">AUTHORS
+</A></UL>
+<LI><A HREF="#AUTHORS">AUTHORS
 
 </A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
 
@@ -119,19 +183,16 @@
 
 <P>xPapers::OAI::Repository::CrossRef
 
-</P><H1><A NAME="SYNOPSIS">SYNOPSIS
-
-
-
-</A></H1>
-<H1><A NAME="DESCRIPTION">DESCRIPTION
+</P><H1><A NAME="DESCRIPTION">DESCRIPTION
 
 </A></H1>
 
 <P>Inherits from: <A HREF="../../../xPapers/OAI/Repository.html">xPapers::OAI::Repository</A>
 
 </P>
-<P>Table: oai_repos
+<P>This is a subclass of the <CODE>xPapers::OAI::Repository</CODE> class - but it is not saved 
+in the same table - but instead it's data retrieved from the <CODE>harvest_journals</CODE> table
+with the overridden <CODE>sets_hash</CODE> method.
 
 
 </P><H1><A NAME="FIELDS">FIELDS
@@ -236,15 +297,13 @@
 
 
 
-</A></H2>
-<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
 
-</A></H1>
+</A></H2>
 <H1><A NAME="AUTHORS">AUTHORS
 
 </A></H1>
 
-<P>David Bourget with contributions from Zbigniew Lukasiak
+<P>Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

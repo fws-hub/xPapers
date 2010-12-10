@@ -53,10 +53,6 @@ __END__
 
 xPapers::Affil
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -102,7 +98,6 @@ Table: affils
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

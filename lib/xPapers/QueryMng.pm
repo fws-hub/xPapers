@@ -18,13 +18,6 @@ __END__
 
 xPapers::QueryMng
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 =head1 METHODS
@@ -34,7 +27,6 @@ xPapers::QueryMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

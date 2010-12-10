@@ -175,13 +175,6 @@ __END__
 
 xPapers::Harvest::URLPlugin
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -255,7 +248,6 @@ xPapers::Harvest::URLPlugin
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

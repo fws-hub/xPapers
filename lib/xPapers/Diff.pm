@@ -609,10 +609,6 @@ __END__
 
 xPapers::Diff
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -790,7 +786,6 @@ Table: diffs
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

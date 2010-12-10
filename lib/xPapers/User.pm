@@ -820,10 +820,6 @@ __END__
 
 xPapers::User
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::Diffable>, L<xPapers::Object::WithDBCache>
@@ -834,6 +830,7 @@ Table: users
 =head1 FIELDS
 
 =head2 addToGroup (integer): 
+
 
 
 =head2 admin (integer): 
@@ -1065,9 +1062,6 @@ Table: users
 
 =head2 addAffil 
 
-Parameters: xPapers::Affil object.
-
-Add the affiliation.
 
 
 =head2 add_to_followers_of 
@@ -1239,7 +1233,6 @@ Add the affiliation.
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

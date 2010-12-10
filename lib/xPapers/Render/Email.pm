@@ -108,13 +108,6 @@ __END__
 
 xPapers::Render::Email
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -156,7 +149,6 @@ xPapers::Render::Email
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -186,13 +186,6 @@ __END__
 
 xPapers::UserMng
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 =head1 METHODS
@@ -238,7 +231,6 @@ xPapers::UserMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -30,10 +30,6 @@ __END__
 
 xPapers::Polls::PollGuest
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::Cached>
@@ -62,7 +58,6 @@ Table: poll_guests
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

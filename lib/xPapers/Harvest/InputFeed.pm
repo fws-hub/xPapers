@@ -29,10 +29,6 @@ __END__
 
 xPapers::Harvest::InputFeed
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -85,7 +81,6 @@ Table: input_feeds
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

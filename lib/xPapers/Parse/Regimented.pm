@@ -345,13 +345,6 @@ __END__
 
 xPapers::Parse::Regimented
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -389,7 +382,6 @@ xPapers::Parse::Regimented
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

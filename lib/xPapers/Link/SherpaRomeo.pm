@@ -55,13 +55,6 @@ __END__
 
 xPapers::Link::SherpaRomeo
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -71,7 +64,6 @@ xPapers::Link::SherpaRomeo
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

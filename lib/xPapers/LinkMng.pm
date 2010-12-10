@@ -169,13 +169,6 @@ __END__
 
 xPapers::LinkMng
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 =head1 METHODS
@@ -205,7 +198,6 @@ xPapers::LinkMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -29,10 +29,6 @@ __END__
 
 xPapers::AuthorAlias
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -69,7 +65,6 @@ Table: author_aliases
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

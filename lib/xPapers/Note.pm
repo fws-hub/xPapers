@@ -25,15 +25,13 @@ __END__
 
 xPapers::Note
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
 
 Table: notes
+
+Private notes a user can save for an Entry.
 
 
 =head1 FIELDS
@@ -65,11 +63,10 @@ Table: notes
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
-David Bourget with contributions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

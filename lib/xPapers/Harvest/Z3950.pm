@@ -240,13 +240,6 @@ __END__
 
 xPapers::Harvest::Z3950
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -284,7 +277,6 @@ xPapers::Harvest::Z3950
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

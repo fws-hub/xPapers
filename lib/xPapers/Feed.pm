@@ -81,10 +81,6 @@ __END__
 
 xPapers::Feed
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -142,7 +138,6 @@ Table: feeds
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

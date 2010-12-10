@@ -54,13 +54,6 @@ __END__
 
 xPapers::Object::Lockable
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -78,7 +71,6 @@ xPapers::Object::Lockable
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

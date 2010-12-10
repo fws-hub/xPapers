@@ -23,10 +23,6 @@ __END__
 
 xPapers::Harvest::Z3950Prefix
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -55,7 +51,6 @@ Table: z3950_prefixes
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -388,13 +388,11 @@ __END__
 
 xPapers::OAI::Harvester::CrossRef
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::OAI::Harvester>
+
+Uses its own XML parser to parse the answers - because the CrossRef OAI server uses a special vocabulary.
 
 
 
@@ -475,11 +473,11 @@ Inherits from: L<xPapers::OAI::Harvester>
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
-Zbigniew Lukasiak with contributions from David Bourget
+Zbigniew Lukasiak
+with contibutions David Bourget
 
 
 

@@ -85,13 +85,6 @@ __END__
 
 xPapers::DB
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -133,7 +126,6 @@ xPapers::DB
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

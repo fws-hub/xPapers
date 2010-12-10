@@ -110,10 +110,6 @@ __END__
 
 xPapers::Link
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -159,7 +155,6 @@ Table: links
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

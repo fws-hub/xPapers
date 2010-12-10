@@ -335,13 +335,6 @@ __END__
 
 xPapers::Parse::Text
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -379,7 +372,6 @@ xPapers::Parse::Text
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

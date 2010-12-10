@@ -62,13 +62,6 @@ __END__
 
 xPapers::Harvest::PluginMng
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -94,7 +87,6 @@ xPapers::Harvest::PluginMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

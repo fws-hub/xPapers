@@ -59,10 +59,6 @@ __END__
 
 xPapers::Object::CacheObject
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::Cached>
@@ -104,7 +100,6 @@ Table: cache_objects
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

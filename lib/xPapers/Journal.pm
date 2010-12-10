@@ -70,10 +70,6 @@ __END__
 
 xPapers::Journal
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::Cached>
@@ -151,7 +147,6 @@ Table: main_journals
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

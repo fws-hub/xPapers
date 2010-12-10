@@ -85,13 +85,6 @@ __END__
 
 xPapers::Conf::Surveys
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -121,7 +114,6 @@ xPapers::Conf::Surveys
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

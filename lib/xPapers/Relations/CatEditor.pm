@@ -35,10 +35,6 @@ __END__
 
 xPapers::Relations::CatEditor
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -63,7 +59,6 @@ Table: cats_e
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

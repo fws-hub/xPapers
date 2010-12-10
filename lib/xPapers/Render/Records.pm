@@ -151,13 +151,6 @@ __END__
 
 xPapers::Render::Records
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -259,7 +252,6 @@ xPapers::Render::Records
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

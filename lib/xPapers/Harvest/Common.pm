@@ -1124,18 +1124,151 @@ __END__
 
 xPapers::Harvest::Common
 
-=head1 SYNOPSIS
 
 
 
-=head1 DESCRIPTION
+=head1 SUBROUTINES
+
+=head2 applyTpl 
 
 
 
+=head2 clean 
 
 
 
-=head1 DIAGNOSTICS
+=head2 doneCurrentPage 
+
+
+
+=head2 enc 
+
+
+
+=head2 fetchStartPage 
+
+
+
+=head2 finish 
+
+
+
+=head2 get 
+
+
+
+=head2 harvest 
+
+
+
+=head2 init 
+
+
+
+=head2 logMark 
+
+
+
+=head2 makeTestCases 
+
+
+
+=head2 max 
+
+
+
+=head2 mkSeqId 
+
+
+
+=head2 mkseq 
+
+
+
+=head2 mkseqf 
+
+
+
+=head2 mkseqr 
+
+
+
+=head2 myindex 
+
+
+
+=head2 new 
+
+
+
+=head2 nextPage 
+
+
+
+=head2 parsePage 
+
+
+
+=head2 pause 
+
+
+
+=head2 prep 
+
+
+
+=head2 prepAgain 
+
+
+
+=head2 prepTpl 
+
+
+
+=head2 rHarvest 
+
+
+
+=head2 resume 
+
+
+
+=head2 runTestCases 
+
+
+
+=head2 saveState 
+
+
+
+=head2 seekEnd 
+
+
+
+=head2 seekId 
+
+
+
+=head2 seekStart 
+
+
+
+=head2 setDoneCurrentPage 
+
+
+
+=head2 sortIds 
+
+
+
+=head2 undoPage 
+
+
+
+=head2 wrap 
+
+
+
 
 =head1 AUTHORS
 

@@ -25,10 +25,6 @@ __END__
 
 xPapers::Relations::UserAffil
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -49,7 +45,6 @@ Table: affils_m
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

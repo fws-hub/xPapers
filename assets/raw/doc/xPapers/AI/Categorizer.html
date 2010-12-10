@@ -11,10 +11,6 @@
   <UL>
 <LI><A HREF="#NAME">NAME
 
-</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
-
-
-
 </A><LI><A HREF="#DESCRIPTION">DESCRIPTION
 
 </A><LI><A HREF="#ATTRIBUTES">ATTRIBUTES
@@ -141,10 +137,9 @@
 
 
 
-</A></UL>
-<LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
 
-</A><LI><A HREF="#AUTHORS">AUTHORS
+</A></UL>
+<LI><A HREF="#AUTHORS">AUTHORS
 
 </A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
 
@@ -158,16 +153,20 @@
 
 <P>xPapers::AI::Categorizer
 
-</P><H1><A NAME="SYNOPSIS">SYNOPSIS
-
-
-
-</A></H1>
-<H1><A NAME="DESCRIPTION">DESCRIPTION
+</P><H1><A NAME="DESCRIPTION">DESCRIPTION
 
 </A></H1>
 
-<P>Inherits from: <A HREF="../../Moose/Object.html">Moose::Object</A>
+<P>Inherits from: <A HREF="../../Moose/Object.html">Moose::Object</A>.
+
+</P>
+<P>This is a categorizer based on <A HREF="../../AI/Categorizer.html">AI::Categorizer</A>.  The <CODE>generate_sets</CODE> method generates data for training, 
+this data is saved into the <CODE>data_dir</CODE> and later a categorizer object can be trained on it 
+with the <CODE>train</CODE> method.
+This categorizer is fine tuned for the PhilPapers database and categories - but it should be
+usable for other scientific articles databases and other taxonomies with some adjustments.
+The algorithm puts an entry into a category if both <A HREF="../../AI/Categorizer/Learner/NaiveBayes.html">AI::Categorizer::Learner::NaiveBayes</A>
+and <A HREF="../../AI/Categorizer/Learner/SVM.html">AI::Categorizer::Learner::SVM</A>(trained on the same data) agree.
 
 
 
@@ -322,15 +321,14 @@
 
 
 
-</A></H2>
-<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
 
-</A></H1>
+</A></H2>
 <H1><A NAME="AUTHORS">AUTHORS
 
 </A></H1>
 
-<P>Zbigniew Lukasiak with contributions from David Bourget
+<P>Zbigniew Lukasiak
+with contibutions David Bourget
 
 
 

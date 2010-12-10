@@ -30,10 +30,6 @@ __END__
 
 xPapers::Link::Affiliate::Quote
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -98,7 +94,6 @@ Table: affiliate_quotes
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

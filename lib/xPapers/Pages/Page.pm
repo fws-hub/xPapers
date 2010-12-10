@@ -60,10 +60,6 @@ __END__
 
 xPapers::Pages::Page
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
@@ -113,7 +109,6 @@ Table: pages
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

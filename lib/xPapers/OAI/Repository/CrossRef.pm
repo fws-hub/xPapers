@@ -46,15 +46,13 @@ __END__
 
 xPapers::OAI::Repository::CrossRef
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::OAI::Repository>
 
-Table: oai_repos
+This is a subclass of the C<xPapers::OAI::Repository> class - but it is not saved 
+in the same table - but instead it's data retrieved from the C<harvest_journals> table
+with the overridden C<sets_hash> method.
 
 
 =head1 FIELDS
@@ -139,11 +137,10 @@ Table: oai_repos
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
-David Bourget with contributions from Zbigniew Lukasiak
+Zbigniew Lukasiak with contibutions from David Bourget
 
 
 

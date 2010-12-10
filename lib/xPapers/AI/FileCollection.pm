@@ -71,13 +71,6 @@ __END__
 
 xPapers::AI::FileCollection
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -99,7 +92,6 @@ xPapers::AI::FileCollection
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

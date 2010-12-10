@@ -1,0 +1,652 @@
+<html>
+ <head>
+  <base href="">
+  <link href="/assets/raw/doc/xPapers/style.css" rel="stylesheet" type="text/css">
+  <title>Scripts</title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <h1>Scripts</h1>
+  <div class=pod> 
+  <div class=toc>
+  <UL>
+<LI><A HREF="#Top%20level%20'bin'%20scripts%20and%20miscellaneous.">Top level 'bin' scripts and miscellaneous.
+
+</A><UL>
+<LI><A HREF="#cleanup.pl">cleanup.pl
+
+</A><LI><A HREF="#cmd.pl">cmd.pl
+
+</A><LI><A HREF="#eval.pl">eval.pl
+
+</A><LI><A HREF="#plugin-manager.pl">plugin-manager.pl
+
+</A><LI><A HREF="#printdiff.pl">printdiff.pl
+
+</A><LI><A HREF="#sshblock.sh">sshblock.sh
+
+
+
+</A><LI><A HREF="#start">start
+
+</A><LI><A HREF="#wrapper.pl">wrapper.pl
+
+</A><LI><A HREF="#operations%2fbatchimport.pl">operations/batchimport.pl
+
+</A><LI><A HREF="#operations%2fupdate_cats.pl">operations/update_cats.pl
+
+</A></UL>
+<LI><A HREF="#bin%2fharvest%20scripts">bin/harvest scripts
+
+
+</A><UL>
+<LI><A HREF="#crossref.pl">crossref.pl
+
+</A><LI><A HREF="#feeds.pl">feeds.pl
+
+</A><LI><A HREF="#lib-harvest.pl">lib-harvest.pl
+
+
+
+</A><LI><A HREF="#oai.pl">oai.pl
+
+</A><LI><A HREF="#opendoar-fetch.pl">opendoar-fetch.pl
+
+
+
+</A><LI><A HREF="#plugin-manager.pl">plugin-manager.pl
+
+
+
+</A><LI><A HREF="#scrape.pl">scrape.pl
+
+
+
+</A><LI><A HREF="#web-harvester.pl">web-harvester.pl
+
+
+
+</A><LI><A HREF="#z3950.pl">z3950.pl
+
+
+
+
+</A></UL>
+<LI><A HREF="#bin%2froutine">bin/routine
+
+</A><UL>
+<LI><A HREF="#bin%2froutine%2farchive_notices.pl">bin/routine/archive_notices.pl
+
+</A><LI><A HREF="#bin%2froutine%2farticles_from_zipped_feeds.pl">bin/routine/articles_from_zipped_feeds.pl
+
+</A><LI><A HREF="#bin%2froutine%2fautocatj.pl">bin/routine/autocatj.pl
+
+</A><LI><A HREF="#bin%2froutine%2fcalc-ratings.pl">bin/routine/calc-ratings.pl
+
+</A><LI><A HREF="#bin%2froutine%2fcategorize.pl">bin/routine/categorize.pl
+
+</A><LI><A HREF="#bin%2froutine%2fcatlinks.pl">bin/routine/catlinks.pl
+
+</A><LI><A HREF="#bin%2froutine%2fchecklinks.pl">bin/routine/checklinks.pl
+
+</A><LI><A HREF="#bin%2froutine%2fcheck-replication.pl">bin/routine/check-replication.pl
+
+</A><LI><A HREF="#bin%2froutine%2fcheck_tunnel.sh">bin/routine/check_tunnel.sh
+
+</A><LI><A HREF="#bin%2froutine%2fcompile-journals.pl">bin/routine/compile-journals.pl
+
+</A><LI><A HREF="#bin%2froutine%2fcrossref-fetch.pl">bin/routine/crossref-fetch.pl
+
+</A><LI><A HREF="#bin%2froutine%2fdaily.pl">bin/routine/daily.pl
+
+</A><LI><A HREF="#bin%2froutine%2fdistribute-mail.pl">bin/routine/distribute-mail.pl
+
+</A><LI><A HREF="#bin%2froutine%2femail-alerts.pl">bin/routine/email-alerts.pl
+
+</A><LI><A HREF="#bin%2froutine%2fevaleds.pl">bin/routine/evaleds.pl
+
+</A><LI><A HREF="#bin%2froutine%2ffailing_rss_alert.pl">bin/routine/failing_rss_alert.pl
+
+</A><LI><A HREF="#bin%2froutine%2ffind_book_for_chapter.pl">bin/routine/find_book_for_chapter.pl
+
+</A><LI><A HREF="#bin%2froutine%2ffollowers-alert.pl">bin/routine/followers-alert.pl
+
+</A><LI><A HREF="#bin%2froutine%2ffollowing-alerts.pl">bin/routine/following-alerts.pl
+
+</A><LI><A HREF="#bin%2froutine%2ffrequently.pl">bin/routine/frequently.pl
+
+</A><LI><A HREF="#bin%2froutine%2fgenerate_prefixes.pl">bin/routine/generate_prefixes.pl
+
+</A><LI><A HREF="#bin%2froutine%2fget_abebooks_data.pl">bin/routine/get_abebooks_data.pl
+
+</A><LI><A HREF="#bin%2froutine%2fget_amazon_data.pl">bin/routine/get_amazon_data.pl
+
+</A><LI><A HREF="#bin%2froutine%2fgooglebooks.pl">bin/routine/googlebooks.pl
+
+</A><LI><A HREF="#bin%2froutine%2fhard-delete.pl">bin/routine/hard-delete.pl
+
+</A><LI><A HREF="#bin%2froutine%2fimport-from-master.pl">bin/routine/import-from-master.pl
+
+</A><LI><A HREF="#bin%2froutine%2fimprove_isbns.pl">bin/routine/improve_isbns.pl
+
+</A><LI><A HREF="#bin%2froutine%2fmkancestors.pl">bin/routine/mkancestors.pl
+
+</A><LI><A HREF="#bin%2froutine%2fmkauthors.pl">bin/routine/mkauthors.pl
+
+</A><LI><A HREF="#bin%2froutine%2fmkdfo.pl">bin/routine/mkdfo.pl
+
+</A><LI><A HREF="#bin%2froutine%2fmkdict.pl">bin/routine/mkdict.pl
+
+</A><LI><A HREF="#bin%2froutine%2fmkedreports.pl">bin/routine/mkedreports.pl
+
+</A><LI><A HREF="#bin%2froutine%2fmkmap.pl">bin/routine/mkmap.pl
+
+</A><LI><A HREF="#bin%2froutine%2fpack-db.sh">bin/routine/pack-db.sh
+
+</A><LI><A HREF="#bin%2froutine%2fprep-links.pl">bin/routine/prep-links.pl
+
+</A><LI><A HREF="#bin%2froutine%2fsend-incomplete-warnings.pl">bin/routine/send-incomplete-warnings.pl
+
+</A><LI><A HREF="#bin%2froutine%2fsend-mail-notices.pl">bin/routine/send-mail-notices.pl
+
+</A><LI><A HREF="#bin%2froutine%2fsimilar.pl">bin/routine/similar.pl
+
+
+</A><LI><A HREF="#bin%2froutine%2ftrain-categorizer.pl">bin/routine/train-categorizer.pl
+
+</A><LI><A HREF="#bin%2froutine%2fupdate-pros.pl">bin/routine/update-pros.pl
+
+
+</A><LI><A HREF="#bin%2froutine%2fviewings.pl">bin/routine/viewings.pl
+
+
+</A><LI><A HREF="#bin%2froutine%2fweekly.pl">bin/routine/weekly.pl
+
+
+</A><LI><A HREF="#bin%2froutine%2fworldcat.pl">bin/routine/worldcat.pl
+
+</A></UL>
+<LI><A HREF="#bin%2fsetup">bin/setup
+
+</A><UL>
+<LI><A HREF="#apply-sql-patches.pl">apply-sql-patches.pl
+
+</A><LI><A HREF="#compileyui.pl">compileyui.pl
+
+</A><LI><A HREF="#cpan.pl">cpan.pl
+
+</A><LI><A HREF="#import-feeds-springer.pl">import-feeds-springer.pl
+
+
+
+</A><LI><A HREF="#import-feeds-wiley.pl">import-feeds-wiley.pl
+
+
+
+</A><LI><A HREF="#init-database.pl">init-database.pl
+
+</A><LI><A HREF="#init-entry-cache.pl">init-entry-cache.pl
+
+</A><LI><A HREF="#load-unis.pl">load-unis.pl
+
+</A><LI><A HREF="#mkdirs.pl">mkdirs.pl
+
+</A><LI><A HREF="#mkforums.pl">mkforums.pl
+
+
+
+</A><LI><A HREF="#mkinstlist.pl">mkinstlist.pl
+
+
+</A></UL>
+</UL>
+<HR>
+
+  </div>
+  <H1><A NAME="Top%20level%20'bin'%20scripts%20and%20miscellaneous.">Top level 'bin' scripts and miscellaneous.
+
+</A></H1>
+
+<P>Scripts
+
+</P><H2><A NAME="cleanup.pl">cleanup.pl
+
+</A></H2>
+
+<P>Calls cleanAll on entries.
+
+</P><H2><A NAME="cmd.pl">cmd.pl
+
+</A></H2>
+
+<P>xPapers shell.
+
+</P><H2><A NAME="eval.pl">eval.pl
+
+</A></H2>
+
+<P>Imports config and then evals ARGV[0].
+
+</P><H2><A NAME="plugin-manager.pl">plugin-manager.pl
+
+</A></H2>
+
+<P>Tests harvester plugins.
+
+</P><H2><A NAME="printdiff.pl">printdiff.pl
+
+</A></H2>
+
+<P>Pretty prints xPapers::Diff objects.
+
+</P><H2><A NAME="sshblock.sh">sshblock.sh
+
+
+
+</A></H2>
+<H2><A NAME="start">start
+
+</A></H2>
+
+<P>Restarts the Apache and Sphinx servers.
+
+</P><H2><A NAME="wrapper.pl">wrapper.pl
+
+</A></H2>
+
+<P>Executes scripts, logs resutls and notifies administrators in case of errors.
+
+</P><H2><A NAME="operations%2fbatchimport.pl">operations/batchimport.pl
+
+</A></H2>
+
+<P>Imports entries from files.
+
+</P><H2><A NAME="operations%2fupdate_cats.pl">operations/update_cats.pl
+
+</A></H2>
+
+<P>Applies changes to categories batched in the cat_edits table.
+
+</P><H1><A NAME="bin%2fharvest%20scripts">bin/harvest scripts
+
+
+</A></H1>
+<H2><A NAME="crossref.pl">crossref.pl
+
+</A></H2>
+
+<P>Fetches records from the CrossRef site.
+
+</P><H2><A NAME="feeds.pl">feeds.pl
+
+</A></H2>
+
+<P>Fetches records from the registered RSS feeds.
+
+</P><H2><A NAME="lib-harvest.pl">lib-harvest.pl
+
+
+
+</A></H2>
+<H2><A NAME="oai.pl">oai.pl
+
+</A></H2>
+
+<P>Fetches records from the OAI archives registered.
+
+</P><H2><A NAME="opendoar-fetch.pl">opendoar-fetch.pl
+
+
+
+</A></H2>
+<H2><A NAME="plugin-manager.pl">plugin-manager.pl
+
+
+
+</A></H2>
+<H2><A NAME="scrape.pl">scrape.pl
+
+
+
+</A></H2>
+<H2><A NAME="web-harvester.pl">web-harvester.pl
+
+
+
+</A></H2>
+<H2><A NAME="z3950.pl">z3950.pl
+
+
+
+
+</A></H2>
+<H1><A NAME="bin%2froutine">bin/routine
+
+</A></H1>
+
+<P>Scripts run routinely.
+
+</P><H2><A NAME="bin%2froutine%2farchive_notices.pl">bin/routine/archive_notices.pl
+
+</A></H2>
+
+<P>Moves old notices to archive.notices.
+
+</P><H2><A NAME="bin%2froutine%2farticles_from_zipped_feeds.pl">bin/routine/articles_from_zipped_feeds.pl
+
+</A></H2>
+
+<P>Retrieves NLM packages with articles.
+
+</P><H2><A NAME="bin%2froutine%2fautocatj.pl">bin/routine/autocatj.pl
+
+</A></H2>
+
+<P>Automatically categorizes articles from journals. Uses the categories which can be set by admins on journals' pages.
+
+</P><H2><A NAME="bin%2froutine%2fcalc-ratings.pl">bin/routine/calc-ratings.pl
+
+</A></H2>
+
+<P>Calculates user ratings, for example, publication ratings.
+
+</P><H2><A NAME="bin%2froutine%2fcategorize.pl">bin/routine/categorize.pl
+
+</A></H2>
+
+<P>Categorizes articles using the AI categorizer. Needs to be run manually with options explained inside for training.
+
+</P><H2><A NAME="bin%2froutine%2fcatlinks.pl">bin/routine/catlinks.pl
+
+</A></H2>
+
+<P>Updates table catlinks_tmp
+
+</P><H2><A NAME="bin%2froutine%2fchecklinks.pl">bin/routine/checklinks.pl
+
+</A></H2>
+
+<P>Checks links or recompiles links table.
+
+</P><H2><A NAME="bin%2froutine%2fcheck-replication.pl">bin/routine/check-replication.pl
+
+</A></H2>
+
+<P>Checks if replication is working (run on master and slave with options explained inside).
+
+</P><H2><A NAME="bin%2froutine%2fcheck_tunnel.sh">bin/routine/check_tunnel.sh
+
+</A></H2>
+
+<P>Checks/sets up ssh tunnel for mysql connection between master and slave. 
+
+</P><H2><A NAME="bin%2froutine%2fcompile-journals.pl">bin/routine/compile-journals.pl
+
+</A></H2>
+
+<P>Recompiles main_journals table (the list(s) shown in the journal archive section).
+
+</P><H2><A NAME="bin%2froutine%2fcrossref-fetch.pl">bin/routine/crossref-fetch.pl
+
+</A></H2>
+
+<P>Fetches list of journals from the CrossRef website and updates the <CODE>harvest_journals</CODE> table.
+
+</P><H2><A NAME="bin%2froutine%2fdaily.pl">bin/routine/daily.pl
+
+</A></H2>
+
+<P>Various daily maintenance.
+
+</P><H2><A NAME="bin%2froutine%2fdistribute-mail.pl">bin/routine/distribute-mail.pl
+
+</A></H2>
+
+<P>Passes email messages from our database to the MTA.
+
+</P><H2><A NAME="bin%2froutine%2femail-alerts.pl">bin/routine/email-alerts.pl
+
+</A></H2>
+
+<P>Computes content alerts.
+
+</P><H2><A NAME="bin%2froutine%2fevaleds.pl">bin/routine/evaleds.pl
+
+</A></H2>
+
+<P>Computes the data shown on the editor performance page.
+
+</P><H2><A NAME="bin%2froutine%2ffailing_rss_alert.pl">bin/routine/failing_rss_alert.pl
+
+</A></H2>
+
+<P>Checks for failed RSS feeds.
+
+</P><H2><A NAME="bin%2froutine%2ffind_book_for_chapter.pl">bin/routine/find_book_for_chapter.pl
+
+</A></H2>
+
+<P>Links chapters to books (creates the book entries if not present).
+
+</P><H2><A NAME="bin%2froutine%2ffollowers-alert.pl">bin/routine/followers-alert.pl
+
+</A></H2>
+
+<P>Generates notifications about new followers.
+
+</P><H2><A NAME="bin%2froutine%2ffollowing-alerts.pl">bin/routine/following-alerts.pl
+
+</A></H2>
+
+<P>Generates notifications about new works by followed authors.
+
+</P><H2><A NAME="bin%2froutine%2ffrequently.pl">bin/routine/frequently.pl
+
+</A></H2>
+
+<P>Passes email messages from our database to the MTA. (duplicate?)
+
+</P><H2><A NAME="bin%2froutine%2fgenerate_prefixes.pl">bin/routine/generate_prefixes.pl
+
+</A></H2>
+
+<P>Generates query set for Z39.50 harvester. Must be run after updating the call number database.
+
+</P><H2><A NAME="bin%2froutine%2fget_abebooks_data.pl">bin/routine/get_abebooks_data.pl
+
+</A></H2>
+
+<P>Gets pricing and other info from AbeBooks. (deprecated)
+
+</P><H2><A NAME="bin%2froutine%2fget_amazon_data.pl">bin/routine/get_amazon_data.pl
+
+</A></H2>
+
+<P>Gets pricing and other info from Amazon.
+
+</P><H2><A NAME="bin%2froutine%2fgooglebooks.pl">bin/routine/googlebooks.pl
+
+</A></H2>
+
+<P>Gets book info from GoogleBooks.
+
+</P><H2><A NAME="bin%2froutine%2fhard-delete.pl">bin/routine/hard-delete.pl
+
+</A></H2>
+
+<P>Slowly hard deletes entries listed in the to_delete table.
+
+</P><H2><A NAME="bin%2froutine%2fimport-from-master.pl">bin/routine/import-from-master.pl
+
+</A></H2>
+
+<P>Synchronizes archived on the master server.
+
+</P><H2><A NAME="bin%2froutine%2fimprove_isbns.pl">bin/routine/improve_isbns.pl
+
+</A></H2>
+
+<P>Improves isbn data by matching with records from Amazon.
+
+</P><H2><A NAME="bin%2froutine%2fmkancestors.pl">bin/routine/mkancestors.pl
+
+</A></H2>
+
+<P>Rebuilds the ancestor and primary_ancestors computed tables.
+
+</P><H2><A NAME="bin%2froutine%2fmkauthors.pl">bin/routine/mkauthors.pl
+
+</A></H2>
+
+<P>Rebuilds the main_authors computed table.
+
+</P><H2><A NAME="bin%2froutine%2fmkdfo.pl">bin/routine/mkdfo.pl
+
+</A></H2>
+
+<P>Rebuilds the dfo and edfo values of Cat objects (used to speed up tree operations using the primary membership relation)
+
+</P><H2><A NAME="bin%2froutine%2fmkdict.pl">bin/routine/mkdict.pl
+
+</A></H2>
+
+<P>Generates a local spelling dictionary.
+
+</P><H2><A NAME="bin%2froutine%2fmkedreports.pl">bin/routine/mkedreports.pl
+
+</A></H2>
+
+<P>Notifies editors about work needed in their categories.
+
+</P><H2><A NAME="bin%2froutine%2fmkmap.pl">bin/routine/mkmap.pl
+
+</A></H2>
+
+<P>Makes site map. Generates a bunch of xmap-N.gz files under /assets/raw that Google should be told about.
+
+</P><H2><A NAME="bin%2froutine%2fpack-db.sh">bin/routine/pack-db.sh
+
+</A></H2>
+
+<P>Generates a compressed backup of database tables in $XPAPERS/back.
+
+</P><H2><A NAME="bin%2froutine%2fprep-links.pl">bin/routine/prep-links.pl
+
+</A></H2>
+
+<P>Cleans up links
+
+</P><H2><A NAME="bin%2froutine%2fsend-incomplete-warnings.pl">bin/routine/send-incomplete-warnings.pl
+
+</A></H2>
+
+<P>Generates emails prompting completion of entries by a user.
+
+</P><H2><A NAME="bin%2froutine%2fsend-mail-notices.pl">bin/routine/send-mail-notices.pl
+
+</A></H2>
+
+<P>Generates emails notifying about new events in subscribed areas.
+
+</P><H2><A NAME="bin%2froutine%2fsimilar.pl">bin/routine/similar.pl
+
+
+</A></H2>
+<H2><A NAME="bin%2froutine%2ftrain-categorizer.pl">bin/routine/train-categorizer.pl
+
+</A></H2>
+
+<P>Trains the categorizer.
+
+</P><H2><A NAME="bin%2froutine%2fupdate-pros.pl">bin/routine/update-pros.pl
+
+
+</A></H2>
+<H2><A NAME="bin%2froutine%2fviewings.pl">bin/routine/viewings.pl
+
+
+</A></H2>
+<H2><A NAME="bin%2froutine%2fweekly.pl">bin/routine/weekly.pl
+
+
+</A></H2>
+<H2><A NAME="bin%2froutine%2fworldcat.pl">bin/routine/worldcat.pl
+
+</A></H2>
+
+<P>Updates WorldCat resolver weights.
+
+</P><H1><A NAME="bin%2fsetup">bin/setup
+
+</A></H1>
+
+<P>Scripts needed to setup the environment.
+
+
+</P><H2><A NAME="apply-sql-patches.pl">apply-sql-patches.pl
+
+</A></H2>
+
+<P>Applies patches from the appropriate sql patches directory.
+Patches need to be correct SQL statement taking up one line.
+The correctly applied patches are remembered and are not applied second time.
+
+</P><H2><A NAME="compileyui.pl">compileyui.pl
+
+</A></H2>
+
+<P>Compiles the yui Javascript libraries into one file.
+
+</P><H2><A NAME="cpan.pl">cpan.pl
+
+</A></H2>
+
+<P>This can be replaced by 'cpanm'
+
+</P><H2><A NAME="import-feeds-springer.pl">import-feeds-springer.pl
+
+
+
+</A></H2>
+<H2><A NAME="import-feeds-wiley.pl">import-feeds-wiley.pl
+
+
+
+</A></H2>
+<H2><A NAME="init-database.pl">init-database.pl
+
+</A></H2>
+
+<P>Creates the database in MySQL and fills it in with initial data.
+
+</P><H2><A NAME="init-entry-cache.pl">init-entry-cache.pl
+
+</A></H2>
+
+<P>Initialized the cache with the Entries data.
+
+</P><H2><A NAME="load-unis.pl">load-unis.pl
+
+</A></H2>
+
+<P>Initializes the insts table with data from 'etc/uni.txt'.
+
+</P><H2><A NAME="mkdirs.pl">mkdirs.pl
+
+</A></H2>
+
+<P>Creates directories that are not stored in the git repository.
+
+</P><H2><A NAME="mkforums.pl">mkforums.pl
+
+
+
+</A></H2>
+<H2><A NAME="mkinstlist.pl">mkinstlist.pl
+
+
+</A></H2>
+
+  </div>
+ </body>
+</html>

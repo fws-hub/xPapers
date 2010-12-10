@@ -412,13 +412,6 @@ __END__
 
 xPapers::Parse::MARCXML
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -464,7 +457,6 @@ xPapers::Parse::MARCXML
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -86,10 +86,6 @@ __END__
 
 xPapers::Inst
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -131,7 +127,6 @@ Table: insts
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

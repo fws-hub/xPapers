@@ -153,13 +153,6 @@ __END__
 
 xPapers::Render::JSON
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -213,7 +206,6 @@ xPapers::Render::JSON
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -39,7 +39,7 @@ CREATE TABLE `affiliate_quotes` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `eId` (`eId`,`company`,`locale`,`state`),
   KEY `bargain_ratio` (`bargain_ratio`)
-) ENGINE=MyISAM AUTO_INCREMENT=225533 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -793,7 +793,7 @@ CREATE TABLE `errors` (
   KEY `ip` (`ip`),
   KEY `uId` (`uId`),
   KEY `time` (`time`)
-) ENGINE=MyISAM AUTO_INCREMENT=191762 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=191803 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1634,7 +1634,7 @@ CREATE TABLE `notices` (
   PRIMARY KEY (`id`),
   KEY `sent` (`sent`),
   KEY `created` (`created`)
-) ENGINE=InnoDB AUTO_INCREMENT=305823 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=305827 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2625,4 +2625,4 @@ CREATE TABLE `z3950_prefixes` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-06 16:41:29
+-- Dump completed on 2010-12-09 17:21:11

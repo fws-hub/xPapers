@@ -11,20 +11,152 @@
   <UL>
 <LI><A HREF="#NAME">NAME
 
-</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
+</A><LI><A HREF="#SUBROUTINES">SUBROUTINES
+
+</A><UL>
+<LI><A HREF="#applyTpl">applyTpl 
 
 
 
-</A><LI><A HREF="#DESCRIPTION">DESCRIPTION
+</A><LI><A HREF="#clean">clean 
+
+
+
+</A><LI><A HREF="#doneCurrentPage">doneCurrentPage 
+
+
+
+</A><LI><A HREF="#enc">enc 
+
+
+
+</A><LI><A HREF="#fetchStartPage">fetchStartPage 
+
+
+
+</A><LI><A HREF="#finish">finish 
+
+
+
+</A><LI><A HREF="#get">get 
+
+
+
+</A><LI><A HREF="#harvest">harvest 
+
+
+
+</A><LI><A HREF="#init">init 
+
+
+
+</A><LI><A HREF="#logMark">logMark 
+
+
+
+</A><LI><A HREF="#makeTestCases">makeTestCases 
+
+
+
+</A><LI><A HREF="#max">max 
+
+
+
+</A><LI><A HREF="#mkSeqId">mkSeqId 
+
+
+
+</A><LI><A HREF="#mkseq">mkseq 
+
+
+
+</A><LI><A HREF="#mkseqf">mkseqf 
+
+
+
+</A><LI><A HREF="#mkseqr">mkseqr 
+
+
+
+</A><LI><A HREF="#myindex">myindex 
+
+
+
+</A><LI><A HREF="#new">new 
+
+
+
+</A><LI><A HREF="#nextPage">nextPage 
+
+
+
+</A><LI><A HREF="#parsePage">parsePage 
+
+
+
+</A><LI><A HREF="#pause">pause 
+
+
+
+</A><LI><A HREF="#prep">prep 
+
+
+
+</A><LI><A HREF="#prepAgain">prepAgain 
+
+
+
+</A><LI><A HREF="#prepTpl">prepTpl 
+
+
+
+</A><LI><A HREF="#rHarvest">rHarvest 
+
+
+
+</A><LI><A HREF="#resume">resume 
+
+
+
+</A><LI><A HREF="#runTestCases">runTestCases 
+
+
+
+</A><LI><A HREF="#saveState">saveState 
+
+
+
+</A><LI><A HREF="#seekEnd">seekEnd 
+
+
+
+</A><LI><A HREF="#seekId">seekId 
+
+
+
+</A><LI><A HREF="#seekStart">seekStart 
+
+
+
+</A><LI><A HREF="#setDoneCurrentPage">setDoneCurrentPage 
+
+
+
+</A><LI><A HREF="#sortIds">sortIds 
+
+
+
+</A><LI><A HREF="#undoPage">undoPage 
+
+
+
+</A><LI><A HREF="#wrap">wrap 
 
 
 
 
-
-
-</A><LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
-
-</A><LI><A HREF="#AUTHORS">AUTHORS
+</A></UL>
+<LI><A HREF="#AUTHORS">AUTHORS
 
 </A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
 
@@ -38,22 +170,188 @@
 
 <P>xPapers::Harvest::Common
 
-</P><H1><A NAME="SYNOPSIS">SYNOPSIS
 
 
 
-</A></H1>
-<H1><A NAME="DESCRIPTION">DESCRIPTION
-
-
-
-
-
+</P><H1><A NAME="SUBROUTINES">SUBROUTINES
 
 </A></H1>
-<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
+<H2><A NAME="applyTpl">applyTpl 
 
-</A></H1>
+
+
+</A></H2>
+<H2><A NAME="clean">clean 
+
+
+
+</A></H2>
+<H2><A NAME="doneCurrentPage">doneCurrentPage 
+
+
+
+</A></H2>
+<H2><A NAME="enc">enc 
+
+
+
+</A></H2>
+<H2><A NAME="fetchStartPage">fetchStartPage 
+
+
+
+</A></H2>
+<H2><A NAME="finish">finish 
+
+
+
+</A></H2>
+<H2><A NAME="get">get 
+
+
+
+</A></H2>
+<H2><A NAME="harvest">harvest 
+
+
+
+</A></H2>
+<H2><A NAME="init">init 
+
+
+
+</A></H2>
+<H2><A NAME="logMark">logMark 
+
+
+
+</A></H2>
+<H2><A NAME="makeTestCases">makeTestCases 
+
+
+
+</A></H2>
+<H2><A NAME="max">max 
+
+
+
+</A></H2>
+<H2><A NAME="mkSeqId">mkSeqId 
+
+
+
+</A></H2>
+<H2><A NAME="mkseq">mkseq 
+
+
+
+</A></H2>
+<H2><A NAME="mkseqf">mkseqf 
+
+
+
+</A></H2>
+<H2><A NAME="mkseqr">mkseqr 
+
+
+
+</A></H2>
+<H2><A NAME="myindex">myindex 
+
+
+
+</A></H2>
+<H2><A NAME="new">new 
+
+
+
+</A></H2>
+<H2><A NAME="nextPage">nextPage 
+
+
+
+</A></H2>
+<H2><A NAME="parsePage">parsePage 
+
+
+
+</A></H2>
+<H2><A NAME="pause">pause 
+
+
+
+</A></H2>
+<H2><A NAME="prep">prep 
+
+
+
+</A></H2>
+<H2><A NAME="prepAgain">prepAgain 
+
+
+
+</A></H2>
+<H2><A NAME="prepTpl">prepTpl 
+
+
+
+</A></H2>
+<H2><A NAME="rHarvest">rHarvest 
+
+
+
+</A></H2>
+<H2><A NAME="resume">resume 
+
+
+
+</A></H2>
+<H2><A NAME="runTestCases">runTestCases 
+
+
+
+</A></H2>
+<H2><A NAME="saveState">saveState 
+
+
+
+</A></H2>
+<H2><A NAME="seekEnd">seekEnd 
+
+
+
+</A></H2>
+<H2><A NAME="seekId">seekId 
+
+
+
+</A></H2>
+<H2><A NAME="seekStart">seekStart 
+
+
+
+</A></H2>
+<H2><A NAME="setDoneCurrentPage">setDoneCurrentPage 
+
+
+
+</A></H2>
+<H2><A NAME="sortIds">sortIds 
+
+
+
+</A></H2>
+<H2><A NAME="undoPage">undoPage 
+
+
+
+</A></H2>
+<H2><A NAME="wrap">wrap 
+
+
+
+
+</A></H2>
 <H1><A NAME="AUTHORS">AUTHORS
 
 </A></H1>

@@ -27,10 +27,6 @@ __END__
 
 xPapers::Relations::EntryListArea
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -51,7 +47,6 @@ Table: areas_ml
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

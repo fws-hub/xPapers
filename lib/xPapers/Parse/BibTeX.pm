@@ -177,13 +177,6 @@ __END__
 
 xPapers::Parse::BibTeX
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -197,7 +190,6 @@ xPapers::Parse::BibTeX
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

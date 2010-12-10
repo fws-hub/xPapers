@@ -11,20 +11,420 @@
   <UL>
 <LI><A HREF="#NAME">NAME
 
-</A><LI><A HREF="#SYNOPSIS">SYNOPSIS
+</A><LI><A HREF="#SUBROUTINES">SUBROUTINES
+
+</A><UL>
+<LI><A HREF="#addFields">addFields 
 
 
 
-</A><LI><A HREF="#DESCRIPTION">DESCRIPTION
+</A><LI><A HREF="#afterEntry">afterEntry 
+
+
+
+</A><LI><A HREF="#afterGroup">afterGroup 
+
+
+
+</A><LI><A HREF="#beforeGroup">beforeGroup 
+
+
+
+</A><LI><A HREF="#beginCategory">beginCategory 
+
+
+
+</A><LI><A HREF="#checkbox">checkbox 
+
+
+
+</A><LI><A HREF="#checkboxAuto">checkboxAuto 
+
+
+
+</A><LI><A HREF="#cleanTitle">cleanTitle 
+
+
+
+</A><LI><A HREF="#el">el 
+
+
+
+</A><LI><A HREF="#em1">em1 
+
+
+
+</A><LI><A HREF="#em2">em2 
+
+
+
+</A><LI><A HREF="#encodeAsJS">encodeAsJS 
+
+
+
+</A><LI><A HREF="#endBiblio">endBiblio 
+
+
+
+</A><LI><A HREF="#endCategory">endCategory 
+
+
+
+</A><LI><A HREF="#entryId">entryId 
+
+
+
+</A><LI><A HREF="#escq">escq 
+
+
+
+</A><LI><A HREF="#extras_old">extras_old 
+
+
+
+</A><LI><A HREF="#forumBase">forumBase 
+
+
+
+</A><LI><A HREF="#forumURL">forumURL 
+
+
+
+</A><LI><A HREF="#foundOptions">foundOptions 
+
+
+
+</A><LI><A HREF="#gl">gl 
+
+
+
+</A><LI><A HREF="#gr">gr 
+
+
+
+</A><LI><A HREF="#headerId">headerId 
+
+
+
+</A><LI><A HREF="#init">init 
+
+
+
+</A><LI><A HREF="#joinif">joinif 
+
+
+
+</A><LI><A HREF="#jsReq">jsReq 
+
+
+
+</A><LI><A HREF="#jslnk">jslnk 
+
+
+
+</A><LI><A HREF="#makePostsList">makePostsList 
+
+
+
+</A><LI><A HREF="#mkRefs">mkRefs 
+
+
+
+</A><LI><A HREF="#mklnk">mklnk 
+
+
+
+</A><LI><A HREF="#mkslnk">mkslnk 
+
+
+
+</A><LI><A HREF="#moreFields">moreFields 
+
+
+
+</A><LI><A HREF="#moveLink">moveLink 
+
+
+
+</A><LI><A HREF="#new">new 
+
+
+
+</A><LI><A HREF="#nothingMsg">nothingMsg 
+
+
+
+</A><LI><A HREF="#opt">opt 
+
+
+
+</A><LI><A HREF="#options">options 
+
+
+
+</A><LI><A HREF="#passOn">passOn 
+
+
+
+</A><LI><A HREF="#postURL">postURL 
+
+
+
+</A><LI><A HREF="#preif">preif 
+
+
+
+</A><LI><A HREF="#prep">prep 
+
+
+
+</A><LI><A HREF="#prepCit">prepCit 
+
+
+
+</A><LI><A HREF="#prepLinks">prepLinks 
+
+
+
+</A><LI><A HREF="#prepPubInfo">prepPubInfo 
+
+
+
+</A><LI><A HREF="#prepTitle">prepTitle 
+
+
+
+</A><LI><A HREF="#prepTpl">prepTpl 
+
+
+
+</A><LI><A HREF="#processCite">processCite 
+
+
+
+</A><LI><A HREF="#processCiteP">processCiteP 
+
+
+
+</A><LI><A HREF="#q1">q1 
+
+
+
+</A><LI><A HREF="#q2">q2 
+
+
+
+</A><LI><A HREF="#quickCat">quickCat 
+
+
+
+</A><LI><A HREF="#renderAuthors">renderAuthors 
+
+
+
+</A><LI><A HREF="#renderCat">renderCat 
+
+
+
+</A><LI><A HREF="#renderCatC">renderCatC 
+
+
+
+</A><LI><A HREF="#renderCatHeading">renderCatHeading 
+
+
+
+</A><LI><A HREF="#renderCatTO">renderCatTO 
+
+
+
+</A><LI><A HREF="#renderCategory">renderCategory 
+
+
+
+</A><LI><A HREF="#renderDate">renderDate 
+
+
+
+</A><LI><A HREF="#renderDuration">renderDuration 
+
+
+
+</A><LI><A HREF="#renderEditors">renderEditors 
+
+
+
+</A><LI><A HREF="#renderEntry">renderEntry 
+
+
+
+</A><LI><A HREF="#renderEntryC">renderEntryC 
+
+
+
+</A><LI><A HREF="#renderEntryT">renderEntryT 
+
+
+
+</A><LI><A HREF="#renderExtra">renderExtra 
+
+
+
+</A><LI><A HREF="#renderExtraLinks">renderExtraLinks 
+
+
+
+</A><LI><A HREF="#renderField">renderField 
+
+
+
+</A><LI><A HREF="#renderForum">renderForum 
+
+
+
+</A><LI><A HREF="#renderForumPT">renderForumPT 
+
+
+
+</A><LI><A HREF="#renderForumT">renderForumT 
+
+
+
+</A><LI><A HREF="#renderGroup">renderGroup 
+
+
+
+</A><LI><A HREF="#renderGroupC">renderGroupC 
+
+
+
+</A><LI><A HREF="#renderGroupF">renderGroupF 
+
+
+
+</A><LI><A HREF="#renderHeader">renderHeader 
+
+
+
+</A><LI><A HREF="#renderLinks">renderLinks 
+
+
+
+</A><LI><A HREF="#renderList">renderList 
+
+
+
+</A><LI><A HREF="#renderMenu">renderMenu 
+
+
+
+</A><LI><A HREF="#renderMiniTOC">renderMiniTOC 
+
+
+
+</A><LI><A HREF="#renderName">renderName 
+
+
+
+</A><LI><A HREF="#renderNameLit">renderNameLit 
+
+
+
+</A><LI><A HREF="#renderNav">renderNav 
+
+
+
+</A><LI><A HREF="#renderObject">renderObject 
+
+
+
+</A><LI><A HREF="#renderPost">renderPost 
+
+
+
+</A><LI><A HREF="#renderPostO">renderPostO 
+
+
+
+</A><LI><A HREF="#renderPostT">renderPostT 
+
+
+
+</A><LI><A HREF="#renderQuote">renderQuote 
+
+
+
+</A><LI><A HREF="#renderQuotes">renderQuotes 
+
+
+
+</A><LI><A HREF="#renderStatus">renderStatus 
+
+
+
+</A><LI><A HREF="#renderTOC">renderTOC 
+
+
+
+</A><LI><A HREF="#renderTime">renderTime 
+
+
+
+</A><LI><A HREF="#renderUser">renderUser 
+
+
+
+</A><LI><A HREF="#renderUserC">renderUserC 
+
+
+
+</A><LI><A HREF="#renderUserInst">renderUserInst 
+
+
+
+</A><LI><A HREF="#renderUserPT">renderUserPT 
+
+
+
+</A><LI><A HREF="#renderUserT">renderUserT 
+
+
+
+</A><LI><A HREF="#s">s 
+
+
+
+</A><LI><A HREF="#sb">sb 
+
+
+
+</A><LI><A HREF="#startBiblio">startBiblio 
+
+
+
+</A><LI><A HREF="#sugOff">sugOff 
+
+
+
+</A><LI><A HREF="#sugOn">sugOn 
+
+
+
+</A><LI><A HREF="#threadURL">threadURL 
+
+
+
+</A><LI><A HREF="#unquote">unquote 
+
+
+
+</A><LI><A HREF="#wordSplit">wordSplit 
 
 
 
 
-
-
-</A><LI><A HREF="#DIAGNOSTICS">DIAGNOSTICS
-
-</A><LI><A HREF="#AUTHORS">AUTHORS
+</A></UL>
+<LI><A HREF="#AUTHORS">AUTHORS
 
 </A><LI><A HREF="#COPYRIGHT%20AND%20LICENSE">COPYRIGHT AND LICENSE
 
@@ -38,22 +438,523 @@
 
 <P>xPapers::Render::HTML
 
-</P><H1><A NAME="SYNOPSIS">SYNOPSIS
 
 
 
-</A></H1>
-<H1><A NAME="DESCRIPTION">DESCRIPTION
-
-
-
-
-
+</P><H1><A NAME="SUBROUTINES">SUBROUTINES
 
 </A></H1>
-<H1><A NAME="DIAGNOSTICS">DIAGNOSTICS
+<H2><A NAME="addFields">addFields 
 
-</A></H1>
+
+
+</A></H2>
+<H2><A NAME="afterEntry">afterEntry 
+
+
+
+</A></H2>
+<H2><A NAME="afterGroup">afterGroup 
+
+
+
+</A></H2>
+<H2><A NAME="beforeGroup">beforeGroup 
+
+
+
+</A></H2>
+<H2><A NAME="beginCategory">beginCategory 
+
+
+
+</A></H2>
+<H2><A NAME="checkbox">checkbox 
+
+
+
+</A></H2>
+<H2><A NAME="checkboxAuto">checkboxAuto 
+
+
+
+</A></H2>
+<H2><A NAME="cleanTitle">cleanTitle 
+
+
+
+</A></H2>
+<H2><A NAME="el">el 
+
+
+
+</A></H2>
+<H2><A NAME="em1">em1 
+
+
+
+</A></H2>
+<H2><A NAME="em2">em2 
+
+
+
+</A></H2>
+<H2><A NAME="encodeAsJS">encodeAsJS 
+
+
+
+</A></H2>
+<H2><A NAME="endBiblio">endBiblio 
+
+
+
+</A></H2>
+<H2><A NAME="endCategory">endCategory 
+
+
+
+</A></H2>
+<H2><A NAME="entryId">entryId 
+
+
+
+</A></H2>
+<H2><A NAME="escq">escq 
+
+
+
+</A></H2>
+<H2><A NAME="extras_old">extras_old 
+
+
+
+</A></H2>
+<H2><A NAME="forumBase">forumBase 
+
+
+
+</A></H2>
+<H2><A NAME="forumURL">forumURL 
+
+
+
+</A></H2>
+<H2><A NAME="foundOptions">foundOptions 
+
+
+
+</A></H2>
+<H2><A NAME="gl">gl 
+
+
+
+</A></H2>
+<H2><A NAME="gr">gr 
+
+
+
+</A></H2>
+<H2><A NAME="headerId">headerId 
+
+
+
+</A></H2>
+<H2><A NAME="init">init 
+
+
+
+</A></H2>
+<H2><A NAME="joinif">joinif 
+
+
+
+</A></H2>
+<H2><A NAME="jsReq">jsReq 
+
+
+
+</A></H2>
+<H2><A NAME="jslnk">jslnk 
+
+
+
+</A></H2>
+<H2><A NAME="makePostsList">makePostsList 
+
+
+
+</A></H2>
+<H2><A NAME="mkRefs">mkRefs 
+
+
+
+</A></H2>
+<H2><A NAME="mklnk">mklnk 
+
+
+
+</A></H2>
+<H2><A NAME="mkslnk">mkslnk 
+
+
+
+</A></H2>
+<H2><A NAME="moreFields">moreFields 
+
+
+
+</A></H2>
+<H2><A NAME="moveLink">moveLink 
+
+
+
+</A></H2>
+<H2><A NAME="new">new 
+
+
+
+</A></H2>
+<H2><A NAME="nothingMsg">nothingMsg 
+
+
+
+</A></H2>
+<H2><A NAME="opt">opt 
+
+
+
+</A></H2>
+<H2><A NAME="options">options 
+
+
+
+</A></H2>
+<H2><A NAME="passOn">passOn 
+
+
+
+</A></H2>
+<H2><A NAME="postURL">postURL 
+
+
+
+</A></H2>
+<H2><A NAME="preif">preif 
+
+
+
+</A></H2>
+<H2><A NAME="prep">prep 
+
+
+
+</A></H2>
+<H2><A NAME="prepCit">prepCit 
+
+
+
+</A></H2>
+<H2><A NAME="prepLinks">prepLinks 
+
+
+
+</A></H2>
+<H2><A NAME="prepPubInfo">prepPubInfo 
+
+
+
+</A></H2>
+<H2><A NAME="prepTitle">prepTitle 
+
+
+
+</A></H2>
+<H2><A NAME="prepTpl">prepTpl 
+
+
+
+</A></H2>
+<H2><A NAME="processCite">processCite 
+
+
+
+</A></H2>
+<H2><A NAME="processCiteP">processCiteP 
+
+
+
+</A></H2>
+<H2><A NAME="q1">q1 
+
+
+
+</A></H2>
+<H2><A NAME="q2">q2 
+
+
+
+</A></H2>
+<H2><A NAME="quickCat">quickCat 
+
+
+
+</A></H2>
+<H2><A NAME="renderAuthors">renderAuthors 
+
+
+
+</A></H2>
+<H2><A NAME="renderCat">renderCat 
+
+
+
+</A></H2>
+<H2><A NAME="renderCatC">renderCatC 
+
+
+
+</A></H2>
+<H2><A NAME="renderCatHeading">renderCatHeading 
+
+
+
+</A></H2>
+<H2><A NAME="renderCatTO">renderCatTO 
+
+
+
+</A></H2>
+<H2><A NAME="renderCategory">renderCategory 
+
+
+
+</A></H2>
+<H2><A NAME="renderDate">renderDate 
+
+
+
+</A></H2>
+<H2><A NAME="renderDuration">renderDuration 
+
+
+
+</A></H2>
+<H2><A NAME="renderEditors">renderEditors 
+
+
+
+</A></H2>
+<H2><A NAME="renderEntry">renderEntry 
+
+
+
+</A></H2>
+<H2><A NAME="renderEntryC">renderEntryC 
+
+
+
+</A></H2>
+<H2><A NAME="renderEntryT">renderEntryT 
+
+
+
+</A></H2>
+<H2><A NAME="renderExtra">renderExtra 
+
+
+
+</A></H2>
+<H2><A NAME="renderExtraLinks">renderExtraLinks 
+
+
+
+</A></H2>
+<H2><A NAME="renderField">renderField 
+
+
+
+</A></H2>
+<H2><A NAME="renderForum">renderForum 
+
+
+
+</A></H2>
+<H2><A NAME="renderForumPT">renderForumPT 
+
+
+
+</A></H2>
+<H2><A NAME="renderForumT">renderForumT 
+
+
+
+</A></H2>
+<H2><A NAME="renderGroup">renderGroup 
+
+
+
+</A></H2>
+<H2><A NAME="renderGroupC">renderGroupC 
+
+
+
+</A></H2>
+<H2><A NAME="renderGroupF">renderGroupF 
+
+
+
+</A></H2>
+<H2><A NAME="renderHeader">renderHeader 
+
+
+
+</A></H2>
+<H2><A NAME="renderLinks">renderLinks 
+
+
+
+</A></H2>
+<H2><A NAME="renderList">renderList 
+
+
+
+</A></H2>
+<H2><A NAME="renderMenu">renderMenu 
+
+
+
+</A></H2>
+<H2><A NAME="renderMiniTOC">renderMiniTOC 
+
+
+
+</A></H2>
+<H2><A NAME="renderName">renderName 
+
+
+
+</A></H2>
+<H2><A NAME="renderNameLit">renderNameLit 
+
+
+
+</A></H2>
+<H2><A NAME="renderNav">renderNav 
+
+
+
+</A></H2>
+<H2><A NAME="renderObject">renderObject 
+
+
+
+</A></H2>
+<H2><A NAME="renderPost">renderPost 
+
+
+
+</A></H2>
+<H2><A NAME="renderPostO">renderPostO 
+
+
+
+</A></H2>
+<H2><A NAME="renderPostT">renderPostT 
+
+
+
+</A></H2>
+<H2><A NAME="renderQuote">renderQuote 
+
+
+
+</A></H2>
+<H2><A NAME="renderQuotes">renderQuotes 
+
+
+
+</A></H2>
+<H2><A NAME="renderStatus">renderStatus 
+
+
+
+</A></H2>
+<H2><A NAME="renderTOC">renderTOC 
+
+
+
+</A></H2>
+<H2><A NAME="renderTime">renderTime 
+
+
+
+</A></H2>
+<H2><A NAME="renderUser">renderUser 
+
+
+
+</A></H2>
+<H2><A NAME="renderUserC">renderUserC 
+
+
+
+</A></H2>
+<H2><A NAME="renderUserInst">renderUserInst 
+
+
+
+</A></H2>
+<H2><A NAME="renderUserPT">renderUserPT 
+
+
+
+</A></H2>
+<H2><A NAME="renderUserT">renderUserT 
+
+
+
+</A></H2>
+<H2><A NAME="s">s 
+
+
+
+</A></H2>
+<H2><A NAME="sb">sb 
+
+
+
+</A></H2>
+<H2><A NAME="startBiblio">startBiblio 
+
+
+
+</A></H2>
+<H2><A NAME="sugOff">sugOff 
+
+
+
+</A></H2>
+<H2><A NAME="sugOn">sugOn 
+
+
+
+</A></H2>
+<H2><A NAME="threadURL">threadURL 
+
+
+
+</A></H2>
+<H2><A NAME="unquote">unquote 
+
+
+
+</A></H2>
+<H2><A NAME="wordSplit">wordSplit 
+
+
+
+
+</A></H2>
 <H1><A NAME="AUTHORS">AUTHORS
 
 </A></H1>

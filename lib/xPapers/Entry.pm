@@ -1294,10 +1294,6 @@ __END__
 
 xPapers::Entry
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::Diffable>, L<xPapers::Object::WithDBCache>, L<xPapers::Object::Lockable>
@@ -1915,7 +1911,6 @@ Table: main
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

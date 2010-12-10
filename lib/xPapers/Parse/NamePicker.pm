@@ -77,13 +77,6 @@ __END__
 
 xPapers::Parse::NamePicker
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -109,7 +102,6 @@ xPapers::Parse::NamePicker
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

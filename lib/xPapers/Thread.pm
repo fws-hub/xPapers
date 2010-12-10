@@ -150,10 +150,6 @@ __END__
 
 xPapers::Thread
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::WithDBCache>
@@ -263,7 +259,6 @@ Table: threads
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

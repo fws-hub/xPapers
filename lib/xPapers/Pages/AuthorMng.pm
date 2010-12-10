@@ -14,13 +14,6 @@ __END__
 
 xPapers::Pages::AuthorMng
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 =head1 METHODS
@@ -30,7 +23,6 @@ xPapers::Pages::AuthorMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -42,10 +42,6 @@ __END__
 
 xPapers::Citation
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -110,7 +106,6 @@ Table: citations
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

@@ -74,13 +74,6 @@ __END__
 
 xPapers::Render::EndNote
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 
@@ -110,7 +103,6 @@ xPapers::Render::EndNote
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

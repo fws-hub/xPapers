@@ -158,10 +158,6 @@ __END__
 
 xPapers::Post
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object::Cached>
@@ -243,7 +239,6 @@ Table: posts
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

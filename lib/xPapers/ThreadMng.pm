@@ -78,13 +78,6 @@ __END__
 
 xPapers::ThreadMng
 
-=head1 SYNOPSIS
-
-
-
-=head1 DESCRIPTION
-
-
 
 
 =head1 METHODS
@@ -98,7 +91,6 @@ xPapers::ThreadMng
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 

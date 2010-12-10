@@ -64,10 +64,6 @@ __END__
 
 xPapers::Operations::ImportEntries
 
-=head1 SYNOPSIS
-
-
-
 =head1 DESCRIPTION
 
 Inherits from: L<xPapers::Object>
@@ -152,7 +148,6 @@ Table: batch
 
 
 
-=head1 DIAGNOSTICS
 
 =head1 AUTHORS
 
