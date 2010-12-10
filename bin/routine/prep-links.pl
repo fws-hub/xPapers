@@ -5,6 +5,9 @@ use HTML::Entities;
 use xPapers::Util qw/file2array cleanAll cleanLinks/;
 use xPapers::Conf;
 use xPapers::Entry;
+use xPapers::Utils::System;
+
+unique(1,'prep-links.pl');
 
 my $c = 0;
 my $u = 0;

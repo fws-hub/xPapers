@@ -3,6 +3,9 @@
 <%perl>
 $ARGS{sort} ||= 'added';
 $ARGS{proOnly} = 'off';
+$ARGS{onlineOnly} = 'off';
+$ARGS{freeOnly} = 'off';
+$ARGS{publishedOnly} = 'off';
 </%perl>
 <& ../bits/frame.html, %ARGS,__p=>'../search.pl',crossref=>1&>
 

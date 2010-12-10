@@ -16,7 +16,7 @@ if ($ARGS{cn}) {
             lc($ARGS{cn}),
         );
         if( $row ){
-            redirect( $s, $q, url( "/browse/" . $row->{uName}, { _mmsg => "This category changed name" } ), 301 );
+            redirect( $s, $q, url( "/browse/" . $row->{uName}, { _mmsg => "This category has changed name" } ), 301 );
             return;
         }
         else{
