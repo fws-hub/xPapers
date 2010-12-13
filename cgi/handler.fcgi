@@ -106,8 +106,10 @@ use xPapers::Site;
     our $freeChecker = new xPapers::Link::Free;
     $freeChecker->init(site=>$DEFAULT_SITE);
 
+    our $SECURE;
     our $REQ_LOGGED;
     our %ORIG_ARGS;
+
     my $s = $DEFAULT_SITE;
 
     my $hostname = `hostname`;
@@ -346,7 +348,7 @@ FCGI: while ($q = new CGI::Fast) {
         print $q->header unless $HTTP_HEADER_SENT;
         print "<center><br><br><br><br>";
         my $msg = $ERROR_MESSAGE;
-        if ($SECURE) {
+        if ($HTML::Mason::Commands::SECURE or $ARGV[0] eq 'debug') {
            $msg =~ s/__DETAILS__/$raw_error/; 
         } else {
            $msg =~ s/__DETAILS__//;

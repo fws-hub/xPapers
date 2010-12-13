@@ -14,7 +14,8 @@ my $DEBUG = 1;
 my %warnings = xPapers::EntryMng->computeIncompleteWarnings( $ARGV[0] );
 
 for my $uId ( keys %warnings ){
-    my $body = "[HELLO]Some of your works on $DEFAULT_SITE->{niceName} appear to have incomplete records. You might want to complete their records, as this will make it easier for others to find your work. A list of records with potential defects is provided below for your convenience.\n\n$advice\n"; 
+    die unless $uId == 1;
+    my $body = "[HELLO]Some of your works on $DEFAULT_SITE->{niceName} appear to have incomplete records. You might want to complete their records, as this will make it easier for others to find them. A list of records with potential defects is provided below for your convenience. You can also view a dynamically updated version of this list \"here\":$DEFAULT_SITE->{server}/profile/$uId/incomplete.pl \n\n$advice\n"; 
     my @major = keys % { $warnings{$uId}{major} };
     my @other = map { exists $warnings{$uId}{major}{$_} ? () : $_ } keys % { $warnings{$uId}{other} };
     if( @major ){

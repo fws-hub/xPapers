@@ -235,6 +235,7 @@ if ($ARGS{user} and $ARGS{dg}) {
 
 #$user = xPapers::User->get(1);
 our $SECURE = $user->{admin};
+$HTML::Mason::Commands::SECURE = $SECURE;
 event('auth','end');
 
 

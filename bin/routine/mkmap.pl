@@ -10,6 +10,7 @@ $r->{cur}->{site} = $DEFAULT_SITE;
 
 my $m = Search::Sitemap->new();
 my $base = $DEFAULT_SITE->{server};
+my $path = $DEFAULT_SITE->base . "/raw";
 my %count;
 
 # Home
@@ -45,7 +46,7 @@ while (my $c = $cats->next) {
 	$count{categories}++;
 }
 
-$m->write("$LOCAL_BASE/assets/raw/sitemap.gz");
+$m->write("$path/sitemap.gz");
 
 # Now we make maps that contain users, threads, and entries with good content
 my @items;
@@ -90,7 +91,7 @@ my $used = 0;
 my $in_this = 0;
 for (my $i=0; $i <= $#items; $i++) {
 	if ($in_this >= 9990) {
-		$map->write("$LOCAL_BASE/assets/raw/xmap-$used.gz");
+		$map->write("$path/xmap-$used.gz");
 		$map = Search::Sitemap->new();
 		$used++;
 		$in_this = 0;
@@ -98,7 +99,7 @@ for (my $i=0; $i <= $#items; $i++) {
 	$in_this++;
 	$map->add($items[$i]);
 }
-$map->write("$LOCAL_BASE/assets/raw/xmap-$used.gz");
+$map->write("$path/xmap-$used.gz");
 
 for (sort keys %count) {
 	print "$_: $count{$_}\n";
