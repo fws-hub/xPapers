@@ -410,6 +410,7 @@ elsif ($ARGS{crossref}) {
     $where = " and set_spec = '$set_spec'";
     $join = "join entry_origin on main.id = eId";
     $showSorter = 1;
+    $filters = [];
 }
 
 # for mp+opc
