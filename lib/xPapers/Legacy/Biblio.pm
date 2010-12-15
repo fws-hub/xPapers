@@ -243,6 +243,7 @@ sub stub {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Legacy::Biblio

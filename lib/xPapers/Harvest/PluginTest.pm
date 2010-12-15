@@ -18,6 +18,7 @@ __PACKAGE__->make_manager_methods('plugin_tests');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Harvest::PluginTest

@@ -116,6 +116,7 @@ sub chooseQuotes {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Link::Affiliate::QuoteMng

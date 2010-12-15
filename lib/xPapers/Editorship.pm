@@ -66,6 +66,7 @@ __PACKAGE__->make_manager_methods('cats_eterms');
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Editorship

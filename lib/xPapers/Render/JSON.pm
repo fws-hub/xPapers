@@ -149,6 +149,7 @@ sub renderEntry {
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Render::JSON

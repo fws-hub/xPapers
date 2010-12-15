@@ -1290,6 +1290,7 @@ use xPapers::EntryMng;
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Entry

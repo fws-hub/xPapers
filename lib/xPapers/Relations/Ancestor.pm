@@ -35,6 +35,7 @@ __PACKAGE__->make_manager_methods('ancestors');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Relations::Ancestor

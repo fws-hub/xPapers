@@ -94,6 +94,7 @@ sub toString {
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Pages::PageAuthor

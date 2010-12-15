@@ -1,5 +1,7 @@
 __END__
 
+%use Data::Dumper;
+
 =head1 NAME
 
 <% $ARGS{NAME} %>
@@ -17,9 +19,11 @@ __END__
 %}
 % if( $ARGS{FIELDS} ){
 =head1 FIELDS
+%#warn "dump: " . Dumper($ARGS{FIELDS});
+%#exit;
 %   for my $field ( sort keys %{ $ARGS{FIELDS} } ) {
 
-=head2 <% $field . " ($ARGS{FIELDS}{$field}{type}):" %> 
+=head2 <% $field . " (" . $ARGS{FIELDS}{$field}{type} . "):" %> 
 
 <% $ARGS{FIELDS}{$field}{desc} %>
 %    }

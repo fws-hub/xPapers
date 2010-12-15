@@ -147,9 +147,9 @@ Publication status:&nbsp;
 <tr class='tr' style='display:none' id='source_inf'><td class='editorlabel'>
     <span id="source_label">Journal</span>:
 </td><td>
-    <input name="journal" id='journal' type="text" size="50" value="<% $e->pub_type eq 'journal' ? $e->{source} : '' %>">
+%#    <input name="journal" id='journal' type="text" size="50" value="<% $e->pub_type eq 'journal' ? $e->{source} : '' %>">
 %#    <& search/autocomplete.html, dontForceSelection=>1,field=>'journal',current=>$e->pub_type eq 'journal' ? $e->{source} : '',class=>'Journal',size=>50,px=>300 &>
-    <input name="source" id="source" type="text" size="50" value="<%$e->pub_type eq 'journal' ? '' : $e->{source}%>">
+    <input name="source" id="source" type="text" size="50" value="<%$e->{source}%>">
 </td></tr>
 
 <tr class='tr' style='display:none' id='publisher'><td class='editorlabel'>

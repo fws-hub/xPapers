@@ -119,6 +119,7 @@ __PACKAGE__->make_manager_methods('resolvers');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Link::Resolver

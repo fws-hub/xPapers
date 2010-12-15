@@ -23,6 +23,7 @@ __PACKAGE__->make_manager_methods('main');
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::FTPUser

@@ -25,6 +25,7 @@ __PACKAGE__->make_manager_methods('input_feeds');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Harvest::InputFeed

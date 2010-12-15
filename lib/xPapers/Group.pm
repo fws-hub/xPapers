@@ -155,6 +155,7 @@ sub openForum {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Group

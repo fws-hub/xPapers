@@ -74,6 +74,7 @@ sub renderNameLit {
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Render::RichText

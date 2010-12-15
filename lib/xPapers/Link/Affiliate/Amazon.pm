@@ -214,6 +214,7 @@ sub is_change_text {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Link::Affiliate::Amazon

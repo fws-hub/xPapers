@@ -102,6 +102,7 @@ sub updateFromFile {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Link::HarvestJournal

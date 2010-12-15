@@ -26,6 +26,7 @@ __PACKAGE__->make_manager_methods('poll_guests');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Polls::PollGuest

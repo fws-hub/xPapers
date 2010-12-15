@@ -38,6 +38,7 @@ use xPapers::LCRangeMng;
 
 __END__
 
+
 =head1 NAME
 
 xPapers::LCRange

@@ -153,6 +153,7 @@ sub encode_nontag {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Render::Embed

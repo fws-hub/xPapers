@@ -11,6 +11,7 @@ __PACKAGE__->make_manager_methods('notes');
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::NoteMng

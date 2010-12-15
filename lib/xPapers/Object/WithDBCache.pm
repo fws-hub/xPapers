@@ -90,6 +90,7 @@ sub __xrdbopriv_clone {
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Object::WithDBCache

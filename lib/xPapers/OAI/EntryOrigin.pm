@@ -32,6 +32,7 @@ __PACKAGE__->make_manager_methods('entry_origin');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::OAI::EntryOrigin

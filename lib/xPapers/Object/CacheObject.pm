@@ -55,6 +55,7 @@ sub clear {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Object::CacheObject

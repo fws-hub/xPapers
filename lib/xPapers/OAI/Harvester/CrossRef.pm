@@ -384,6 +384,7 @@ sub updateJournalSets {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::OAI::Harvester::CrossRef

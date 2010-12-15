@@ -11,6 +11,7 @@ __PACKAGE__->make_manager_methods('posts');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::PostMng

@@ -39,6 +39,7 @@ __PACKAGE__->make_manager_methods('cats_m');
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Relations::Cat2Cat

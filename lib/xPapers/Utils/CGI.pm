@@ -936,8 +936,6 @@ sub entry2form {
 
     $e->{fileAction} = 'none' unless $e->{fileAction};
     $e->augment;
-    $e->{onMP} = ($e->{sites} =~ /mp/);
-    $e->{onPP} = ($e->{sites} =~ /pp/);
     my $links = $e->{links};
     $links->[$_] =~ s!^http://!! for (0..$#$links);
 #    my @links_in = $e->getLinks;
@@ -991,14 +989,14 @@ sub form2entry {
                 if ($q->param('typeofwork') eq 'book review') {
                     $e->{review} = 1;
                     $e->{pub_type} = 'journal';
-                    $e->{source} = $q->param('journal');
+                    $e->{source} = cleanJournal($q->param('source'));
                 }
                 if ($q->param('pub_in') eq 'journal') {
                     $e->{volume} = $q->param('volume');
                     $e->{issue} = $q->param('issue');
                     $e->{pages} = $q->param('pages');
                     $e->{pub_type} = 'journal';
-                    $e->{source} = cleanJournal($q->param('journal'));
+                    $e->{source} = cleanJournal($q->param('source'));
                 } elsif ($q->param('pub_in') eq 'collection') {
                     $e->{ant_publisher} = $q->param('ant_publisher'); 
                     $e->{ant_date} = $e->{date};
@@ -1041,6 +1039,7 @@ sub form2entry {
 
 1;
 __END__
+
 
 =head1 NAME
 

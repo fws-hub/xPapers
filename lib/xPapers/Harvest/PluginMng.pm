@@ -58,6 +58,7 @@ sub applyAll {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Harvest::PluginMng
