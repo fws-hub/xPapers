@@ -17,3 +17,5 @@ while (my $h = $res->fetchrow_hashref) {
     print "Blocking with: $cmd\n";
     xPapers::Mail::MessageMng->notifyAdmin("Badly behaved bot blocked","Hi, this is the bad-bot-check script. I'm blocking IP address $h->{ip}, which resolves to domain name '$name', for having made $h->{nb} requests (>$threshold) over the past 10 minutes. See 'sudo iptables -L' for currently blocked IPs.\n$out");
 }
+
+1;
