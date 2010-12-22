@@ -24,7 +24,7 @@ while (my $e = $i->next) {
        #print "From:\n$in\nTo:\n" . join("\n",$e->getLinks) . "\n-----\n";
        $u++;
    }
-   print "$c done\n" if $c % 50 ==0;
+   #print "$c done\n" if $c % 50 ==0;
 }
 
 print "$u/$c entries updated.\n";

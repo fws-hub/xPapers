@@ -755,6 +755,7 @@ sub hash2file {
 
 sub file2array {
     my $file = shift;
+    #warn "loading $file";
 	open F, $file;
     my @r;
 	while (<F>) {
@@ -983,10 +984,11 @@ my $_regexp_for_resolvers;
 sub _regexp_for_our_resolvers {
     unless (defined $_regexp_for_resolvers) {
         for my $site ( keys %SITES ){
-            push @sites, "http:\\/\\/(?:www\\.)?$SITES{$site}{domain}\\/go";
+            push @sites, "$SITES{$site}{server}\\/go";
         }
         my $text = join '|', @sites;
-        return qr{$text}i;
+        $_regexp_for_resolvers = qr{$text}i;
+        #warn $_regexp_for_resolvers;
     }
     return $_regexp_for_resolvers;
 }
