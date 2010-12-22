@@ -14,6 +14,10 @@ Retrieves NLM packages with articles.
 
 Automatically categorizes articles from journals. Uses the categories which can be set by admins on journals' pages.
 
+=head2 bin/routine/bad-bot-check.pl
+
+Checks for bad bots and ban them using iptables.
+
 =head2 bin/routine/calc-ratings.pl
 
 Calculates user ratings, for example, publication ratings.

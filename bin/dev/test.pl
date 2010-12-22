@@ -20,6 +20,11 @@ use IP::Country::Fast;
 use Carp;
 $SIG{ __DIE__ } = sub { Carp::confess( @_ ) };
 
+my $captest = xPapers::Entry->get('BELTEO-2');
+warn $captest->title;
+warn capitalize($captest->title);
+exit;
+
 print getSuggestion('demgraphy');
 exit;
 

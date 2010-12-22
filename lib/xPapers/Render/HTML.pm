@@ -41,7 +41,7 @@ sub new {
     return $self;
 }
 
-sub s { shift->{s} }
+sub s { shift->{s} || $DEFAULT_SITE }
 
 
 sub init {

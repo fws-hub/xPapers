@@ -177,7 +177,7 @@ sub capitalize {
         $t =~ s/^($PREFIXES)/lc $1/ie;
     }
     #fix for bug in text::capitalize
-    $t =~ s/&Quot;(\.?)$/&quot;$1/g;
+    $t =~ s/&Quot;?(\.?)$/&quot;$1/g;
 
     return $t;
 }
@@ -979,12 +979,16 @@ sub fixNameParens {
     return $fixed;
 }
 
+my $_regexp_for_resolvers;
 sub _regexp_for_our_resolvers {
-    for my $site ( keys %SITES ){
-        push @sites, "http:\\/\\/(?:www\\.)?$SITES{$site}{domain}\\/go";
+    unless (defined $_regexp_for_resolvers) {
+        for my $site ( keys %SITES ){
+            push @sites, "http:\\/\\/(?:www\\.)?$SITES{$site}{domain}\\/go";
+        }
+        my $text = join '|', @sites;
+        return qr{$text}i;
     }
-    my $text = join '|', @sites;
-    return qr{$text}i;
+    return $_regexp_for_resolvers;
 }
 
 sub cleanLinks {

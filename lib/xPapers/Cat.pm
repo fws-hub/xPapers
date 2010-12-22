@@ -838,7 +838,7 @@ sub addEntries {
             );
             if ($args{deincest}) {
                 push @nl,$nm;
-                @nl = xPapers::CatMng->deincestMembershipSet(\@nl) if $args{deincest};
+                @nl = xPapers::CatMng->deincestMembershipSet(\@nl,'all') if $args{deincest};
                 $nm->save if grep { $_->{cId} == $me->{id} } @nl;
             } else {
                 $nm->save; #XXX this means those diffs are as good as accepted, so we always accept them 
