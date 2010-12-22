@@ -235,3 +235,8 @@ A large number of tasks are accomplished through cron scripts, including periodi
 
 $SPHINX/bin/indexer --all --rotate
 
+Important note
+--------------
+In order to run any of the xPapers scripts, you need to include $XPAPERS/lib in your PERL5LIB environment variable, or to invoke perl with -I$XPAPERS/lib. This is normally taken care of by modifying PERL5LIB in your .bashrc or .profile file.  
+
+$XPAPERS/lib includes not only the xPapers libraries proper, but patched versions of third-party libraries. These patches do not add functionality but merely remove bugs the original authors have not yet (at the time of writting) fixed on CPAN. 
