@@ -284,7 +284,9 @@ sub composeName {
 
 sub parseName {
  	my $in = shift;
- 	#print "$in -->";
+
+ 	#print "-->parseName in: $in\n";
+    
     $in =~ s/^\s*and\s+//; 
     my $jr = ($in =~ s/,?\sJr\.?(\s|$)//i);
     $in =~ s/^\s*by\s+//;
@@ -328,7 +330,9 @@ sub parseName {
         }
         $lastname = "$lastname Jr" if $jr;
         # add prefixes or Jr to lastname
+        #warn join(" - ",@bits);
         while ($bits[-1] =~ /^$PREFIXES$/i) {
+            #warn "GOT PREFIX: $bits[-1]";
             $lastname = splice(@bits,-1,1) . " $lastname";
         }
         return (join(' ',@bits),$lastname);

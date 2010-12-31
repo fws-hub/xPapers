@@ -1,5 +1,7 @@
-use xPapers::Util qw/parseAuthors/;
+use xPapers::Util;
 use Test::More;
+use utf8;
+binmode(STDOUT,":utf8");
 my %tests = (
     'Kuehni, R. G., Hardin, C. L.' => 'Kuehni, R. G.; Hardin, C. L.',
 	'Bourget, David; Doe, John' => 'Bourget, David; Doe, John',	
@@ -23,8 +25,10 @@ my %tests = (
     'Jean Claude van Damme' => 'van Damme, Jean Claude',
     'Dr. Jean Claude van Damme, Prof R de Sousa' => 'van Damme, Jean Claude; de Sousa, R.',
     "Maureen A. O'Malley" => "O'Malley, Maureen A.",
+    "Gusmão da Silva, Guilherme" => "Gusmão da Silva, Guilherme",
+    cleanName("Guilherme Gusmão da Silva") => "da Silva, Guilherme Gusmão"
 );
-
+#print cleanName("Guilherme Gusmão da Silva");
 foreach my $t (keys %tests) {
 	my $r = join('; ',parseAuthors($t));
     is( $r, $tests{$t}, "$t -> $r" );

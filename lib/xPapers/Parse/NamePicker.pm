@@ -10,7 +10,7 @@ $VERSION = 1;
 @EXPORT_OK = @EXPORT;
 
 $DEFAULT_SOURCE = "settings/names.txt";
-@PREFIXES = qw(de di du le la van von der den des ten ter);
+@PREFIXES = qw(de di du da le la van von der den des ten ter);
 
 sub new {
     my ($class, $type) = @_;
