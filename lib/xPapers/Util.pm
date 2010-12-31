@@ -1224,7 +1224,7 @@ sub cleanName {
 
     # Some of the cleaning-up here is redundant because also in parseName, which is called last. But it doesn't hurt.. If it works don't try and fix it.
 
-    #print "Cleaning name: $n\n";
+    print "Cleaning name: $n\n";
 
     # if ", john doe"
     if ($n =~ s/^\s*,\s+//) { }
@@ -1255,7 +1255,9 @@ sub cleanName {
 	# misplaced jr
 	$n =~ s/([\w'-])\s*,(.*)\sJr(\s.*|$)/$1 Jr,$2 $3/i;
 	# misplaced prefixe
-	$n =~ s/([\w'-])\s*,(.*)\s(van|von|von\sder|van\sder|di|de|del|du|da)(\s.*|$)/(lc $3) . $1 . "," . $2 . $4/ie;
+    #warn $n;
+	#$n =~ s/([\w'-])\s*,(.*)\s(van|von|von\sder|van\sder|di|de|del|du|da)(\s.*|$)/(lc $3) . $1 . "," . $2 . $4/ie;
+    #warn $n;
     # replace Iep by UNKNOWN
     $n =~ s/^Iep,$/Unknown, Unknown/;
     #links aren't names

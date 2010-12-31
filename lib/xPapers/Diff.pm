@@ -1,54 +1,3 @@
-=head1 SYNOPSIS
-
-Represents an update to a set of objects.
-
-# store a to-be-created object as a diff
-
-my $diff = xPapers::Diff->new;
-$diff->create_object($object);
-$diff->save;
-
-# store modification to an object
-
-my $diff = xPapers::Diff->new;
-$diff->before($object);
-.. modify $object ..
-$diff->after($object);
-$diff->save;
-
-# apply a diff to a loaded object
-
-$diff->apply($object);
-
-# apply a diff to an in-database object
-
-$diff->accept;
-
-# compute the reverse of a diff
-
-my $reverse = $diff->reverse;
-
-# compute a diff corresponding to applying diff1 followed by diff2:
-
-my $diff3 = $diff1->followedBy($diff2);
-
-Most changes to an object's fields and changes to its relations can be traced using xPapers::Diff, but diffs of relata are not recursive (they stop at the first level of relata). 
-
-**XXX Relation diffs are likely to be buggy at the moment **
-
-=cut
-=head1 PREREQUISITES
-
-- Diffed classes must be have a numeric id field. 
-- Diffed classes must implement two methods:
-
-diffable: hashref (returns a hashref containing the names of the fields which should be used for diffing)
-diffable_relationships: hashref (return a hashref containing the names of the relations which should be used for diffing)
-
-- Diffed classes must import the 'as_tree' and 'new_from_deflated_tree' method from Rose::DB::Object::Helpers
-
-=cut
-
 package xPapers::Diff;
 use xPapers::Conf;
 use Storable qw/freeze thaw dclone/;
@@ -565,6 +514,7 @@ sub dump {
     $r .= "changed: $d->{status_changed}\n";
     $r .= "oid: $d->{oId}\n";
     $r .= "uid: $d->{uId}\n";
+    $r .= "host: $d->{host}\n";
     $r .= "relo1: $d->{relo1}\n";
     $r;
 }
@@ -615,6 +565,51 @@ xPapers::Diff
 Inherits from: L<xPapers::Object>
 
 Table: diffs
+
+  Represents an update to a set of objects.
+
+  # store a to-be-created object as a diff
+
+  my $diff = xPapers::Diff->new;
+  $diff->create_object($object);
+  $diff->save;
+
+  # store modification to an object
+
+  my $diff = xPapers::Diff->new;
+  $diff->before($object);
+  .. modify $object ..
+  $diff->after($object);
+  $diff->save;
+
+  # apply a diff to a loaded object
+
+  $diff->apply($object);
+
+  # apply a diff to an in-database object
+
+  $diff->accept;
+
+  # compute the reverse of a diff
+
+  my $reverse = $diff->reverse;
+
+  # compute a diff corresponding to applying diff1 followed by diff2:
+
+  my $diff3 = $diff1->followedBy($diff2);
+
+  Most changes to an object's fields and changes to its relations can be traced using xPapers::Diff, but diffs of relata are not recursive (they stop at the first level of relata). 
+
+  **XXX Relation diffs are likely to be buggy at the moment **
+
+  PREREQUISITES 
+
+  - Diffed classes must be have a numeric id field called 'id' as primary key. 
+  - Diffed classes must extend xPapers::Object::Diffable and override two methods:
+
+  diffable: hashref (returns a hashref containing the names of the fields which should be used for diffing)
+  diffable_relationships: hashref (return a hashref containing the names of the relations which should be used for diffing)
+
 
 
 =head1 FIELDS
