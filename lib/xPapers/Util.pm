@@ -1224,7 +1224,7 @@ sub cleanName {
 
     # Some of the cleaning-up here is redundant because also in parseName, which is called last. But it doesn't hurt.. If it works don't try and fix it.
 
-    print "Cleaning name: $n\n";
+    #print "Cleaning name: $n\n";
 
     # if ", john doe"
     if ($n =~ s/^\s*,\s+//) { }

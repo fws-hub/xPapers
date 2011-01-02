@@ -886,8 +886,8 @@ sub deleteEntry {
     if ($#eds > -1) {
         $checked = 1 if grep { $userId == $_ } map { $_->{id} } @eds;
     }
+    return unless $checked or ( $userId and $me->canDo("DeletePapers",$userId) );
 
-    return unless $userId and $me->canDo("DeletePapers",$userId);
     #delete $me->cache->{content}->{$en->id};
     $en->clear_cache;
 
@@ -904,6 +904,7 @@ sub deleteEntry {
     } 
     # else make a diff 
     else {
+
 
         my $d = xPapers::Diff->new;
         my $obj = xPapers::Relations::CatEntry->new(cId=>$me->id,eId=>$en->id)->load_speculative;
