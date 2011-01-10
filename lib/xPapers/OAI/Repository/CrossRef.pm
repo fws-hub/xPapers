@@ -7,9 +7,12 @@ use base 'xPapers::OAI::Repository';
 use xPapers::Link::HarvestJournal;
 
 sub sets_hash {
-#    return {
-#       'bla' => { spec => '10.2178:42118', name => 'blaba', type => 'complete' }
-#    };
+    if ($ENV{XPAPERS_DEBUG_CROSSREF_SET}) {
+        warn "** Using debug set: $ENV{XPAPERS_DEBUG_CROSSREF_SET}";
+        return {
+           'bla' => { spec => $ENV{XPAPERS_DEBUG_CROSSREF_SET}, name => 'DEBUG', type => 'complete' }
+        };
+    }
     my $journal_it = xPapers::Link::HarvestJournalMng->get_objects_iterator(
         query => [
             inCrossRef => 1,

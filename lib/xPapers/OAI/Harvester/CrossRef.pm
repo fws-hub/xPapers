@@ -166,8 +166,20 @@ sub dorecs {
         for my $resource ( $xpc->findnodes( "$ns:doi_data/$ns:resource", $article ) ){
             $e->addLink( $resource->to_literal );
         }
+        #warn "Dates found:";
+        #warn join("\n",
+        #    $xpc->findvalue( "$ns:publication_date[\@media_type=\"print\"]/$ns:year", $article ) 
+        #    # Added because Wiley puts print pub date there, online pub there in last field below
+        #    , $xpc->findvalue( "oai:metadata/$ns:crossref/$ns:journal/$ns:journal_issue/$ns:publication_date/$ns:year", $record)
+        #    , $xpc->findvalue( "$ns:publication_date[not(\@media_type)]/$ns:year", $article ) 
+        #    , $xpc->findvalue( "$ns:publication_date/$ns:year", $article ) 
+        #);
+        #warn $record->toString;
+
         $e->date( 
             $xpc->findvalue( "$ns:publication_date[\@media_type=\"print\"]/$ns:year", $article ) 
+            # Added because Wiley puts print pub date there, online pub there in last field below
+            || $xpc->findvalue( "oai:metadata/$ns:crossref/$ns:journal/$ns:journal_issue/$ns:publication_date/$ns:year", $record)
             || $xpc->findvalue( "$ns:publication_date[not(\@media_type)]/$ns:year", $article ) 
             || $xpc->findvalue( "$ns:publication_date/$ns:year", $article ) 
         );

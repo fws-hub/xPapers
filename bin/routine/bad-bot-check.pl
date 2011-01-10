@@ -9,6 +9,7 @@ my $offset = 0;
 
 my $res = xPapers::DB->exec("select ip, count(*) as nb from log_act where time >= date_sub(now(), interval " . (10+$offset) . " minute) and time <= date_sub(now(),interval $offset minute) group by ip having nb >= $threshold");
 while (my $h = $res->fetchrow_hashref) {
+    next if $h->{ip} eq $LOCAL_IP;
     $iaddr = inet_aton($h->{ip});
     $name  = gethostbyaddr($iaddr, AF_INET);
     print "$h->{ip}:$name:$h->{nb}\n";
