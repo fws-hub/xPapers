@@ -91,7 +91,7 @@ if ($ARGS{foreign}) {
 <div class="smallh"><% $same ? 'Basic information <span class="hint"><a href="/profile/'.$user->id.'/account.html">(edit)</a></span>' : 'Contact'%></div>
 <ul class='normal'>
 %if($p->homePage) {
-%my $hp = ($p->homePage =~ /^http:/ ? $p->homePage : "http://".$p->homePage);
+%my $hp = ($p->homePage =~ /^https?:/ ? $p->homePage : "http://".$p->homePage);
 <li><a href="<%$hp%>">home page</a></li>
 %}
 <%perl>
