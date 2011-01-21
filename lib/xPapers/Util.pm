@@ -177,7 +177,7 @@ sub capitalize {
         $t =~ s/^($PREFIXES)/lc $1/ie;
     }
     #fix for bug in text::capitalize
-    $t =~ s/&Quot;(\.?)$/&quot;$1/g;
+    $t =~ s/&Quot;?(\.?)$/&quot;$1/g;
 
     return $t;
 }
@@ -284,7 +284,9 @@ sub composeName {
 
 sub parseName {
  	my $in = shift;
- 	#print "$in -->";
+
+ 	#print "-->parseName in: $in\n";
+    
     $in =~ s/^\s*and\s+//; 
     my $jr = ($in =~ s/,?\sJr\.?(\s|$)//i);
     $in =~ s/^\s*by\s+//;
@@ -328,7 +330,9 @@ sub parseName {
         }
         $lastname = "$lastname Jr" if $jr;
         # add prefixes or Jr to lastname
+        #warn join(" - ",@bits);
         while ($bits[-1] =~ /^$PREFIXES$/i) {
+            #warn "GOT PREFIX: $bits[-1]";
             $lastname = splice(@bits,-1,1) . " $lastname";
         }
         return (join(' ',@bits),$lastname);
@@ -755,6 +759,7 @@ sub hash2file {
 
 sub file2array {
     my $file = shift;
+    #warn "loading $file";
 	open F, $file;
     my @r;
 	while (<F>) {
@@ -979,12 +984,17 @@ sub fixNameParens {
     return $fixed;
 }
 
+my $_regexp_for_resolvers;
 sub _regexp_for_our_resolvers {
-    for my $site ( keys %SITES ){
-        push @sites, "http:\\/\\/(?:www\\.)?$SITES{$site}{domain}\\/go";
+    unless (defined $_regexp_for_resolvers) {
+        for my $site ( keys %SITES ){
+            push @sites, "$SITES{$site}{server}\\/go";
+        }
+        my $text = join '|', @sites;
+        $_regexp_for_resolvers = qr{$text}i;
+        #warn $_regexp_for_resolvers;
     }
-    my $text = join '|', @sites;
-    return qr{$text}i;
+    return $_regexp_for_resolvers;
 }
 
 sub cleanLinks {
@@ -1245,7 +1255,9 @@ sub cleanName {
 	# misplaced jr
 	$n =~ s/([\w'-])\s*,(.*)\sJr(\s.*|$)/$1 Jr,$2 $3/i;
 	# misplaced prefixe
-	$n =~ s/([\w'-])\s*,(.*)\s(van|von|von\sder|van\sder|di|de|del|du|da)(\s.*|$)/(lc $3) . $1 . "," . $2 . $4/ie;
+    #warn $n;
+	#$n =~ s/([\w'-])\s*,(.*)\s(van|von|von\sder|van\sder|di|de|del|du|da)(\s.*|$)/(lc $3) . $1 . "," . $2 . $4/ie;
+    #warn $n;
     # replace Iep by UNKNOWN
     $n =~ s/^Iep,$/Unknown, Unknown/;
     #links aren't names

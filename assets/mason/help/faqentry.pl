@@ -13,6 +13,6 @@ my $fc = getFileContent( $PATHS{LOCAL_BASE} . '/assets/mason/help/faq.html' );
 if ($fc =~ /<a name="$ARGS{label}">(.+?)(<h|<a name|$)/s) {
     print $1;
 } else {
-    jserror("Could not find help e2222ntry '$ARGS{label}'");
+    jserror("Could not find help entry '$ARGS{label}'");
 }
 </%perl>

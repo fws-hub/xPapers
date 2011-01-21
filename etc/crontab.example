@@ -120,6 +120,14 @@ WRAP=/usr/bin/perl -I/home/xpapers/lib /home/xpapers/bin/wrapper.pl
 15,35,55 *    * * * cd /usr/local/opp;./process_links;./process_pages
 
 
+###
+# Misc
+#
+
+# Check and ban bad bots using iptables
+18 *    * * *   $WRAP $BASEM/bad-bot-check.pl
+# Flush firewall rules once a week to give people a chance
+1 3     * * sun sudo /sbin/iptables -F
 
 ###
 # Polls

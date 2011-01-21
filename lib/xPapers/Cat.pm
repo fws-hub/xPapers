@@ -838,7 +838,7 @@ sub addEntries {
             );
             if ($args{deincest}) {
                 push @nl,$nm;
-                @nl = xPapers::CatMng->deincestMembershipSet(\@nl) if $args{deincest};
+                @nl = xPapers::CatMng->deincestMembershipSet(\@nl,'all') if $args{deincest};
                 $nm->save if grep { $_->{cId} == $me->{id} } @nl;
             } else {
                 $nm->save; #XXX this means those diffs are as good as accepted, so we always accept them 
@@ -886,8 +886,8 @@ sub deleteEntry {
     if ($#eds > -1) {
         $checked = 1 if grep { $userId == $_ } map { $_->{id} } @eds;
     }
+    return unless $checked or ( $userId and $me->canDo("DeletePapers",$userId) );
 
-    return unless $userId and $me->canDo("DeletePapers",$userId);
     #delete $me->cache->{content}->{$en->id};
     $en->clear_cache;
 
@@ -904,6 +904,7 @@ sub deleteEntry {
     } 
     # else make a diff 
     else {
+
 
         my $d = xPapers::Diff->new;
         my $obj = xPapers::Relations::CatEntry->new(cId=>$me->id,eId=>$en->id)->load_speculative;

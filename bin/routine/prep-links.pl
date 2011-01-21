@@ -12,7 +12,7 @@ unique(1,'prep-links.pl');
 my $c = 0;
 my $u = 0;
 
-my $i = xPapers::EntryMng->get_objects_iterator(query=>[online=>'1']);
+my $i = xPapers::EntryMng->get_objects_iterator(query=>[online=>'1','!deleted'=>1]);
 while (my $e = $i->next) {
    $c++;
    my $in = join("\n",sort $e->getLinks);
@@ -24,7 +24,7 @@ while (my $e = $i->next) {
        #print "From:\n$in\nTo:\n" . join("\n",$e->getLinks) . "\n-----\n";
        $u++;
    }
-   print "$c done\n" if $c % 500 ==0;
+   #print "$c done\n" if $c % 50 ==0;
 }
 
 print "$u/$c entries updated.\n";

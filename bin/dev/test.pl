@@ -20,6 +20,17 @@ use IP::Country::Fast;
 use Carp;
 $SIG{ __DIE__ } = sub { Carp::confess( @_ ) };
 
+binmode(STDOUT,":utf8");
+use utf8;
+#warn cleanName("Guilherme Gusmão Da Silva");
+warn cleanName("Silva, Guilherme Gusmão Da");
+exit;
+
+my $captest = xPapers::Entry->get('BELTEO-2');
+warn $captest->title;
+warn capitalize($captest->title);
+exit;
+
 print getSuggestion('demgraphy');
 exit;
 

@@ -25,6 +25,30 @@ my @STATUS = qw/NEW FIX/;
 my $FLAG_COLOR = 'red';
 my $NORM_COLOR = 'black';
 push @exceptions, "as","for","on","is","its","about","vs";
+my $X = "ol";
+my $I = "li";
+my $EVENTS = q{
+    onclick="ee('click','%s')" onmouseover="ee('over','%s')" onmouseout="ee('out','%s')"
+};
+
+my %FIELD_CLASSES = (
+    tId => "xPapers::Thread",
+    uId => "xPapers::User",
+    eId => "xPapers::Entry",
+    fId => "xPapers::Forum",
+    iId => "xPapers::Inst",
+);
+$FIELD_CLASSES{$_} = "xPapers::Cat" for qw/cId aId mybib myworks readingList/;
+$FIELD_CLASSES{$_} = "xPapers::Post" for qw/firstPostId latestPostId target pId/;
+
+
+my %CURRENCY_SYMBOLS = (
+    CAD => 'C$',
+    USD => '$',
+    AUD => 'A$',
+    GBP => '&pound;'
+);
+
 
 
 sub new {
@@ -41,7 +65,7 @@ sub new {
     return $self;
 }
 
-sub s { shift->{s} }
+sub s { shift->{s} || $DEFAULT_SITE }
 
 
 sub init {
@@ -80,30 +104,6 @@ sub init {
     $me->{cur} = $view || {}; 
     $me->{cur}->{events} = $EVENTS unless $me->{noMousing};
 }
-
-my $X = "ol";
-my $I = "li";
-my $EVENTS = q{
-    onclick="ee('click','%s')" onmouseover="ee('over','%s')" onmouseout="ee('out','%s')"
-};
-
-my %FIELD_CLASSES = (
-    tId => "xPapers::Thread",
-    uId => "xPapers::User",
-    eId => "xPapers::Entry",
-    fId => "xPapers::Forum",
-    iId => "xPapers::Inst",
-);
-$FIELD_CLASSES{$_} = "xPapers::Cat" for qw/cId aId mybib myworks readingList/;
-$FIELD_CLASSES{$_} = "xPapers::Post" for qw/firstPostId latestPostId target pId/;
-
-
-my %CURRENCY_SYMBOLS = (
-    CAD => 'C$',
-    USD => '$',
-    AUD => 'A$',
-    GBP => '&pound;'
-);
 
 sub el {
     my ($me,$el) = @_;

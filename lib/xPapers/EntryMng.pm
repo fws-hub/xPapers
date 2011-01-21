@@ -412,6 +412,10 @@ xPapers::EntryMng
 
 
 
+=head2 computeIncompleteWarnings 
+
+
+
 =head2 countWorks 
 
 
@@ -437,6 +441,10 @@ xPapers::EntryMng
 
 
 =head2 fuzzyMatch 
+
+
+
+=head2 generateMessages 
 
 
 
