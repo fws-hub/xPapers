@@ -21,6 +21,7 @@ if (-d '/etc/xpapers.d') {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Conf::Cats

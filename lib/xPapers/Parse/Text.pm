@@ -331,6 +331,7 @@ sub _parse_authors {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Parse::Text

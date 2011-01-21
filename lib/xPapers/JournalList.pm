@@ -43,6 +43,7 @@ use xPapers::JournalListMng;
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::JournalList

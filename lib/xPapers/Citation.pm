@@ -38,6 +38,7 @@ __PACKAGE__->make_manager_methods('citations');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Citation

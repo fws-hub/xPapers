@@ -26,6 +26,7 @@ __PACKAGE__->meta->add_unique_key( Rose::DB::Object::Metadata::UniqueKey->new(
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Link::Affiliate::Quote

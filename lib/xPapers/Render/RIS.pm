@@ -59,6 +59,7 @@ sub fieldMap {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Render::RIS

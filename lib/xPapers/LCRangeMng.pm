@@ -120,6 +120,7 @@ sub class_behavior {
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::LCRangeMng

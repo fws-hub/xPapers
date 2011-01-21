@@ -45,6 +45,7 @@ __PACKAGE__->make_manager_methods('errors');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Utils::Error

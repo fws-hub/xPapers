@@ -13,6 +13,7 @@ sub render_diffable_array_element {
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Object::Diffable

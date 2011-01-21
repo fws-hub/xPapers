@@ -19,6 +19,7 @@ sub object_class { 'xPapers::Harvest::Z3950Prefix' }
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Harvest::Z3950Prefix

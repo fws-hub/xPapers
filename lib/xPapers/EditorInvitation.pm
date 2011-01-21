@@ -32,6 +32,7 @@ __PACKAGE__->make_manager_methods('editor_invitations');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::EditorInvitation

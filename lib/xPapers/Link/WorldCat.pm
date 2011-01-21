@@ -64,6 +64,7 @@ sub find_resolvers {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Link::WorldCat

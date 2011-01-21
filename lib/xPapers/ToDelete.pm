@@ -23,6 +23,7 @@ __PACKAGE__->make_manager_methods('to_delete');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::ToDelete

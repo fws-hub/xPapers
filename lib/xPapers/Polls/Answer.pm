@@ -25,6 +25,7 @@ __PACKAGE__->make_manager_methods('answers');
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Polls::Answer

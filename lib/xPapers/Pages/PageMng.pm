@@ -9,6 +9,7 @@ __PACKAGE__->make_manager_methods('pages');
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Pages::PageMng

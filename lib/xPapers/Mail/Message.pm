@@ -98,6 +98,7 @@ use xPapers::Mail::MessageMng;
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Mail::Message

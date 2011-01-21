@@ -28,6 +28,7 @@ __PACKAGE__->make_manager_methods('followers');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Follower

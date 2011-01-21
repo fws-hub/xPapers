@@ -19,6 +19,7 @@ sub startBiblio { };
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Render::Text

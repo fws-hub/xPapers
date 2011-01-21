@@ -39,6 +39,7 @@ if (-d '/etc/xpapers.d') {
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Conf::Forums

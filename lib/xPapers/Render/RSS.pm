@@ -100,6 +100,7 @@ sub np {
 }
 __END__
 
+
 =head1 NAME
 
 xPapers::Render::RSS

@@ -22,6 +22,7 @@ foreign_keys => [
 1
 __END__
 
+
 =head1 NAME
 
 xPapers::Relations::JournalInList

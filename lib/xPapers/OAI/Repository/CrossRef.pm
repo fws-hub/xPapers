@@ -42,6 +42,7 @@ sub save {}
 
 __END__
 
+
 =head1 NAME
 
 xPapers::OAI::Repository::CrossRef

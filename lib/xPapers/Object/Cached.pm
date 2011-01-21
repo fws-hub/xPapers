@@ -36,6 +36,7 @@ sub get {
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Object::Cached

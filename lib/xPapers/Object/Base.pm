@@ -280,6 +280,7 @@ sub clear_owner_cache {
 }
 __END__
 
+
 =head1 NAME
 
 xPapers::Object::Base

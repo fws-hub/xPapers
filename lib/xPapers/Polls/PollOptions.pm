@@ -22,6 +22,7 @@ __PACKAGE__->make_manager_methods('poll_opts');
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Polls::PollOptions

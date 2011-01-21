@@ -31,6 +31,7 @@ columns =>
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Relations::CatEditor

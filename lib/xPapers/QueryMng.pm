@@ -14,6 +14,7 @@ __PACKAGE__->make_manager_methods('queries');
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::QueryMng

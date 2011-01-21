@@ -26,6 +26,7 @@ sub getJournals {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::JournalMng

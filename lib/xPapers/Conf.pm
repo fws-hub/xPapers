@@ -381,7 +381,7 @@ our $OPP_CRAWL_DEPTH = 2;
 our $TIPS_FREQ = 4;
 our @TIPS = (
 { t => "Search results and category listings are restricted by the filters on the right hand side of the page. Not all entries are shown by default.", c => "fil"},
-{ t => "Our <a href='/utils/bargains.pl'>Bargain Finder</a> is excellent to find cheap books of interest to you.", c=> "bar" },
+#{ t => "Our <a href='/utils/bargains.pl'>Bargain Finder</a> is excellent to find cheap books of interest to you.", c=> "bar" },
 { t => "Want to see the works of a particular author? Search for the author's name using any format you like ('J Smith', 'Smith, John', etc). The 'J Smith' format will work best if we don't know the author's full name.", c => "aut" },
 { t => "Looking for a work in particular? Search for the first author's lastname followed by a word from the title.", c => "wor" },
 { t => "Want to know about the new papers on your favorite topics as they come online? Find a page that <em>would</em> show them were they already in the index, and create an <a href='/profile/myalerts.pl'>alert</a> for this page.", c=> "ale" },
@@ -418,6 +418,7 @@ END
 1;
 
 __END__
+
 
 =head1 NAME
 

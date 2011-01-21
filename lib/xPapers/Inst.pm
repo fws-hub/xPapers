@@ -82,6 +82,7 @@ __PACKAGE__->make_manager_methods('insts');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Inst

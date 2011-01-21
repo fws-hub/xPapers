@@ -66,6 +66,7 @@ use xPapers::JournalMng;
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Journal

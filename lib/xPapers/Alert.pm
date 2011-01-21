@@ -274,6 +274,7 @@ sub mkFollowAlert {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Alert

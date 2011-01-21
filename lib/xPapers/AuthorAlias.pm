@@ -25,6 +25,7 @@ __PACKAGE__->make_manager_methods('author_aliases');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::AuthorAlias

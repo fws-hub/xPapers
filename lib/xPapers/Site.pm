@@ -47,6 +47,7 @@ sub fullConfFile { my $self = shift; return $self->{LOCAL_BASE} . $self->assetFi
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Site

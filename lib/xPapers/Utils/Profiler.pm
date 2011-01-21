@@ -87,6 +87,7 @@ sub _summarize {
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Utils::Profiler

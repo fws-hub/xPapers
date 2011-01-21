@@ -26,6 +26,7 @@ columns =>
 1
 __END__
 
+
 =head1 NAME
 
 xPapers::Relations::UserGroup

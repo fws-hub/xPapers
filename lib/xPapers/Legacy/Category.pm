@@ -252,6 +252,7 @@ sub toString {
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Legacy::Category

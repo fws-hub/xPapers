@@ -1072,6 +1072,7 @@ function adjustPub() {
         } else if ($F('typeofwork') == 'article' || $F('typeofwork') == 'book review') {
 
             pf.set('source_inf',true);
+            pf.set('source',true);
 
             if ($F('pub_in') == 'journal' || $F('typeofwork') == 'book review') { 
                 $('source_label').innerHTML = 'Journal';
@@ -1081,7 +1082,6 @@ function adjustPub() {
                 }
                 checkReview();
             } else  {
-                pf.set('source',true);
                 pf.set('chapter_inf',true);
                 pf.set('ant_publisher',true);
                 $('source_label').innerHTML = 'Collection title';

@@ -10,6 +10,7 @@ __PACKAGE__->make_manager_methods('pageauthors');
 
 __END__
 
+
 =head1 NAME
 
 xPapers::Pages::AuthorMng

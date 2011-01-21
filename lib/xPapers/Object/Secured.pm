@@ -15,6 +15,7 @@ sub canDo {
 1;
 __END__
 
+
 =head1 NAME
 
 xPapers::Object::Secured
