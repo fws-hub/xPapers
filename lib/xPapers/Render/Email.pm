@@ -14,6 +14,7 @@ sub new {
   $self->{skipInit} = 1;
   $self->{noMousing} = 1;
   $self->{noRelevance} = 1;
+  $self->{showPub} = 1;
 
   bless $self, $class;
   return $self;
