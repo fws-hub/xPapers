@@ -5,6 +5,7 @@ use xPapers::Harvest::Feeds;
 use xPapers::Harvest::InputFeed;
 use xPapers::EntryMng;
 use xPapers::Conf qw/ $HARVESTER_USER /;
+binmode(STDOUT,'utf8');
 
 my $feeds = $ARGV[0] ? xPapers::Harvest::InputFeedMng->get_objects_iterator(query=>[id=>$ARGV[0]]) : xPapers::Harvest::InputFeedMng->get_objects_iterator();
 

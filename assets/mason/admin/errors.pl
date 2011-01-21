@@ -5,7 +5,7 @@
     padding:10px;
 ">
 <tr>
-    <td>time</td><td>pid</td><td>host</td><td>referer</td><td>level</td><td>URL</td>
+    <td>time</td><td>user</td><td>host</td><td>referer</td><td>level</td><td>URL</td>
 </tr>
 <%perl>
 
@@ -14,9 +14,9 @@ $t->subtract(days=>2);
 my $query;
 if ($ARGS{uId}) {
     my $u = xPapers::User->get($ARGS{uId});
-    $query = [ or => [ ip => $u->lastIp, uId=>$ARGS{uId} ] ];
+    $query = [ or => [ ip => $u->lastIp, uId=>$ARGS{uId} ] , type => { gt => 1 }];
 } else {
-    $query=[time => { gt => $t }];
+    $query=[time => { gt => $t }, type => { gt => 1 }];
 }
 my $errors = xPapers::ER->get_objects(query=>$query,sort_by=>['type desc','time desc']);
 

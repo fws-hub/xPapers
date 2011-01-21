@@ -132,7 +132,7 @@ if( $ARGS{c} eq 'uploadProgress' ){
 # Accounts only
 #
 
-jserror("You must be logged in to use this feature") unless $user and $user->{id};
+jserror("You must be logged in to use this feature",1) unless $user and $user->{id};
 
 if ($ARGS{c} eq "reverseDiff") {
     my $diff = xPapers::Diff->get($ARGS{dId});

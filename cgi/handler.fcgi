@@ -190,6 +190,7 @@ END
 
     sub jserror {
         my $msg = shift;
+        my $level = shift || 2;
         our $HTTP_HEADER_SENT;
         print STDOUT "Content-type: text/html\n\n" unless $HTTP_HEADER_SENT;
         $HTTP_HEADER_SENT = 1;
@@ -197,7 +198,7 @@ END
         $m->flush_buffer;
         our $user;
         my $err = xPapers::Utils::Error->new(
-            type=>2, 
+            type=>$level, 
             ip=>$ENV{REMOTE_ADDR}, 
             pid=>$$,
             request_uri=>$ENV{REQUEST_URI},

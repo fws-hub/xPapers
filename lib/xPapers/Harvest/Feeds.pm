@@ -63,6 +63,8 @@ sub _build_rss {
             $self->feed->lastStatus( 'Bad RSS' );
         }
     }
+    #use Data::Dumper;
+    #print Dumper($rss);
     return $rss;
 }
 
