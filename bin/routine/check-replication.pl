@@ -3,6 +3,7 @@ use xPapers::Mail::Message;
 use strict;
 
 my $role = $ARGV[0];
+my $interval = $ARGV[1] || 2;
 
 if ($role eq 'master') {
     xPapers::DB->exec("delete from test_replication");
@@ -10,7 +11,7 @@ if ($role eq 'master') {
 } elsif ($role eq 'slave') {
     my $r = xPapers::DB->exec("select * from test_replication");
     report_error() unless $r->fetchrow_hashref;
-    my $r2 = xPapers::DB->exec("select * from test_replication where time < date_sub(now(), interval $ARGV[1] hour)");
+    my $r2 = xPapers::DB->exec("select * from test_replication where time < date_sub(now(), interval $interval hour)");
     report_error() if $r2->fetchrow_hashref;
 } else {
     print "usage: check-replication.pl master|slave N.\n";
