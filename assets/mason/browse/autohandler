@@ -106,8 +106,9 @@ unless ($cat->{pLevel} <= 1) {
 
 </td><td valign="top" style="width:200px">
 %if ($SECURE) {
-    <br>
-    <a style='margin-left:10px;' href="/browse/<%$cat->{id}%>/edit.pl">Admin panel</a>
+    <div class='admin'>
+    <a style='margin-left:10px;' href="/browse/<%$cat->{id}%>/edit.pl">Admin panel</a><br>&nbsp;&nbsp;<a href="?finder=1">View editors / vacancies</a><br>&nbsp;&nbsp;<a href="/browse/<%$cat->{id}%>/potential_editors.pl">Potential editors</a>
+    </div>
 %}
 </td></tr></table>
 

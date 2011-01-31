@@ -7,10 +7,13 @@ use xPapers::EntryMng;
 use xPapers::Conf qw/ $HARVESTER_USER /;
 binmode(STDOUT,'utf8');
 
+#xPapers::EntryMng->oldifyMode(1);
+
 my $feeds = $ARGV[0] ? xPapers::Harvest::InputFeedMng->get_objects_iterator(query=>[id=>$ARGV[0]]) : xPapers::Harvest::InputFeedMng->get_objects_iterator();
 
 while( my $feed = $feeds->next ){
     my $harvester = xPapers::Harvest::Feeds->new( feed => $feed );
+    $harvester->{forcedSince} = $ARGV[1] if $ARGV[1];
     my @entries = $harvester->harvest();
     for my $entry ( @entries ){
 #        next unless $entry->firstAuthor =~ /Colyvan/;

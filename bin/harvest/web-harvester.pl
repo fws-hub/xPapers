@@ -7,6 +7,7 @@ use Encode qw/decode/;
 use xPapers::Conf;
 use LWP::UserAgent;
 use xPapers::Prop;
+use xPapers::Mail::Message;
 use strict;
 
 my $SCRIPT = "http://www.umsu.de/opp/pl/_pp.pl?since=";
@@ -46,7 +47,9 @@ for (@list) {
         warn "Dropped by cleanAll: " . $e->toString . "\n";
         next;
     }
-    $found += scalar xPapers::EntryMng->addOrDiff($e,$WEB_HARVESTER_USER);
+    my $found_local = scalar xPapers::EntryMng->addOrDiff($e,$WEB_HARVESTER_USER);
+    $found += $found_local;
+    xPapers::Mail::MessageMng->notifyAdmin("unexpected input from wo's harvester","paper is: " . $e->toString) unless $found_local;
 }
 
 # Save time if found anything

@@ -1546,30 +1546,36 @@ sub findPotentialEditors{
           and users.nbAct >= $THRESHOLD_ACTIONS
           and main.published = 1
           and not main.deleted 
-          and userworks.good_journal
-          and not exists ( select * from cats_eterms where cats_eterms.uId = userworks.uId limit 1 )
+#          and not exists ( select * from cats_eterms where cats_eterms.uId = userworks.uId limit 1 )
         group by uId
         having e_count >= $THRESHOLD_PAPERS
         order by e_count desc
         " 
     );
     $sth->execute( $self->id );
-    my @uids;
+    my @found;
     while( my( $uId, $papers_count ) = $sth->fetchrow_array ){
         #print "Checking out $uId for $self->{id}\n";
+        my %t = (uId=>$uId,papers=>$papers_count);
         my $sth1 = $self->dbh->prepare( "
             select uId, count(*) as nb 
-            from log_recent 
-            where uId = ? and time > ? and action in ( $IMPORTANT_ACTIONS )
+            from log_6months 
+            where uId = ? and time > ? 
+#and action in ( $IMPORTANT_ACTIONS )
             group by uId
             having nb >= $THRESHOLD_ACTIONS" 
         );
 
         $sth1->execute( $uId, $START_OF_RECENT );
-        push @uids, $uId if $sth1->fetchrow_array;
-        return @uids if $#uids > 4;
+        if (my($id, $nb) = $sth1->fetchrow_array) {
+            $t{actions} = $nb;
+        } else {
+            $t{actions} = 0;
+        }
+        push @found, \%t;
+        return @found if $#found > 100;
     }
-    return @uids;
+    return @found;
 }
 
 1;

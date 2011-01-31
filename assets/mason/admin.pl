@@ -11,11 +11,15 @@ use xPapers::Pages::PageAuthor;
 use xPapers::OAI::Repository;
 use xPapers::Utils::System;
 
-my ($entry,$diff,$post,$forum,$thread,$tuser,$repository,$feed,$journal, $poll);
+my ($entry,$cat,$diff,$post,$forum,$thread,$tuser,$repository,$feed,$journal, $poll);
 
 if ($ARGS{eId}) {
     $entry = xPapers::Entry->get($ARGS{eId});
     error("Bad entry id") unless $entry;
+}
+if ($ARGS{cId}) {
+    $cat = xPapers::Cat->get($ARGS{cId});
+    error("Bad cat id") unless $cat;
 }
 if ($ARGS{dId}) {
     $diff = xPapers::Diff->new(id=>$ARGS{dId})->load;
@@ -82,18 +86,34 @@ if ($ARGS{c} eq "deleteArchive") {
     my $opts = xPapers::Polls::PollOptions->new(uId=>$tuser->id,poId=>$ARGS{poId})->load;
     $opts->noEmails(1);
     $opts->save;
+    return;
 } elsif ($ARGS{c} eq 'resend') {
     my $opts = xPapers::Polls::PollOptions->new(uId=>$tuser->id,poId=>$ARGS{poId})->load;
     $opts->emailStep(0);
     $opts->save;
-}
-
-
-
-if ($ARGS{c} eq "moveThread") {
+    return;
+} elsif ($ARGS{c} eq 'inviteEditor') {
+    my $editorship = xPapers::Editorship->new(
+        uId => $tuser->id,
+        cId => $cat->id,
+        auto => 1,
+        status => 10,
+        created=>'now',
+        confirmBy=>DateTime->now->add(days=>14)
+    );
+    $editorship->save;
+    $ARGS{text} =~ s/&quot;/"/g;
+    xPapers::Mail::Message->new(
+        uId=>$tuser->id,
+        brief=>"Invitation to edit " . $cat->name,
+        content=>$ARGS{text}
+    )->save;
+    return;
+} elsif ($ARGS{c} eq "moveThread") {
     $thread->fId($forum->id);
     $thread->save;
     $forum->clear_cache;
+    return;
 } elsif ($ARGS{c} eq 'skipNotices') {
     $post->notifiedMode(['weekly','daily','instant']);
     $post->save;

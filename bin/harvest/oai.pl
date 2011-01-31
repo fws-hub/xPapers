@@ -97,6 +97,7 @@ while( my $repo = $repos_it->next ){
         my $name = $repo->name;
         print 'Harvesting ' . $repo->name . " [$repo->{id}]\n";
 
+        my $before = $repo->savedRecords;
         $repo->scannedAt( DateTime->now );
         $repo->save;
        
@@ -107,11 +108,13 @@ while( my $repo = $repos_it->next ){
             $h->harvestRepo;
         };
         $repo->lastHarvestDuration( DateTime->now->subtract_datetime_absolute( $repo->scannedAt )->delta_seconds );
-        if( $repo->lastSuccess && $h->{handledRecords} > 10 && $h->{handledRecords} > $repo->{savedRecords} / 4 ){
+        #if( $repo->lastSuccess && $h->{handledRecords} > 10 && $h->{handledRecords} > $repo->{savedRecords} / 4 ){
+        my $difference = $repo->savedRecords - $before;
+        if ($difference >= 25) {
             print "Sending admin alert for sudden increase of articles\n";
             xPapers::Mail::MessageMng->notifyAdmin(
                 "OAI Harvester - sudden increase of articles in $repo->{name}",
-                "There are $h->{handledRecords} new articles imported into \"$repo->{name}\":$DEFAULT_SITE->{server}/archives/view.pl?id=$repo->{id}",
+                "There are $difference new articles imported into \"$repo->{name}\":$DEFAULT_SITE->{server}/archives/view.pl?id=$repo->{id}",
             );
         }
         if( $@ ){

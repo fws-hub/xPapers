@@ -9,6 +9,7 @@ use warnings;
 
 use LWP::Simple;
 use URI;
+use JSON::XS 'decode_json';
 
 use xPapers::Conf;
 
@@ -27,8 +28,8 @@ sub sendPageDiff {
     my $diff = shift;
     $diff->load;
     my $page = $diff->object;
-    return "No page at " . $diff->id . "\n" if !$page;
-    my $address = URI->new( $OPP_ADDRESS );
+    return {status=>0,msg=>"No page at " . $diff->id} if !$page;
+    my $address = URI->new( $OPP_ADDRESS || 'http://localhost/cgi/opp/update.pl' );
     my $action;
 #    if( $diff->type eq 'update' or $diff->type eq 'restore' ){
 #        $action = 'add';
@@ -36,24 +37,39 @@ sub sendPageDiff {
 #    elsif( $diff->type eq 'delete' ){
 #        $action = 'delete'
 #    }
+    my $query = {
+     crawl => $OPP_CRAWL_DEPTH, 
+     author=> $page->author->fullname
+    };
+
     if( $page->deleted ){
-        $action = 'delete';
+        $query->{action} = 'delete';
+        $query->{id} = $page->url;
+    } elsif( $diff->type eq 'add' or !$diff->{url}->{before} ) {
+        $query->{action} = 'add';
+        $query->{id} = $page->url;
     }
     else{
-        $action = 'add';
+        $query->{action} = 'modify';
+        $query->{url} = $page->url;
+        $query->{id} = $diff->{diff}->{url}->{before};
     }
-    $address->query_form( action => $action, id => $page->url, crawl => $OPP_CRAWL_DEPTH, author=> $page->author->fullname );
-    warn $address;
-    my $json = get( $address );
-    return $json;
+    #print Dumper($query); use Data::Dumper;
+    $address->query_form( %$query );
+    return decode_json get( $address );
 }
 
 sub sendAuthorDiff {
     my $diff = shift;
     $diff->load;
+
+    return {status=>1,msg=>"trivially satisfied (intercepted by xPapers::Link::OPPTools)"} if 
+        $diff->type eq 'add' or !($diff->type eq 'delete' or $diff->{diff}->{firstname} or $diff->{diff}->{lastname}); # we don't need to do those.
+
     my $author = $diff->object;
-    return "No author at " . $diff->id . "\n" if !$author;
-    my $address = URI->new( $OPP_ADDRESS );
+    return {status=>0,msg=>"No author at " . $diff->id} if !$author;
+
+    my $address = URI->new( $OPP_ADDRESS || 'http://localhost/cgi/opp/update.pl' );
     my $name = $author->fullname;;
     $name = '' if $author->deleted;
 #    if( $diff->type eq 'update' or $diff->type eq 'restore' ){
@@ -64,9 +80,11 @@ sub sendAuthorDiff {
 #    }
     my $out;
     for my $page ( $author->pages ){
-        $address->query_form( action => 'modify', id => $page->url, author => $name );
+        next unless $page->url;
+        $address->query_form( action => $diff->type eq 'update' ? 'modify' : 'delete', id => $page->url, author => $name );
         warn $address;
-        $out .= get( $address );
+        $out = decode_json get( $address );
+        return $out unless $out->{status};
     }
     return $out;
 }

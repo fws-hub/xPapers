@@ -3,7 +3,7 @@
     $ARGS{context} ||= $ARGS{__cat__};
     my $level = $ARGS{level} || 1;
     return unless $ARGS{__cat__};
-    return if $m->cache_self(key=>"struct_c2dc$ARGS{__cat__}->{id}--$ARGS{context}->{id}/$ARGS{depth}--$ARGS{dlevel}--$ARGS{level}",expires_in=>"4 hour");
+    return if $m->cache_self(key=>"struct_c2h$ARGS{__cat__}->{id}--$ARGS{context}->{id}/$ARGS{depth}--$ARGS{dlevel}--$ARGS{level}--$ARGS{editors}--$ARGS{finder}",expires_in=>"4 hour");
 </%init>
 <%perl>
     return unless $ARGS{depth} or $ARGS{__cat__}->{catCount};
@@ -13,7 +13,7 @@
 %if ($ARGS{depth}) {
     <div class="cat cat<%$level%>"<%$space%>>
     <%$ARGS{PT} ? "<a name='a$ARGS{__cat__}->{id}'></a>" : ""%>
-    <%$rend->renderCatTO($ARGS{__cat__}, "tocCatName catName$namel", $s, $ARGS{ref} ? "*" : "",$ARGS{editors})%>
+    <%$rend->renderCatTO($ARGS{__cat__}, "tocCatName catName$namel", $s, $ARGS{ref} ? "*" : "",$ARGS{editors}||$ARGS{finder},$ARGS{finder})%>
 %}
     <%perl>
     if (!$ARGS{ref} and ($ARGS{__cat__}->{pLevel} != 1 or $level==1 or $ARGS{PT})) {
@@ -41,6 +41,7 @@
                 depth=>$ARGS{depth}+1,
                 context=>$ARGS{context},
                 editors=>$ARGS{editors},
+                finder=>$ARGS{finder},
                 PT => $ARGS{PT} # pass through areas
             ) for @$subs;
             print '</div>' if $ARGS{depth};

@@ -1445,7 +1445,7 @@ function addEntry(catId,ed,height) {
 */
 
 function userDelete(id) {
-    var reason = prompt("Please tell us briefly what is wrong with this entry that we should remove it from <% $s->{niceName} %>' database.","");
+    var reason = prompt("Please tell us briefly what is wrong with this entry that we should remove it from <% $s->{niceName} %>' database.\n\n**IMPORTANT** \n\n1. A paper that has been deleted will never be re-harvested automatically. So if you delete one of your drafts you want to hide for now, you will have to add it back manually when you no longer want to hide it. The paper will not even re-appear when we harvest it from the publisher. That is the point of deletion after all.\n\n2. Is this a *duplicate*? Cancel this and mark it as duplicate using the appropriate option instead.","");
     if (!reason) return;
     ppAct("userDelete", {eId:id, reason: reason}, function() { alert("The entry has been flagged for deletion.")} );
 }

@@ -361,7 +361,7 @@ our $CAT_TESTING_SET = 0.05;
 # Editor finder
 
 our $IMPORTANT_ACTIONS = "'edit'";
-our $START_OF_RECENT = DateTime->now->subtract( days => 30 )->ymd;
+our $START_OF_RECENT = DateTime->now->subtract( months => 6 )->ymd;
 our $THRESHOLD_ACTIONS = 4;
 our $THRESHOLD_PAPERS  = 1;
 

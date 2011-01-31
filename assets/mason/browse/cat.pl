@@ -5,11 +5,13 @@ my $subs = $cat->children_o;
 if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
     $m->comp("../bits/rlist.pl",%ARGS,__cat__=>$cat);
 } elsif ($cat->{pLevel} <= 1 and $cat->{catCount} and !$EXPAND_CAT{$cat->{id}} and !($ARGS{forceListing} and $SECURE)) {
+    my $finder = $ARGS{finder} ? '1' : '0';
+    my $editors = $finder;
 </%perl>
     <div class='miniheader' style='font-weight:bold;border-top:1px solid #aaa'>In this area</div>
     <table width="100%">
     <tr>
-    <td valign="top" width="340px">
+    <td valign="top" width="<%$finder?'800px':'340px'%>">
     <div style='font-size:11px;padding-bottom:5px'>
     <form id="inside">
         Search inside: <input class="topSearch" style='font-size:11px' type="text" name="catq" value="<%$ARGS{catq}%>">
@@ -22,11 +24,12 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
     <div class='toc'>
     <%perl>
     event('cat toc','start');
-    my $toc = $m->cache->get("toc-f-$cat->{id}");
-    #$toc = undef;
+    my $key = "toc-h-$cat->{id}-$finder";
+    my $toc = $m->cache->get($key);
+    $toc = undef;
     if (!$toc) {
-        $toc = $m->scomp("struct_c2.pl",%ARGS,__cat__=>$cat,depth=>0);
-        $m->cache->set( "toc$cat->{id}" , $toc,'2h' );
+        $toc = $m->scomp("struct_c2.pl",%ARGS,__cat__=>$cat,editors=>$editors,finder=>$finder,depth=>0);
+        $m->cache->set( $key , $toc,'2h' );
     }
     print "$toc";
     event('cat toc','end');

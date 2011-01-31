@@ -69,6 +69,8 @@ sub addeditor {
 </%perl>
 <h3>Editors</h3>
 <p>
+<a href="potential_editors.pl">View potential editors</a>
+<p>
 <form>
 <input type="submit" name="terminate" value="Terminate current editors">
 <input type="checkbox" name="recursive"> Do the same for primary subcategories (if any).<br>

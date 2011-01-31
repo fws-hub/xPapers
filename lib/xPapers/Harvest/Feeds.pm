@@ -71,7 +71,7 @@ sub _build_rss {
 has since => ( is => 'rw', lazy_build => 1 );
 sub _build_since {
     my $self = shift;
-    return DateTime->now->subtract( hours => $self->feed->useSince  ) if $self->feed->useSince;
+    return DateTime->now->subtract( hours => $self->feed->useSince ) if $self->feed->useSince;
     return;
 }
 
@@ -81,7 +81,7 @@ sub _build_url {
     my $url = URI->new( $self->feed->url );
     my %params;
     $params{pass} = $self->feed->pass if $self->feed->pass;
-    $params{since} = DateTime::Format::MySQL->format_datetime( $self->since ) if defined $self->since;
+    $params{since} = ($self->{forcedSince} ? $self->{forcedSince} : DateTime::Format::MySQL->format_datetime( $self->since )) if defined $self->since;
     $url->query_form( %params );
     return $url;
 }
@@ -177,6 +177,7 @@ sub entry_from_item {
     }
     if (ref($item->{dc}) and $item->{dc}{creator}) {
         my @authors = _to_list( $item->{dc}{creator} );
+        $authors[$_] =~ s/,\s+Jr\.?$// for (0..$#authors);
         if ($#authors==0 and $authors[0] =~ /,.+,|;/) {
             $entry->addAuthors(parseAuthors($authors[0]));
         } else {

@@ -17,7 +17,7 @@ sub computeIncompleteWarnings {
 
     my $db = xPapers::DB->new;
     my $dbh = $db->dbh;
-    my $user_sql = $uId ? " and userworks.uId=$uId" : " and users.betaTester ";
+    my $user_sql = $uId ? " and userworks.uId=$uId" : " and (not users.betaTester or isnull(betaTester))";
     my $sth = $dbh->prepare( 
         "select main.id, title, author_abstract, pub_type, main.catCount, online, draft, uId 
         from main 
@@ -74,7 +74,7 @@ sub generateMessages {
     for my $entry (@$entries) {
         $entry->{messages} = [];
         if( !$entry->{catCount} ){
-            push @{ $entry->{messages} }, "This item is not in any category. This will make it very hard to find.\n";
+            push @{ $entry->{messages} }, "This item is not in any category. This will make it hard to find.\n";
             $major{$entry->{id}} = 1;
         } elsif( $entry->{no_leaf} ){
             push @{ $entry->{messages} }, "This paper is not in any leaf category.\n";

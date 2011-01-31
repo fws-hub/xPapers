@@ -1310,7 +1310,7 @@ sub renderCat {
 }
 
 sub renderCatTO {
-    my ($me, $c, $class,$s,$star,$eds) = @_;
+    my ($me, $c, $class,$s,$star,$eds,$finder) = @_;
     $class ||= "catName";
     my $r = "<a rel='section' class='$class' href='/browse/" . $c->eun . "'>" . $c->{name} . "</a>$star";
     if ($eds) {
@@ -1319,6 +1319,8 @@ sub renderCatTO {
             return $r . '<span class="toc-eds">' .
                         join(" and ", map {$me->renderUserC($_,0)} @eds)
                         .'</span>';
+        } elsif ($finder) {
+            return $r . "<span class='toc-eds'><a href='/browse/" . $c->eun . "/potential_editors.pl'>Find editors</a></span>";
         } else {
             return $r;
         }
@@ -1599,6 +1601,16 @@ sub joinif {
  	} else {
  		return "";
  	}
+}
+
+sub join_and {
+    my $me = shift;
+    my $conjunction = shift;
+    my $last = pop;
+    return $last unless scalar @_;
+    my $list = join(", ",@_);
+    $list .= "," if @_ > 1;
+    return "$list $conjunction $last";
 }
 
 sub gl {
