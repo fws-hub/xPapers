@@ -6,12 +6,12 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
     $m->comp("../bits/rlist.pl",%ARGS,__cat__=>$cat);
 } elsif ($cat->{pLevel} <= 1 and $cat->{catCount} and !$EXPAND_CAT{$cat->{id}} and !($ARGS{forceListing} and $SECURE)) {
     my $finder = $ARGS{finder} ? '1' : '0';
-    my $editors = $finder;
+    my $editors = 1;#$finder;
 </%perl>
     <div class='miniheader' style='font-weight:bold;border-top:1px solid #aaa'>In this area</div>
     <table width="100%">
     <tr>
-    <td valign="top" width="<%$finder?'800px':'340px'%>">
+    <td valign="top" style="min-width:<%$finder?'800px':'540px'%>">
     <div style='font-size:11px;padding-bottom:5px'>
     <form id="inside">
         Search inside: <input class="topSearch" style='font-size:11px' type="text" name="catq" value="<%$ARGS{catq}%>">

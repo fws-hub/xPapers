@@ -1313,21 +1313,21 @@ sub renderCatTO {
     my ($me, $c, $class,$s,$star,$eds,$finder) = @_;
     $class ||= "catName";
     my $r = "<a rel='section' class='$class' href='/browse/" . $c->eun . "'>" . $c->{name} . "</a>$star";
+    $r .= "<span class='hint'> (<b class='hint'>" . format_number($c->preCountWhere($s)) . "</b>" . ($c->{catCount} && $c->localCount($s) && $c->{pLevel} > 1 ? " | ".format_number($c->localCount($s)) : "") . ")</span>";
     if ($eds) {
         my @eds = $c->editors;
         if ($#eds > -1) {
-            return $r . '<span class="toc-eds">' .
-                        join(" and ", map {$me->renderUserC($_,0)} @eds)
-                        .'</span>';
+            $r .= '<span class="toc-eds">' .
+                        join(" and ", map {$me->renderUserC($_,1)} @eds) .
+#                        ($#eds > 0 ? ', eds.' : ', ed.') .
+                        '</span>';
         } elsif ($finder) {
-            return $r . "<span class='toc-eds'><a href='/browse/" . $c->eun . "/potential_editors.pl'>Find editors</a></span>";
+            $r .= "<span class='toc-eds'><a href='/browse/" . $c->eun . "/potential_editors.pl'>Find editors</a></span>";
         } else {
-            return $r;
         }
 
-    } else {
-        return $r . "<span class='hint'> (<b class='hint'>" . format_number($c->preCountWhere($s)) . "</b>" . ($c->{catCount} && $c->localCount($s) && $c->{pLevel} > 1 ? " | ".format_number($c->localCount($s)) : "") . ")</span>";
-    }
+    } 
+    return $r;
 }
 
 

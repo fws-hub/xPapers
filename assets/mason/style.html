@@ -1,5 +1,5 @@
 <%perl>
-# build pp.css as required
+# build css as required
 my $src = $s->masonFile( 'style.css' ); 
 my $out = "$PATHS{LOCAL_BASE}/var/dynamic-assets/$s->{name}/style.css";
 if (!-e $out or -M $src < -M $out) {

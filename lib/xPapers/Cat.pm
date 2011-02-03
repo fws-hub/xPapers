@@ -1536,14 +1536,14 @@ sub findPotentialEditors{
     my $self = shift;
 
     my $sth = $self->dbh->prepare( "
-        select userworks.uId, count(*) e_count 
+        select userworks.uId, count(distinct cats_me.eId) e_count 
         from userworks 
           join cats_me on userworks.eId = cats_me.eId 
-          join primary_ancestors on cats_me.cId = primary_ancestors.cId 
+          join ancestors on cats_me.cId = ancestors.cId 
           join main on userworks.eId = main.id
           join users on userworks.uId = users.id
         where aId = ?
-          and users.nbAct >= $THRESHOLD_ACTIONS
+#          and users.nbAct >= $THRESHOLD_ACTIONS
           and main.published = 1
           and not main.deleted 
 #          and not exists ( select * from cats_eterms where cats_eterms.uId = userworks.uId limit 1 )
@@ -1571,6 +1571,12 @@ sub findPotentialEditors{
             $t{actions} = $nb;
         } else {
             $t{actions} = 0;
+        }
+
+        my $sth2 = $self->dbh->prepare( " select count(*) as nb from diffs where uId=? ");
+        $sth2->execute($uId);
+        if (my($nbe) = $sth2->fetchrow_array) {
+            $t{edits} = $nbe;
         }
         push @found, \%t;
         return @found if $#found > 100;

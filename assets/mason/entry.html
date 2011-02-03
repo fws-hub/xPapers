@@ -49,7 +49,8 @@ $e->{extraOptions} =
 num(format_number($e->viewings),"download") . 
 " &nbsp;|&nbsp; Added to index: " . $rend->renderDate((laterThan($e->added,$LAUNCH_DATE) ? $e->added : $LAUNCH_DATE)) . 
 " &nbsp;|&nbsp; <span title='Mark as duplicate' class='ll' onclick=\"window.location='/utils/duplicate.pl?eId=$e->{id}'\">Mark as duplicate</span>" .
-"&nbsp;|&nbsp; <span title=\"Delete from <% $s->{niceName} %>\" class=\"ll\" onclick=\'userDelete(\"$e->{id}\")\'>Remove from index</span>".
+" &nbsp;|&nbsp; <span title=\"Delete from <% $s->{niceName} %>\" class=\"ll\" onclick=\'userDelete(\"$e->{id}\")\'>Remove from index</span>".
+" &nbsp;|&nbsp; <a href=\"/utils/revisions.pl?eId=$e->{id}\" rel='nofollow'>Revision history</a>" . 
 ( $e->cn_full ? "&nbsp;|&nbsp; Call number: $e->{cn_full}":"") . 
 "$coin</div>" . $m->scomp("bits/addthis.html",caption=>"Share this paper");
 

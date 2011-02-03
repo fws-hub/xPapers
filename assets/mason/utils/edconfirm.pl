@@ -59,7 +59,7 @@ if ($ARGS{do}) {
     return;
 }
 </%perl>
-<p>You have been offered the following editorships. Please take the time to review the <a href="/help/editors.html">Editor's Guide</a> to make sure you know what is expected of you before accepting them.<p>
+<p>You have been offered the following editorships. We recommend that you review <a href="/help/editors.html">Editor's Guide</a> to make sure you know what is expected before accepting them.<p>
 <form method="post">
 <input type="hidden" name="do" value="<%$user->{id}%>">
 
