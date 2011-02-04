@@ -1,6 +1,6 @@
 <& ../header.html, noindex=>1 &>
 <%perl>
-error("Not allowed") unless $SECURE or ($user and $user->{id} == 1052 );
+error("Not allowed") unless $SECURE;
 
 my $c = 0;
 while ($ARGS{"newemail$c"} or $ARGS{"giveUp$c"}) {
