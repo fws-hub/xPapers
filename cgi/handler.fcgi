@@ -126,7 +126,7 @@ use xPapers::Site;
         if (!$AJX) {
             print STDOUT "Content-type: text/html\n\n";
             $HTTP_HEADER_SENT = 1;
-            print STDOUT $m->scomp("/header.html") unless $embed;
+            print STDOUT $m->scomp("/header.html",noindex=>1) unless $embed;
             print STDOUT <<END;
                 <div id='errcontent'>
                 <h2 style='color:#$C1'>Ooops</h2>

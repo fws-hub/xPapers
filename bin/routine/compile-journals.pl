@@ -1,6 +1,7 @@
 use xPapers::Util qw/quote/;
 use xPapers::DB;
 use xPapers::Journal;
+use DateTime;
 
 my $table = "main";
 my $bmin = 5;
@@ -28,7 +29,7 @@ while (my $h = $r->fetchrow_hashref) {
 
 #$c->do("update $table set pubHarvest=1 where db_src='direct' and length(source)>2 and pub_type='journal'");
 $c->do("update $table set pubHarvest=1 where db_src='direct' and length(source)>2 and pub_type='journal'");
-$c->do("update $table,$jtable set pubHarvest=1 where $table.source = $jtable.name and $jtable.nbHarvest >= 20");
+$c->do("update $table,$jtable set pubHarvest=1 where $table.source = $jtable.name and $jtable.nbHarvest >= 2");
 
 my $f = "select source as name, if(count(*) / count(distinct volume) > 10,1,0) as showIssues, max(volume) as latestVolume, count(*) as nb,concat(max(volume),' (',max(date),')') as maxVol,concat(min(volume),' (',min(date),')') as minVol, count(*) > $bmin as browsable, sum(pubHarvest) as nbHarvest, count(distinct volume) as nbVol from $table where pub_type='journal' and volume > 0 and volume < 300 and date rlike '^[0-9]+\$' and not deleted group by source order by source";
 #print $f;
@@ -44,6 +45,16 @@ while (my $h = $r->fetchrow_hashref) {
         $q = "update $jtable set \%s where name = '" . quote($h->{name}) . "'";
     } else {
         $q = "insert into $jtable set \%s";
+    }
+
+    # calculate better nbHarvest figure that counts only recent items
+    #warn DateTime->now->year;
+
+    my $res = xPapers::DB->exec("select count(*) as nb from main where not deleted and pub_type ='journal' and source like ? and date >= ?", $h->{name}, DateTime->now->year-1);
+    if (my $h2 = $res->fetchrow_hashref) {
+        $h->{nbHarvest} = $h2->{nb};
+    } else {
+        die "coudln't count harvested items for journal $h->{name};";
     }
 
     my $set;

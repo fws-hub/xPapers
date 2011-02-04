@@ -1,6 +1,7 @@
 package xPapers::Harvest::Common;
 use xPapers::Util qw/decodeResp decodeHTMLEntities rmTags toUTF getFileContent parseAuthors file2hash hash2file lastname sameEntry/;
 use xPapers::Render::Regimented;
+use xPapers::Render::Text;
 use xPapers::Entry;
 use LWP::UserAgent;
 #use LWP::Debug qw(+);
@@ -301,7 +302,7 @@ sub rHarvest {
 
                 # Add more URLs to sequence if crawling and not a content page
                 my @new;
-                if ($me->{crawl} and !$res) {
+                if ($me->{crawl} and (!$res or $me->{conf}->{followOnContent})) {
                     foreach my $base (@{$sequences[0]}) {
                         #print "check for $base\n";
                         foreach ($ospage =~ /$me->{conf}->{crawlPrefix}href=['"]([^'"]*\Q$base\E[^'"]*)['"]/ig) {
@@ -816,7 +817,7 @@ sub parsePage {
     }
     if ($me->{debug}) {
         print "$res";
-        print "$co parsed\n";
+        print "$co parsed and saved\n";
     }
     return $res;
 }

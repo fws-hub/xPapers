@@ -13,7 +13,7 @@
     my $now = DateTime->now(time_zone=>$TIMEZONE)->subtract(minutes=>1);
 
 </%perl>
-<& header.html,title=>$s->{HTML_TITLE},subtitle=>"Contents",%ARGS &>
+<& header.html,title=>$s->{HTML_TITLE},subtitle=>"Contents",noindex=>1,nofollow=>1,%ARGS &>
 
 <style>
 .admopt {

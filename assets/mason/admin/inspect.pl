@@ -1,4 +1,4 @@
-<& ../header.html &>
+<& ../header.html, noindex=>1,nofollow=>1 &>
 <% gh("Inspecting object $ARGS{class} :: $ARGS{oId}") %>
 <%perl>
 

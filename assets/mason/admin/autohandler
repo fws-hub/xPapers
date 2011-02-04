@@ -1,5 +1,4 @@
 <%perl>
-$SECURE = 1;
 error("Access denied") unless $SECURE; # or $ENV{REMOTE_ADDR} eq '150.203.226.205';
 $m->call_next(%ARGS);
 
