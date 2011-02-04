@@ -1,6 +1,4 @@
-
 <%perl>
-$SECURE = 1;
 error('Not allowed') unless $SECURE;
 $NOFOOT = 1;
 use LWP::Simple;
