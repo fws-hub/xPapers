@@ -1,0 +1,9 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Defines constants used across the project.  Near the end of the file it also loads the C</etc/xpapers.d/main.pl> file
+  where it is possible to locally override the constants defined in this file.
+
+NAME: xPapers::Conf
+SUBROUTINES:
+  formatTZ: ''

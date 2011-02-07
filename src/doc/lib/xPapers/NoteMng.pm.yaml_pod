@@ -1,0 +1,9 @@
+---
+AUTHORS: "Zbigniew Lukasiak with contibutions from David Bourget\n\n"
+DESCRIPTION: |+
+  Inherits from L<Rose::DB::Object::Manager>.  This is a manager class for the
+  xPapers::Note class.
+
+METHODS:
+  object_class: ''
+NAME: xPapers::NoteMng

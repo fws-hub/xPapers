@@ -1,0 +1,33 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: ftp_users
+
+FIELDS:
+  gid:
+    desc: ''
+    type: integer
+  homedir:
+    desc: ''
+    type: varchar
+  id:
+    desc: ''
+    type: serial
+  last_scan_time:
+    desc: ''
+    type: bigint
+  passwd:
+    desc: ''
+    type: varchar
+  shell:
+    desc: ''
+    type: varchar
+  uid:
+    desc: ''
+    type: integer
+  userid:
+    desc: ''
+    type: varchar
+NAME: xPapers::FTPUser

@@ -1,0 +1,14 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+METHODS:
+  auth: ''
+  crypt: ''
+  getByEmail: ''
+  getById: ''
+  getByName: ''
+  getWhere: ''
+  object_class: ''
+  pkauth: ''
+  proName: ''
+  sauth: ''
+NAME: xPapers::UserMng

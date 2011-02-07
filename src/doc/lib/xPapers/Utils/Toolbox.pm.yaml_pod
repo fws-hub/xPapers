@@ -1,0 +1,5 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Utils::Toolbox
+SUBROUTINES:
+  indexOf: ''

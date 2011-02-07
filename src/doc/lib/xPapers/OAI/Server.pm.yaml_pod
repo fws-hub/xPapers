@@ -1,0 +1,15 @@
+---
+AUTHORS: "Zbigniew Lukasiak with contibutions from David Bourget\n\n"
+DESCRIPTION: "This is a class implementing an OAI server serving bibliografic data from the xPapers database.\n\n"
+NAME: xPapers::OAI::Server
+SUBROUTINES:
+  GetRecord: ''
+  Identify: ''
+  ListMetadataFormats: ''
+  decode_args: ''
+  encode_args: ''
+  entry_to_xml: ''
+  make_list: ''
+  record_header: ''
+  response: ''
+  rights: ''

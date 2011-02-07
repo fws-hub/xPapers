@@ -1,0 +1,7 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Link::OPPTools
+SUBROUTINES:
+  sendAuthorDiff: ''
+  sendDiff: ''
+  sendPageDiff: ''

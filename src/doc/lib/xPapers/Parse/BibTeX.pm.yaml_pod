@@ -1,0 +1,6 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Parse::BibTeX
+SUBROUTINES:
+  p: ''
+  parse: ''

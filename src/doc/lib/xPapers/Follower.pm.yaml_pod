@@ -1,0 +1,42 @@
+---
+AUTHORS: "Zbigniew Lukasiak with contibutions from David Bourget\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: followers
+  
+  Registers that a user wants to follow an alias, i.e. wants to receive all articles signed by a particular name.
+  Note that an author can use many variants of his name to sign articles - we call these variants 'aliases'.
+
+FIELDS:
+  alias:
+    desc: ''
+    type: varchar
+  created:
+    desc: ''
+    type: timestamp
+  eId:
+    desc: ''
+    type: varchar
+  facebook_id:
+    desc: ''
+    type: bigint
+  fuId:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  ok:
+    desc: ''
+    type: integer
+  original_name:
+    desc: ''
+    type: varchar
+  seen:
+    desc: ''
+    type: integer
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Follower

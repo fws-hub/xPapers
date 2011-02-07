@@ -1,0 +1,95 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: harvest_journals
+  
+  This class represents journal sets from the OAI server at CrossRef.
+  
+  The also included C<xPapers::Link::HarvestJournalMng> class contains C<updateFromFile> method that construct
+  or updates the records according to the csv file normally found at C<http://www.crossref.org/titlelist/titleFile.csv>.
+
+FIELDS:
+  deleted:
+    desc: ''
+    type: character
+  doi:
+    desc: ''
+    type: varchar
+  fetched:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  inCrossRef:
+    desc: ''
+    type: integer
+  issn:
+    desc: ''
+    type: varchar
+  issn2:
+    desc: ''
+    type: varchar
+  lastFetchSuccess:
+    desc: ''
+    type: datetime
+  lastFetched:
+    desc: ''
+    type: integer
+  lastFound:
+    desc: ''
+    type: datetime
+  lastIssue:
+    desc: ''
+    type: varchar
+  lastNewEntries:
+    desc: ''
+    type: integer
+  lastPaper:
+    desc: ''
+    type: varchar
+  lastSuccess:
+    desc: ''
+    type: datetime
+  localName:
+    desc: ''
+    type: varchar
+  name:
+    desc: ''
+    type: varchar
+  newEntries:
+    desc: ''
+    type: integer
+  noTitle:
+    desc: ''
+    type: integer
+  nonEng:
+    desc: ''
+    type: integer
+  oai_set:
+    desc: ''
+    type: varchar
+  oldEntries:
+    desc: ''
+    type: integer
+  origin:
+    desc: ''
+    type: character
+  publisher:
+    desc: ''
+    type: varchar
+  subjects:
+    desc: ''
+    type: text
+  suggestion:
+    desc: ''
+    type: integer
+  toHarvest:
+    desc: ''
+    type: integer
+METHODS:
+  canonical_issn: ''
+  canonical_issn2: ''
+NAME: xPapers::Link::HarvestJournal

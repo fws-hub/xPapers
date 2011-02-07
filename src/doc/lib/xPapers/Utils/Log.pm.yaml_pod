@@ -1,0 +1,11 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Utils::Log
+SUBROUTINES:
+  action: ''
+  country: ''
+  getcolor: ''
+  lookup: ''
+  mycmp: ''
+  myjoin: ''
+  showentry: ''

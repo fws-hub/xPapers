@@ -1,0 +1,12 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+METHODS:
+  class_behavior: ''
+  classes: ''
+  is_excluded: ''
+  match: ''
+  object_class: ''
+  prep_cache: ''
+  search_list: ''
+  verdict: ''
+NAME: xPapers::LCRangeMng

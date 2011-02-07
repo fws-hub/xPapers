@@ -1,0 +1,54 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>
+  
+  Table: main_journals
+
+FIELDS:
+  archive:
+    desc: ''
+    type: integer
+  browsable:
+    desc: ''
+    type: integer
+  cId:
+    desc: ''
+    type: integer
+  hide:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  latestVolume:
+    desc: ''
+    type: integer
+  listCount:
+    desc: ''
+    type: integer
+  maxVol:
+    desc: ''
+    type: varchar
+  minVol:
+    desc: ''
+    type: varchar
+  name:
+    desc: ''
+    type: varchar
+  nb:
+    desc: ''
+    type: integer
+  nbHarvest:
+    desc: ''
+    type: integer
+  nbVol:
+    desc: ''
+    type: integer
+  showIssues:
+    desc: ''
+    type: integer
+METHODS:
+  getByName: ''
+  popular: ''
+NAME: xPapers::Journal

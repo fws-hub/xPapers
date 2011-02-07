@@ -1,0 +1,29 @@
+---
+AUTHORS: "Zbigniew Lukasiak with contibutions from David Bourget\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: notes
+  
+  Private notes a user can save for an Entry.
+
+FIELDS:
+  body:
+    desc: ''
+    type: text
+  created:
+    desc: ''
+    type: datetime
+  eId:
+    desc: ''
+    type: varchar
+  id:
+    desc: ''
+    type: serial
+  modified:
+    desc: ''
+    type: timestamp
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Note

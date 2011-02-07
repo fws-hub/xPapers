@@ -1,0 +1,19 @@
+---
+ATTRIBUTES:
+  associate_tag: ''
+  handler: ''
+  locale: ''
+  parser: ''
+  ua: ''
+AUTHORS: |+
+  Zbigniew Lukasiak
+  with contibutions David Bourget
+
+DESCRIPTION: "Inherits from: L<Moose::Object>\n\n"
+METHODS:
+  getData: ''
+  is_change_num: ''
+  is_change_text: ''
+  mkQuotes: ''
+  my_findnodes: ''
+NAME: xPapers::Link::Affiliate::Amazon

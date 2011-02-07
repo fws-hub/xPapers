@@ -1,0 +1,136 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: diffs
+  
+    Represents an update to a set of objects.
+  
+    # store a to-be-created object as a diff
+  
+    my $diff = xPapers::Diff->new;
+    $diff->create_object($object);
+    $diff->save;
+  
+    # store modification to an object
+  
+    my $diff = xPapers::Diff->new;
+    $diff->before($object);
+    .. modify $object ..
+    $diff->after($object);
+    $diff->save;
+  
+    # apply a diff to a loaded object
+  
+    $diff->apply($object);
+  
+    # apply a diff to an in-database object
+  
+    $diff->accept;
+  
+    # compute the reverse of a diff
+  
+    my $reverse = $diff->reverse;
+  
+    # compute a diff corresponding to applying diff1 followed by diff2:
+  
+    my $diff3 = $diff1->followedBy($diff2);
+  
+    Most changes to an object's fields and changes to its relations can be traced using xPapers::Diff, but diffs of relata are not recursive (they stop at the first level of relata). 
+  
+    **XXX Relation diffs are likely to be buggy at the moment **
+  
+    PREREQUISITES 
+  
+    - Diffed classes must be have a numeric id field called 'id' as primary key. 
+    - Diffed classes must extend xPapers::Object::Diffable and override two methods:
+  
+    diffable: hashref (returns a hashref containing the names of the fields which should be used for diffing)
+    diffable_relationships: hashref (return a hashref containing the names of the relations which should be used for diffing)
+  
+
+FIELDS:
+  checked:
+    desc: ''
+    type: integer
+  class:
+    desc: ''
+    type: varchar
+  created:
+    desc: ''
+    type: datetime
+  dgId:
+    desc: ''
+    type: integer
+  diffb:
+    desc: ''
+    type: blob
+  host:
+    desc: ''
+    type: varchar
+  id:
+    desc: ''
+    type: serial
+  note:
+    desc: ''
+    type: varchar
+  oId:
+    desc: ''
+    type: varchar
+  relo1:
+    desc: ''
+    type: varchar
+  relo2:
+    desc: ''
+    type: varchar
+  reverse_of:
+    desc: ''
+    type: integer
+  reversed:
+    desc: ''
+    type: integer
+  session:
+    desc: ''
+    type: varchar
+  status:
+    desc: ''
+    type: integer
+  status_changed:
+    desc: ''
+    type: datetime
+  type:
+    desc: ''
+    type: varchar
+  uId:
+    desc: ''
+    type: integer
+  updated:
+    desc: ''
+    type: timestamp
+  version:
+    desc: ''
+    type: integer
+METHODS:
+  accept: ''
+  after: ''
+  apply: ''
+  before: ''
+  compute: ''
+  create_object: ''
+  delete_object: ''
+  dump: ''
+  followedBy: ''
+  is_null: ''
+  is_object: ''
+  load: ''
+  map_to_class: ''
+  object: ''
+  object_back_then: ''
+  reject: ''
+  reverse: ''
+  same: ''
+  save: ''
+  serialize: ''
+  trim_object: ''
+NAME: xPapers::Diff

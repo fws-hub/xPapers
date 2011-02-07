@@ -1,0 +1,12 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Parse::Regimented
+SUBROUTINES:
+  catchAll: ''
+  new: ''
+  parseCategory: ''
+  parseCategoryInline: ''
+  parseEntryExtraLine: ''
+  parseEntryFirstLine: ''
+  parseSpecial: ''
+  youParsed: ''

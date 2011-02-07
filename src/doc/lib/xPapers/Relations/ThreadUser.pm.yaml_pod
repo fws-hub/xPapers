@@ -1,0 +1,15 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: threads_m
+
+FIELDS:
+  tId:
+    desc: ''
+    type: integer
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Relations::ThreadUser

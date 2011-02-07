@@ -1,0 +1,22 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: main_jlists
+
+FIELDS:
+  jlId:
+    desc: ''
+    type: serial
+  jlName:
+    desc: ''
+    type: varchar
+  jlOwner:
+    desc: ''
+    type: integer
+METHODS:
+  add: ''
+  get: ''
+  reset: ''
+NAME: xPapers::JournalList

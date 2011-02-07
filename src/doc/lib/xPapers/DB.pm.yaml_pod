@@ -1,0 +1,13 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::DB
+SUBROUTINES:
+  count: ''
+  countWhere: ''
+  countWith: ''
+  dbi_connect: ''
+  debugOff: ''
+  debugOn: ''
+  exec: ''
+  foundRows: ''
+  moveTable: ''

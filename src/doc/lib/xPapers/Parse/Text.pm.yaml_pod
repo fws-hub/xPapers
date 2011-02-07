@@ -1,0 +1,12 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Parse::Text
+SUBROUTINES:
+  parse: ''
+  parse_as_book: ''
+  parse_as_book_section: ''
+  parse_as_incomplete: ''
+  parse_as_journal_article: ''
+  parse_as_manuscript: ''
+  parse_as_thesis: ''
+  parse_list: ''

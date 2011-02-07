@@ -1,0 +1,12 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Utils::Profiler
+SUBROUTINES:
+  compile_durations: ''
+  event: ''
+  event_duration: ''
+  initProfiling: ''
+  profile: ''
+  summarize: ''
+  summarize_html: ''
+  summarize_text: ''

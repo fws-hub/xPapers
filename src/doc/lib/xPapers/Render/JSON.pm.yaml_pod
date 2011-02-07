@@ -1,0 +1,16 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Render::JSON
+SUBROUTINES:
+  afterGroup: ''
+  beforeGroup: ''
+  beginCategory: ''
+  cleanch: ''
+  endBiblio: ''
+  endCategory: ''
+  new: ''
+  renderEntry: ''
+  renderHeader: ''
+  renderNav: ''
+  startBiblio: ''
+  tpl: ''

@@ -1,0 +1,24 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: aliases
+
+FIELDS:
+  firstname:
+    desc: ''
+    type: varchar
+  id:
+    desc: ''
+    type: serial
+  lastname:
+    desc: ''
+    type: varchar
+  name:
+    desc: ''
+    type: varchar
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Alias

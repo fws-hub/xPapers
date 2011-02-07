@@ -1,0 +1,36 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: invites
+
+FIELDS:
+  created:
+    desc: ''
+    type: datetime
+  gId:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: integer
+  key:
+    desc: ''
+    type: varchar
+  rEmail:
+    desc: ''
+    type: varchar
+  rId:
+    desc: ''
+    type: integer
+  status:
+    desc: ''
+    type: varchar
+  uId:
+    desc: ''
+    type: integer
+  updated:
+    desc: ''
+    type: datetime
+NAME: xPapers::Invite

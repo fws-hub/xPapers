@@ -1,0 +1,11 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Link::Free
+SUBROUTINES:
+  bad: ''
+  file2array: ''
+  free: ''
+  freeEntry: ''
+  init: ''
+  new: ''
+  site: ''

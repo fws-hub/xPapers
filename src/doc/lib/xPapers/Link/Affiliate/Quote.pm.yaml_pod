@@ -1,0 +1,48 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: affiliate_quotes
+
+FIELDS:
+  bargain_ratio:
+    desc: ''
+    type: integer
+  company:
+    desc: ''
+    type: varchar
+  currency:
+    desc: ''
+    type: varchar
+  detailsURL:
+    desc: ''
+    type: varchar
+  eId:
+    desc: ''
+    type: varchar
+  found:
+    desc: ''
+    type: timestamp
+  id:
+    desc: ''
+    type: bigserial
+  link:
+    desc: ''
+    type: varchar
+  link_class:
+    desc: ''
+    type: varchar
+  locale:
+    desc: ''
+    type: varchar
+  price:
+    desc: ''
+    type: numeric
+  state:
+    desc: ''
+    type: varchar
+  usd_price:
+    desc: ''
+    type: numeric
+NAME: xPapers::Link::Affiliate::Quote

@@ -1,0 +1,31 @@
+---
+ATTRIBUTES:
+  DEBUG: ''
+  errors: ''
+  fetchedRecords: ''
+  handledRecords: ''
+  limit: ''
+  metadataPrefix: ''
+  netHarvester: ''
+  nonEngRecords: ''
+  parser: ''
+  pluginMng: ''
+  repo: ''
+  rescan: ''
+AUTHORS: |+
+  Zbigniew Lukasiak
+  with contibutions David Bourget
+
+DESCRIPTION: |+
+  Inherits from: L<xPapers::OAI::Harvester>
+  
+  Uses its own XML parser to parse the answers - because the CrossRef OAI server uses a special vocabulary.
+
+METHODS:
+  dorecs: ''
+  handle_entry: ''
+  incrementField: ''
+  increment_fetched: ''
+  save_set_time: ''
+  updateJournalSets: ''
+NAME: xPapers::OAI::Harvester::CrossRef

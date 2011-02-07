@@ -1,0 +1,18 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: main_jlm
+
+FIELDS:
+  jId:
+    desc: ''
+    type: integer
+  jlId:
+    desc: ''
+    type: integer
+  jlmId:
+    desc: ''
+    type: serial
+NAME: xPapers::Relations::JournalInList

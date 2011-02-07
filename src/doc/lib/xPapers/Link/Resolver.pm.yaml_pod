@@ -1,0 +1,25 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: resolvers
+
+FIELDS:
+  iId:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  url:
+    desc: ''
+    type: varchar
+  weight:
+    desc: ''
+    type: float
+METHODS:
+  link_for_entry: ''
+  link_for_entry_new: ''
+  link_for_entry_old: ''
+NAME: xPapers::Link::Resolver

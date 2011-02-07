@@ -1,0 +1,30 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: links
+
+FIELDS:
+  dead:
+    desc: ''
+    type: integer
+  failures:
+    desc: ''
+    type: integer
+  firstFailed:
+    desc: ''
+    type: datetime
+  lastChecked:
+    desc: ''
+    type: datetime
+  safe:
+    desc: ''
+    type: integer
+  url:
+    desc: ''
+    type: varchar
+METHODS:
+  check: ''
+  ok: ''
+NAME: xPapers::Link

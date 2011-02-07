@@ -1,0 +1,21 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>
+  
+  Table: poll_guests
+
+FIELDS:
+  iId:
+    desc: ''
+    type: integer
+  invites:
+    desc: ''
+    type: integer
+  isOut:
+    desc: ''
+    type: integer
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Polls::PollGuest

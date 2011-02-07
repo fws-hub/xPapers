@@ -1,0 +1,14 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Parse::MARCXML
+SUBROUTINES:
+  cache_find: ''
+  cache_save: ''
+  countrecs: ''
+  f: ''
+  fixprefix: ''
+  parse: ''
+  parserec: ''
+  processdir: ''
+  title: ''
+  trim: ''

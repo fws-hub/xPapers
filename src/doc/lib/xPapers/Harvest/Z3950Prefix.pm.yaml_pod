@@ -1,0 +1,21 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: z3950_prefixes
+
+FIELDS:
+  created:
+    desc: ''
+    type: timestamp
+  id:
+    desc: ''
+    type: serial
+  lastSuccess:
+    desc: ''
+    type: datetime
+  prefix:
+    desc: ''
+    type: varchar
+NAME: xPapers::Harvest::Z3950Prefix

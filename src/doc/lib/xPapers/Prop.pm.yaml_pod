@@ -1,0 +1,18 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: props
+
+FIELDS:
+  name:
+    desc: ''
+    type: varchar
+  value:
+    desc: ''
+    type: text
+METHODS:
+  get: ''
+  set: ''
+NAME: xPapers::Prop

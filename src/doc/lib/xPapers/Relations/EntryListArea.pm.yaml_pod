@@ -1,0 +1,15 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: areas_ml
+
+FIELDS:
+  aId:
+    desc: ''
+    type: integer
+  mId:
+    desc: ''
+    type: integer
+NAME: xPapers::Relations::EntryListArea

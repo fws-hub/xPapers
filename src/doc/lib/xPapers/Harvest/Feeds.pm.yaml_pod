@@ -1,0 +1,20 @@
+---
+ATTRIBUTES:
+  content: ''
+  feed: ''
+  pluginMng: ''
+  rss: ''
+  since: ''
+  startOfHarvesting: ''
+  url: ''
+  user_agent: ''
+AUTHORS: |+
+  Zbigniew Lukasiak
+  with contibutions David Bourget
+
+DESCRIPTION: "Inherits from: L<Moose::Object>\n\n"
+METHODS:
+  entries_from_rss: ''
+  entry_from_item: ''
+  harvest: ''
+NAME: xPapers::Harvest::Feeds

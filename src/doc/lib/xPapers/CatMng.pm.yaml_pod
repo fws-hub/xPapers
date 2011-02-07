@@ -1,0 +1,17 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+METHODS:
+  catsJS: ''
+  catsWithNoEditors: ''
+  deincest: ''
+  deincestMembershipSet: ''
+  deincestSet: ''
+  intersect: ''
+  minus: ''
+  mkAncestors: ''
+  mkPAncestors: ''
+  move: ''
+  notin: ''
+  object_class: ''
+  union: ''
+NAME: xPapers::CatMng

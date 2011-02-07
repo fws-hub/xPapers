@@ -1,0 +1,21 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Harvest::URLPlugin
+SUBROUTINES:
+  check: ''
+  compare: ''
+  domain: ''
+  dump: ''
+  findForm: ''
+  nonewline: ''
+  normalize: ''
+  parsePage: ''
+  prepareTests: ''
+  process: ''
+  processURL: ''
+  runTests: ''
+  serialize: ''
+  showForms: ''
+  testURLs: ''
+  validLinks: ''
+  version: ''

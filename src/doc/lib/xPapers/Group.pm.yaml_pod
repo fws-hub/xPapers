@@ -1,0 +1,82 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>
+  
+  Table: groups
+
+FIELDS:
+  cId:
+    desc: ''
+    type: integer
+  created:
+    desc: ''
+    type: datetime
+  dId:
+    desc: ''
+    type: integer
+  description:
+    desc: ''
+    type: varchar
+  fId:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  memberCount:
+    desc: ''
+    type: integer
+  name:
+    desc: ''
+    type: varchar
+  owner:
+    desc: ''
+    type: integer
+  permAddPapers:
+    desc: ''
+    type: integer
+  permAddPosts:
+    desc: ''
+    type: integer
+  permBan:
+    desc: ''
+    type: integer
+  permDeletePapers:
+    desc: ''
+    type: integer
+  permDeletePosts:
+    desc: ''
+    type: integer
+  permInvite:
+    desc: ''
+    type: integer
+  permJoin:
+    desc: ''
+    type: integer
+  permViewPapers:
+    desc: ''
+    type: integer
+  permViewPosts:
+    desc: ''
+    type: integer
+  publish:
+    desc: ''
+    type: integer
+  system:
+    desc: ''
+    type: integer
+  updated:
+    desc: ''
+    type: timestamp
+METHODS:
+  addUser: ''
+  canDo: ''
+  deleteUser: ''
+  forum_o: ''
+  hasLevel: ''
+  moderators: ''
+  openForum: ''
+  setDefaults: ''
+  usersAt: ''
+NAME: xPapers::Group

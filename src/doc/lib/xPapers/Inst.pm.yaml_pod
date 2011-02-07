@@ -1,0 +1,27 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: insts
+
+FIELDS:
+  country:
+    desc: ''
+    type: varchar
+  domain:
+    desc: ''
+    type: varchar
+  id:
+    desc: ''
+    type: serial
+  name:
+    desc: ''
+    type: varchar
+  phdName:
+    desc: ''
+    type: varchar
+METHODS:
+  proxies: ''
+  redirectors: ''
+NAME: xPapers::Inst

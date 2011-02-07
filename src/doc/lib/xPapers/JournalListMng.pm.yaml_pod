@@ -1,0 +1,7 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+METHODS:
+  getListsByOwner: ''
+  getListsForUser: ''
+  object_class: ''
+NAME: xPapers::JournalListMng

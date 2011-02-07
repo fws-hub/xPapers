@@ -1,0 +1,26 @@
+---
+AUTHORS: "Zbigniew Lukasiak with contibutions from David Bourget\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: entry_origin
+  
+  This class links the Entry with the OAI repository and set where it's data originated.
+
+FIELDS:
+  eId:
+    desc: ''
+    type: varchar
+  repo_id:
+    desc: ''
+    type: integer
+  set_name:
+    desc: ''
+    type: varchar
+  set_spec:
+    desc: ''
+    type: varchar
+  type:
+    desc: ''
+    type: varchar
+NAME: xPapers::OAI::EntryOrigin

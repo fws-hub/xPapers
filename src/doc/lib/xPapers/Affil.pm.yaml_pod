@@ -1,0 +1,32 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: affils
+
+FIELDS:
+  discipline:
+    desc: ''
+    type: varchar
+  iId:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: integer
+  inst_manual:
+    desc: ''
+    type: varchar
+  rank:
+    desc: ''
+    type: integer
+  role:
+    desc: ''
+    type: varchar
+  year:
+    desc: ''
+    type: integer
+METHODS:
+  instName: ''
+NAME: xPapers::Affil

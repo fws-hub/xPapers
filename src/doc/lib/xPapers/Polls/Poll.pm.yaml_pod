@@ -1,0 +1,45 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>
+  
+  Table: polls
+
+FIELDS:
+  cId:
+    desc: ''
+    type: integer
+  close:
+    desc: ''
+    type: datetime
+  created:
+    desc: ''
+    type: timestamp
+  description:
+    desc: ''
+    type: text
+  guestListId:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  name:
+    desc: ''
+    type: varchar
+  open:
+    desc: ''
+    type: datetime
+  owner:
+    desc: ''
+    type: integer
+  randomize:
+    desc: ''
+    type: integer
+  rolling:
+    desc: ''
+    type: integer
+METHODS:
+  checkboxes: ''
+  registerUser: ''
+NAME: xPapers::Polls::Poll

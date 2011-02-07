@@ -1,0 +1,36 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: lc_ranges
+
+FIELDS:
+  cId:
+    desc: ''
+    type: integer
+  description:
+    desc: ''
+    type: varchar
+  end:
+    desc: ''
+    type: float
+  exclude:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: integer
+  lc_class:
+    desc: ''
+    type: varchar
+  start:
+    desc: ''
+    type: float
+  subrange:
+    desc: ''
+    type: varchar
+  xwords:
+    desc: ''
+    type: varchar
+NAME: xPapers::LCRange

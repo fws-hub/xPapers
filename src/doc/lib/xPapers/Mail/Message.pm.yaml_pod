@@ -1,0 +1,53 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: notices
+
+FIELDS:
+  brief:
+    desc: ''
+    type: varchar
+  content:
+    desc: ''
+    type: text
+  created:
+    desc: ''
+    type: datetime
+  email:
+    desc: ''
+    type: varchar
+  failures:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  isHTML:
+    desc: ''
+    type: integer
+  replyTo:
+    desc: ''
+    type: integer
+  sender:
+    desc: ''
+    type: varchar
+  sent:
+    desc: ''
+    type: integer
+  sent_time:
+    desc: ''
+    type: datetime
+  uId:
+    desc: ''
+    type: integer
+METHODS:
+  complete: ''
+  greetings: ''
+  html: ''
+  interpolate: ''
+  save: ''
+  send: ''
+  signature: ''
+NAME: xPapers::Mail::Message

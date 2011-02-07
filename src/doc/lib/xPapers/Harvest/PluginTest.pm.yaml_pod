@@ -1,0 +1,33 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: plugin_tests
+
+FIELDS:
+  created:
+    desc: ''
+    type: datetime
+  expected:
+    desc: ''
+    type: text
+  id:
+    desc: ''
+    type: serial
+  last:
+    desc: ''
+    type: text
+  lastChecked:
+    desc: ''
+    type: datetime
+  lastStatus:
+    desc: ''
+    type: varchar
+  plugin:
+    desc: ''
+    type: varchar
+  url:
+    desc: ''
+    type: varchar
+NAME: xPapers::Harvest::PluginTest

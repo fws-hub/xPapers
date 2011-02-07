@@ -1,0 +1,34 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
+  
+  Table: cats_me
+
+FIELDS:
+  cId:
+    desc: ''
+    type: integer
+  created:
+    desc: ''
+    type: datetime
+  eId:
+    desc: ''
+    type: varchar
+  editor:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  rank:
+    desc: ''
+    type: integer
+  setAside:
+    desc: ''
+    type: integer
+METHODS:
+  diffable: ''
+  diffable_relationships: ''
+  toString: ''
+NAME: xPapers::Relations::CatEntry

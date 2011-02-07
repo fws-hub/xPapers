@@ -1,0 +1,25 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>
+  
+  Table: cache_objects
+
+FIELDS:
+  class:
+    desc: ''
+    type: varchar
+  content:
+    desc: ''
+    type: blob
+  id:
+    desc: ''
+    type: serial
+  oId:
+    desc: ''
+    type: varchar
+METHODS:
+  clear: ''
+  load: ''
+  save: ''
+NAME: xPapers::Object::CacheObject

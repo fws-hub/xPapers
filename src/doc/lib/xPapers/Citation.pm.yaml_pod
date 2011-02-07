@@ -1,0 +1,48 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: citations
+
+FIELDS:
+  authors:
+    desc: ''
+    type: varchar
+  date:
+    desc: ''
+    type: varchar
+  doi:
+    desc: ''
+    type: varchar
+  fromeId:
+    desc: ''
+    type: varchar
+  id:
+    desc: ''
+    type: serial
+  issn:
+    desc: ''
+    type: varchar
+  issue:
+    desc: ''
+    type: varchar
+  pages:
+    desc: ''
+    type: varchar
+  source:
+    desc: ''
+    type: varchar
+  title:
+    desc: ''
+    type: varchar
+  toeId:
+    desc: ''
+    type: varchar
+  volume:
+    desc: ''
+    type: integer
+  xml:
+    desc: ''
+    type: text
+NAME: xPapers::Citation

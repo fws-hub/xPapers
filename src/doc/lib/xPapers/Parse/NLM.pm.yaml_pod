@@ -1,0 +1,8 @@
+---
+AUTHORS: "Zbigniew Lukasiak with contibutions from David Bourget\n\n"
+DESCRIPTION: "This module parses the NLM xml strings and builds Entries out of it.\n\n"
+NAME: xPapers::Parse::NLM
+SUBROUTINES:
+  create_reviewed: ''
+  entryFromXml: ''
+  new: ''

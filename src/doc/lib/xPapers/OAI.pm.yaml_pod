@@ -1,0 +1,5 @@
+---
+AUTHORS: "Zbigniew Lukasiak with contibutions from David Bourget\n\n"
+NAME: xPapers::OAI
+SUBROUTINES:
+  parseIdentifier: ''

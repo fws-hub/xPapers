@@ -1,0 +1,8 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<Rose::DB::Object>
+  
+  Table: objects
+
+NAME: xPapers::Object

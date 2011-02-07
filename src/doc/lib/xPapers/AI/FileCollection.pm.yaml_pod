@@ -1,0 +1,8 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::AI::FileCollection
+SUBROUTINES:
+  next: ''
+  parse: ''
+  parse_line: ''
+  process_names: ''

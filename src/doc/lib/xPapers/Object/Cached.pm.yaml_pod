@@ -1,0 +1,10 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<Rose::DBx::Object::Cached::FastMmap>
+  
+  Table: cacheds
+
+METHODS:
+  space: ''
+NAME: xPapers::Object::Cached

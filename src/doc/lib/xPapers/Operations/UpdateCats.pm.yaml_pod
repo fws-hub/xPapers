@@ -1,0 +1,24 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: cat_edits
+
+FIELDS:
+  cmds:
+    desc: ''
+    type: text
+  created:
+    desc: ''
+    type: datetime
+  id:
+    desc: ''
+    type: integer
+  status:
+    desc: ''
+    type: varchar
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Operations::UpdateCats

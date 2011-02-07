@@ -1,0 +1,7 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Object::Lockable
+SUBROUTINES:
+  lock: ''
+  lockId: ''
+  unlock: ''

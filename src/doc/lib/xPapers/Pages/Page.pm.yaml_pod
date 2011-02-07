@@ -1,0 +1,31 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
+  
+  Table: pages
+
+FIELDS:
+  accepted:
+    desc: ''
+    type: integer
+  author_id:
+    desc: ''
+    type: integer
+  deleted:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  title:
+    desc: ''
+    type: varchar
+  url:
+    desc: ''
+    type: varchar
+METHODS:
+  diffable: ''
+  diffable_relationships: ''
+  notUserFields: ''
+NAME: xPapers::Pages::Page

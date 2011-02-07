@@ -1,0 +1,224 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::Diffable>, L<xPapers::Object::WithDBCache>
+  
+  Table: users
+
+FIELDS:
+  addToGroup:
+    desc: ''
+    type: integer
+  admin:
+    desc: ''
+    type: integer
+  alert:
+    desc: ''
+    type: integer
+  alertAreas:
+    desc: ''
+    type: integer
+  alertChecked:
+    desc: ''
+    type: datetime
+  alertFollowed:
+    desc: ''
+    type: integer
+  alertFreq:
+    desc: ''
+    type: integer
+  alertJournals:
+    desc: ''
+    type: integer
+  anonymousFollowing:
+    desc: ''
+    type: integer
+  betaTester:
+    desc: ''
+    type: integer
+  blocked:
+    desc: ''
+    type: integer
+  blurb:
+    desc: ''
+    type: text
+  cacheId:
+    desc: ''
+    type: integer
+  confToken:
+    desc: ''
+    type: varchar
+  confirmed:
+    desc: ''
+    type: integer
+  created:
+    desc: ''
+    type: datetime
+  email:
+    desc: ''
+    type: varchar
+  failedAttempts:
+    desc: ''
+    type: integer
+  firstname:
+    desc: ''
+    type: varchar
+  fixedPro:
+    desc: ''
+    type: integer
+  flags:
+    desc: ''
+    type: SET
+  hide:
+    desc: ''
+    type: integer
+  homePage:
+    desc: ''
+    type: varchar
+  id:
+    desc: ''
+    type: serial
+  lastIp:
+    desc: ''
+    type: varchar
+  lastLogin:
+    desc: ''
+    type: datetime
+  lastname:
+    desc: ''
+    type: varchar
+  locale:
+    desc: ''
+    type: varchar
+  mereFirstname:
+    desc: ''
+    type: varchar
+  mybib:
+    desc: ''
+    type: integer
+  mysources:
+    desc: ''
+    type: integer
+  myworks:
+    desc: ''
+    type: integer
+  nbAct:
+    desc: ''
+    type: integer
+  nbCatAdd:
+    desc: ''
+    type: integer
+  nbCatDelete:
+    desc: ''
+    type: integer
+  nbCatL:
+    desc: ''
+    type: integer
+  nbEdit:
+    desc: ''
+    type: integer
+  nbEditL:
+    desc: ''
+    type: integer
+  nbSubmit:
+    desc: ''
+    type: integer
+  newNoticeMode:
+    desc: ''
+    type: varchar
+  noticeMode:
+    desc: ''
+    type: varchar
+  passwd:
+    desc: ''
+    type: varchar
+  phd:
+    desc: ''
+    type: integer
+  pk:
+    desc: ''
+    type: varchar
+  postQuota:
+    desc: ''
+    type: integer
+  pro:
+    desc: ''
+    type: integer
+  proxy:
+    desc: ''
+    type: varchar
+  pubRating:
+    desc: ''
+    type: integer
+  pubRatingW:
+    desc: ''
+    type: integer
+  publish:
+    desc: ''
+    type: integer
+  rId:
+    desc: ''
+    type: integer
+  readingList:
+    desc: ''
+    type: integer
+  showEmail:
+    desc: ''
+    type: integer
+  subAreas:
+    desc: ''
+    type: integer
+  tz:
+    desc: ''
+    type: varchar
+  updated:
+    desc: ''
+    type: timestamp
+  xId:
+    desc: ''
+    type: integer
+METHODS:
+  addAffil: ''
+  add_to_followers_of: ''
+  affils_o: ''
+  aos_o: ''
+  areas_o: ''
+  ban: ''
+  calcDefaultAliases: ''
+  calcPro: ''
+  calcRating: ''
+  checkboxes: ''
+  countActivities: ''
+  countDanger: ''
+  countPapersUnderCat: ''
+  createBiblio: ''
+  danger: ''
+  diffable: ''
+  diffable_relationships: ''
+  edReport: ''
+  editedCats: ''
+  followName: ''
+  follow_all_aliases_of: ''
+  followerCount: ''
+  follows_some_alias_of: ''
+  forums_o: ''
+  fullname: ''
+  fullname_r: ''
+  groups_o: ''
+  isAncestorEditor: ''
+  isDangerous: ''
+  isEditor: ''
+  jList: ''
+  log2: ''
+  mkMyWorks: ''
+  notUserFields: ''
+  note_for_entry: ''
+  queries_o: ''
+  remove_from_followers_of: ''
+  save: ''
+  setQuotas: ''
+  subscriptions_o: ''
+  toString: ''
+  trans: ''
+  unfollowName: ''
+NAME: xPapers::User

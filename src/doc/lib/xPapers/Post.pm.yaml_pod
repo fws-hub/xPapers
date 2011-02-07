@@ -1,0 +1,51 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>
+  
+  Table: posts
+
+FIELDS:
+  accepted:
+    desc: ''
+    type: integer
+  body:
+    desc: ''
+    type: text
+  created:
+    desc: ''
+    type: datetime
+  id:
+    desc: ''
+    type: integer
+  notified:
+    desc: ''
+    type: integer
+  notifiedMode:
+    desc: ''
+    type: SET
+  private:
+    desc: ''
+    type: integer
+  subject:
+    desc: ''
+    type: varchar
+  submitted:
+    desc: ''
+    type: datetime
+  tId:
+    desc: ''
+    type: integer
+  target:
+    desc: ''
+    type: integer
+  uId:
+    desc: ''
+    type: integer
+METHODS:
+  accept: ''
+  addToThread: ''
+  excerpt: ''
+  notUserFields: ''
+  postAllowed: ''
+NAME: xPapers::Post

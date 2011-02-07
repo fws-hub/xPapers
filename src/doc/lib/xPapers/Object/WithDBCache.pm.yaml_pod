@@ -1,0 +1,11 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Object::WithDBCache
+SUBROUTINES:
+  cache: ''
+  cache_obj: ''
+  clear_all_caches: ''
+  clear_cache: ''
+  flush_cache: ''
+  forget_cache: ''
+  save_cache: ''

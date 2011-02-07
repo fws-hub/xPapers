@@ -1,0 +1,15 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: forums_m
+
+FIELDS:
+  fId:
+    desc: ''
+    type: integer
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Relations::ForumUser

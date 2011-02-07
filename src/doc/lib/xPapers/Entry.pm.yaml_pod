@@ -1,0 +1,299 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::Diffable>, L<xPapers::Object::WithDBCache>, L<xPapers::Object::Lockable>
+  
+  Table: main
+
+FIELDS:
+  addToList:
+    desc: ''
+    type: integer
+  added:
+    desc: ''
+    type: datetime
+  ant_date:
+    desc: ''
+    type: varchar
+  ant_editors:
+    desc: ''
+    type: varchar
+  ant_publisher:
+    desc: ''
+    type: varchar
+  author_abstract:
+    desc: ''
+    type: text
+  authors:
+    desc: ''
+    type: varchar
+  book:
+    desc: ''
+    type: varchar
+  cacheId:
+    desc: ''
+    type: integer
+  catCount:
+    desc: ''
+    type: integer
+  citations:
+    desc: ''
+    type: float
+  citationsLink:
+    desc: ''
+    type: varchar
+  cn_alpha:
+    desc: ''
+    type: varchar
+  cn_class:
+    desc: ''
+    type: varchar
+  cn_full:
+    desc: ''
+    type: varchar
+  cn_num:
+    desc: ''
+    type: float
+  date:
+    desc: ''
+    type: varchar
+  dateRP:
+    desc: ''
+    type: varchar
+  db_src:
+    desc: ''
+    type: varchar
+  defective:
+    desc: ''
+    type: integer
+  deleted:
+    desc: ''
+    type: integer
+  descriptors:
+    desc: ''
+    type: varchar
+  doi:
+    desc: ''
+    type: varchar
+  draft:
+    desc: ''
+    type: integer
+  duplicate:
+    desc: ''
+    type: integer
+  duplicateOf:
+    desc: ''
+    type: varchar
+  edited:
+    desc: ''
+    type: integer
+  etal:
+    desc: ''
+    type: integer
+  extra:
+    desc: ''
+    type: varchar
+  fId:
+    desc: ''
+    type: integer
+  file:
+    desc: ''
+    type: varchar
+  flags:
+    desc: ''
+    type: SET
+  forcePro:
+    desc: ''
+    type: integer
+  free:
+    desc: ''
+    type: integer
+  googleBooksQuery:
+    desc: ''
+    type: varchar
+  hasChapters:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: varchar
+  isbn:
+    desc: ''
+    type: ARRAY
+  issn:
+    desc: ''
+    type: varchar
+  issue:
+    desc: ''
+    type: varchar
+  lang:
+    desc: ''
+    type: character
+  lccn:
+    desc: ''
+    type: ARRAY
+  links:
+    desc: ''
+    type: varchar
+  notes:
+    desc: ''
+    type: varchar
+  online:
+    desc: ''
+    type: integer
+  online_book:
+    desc: ''
+    type: integer
+  originalId:
+    desc: ''
+    type: varchar
+  pages:
+    desc: ''
+    type: varchar
+  postCount:
+    desc: ''
+    type: integer
+  pro:
+    desc: ''
+    type: integer
+  pubHarvest:
+    desc: ''
+    type: integer
+  pub_type:
+    desc: ''
+    type: varchar
+  published:
+    desc: ''
+    type: integer
+  publisher:
+    desc: ''
+    type: varchar
+  replyto:
+    desc: ''
+    type: varchar
+  reprint:
+    desc: ''
+    type: varchar
+  review:
+    desc: ''
+    type: integer
+  reviewed_title:
+    desc: ''
+    type: ARRAY
+  school:
+    desc: ''
+    type: varchar
+  serial:
+    desc: ''
+    type: serial
+  sites:
+    desc: ''
+    type: SET
+  source:
+    desc: ''
+    type: varchar
+  source_id:
+    desc: ''
+    type: varchar
+  source_subjects:
+    desc: ''
+    type: varchar
+  title:
+    desc: ''
+    type: varchar
+  type:
+    desc: ''
+    type: varchar
+  updated:
+    desc: ''
+    type: datetime
+  viewings:
+    desc: ''
+    type: integer
+  volume:
+    desc: ''
+    type: integer
+METHODS:
+  absorb: ''
+  addAuthor: ''
+  addAuthorAliases: ''
+  addAuthors: ''
+  addEditor: ''
+  addEditors: ''
+  addLink: ''
+  addLinks: ''
+  addSite: ''
+  ancestorIds: ''
+  archive: ''
+  augment: ''
+  authors_string: ''
+  bad: ''
+  bestLink: ''
+  betterThan: ''
+  calcPro: ''
+  calcPublished: ''
+  calcSimilar: ''
+  canonical_categories_o: ''
+  categories_o: ''
+  clearCatsCache: ''
+  commitFile: ''
+  completeWith: ''
+  decode_fields: ''
+  deleteAuthors: ''
+  deleteEditors: ''
+  deleteLink: ''
+  deleteLinkMatch: ''
+  deleteLinks: ''
+  diffable: ''
+  diffable_relationships: ''
+  digest: ''
+  downloads: ''
+  firstAuthor: ''
+  firstComputedLink: ''
+  firstLink: ''
+  forall: ''
+  forum_o: ''
+  fromHash: ''
+  fromLegacy: ''
+  fromarrays: ''
+  get: ''
+  getAllLinks: ''
+  getAuthors: ''
+  getEditors: ''
+  getLinks: ''
+  getQuotes: ''
+  googleBooksId: ''
+  gotAutoId: ''
+  hardDelete: ''
+  hasGoodTitle: ''
+  id2: ''
+  insert: ''
+  journalInList: ''
+  keyExists: ''
+  new: ''
+  new_from_deflated_tree: ''
+  openForum: ''
+  popularity: ''
+  post_save: ''
+  pre_save: ''
+  publicCats: ''
+  publicCatsHTML: ''
+  remember: ''
+  removeSite: ''
+  same: ''
+  setAuthors: ''
+  setDisplayLink: ''
+  setKey: ''
+  similar: ''
+  slinks: ''
+  syncSite: ''
+  syncSites: ''
+  toString: ''
+  toarrays: ''
+  update: ''
+  update_author_index: ''
+  userAuthors: ''
+  userFields: ''
+  userModified: ''
+  value_separators: ''
+NAME: xPapers::Entry

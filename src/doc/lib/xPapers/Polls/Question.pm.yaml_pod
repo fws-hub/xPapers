@@ -1,0 +1,50 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::WithDBCache>
+  
+  Table: questions
+
+FIELDS:
+  cacheId:
+    desc: ''
+    type: integer
+  cachebin:
+    desc: ''
+    type: blob
+  id:
+    desc: ''
+    type: serial
+  metaOf:
+    desc: ''
+    type: integer
+  optional:
+    desc: ''
+    type: integer
+  options:
+    desc: ''
+    type: varchar
+  poId:
+    desc: ''
+    type: integer
+  prototype:
+    desc: ''
+    type: integer
+  question:
+    desc: ''
+    type: varchar
+  rank:
+    desc: ''
+    type: integer
+  showOtherOptions:
+    desc: ''
+    type: integer
+  type:
+    desc: ''
+    type: enum
+METHODS:
+  checkboxes: ''
+  delete_o: ''
+  hasAnswered: ''
+  mk_std_string: ''
+NAME: xPapers::Polls::Question

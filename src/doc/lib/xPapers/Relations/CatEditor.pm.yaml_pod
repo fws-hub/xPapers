@@ -1,0 +1,18 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: cats_e
+
+FIELDS:
+  cId:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Relations::CatEditor

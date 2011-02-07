@@ -1,0 +1,18 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: review_relation
+
+FIELDS:
+  id:
+    desc: ''
+    type: integer
+  reviewed_id:
+    desc: ''
+    type: varchar
+  reviewer_id:
+    desc: ''
+    type: varchar
+NAME: xPapers::Relations::ReviewOf

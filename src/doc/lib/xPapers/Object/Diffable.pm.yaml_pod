@@ -1,0 +1,8 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Object::Diffable
+SUBROUTINES:
+  diff_test_url: ''
+  diffable: ''
+  diffable_relationships: ''
+  render_diffable_array_element: ''

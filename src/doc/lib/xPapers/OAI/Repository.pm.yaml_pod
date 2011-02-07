@@ -1,0 +1,74 @@
+---
+AUTHORS: "Zbigniew Lukasiak with contibutions from David Bourget\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>, L<xPapers::Object::Diffable>
+  
+  Table: oai_repos
+  
+  This class represents the OAI repository to be harvested.
+
+FIELDS:
+  deleted:
+    desc: ''
+    type: integer
+  downloadType:
+    desc: ''
+    type: varchar
+  errorLog:
+    desc: ''
+    type: text
+  fetchedRecords:
+    desc: ''
+    type: integer
+  found:
+    desc: ''
+    type: integer
+  handler:
+    desc: ''
+    type: varchar
+  id:
+    desc: ''
+    type: serial
+  isSlow:
+    desc: ''
+    type: integer
+  languages:
+    desc: ''
+    type: ARRAY
+  lastHarvestDuration:
+    desc: ''
+    type: integer
+  lastSuccess:
+    desc: ''
+    type: datetime
+  name:
+    desc: ''
+    type: varchar
+  nonEngRecords:
+    desc: ''
+    type: integer
+  rid:
+    desc: ''
+    type: varchar
+  savedRecords:
+    desc: ''
+    type: integer
+  scannedAt:
+    desc: ''
+    type: datetime
+  sets:
+    desc: ''
+    type: ARRAY
+METHODS:
+  diff_test_url: ''
+  diffable: ''
+  downgrade_set: ''
+  pingdb: ''
+  pushError: ''
+  render_diffable_array_element: ''
+  set_sets_hash: ''
+  set_was_deleted: ''
+  sets_hash: ''
+  toString: ''
+  updateSetsFromRemote: ''
+NAME: xPapers::OAI::Repository

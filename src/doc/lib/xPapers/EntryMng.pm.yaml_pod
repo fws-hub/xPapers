@@ -1,0 +1,23 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+METHODS:
+  addAdded: ''
+  addOrDiff: ''
+  addOrUpdate: ''
+  addXAdded: ''
+  authorExists: ''
+  computeIncompleteWarnings: ''
+  countWorks: ''
+  count_all: ''
+  count_where: ''
+  diffStatus: ''
+  findWhere: ''
+  fuzzyFind: ''
+  fuzzyMatch: ''
+  generateMessages: ''
+  object_class: ''
+  oldifyMode: ''
+  similar: ''
+  similar_sphinx: ''
+  srcmap: ''
+NAME: xPapers::EntryMng

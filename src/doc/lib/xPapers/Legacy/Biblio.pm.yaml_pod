@@ -1,0 +1,23 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Legacy::Biblio
+SUBROUTINES:
+  addCategory: ''
+  addEntry: ''
+  count: ''
+  createCategory: ''
+  deleteEntry: ''
+  filter: ''
+  forceId: ''
+  gather: ''
+  gatherCats: ''
+  getCategory: ''
+  getCategoryIds: ''
+  getEntry: ''
+  getRoot: ''
+  initIterator: ''
+  merge: ''
+  new: ''
+  nextEntry: ''
+  stub: ''
+  updateEntry: ''

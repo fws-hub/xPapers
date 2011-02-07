@@ -1,0 +1,36 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: answers
+
+FIELDS:
+  anId:
+    desc: ''
+    type: integer
+  comment:
+    desc: ''
+    type: text
+  created:
+    desc: ''
+    type: timestamp
+  id:
+    desc: ''
+    type: serial
+  qId:
+    desc: ''
+    type: integer
+  skipped:
+    desc: ''
+    type: integer
+  superseded:
+    desc: ''
+    type: datetime
+  text:
+    desc: ''
+    type: varchar
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Polls::Answer

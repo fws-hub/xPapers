@@ -1,0 +1,37 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: alerts
+
+FIELDS:
+  deprecated:
+    desc: ''
+    type: integer
+  failures:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: integer
+  lastChecked:
+    desc: ''
+    type: datetime
+  name:
+    desc: ''
+    type: varchar
+  notes:
+    desc: ''
+    type: varchar
+  uId:
+    desc: ''
+    type: integer
+  url:
+    desc: ''
+    type: varchar
+METHODS:
+  fetch: ''
+  humanURL: ''
+  post: ''
+NAME: xPapers::Alert

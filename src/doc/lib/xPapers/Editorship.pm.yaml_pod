@@ -1,0 +1,66 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: cats_eterms
+
+FIELDS:
+  GIO:
+    desc: ''
+    type: integer
+  IO:
+    desc: ''
+    type: integer
+  auto:
+    desc: ''
+    type: integer
+  cId:
+    desc: ''
+    type: integer
+  checked:
+    desc: ''
+    type: integer
+  comment:
+    desc: ''
+    type: text
+  confirmBy:
+    desc: ''
+    type: datetime
+  confirmWarnings:
+    desc: ''
+    type: integer
+  created:
+    desc: ''
+    type: datetime
+  current:
+    desc: ''
+    type: integer
+  end:
+    desc: ''
+    type: datetime
+  excluded:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  imports:
+    desc: ''
+    type: integer
+  recursive:
+    desc: ''
+    type: integer
+  renew:
+    desc: ''
+    type: integer
+  start:
+    desc: ''
+    type: datetime
+  status:
+    desc: ''
+    type: integer
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Editorship

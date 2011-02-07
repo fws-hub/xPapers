@@ -1,0 +1,48 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: errors
+
+FIELDS:
+  args:
+    desc: ''
+    type: text
+  cookies:
+    desc: ''
+    type: text
+  host:
+    desc: ''
+    type: varchar
+  id:
+    desc: ''
+    type: integer
+  info:
+    desc: ''
+    type: text
+  ip:
+    desc: ''
+    type: varchar
+  pid:
+    desc: ''
+    type: integer
+  referer:
+    desc: ''
+    type: varchar
+  request_uri:
+    desc: ''
+    type: varchar
+  time:
+    desc: ''
+    type: timestamp
+  type:
+    desc: ''
+    type: integer
+  uId:
+    desc: ''
+    type: integer
+  user_agent:
+    desc: ''
+    type: varchar
+NAME: xPapers::Utils::Error

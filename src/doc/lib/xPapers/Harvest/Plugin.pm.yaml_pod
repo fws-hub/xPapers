@@ -1,0 +1,15 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Harvest::Plugin
+SUBROUTINES:
+  check: ''
+  debug_dir: ''
+  get: ''
+  getContent: ''
+  logRequest: ''
+  new: ''
+  prepareTests: ''
+  process: ''
+  renderResponse: ''
+  runTests: ''
+  userAgent: ''

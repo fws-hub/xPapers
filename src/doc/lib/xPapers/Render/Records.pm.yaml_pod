@@ -1,0 +1,28 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Render::Records
+SUBROUTINES:
+  afterEntry: ''
+  afterGroup: ''
+  beforeGroup: ''
+  begin: ''
+  beginCategory: ''
+  end: ''
+  endBiblio: ''
+  endCategory: ''
+  entryId: ''
+  field: ''
+  fieldMap: ''
+  fields: ''
+  headerId: ''
+  init: ''
+  listSep: ''
+  new: ''
+  nothingMsg: ''
+  quote: ''
+  quoteChars: ''
+  renderCat: ''
+  renderEntry: ''
+  renderHeader: ''
+  renderNav: ''
+  startBiblio: ''

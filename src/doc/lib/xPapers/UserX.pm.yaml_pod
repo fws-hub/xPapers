@@ -1,0 +1,44 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>
+  
+  Table: usersx
+
+FIELDS:
+  asKey:
+    desc: ''
+    type: varchar
+  futurePasswd:
+    desc: ''
+    type: varchar
+  gender:
+    desc: ''
+    type: enum
+  id:
+    desc: ''
+    type: serial
+  nationality:
+    desc: ''
+    type: varchar
+  pollKey:
+    desc: ''
+    type: varchar
+  publishView:
+    desc: ''
+    type: integer
+  tradition:
+    desc: ''
+    type: varchar
+  uId:
+    desc: ''
+    type: integer
+  xian:
+    desc: ''
+    type: varchar
+  yob:
+    desc: ''
+    type: integer
+METHODS:
+  save: ''
+NAME: xPapers::UserX

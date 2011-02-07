@@ -1,0 +1,14 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Site
+SUBROUTINES:
+  assetFile: ''
+  base: ''
+  confFile: ''
+  fullConfFile: ''
+  masonDataRoot: ''
+  masonFile: ''
+  masonRoots: ''
+  name: ''
+  new: ''
+  rawFile: ''

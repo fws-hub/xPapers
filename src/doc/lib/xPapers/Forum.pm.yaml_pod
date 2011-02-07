@@ -1,0 +1,36 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::Secured>, L<xPapers::Object::WithDBCache>
+  
+  Table: forums
+
+FIELDS:
+  cId:
+    desc: ''
+    type: integer
+  cacheId:
+    desc: ''
+    type: integer
+  eId:
+    desc: ''
+    type: varchar
+  gId:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  name:
+    desc: ''
+    type: varchar
+METHODS:
+  addThread: ''
+  gather_subscribers: ''
+  min: ''
+  owner: ''
+  threads_cat: ''
+  threads_cat_sql: ''
+  threads_o: ''
+  threads_reg: ''
+NAME: xPapers::Forum

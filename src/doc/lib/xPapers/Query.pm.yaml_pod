@@ -1,0 +1,146 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: queries
+
+FIELDS:
+  advMode:
+    desc: ''
+    type: varchar
+  all:
+    desc: ''
+    type: text
+  appendMSets:
+    desc: ''
+    type: integer
+  atleast:
+    desc: ''
+    type: text
+  authors:
+    desc: ''
+    type: text
+  draftsOnly:
+    desc: ''
+    type: integer
+  exact:
+    desc: ''
+    type: text
+  examplar:
+    desc: ''
+    type: integer
+  executed:
+    desc: ''
+    type: datetime
+  extended:
+    desc: ''
+    type: text
+  filterMode:
+    desc: ''
+    type: varchar
+  freeOnly:
+    desc: ''
+    type: varchar
+  id:
+    desc: ''
+    type: serial
+  inter:
+    desc: ''
+    type: integer
+  interval:
+    desc: ''
+    type: integer
+  maxYear:
+    desc: ''
+    type: integer
+  minRelevance:
+    desc: ''
+    type: float
+  minYear:
+    desc: ''
+    type: integer
+  mode:
+    desc: ''
+    type: varchar
+  name:
+    desc: ''
+    type: varchar
+  onlineOnly:
+    desc: ''
+    type: varchar
+  owner:
+    desc: ''
+    type: integer
+  proOnly:
+    desc: ''
+    type: varchar
+  publication:
+    desc: ''
+    type: text
+  publishedOnly:
+    desc: ''
+    type: varchar
+  searchStr:
+    desc: ''
+    type: text
+  system:
+    desc: ''
+    type: integer
+  trawler:
+    desc: ''
+    type: integer
+  w_a:
+    desc: ''
+    type: text
+  w_e:
+    desc: ''
+    type: text
+  w_ez:
+    desc: ''
+    type: text
+  w_ezn:
+    desc: ''
+    type: text
+  w_ezn2:
+    desc: ''
+    type: text
+  w_g:
+    desc: ''
+    type: text
+  w_n:
+    desc: ''
+    type: text
+  w_p:
+    desc: ''
+    type: text
+  without:
+    desc: ''
+    type: text
+METHODS:
+  authorQuery: ''
+  basicWhere: ''
+  cdec: ''
+  checkboxes: ''
+  cjoin: ''
+  delete: ''
+  execute: ''
+  foundRows: ''
+  ftQuery: ''
+  ftQuote: ''
+  ftstrn: ''
+  loadForm: ''
+  next: ''
+  notUserFields: ''
+  prepFilter: ''
+  prepare: ''
+  preparePureSQL: ''
+  prepareSQL: ''
+  pt: ''
+  save: ''
+  saveForm: ''
+  sql: ''
+  test: ''
+  toString: ''
+  tokenize: ''
+NAME: xPapers::Query

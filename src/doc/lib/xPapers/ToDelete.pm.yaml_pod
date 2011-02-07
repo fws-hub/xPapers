@@ -1,0 +1,17 @@
+---
+AUTHORS: "Zbigniew Lukasiak with contibutions from David Bourget\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: to_delete
+  
+  This table contains entries that are to be deleted.
+
+FIELDS:
+  created:
+    desc: ''
+    type: timestamp
+  id:
+    desc: ''
+    type: varchar
+NAME: xPapers::ToDelete

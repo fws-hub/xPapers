@@ -1,0 +1,63 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: batch
+
+FIELDS:
+  cId:
+    desc: ''
+    type: integer
+  categorized:
+    desc: ''
+    type: integer
+  checked:
+    desc: ''
+    type: integer
+  completed:
+    desc: ''
+    type: datetime
+  createMissing:
+    desc: ''
+    type: integer
+  created:
+    desc: ''
+    type: datetime
+  errors:
+    desc: ''
+    type: text
+  finished:
+    desc: ''
+    type: integer
+  format:
+    desc: ''
+    type: varchar
+  found:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: integer
+  inputFile:
+    desc: ''
+    type: varchar
+  inserted:
+    desc: ''
+    type: integer
+  msg:
+    desc: ''
+    type: varchar
+  notFound:
+    desc: ''
+    type: integer
+  ok:
+    desc: ''
+    type: integer
+  ticket:
+    desc: ''
+    type: varchar
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Operations::ImportEntries

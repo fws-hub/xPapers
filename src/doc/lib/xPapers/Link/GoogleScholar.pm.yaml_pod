@@ -1,0 +1,16 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Link::GoogleScholar
+SUBROUTINES:
+  URLDecode: ''
+  URLEncode: ''
+  get: ''
+  getLink: ''
+  getLinks: ''
+  goodLink: ''
+  match: ''
+  new: ''
+  parseEntry: ''
+  parsePage: ''
+  setAgent: ''
+  setProxy: ''

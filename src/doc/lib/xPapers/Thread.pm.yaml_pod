@@ -1,0 +1,60 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>, L<xPapers::Object::WithDBCache>
+  
+  Table: threads
+
+FIELDS:
+  accepted:
+    desc: ''
+    type: integer
+  blog:
+    desc: ''
+    type: integer
+  cacheId:
+    desc: ''
+    type: integer
+  created:
+    desc: ''
+    type: datetime
+  fId:
+    desc: ''
+    type: integer
+  firstPostId:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: integer
+  latestPostId:
+    desc: ''
+    type: integer
+  latestPostTime:
+    desc: ''
+    type: datetime
+  noReplies:
+    desc: ''
+    type: integer
+  postCount:
+    desc: ''
+    type: integer
+  private:
+    desc: ''
+    type: integer
+  sticky:
+    desc: ''
+    type: integer
+METHODS:
+  accept: ''
+  addPost: ''
+  ct: ''
+  deletePost: ''
+  latestReplies: ''
+  pc: ''
+  pt: ''
+  subscribe: ''
+  toString: ''
+  unsubscribe: ''
+  unsubscribeFromAll: ''
+NAME: xPapers::Thread

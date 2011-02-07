@@ -1,0 +1,212 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::WithDBCache>, L<xPapers::Object::Cached>, L<xPapers::Object::Secured>, L<xPapers::Object::Diffable>
+  
+  Table: cats
+
+FIELDS:
+  cacheId:
+    desc: ''
+    type: integer
+  canonical:
+    desc: ''
+    type: integer
+  catCount:
+    desc: ''
+    type: integer
+  condCounts:
+    desc: ''
+    type: blob
+  count:
+    desc: ''
+    type: integer
+  created:
+    desc: ''
+    type: datetime
+  description:
+    desc: ''
+    type: varchar
+  dfo:
+    desc: ''
+    type: integer
+  edEnd:
+    desc: ''
+    type: datetime
+  edfChecked:
+    desc: ''
+    type: datetime
+  edfId:
+    desc: ''
+    type: integer
+  edfo:
+    desc: ''
+    type: integer
+  exclusions:
+    desc: ''
+    type: integer
+  fId:
+    desc: ''
+    type: integer
+  filter_id:
+    desc: ''
+    type: integer
+  flags:
+    desc: ''
+    type: SET
+  fnumid:
+    desc: ''
+    type: varchar
+  gId:
+    desc: ''
+    type: integer
+  greedy:
+    desc: ''
+    type: integer
+  highestLevel:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  ifId:
+    desc: ''
+    type: integer
+  level:
+    desc: ''
+    type: integer
+  marginal:
+    desc: ''
+    type: integer
+  mp:
+    desc: ''
+    type: integer
+  name:
+    desc: ''
+    type: varchar
+  negative:
+    desc: ''
+    type: integer
+  numid:
+    desc: ''
+    type: varchar
+  owner:
+    desc: ''
+    type: integer
+  pLevel:
+    desc: ''
+    type: integer
+  postCount:
+    desc: ''
+    type: integer
+  ppId:
+    desc: ''
+    type: integer
+  publish:
+    desc: ''
+    type: integer
+  related:
+    desc: ''
+    type: integer
+  seeAlso:
+    desc: ''
+    type: integer
+  system:
+    desc: ''
+    type: integer
+  uName:
+    desc: ''
+    type: varchar
+  updated:
+    desc: ''
+    type: timestamp
+  useAutoCat:
+    desc: ''
+    type: integer
+  writable:
+    desc: ''
+    type: integer
+METHODS:
+  addAncestor: ''
+  addDescendant: ''
+  addEntries: ''
+  addEntry: ''
+  addPAncestor: ''
+  add_child: ''
+  add_child_o: ''
+  ancestry: ''
+  area: ''
+  areas: ''
+  buildGraph: ''
+  calcCountWhere: ''
+  calcLevels: ''
+  calcRecCount: ''
+  calcUName: ''
+  canWrite: ''
+  checkboxes: ''
+  children_o: ''
+  cleanAncestry: ''
+  cleanPAncestry: ''
+  clearCacheRec: ''
+  contains: ''
+  containsUnder: ''
+  containsUnderP: ''
+  contains_cat: ''
+  contentIterator: ''
+  countWhere: ''
+  create_child: ''
+  delete: ''
+  deleteEntry: ''
+  delete_child_o: ''
+  diffable: ''
+  diffable_relationships: ''
+  edTerm: ''
+  eun: ''
+  exclude: ''
+  filteredEntries: ''
+  findPotentialEditors: ''
+  firstParent: ''
+  forum_o: ''
+  gatherCats: ''
+  gatherPCats: ''
+  getByNumId: ''
+  getByUName: ''
+  getCategories: ''
+  getEntries: ''
+  hasAncestor: ''
+  hasDescendant: ''
+  hasPAncestor: ''
+  hasPDescendant: ''
+  isEditor: ''
+  isExcluded: ''
+  lastChild: ''
+  listFromParams: ''
+  localCount: ''
+  makeLast: ''
+  mcat: ''
+  minTree: ''
+  mkDiffs: ''
+  nextSibling: ''
+  notUserFields: ''
+  numId: ''
+  openForum: ''
+  pAncestry: ''
+  pArea: ''
+  parsetree: ''
+  pchildren_o: ''
+  ppLost: ''
+  preCountWhere: ''
+  prepTrawler: ''
+  prepTrawlerWithQ: ''
+  primary_children: ''
+  primary_descendants_o: ''
+  recCount: ''
+  remove_child: ''
+  rename: ''
+  resolverefs: ''
+  save: ''
+  setPP: ''
+  sibling_o: ''
+  toString: ''
+  updateStruct: ''
+NAME: xPapers::Cat

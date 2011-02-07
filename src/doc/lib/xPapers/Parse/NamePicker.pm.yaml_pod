@@ -1,0 +1,9 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Parse::NamePicker
+SUBROUTINES:
+  init: ''
+  isName: ''
+  isNameToken: ''
+  nameTokens: ''
+  new: ''

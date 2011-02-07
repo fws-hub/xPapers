@@ -1,0 +1,35 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: feeds
+
+FIELDS:
+  created:
+    desc: ''
+    type: datetime
+  id:
+    desc: ''
+    type: integer
+  k:
+    desc: ''
+    type: varchar
+  lastChecked:
+    desc: ''
+    type: datetime
+  lastIP:
+    desc: ''
+    type: varchar
+  uId:
+    desc: ''
+    type: integer
+  url:
+    desc: ''
+    type: varchar
+METHODS:
+  create: ''
+  directURL: ''
+  params: ''
+  setKey: ''
+NAME: xPapers::Feed

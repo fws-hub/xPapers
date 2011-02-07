@@ -1,0 +1,6 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+METHODS:
+  notifyAdmin: ''
+  object_class: ''
+NAME: xPapers::Mail::MessageMng

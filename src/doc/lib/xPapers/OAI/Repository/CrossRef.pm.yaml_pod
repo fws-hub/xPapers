@@ -1,0 +1,65 @@
+---
+AUTHORS: "Zbigniew Lukasiak with contibutions from David Bourget\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::OAI::Repository>
+  
+  This is a subclass of the C<xPapers::OAI::Repository> class - but it is not saved 
+  in the same table - but instead it's data retrieved from the C<harvest_journals> table
+  with the overridden C<sets_hash> method.
+
+FIELDS:
+  deleted:
+    desc: ''
+    type: integer
+  downloadType:
+    desc: ''
+    type: varchar
+  errorLog:
+    desc: ''
+    type: text
+  fetchedRecords:
+    desc: ''
+    type: integer
+  found:
+    desc: ''
+    type: integer
+  handler:
+    desc: ''
+    type: varchar
+  id:
+    desc: ''
+    type: serial
+  isSlow:
+    desc: ''
+    type: integer
+  languages:
+    desc: ''
+    type: ARRAY
+  lastHarvestDuration:
+    desc: ''
+    type: integer
+  lastSuccess:
+    desc: ''
+    type: datetime
+  name:
+    desc: ''
+    type: varchar
+  nonEngRecords:
+    desc: ''
+    type: integer
+  rid:
+    desc: ''
+    type: varchar
+  savedRecords:
+    desc: ''
+    type: integer
+  scannedAt:
+    desc: ''
+    type: datetime
+  sets:
+    desc: ''
+    type: ARRAY
+METHODS:
+  save: ''
+  sets_hash: ''
+NAME: xPapers::OAI::Repository::CrossRef

@@ -1,0 +1,8 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Render::BibTeX
+SUBROUTINES:
+  fieldMap: ''
+  listSep: ''
+  new: ''
+  quote: ''

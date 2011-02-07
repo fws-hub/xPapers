@@ -1,0 +1,21 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: groups_m
+
+FIELDS:
+  gId:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  level:
+    desc: ''
+    type: integer
+  uId:
+    desc: ''
+    type: integer
+NAME: xPapers::Relations::UserGroup

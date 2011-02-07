@@ -1,0 +1,24 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Object::Base
+SUBROUTINES:
+  add_preload_trigger: ''
+  checkboxes: ''
+  clear_owner_cache: ''
+  elog: ''
+  fieldModified: ''
+  get: ''
+  getField: ''
+  hasFlag: ''
+  init_db: ''
+  loadUserFields: ''
+  make_list_methods: ''
+  notUserFields: ''
+  overflow_config: ''
+  rmFlag: ''
+  setField: ''
+  setFlag: ''
+  set_my_defaults: ''
+  toString: ''
+  userFields: ''
+  value_separators: ''

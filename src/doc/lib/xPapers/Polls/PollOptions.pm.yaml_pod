@@ -1,0 +1,135 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object::Cached>
+  
+  Table: poll_opts
+
+FIELDS:
+  affilCountry:
+    desc: ''
+    type: varchar
+  affil_region:
+    desc: ''
+    type: varchar
+  affils:
+    desc: ''
+    type: varchar
+  again:
+    desc: ''
+    type: integer
+  answered:
+    desc: ''
+    type: integer
+  aoi:
+    desc: ''
+    type: varchar
+  aos:
+    desc: ''
+    type: varchar
+  bounceMsg:
+    desc: ''
+    type: varchar
+  comment:
+    desc: ''
+    type: text
+  completed:
+    desc: ''
+    type: datetime
+  created:
+    desc: ''
+    type: timestamp
+  emailFailed:
+    desc: ''
+    type: integer
+  emailStep:
+    desc: ''
+    type: integer
+  firstQuestion:
+    desc: ''
+    type: datetime
+  flags:
+    desc: ''
+    type: SET
+  followEmailStep:
+    desc: ''
+    type: integer
+  gender:
+    desc: ''
+    type: varchar
+  givenUp:
+    desc: ''
+    type: integer
+  id:
+    desc: ''
+    type: serial
+  invited:
+    desc: ''
+    type: integer
+  invitedMeta:
+    desc: ''
+    type: integer
+  invitedUser:
+    desc: ''
+    type: integer
+  ip:
+    desc: ''
+    type: varchar
+  isout:
+    desc: ''
+    type: integer
+  lastEmail:
+    desc: ''
+    type: datetime
+  nationality:
+    desc: ''
+    type: varchar
+  nationality_region:
+    desc: ''
+    type: varchar
+  noEmails:
+    desc: ''
+    type: integer
+  phd:
+    desc: ''
+    type: integer
+  phd_region:
+    desc: ''
+    type: varchar
+  poId:
+    desc: ''
+    type: integer
+  publish:
+    desc: ''
+    type: integer
+  sameIP:
+    desc: ''
+    type: integer
+  series:
+    desc: ''
+    type: varchar
+  signed:
+    desc: ''
+    type: integer
+  step:
+    desc: ''
+    type: integer
+  sug_analysis:
+    desc: ''
+    type: text
+  sug_questions:
+    desc: ''
+    type: text
+  tradition:
+    desc: ''
+    type: varchar
+  uId:
+    desc: ''
+    type: integer
+  xian:
+    desc: ''
+    type: varchar
+  yob:
+    desc: ''
+    type: integer
+NAME: xPapers::Polls::PollOptions

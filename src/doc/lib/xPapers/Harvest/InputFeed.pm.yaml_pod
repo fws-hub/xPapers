@@ -1,0 +1,39 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: |+
+  Inherits from: L<xPapers::Object>
+  
+  Table: input_feeds
+
+FIELDS:
+  db_src:
+    desc: ''
+    type: varchar
+  harvested:
+    desc: ''
+    type: varchar
+  harvested_at:
+    desc: ''
+    type: timestamp
+  id:
+    desc: ''
+    type: serial
+  lastStatus:
+    desc: ''
+    type: varchar
+  name:
+    desc: ''
+    type: varchar
+  pass:
+    desc: ''
+    type: varchar
+  type:
+    desc: ''
+    type: varchar
+  url:
+    desc: ''
+    type: varchar
+  useSince:
+    desc: ''
+    type: integer
+NAME: xPapers::Harvest::InputFeed

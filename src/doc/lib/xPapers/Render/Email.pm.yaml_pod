@@ -1,0 +1,13 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+NAME: xPapers::Render::Email
+SUBROUTINES:
+  endBiblio: ''
+  new: ''
+  nothingMsg: ''
+  prepTitle: ''
+  renderEntry: ''
+  renderNameLit: ''
+  renderNav: ''
+  startBiblio: ''
+  strip: ''

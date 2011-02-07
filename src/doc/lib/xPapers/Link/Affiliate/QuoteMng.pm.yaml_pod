@@ -1,0 +1,10 @@
+---
+AUTHORS: "David Bourget with contributions from Zbigniew Lukasiak\n\n"
+DESCRIPTION: "\n\n"
+METHODS:
+  chooseQuote: ''
+  chooseQuotes: Finds the best offer for a given book in a given locale
+  computeLocale: ''
+  mapCodes: ''
+  object_class: ''
+NAME: xPapers::Link::Affiliate::QuoteMng
