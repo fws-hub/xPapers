@@ -775,13 +775,17 @@ sub parsePage {
 
         # check if we have it already, save first version if not
         if (!$me->{noskip}) {
-            if (my $n = scalar xPapers::EntryMng->addOrUpdate($e,$HARVESTER_USER)) {
-                print "Entry found in database $n times.\n";
-                # when working with a DB, $res includes partial entries for old stuff
+            @diffs = xPapers::EntryMng->addOrDiff($e,$HARVESTER_USER);
+            # found in database
+            if ( $#diffs > 0 or ( $#diffs == 0 and $diffs[0]->type eq 'update') ) {
+                print "Entry found in database " . $#diffs+1 . " times.\n";
                 $res .= $r->renderEntry($e);
                 next;
+            } 
+            # new 
+            else {
+                print "New entry found.\n";
             }
-
         }
 
         # Try to get abstract
@@ -1032,9 +1036,9 @@ sub enc {
 
 
 sub get {
-	my ($me, $url,$pure) = @_;
+	my ($me, $url,$pure,$force) = @_;
 
-    if ($me->{noResults}) {
+    if ($me->{noResults} and !$force) {
         print "would fetch $url\n";
         return "";
     }
@@ -1064,6 +1068,7 @@ sub get {
             # if decoded content is empty, get non-decoded
             $c = $rs->content unless $c;
         } else {
+        print $rs->content;
             push @{$me->{pastBads}},$me->mkSeqId;
             print "BAD (content)\n" if $me->{verbose};
             return undef;

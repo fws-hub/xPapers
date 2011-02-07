@@ -26,6 +26,8 @@ my $DS = 0;
 
 #$CONNECT = '(?:(?:(?:\s*(?:;|,)\s*|\s+)(?:and|&|&amp;)\s)|\s*;\s*)';
 #$COMMA = '(?:(?:(?:\s*,\s*|\s+)(?:and|&|&amp;)\s)|\s*,\s*)';
+
+#moved:
 $AND = '(?:\s+(?:and|&|&amp;|with)\s+)';
 $MERE_COMMA = '(?:\s*,\s*)';
 $MERE_SEMI = '(?:\s*(?:;|<br>|<p>|<\/p>)\s*)';
@@ -34,6 +36,8 @@ $SEMI_AND = "(?:$MERE_SEMI|$AND)";
 $COMMA_AND = "(?:$MERE_COMMA$AND|$AND|$MERE_COMMA)";
 #$SEMI_AND = "(?:$AND|(?:$MERE_SEMI$AND)|$AND)";
 $SPACE = '(?:\s|\&nbsp;|\n|\r)';
+
+
 @PREFIXES_RE = @PREFIXES;
 for (my $i=0; $i<=$#PREFIXES_RE; $i++) {
     $PREFIXES_RE[$i] = '(?:$|^|\W)' . $PREFIXES_RE[$i] . '(?:$|^|\W)';
@@ -41,6 +45,7 @@ for (my $i=0; $i<=$#PREFIXES_RE; $i++) {
 $PREFIXES = "(?:" . join('|',@PREFIXES_RE) . ")";
 @TEXT_FIELDS = qw(title author_abstract descriptors source);
 $PAGES = '';
+# moved to Compare
 my $PARENS = '\s*([\[\(])(.+?)([\]\)])\s*';
 
 @Text::Capitalize::exceptions = qw(
