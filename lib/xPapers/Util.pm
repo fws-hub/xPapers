@@ -12,7 +12,7 @@ use xPapers::Parse::NamePicker;
 use Encode qw/find_encoding decode encode _utf8_on is_utf8/;
 use Encode::Guess;
 use Text::Capitalize qw(capitalize_title @exceptions);
-use Text::Names qw/samePerson reverseName cleanParseName parseName parseName2 parseNames parseNameList cleanName calcWeakenings composeName/;
+use Text::Names qw/samePerson reverseName cleanParseName parseName parseName2 parseNames parseNameList cleanName weakenings composeName/;
 use Biblio::Citation::Compare qw/sameWork sameAuthors/;
 use HTML::Entities;
 use Roman;
