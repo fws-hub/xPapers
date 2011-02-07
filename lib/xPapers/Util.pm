@@ -1,10 +1,10 @@
-
 package xPapers::Util;
+use strict;
 
 require Exporter;
-@ISA = qw(Exporter);
-@EXPORT = qw(rmDiacritics squote dquote url2hash hash2url strip decodeResp guessDecode decodeHTMLEntities capitalize reverseName $PREFIXES cleanParseName hash2sql cleanLinks fuzzyGrep rmTags quote toUTF mkNumId file2hash hash2file file2array isArticle lastname getFileContent parseName normalizeNameWhitespace bareName my_dist my_dist_text sameEntry samePerson sameAuthors parseName parseName2 parseAuthors parseAuthorList cleanNames cleanName cleanAll urlEncode urlDecode text2relations isIncomplete cleanJournal calcWeakenings composeName);
-@EXPORT_OK = @EXPORT;
+our @ISA = qw(Exporter);
+our @EXPORT = qw(rmDiacritics squote dquote url2hash hash2url strip decodeResp guessDecode decodeHTMLEntities capitalize $PREFIXES hash2sql cleanLinks fuzzyGrep rmTags quote toUTF mkNumId file2hash hash2file file2array isArticle lastname getFileContent parseName normalizeNameWhitespace bareName my_dist my_dist_text sameEntry samePerson sameAuthors reverseName cleanParseName parseName parseName2 parseAuthors parseAuthorList cleanNames cleanName cleanAll urlEncode urlDecode text2relations isIncomplete cleanJournal calcWeakenings composeName);
+our @EXPORT_OK = @EXPORT;
 
 use utf8;
 use Text::LevenshteinXS qw(distance);
@@ -12,6 +12,8 @@ use xPapers::Parse::NamePicker;
 use Encode qw/find_encoding decode encode _utf8_on is_utf8/;
 use Encode::Guess;
 use Text::Capitalize qw(capitalize_title @exceptions);
+use Text::Names qw/samePerson reverseName cleanParseName parseName parseName2 parseNames parseNameList cleanName calcWeakenings composeName/;
+use Biblio::Citation::Compare qw/sameWork sameAuthors/;
 use HTML::Entities;
 use Roman;
 use xPapers::Link::Free;
@@ -22,31 +24,13 @@ use xPapers::Conf;
 
 my $DS = 0;
 
-
-
-#$CONNECT = '(?:(?:(?:\s*(?:;|,)\s*|\s+)(?:and|&|&amp;)\s)|\s*;\s*)';
-#$COMMA = '(?:(?:(?:\s*,\s*|\s+)(?:and|&|&amp;)\s)|\s*,\s*)';
-
-#moved:
-$AND = '(?:\s+(?:and|&|&amp;|with)\s+)';
-$MERE_COMMA = '(?:\s*,\s*)';
-$MERE_SEMI = '(?:\s*(?:;|<br>|<p>|<\/p>)\s*)';
-#$COMMA_AND = "(?:$MERE_COMMA|$AND)";
-$SEMI_AND = "(?:$MERE_SEMI|$AND)";
-$COMMA_AND = "(?:$MERE_COMMA$AND|$AND|$MERE_COMMA)";
-#$SEMI_AND = "(?:$AND|(?:$MERE_SEMI$AND)|$AND)";
-$SPACE = '(?:\s|\&nbsp;|\n|\r)';
-
-
-@PREFIXES_RE = @PREFIXES;
+our @PREFIXES_RE = @PREFIXES;
 for (my $i=0; $i<=$#PREFIXES_RE; $i++) {
     $PREFIXES_RE[$i] = '(?:$|^|\W)' . $PREFIXES_RE[$i] . '(?:$|^|\W)';
 }
-$PREFIXES = "(?:" . join('|',@PREFIXES_RE) . ")";
-@TEXT_FIELDS = qw(title author_abstract descriptors source);
-$PAGES = '';
-# moved to Compare
-my $PARENS = '\s*([\[\(])(.+?)([\]\)])\s*';
+our $PREFIXES = "(?:" . join('|',@PREFIXES_RE) . ")";
+our @TEXT_FIELDS = qw(title author_abstract descriptors source);
+our $PAGES = '';
 
 @Text::Capitalize::exceptions = qw(
      a an the as s
@@ -67,7 +51,7 @@ $Text::Capitalize::word_rule =  qr{ ([^\w\s]*)   # $1 - leading punctuation
                  }x ;
 
 # to correct bogus windows entities. unfixable ones are converted to spaces.
-%WIN2UTF = (
+my %WIN2UTF = (
     hex('80')=> hex('20AC'),#  #EURO SIGN
     hex('81')=> hex('0020'),           #UNDEFINED
     hex('82')=> hex('201A'),#  #SINGLE LOW-9 QUOTATION MARK
@@ -103,7 +87,7 @@ $Text::Capitalize::word_rule =  qr{ ([^\w\s]*)   # $1 - leading punctuation
 );
 
 # Config data we keep between calls to cleanAll()
-my ($journal_map, $nocaps2, $decap, $excludeAuthors, $excludeTitle, $excludeJournals);
+my ($badtypes, $antibad, $journal_map, $nocaps2, $decap, $excludeAuthors, $excludeTitle, $excludeJournals);
 
 my $np;
 my $freeChecker;
@@ -188,10 +172,6 @@ sub capitalize {
 }
 
 
-sub reverseName {
-    my @n = split(/,\s*/,shift());
-    return "$n[1] $n[0]";
-}
 
 sub isIncomplete {
     my $e = shift;
@@ -226,140 +206,6 @@ sub lastname {
 	return $l;
 }
 
-sub parseName2 {
-    my $in = shift;
-    my ($f,$l,$i,$s);
-    my ($l,$f) = split(/,\s*/,$in);
-    # get suffix
-    if ($l =~ s/\s+(Jr\.?|[IV]{2,10})\s*$//) {
-        $s = $1;
-    }
-    #print "f: $f\nl:$l\n";
-    # separate firstname/initial
-    # if has only initials
-    if ($f =~ /^\s*([A-Z](?:\.|\s|$))(.+)$/) {
-       $f = $1;
-       $i = $2; 
-       $i =~ s/^\s*//;
-    } 
-    # has a full firstname
-    else {
-        if ($f =~ /^([^\s]+?)\s+((?:[A-Z](?:\.|\s+|$)\s*)+)$/) {
-            $f = $1; 
-            $i = $2;
-        }
-    }
-    return ($f,$i,$l,$s);
-}
-
-sub normalizeNameWhitespace {
-
-    my $in = shift;
-
-    #print "in: $in\n";
-    # this used to be optional, but then we never know in advance
-    #my $initialsCanBeLowerCase = shift;
-    #if ($initialsCanBeLowerCase) {
-        $in =~ s/\b([a-z])\b/uc $1/ge;
-    #}
-
-
-    $in =~ s/^\s+//g; # remove initial spaces
-    $in =~ s/\s+$//g; # remove term spaces
-    $in =~ s/\s+,/,/g; # remove spaces before coma
-    $in =~ s/,\s*/, /g; # normalize spaces after coma
-    $in =~ s/\.\s*([A-Z])/. $1/g; # adjust spacing between initials
-    #print "in: $in\n";
-    $in =~ s/([A-Z])\.\s([A-Z])\./$1. $2./g;
-    $in =~ s/\b([A-Z])\b(?![\.'])/$1./g;
-    while ($in =~ s/([\.\s][A-Z])(\s|$)/$1.$2/g) {};
-    $in =~ s/\.\s*([A-Z])/. $1/g; # adjust spacing between initials
-
-    #print "normalized: $in\n";
-    $in;
-
-}
-
-sub composeName {
-    my ($given,$last) = @_;
-    my $r = $last;
-    $r .= ", $given" if $given;
-    return $r;
-}
-
-sub parseName {
- 	my $in = shift;
-
- 	#print "-->parseName in: $in\n";
-    
-    $in =~ s/^\s*and\s+//; 
-    my $jr = ($in =~ s/,?\sJr\.?(\s|$)//i);
-    $in =~ s/^\s*by\s+//;
-    $in =~ s/\W*et\.? al\.?\W*//;
-    $in =~ s/\.\s*$//; # remove . at the end
- 	#print "$in -->";
-    $in = normalizeNameWhitespace($in);
-    #print "name cleaned:'$in'\n";
-
-    # check if we have a case of Lastname I. without comma
-    if ($in=~ /^([^,]+?\s)+?((?:[A-Z][\-\.\s]{0,2}){1,3})$/) {
-        
-        #warn "Got a reversed name without comma";
-        $init = $2;
-        $rest = $1;
-        #print "\n\nmatched, rest:$rest--$2\n";
-        # add . as needed
-#        if ($init !~ /\./) {
-            $init =~ s/([A-Z])([^.]|$)/$1.$2/g;
-            $init =~ s/([A-Z])([^.]|$)/$1.$2/g;
-#        }
-        $rest =~ s/\s$//;
-        $in = normalizeNameWhitespace("$rest, $init");
-    } elsif ($in =~ /^[^,]+\s\w\.?$/) {
-        #print "case\n";
-        $in =~ s/^(.+?)\s((?:[A-Z]\.?-?\s?){1,3})$/$1,$2/;
-    } 
-    #print "now:$in\n";
-    # standard cases
- 	if ($in =~ /(.*),\s*(.*)/) {
-    	return ($2, $1);
- 	} else {
-	 	my @bits = split(' ',$in);
-        if ($#bits == -1) {
-            return ($in,"");
-        }
-        my $lastname = splice(@bits,-1,1);
-        if ($lastname =~ /^Jr\.?$/i and $#bits > -1) {
-            $lastname = $bits[-1] . " $lastname";
-            splice(@bits,-1,1);
-        }
-        $lastname = "$lastname Jr" if $jr;
-        # add prefixes or Jr to lastname
-        #warn join(" - ",@bits);
-        while ($bits[-1] =~ /^$PREFIXES$/i) {
-            #warn "GOT PREFIX: $bits[-1]";
-            $lastname = splice(@bits,-1,1) . " $lastname";
-        }
-        return (join(' ',@bits),$lastname);
-		#my $firstname = splice(@bits,0,1);
-		#while ($#bits > -1 and $bits[0] =~ /^\s*\w\.?\s*$/) {
-        # 	$firstname .= " ".splice(@bits,0,1);
-		#}
-		#my $lastname = join(' ', @bits);
-		#return ($firstname, join(' ',@bits));
- 	}
-
-}
-
-sub sameAuthors {
-    my ($list1, $list2) = @_;
-    return 0 if $#$list1 != $#$list2;
-    for (my $i = 0; $i <= $#$list1; $i++) {
-        return 0 unless samePerson($list1->[$i],$list2->[$i]);
-    }
-    return 1;
-}
-
 sub bareName {
     die "deprecated";
     my $name = shift;
@@ -374,130 +220,21 @@ sub bareName {
     }
 }
 
-sub parseAuthors {
 
-    my $in = shift;
-    my $reverse = shift; # means names are stupidly written like this: David, Bourget
-    while($in =~ s/(^|\W)(dr|prof\.? em\.?|prof|profdr|prof|sir|mrs|ms|mr)\.?(\W)/$1 $3/gi) {}
-    $in =~ s/^\s+//;
-    $in =~ s/([^A-Z]{2,2})\.\s*/$1/; # remove . at the end
-    $in =~ s/\(.+\)\s*$//; # remove trailing parens
-    $in =~ s/(,\s*)?\d\d\d\d-$//;
-    $in =~ s/^\s*[bB]y(\W)/$1/; #remove "By ";
-    $in =~ s/,?\s*et\.? al\.?\s*$//; # et al
-    $in =~ s/^\W+//;
+sub reverseName { return Text::Names::reverseName(@_) };
+sub normalizeNameWhitespace { return Text::Names::normalizeNameWhitespace(@_) };
+sub composeName { return Text::Names::composeName(@_) };
+sub parseName { return Text::Names::ParseName(@_) };
+sub parseName2 { return Text::Names::parseName2(@_) };
+sub sameAuthors { return Biblio::Citation::Compare::sameAuthors(@_) };
+sub parseAuthors { return Text::Names::parseNames(@_) };
+sub parseAuthorList { return Text::Names::parseNameList(@_) };
+sub samePerson { return Text::Names::samePerson(@_) };
+sub cleanParseName { return Text::Names::cleanParseName(@_) };
+sub cleanName { return Text::Names::cleanName(@_) };
+sub calcWeakenings { return Text::Names::weakenings(@_) };
 
-    #print "== $in\n";
-    # semi-colon separated
-    if ($in =~ /;/) {
-        return parseAuthorList(split(/$SEMI_AND/i,$in),$reverse);
-    } 
-    
-    # no comma and no semi-colon, so one or two not-reversed names 
-    elsif ($in !~ /,/) {
-        return parseAuthorList(split(/$AND/i,$in),$reverse);
-    } 
-   
-    # now that's messy: one or more commas, no semi
-    else {
 
-        # is there a "and"?
-        #print "$in\n";
-        if ($in =~ /$AND/i) {
-
-            #print "AND:$in\n";
-            # now we check for double duty for commas
-            # We fix what would be missing commas on this hypothesis
-            my $t = $in;
-            $t =~ s/([a-z])\s+([A-Z])(\.|\s|$)/$1, $2$3/g;
-            # we check if it's a silly case of commas playing double duty
-            if ($t =~ /,.+,.+,.+$AND/) {
-                #print "SILLY: $t\n";
-                my @to;
-                my @tokens = split(/$COMMA_AND/i,$t);
-                for (my $ti=0; $ti <= $#tokens;$ti+=2) {
-                    push @to, join(", ",@tokens[$ti..$ti+1]); 
-                }
-                return parseAuthorList(@to,$reverse);
-            } 
-
-            # no silliness. what's after the AND will tell us the format 
-            # if there's a comma after, it's probably reversed
-            if ($in =~ /$AND.*,/i) {
-
-                return parseAuthorList(split(/$SEMI_AND/i,$in),$reverse);
-            } 
-
-            # if there is no comma after, it's not-reversed, comma separated.  
-            else {
-                return parseAuthorList(split(/$COMMA_AND/i,$in),$reverse);
-            }
-
-        } else {
-            #print "- no and\n";
-            # no semi, no and, and one or more comma
-            # if 2 or more commas
-            if ($in =~ /,.+,/) {
-                # need to check if this is a silly case of commas with reversed names
-                # check that by looking for two or more ,token, with only one part, and odd number of ,
-                my @tokens = split(/$MERE_COMMA/i,$in);
-                my $silly = 0;
-                for my $tok (@tokens) {
-                    $silly++ unless $tok =~ m/[\w\.]$SPACE[\w\.]/i;
-                }
-                # if silly combination, every other comma separates two names
-                if ($silly >=2 and $#tokens %2 ==1) {
-                    my @to;
-                    for (my $ti=0; $ti <= $#tokens;$ti+=2) {
-                        push @to, join(", ",@tokens[$ti..$ti+1]); 
-                    }
-                    @tokens = @to;
-                } 
-                return parseAuthorList(@tokens,$reverse);
-            }
-            # else, one comma, no semi, and no and
-            else {
-                # now that's ambiguous between "Doe, John" and "John Doe, John Doe"
-                # but we assume there are no names like "Herrera Abreu, Maria Teresa"
-                # (which there are, this is a real one). that is, if the comma separates
-                # two tokens on each side (not counting de,di,von, etc.), we suppose
-                # these tokens make distinct names
-                my @toks = split(/,/,$in);
-                my @copy = @toks;
-                foreach (@copy) {
-                    s/$PREFIXES|(\WJr(\W|$))/ /ig;
-                    my @bits = split(' ',$_);
-                    if ($#bits <= 0) {
-                        # found one side with only one non-trivial token
-                        # so there is only one author in $in
-                        return parseAuthorList(($in),$reverse);
-                    }
-                }
-                return parseAuthorList(@toks,$reverse);
-            }
-        }
-
-    }
-
-	return @auths;
-}
-
-sub parseAuthorList {
-    my @auths;
-    #print "Got: " . join("---", @auths) . "\n";
-    my $reverse;
-    if ($_[-1] eq 'reverse') {
-        pop @_; 
-        $reverse = 1;
-
-    }
-    foreach my $a (@_) {
-        next unless $a;
-        my ($f,$l) = parseName($a);
-        push @auths, ($reverse ? "$f, $l" : "$l, $f");
-    }
-    return @auths;
-}
 
 # XXX deprecated??
 sub my_dist {
@@ -539,184 +276,7 @@ sub fuzzyGrep {
 }
 
 
-sub sameEntry {
-
-    my $debug = 0;
-
- 	my ($e, $c, $tresh,$loose,$nolinks) = @_;
-
-    if ($debug) {
-        warn "sameEntry 1: " . $e->toString;
-        warn "sameEntry 2: " . $c->toString;
-    }
-
-    if (length $e->{doi} and length $c->{doi}) {
-        return 1 if $e->{doi} eq $c->{doi};
-    }
-
-	return 0 if (!$c);
-    $tresh = 0.15 unless $tresh;
-
-    # normalize encoding of relevant fields
-    local $e->{title} = decodeHTMLEntities($e->{title});
-    local $c->{title} = decodeHTMLEntities($c->{title});
-
-    # first check if authors,date, and title are almost literally the same
-    my $tsame = (lc $e->{title} eq lc $c->{title}) ? 1 : 0;
-    my $asame = sameAuthors([$e->getAuthors],[$c->getAuthors]);
-    my $dsame = ($e->{date} eq $c->{date}) ? 1 : 0;
-    my $firstsame = samePerson(cleanName($e->firstAuthor),cleanName($c->firstAuthor));
-
-    if ($debug) {
-        warn "tsame: $tsame";
-        warn "asame: $asame";
-        warn "dsame: $dsame";
-        warn "firstsame: $firstsame";
-    }
-
-    return 1 if ($tsame and $asame and $dsame);
-
-	my ($fname1,$lname1) = parseName($e->firstAuthor);
-	my ($fname2,$lname2) = parseName($c->firstAuthor);
-
-	# if authors quite different, not same
-    if (!$asame and my_dist_text($lname1,$lname2) / (length($lname1) + 1) > $tresh) {
-        #print "$lname1, $lname2<br>";
-        #print my_dist_text($lname1,$lname2); 
-     	return 0;
-    }
-
-    warn "pre number check" if $debug;
-	# if titles differ by a number, not the same
-	return 0 if !$tsame and numdiff($e->{title},$c->{title});
-
-    warn "pre title length" if $debug;
-	# if title very different in lengths and do not contain ":" or brackets, not the same
-	return 0 if !$tsame and (
-                    abs(length($e->{title}) - length($c->{title})) > 20 
-                    and
-					($e->{title} !~ /:/ and $c->{title} !~ /:/)
-                    and
-					($e->{title} !~ /$PARENS/ and $c->{title} !~ /$PARENS/)
-				); 	
-
-	# Compare links
-    if (!$nolinks) {
-        foreach my $l ($e->getLinks) {
-#            print "Links e:\n" . join("\n",$e->getLinks);
-#            print "Links c:\n" . join("\n",$c->getLinks);
-            return 1 if grep { $l eq $_} $c->getLinks;
-        }
-    }
-
-    # check dates
-    my $compat_dates = $dsame;
-    if (!$dsame and $e->{date} =~ /^\d\d\d\d$/ and $c->{date} =~ /^\d\d\d\d$/ ) {
-
-        $compat_dates = 0;
-        #disabled for most cases because we want to conflate editions and republications for now. 
-        if ($e->{title} =~ /^Introduction.?$/ or $e->{title} =~ /^Preface.?$/) {
-            return 0 if ($e->{source} and $e->{source} ne $c->{source}) or 
-                        ($e->{volume} and $e->{volume} ne $c->{volume});
-        }
-        if ($loose) {
-            $tresh /= 2;
-        } else {
-            $tresh /= 3;
-        }
-    } 
-    
-   # authors same, loosen for title 
-    if (($asame or $firstsame) and $compat_dates) {
-       $loose = 1;
-    }
-
-    warn "pre loose mode: loose = $loose" if $debug;
-
-    #print "threshold $lname1,$lname2: $tresh\n";
-	# ok if distance short enough without doing anything
-	#print "distance: " . distance(lc $e->{title},lc $c->{title}) / (length($e->{title}) +1) . "\n";
-
-	# perform fuzzy matching
-   	#my $str1 = "$e->{date}|$e->{title}";
-	my $str1 = _strip_non_word($e->{title});
-	my $str2 = _strip_non_word($c->{title});
-
-    # remove brackets 
-    $str1 =~ s/$PARENS//g;
-    $str2 =~ s/$PARENS//g;
-
-    warn "$str1 -- $str2" if $debug;
-    # ultimate test
-    #dbg("$str1\n$str2\n");
-    #dbg(my_dist_text($str1,$str2));
-    my $score = (my_dist_text($str1,$str2) / (length($str1) +1));
-    
-    #print $score . "<br>\n";
- 	return 1 if ( $score < $tresh);
-
-	# now if loose mode and only one of the titles has a ":", compare the part before ":" with the other title instead
-    if ($loose) {
-
-        warn "loose: $str1 -- $str2" if $debug;
-        return 1 if (my_dist_text($str1,$str2) / (length($str1) +1) < $tresh);
-
-        if ($e->{title} =~ /(.+):(.+)/) {
-
-            my $str1 = _strip_non_word($1);
-            if ($c->{title} =~ /(.+):(.+)/) {
-                return 0;
-            } else {
-                if (my_dist_text($str1,$str2) / (length($str1) +1)< $tresh) {
-                    return 1;
-                }
-            }
-
-        } elsif ($c->{title} =~ /(.+):(.+)/) {
-
-            my $str2 = _strip_non_word($1);
-            if (my_dist_text($str1,$str2) / (length($str1) +1)< $tresh) {
-                return 1;
-            }
-
-        } else {
-
-            return 0;
-
-        }
-    }
-        
-    return 0;
-}
-
-sub _strip_non_word {
-    my $str = shift;
-    $str =~ s/[^\w\)\]\(\[]+/ /g;
-    $str =~ s/\s+/ /g;
-    $str; 
-}
-
-sub numdiff {
-	my ($s1,$s2) = @_;
-	#print "----checking numdiff (($s1,$s2))\n";
-    my @n1 = ($s1 =~ /\b([IXV0-9]{1,4}|first|second|third|fourth|fifth|1st|2nd|3rd|4th)\b/ig);
-    my @n2 = ($s2 =~ /\b([IXV0-9]{1,4}|first|second|third|fourth|fifth|1st|2nd|3rd|4th)\b/ig);
-    #print "In s1:" . join(",",@n1) . "\n";
-    #print "In s2:" . join(",",@n2) . "\n";
-    return 0 if $#n1 ne $#n2;
-    for (0..$#n1) {
-        return 1 if lc $n1[$_] ne lc $n2[$_];
-    }
-    #print "Not diff\n";
-    return 0;
-=old
-    my $num1 = undef;
-    my $num2 = undef;
-	$num1 = $1 if ($s1 =~ /\W([IV1-9]{1,4})(((\W|$).{0,3}$)|(\W\s*:))/);
-    $num2 = $1 if ($s2 =~ /\W([IV1-9]{1,4})(((\W|$).{0,3}$)|(\W\s*:))/);
-    return $num1 eq $num2 ? 0 : 1;
-=cut
-}
+sub sameEntry { return Biblio::Citation::Compare::sameWork(@_) };
 
 sub file2hash {
 	my $file = shift;
@@ -992,6 +552,7 @@ sub fixNameParens {
 my $_regexp_for_resolvers;
 sub _regexp_for_our_resolvers {
     unless (defined $_regexp_for_resolvers) {
+        my @sites;
         for my $site ( keys %SITES ){
             push @sites, "$SITES{$site}{server}\\/go";
         }
@@ -1129,164 +690,6 @@ sub cleanNames {
 }
 
 
-# if the two names passed as params are such that they could belong to the same person, returns a merged name
-sub samePerson {
- 	my ($a,$b) = @_; #name1,name2
-	my $a_expd = 0;
-	my $b_expd = 0;
-	my ($lasta,$firsta) = split(',',cleanName($a,' ','reparse'));
-	my ($lastb,$firstb) = split(',',cleanName($b,' ','reparse'));
-	#print "here '$lasta'-'$lastb'\n";
-	return undef unless lc $lasta eq lc $lastb;
-=old
-	# regimentation
-	$firsta =~ s/\./ /g;
-	$firstb =~ s/\./ /g;
-	$firsta =~ s/\s+/ /g;
-	$firstb =~ s/\s+/ /g;
-=cut
-	my @at = split(" ",$firsta);
-	my @bt = split(" ",$firstb);
-	#print "AT: " . join("-",@at) . "\n";
-	#print "BT: " . join("-",@bt) . "\n";
-	# compare each token pair as follows:
-	# if reached the end of tokens on either side, compat
-	# if both are greater than 1 char and diff, not compat
-	# if they don't start by the same letter, not compat
-	# else merge the tokens, compat so far, move on to next token pair
-	#
-	my $merged = "$lasta,";
-	for (my $i=0; $i <= $#at || $i <= $#bt; $i++) {
-		#print "$i ($merged):" . $at[$i] . "-" . $bt[$i]. "-\n";
-		# end of tokens reached on one side
-
-		if ($i > $#at) {
-			#print "END ($merged)\n";
-			#return undef if $b_expd;
-			$merged .= " ". join(" ",@bt[$i..$#bt]);
-			return cleanName($merged,'');
-		} elsif ($i > $#bt) {
-			#print "END ($merged)\n";
-			#return undef if $a_expd;
-			$merged .= " ". join(" ",@at[$i..$#at]);
-			return cleanName($merged,'');
-		}
-		# if different tokens 
-		if ($at[$i] ne $bt[$i]) {
-
-			# if different first letters, not compat
-			return undef if (lc substr($at[$i],0,1) ne lc substr($bt[$i],0,1));
-
-			# otherwise they might be compatible 
-			
-			# token a is full word
-			if (length($at[$i]) > 2) {
-				# b is too, they are not compat unless one is a short for the other
-				if (length($bt[$i]) > 2) { 
-					if ( lc $shorts{$at[$i]} eq lc $bt[$i]) {
-						$merged .= " " . $bt[$i];
-						next;
-					} elsif ( lc $shorts{$bt[$i]} eq lc $at[$i]) {
-						$merged .= " " . $at[$i];
-						next;
-					} else {
-						return undef;
-					}
-				} 
-				# b is initial, they are compat so far
-				else {
-					$b_expd = 1;
-					$merged .= " " . $at[$i];
-				}
-			# a is initial
-			} else {
-				# b is full word 
-				$a_expd = 1 if length($bt[$i]) > 2;
-				# keep going
-				$merged .= " " . $bt[$i];
-			}
-			
-		}
-		# otherwise move on to next token pair straight
-		else {
-			$merged .= " " .$at[$i];
-		}
-	}
-	# if we get there, the two names are compatible and $merged contains the richest name from the two
-#	print "merged: $merged\n";
-	return cleanName($merged,'');
-   
-}
-
-sub cleanParseName {
-    my $n = shift;
-    # I think that one is overkill..
-    return parseName(cleanName(composeName(parseName($n))));
-}
-
-sub cleanName {
-	my ($n, $space, $reparse) = @_;
-
-    # Some of the cleaning-up here is redundant because also in parseName, which is called last. But it doesn't hurt.. If it works don't try and fix it.
-
-    #print "Cleaning name: $n\n";
-
-    # if ", john doe"
-    if ($n =~ s/^\s*,\s+//) { }
-
-    # if 'john doe,'
-    if ($n =~ s/^([^,]+?)\s*,\s*$/$1/) { }
-
-    $n =~ s/Get checked abstract//g;
-    $n = rmTags($n);
-    $n =~ s/, By$//i;
-    #if ($reparse and $n =~ s/,/) {
-    #    my ($l,$f) = split(/,\s*/,$n);
-    #    my ($f,$l) = parseName(join(' ',($f,$l)));
-    #    $n = "$l, $f";
-    #}
-
-    # Fix for O'Something => O.'Something
-    #$n =~ s/O\.'/O'/;
-
-    $n =~ s/[\r\n]/ /gsm;
-    $n =~ s/(\w)\s*,/$1,/g;
-	$n =~ s/([a-z]{2,})\./$1/gi; #remove unwanted .
-	$n =~ s/(\W|\.|\s)([A-Z])(\s|$)/$1$2.$3/g; #add . to initials
-	$n =~ s/(\W|\.|\s)([A-Z])(\s|$)/$1$2.$3/g; #add . to initials (repeat for overlaps)
-	$n =~ s/\.\s*([A-Z])/". " . uc $1/ieg; # adjust spacing between initials
-	$n =~ s/\W*\d{4,4}\W*//g; # misplaced dates
-	$n =~ s/\(.*$//; #parentheses
-	# misplaced jr
-	$n =~ s/([\w'-])\s*,(.*)\sJr(\s.*|$)/$1 Jr,$2 $3/i;
-	# misplaced prefixe
-    #warn $n;
-	#$n =~ s/([\w'-])\s*,(.*)\s(van|von|von\sder|van\sder|di|de|del|du|da)(\s.*|$)/(lc $3) . $1 . "," . $2 . $4/ie;
-    #warn $n;
-    # replace Iep by UNKNOWN
-    $n =~ s/^Iep,$/Unknown, Unknown/;
-    #links aren't names
-    $n = "Unknown, Unknown" if $n =~ /http:\/\//;
-
-	# de-expand middle names 
-	# TODO more elegant regexp that doesn't have to be repeated to get all middle names?
-	#$n =~ s/(,\s*[A-Z][\w'-]+\s+.*?[A-Z])[\w'-]+(\s*)/$1.$2/g;
-	#$n =~ s/(,\s*[A-Z][\w'-]+\s+.*?[A-Z])[\w'-]+(\s*)/$1.$2/g;
-	#$n =~ s/(,\s*[A-Z][\w'-]+\s+.*?[A-Z])[\w'-]+(\s*)/$1.$2/g;
-
-   	#print "res: $n\n";
- # capitalize if nocaps
-    if ($n !~ /[A-Z]/) {
-        $n = capitalize($n,notSentence=>1);#_title($n, PRESERVE_ANYCAPS=>1, NOT_CAPITALIZED=>\@PREFIXES);	
-    }
-
-	#print "pos caps: $n\n";
-    $n = composeName(parseName($n));
-    # now final capitalization
-    $n = capitalize($n,notSentence=>1); #,PRESERVE_ANYCAPS=>1, NOT_CAPITALIZED=>\@PREFIXES);	
-    return $n;
-}
-
 
 sub cleanJournal {
 #    die "this needs to be updated: add journal name mapping";
@@ -1343,7 +746,7 @@ sub mark_defective {
 				splice(@$as,$i,1); 
 			}
 			for (my $x=0; $x<=$#toks; $x++) {
-				$t = $toks[$x];
+				my $t = $toks[$x];
 				# check if missing firstname or surname, in that case probably a split off from
 				# previous name, try to fix that
 				if ($t eq "") {
@@ -1610,92 +1013,6 @@ sub hash2sql {
     return $r;
 }
 
-sub calcWeakenings {
-    my( $firstname, $lastname ) = @_;
-    my @warnings;
-    # default firstname aliases: every middle name can be either in full, initialized, or absent
-    my @first_parts = split(/\s+/,normalizeNameWhitespace($firstname));
-    my $reduced = 0;
-    if( scalar @first_parts > 3 ){
-        $reduced = 1;
-        splice( @first_parts, 3 ); 
-        push @warnings, "Too many parts in first name: '$firstname'\n";
-    }
-    my $first = shift @first_parts;
-    for my $i (0..$#first_parts) {
-        my $value = $first_parts[$i];
-        $first_parts[$i] = [$value]; # the default value is good
-        # try downgrading to initial
-        push @{$first_parts[$i]}, $value if ($value =~ s/(\w)[^\s\.]+/$1./);
-    }
-    my @first_aliases = ( $first );
-    push @first_aliases, "$1." if $first =~ /(\w)[^\s\.]+/;
-    #print Dumper(\@first_parts);
-    for my $i (0..$#first_parts) {
-        my @new;
-        for my $current (@first_aliases) {
-            for (@{$first_parts[$i]}) {
-                push @new, "$current $_";
-            }
-            push @new, $current;
-        }
-        @first_aliases = @new;
-    }
-    #print Dumper(\@first_aliases);
-    $lastname = normalizeNameWhitespace($lastname);
-    my @prefixes = map "\\b$_\\b", @PREFIXES, 'y', 'los';
-    my $prefixes = join '|', @prefixes;
-    $lastname =~ s/($prefixes) /$1+/ig;
-    my @parts = reverse ( ( split(/\s+/,$lastname) ) );
-    my @last_aliases;
-    my $lastlast = shift @parts;
-    for my $variation ( variations( $lastlast ) ){
-        push @last_aliases, $variation;
-    }
-    if( scalar @parts < 3 ){
-        for my $lpart ( @parts ){
-            my @curr = @last_aliases;
-            for my $variation ( variations( $lpart ) ){
-                for my $alias ( @curr ){
-                    next if $variation =~ /-/ && $alias =~ / /;
-                    next if $variation =~ / / && $alias =~ /-/;
-                    push @last_aliases, "$variation $alias" if $variation !~ /-/ && $alias !~ /-/;
-                    push @last_aliases, "$variation-$alias" if $variation !~ / / && $alias !~ / /;
-                }
-            }
-        }
-    }
-    else{
-        push @warnings, "Too many parts in last name: '$lastname'\n";
-        push @last_aliases, $lastname;
-    }
-    my @aliases;
-    unshift @first_aliases, $firstname if $reduced;
-    ALIAS:
-    for my $f ( @first_aliases ) {
-        for my $l (@last_aliases) {
-            push @aliases, { firstname => $f, lastname => $l };
-            if( scalar @aliases > 25 ){
-                push @warnings, 'More than 25 aliases';
-                last ALIAS;
-            }
-        }
-    }
-    return \@warnings, @aliases;
-}
-
-sub variations {
-    my $part = shift;
-    my @parts = split /\+/, $part;
-    if( scalar @parts <= 1 ){
-        return $part;
-    }
-    else{
-        return join( ' ', @parts ), $parts[-1];
-    }
-}
-
-
 
 
 1;
@@ -1721,7 +1038,7 @@ xPapers::Util
 
 =head2 calcWeakenings 
 
-
+An alias for L<Text::Names>::weakenings
 
 =head2 cap_except 
 
@@ -1749,7 +1066,7 @@ xPapers::Util
 
 =head2 cleanName 
 
-
+An alias for L<Text::Names>::cleanName
 
 =head2 cleanNames 
 
@@ -1757,7 +1074,7 @@ xPapers::Util
 
 =head2 cleanParseName 
 
-
+An alias for the L<Text::Names> sub of the same name.
 
 =head2 clean_field 
 
@@ -1765,7 +1082,7 @@ xPapers::Util
 
 =head2 composeName 
 
-
+An alias for the L<Text::Names> sub of the same name.
 
 =head2 cond_cap 
 
@@ -1869,63 +1186,63 @@ xPapers::Util
 
 =head2 normalizeNameWhitespace 
 
-
+An alias for the L<Text::Names> sub of the same name.
 
 =head2 numdiff 
 
-
+An alias for the L<Biblio::Citation::Compare>::numdiff
 
 =head2 parseAuthorList 
 
-
+An alias for L<Text::Names>::parseNameList
 
 =head2 parseAuthors 
 
-
+An alias for L<Text::Names::parseNames
 
 =head2 parseName 
 
-
+An alias for the L<Text::Names> sub of the same name.
 
 =head2 parseName2 
 
-
+An alias for the L<Text::Names> sub of the same name.
 
 =head2 quote 
 
-
+Quote a string for use within SQL string literals (escapes single quotes)
 
 =head2 reverseName 
 
-
+An alias for the L<Text::Names> sub of the same name.
 
 =head2 rmDiacritics 
 
-
+Remove diacritics from a string, eg "é" becomes "e"
 
 =head2 rmTags 
 
-
+Remove HTML tags from a string
 
 =head2 safe_decode 
 
-
+Decode the HTML entities in a string in a way that guards against bogus Windows-inspired entities
 
 =head2 sameAuthors 
 
-
+An alias for the L<Biblio::Citation::Compare>::sameAuthors.
 
 =head2 sameEntry 
 
-
+An alias for the L<Biblio::Citation::Compare>::sameWork.
 
 =head2 samePerson 
 
-
+An alias for the L<Text::Names> sub of the same name.
 
 =head2 squote 
 
-
+Same as quote()
 
 =head2 strip 
 
@@ -1933,27 +1250,27 @@ xPapers::Util
 
 =head2 text2relations 
 
-
+Deprecated
 
 =head2 toUTF 
 
-
+Force conversion of a string to UTF8 and sets UTF flag
 
 =head2 url2hash 
 
-
+Transforms a URL (with parameters) into a hash
 
 =head2 urlDecode 
 
-
+Decode a URL-encoded string
 
 =head2 urlEncode 
 
-
+Perform URL encoding
 
 =head2 variations 
 
-
+An alias for L<Text::Names>::variations
 
 
 =head1 AUTHORS

@@ -56,6 +56,7 @@ use Data::Dumper;
 use Encode;
 #use xPapers::Util qw/parseName parseName2 quote sameEntry file2array cleanAll rmDiacritics/;
 use xPapers::Util;
+use Biblio::Citation::Compare 'sameWork';
 use xPapers::Object;
 use HTML::Entities qw/decode_entities/;
 use xPapers::Conf qw/$DEFAULT_SITE %SOURCE_TYPE_ORDER $TIMEZONE %INDEXES %PATHS $AUTOCAT_USER/;
@@ -287,7 +288,7 @@ sub getAllLinks {
 
 
 sub same {
-    return sameEntry(@_);
+    return sameWork(@_);
 }
 
 sub clearCatsCache {

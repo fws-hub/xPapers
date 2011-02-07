@@ -3,7 +3,7 @@ use strict;
 
 require Exporter;
 our @ISA = qw(Exporter);
-our @EXPORT_OK = qw(@NAME_PREFIXES abbreviationOf reverseName cleanParseName parseName parseName2 normalizeNameWhitespace samePerson sameAuthors parseAuthors parseAuthorList cleanNames cleanName calcWeakenings composeName);
+our @EXPORT_OK = qw(@NAME_PREFIXES abbreviationOf reverseName cleanParseName parseName parseName2 normalizeNameWhitespace samePerson sameAuthors parseNames parseNameList cleanNames cleanName calcWeakenings composeName);
 
 use Text::Capitalize qw(capitalize_title @exceptions);
 
@@ -17,6 +17,16 @@ our @NAME_PREFIXES = qw(de di du da le la van von der den des ten ter);
      quot amp
   );
 push @Text::Capitalize::exceptions, @NAME_PREFIXES;
+
+$Text::Capitalize::word_rule =  qr{ ([^\w\s]*)   # $1 - leading punctuation 
+                               #   (e.g. ellipsis, leading apostrophe)
+                   ([\w']*)    # $2 - the word itself (includes non-leading apostrophes AND HTML ENTITIES)
+                   ([^\w\s]*)  # $3 - trailing punctuation 
+                               #   (e.g. comma, ellipsis, period)
+                   (\s*)       # $4 - trailing whitespace 
+                               #   (usually " ", though at EOL prob "")
+                 }x ;
+
 
 our @ABBREVIATIONS = (
 'Ab' => 'Abner',
@@ -752,7 +762,7 @@ sub parseName {
 
 }
 
-sub parseAuthors {
+sub parseNames {
 
     my $in = shift;
     my $reverse = shift; # means names are stupidly written like this: David, Bourget
@@ -768,12 +778,12 @@ sub parseAuthors {
     #print "== $in\n";
     # semi-colon separated
     if ($in =~ /;/) {
-        return parseAuthorList(split(/$SEMI_AND/i,$in),$reverse);
+        return parseNameList(split(/$SEMI_AND/i,$in),$reverse);
     } 
     
     # no comma and no semi-colon, so one or two not-reversed names 
     elsif ($in !~ /,/) {
-        return parseAuthorList(split(/$AND/i,$in),$reverse);
+        return parseNameList(split(/$AND/i,$in),$reverse);
     } 
    
     # now that's messy: one or more commas, no semi
@@ -796,19 +806,19 @@ sub parseAuthors {
                 for (my $ti=0; $ti <= $#tokens;$ti+=2) {
                     push @to, join(", ",@tokens[$ti..$ti+1]); 
                 }
-                return parseAuthorList(@to,$reverse);
+                return parseNameList(@to,$reverse);
             } 
 
             # no silliness. what's after the AND will tell us the format 
             # if there's a comma after, it's probably reversed
             if ($in =~ /$AND.*,/i) {
 
-                return parseAuthorList(split(/$SEMI_AND/i,$in),$reverse);
+                return parseNameList(split(/$SEMI_AND/i,$in),$reverse);
             } 
 
             # if there is no comma after, it's not-reversed, comma separated.  
             else {
-                return parseAuthorList(split(/$COMMA_AND/i,$in),$reverse);
+                return parseNameList(split(/$COMMA_AND/i,$in),$reverse);
             }
 
         } else {
@@ -831,7 +841,7 @@ sub parseAuthors {
                     }
                     @tokens = @to;
                 } 
-                return parseAuthorList(@tokens,$reverse);
+                return parseNameList(@tokens,$reverse);
             }
             # else, one comma, no semi, and no and
             else {
@@ -848,10 +858,10 @@ sub parseAuthors {
                     if ($#bits <= 0) {
                         # found one side with only one non-trivial token
                         # so there is only one author in $in
-                        return parseAuthorList(($in),$reverse);
+                        return parseNameList(($in),$reverse);
                     }
                 }
-                return parseAuthorList(@toks,$reverse);
+                return parseNameList(@toks,$reverse);
             }
         }
 
@@ -860,7 +870,7 @@ sub parseAuthors {
 	return ();
 }
 
-sub parseAuthorList {
+sub parseNameList {
     my @auths;
     #print "Got: " . join("---", @auths) . "\n";
     my $reverse;
@@ -1043,7 +1053,7 @@ sub cleanName {
     return $n;
 }
 
-sub calcWeakenings {
+sub weakenings {
     my( $firstname, $lastname ) = @_;
     my @warnings;
     # default firstname aliases: every middle name can be either in full, initialized, or absent
