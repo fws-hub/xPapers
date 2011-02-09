@@ -25,13 +25,24 @@ xPapers::Render::GChart->compile(
     ")],
 );
 #and diffs.created < date(now()) 
+
+my %sort_options = (
+    'Category' => 't2.dfo',
+    'Adds' => 't1.added',
+    'IO' => 't1.IO',
+    'Entry count' => 't1.entryCount',
+    'Entry count under' => 't1.entryCountUnder',
+    'Last addition' => 't1.lastAdded'
+);
 </%perl>
 
 <p>
 <h3>Individual editor statistics</h3>
-G I/O = number of categorization actions (globally) since beginning of editorship. <br>
 I/O = number of categorization actions affecting cat since beginning of editorship. <br>
-Imports = number of batch imports. <br>
+C = Entry count directly in category.<br>
+CU = Entry count in category and primary descendants.<br>
+LA = Last addition.<br>
+Adds = number of items in cat added by the editors<br>
 Checked edits = number of checked categorization edits for cat. <br>
 Excluded = numbers of items excluded from cat while trawling.<br>
 nb: no distinctions are made between editors when there is more than one for a cat.
@@ -39,18 +50,34 @@ nb: no distinctions are made between editors when there is more than one for a c
 <table>
 
 <%perl>
-my $eds = xPapers::ES->get_objects(require_objects=>['cat'],query=>['!start'=>undef,'end'=>undef],sort_by=>['t2.dfo','uId','cId']);
+$ARGS{sort} ||= 'category';
+print "Order: <form id='myform'><select name='sort'>";
+print opt($_,$_,$ARGS{sort}) for keys %sort_options;
+print "</select>";
+print "Category type: <select name='type'>";
+print opt($_,$_,$ARGS{type}) for qw/Area Middle Leaf Any/;
+print "</select>";
+print "<input type='submit' value='Apply'</form><br>";
+my $sort = $sort_options{$ARGS{sort}};
+my $eds = xPapers::ES->get_objects(require_objects=>['cat'],query=>['!start'=>undef,'end'=>undef],sort_by=>[$sort,'uId','cId']);
 my $c = 0;
+
 for my $e (@$eds) {
-    edhead() if $c++ % 40 == 0;
     my $cat = $e->cat;
+    my $type = ($cat->catCount == 0 ? "Leaf" : $cat->pLevel <= 1 ? "Area" : 'Middle');
+    next if $ARGS{type} ne 'Any' and $ARGS{type} and $ARGS{type} ne $type; 
+    edhead() if $c++ % 40 == 0;
     print "<tr bgcolor=" . ($c % 2 == 0 ? '#eee' : '#fff') . ">";
     print "<td>" . $rend->renderUserC($e->user,1) . "</td>";
     print "<td>" . ("&nbsp;" x ($cat->pLevel-1)) . $rend->renderCatC($cat) . "</td>";
+    print "<td>$type</td>";
     print "<td>" . $rend->renderDate($e->start) . "&nbsp;</td>";
-    print "<td>" . $e->GIO . "</td>";
+    print "<td>" . $e->added . "</td>";
     print "<td>" . $e->IO . "</td>";
-    print "<td>" . $e->imports . "</td>";
+    print "<td>". $e->entryCount . "</td>";
+    print "<td>". $e->entryCountUnder . "</td>";
+    print "<td>". $rend->renderDate($e->lastAdded) . "</td>";
+#    print "<td>" . $e->imports . "</td>";
     print "<td>" . ($e->checked-$e->IO) . "</td>";
     print "<td>" . $e->excluded . "</td>";
     print "<td>" . ($cat->edfId ? "<a href='/search/advanced.pl?fId=$cat->{edfId}'>yes</a>" : "no" ) . "</td>";
@@ -77,18 +104,19 @@ Editor
 <td>
 Category
 </td>
+<td>Type</td>
 <td>
 Started</td>
 </td>
 <td>
-G I/O
+Adds
 </td>
 <td>
 I/O
 </td>
-<td>
-Imports
-</td>
+<td>C</td>
+<td>CU</td>
+<td>LA</td>
 <td>
 Checked edits
 </td>

@@ -1,7 +1,7 @@
 <& '../header.html', subtitle=>"Aliases" &>
 <%gh("Aliases")%>
 <p>
-On this page you can specify alternative names you have published under. This will affect how your "my works" list is populated. By default, we have populated your aliases with all possible variations on your name we could think about.
+On this page you can specify alternative names you have published under. This will affect how your "my works" list is populated. By default, we have populated your aliases with a number of possible variations on your name.
 </p>
 <p>Important: initials should be separated by a single space and followed by a period, e.g. "John C." is correct but "John C" is not.
 <p>

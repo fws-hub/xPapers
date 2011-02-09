@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.44, for pc-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.1.47, for unknown-linux-gnu (x86_64)
 --
--- Host: localhost    Database: db
+-- Host: localhost    Database: pp
 -- ------------------------------------------------------
--- Server version	5.1.44
+-- Server version	5.1.47-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,19 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `_descendants`
+--
+
+DROP TABLE IF EXISTS `_descendants`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `_descendants` (
+  `cId` int(10) unsigned NOT NULL DEFAULT '0',
+  KEY `cId` (`cId`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `affiliate_quotes`
@@ -39,7 +52,7 @@ CREATE TABLE `affiliate_quotes` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `eId` (`eId`,`company`,`locale`,`state`),
   KEY `bargain_ratio` (`bargain_ratio`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +72,7 @@ CREATE TABLE `affils` (
   `year` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `affil` (`iId`,`role`,`rank`,`discipline`,`inst_manual`,`year`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=9488 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12626 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +109,7 @@ CREATE TABLE `alerts` (
   `failures` int(3) unsigned DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `uId` (`uId`)
-) ENGINE=InnoDB AUTO_INCREMENT=422 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1093 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +128,7 @@ CREATE TABLE `aliases` (
   PRIMARY KEY (`id`),
   KEY `uId` (`uId`,`firstname`,`lastname`),
   KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=40272 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=115584 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +148,7 @@ CREATE TABLE `ancestors` (
   UNIQUE KEY `aId_2` (`aId`,`cId`),
   KEY `aId` (`aId`),
   KEY `cId` (`cId`)
-) ENGINE=MyISAM AUTO_INCREMENT=35537 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=36296 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,7 +169,7 @@ CREATE TABLE `answer_opts` (
   KEY `qId` (`qId`),
   KEY `other` (`other`),
   KEY `follow` (`follow`)
-) ENGINE=InnoDB AUTO_INCREMENT=13769 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14400 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +193,7 @@ CREATE TABLE `answers` (
   KEY `uId` (`uId`),
   KEY `qId` (`qId`),
   KEY `anId` (`anId`)
-) ENGINE=InnoDB AUTO_INCREMENT=140884 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=257676 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,23 +256,6 @@ CREATE TABLE `areas_ml` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `articles`
---
-
-DROP TABLE IF EXISTS `articles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `articles` (
-  `body` text,
-  `title` varchar(250) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`),
-  FULLTEXT KEY `body` (`body`,`title`),
-  FULLTEXT KEY `body_2` (`body`,`title`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `author_aliases`
 --
 
@@ -268,15 +264,30 @@ DROP TABLE IF EXISTS `author_aliases`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `author_aliases` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(128) CHARACTER SET utf8 DEFAULT NULL,
-  `alias` varchar(128) CHARACTER SET utf8 DEFAULT NULL,
+  `name` varchar(128) DEFAULT NULL,
+  `alias` varchar(128) DEFAULT NULL,
   `to_display` tinyint(1) DEFAULT NULL,
   `is_dead` tinyint(1) DEFAULT NULL,
   `is_strengthening` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`name`),
   KEY `alias` (`alias`)
-) ENGINE=MyISAM AUTO_INCREMENT=430881 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=457889 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `author_areas`
+--
+
+DROP TABLE IF EXISTS `author_areas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `author_areas` (
+  `name` varchar(255) DEFAULT NULL,
+  `cId` int(10) unsigned NOT NULL DEFAULT '0',
+  `nb` bigint(21) NOT NULL DEFAULT '0',
+  KEY `cId` (`cId`,`nb`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,16 +300,14 @@ DROP TABLE IF EXISTS `author_weakenings`;
 CREATE TABLE `author_weakenings` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `eId` varchar(11) DEFAULT NULL,
-  `firstname` varchar(64) DEFAULT NULL,
-  `lastname` varchar(64) DEFAULT NULL,
-  `weakened_first` varchar(64) DEFAULT NULL,
-  `weakened_last` varchar(64) DEFAULT NULL,
-  `to_display` tinyint(1) DEFAULT NULL,
+  `firstname` varchar(255) DEFAULT NULL,
+  `lastname` varchar(255) DEFAULT NULL,
+  `weakened_first` varchar(255) DEFAULT NULL,
+  `weakened_last` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `firstname` (`firstname`,`lastname`),
-  KEY `eId` (`eId`,`firstname`,`lastname`),
-  KEY `weakened_first` (`weakened_first`,`weakened_last`)
-) ENGINE=MyISAM AUTO_INCREMENT=728873 DEFAULT CHARSET=utf8;
+  KEY `firstname` (`firstname`(128),`lastname`(128)),
+  KEY `weakened_first` (`weakened_first`(128),`weakened_last`(128))
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -349,7 +358,7 @@ CREATE TABLE `batch` (
   `checked` tinyint(1) unsigned DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `ticket` (`ticket`)
-) ENGINE=MyISAM AUTO_INCREMENT=433 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=654 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -360,11 +369,11 @@ DROP TABLE IF EXISTS `browse_c`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `browse_c` (
-  `catId` varchar(11) DEFAULT '',
+  `catId` varchar(11) CHARACTER SET latin1 DEFAULT '',
   `day` date DEFAULT NULL,
   `nb` bigint(21) NOT NULL DEFAULT '0',
   KEY `catId` (`catId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -380,7 +389,7 @@ CREATE TABLE `cache_objects` (
   `oId` varchar(16) DEFAULT NULL,
   `content` blob,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=83934 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=694247 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -397,7 +406,7 @@ CREATE TABLE `cat_edits` (
   `cmds` text,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=81 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -457,8 +466,9 @@ CREATE TABLE `cats` (
   KEY `name` (`name`),
   KEY `dfo` (`dfo`),
   KEY `pLevel` (`pLevel`),
-  KEY `uName` (`uName`)
-) ENGINE=InnoDB AUTO_INCREMENT=18175 DEFAULT CHARSET=utf8 PACK_KEYS=1;
+  KEY `uName` (`uName`),
+  KEY `uName_2` (`uName`)
+) ENGINE=InnoDB AUTO_INCREMENT=26376 DEFAULT CHARSET=utf8 PACK_KEYS=1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -476,7 +486,7 @@ CREATE TABLE `cats_e` (
   UNIQUE KEY `cId` (`cId`,`uId`),
   KEY `cId_2` (`cId`),
   KEY `uId` (`uId`)
-) ENGINE=MyISAM AUTO_INCREMENT=592 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=802 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -506,13 +516,17 @@ CREATE TABLE `cats_eterms` (
   `GIO` int(10) unsigned DEFAULT NULL,
   `confirmWarnings` int(10) unsigned DEFAULT '100',
   `auto` tinyint(1) DEFAULT '0',
+  `added` int(10) unsigned DEFAULT '0',
+  `lastAdded` datetime DEFAULT NULL,
+  `entryCount` int(10) unsigned DEFAULT NULL,
+  `entryCountUnder` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `uId` (`uId`),
   KEY `status` (`status`),
   KEY `end` (`end`),
   KEY `cId` (`cId`),
   CONSTRAINT `cats_eterms_ibfk_1` FOREIGN KEY (`cId`) REFERENCES `cats` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=872 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1281 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -533,7 +547,7 @@ CREATE TABLE `cats_m` (
   KEY `pId` (`pId`),
   CONSTRAINT `child` FOREIGN KEY (`cId`) REFERENCES `cats` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `parent` FOREIGN KEY (`pId`) REFERENCES `cats` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7118 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
+) ENGINE=InnoDB AUTO_INCREMENT=8293 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -556,7 +570,7 @@ CREATE TABLE `cats_me` (
   KEY `eId` (`eId`),
   KEY `cId_2` (`cId`),
   KEY `created` (`created`)
-) ENGINE=MyISAM AUTO_INCREMENT=337792 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=562736 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -600,7 +614,7 @@ CREATE TABLE `citations` (
   KEY `xml` (`xml`(255)),
   KEY `fromeId` (`fromeId`),
   KEY `toeId` (`toeId`)
-) ENGINE=MyISAM AUTO_INCREMENT=457242 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1575825 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -624,7 +638,7 @@ CREATE TABLE `crossref_journals` (
   PRIMARY KEY (`id`),
   KEY `issn` (`issn`),
   FULLTEXT KEY `name` (`name`,`subjects`)
-) ENGINE=MyISAM AUTO_INCREMENT=19669 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -637,7 +651,7 @@ DROP TABLE IF EXISTS `diff_applied`;
 CREATE TABLE `diff_applied` (
   `id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -697,7 +711,7 @@ CREATE TABLE `diffs` (
   KEY `reverse_of` (`reverse_of`),
   KEY `session` (`session`),
   KEY `uId` (`uId`)
-) ENGINE=MyISAM AUTO_INCREMENT=399394 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=716267 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -716,7 +730,7 @@ CREATE TABLE `editor_invitations` (
   `status` char(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `uId` (`uId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -735,7 +749,7 @@ CREATE TABLE `entry_origin` (
   PRIMARY KEY (`eId`),
   KEY `repo_id` (`repo_id`),
   KEY `set_spec` (`set_spec`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -793,7 +807,7 @@ CREATE TABLE `errors` (
   KEY `ip` (`ip`),
   KEY `uId` (`uId`),
   KEY `time` (`time`)
-) ENGINE=MyISAM AUTO_INCREMENT=191803 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=347321 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -813,24 +827,7 @@ CREATE TABLE `feeds` (
   `lastIP` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `k` (`k`)
-) ENGINE=MyISAM AUTO_INCREMENT=16046 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `final_answers8`
---
-
-DROP TABLE IF EXISTS `final_answers8`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `final_answers8` (
-  `uId` int(11) DEFAULT NULL,
-  `prop` varchar(255) DEFAULT NULL,
-  `value` tinyint(1) unsigned DEFAULT NULL,
-  KEY `uId` (`uId`),
-  KEY `prop` (`prop`),
-  KEY `uId_2` (`uId`,`prop`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=18791 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -855,7 +852,7 @@ CREATE TABLE `followers` (
   UNIQUE KEY `uId_2` (`uId`,`original_name`,`alias`),
   KEY `uId` (`uId`),
   KEY `alias` (`alias`)
-) ENGINE=MyISAM AUTO_INCREMENT=1648 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=125556 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -877,7 +874,7 @@ CREATE TABLE `forums` (
   KEY `group c` (`gId`),
   CONSTRAINT `cat c` FOREIGN KEY (`cId`) REFERENCES `cats` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `group c` FOREIGN KEY (`gId`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=271 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=188594 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -971,7 +968,7 @@ CREATE TABLE `groups_m` (
   KEY `level` (`level`),
   CONSTRAINT `group` FOREIGN KEY (`gId`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `user` FOREIGN KEY (`uId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1096 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1785 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1014,7 +1011,7 @@ CREATE TABLE `harvest_journals` (
   KEY `name_2` (`name`),
   KEY `oai_set` (`oai_set`),
   FULLTEXT KEY `name` (`name`,`subjects`)
-) ENGINE=MyISAM AUTO_INCREMENT=27934 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=45074 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1036,7 +1033,7 @@ CREATE TABLE `input_feeds` (
   `pass` varchar(32) DEFAULT NULL,
   `type` varchar(16) DEFAULT 'journal',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=261 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1177,7 +1174,7 @@ DROP TABLE IF EXISTS `lists_c`;
 CREATE TABLE `lists_c` (
   `id` int(12) NOT NULL DEFAULT '0',
   `nb` bigint(21) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1208,7 +1205,7 @@ CREATE TABLE `locks` (
   `uId` int(10) unsigned DEFAULT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1219,23 +1216,23 @@ DROP TABLE IF EXISTS `log_6months`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `log_6months` (
-  `tracker` varchar(30) DEFAULT NULL,
-  `action` varchar(10) DEFAULT NULL,
-  `site` varchar(15) DEFAULT NULL,
-  `host` varchar(255) DEFAULT NULL,
+  `tracker` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
+  `action` varchar(10) CHARACTER SET latin1 DEFAULT NULL,
+  `site` varchar(15) CHARACTER SET latin1 DEFAULT NULL,
+  `host` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `time` datetime DEFAULT NULL,
-  `x` varchar(255) DEFAULT '',
-  `entryId` varchar(11) CHARACTER SET utf8 DEFAULT NULL,
-  `catId` varchar(11) DEFAULT '',
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `referer` varchar(255) DEFAULT NULL,
-  `ip` varchar(16) DEFAULT '',
+  `x` varchar(255) CHARACTER SET latin1 DEFAULT '',
+  `entryId` varchar(11) DEFAULT NULL,
+  `catId` varchar(11) CHARACTER SET latin1 DEFAULT '',
+  `name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `referer` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `ip` varchar(16) CHARACTER SET latin1 DEFAULT '',
   `bot` tinyint(1) DEFAULT '0',
   `uId` int(10) unsigned DEFAULT NULL,
   `html` tinyint(1) unsigned DEFAULT '1',
   KEY `uId` (`uId`,`action`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1278,23 +1275,23 @@ DROP TABLE IF EXISTS `log_recent`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `log_recent` (
-  `tracker` varchar(30) DEFAULT NULL,
-  `action` varchar(10) DEFAULT NULL,
-  `site` varchar(15) DEFAULT NULL,
-  `host` varchar(255) DEFAULT NULL,
+  `tracker` varchar(30) CHARACTER SET latin1 DEFAULT NULL,
+  `action` varchar(10) CHARACTER SET latin1 DEFAULT NULL,
+  `site` varchar(15) CHARACTER SET latin1 DEFAULT NULL,
+  `host` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `time` datetime DEFAULT NULL,
-  `x` varchar(255) DEFAULT '',
-  `entryId` varchar(11) CHARACTER SET utf8 DEFAULT NULL,
-  `catId` varchar(11) DEFAULT '',
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `referer` varchar(255) DEFAULT NULL,
-  `ip` varchar(16) DEFAULT '',
+  `x` varchar(255) CHARACTER SET latin1 DEFAULT '',
+  `entryId` varchar(11) DEFAULT NULL,
+  `catId` varchar(11) CHARACTER SET latin1 DEFAULT '',
+  `name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `referer` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `ip` varchar(16) CHARACTER SET latin1 DEFAULT '',
   `bot` tinyint(1) DEFAULT '0',
   `uId` int(10) unsigned DEFAULT NULL,
   `html` tinyint(1) unsigned DEFAULT '1',
   KEY `uId` (`uId`,`action`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1403,7 +1400,7 @@ CREATE TABLE `main` (
   FULLTEXT KEY `title_3` (`title`),
   FULLTEXT KEY `authors_2` (`authors`,`title`,`descriptors`),
   FULLTEXT KEY `authors_3` (`authors`,`title`,`author_abstract`,`descriptors`)
-) ENGINE=MyISAM AUTO_INCREMENT=272465 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=377301 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1450,12 +1447,12 @@ DROP TABLE IF EXISTS `main_authors`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `main_authors` (
   `authId` int(20) NOT NULL DEFAULT '0',
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `citations` float(14,0) DEFAULT '0',
-  `eId` varchar(11) DEFAULT NULL,
+  `eId` varchar(11) CHARACTER SET latin1 DEFAULT NULL,
   `good_journal` tinyint(4) DEFAULT '0',
-  `firstname` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
-  `lastname` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `firstname` varchar(100) DEFAULT NULL,
+  `lastname` varchar(100) DEFAULT NULL,
   `year` varchar(16) DEFAULT NULL,
   `mereFirstname` varchar(50) DEFAULT NULL,
   KEY `name` (`name`),
@@ -1463,29 +1460,6 @@ CREATE TABLE `main_authors` (
   KEY `firstname` (`firstname`),
   KEY `eId` (`eId`),
   KEY `lastname_2` (`lastname`,`mereFirstname`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `main_ft`
---
-
-DROP TABLE IF EXISTS `main_ft`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `main_ft` (
-  `authors` varchar(1000) DEFAULT '',
-  `title` varchar(1000) DEFAULT '',
-  `notes` varchar(1000) DEFAULT '',
-  `descriptors` varchar(1000) DEFAULT '',
-  `source` varchar(1000) DEFAULT '',
-  `author_abstract` text,
-  `id` varchar(11) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`),
-  KEY `authors_3` (`authors`(333)),
-  FULLTEXT KEY `authors` (`authors`,`title`,`notes`,`descriptors`,`source`,`author_abstract`),
-  FULLTEXT KEY `authors_2` (`authors`,`title`),
-  FULLTEXT KEY `title` (`title`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1515,7 +1489,7 @@ CREATE TABLE `main_jlists` (
   `jlName` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`jlId`),
   KEY `jlOwner` (`jlOwner`)
-) ENGINE=MyISAM AUTO_INCREMENT=1329 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2518 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1532,7 +1506,7 @@ CREATE TABLE `main_jlm` (
   PRIMARY KEY (`jlmId`),
   KEY `jlId` (`jlId`),
   KEY `jId` (`jId`)
-) ENGINE=MyISAM AUTO_INCREMENT=149584 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=288185 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1559,7 +1533,7 @@ CREATE TABLE `main_journals` (
   `listCount` int(10) unsigned DEFAULT '0',
   PRIMARY KEY (`name`),
   UNIQUE KEY `id_2` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1952 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3090 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1602,12 +1576,8 @@ CREATE TABLE `notes` (
   `created` datetime DEFAULT NULL,
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  FULLTEXT KEY `body` (`body`),
-  FULLTEXT KEY `body_2` (`body`),
-  FULLTEXT KEY `body_3` (`body`),
-  FULLTEXT KEY `body_4` (`body`),
-  FULLTEXT KEY `body_5` (`body`)
-) ENGINE=MyISAM AUTO_INCREMENT=1002 DEFAULT CHARSET=latin1;
+  FULLTEXT KEY `body` (`body`)
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1634,7 +1604,7 @@ CREATE TABLE `notices` (
   PRIMARY KEY (`id`),
   KEY `sent` (`sent`),
   KEY `created` (`created`)
-) ENGINE=InnoDB AUTO_INCREMENT=305827 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1082164 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1664,25 +1634,7 @@ CREATE TABLE `oai_repos` (
   `isSlow` tinyint(1) DEFAULT NULL,
   `lastHarvestDuration` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2323 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `oai_sets`
---
-
-DROP TABLE IF EXISTS `oai_sets`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `oai_sets` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rId` int(11) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `type_` varchar(15) DEFAULT NULL,
-  `spec` varchar(32) DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2131 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1707,7 +1659,7 @@ CREATE TABLE `old_notices` (
   `replyTo` int(10) unsigned DEFAULT NULL,
   `sender` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1723,7 +1675,7 @@ CREATE TABLE `old_url_names` (
   `uName` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `uName` (`uName`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1739,7 +1691,7 @@ CREATE TABLE `pagearea_m` (
   `area_id` int(8) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `map` (`pageauthor_id`,`area_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1930 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2232 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1762,7 +1714,7 @@ CREATE TABLE `pageauthors` (
   `deleted` tinyint(4) DEFAULT '0',
   `created` datetime DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1915 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2000 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1780,7 +1732,21 @@ CREATE TABLE `pages` (
   `accepted` tinyint(4) DEFAULT NULL,
   `deleted` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2188 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2297 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `paper_areas`
+--
+
+DROP TABLE IF EXISTS `paper_areas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `paper_areas` (
+  `eId` varchar(11) NOT NULL,
+  `cId` int(10) unsigned NOT NULL DEFAULT '0',
+  KEY `eId` (`eId`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1791,11 +1757,11 @@ DROP TABLE IF EXISTS `papers_read`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `papers_read` (
-  `id` varchar(11) CHARACTER SET utf8 NOT NULL,
-  `source` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `id` varchar(11) NOT NULL,
+  `source` varchar(255) DEFAULT NULL,
   `nb` bigint(21) NOT NULL DEFAULT '0',
   KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1809,7 +1775,7 @@ CREATE TABLE `past_userworks` (
   `uId` int(10) unsigned NOT NULL DEFAULT '0',
   `eId` varchar(11) NOT NULL DEFAULT '',
   `good_journal` tinyint(1) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1829,7 +1795,20 @@ CREATE TABLE `plugin_tests` (
   `lastChecked` datetime DEFAULT NULL,
   `lastStatus` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `poll_depts`
+--
+
+DROP TABLE IF EXISTS `poll_depts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `poll_depts` (
+  `iId` int(10) unsigned DEFAULT NULL,
+  `poId` int(10) unsigned DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1908,7 +1887,7 @@ CREATE TABLE `poll_opts` (
   KEY `phd_region` (`phd_region`),
   KEY `nationality_region` (`nationality_region`),
   KEY `affil_region` (`affil_region`)
-) ENGINE=InnoDB AUTO_INCREMENT=17665 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30180 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1931,7 +1910,7 @@ CREATE TABLE `polls` (
   `randomize` tinyint(1) unsigned DEFAULT '0',
   `rolling` tinyint(1) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1980,7 +1959,7 @@ CREATE TABLE `posts` (
   KEY `accepted` (`accepted`),
   KEY `submitted` (`submitted`),
   FULLTEXT KEY `subject` (`subject`)
-) ENGINE=MyISAM AUTO_INCREMENT=2755 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=5371 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2000,19 +1979,7 @@ CREATE TABLE `primary_ancestors` (
   KEY `aId` (`aId`),
   KEY `cId` (`cId`),
   KEY `id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=413527 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `properties`
---
-
-DROP TABLE IF EXISTS `properties`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `properties` (
-  `prop` varchar(255) CHARACTER SET utf8 DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=864803 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2079,7 +2046,7 @@ CREATE TABLE `queries` (
   KEY `owner` (`owner`),
   KEY `examplar` (`examplar`),
   CONSTRAINT `owner` FOREIGN KEY (`owner`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5740 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=10044 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2104,7 +2071,7 @@ CREATE TABLE `questions` (
   `cacheId` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `poId` (`poId`)
-) ENGINE=InnoDB AUTO_INCREMENT=657 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=700 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2115,8 +2082,8 @@ DROP TABLE IF EXISTS `relations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `relations` (
-  `type` varchar(20) NOT NULL DEFAULT '',
-  `eId1` varchar(11) NOT NULL DEFAULT '',
+  `type` varchar(20) DEFAULT NULL,
+  `eId1` varchar(11) DEFAULT NULL,
   `eId2` varchar(11) DEFAULT NULL,
   KEY `type` (`type`,`eId1`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -2153,7 +2120,7 @@ CREATE TABLE `resolvers` (
   PRIMARY KEY (`id`),
   KEY `url` (`url`),
   KEY `inst_id` (`iId`)
-) ENGINE=MyISAM AUTO_INCREMENT=2380 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2399 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2168,7 +2135,7 @@ CREATE TABLE `review_relation` (
   `reviewer_id` varchar(11) DEFAULT NULL,
   `reviewed_id` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=204 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2212,12 +2179,12 @@ DROP TABLE IF EXISTS `sphinx_main`;
 CREATE TABLE `sphinx_main` (
   `id` int(10) unsigned NOT NULL,
   `weight` int(11) NOT NULL,
-  `query` varchar(3072) CHARACTER SET latin1 NOT NULL,
-  `true_id` varchar(15) CHARACTER SET latin1 DEFAULT NULL,
+  `query` varchar(3072) NOT NULL,
+  `true_id` varchar(15) DEFAULT NULL,
   `_sph_count` int(10) unsigned DEFAULT NULL,
   `_sph_groupby` int(10) unsigned DEFAULT NULL,
   KEY `query` (`query`)
-) ENGINE=SPHINX DEFAULT CHARSET=utf8;
+) ENGINE=SPHINX DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2233,7 +2200,23 @@ CREATE TABLE `survey_props` (
   PRIMARY KEY (`uId`,`prop`),
   KEY `uId` (`uId`),
   KEY `prop` (`prop`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `survey_props_current`
+--
+
+DROP TABLE IF EXISTS `survey_props_current`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `survey_props_current` (
+  `uId` int(11) NOT NULL DEFAULT '0',
+  `prop` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`uId`,`prop`),
+  KEY `uId` (`uId`),
+  KEY `prop` (`prop`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2246,7 +2229,7 @@ DROP TABLE IF EXISTS `test_replication`;
 CREATE TABLE `test_replication` (
   `dummy` tinyint(1) unsigned DEFAULT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2278,7 +2261,7 @@ CREATE TABLE `threads` (
   KEY `accepted` (`accepted`),
   KEY `blog` (`blog`),
   CONSTRAINT `forum c` FOREIGN KEY (`fId`) REFERENCES `forums` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=462 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=639 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2310,7 +2293,7 @@ CREATE TABLE `tmp_pro_entries` (
   `current` tinyint(1) unsigned DEFAULT NULL,
   `new` tinyint(1) unsigned DEFAULT NULL,
   PRIMARY KEY (`eId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2322,9 +2305,9 @@ DROP TABLE IF EXISTS `tmp_pro_names`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tmp_pro_names` (
   `mereFirstname` varchar(50) DEFAULT NULL,
-  `lastname` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `lastname` varchar(100) DEFAULT NULL,
   KEY `lastname` (`lastname`,`mereFirstname`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2339,6 +2322,7 @@ CREATE TABLE `tmp_pro_users` (
   `current` tinyint(1) unsigned DEFAULT NULL,
   `new` tinyint(1) unsigned DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL,
+  `fixedPro` tinyint(1) unsigned DEFAULT NULL,
   `phd` int(10) unsigned DEFAULT NULL,
   `myworks` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`uId`)
@@ -2355,7 +2339,7 @@ DROP TABLE IF EXISTS `tmp_proworks`;
 CREATE TABLE `tmp_proworks` (
   `eId` varchar(11) NOT NULL,
   PRIMARY KEY (`eId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2368,21 +2352,20 @@ DROP TABLE IF EXISTS `tmp_repos_count`;
 CREATE TABLE `tmp_repos_count` (
   `id` int(11) DEFAULT NULL,
   `nb` bigint(21) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `tmp_userworks`
+-- Table structure for table `tmp_userareas`
 --
 
-DROP TABLE IF EXISTS `tmp_userworks`;
+DROP TABLE IF EXISTS `tmp_userareas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tmp_userworks` (
-  `uId` int(10) unsigned NOT NULL DEFAULT '0',
-  `eId` varchar(11) NOT NULL DEFAULT '',
-  PRIMARY KEY (`uId`,`eId`)
-) ENGINE=MEMORY DEFAULT CHARSET=latin1;
+CREATE TABLE `tmp_userareas` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `areas` longblob
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2394,8 +2377,8 @@ DROP TABLE IF EXISTS `tmpcount`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tmpcount` (
   `nb` bigint(21) NOT NULL DEFAULT '0',
-  `eId` varchar(11) CHARACTER SET utf8 NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `eId` varchar(11) NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2409,7 +2392,7 @@ CREATE TABLE `to_delete` (
   `id` varchar(11) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2485,9 +2468,9 @@ CREATE TABLE `users` (
   `admin` tinyint(1) unsigned DEFAULT '0',
   `mereFirstname` varchar(100) DEFAULT NULL,
   `mysources` int(10) unsigned DEFAULT NULL,
+  `cacheId` int(10) unsigned DEFAULT NULL,
   `rId` int(10) unsigned DEFAULT NULL,
   `locale` varchar(2) DEFAULT NULL,
-  `cacheId` int(10) unsigned DEFAULT NULL,
   `anonymousFollowing` tinyint(1) DEFAULT NULL,
   `alertFollowed` tinyint(1) DEFAULT NULL,
   `betaTester` tinyint(1) DEFAULT NULL,
@@ -2497,7 +2480,7 @@ CREATE TABLE `users` (
   KEY `firstname` (`firstname`),
   KEY `nbAct` (`nbAct`),
   KEY `pubRating` (`pubRating`)
-) ENGINE=InnoDB AUTO_INCREMENT=15624 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22360 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2521,7 +2504,7 @@ CREATE TABLE `usersx` (
   `publishView` tinyint(1) unsigned DEFAULT '0',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `uIdidx` (`uId`)
-) ENGINE=MyISAM AUTO_INCREMENT=15630 DEFAULT CHARSET=utf8 COMMENT='extended information on users';
+) ENGINE=MyISAM AUTO_INCREMENT=22354 DEFAULT CHARSET=utf8 COMMENT='extended information on users';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2536,7 +2519,7 @@ CREATE TABLE `userworks` (
   `eId` varchar(11) NOT NULL DEFAULT '',
   `good_journal` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`uId`,`eId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2547,12 +2530,12 @@ DROP TABLE IF EXISTS `viewings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `viewings` (
-  `ip` varchar(16) DEFAULT '',
+  `ip` varchar(16) CHARACTER SET latin1 DEFAULT '',
   `date` date DEFAULT NULL,
-  `entryId` varchar(11) CHARACTER SET utf8 DEFAULT NULL,
+  `entryId` varchar(11) DEFAULT NULL,
   KEY `entryId` (`entryId`),
   KEY `date` (`date`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2563,10 +2546,10 @@ DROP TABLE IF EXISTS `viewings_c`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `viewings_c` (
-  `entryId` varchar(11) CHARACTER SET utf8 DEFAULT NULL,
+  `entryId` varchar(11) DEFAULT NULL,
   `nb` bigint(21) NOT NULL DEFAULT '0',
   KEY `entryId` (`entryId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2577,11 +2560,11 @@ DROP TABLE IF EXISTS `volume_index`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `volume_index` (
-  `source` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `source` varchar(255) DEFAULT NULL,
   `volume` int(12) DEFAULT NULL,
   KEY `source` (`source`),
   KEY `volume` (`volume`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2592,11 +2575,11 @@ DROP TABLE IF EXISTS `year_index`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `year_index` (
-  `source` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `year` varchar(16) CHARACTER SET utf8 DEFAULT 'unknown',
+  `source` varchar(255) DEFAULT NULL,
+  `year` varchar(16) DEFAULT 'unknown',
   KEY `source` (`source`),
   KEY `year` (`year`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2613,7 +2596,7 @@ CREATE TABLE `z3950_prefixes` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `prefix` (`prefix`)
-) ENGINE=MyISAM AUTO_INCREMENT=311 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=311 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -2625,4 +2608,4 @@ CREATE TABLE `z3950_prefixes` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-12-09 17:21:11
+-- Dump completed on 2011-02-09 18:33:51
