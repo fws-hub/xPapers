@@ -1,5 +1,6 @@
 package xPapers::Render::BriefHTML;
 use xPapers::Entry;
+use xPapers::Util;
 
 use base 'xPapers::Render::HTML';
 
@@ -12,6 +13,11 @@ sub new {
       return $self;
 }
 
+sub prepTitle {
+    my ($me,$e,$links) = @_;
+    return unless $e;
+    return "<a class='articleTitle' href=\"/rec/$e->{id}\">" . dquote($e->title) . "</a>";
+}
 
 test();
 sub test {
