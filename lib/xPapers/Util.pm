@@ -224,7 +224,7 @@ sub bareName {
 sub reverseName { return Text::Names::reverseName(@_) };
 sub normalizeNameWhitespace { return Text::Names::normalizeNameWhitespace(@_) };
 sub composeName { return Text::Names::composeName(@_) };
-sub parseName { return Text::Names::ParseName(@_) };
+sub parseName { return Text::Names::parseName(@_) };
 sub parseName2 { return Text::Names::parseName2(@_) };
 sub sameAuthors { return Biblio::Citation::Compare::sameAuthors(@_) };
 sub parseAuthors { return Text::Names::parseNames(@_) };

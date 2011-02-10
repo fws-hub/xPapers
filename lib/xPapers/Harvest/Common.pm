@@ -674,15 +674,15 @@ sub parsePage {
         my @s = split($me->{conf}->{begin},$spage);
         if ($#s < 1) {
             $me->{errors} .= "Chunking (begin) failed in $me->{path}.\n";
-            #$me->finish() if $me->{debug};
+            $me->finish() if $me->{debug};
          }
         $spage = $s[1];
     }
     if ($me->{conf}->{end}) {
         my @s = split($me->{conf}->{end},$spage);
         if ($#s < 1) {
-#            $me->{errors} .= "Chunking (end) failed in $me->{path}.\n";
-#            $me->finish() if $me->{debug};
+            $me->{errors} .= "Chunking (end) failed in $me->{path}.\n";
+            $me->finish() if $me->{debug};
         } else {
             $spage = $s[0];
         }
@@ -691,13 +691,13 @@ sub parsePage {
     # chunk
     my $pat = $me->{conf}->{split};
 #    print $pat;exit;
-    my @chunks = split(/$me->{conf}->{split}/i,$spage);
+    my @chunks = split(/$me->{conf}->{split}/ism,$spage);
     #shift @chunks unless $me->{conf}->{noshift};
 
     # check number of chunks
     if ($#chunks <= 0) {
-        #$me->{errors} .= "*** Chunking (entries) failed in $me->{path}.\n";
-        #$me->finish() if $me->{debug};
+        $me->{errors} .= "*** Chunking (entries) failed in $me->{path} with expression $me->{conf}->{split}.\n";
+        $me->finish() if $me->{debug};
     }
 #    elsif ($#chunks > 150) {
 #        $me->{errors} .= "Chunking (entries) failed in $me->{path} (too many).\n";
@@ -774,7 +774,8 @@ sub parsePage {
         next unless lastname($e->firstAuthor);
 
         # check if we have it already, save first version if not
-        if (!$me->{noskip}) {
+        if (!$me->{noskip} and !$me->{testMode}) {
+            #die "not supposed to happen now";
             @diffs = xPapers::EntryMng->addOrDiff($e,$HARVESTER_USER);
             # found in database
             if ( $#diffs > 0 or ( $#diffs == 0 and $diffs[0]->type eq 'update') ) {
@@ -786,6 +787,8 @@ sub parsePage {
             else {
                 print "New entry found.\n";
             }
+        } else {
+            $res .= $r->renderEntry($e);
         }
 
         # Try to get abstract
@@ -798,7 +801,7 @@ sub parsePage {
         # Set flag if requested
         $e->{$me->{conf}->{flag}} = 1 if $me->{conf}->{flag};
 
-        # Perform some checks
+        # Perform some checks and save (again)
         unless ($me->{testMode}) {
             unless (length($e->{source})>2 or $me->{conf}->{noJournalOK}) {
                 xPapers::Mail::MessageMng->notifyAdmin("Harvested entry is missing a journal", "Config is $me->{path}, sequence is $me->{c_journal}. Entry:\n" . $e->toString);
@@ -814,9 +817,10 @@ sub parsePage {
                 print "FATAL ERROR: inconsistent journal names.\n\n";
                 die "inconsistent journal names";
             }
+
+            $e->save;
         }
 
-        $e->save;
         $co++;
     }
     if ($me->{debug}) {
@@ -834,8 +838,9 @@ sub applyTpl {
     my $re = $tpl->{re};
     #print "$re\n";
     #print "\n\n\n$in";
-    print "----applyTpl ($re):\n" if $me->{debug};
+    print "\n----applyTpl ($re):\n" if $me->{debug};
     my @r = ($in =~ m/$re/i);
+    #print "applied.\n";
     #print "postre\n";
     if ($me->{debug} and $#r <= -1) {
 

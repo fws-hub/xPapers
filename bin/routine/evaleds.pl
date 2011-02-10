@@ -13,7 +13,7 @@ for my $l (keys %dur) {
     my $u = xPapers::ES->get_objects(clauses=>["status = 10 and date(confirmBy) = date(date_add(now(), interval $l day))"]);
     for my $uc (@$u) {
         next if $uc->confirmWarnings <= $l;
-        $sum .= $uc->user->fullname . "'s ($uc->{uId}) offer for " . $uc->cat->name . " lapses $dur{$l}.\n";
+        $sum .= '- ' . $uc->user->fullname . "'s ($uc->{uId}) offer for " . $uc->cat->name . " lapses $dur{$l}.\n";
         xPapers::Mail::Message->new(
             uId=>$uc->uId,
             brief=>"Your editorship offer will lapse",
@@ -56,6 +56,18 @@ for my $e (@$eds) {
             created=>{ge=>$e->start}
        ])
     );
+
+    my ($count) = xPapers::DB->exec("select count(*) from cats_me where cId=? and created>=? and editor",$e->cId,$e->start)->fetchrow_array; 
+    $e->added($count);
+
+    my ($lastAdded) = xPapers::DB->exec("select max(created) from cats_me where cId=? and editor",$e->cId)->fetchrow_array; 
+    $e->lastAdded($lastAdded);
+
+    ($count) = xPapers::DB->exec("select count(*) from cats_me join primary_ancestors pa on cats_me.cId=pa.cId and aId=?",$e->cId)->fetchrow_array; 
+    $e->entryCountUnder($count);
+
+    ($count) = xPapers::DB->exec("select count(*) from cats_me where cId=?",$e->cId)->fetchrow_array; 
+    $e->entryCount($count);
 
     $e->imports(
         xPapers::B->get_objects_count(query=>[

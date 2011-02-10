@@ -26,6 +26,8 @@ if ($ARGS{__same} and !$ARGS{refresh}) {
     &nbsp;
     &nbsp;
     <a href="/profile/$u->{id}/aliases.pl">Configure aliases</a> to accommodate variations in your name.
+    <p>
+    <span class='ll' onclick='faq("myworksaddremove")'>How can I add/remove material from this list?</span>
     </div>
 END
 }
