@@ -289,12 +289,14 @@ elsif ($ARGS{searchStr} or $ARGS{filterMode} or $ARGS{sugMode} or $ARGS{search})
 # people you follow
 } elsif ($ARGS{followed}) {
 
-    $header = "Books and articles by people you follow";
-    $header .= " <span class='ghx'>From the most recent</span>" if $ARGS{sort} eq 'added';
+    unless ($ARGS{noheader}) {
+        $header = "Books and articles by people you follow";
+        $header .= " <span class='ghx'>From the most recent</span>" if $ARGS{sort} eq 'added';
+    }
     $where = " and uId = $user->{id}";
     $join = "join main_authors on (main.id = eId) join followers on name = alias";
     $ARGS{sort} = 'added' unless $ARGS{sort};
-    $showSorter = 1;
+    $showSorter = 1 unless $ARGS{noheader};
 
 # pure sql
 } elsif ($ARGS{__sql__}) {

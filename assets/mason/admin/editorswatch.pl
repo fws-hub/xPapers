@@ -50,7 +50,7 @@ nb: no distinctions are made between editors when there is more than one for a c
 <table>
 
 <%perl>
-$ARGS{sort} ||= 'category';
+$ARGS{sort} ||= 'Category';
 print "Order: <form id='myform'><select name='sort'>";
 print opt($_,$_,$ARGS{sort}) for keys %sort_options;
 print "</select>";

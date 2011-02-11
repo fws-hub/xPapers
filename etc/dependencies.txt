@@ -111,3 +111,5 @@ Pod::Coverage
 Hash::Merge
 XML::Atom::Client
 #RRDs (only on aptitude)
+Text::Names
+Biblio::Citation::Compare

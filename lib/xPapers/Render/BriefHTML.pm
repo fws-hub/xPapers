@@ -9,6 +9,11 @@ sub new {
       my ($class) = @_;
       my $self = $class->SUPER::new();
       $self->{noOptions} = 1;
+      $self->{compactAuthors} = 1;
+      $self->{linkNames} = 1;
+      $self->{noExtras} = 1;
+      $self->{showPub} = 1;
+
       bless $self, $class;
       return $self;
 }
@@ -19,7 +24,7 @@ sub prepTitle {
     return "<a class='articleTitle' href=\"/rec/$e->{id}\">" . dquote($e->title) . "</a>";
 }
 
-test();
+#test();
 sub test {
 
     my $e = xPapers::Entry->get('BOUQLI');
@@ -28,6 +33,8 @@ sub test {
     print $r->renderEntry($e) . "\n";
 
 }
+
+sub renderNav { }
 
 
 1;

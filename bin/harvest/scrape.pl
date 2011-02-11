@@ -111,6 +111,7 @@ if ($make_tests) {
 
 } elsif ($harvest) { 
 
+    die "fix double save";
     my $failed = [];
     my $msg;
     if ($pre_test) {
