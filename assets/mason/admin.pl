@@ -104,6 +104,7 @@ if ($ARGS{c} eq "deleteArchive") {
     xPapers::Mail::Message->new(
         uId=>$tuser->id,
         brief=>"Invitation to edit " . $cat->name,
+        sender=>$user->fullname . " <$user->{email}>",
         content=>$ARGS{text}
     )->save;
     return;

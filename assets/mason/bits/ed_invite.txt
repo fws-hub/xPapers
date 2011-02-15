@@ -6,15 +6,17 @@ my $emails = $rend->join_and("or",@EDITORS_EMAILS);
 </%init>
 Dear <%$ARGS{firstname}%>,
 
-We are writing to invite you to become editor of the following category on <%$s->{niceName}%>: <%$ARGS{cat}%>.
+We are writing to invite you to become editor of the following category on <%$s->{niceName}%>: <%$ARGS{cat}%>. This category can be found at this web address:
+
+<%$s->{server}%>/browse/<%$ARGS{__cat}->uName%>
 
 We are inviting you because you are an active <%$s->{niceName}%> user with significant publications in this area, and because we judge that you would make an excellent editor for the category.  <%$s->{niceName}%> currently has <%$ed_count%> editors for <%$cat_count%> categories, including many academics who are leaders in their fields.  A list of all current editors can be found here:
 
-"<%$s->{server}%>/browse/all":<%$s->{server}%>/browse/all
+<%$s->{server}%>/browse/all
 
 The main responsibility of a category editor is to build that category by importing papers into the category and, where relevant, by classifying papers within the category.  We provide a number of special tools for editors to do these things easily.  More details on editors' responsibilities can be found here:
 
-"<%$s->{server} %>/help/editors.html":<%$s->{server} %>/help/editors.html
+<%$s->{server} %>/help/editors.html
 
 %if ($ARGS{level} == 1) {
 In your case we are inviting you to become an area editor: that is, the editor of one of the major <%$s->{niceName}%> area categories.  This role carries special prominence, including listing on the front page of <%$s->{niceName}%>, and also special responsibilities, as outlined at the website above.
@@ -28,6 +30,6 @@ Editorship is a real service to the profession, and we would be honored if you w
 
 To accept or decline the invitation, please go to this page:
 
-"<%$s->{server}%>/utils/edconfirm.pl":<%$s->{server}%>/utils/edconfirm.pl
+<%$s->{server}%>/utils/edconfirm.pl
 
 <%$s->{longSignatureText}%>

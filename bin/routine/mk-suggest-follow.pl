@@ -13,10 +13,11 @@ xPapers::DB->exec("
     join author_areas on areas_m.aId=author_areas.cId
     where users.confirmed and author_areas.nb>=5
     group by id,name
-    having sum(nb) >= 10
+    having sum(nb) >= 10 
 ");
 xPapers::DB->exec("rename table fs_tmp to follow_suggestions");
 
+1;
 
 =old followers of followers
     order by sum(nb) desc

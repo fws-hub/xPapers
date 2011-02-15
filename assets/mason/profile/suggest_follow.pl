@@ -7,9 +7,25 @@ my $q = "
     join aliases on (fs.name=aliases.name)
     where fs.uId=$user->{id} and isnull(followers.alias) 
     group by (aliases.uId)
-    order by rating+rand()*30 desc
+    order by rating+rand()*50 desc
     limit 6
 ";
+if ($SECURE) {
+
+$q = "
+    select aliases.uId,max(rating) as rating from follow_suggestions fs
+    left join followers on (followers.uId=$user->{id} and fs.name=followers.alias)
+    join aliases on (fs.name=aliases.name)
+    left join affils_m af1 on (aliases.uId=af1.uId)
+    left join affils_m af2 on (af2.uId=$user->{id} and af1.aId=af2.aId)
+    where fs.uId=$user->{id} and isnull(followers.alias) 
+    and not aliases.uId=$user->{id}
+    group by (aliases.uId)
+    order by rating+rand()*50+if(isnull(af2.aId),0,rand()*10+5) desc
+    limit 100 
+";
+
+}
 
 #print $q;
 my $res = xPapers::DB->exec($q);

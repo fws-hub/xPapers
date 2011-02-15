@@ -508,13 +508,14 @@ sub authorQuery {
 
 sub ftQuote {
     my $s = shift;
+    my $nodehyphen = shift;
  
     # decode double quotes and <
     $s =~ s/&quot;/"/gi;
     $s =~ s/&lt;/</gi;
 
     $s =~ s/;/ /g;
-    $s =~ s/(\w)-/$1 /g;
+    $s =~ s/(\w)-/$1 /g unless $nodehyphen;
 
     $s = quote($s);
 
@@ -588,7 +589,7 @@ sub ftQuery {
     }
 
     if ($args{exact}) {
-        $s .= ' "' . ftQuote($args{exact}) . '"';
+        $s .= ' "' . ftQuote($args{exact},'no dehyphen') . '"';
     }
 
     if ($args{atleast}) {

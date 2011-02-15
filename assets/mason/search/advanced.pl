@@ -43,7 +43,7 @@ $ARGS{limit} ||= 100;
 #hack
 $ARGS{idx} = 2 if $q->{name} =~ /^Autocategorization/ and !$q->owner;
 
-#$q->{debug} = $m if $SECURE;
+$q->{debug} = $m if $SECURE;
 push @$filters, ('added', { gt => $ARGS{since} }) if $ARGS{since};
 $q->prepare({
     user => $user, 
