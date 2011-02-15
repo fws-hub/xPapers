@@ -653,7 +653,7 @@ function removeFollow(i, fid) {
     var unfollowb = $( 'unfollow_button' );
     if (! $('rmfx-' + i ).hasClassName('ll'))
         return
-    ppAct('removeFollow', {fId:fid} , function(r) {
+    ppAct('removeFollow', {fid:fid} , function(r) {
 
             $('rmfx-' + i ).update().insert('removed');
             $('rmfx-' + i ).removeClassName('ll');

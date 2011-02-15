@@ -576,7 +576,7 @@ if ($ARGS{c} eq 'markAliasesAsSeen') {
 }
 
 if ($ARGS{c} eq 'removeFollow') {
-    my $fid = $ARGS{fId};
+    my $fid = $ARGS{fid};
     $user->remove_from_followers_of( $fid );
     return;
 }

@@ -1,6 +1,7 @@
-<& ../header.html, subtitle=>"Books and articles by people you follow" &>
+<& ../header.html, subtitle=>"Recent books and articles by people you follow" &>
 <& ../checkLogin.html, %ARGS &>
 <%perl>
+print gh("Recent books and articles by people you follow");
 $ARGS{sort} ||= 'added';
 $ARGS{proOnly} = 'off';
 </%perl>

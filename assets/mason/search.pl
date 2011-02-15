@@ -554,7 +554,7 @@ if( $HTML and $foundRows < 3 ){
     }
 }
 
-$m->comp("bits/tips.html") if $HTML and !$ARGS{start};
+$m->comp("bits/tips.html") if $HTML and !$ARGS{start} and !$ARGS{noheader};
 print $rend->renderNav(prevAfter(\%ARGS,$start,$limit,$futureLimit,$foundRows,($thisScript||$PATHS{SEARCH_SCRIPT}))) if $ARGS{start};
 print $rend->beginCategory;
 
