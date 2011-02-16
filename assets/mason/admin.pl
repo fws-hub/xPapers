@@ -103,7 +103,7 @@ if ($ARGS{c} eq "deleteArchive") {
     $ARGS{text} =~ s/&quot;/"/g;
     xPapers::Mail::Message->new(
         uId=>$tuser->id,
-        brief=>"Invitation to edit " . $cat->name,
+        brief=>"Invitation to edit " . $cat->name . " on $s->{niceName}",
         sender=>$user->fullname . " <$user->{email}>",
         content=>$ARGS{text}
     )->save;

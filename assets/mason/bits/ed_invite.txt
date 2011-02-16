@@ -10,7 +10,7 @@ We are writing to invite you to become editor of the following category on <%$s-
 
 <%$s->{server}%>/browse/<%$ARGS{__cat}->uName%>
 
-We are inviting you because you are an active <%$s->{niceName}%> user with significant publications in this area, and because we judge that you would make an excellent editor for the category.  <%$s->{niceName}%> currently has <%$ed_count%> editors for <%$cat_count%> categories, including many academics who are leaders in their fields.  A list of all current editors can be found here:
+We are inviting you because you are an active <%$s->{niceName}%> user with significant publications in this area, and because we judge that you would make an excellent editor for the category.  <%$s->{niceName}%> currently has <%$ed_count%> editors for <%$cat_count%> categories, including many <%$SUBJECT_PRACTITIONER_PLURAL%> who are leaders in their fields.  A list of all current editors can be found here:
 
 <%$s->{server}%>/browse/all
 

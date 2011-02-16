@@ -41,9 +41,9 @@ while( my $chapter = $eit->next ){
     }
     $chapter->save;
     $book = $found_book || $book;
-    for my $cat ($chapter->canonical_categories_o) {
-        $cat->addEntry($book,$AUTOCAT_USER);
-    }
+    #for my $cat ($chapter->canonical_categories_o) {
+    #   $cat->addEntry($book,$AUTOCAT_USER);
+    #
     warn "\n\n";
 }
 
