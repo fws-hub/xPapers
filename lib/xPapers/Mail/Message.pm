@@ -64,6 +64,12 @@ sub interpolate {
     $i->{content} =~ s/\[FIRSTNAME\]/$i->user->firstname/ge;
     $i->{content} =~ s/\[HELLO\]/$i->greetings/ge;
     $i->{content} =~ s/\[BYE\]/$i->signature( $niceName )/ge;
+    $i->{content} =~ s/\[LONGBYE\]/$DEFAULT_SITE->{longSignatureText}/g;
+    if ($i->{relatedObject}) {
+        for my $k ($i->{relatedObject}->meta->column_names,@{$i->{moreFields}}) {
+            $i->{content} =~ s/\[REL:$k\]/$i->{relatedObject}->{$k}/ge;
+        }
+    }
 }
 
 sub html {

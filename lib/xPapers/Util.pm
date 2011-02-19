@@ -500,7 +500,7 @@ sub cleanAll {
     $e->{volume} = arabic($e->{volume}) if $e->{volume} and isroman($e->{volume});
 
     # an article without volume number has to be forthcoming
-    $e->date('forthcoming') if $e->pub_type eq 'journal' and $e->date =~ /\d\d\d\d/ and !$e->volume;
+    $e->date('forthcoming') if $e->pub_type eq 'journal' and $e->date =~ /\d\d\d\d/ and !($e->volume||$e->issue);
     if ($e->volume > 9999) {
         $e->date('forthcoming');
         $e->volume(undef);

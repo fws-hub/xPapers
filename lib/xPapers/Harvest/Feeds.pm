@@ -200,13 +200,15 @@ sub entry_from_item {
     my $default_date = $self->feed->type eq 'journal' ? 'forthcoming' : 'unknown';
     $entry->pub_type( ($entry->source ||  $self->feed->type eq 'journal') ? 'journal' : 'unknown' );
     if(my $date = $item->{dcterms}{created} || $item->{dc}{date} || $self->rss->channel->{dc}{date} || $self->rss->channel->{copyright} ){
-        if ($date =~ /(\d{4})/) {
+        if ($date =~ /(\d{4,4})/) {
             $entry->date( $1 );
         } else {
+            #print "$date has wrong format\n";
             $entry->date( $default_date  );
         }
     }
     else{
+        #print "date not found, reverting to default\n";
         $entry->date( $default_date );
     }
 

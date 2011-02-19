@@ -98,7 +98,7 @@ unless ($cat->{pLevel} <= 1) {
 %}
 %if ($#eds > -1) {
     <span style="font-size:12px;padding-left:10px;color:#333;font-weight:bold">
-    Edited by <% join(" and ", map {$rend->renderUserC($_,$#eds > 0)} @eds) %>
+    Edited by <% join(" and ", map {$rend->renderUserC($_,$#eds > 0)} (rand(1>=0.5) ? sort @eds : reverse sort @eds)) %>
     </span>
 
 %} 
