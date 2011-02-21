@@ -5,7 +5,7 @@ error("Unknown paper") unless $e;
 $m->comp("../header.html",subtitle=>"Revisions for $e->{id}");
 print gh("Revision history for entry " . $e->toString . " [$e->{id}]");
 </%perl>
-NB: for privacy reasons, little detailed as provided in public revision histories. 
+NB: for privacy reasons, few details are provided in public revision histories. 
 <%perl>
 my $it = xPapers::D->get_objects_iterator(query=>[oId=>$e->id],sort_by=>['id desc']);
 print "<table><tr><td>Time</td><td>Type</td><td>Notes</td></tr>";

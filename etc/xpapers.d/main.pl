@@ -108,6 +108,12 @@ $RECAP_PUBKEY = 'CHANGEME';
 
 my $hostname = `hostname`;
 chomp $hostname;
+
+#
+# IMPORTANT: don't change any of the paths below. The code supports multi-site setups to some (very limited) extent, but this is currently undocumented and not working very well, so you should only define one site here, and you should set $DEFAULT_SITE_NAME accordingly below.
+#
+
+
 %SITES = (
     philpapers => {
         paths => {

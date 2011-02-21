@@ -786,6 +786,7 @@ sub parsePage {
             # new 
             else {
                 print "New entry found.\n";
+                $e = $diffs[0]->object;
             }
         } else {
             $res .= $r->renderEntry($e);
