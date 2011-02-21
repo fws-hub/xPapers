@@ -960,7 +960,7 @@ sub form2entry {
     }
 
     my ($srcid) = ($e->{source_id} =~ /^(\w+)\/\//);
-
+    $e->{draft} = 0;
     if ($q->param('typeofwork') eq 'dissertation') {
         $e->{school} = $q->param('school');
         $e->{type} = 'book';

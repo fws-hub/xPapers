@@ -19,7 +19,7 @@ for my $l (keys %dur) {
         xPapers::Mail::Message->new(
             uId=>$uc->uId,
             brief=>"Your editorship offer will lapse",
-            content=>"[HELLO]This is a reminder that your editorship offer for " . $uc->cat->name . " will lapse $dur{$l} if you do not officially accept it by going to \"this page\":" . $DEFAULT_SITE->{server} . "/utils/edconfirm.pl \n\nPlease decline the offer by going to the same page if you are no longer interested. [BYE]" 
+            content=>"[HELLO]This is a reminder that your editorship offer for " . $uc->cat->name . " will lapse $dur{$l} if you do not officially accept it by going to \"this page\":" . $DEFAULT_SITE->{server} . "/utils/edconfirm.pl \n\nPlease decline the offer by going to the same page if you are not interested. [BYE]" 
         )->save;
         $uc->confirmWarnings($l);
         $uc->save;

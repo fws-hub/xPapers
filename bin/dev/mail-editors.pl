@@ -12,9 +12,10 @@ my $rend = xPapers::Render::HTML->new;
 
 while (my $e = $it->next) {
 
-    next unless $e->{uId} == 1;
+    #next unless $e->{uId} == 1;
     my $cat = xPapers::Cat->get($e->{cId});
     next unless $cat->{catCount};
+    next unless $cat->pLevel == 1;
     print "Mailing $e->{uId} - $e->{cId}\n";
     my $m = xPapers::Mail::Message->new(
         uId=>$e->uId,

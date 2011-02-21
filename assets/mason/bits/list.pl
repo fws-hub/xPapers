@@ -50,7 +50,7 @@ if ($theList->{filter_id}) {
         filter=>$filters,
         start=>$ARGS{start}||0
     });
-#    $q->{debug} = $m if $SECURE;
+    $q->{debug} = $m if $SECURE;
     $q->{cfg}->{start} = $ARGS{start};
     event('enriched cat exec','start');
     $q->execute;
@@ -141,7 +141,7 @@ if ($HTML and !$ARGS{noheaderatall}) {
 
         <table>
         <tr>
-% if($theList->canDo("AddPapers",$user->{id})) {
+% if($theList->canDo("AddPapers",$user->{id}) and !$theList->gId) {
         <script type="text/javascript">var currentList=<%$theList->id%>;</script>
         <td>
         </td>

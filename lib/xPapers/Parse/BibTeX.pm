@@ -70,6 +70,8 @@ sub parse {
             next;
         }
         my $n = new xPapers::Entry;
+        #warn $e->get('title');
+        #warn p($e->get('title'));
         $n->addAuthors(parseAuthors(p($e->get('author'))));
         #print $e->get('editor') . " -- " . p($e->get('editor')) . "<br>" if $e->get('editor');
         if (!$n->firstAuthor and $type eq 'book') {
@@ -167,7 +169,7 @@ sub parse {
 sub p {
     my $in = shift;
     return $in unless $in;
-    $in =~ s/\\(.)\{(.)\}/{\\$1$2}/g;
+    #$in =~ s/\\(.)\{(.)\}/{\\$1$2}/g;
     $in =~ s/\\emph\{([^}]*)\}/_$1_/ig;
     return rmTags(compose(TeX::Encode->decode(decode_entities($in))));
 }

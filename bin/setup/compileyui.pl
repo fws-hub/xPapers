@@ -2,12 +2,13 @@ use xPapers::Util;
 use xPapers::Conf;
 use strict;
 use autodie qw(:all);
+# usage: compileyui.pl -min
 my $OUT ="$PATHS{LOCAL_BASE}/var/dynamic-assets/$DEFAULT_SITE->{name}/"; 
 my $IN = "$PATHS{LOCAL_BASE}/src";
 print "Compiling javascript into $OUT/yui.js\n";
 open O, ">$OUT/yui.js";
 my @list = qw/yahoo dom yahoo-dom-event connection datasource autocomplete container menu element button json dragdrop/;
-my @separate = qw/editor/;
+my @separate = qw/editor calendar/;
 for my $m (@list) {
     next unless $m =~ /\w/;
     print "$m\n";

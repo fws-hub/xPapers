@@ -448,8 +448,10 @@ sub forumURL {
     }
     if ($f->{eId}) {
         return $me->forumBase($f) . $f->{eId};
-    } if ($f->{cId}) {
+    } elsif ($f->{cId}) {
         return $me->forumBase($f) . "threads.pl?cId=$f->{cId}";
+    } elsif ($f->{gId}) {
+        return $me->forumBase($f);
     }
     return $me->forumBase($f) . "threads.pl?fId=$f->{id}";
 }

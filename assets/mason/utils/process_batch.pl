@@ -71,7 +71,7 @@ if ($ARGS{content}) {
         $decoder = find_encoding("utf8");
     }
     if (ref($decoder)) {
-        $decoded = encode_entities($decoder->decode($content));
+        $decoded = $decoder->decode($content);
     } else {
         lerror("Encoding error: can't read your file. Check that you picked the right file. If this persists, please report this to the administrator");       
     }

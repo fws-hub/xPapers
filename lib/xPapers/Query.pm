@@ -29,10 +29,10 @@ __PACKAGE__->meta->setup
     minRelevance  => { type => 'float', precision => 32 },
     owner         => { type => 'integer' },
     inter         => { type => 'integer' },
-    freeOnly      => { type => 'varchar', length => 5 },
-    proOnly       => { type => 'varchar', length => 5 },
-    onlineOnly    => { type => 'varchar', length => 5 },
-    publishedOnly => { type => 'varchar', length => 5 },
+    freeOnly      => { type => 'varchar', length => 5 }, #deprecated
+    proOnly       => { type => 'varchar', length => 5 }, #deprecated
+    onlineOnly    => { type => 'varchar', length => 5 }, #deprecated
+    publishedOnly => { type => 'varchar', length => 5 }, #deprecated
     draftsOnly    => { type => 'integer', default=> 0},
     filterMode    => { type => 'varchar', length => 20 },
     advMode       => { type => 'varchar', length=> 10,default=>"fields" },
@@ -438,8 +438,9 @@ sub prepare {
         ";
     } elsif ($me->{filterMode} eq 'group') {
         $me->{joins} .= "
-        join users on (main.authors like concat('%;',users.lastname,', ', users.firstname,'%'))
-        join groups_m on (groups_m.gId='" .quote($me->{searchStr}) . "' and groups_m.uId = users.id)
+        join main_authors on main_authors.eId=main.id
+        join aliases on (aliases.firstname=main_authors.firstname and aliases.lastname=main_authors.lastname)
+        join groups_m on (groups_m.gId='" .quote($me->{searchStr}) . "' and groups_m.uId = aliases.uId)
         ";
     }
 
