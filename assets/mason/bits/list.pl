@@ -50,7 +50,7 @@ if ($theList->{filter_id}) {
         filter=>$filters,
         start=>$ARGS{start}||0
     });
-    $q->{debug} = $m if $SECURE;
+    #$q->{debug} = $m if $SECURE;
     $q->{cfg}->{start} = $ARGS{start};
     event('enriched cat exec','start');
     $q->execute;

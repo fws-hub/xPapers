@@ -462,9 +462,6 @@ if ($ARGS{root}) {
 event('initIterator','start');
 my $qu = xPapers::Query->new;
 #$qu->{debug} = $m;
-if ($SECURE) {
-#    $qu->{debug} = $m;
-}
 if ($ARGS{__sql__}) {
     $qu->preparePureSQL($ARGS{__sql__},$filters);
 } else {
@@ -484,10 +481,14 @@ if ($ARGS{__sql__}) {
         in => 0
     );
 }
+#print $qu->sql if $SECURE;
 #if ($areaUser) {
 #    print $qu->sql;
 #    return;
 #}
+if ($SECURE) {
+#    $qu->{debug} = $m;
+}
 eval {
     $qu->execute;
 };

@@ -683,7 +683,7 @@ sub edReport {
            $r .= "Entries: "  . $c->localCount($DEFAULT_SITE) . "\n";
            $r .= "Unchecked edits: " .  xPapers::D->get_objects_count(query=>[relo1=>$c->id,type=>'update',class=>'xPapers::Entry','!checked'=>1,status=>{gt=>0}]) . "\n";
         }
-       $r .= "Categorization actions by you: " . $ed->IO . "\n";
+       $r .= "Entries you've added under this category: " . $ed->input . "\n";
        if ($c->edfId) {
             my $t = $c->prepTrawler($me);
             $t->execute;
