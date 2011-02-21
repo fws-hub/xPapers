@@ -98,6 +98,7 @@ for my $e (@$res) {
    $e->{db_src} = 'user';
 
    cleanAll($e);
+   #print $e->toString . "\n";
    
    # Try to find the item
    my $ei = xPapers::EntryMng->fuzzyFind($e,undef,1);

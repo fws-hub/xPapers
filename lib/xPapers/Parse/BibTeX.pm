@@ -169,7 +169,7 @@ sub parse {
 sub p {
     my $in = shift;
     return $in unless $in;
-    #$in =~ s/\\(.)\{(.)\}/{\\$1$2}/g;
+    $in =~ s/\\(.)\{(.)\}/{\\$1$2}/g;
     $in =~ s/\\emph\{([^}]*)\}/_$1_/ig;
     return rmTags(compose(TeX::Encode->decode(decode_entities($in))));
 }

@@ -87,7 +87,7 @@ my %WIN2UTF = (
 );
 
 # Config data we keep between calls to cleanAll()
-my ($badtypes, $antibad, $journal_map, $nocaps2, $decap, $excludeAuthors, $excludeTitle, $excludeJournals);
+my ($badtypes, $antibad, $journal_map, $journal_notruncate,$nocaps2, $decap, $excludeAuthors, $excludeTitle, $excludeJournals);
 
 my $np;
 my $freeChecker;
@@ -466,6 +466,7 @@ sub cleanAll {
 
 
     # quick title fix
+    #warn $e->{title};
     $e->{title} =~ s/[‘’]/'/g;
     $e->{title} =~ s/\s*$//;
     $e->{title} =~ s/^\s*//;
@@ -474,13 +475,13 @@ sub cleanAll {
     $e->{title} =~ s/^\s*[VIXvix]+\s*.?(\&#151;|\&#8212;|—)//;
     #print $e->{title} . "\n";
 	#$e->{title} =~ s/\s*(\.?)$/$1/;
-	$e->{title} =~ s/([^0-9])\d\.?$/$1./;
+	#$e->{title} =~ s/([^0-9])\d\.?$/$1./;
 	$e->{title} =~ s/\*\.?$/./;
     $e->{title} =~ s/^Symposium Papers\s*:\s*//i;
     $e->{title} =~ s/[,:]\s*$//;
     $e->{title} =~ s/\s*\[Electronic resource\]//;
     $e->{title} =~ s!/\s*$!!;
-    $e->{title} =~ s/^\s*\d+\.?\s*//;
+    #$e->{title} =~ s/^\s*\d+\.?\s*//;
 
     $e->{date} =~ s/((?:19|20)\d\d)(?:19|20)\d\d/\2/g;
 
@@ -698,9 +699,12 @@ sub cleanJournal {
         $journal_map = file2hash($DEFAULT_SITE->fullConfFile( 'journal_map.txt' ) );
         $journal_map->{lc $_} = $journal_map->{$_} for keys %$journal_map;
     }
+    unless ($journal_notruncate) {
+        $journal_notruncate = file2hash($DEFAULT_SITE->fullConfFile( 'journal_notruncate.txt' ) );
+    }
     return "" if $source eq '[Journal (Paginated)]';
     $source =~ s/\<Html_ent Glyph=\"\@amp;\" Ascii=\"and\"\/>/\&/g;
-	$source =~ s/^(.+):(.+?)$/$1/;
+	$source =~ s/^(.+):(.+?)$/$1/ unless $journal_notruncate->{$source};
     $source =~ s/\.$//;
     $source =~ s/\&amp;/\&/;
     $source =~ s/\&/and/;
