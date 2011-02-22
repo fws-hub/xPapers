@@ -70,7 +70,7 @@ if ( grep { $res->{$_}->{nb} >= 3 } keys %$res ) {
 <& search_plugin_link.html &>
 
 <b>NEW:&nbsp;</b>
-<a href="/utils/bargains.pl"><b>The <% $s->{niceName} %> Bargain Finder</b></a>   
+<a href="/utils/bargains.pl"><b>Amazon Marketplace book bargains powered by PhilPapers</b></a>   
 
 </div>
 
