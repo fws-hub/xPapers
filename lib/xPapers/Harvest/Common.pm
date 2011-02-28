@@ -77,7 +77,7 @@ sub init {
     $me->{conf}->{defaultType} = 'journal' unless $me->{conf}->{defaultType};
 
     # Prepare templates
-    my @i = ('',2,3,4,5); 
+    my @i = ('',2..10); 
 
     my @et; 
     foreach my $n (@i) {
@@ -295,7 +295,7 @@ sub rHarvest {
                 if ($res) {
                     $me->setDoneCurrentPage;
                     # remove from stack if crawling
-                    shift @{$sequences[0]} if $me->{crawl};
+                    #shift @{$sequences[0]} if $me->{crawl};
                 } elsif (!$me->{crawl}) {
                     print "* warning: nothing found on startpage.\n";
                 }
@@ -325,7 +325,10 @@ sub rHarvest {
     
         my $tryFetch;
         if ($me->{crawl}) {
-            do { $tryFetch = $me->_increment($pos) } while ($me->doneCurrentPage and $tryFetch);
+            next if $me->_increment($pos);
+            #while ($me->doneCurrentPage and $tryFetch) { 
+            #    $tryFetch = $me->_increment($pos) 
+            #} 
         } else {
             $tryFetch = $me->_increment($pos);
         }
@@ -594,6 +597,7 @@ sub fetchStartPage {
     # remove unused slots
     $url =~ s/\[\[\d+\]\]//g;
 
+    warn "fetchStartPage $url";
     my $c = $me->get($url,"pure");
     return undef unless $c;
     $c = decodeResp($c,"cp1252");

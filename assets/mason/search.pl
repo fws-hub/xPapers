@@ -294,6 +294,7 @@ elsif ($ARGS{searchStr} or $ARGS{filterMode} or $ARGS{sugMode} or $ARGS{search})
         $header .= " <span class='ghx'>From the most recent</span>" if $ARGS{sort} eq 'added';
     }
     $where = " and uId = $user->{id}";
+    $where .= " and (date >= year(now()) or date = 'forthcoming' or date='manuscript' or date='unknown' or date='' or isnull(date))";
     $join = "join main_authors on (main.id = eId) join followers on name = alias";
     $ARGS{sort} = 'added' unless $ARGS{sort};
     $showSorter = 1 unless $ARGS{noheader};
