@@ -71,7 +71,11 @@ Authors:&nbsp;
 %>
 </div>
 <input type="button" onclick="window.addToList('authors')" value="Add author">
-
+%#this is only done when creating a new item
+%if ($ARGS{author}) {
+<br>
+<input type="checkbox" value="on" name="userIsAuthor" <%samePerson($user->fullname,$ARGS{author}) ? 'checked' :''%>> I am one of the above authors
+%}
 </td>
 </tr>
 

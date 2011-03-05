@@ -113,3 +113,4 @@ XML::Atom::Client
 #RRDs (only on aptitude)
 Text::Names
 Biblio::Citation::Compare
+LaTeX::ToUnicode

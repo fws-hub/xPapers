@@ -8,6 +8,7 @@ use xPapers::Util;
 use HTML::Entities;
 use Encode;
 use Unicode::Normalize 'compose';
+use LaTeX::ToUnicode 'convert';
 use utf8;
 
 my %map = (
@@ -169,9 +170,15 @@ sub parse {
 sub p {
     my $in = shift;
     return $in unless $in;
+    # we have to do that to convert from the \^{a} style to \^a, which our libs understand.
     $in =~ s/\\(.)\{(.)\}/{\\$1$2}/g;
     $in =~ s/\\emph\{([^}]*)\}/_$1_/ig;
-    return rmTags(compose(TeX::Encode->decode(decode_entities($in))));
+    #$in = "{$in}";
+    # note how we use both deocde('latex',) and 'convert'. they pick up different things.
+    $in = rmTags(compose(decode('latex',convert(decode_entities($in)))));
+    #$in =~ s/^\{//;
+    #$in =~ s/\}$//;
+    $in;
 }
 __END__
 

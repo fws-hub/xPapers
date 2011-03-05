@@ -223,6 +223,13 @@ if ($ARGS{addToList}) {
     #print STDERR "done";
 }
 
+# If item by the submitting user
+if ($ARGS{userIsAuthor}) {
+    $user->addToMyWorks($e);
+    $e->pro($user->pro);
+    $e->save;
+}
+
 $e->unlock($user->{id});
 
 writeLog($root->dbh,$q, $tracker, "edit", $MISCLOG,$s);

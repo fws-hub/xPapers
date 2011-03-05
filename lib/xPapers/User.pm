@@ -375,6 +375,14 @@ sub calcPro {
     return $me->pro;
 }
 
+sub addToMyWorks {
+    my ($me,$e) = @_;
+    my $myworks = $me->myWorks;
+    $myworks = $me->mkMyWorks unless $myworks;
+    return undef unless $myworks;
+    return $myworks->addEntry($e,$me->id);
+}
+
 sub mkMyWorks {
     my $me = shift;
     # first delete old stuff
