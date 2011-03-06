@@ -94,7 +94,12 @@ for my $e (@$eds) {
     print "<td>" . ($cat->edfId ? "<a href='/search/advanced.pl?fId=$cat->{edfId}'>yes</a>" : "no" ) . "</td>";
     </%perl>
     <td>
+    <!--
     <a href="/admin/history.pl?uId=<%$e->{uId}%>">diffs</a>
+    ,
+    -->
+    <a target="_blank" href="/admin/editor_msg.pl?edId=<%$e->id%>">warn</a>
+    <% $e->lastMessageTime ? "(last: ". $rend->renderDate($e->lastMessageTime) . ")" : "" %>
     </td>
     <%perl>
     print "</tr>";

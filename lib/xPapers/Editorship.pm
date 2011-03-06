@@ -43,6 +43,8 @@ columns =>
         checked => { type => 'integer' , default=> 0},
         excluded => { type => 'integer' , default=> 0},
         auto => { type => 'integer', default => 0 },
+        lastMessage => { type => 'text' },
+        lastMessageTime => { type=>'datetime' }
     ],
 
     primary_key_columns => ['id'],
