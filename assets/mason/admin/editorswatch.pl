@@ -98,7 +98,7 @@ for my $e (@$eds) {
     <a href="/admin/history.pl?uId=<%$e->{uId}%>">diffs</a>
     ,
     -->
-    <a target="_blank" href="/admin/editor_msg.pl?edId=<%$e->id%>">warn</a>
+    <a target="_blank" href="/admin/editor_msg.pl?edId=<%$e->id%>">email</a>
     <% $e->lastMessageTime ? "(last: ". $rend->renderDate($e->lastMessageTime) . ")" : "" %>
     </td>
     <%perl>

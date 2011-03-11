@@ -981,7 +981,7 @@ sub moreFields {
             }
         }
         if ($me->{cur}->{sqc} eq 'on' and ($me->{cur}->{root}->{catCount} or $me->{cur}->{forceSQC} or !$pc)) {
-            $e->{catsHTML} .= $me->quickCat($e,$me->{cur}->{root},$me->{cur}->{mason}->scomp("/bits/quickcat-extras.html",entry=>$e,cat=>$me->{cur}->{root}));
+            $e->{catsHTML} .= "</div><div>" . $me->quickCat($e,$me->{cur}->{root},$me->{cur}->{mason}->scomp("/bits/quickcat-extras.html",entry=>$e,cat=>$me->{cur}->{root}));
         }
 =old
         @pc = $e->publicCats;

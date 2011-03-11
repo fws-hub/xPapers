@@ -39,7 +39,6 @@ join main_authors on (main.id = eId)
 join followers on name = alias
 join users on followers.uId=users.id and users.alertFollowed and users.alertFreq = ?
 where main.added > ? and not main.deleted and (date >= year(now()) or date = 'forthcoming' or date='manuscript' or date='unknown' or date='' or isnull(date))";
-";
 
 my $sth = $dbh->prepare( $query );
 

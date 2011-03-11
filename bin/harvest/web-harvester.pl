@@ -10,6 +10,10 @@ use xPapers::Prop;
 use xPapers::Mail::Message;
 use strict;
 
+#
+# This is legacy stuff. See the admin manual on opp-tools for information on how to do this now.
+# 
+
 my $SCRIPT = "http://www.umsu.de/opp/pl/_pp.pl?since=";
 
 my $ua = new LWP::UserAgent;

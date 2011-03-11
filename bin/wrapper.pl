@@ -34,4 +34,4 @@ printf F "%-26s%-30s%-6s%-10s%-s\n",$time, $sname, $error ? 'ERROR' : 'OK', int(
 close F;
 
 # email error if any
-xPapers::Mail::MessageMng->notifyAdmin("$sname has failed","Error:$error\nDuration: $duration seconds\n" . localtime() . "\n") if $error;
+xPapers::Mail::MessageMng->notifyAdmin("$sname has failed","Error:$error\nDuration: $duration seconds\n" . localtime() . "\n\nCurrently running Perl processes: " . `/bin/ps -ef | /bin/grep perl`) if $error;

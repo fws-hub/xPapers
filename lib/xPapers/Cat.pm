@@ -936,7 +936,7 @@ sub deleteEntry {
     }
 
     # check if linked filters, if so ban as well
-    if ($me->{filter_id} or $me->{ifId}) {
+    if ($me->{canonical} or $me->{filter_id} or $me->{ifId}) {
         $me->exclude([$en->id]);
     }
     #$en->clearCatsCache; diff does that
