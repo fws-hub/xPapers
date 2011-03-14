@@ -95,8 +95,8 @@ if ($ARGS{foreign}) {
 <li><a href="<%$hp%>">home page</a></li>
 %}
 <%perl>
-if ($p->showEmail) {
-    print "<li>" . ecode($p->{email}) . "</li>";
+if ($p->showEmail or $SECURE) {
+    print "<li>" . $SECURE ? $p->email : ecode($p->{email}) . "</li>";
 }
 if (!$p->showEmail and !$p->homePage) {
     print "<li>No contact info.</li>";

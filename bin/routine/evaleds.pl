@@ -6,27 +6,27 @@ use xPapers::Mail::Message;
 use xPapers::Relations::CatEntry;
 use xPapers::Conf;
 use strict;
-
+#$TEST_MODE = 1;
 my $sum = "";
 
 # check unconfirmed editorships
-my %dur = ( 10 => "in ten days from now", 7 => "in seven days from now", 3 => "in three days from now", 1=> "in just a few hours" );
+my %dur = ( 10 => "will lapse in ten days from now", 7 => "will lapse in seven days from now", 3 => "will lapse in three days from now", 1=> "will lapse in just a few hours", -1 => "has lapsed"  );
 for my $l (keys %dur) {
-    my $u = xPapers::ES->get_objects(clauses=>["status = 10 and date(confirmBy) = date(date_add(now(), interval $l day))"]);
+    my $u = xPapers::ES->get_objects(clauses=>["status = 10 and ( date(confirmBy) = date(date_add(now(), interval $l day)) )"]);
     for my $uc (@$u) {
         next if $uc->confirmWarnings <= $l;
-        $sum .= '- ' . $uc->user->fullname . "'s ($uc->{uId}) offer for " . $uc->cat->name . " lapses $dur{$l}.\n";
+        $sum .= '- ' . $uc->user->fullname . "'s ($uc->{uId}) offer for " . $uc->cat->name . " $dur{$l}.\n";
         xPapers::Mail::Message->new(
             uId=>$uc->uId,
-            brief=>"Your editorship offer will lapse",
-            content=>"[HELLO]This is a reminder that your editorship offer for " . $uc->cat->name . " will lapse $dur{$l} if you do not officially accept it by going to \"this page\":" . $DEFAULT_SITE->{server} . "/utils/edconfirm.pl \n\nPlease decline the offer by going to the same page if you are not interested. [BYE]" 
+            brief=>"Your editorship offer" . ($l > 0 ? ' will lapse' : 'has lapsed'),
+            content=>$l > 0 ? "[HELLO]This is a reminder that your editorship offer for " . $uc->cat->name . " $dur{$l} if you do not officially accept it by going to \"this page\":" . $DEFAULT_SITE->{server} . "/utils/edconfirm.pl \n\nPlease decline the offer by going to the same page if you are not interested. [BYE]" : "[HELLO]Please note that your editorship offer for ".$uc->cat->name." has lapsed.[BYE]"
         )->save;
         $uc->confirmWarnings($l);
         $uc->save;
     }
 }
 
-xPapers::Mail::MessageMng->notifyAdmin("Pending editorship offers",$sum) if $sum;
+xPapers::Mail::MessageMng->notifyAdmin("Pending and expired editorship offers",$sum) if $sum;
 
 my $eds = xPapers::ES->get_objects(query=>['!start'=>undef,'end'=>undef],sort_by=>['uId','cId']);
 

@@ -318,10 +318,30 @@ sub prepare {
     my ($me, $cfg) = @_;
     return if $me->{prepared};
     $me->{cfg} = $cfg;
-    $me->basicWhere;
     $me->{table} = xPapers::Entry->meta->table;
+
+=old this is taken care of in autohandler now
+    if ($me->{filterMode} eq 'advanced') {
+
+        #The where clause comes from the Query object in adv mode, not the cookies
+        my @filter = or=>{'deleted'=>0,'deleted'=>undef};
+
+        if ($me->{interval} and $me->{interval} =~ /^\d+$/) {
+            my $inter = $me->{interval};
+            push @filter, { added => { gt => DateTime->now->subtract(days=>$inter) } };
+        }
+        push @filter, free => 1 if $me->{freeOnly} eq 'on';
+        push @filter, published=>1 if $me->{publishedOnly} eq 'on';
+        push @filter, draft => 1 if $me->{draftsOnly};
+        $cfg->{filter} = \@filter;
+
+    } 
+=cut
+
     $me->prepFilter($cfg->{filter}) if $cfg->{filter};
     my $where = $me->{where} || " true ";
+    $where .= " and main.added >= '" . quote($me->{since}) . "'" if $me->{since};
+
     unless ($me->{advMode} eq 'fields') {
         $where .= " and if(published, date = 'forthcoming' or date >= '" . quote($me->{minYear}) . "',1)" if $me->{minYear};
         $where .= " and date <= '" . quote($me->{maxYear}) . "'" if $me->{maxYear};
@@ -333,6 +353,7 @@ sub prepare {
         my $ftf = $cfg->{union} ? $FT_FIELDS_R : ($cfg->{index} || $FT_FIELDS_S);
         my ($select,$m,$qs);
         $qs = "";
+
 
         if ($me->{advMode} eq 'fields') {
             

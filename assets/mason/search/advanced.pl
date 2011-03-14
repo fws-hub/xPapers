@@ -14,6 +14,8 @@ if ($HTML) {
 <tr>
 <td class="main_td" id="main">
 <%perl>
+#print Dumper($filters) if $SECURE;
+#print Dumper($ARGS{proOnly}) if $SECURE;
 }
 
 my ($q,$error);

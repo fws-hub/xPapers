@@ -310,14 +310,21 @@ $FLAG = $q->cookie('flag') if $q->cookie('flag');
 # Set up filters
 $filter = "true";
 
-    for (qw/sqc newWindow freeOnly hideAbstracts filterByAreas onlineOnly proOnly publishedOnly categorizerOn showCategories/) { 
+    for (qw/sqc newWindow hideAbstracts filterByAreas categorizerOn showCategories/) { 
         $ARGS{$_} ||= $q->cookie($_);
     }
-    #for (qw/freeOnly hideAbstracts publishedOnly/) { } 
-    for (qw/newWindow proOnly onlineOnly showCategories/) {
-        $ARGS{$_} = 'on' unless $ARGS{$_};
-    }
+    if ($ARGS{filterMode} ne 'advanced') {
+        for (qw/freeOnly onlineOnly proOnly publishedOnly/) {
+            $ARGS{$_} ||= $q->cookie($_);
+        }
+        for (qw/newWindow proOnly onlineOnly showCategories/) {
+            $ARGS{$_} = 'on' unless $ARGS{$_};
+        }
 
+    } else {
+        for (qw/newWindow showCategories/) {
+            $ARGS{$_} = 'on' unless $ARGS{$_};
+    }    }
     if ($ARGS{uncat}) {
         $ARGS{sqc} = 'on';
         $ARGS{nofilter} = 1;

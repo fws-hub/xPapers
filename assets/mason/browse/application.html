@@ -5,7 +5,7 @@ my $cat = $ARGS{__cat__};
 <%perl>
 
 my @eds = $cat->editors;
-if ($#eds > -1) {
+if ($#eds > -1 and !$ARGS{force}) {
     error("Applications are not open for this category at the moment.");
 }
 if ($ARGS{apply}) {
@@ -13,11 +13,11 @@ if ($ARGS{apply}) {
     $m->comp("../checkLogin.html",%ARGS);
 
     # check recursion is specified
-    error("You must specify whether you want to apply for sub-categories as well.") 
+    error("You must specify whether you want to apply for open sub-categories as well.") 
         if ($cat->pLevel > 1 and $cat->{catCount} and !$ARGS{recursive});
 
     # check we don't already have one.
-    if (my $date = check($cat)) {
+    if (my $date = check($cat) and !$ARGS{force}) {
 
         print "You have already submitted an application for this category (" . $rend->renderDate($date) . ")"; 
 
@@ -42,6 +42,12 @@ sub recur {
 
 sub apply {
     my ($cat,$comment,$recur) = @_;
+    my @eds = $cat->editors;
+    if ($#eds > -1) {
+        print "Skipping $cat->{name} (it already has an editor)<br>";
+        return;
+    }
+    return if check($cat);
     print "Lodging application for " . $cat->name . "<br>";
     my $ed = xPapers::Editorship->new(
         uId=>$user->{id},
@@ -55,13 +61,13 @@ sub apply {
 
 sub check {
     my ($cat) = @_;
-    my $c = xPapers::ES->get_objects(query=>[status=>{ge=>0},cId=>$cat->id,uId=>$user->id]);
+    my $c = xPapers::ES->get_objects(query=>[status=>{ge=>0},end=>undef,cId=>$cat->id,uId=>$user->id]);
     return $#$c > -1 ? $c->[0]->created : undef;
 }
 </%perl>
 
 <h3>Becoming editor of this category</h3>
-First, read the <a href="/help/editors.html">editor's manual</a> to ensure you know what an editor's duties and privileges are.   In brief, an editor's role is to ensure that the category he/she edits is complete and does not contain irrelevant or incorrect entries.  A number of tools are provided to make this task as easy as possible.  An editor's term lasts six months. After that, the position becomes open again. An editor who has done good work and is willing to continue will most often be renewed. 
+First, read the <a href="/help/editors.html">Editor's Guide</a> to ensure you know what an editor's duties and privileges are.   In brief, an editor's role is to ensure that the category he/she edits is complete and does not contain irrelevant or incorrect entries.  A number of tools are provided to make this task as easy as possible.  An editor's term lasts six months. After that, the position becomes open again. An editor who has done good work and is willing to continue will most often be renewed. 
 <p>
 Both leaf categories and non-leaf categories (including area-level categories) can have editors. The responsibilities associated with each category level vary (see the <a href="/help/editors.html">manual</a>). One can be editor of a middle-level category either with or without being editor of the categories underneath it. 
 <p>
@@ -71,7 +77,7 @@ Both leaf categories and non-leaf categories (including area-level categories) c
 <h3>I volunteer to be the editor for: <%$cat->name%></h3>
 <form method="post">
 %if ($cat->pLevel > 1 and $cat->{catCount}) {
-The current category (<%$cat->name%>) is a mid-level category. You have two options: you can apply to edit this category only, or you can apply to edit this category plus its sub-categories.  Note that if you do the latter, you will have the responsibilities of a Leaf Editor for all leaf categories underneath. If some of these subcategories already have editors, your application will not cover these categories.
+The current category (<%$cat->name%>) is a mid-level category. You have two options: you can apply to edit this category only, or you can apply to edit this category plus its sub-categories which don't currently have editors.  Note that if you do the latter, you will have the responsibilities of a Leaf Editor for all leaf categories underneath which are currently open. If some of these subcategories already have editors, your application will not cover these categories.
 <p>
 <input type="radio" name="recursive" value="off"> I would like to edit this category but not those under it.<br>
 <input type="radio" name="recursive" value="on"> I would like to edit this category and those under it.<br>

@@ -67,6 +67,7 @@ if ($ARGS{do}) {
 <tr style='background-color:#555;color:white'>
 <td>Choice</td>
 <td>Category</td>
+<td>Options</td>
 </tr>
 
 <%perl>
@@ -79,6 +80,7 @@ for my $e (@$es) {
             <input type="radio" value="no" name="choice<%$e->{id}%>"> Decline
         </td>
         <td width="350px"><%$rend->renderCatC($e->cat)%></td>
+        <td><a href="/browse/<%$e->cat->uName%>/application.html?recursive=on&force=1&cId=<%$e->cId%>&apply=1" target="_blank">Apply for open subcats</td>
     </tr>
     <%perl>
 

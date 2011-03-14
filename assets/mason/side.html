@@ -36,7 +36,7 @@ Export this page:
 
 
 <form id="moreOptions" name="more">
-%if (!$ARGS{nogen} and !$ARGS{noOptions} and !$ARGS{pub} and !$ARGS{pubn}) {
+%if ($ARGS{filterMode} ne 'advanced' and !$ARGS{nogen} and !$ARGS{noOptions} and !$ARGS{pub} and !$ARGS{pubn}) {
 <div class="sideBox">
 <div class="sideBoxH">Restrictions</div>
 <div class="sideBoxC">
