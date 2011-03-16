@@ -24,7 +24,7 @@ my $new = 0;
 my $before = xPapers::EntryMng->count_all;
 my $specDate = $ARGV[0];
 
-my $since = DateTime->from_epoch(epoch=>$last_found - 100 * 60 * 60,time_zone=>$TIMEZONE);
+my $since = DateTime->from_epoch(epoch=>$last_found - 3 * 30 * 24 * 60 * 60,time_zone=>$TIMEZONE);
 print "Last found: " . $since->ymd . " " . $since->hms . "\n";
 # fetch new stuff
 my $url = $SCRIPT . ($specDate || urlEncode($since->ymd . " " . $since->hms));
@@ -45,15 +45,16 @@ for (@list) {
     $e->{db_src} = 'web';
     $e->{defective} = 1;
     $e->{pub_type} = 'unknown';
-    print $e->toString . "\n";
     cleanAll($e);
     if ($e->{deleted}) {
         warn "Dropped by cleanAll: " . $e->toString . "\n";
         next;
     }
-    my $found_local = scalar xPapers::EntryMng->addOrDiff($e,$WEB_HARVESTER_USER);
-    $found += $found_local;
-    xPapers::Mail::MessageMng->notifyAdmin("unexpected input from wo's harvester","paper is: " . $e->toString) unless $found_local;
+    my @diffs = xPapers::EntryMng->addOrDiff($e,$WEB_HARVESTER_USER);
+    if (grep {$_->{type} eq 'add'} @diffs) {
+        print "Not found:" . $e->toString . "\n";
+        xPapers::Mail::MessageMng->notifyAdmin("unexpected input from wo's harvester","paper is: " . $e->toString);
+    }
 }
 
 # Save time if found anything

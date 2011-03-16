@@ -79,7 +79,7 @@ $cat->{__user_is_editor} = 1 if grep { $user->{id} == $_->{id} } @eds;
 
 
 if (!$cat->marginal and $cat->{pLevel} > 0 and $#eds == -1 and $m->request_comp->name eq 'index.html') {
-    print "<div class='centered'><div style='background-color:#efe;font-weight:bold;border:1px black dotted;padding:3px'>This category needs an editor. We encourage you to help if you are qualified.<br><a href='/browse/". $cat->eun . "/application.html'>Apply</a>, or <a href=\"/help/editors.html\">read more about what this involves</a>.</div></div>";
+    print "<div class='centered'><div style='background-color:#efe;font-weight:bold;border:1px black dotted;padding:3px'>This category needs an editor. We encourage you to help if you are qualified.<br><a href='/browse/". $cat->eun . "/application.html'>Volunteer</a>, or <a href=\"/help/editors.html\">read more about what this involves</a>.</div></div>";
 }
 
 my $in;
