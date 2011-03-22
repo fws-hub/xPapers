@@ -49,7 +49,7 @@ if ($ARGS{do}) {
     </%perl>
     <p><hr>Congratulations on your editorship<%$accepted>1?"s":""%>!</h3>
     <p>
-    We encourage you to get started by following the steps described in <a href="/help/editors.html#startup">the Editor's Guide</a>.<b>Major changes were made to the guide on May 1st.</b> You should read the new guide if you haven't done so already. 
+    We encourage you to get started by following the steps described in <a href="/help/editors.html#startup">the Editor's Guide</a>. 
     </p>
     
     <%perl>

@@ -41,6 +41,7 @@ sub rawFile { return shift->assetFile( 'raw', shift ) }
 sub confFile { return shift->assetFile( 'conf', shift ) }
 sub masonFile { return shift->assetFile( 'mason', shift ) }
 
+sub fullMasonFile { my $self = shift; return $self->{LOCAL_BASE} . $self->masonFile( shift ) }
 sub fullConfFile { my $self = shift; return $self->{LOCAL_BASE} . $self->assetFile( 'conf', shift ) }
 
 1;
