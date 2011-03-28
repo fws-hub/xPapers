@@ -8,11 +8,11 @@ h3 { color: #<%$C2%> }
 <h3>Important things to keep in mind</h3>
 
 <ul class="normal">
-<li><b>As of 14/09/2010</b>, if you don't use any special operator in a query (no &amp;, |, -, ~, etc, except *), an OR operator ( | ) will be inserted between all words. Otherwise, an AND ( &amp; ) operator will be inserted wherever no OR operator is found (the old behaviour). </li>
-<li>The search engine reduces all words to their stems. For example, a search for "intentionalities" will match the same documents as a search for "intentionality". However, documents with exact matches are ranked significantly higher than documents with stem matches only. No stemming is done when the * operator is used. <b>NOTE:</b> Stemming currently fails to conflate -ist and -ism words, for example "dualist" and "dualism". We are working to resolve this problem.</li>
+<li>If you don't use any special operator in a query (no &amp;, |, -, ~, etc, except *), an OR operator ( | ) will be inserted between all words. Otherwise, an AND ( &amp; ) operator will be inserted wherever no OR operator is found. </li>
+<li>The search engine reduces all words to their stems. For example, a search for "intentionalities" will match the same documents as a search for "intentionality". A search for "dualist" should give the same result as a search for "dualism". However, documents with exact matches are ranked significantly higher than documents with stem matches only. No stemming is done when the * operator is used.</li>
 <li>Word order matters. For example "theories of consciousness" and "consciousness of theories" will return different results.</li>
 <li>You can use + and - as on Google, and many other operators not found on Google (read on). + is equivalent to the AND operator (&amp;).</li>
-<li><b>As of 12/10/2010</b>, our search engine conflates British and American spelling variations. For example, searches for 'color' and 'colour' should give you the same results.</li> 
+<li>Our search engine conflates British and American spelling variations. For example, searches for 'color' and 'colour' should give you the same results.</li> 
 <li>Arbitrarily nested brackets and negations are possible.</li>
 </ul>
 
@@ -24,7 +24,7 @@ h3 { color: #<%$C2%> }
 
 <li><b>AND and OR operators</b>: <pre class="programListing">content &amp; consciousness | experience</pre>
 
-<b>As of 14/09/2010</b>, if you don't use any special operator in a query (no &amp;, |, -, ~, etc, except *), an OR operator ( | ) will be inserted between all words. Otherwise, an AND ( &amp; ) operator will be inserted wherever no OR operator is found (the old behaviour).  So in the example above the &amp; after "content" is superfluous.
+If you don't use any special operator in a query (no &amp;, |, -, ~, etc, except *), an OR operator ( | ) will be inserted between all words. Otherwise, an AND ( &amp; ) operator will be inserted wherever no OR operator is found.  So in the example above the &amp; after "content" is superfluous.
 <p>
 OR operator precedence is higher than AND, so the above is equivalent to:
 

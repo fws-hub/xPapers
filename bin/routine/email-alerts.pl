@@ -5,7 +5,7 @@ use xPapers::Utils::System;
 unique(1,'email-alerts.pl');
 
 while(1) {
-    xPapers::AlertManager->process(20);
+    xPapers::AlertManager->process(40);
     sleep(30);
 }
 

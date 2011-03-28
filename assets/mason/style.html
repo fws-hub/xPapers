@@ -1,11 +1,14 @@
 <%perl>
 # build css as required
-my $src = $s->masonFile( 'style.css' ); 
+my $src = $s->fullMasonFile( 'style.css' ); 
 my $out = "$PATHS{LOCAL_BASE}/var/dynamic-assets/$s->{name}/style.css";
-if (!-e $out or -M $src < -M $out) {
+my @src_stats = stat($src);
+my @out_stats = stat($out);
+if (!-e $out or $src_stats[9] > $out_stats[9]) {
     my $content = $m->scomp("style.css",%ARGS);
     open F, ">$out";
     print F $content;
+    warn "UPDATED STYLE ASSET";
     close F;
 }
 </%perl>

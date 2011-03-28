@@ -1075,7 +1075,8 @@ opacity: 0.5;
 -moz-opacity:0.5;
 */
 }
-.pubName {  }
+.pub_name { font-style:italic  }
+
 .pubInfo { color:#555555; }
 .articleTitle { font-weight:bold; }
 .name { font-weight:bold;  }

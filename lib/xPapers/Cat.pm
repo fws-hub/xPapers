@@ -65,7 +65,7 @@ columns =>
     dfo         => { type => 'integer' }, #depth first order
     edfo        => { type => 'integer' }, #last subcat in depth first order
     pLevel      => { type => 'integer' }, #level through primary parents
-    cacheId     => { type => 'integer' }
+    cacheId     => { type => 'integer' }, # marks a category as non-area
 
 ],
 
