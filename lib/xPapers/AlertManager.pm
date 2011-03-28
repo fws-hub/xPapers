@@ -47,7 +47,12 @@ sub process {
         $u->save(modified_only=>1);
         };
         if ($@) {
-            die "Got and error when saving user $u->{id} ($u->{firstname} $u->{lastname}): $@";
+            warn "Got and error when saving user $u->{id} ($u->{firstname} $u->{lastname}): $@. The database is probably locked. Sleeping for 10 minutes.";
+            sleep(60*10);
+            eval {
+                $u->save(modified_only=>1);
+            }
+
         }
 
     }
