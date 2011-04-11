@@ -15,7 +15,7 @@ my @cd;
 pop @$clusters;
 for (@$clusters) {
     my $r = "<div>" . areajump($_) . "<div class='jumpgroup'>";
-    my $areas=$_->children_o;
+    my $areas= [ grep { $_->{catCount} } @{$_->children_o} ];
     $r .= join("<br>", map { areajump($_) } @$areas );
     $r .= "</div></div>";
     push @cd,$r;

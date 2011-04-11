@@ -1530,6 +1530,7 @@ function simpleReq(script, params, sf) {
 
 function formReq(form, sf) {
       form.request({
+            method:'post',
             onSuccess: function(r) {
                 if (checkError(r)) {
                 } else {

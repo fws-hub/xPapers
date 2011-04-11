@@ -6,6 +6,7 @@ unique(1,'email-alerts.pl');
 
 while(1) {
     xPapers::AlertManager->process(40);
+    #exit;
     sleep(30);
 }
 

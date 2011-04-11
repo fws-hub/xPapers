@@ -27,12 +27,13 @@ sub process {
     #print "getting users..\n";
     my $users = xPapers::UserMng->get_objects_iterator(
         clauses=>["confirmed and alertFreq > 0 and alertChecked < date_sub(now(), interval alertFreq day)"],
-        limit=>$limit
+        limit=>$limit,
+        #uId=>1
     );
 
     while (my $u = $users->next) {
 
-        #print "doing $u->{id}\n";
+        print "doing $u->{id}\n";
         my @alerts = $me->basicAlerts($u);
 
         # fetch & post
@@ -56,6 +57,8 @@ sub process {
         }
 
     }
+
+    #return;
 
     # custom alerts for any users
 
