@@ -18,6 +18,10 @@ sub quoteChars {
     return ();
 }
 
+sub fieldSeparator {
+    return "\n";
+}
+
 sub begin {
     my ($me,$e) = @_;
     my $r;
@@ -61,9 +65,9 @@ sub field {
     return unless $value;
     if (ref($value) eq 'ARRAY') {
         return unless $#$value > -1;
-        return "$field " . join("$field ", map { $me->quote($_)."\n" } @$value);
+        return "$field " . join("\n$field ", map { $me->quote($_) } @$value);
     } else {
-        return "$field " . $me->quote($value) . "\n"; 
+        return "$field " . $me->quote($value); 
     }
 }
 

@@ -90,7 +90,11 @@ sub fields {
        $value = capitalize( $value ) if $f eq 'title';
        push @r, $me->field($f, $value);
     }
-    return join( ",\n", @r ) . "\n";
+    return join( $me->fieldSeparator, @r ) . "\n";
+}
+
+sub fieldSeparator {
+    return ",\n";
 }
 
 sub end {
