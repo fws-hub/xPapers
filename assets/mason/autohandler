@@ -295,8 +295,10 @@ $con->do("set names utf8");
 # Check the request type (rss, html, etc) and intercept RSS as required.
 #
 
-my ($ext) = $ARGS{format} || ($m->request_comp->name =~ /\.([^\.]*)$/);
+my ($fileExt) = ($m->request_comp->name =~ /\.([^\.]*)$/);
+my $ext = $ARGS{format} || $fileExt;
 $m->abort if $ext eq 'rss' and intercept($root->dbh,$q);
+
 
 
 #
