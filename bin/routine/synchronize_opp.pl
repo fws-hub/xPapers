@@ -29,13 +29,13 @@ for my $class ( qw/ xPapers::Pages::Page xPapers::Pages::PageAuthor / ){
     my $diffs = xPapers::D->get_objects_iterator( query => $query, sort_by=>'created asc' );
 
     while( my $diff = $diffs->next ){
-        #print "Doing $diff->{id}\n";
+        print "Doing $diff->{id}\n";
         my $result = sendDiff( $diff );
-        if ($result->{status}) {
-            $sth->execute( $diff->id );
-        } else {
-            die Dumper($result);
-        }
+        #if ($result->{status}) {
+        $sth->execute( $diff->id );
+        #} else {
+        #    die Dumper($result);
+        #}
     }
 }
 

@@ -56,7 +56,10 @@ sub sendPageDiff {
     }
     #print Dumper($query); use Data::Dumper;
     $address->query_form( %$query );
-    return decode_json get( $address );
+    #print Dumper($address);
+    my $resp = get( $address );
+    print Dumper($resp);use Data::Dumper;
+    return decode_json $resp;
 }
 
 sub sendAuthorDiff {

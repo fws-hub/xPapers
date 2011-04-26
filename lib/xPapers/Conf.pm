@@ -410,6 +410,8 @@ if (-d '/etc/xpapers.d') {
 
 $DEFAULT_SITE = xPapers::Site->new( LOCAL_BASE => $LOCAL_BASE, %{ $SITES{$DEFAULT_SITE_NAME} } );
 
+our $OPP_ADDRESS = $DEFAULT_SITE->{server} . '/cgi/opp/update.pl';
+
 $SAFARI_MCAT = $PATHS{LOCAL_BASE} . '/var/dynamic-assets/' . $DEFAULT_SITE->{name} . '/mcats.js';
 
 $ERROR_MESSAGE = <<END;

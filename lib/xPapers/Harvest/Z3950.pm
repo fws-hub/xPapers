@@ -96,7 +96,9 @@ sub doyear {
         die "Non-ZOOM error: $@" if !ref($@);
         print "** ERROR **\n";
         print STDERR "Error (retry=$retry) ", $@->code(), ": ", $@->message();
-        print STDERR " (", $@->addinfo(), ")" if $@->addinfo();
+        eval {
+            print STDERR " (", $@->addinfo(), ")" if $@->addinfo();
+        };
         print STDERR "\n";
         if ($retry < 20) {
             #wait 11 min

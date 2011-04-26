@@ -67,7 +67,6 @@ sub check {
                     while (my $ol = $it->next) {
                         print "Check safe: " . $ol->url . "\n";
                         $found++;
-                        my @failed;
                         if ($ol->check) {
                             push @ok,$ol->url;
                         } else {
