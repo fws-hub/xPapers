@@ -349,7 +349,7 @@ FCGI: while ($q = new CGI::Fast) {
         print $q->header unless $HTTP_HEADER_SENT;
         print "<center><br><br><br><br>";
         my $msg = $ERROR_MESSAGE;
-        if ($HTML::Mason::Commands::SECURE or $ARGV[0] eq 'debug') {
+        if ($HTML::Mason::Commands::SECURE or $ARGV[0] eq 'debug' or $PUBLIC_ERRORS) {
            $msg =~ s/__DETAILS__/$raw_error/; 
         } else {
            $msg =~ s/__DETAILS__//;
