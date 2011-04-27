@@ -166,7 +166,7 @@ sub capitalize {
         $t =~ s/^($PREFIXES)/lc $1/ie;
     }
     #fix for bug in text::capitalize
-    $t =~ s/&Quot;?(\.?)$/&quot;$1/g;
+    $t =~ s/&Quot;/&quot;/g;
 
     return $t;
 }

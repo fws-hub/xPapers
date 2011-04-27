@@ -220,6 +220,7 @@ sub eun {
 
 sub create_child {
     my ($me, $name, $rank, $takeifexists) = @_;
+    $rank ||= $me->catCount; 
     if (xPapers::CatMng->get_objects_count(query=>[name=>$name,canonical=>1])) {
         if ($takeifexists) {
             return xPapers::CatMng->get_objects(query=>[name=>$name,canonical=>1])->[0];
@@ -252,8 +253,9 @@ sub add_child {
         die "Cycle detected";
     }
     # shift down current items 
+    $rank ||= $me->catCount; 
     $me->dbh->do("update cats_m set rank = rank+1 where pId=$me->{id} and rank >= $rank");
-    $rel->rank(defined($rank) ? $rank : $me->catCount);
+    $rel->rank($rank);
     $rel->save;
     $me->catCount($me->catCount+1);
     $me->save;

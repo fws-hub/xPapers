@@ -18,6 +18,7 @@ my $cat = $ARGS{cId} ? xPapers::Cat->get($ARGS{cId}) : undef;
 </div>
 <script type="text/javascript">
 function cat_picker_cb<%$i%>(id,name,i) {
+    $('catp<%$i%>').value=id;
     <%$ARGS{onSelect}%>;
 }
 %$m->comp("../search/catcomplete.js",%ARGS, action=>"cat_picker_cb$i(%s,%s,'$i')",suffix=>$i);
