@@ -58,6 +58,12 @@ for my $a (@$cmds) {
         die "Can't find cat $a->{newParent}\n" unless $np;
         die "Can't find cat $a->{pId}\n" unless $p;
         xPapers::CatMng->move($c,$p,$np,$a->{pos});
+    } elsif ($a->{act} eq 'set XY') {
+        $c->historicalFacetOf($a->{xyTarget});
+        $c->save;
+    } elsif ($a->{act} eq 'unset XY') {
+        $c->historicalFacetOf(undef);
+        $c->save;
     }
 
     $c->openForum if $isArea and !$wasArea;

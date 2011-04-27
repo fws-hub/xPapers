@@ -41,6 +41,7 @@ columns =>
     level    => { type => 'integer', default => '', not_null => 1},
     highestLevel => { type => 'integer' },
     canonical => { type => 'integer', default=> 0, not_null => 1},
+    historicalFacetOf => { type => 'integer' },
     marginal    => { type => 'integer', default => 0},
 
     updated     => { type => 'timestamp' },
@@ -582,6 +583,10 @@ sub children_o {
         map { $_->id } @$res
     ]; 
     $me->save_cache;
+    #debugging..
+    if ($res eq "0") {
+        die ("Cat $me->{id} has string '0' as children_o ...");
+    }
     return $res;
 }
 
@@ -1518,7 +1523,8 @@ sub mcat {
     #my $areas = "[" . join(",", map { $_->{id} } $c->areas ) . "]";
     my $areas = $c->pArea->id != $c->id ? "[" . $c->pArea->id . "]" : "[]";
     my $pl = $c->{pLevel} || 0;
-    $r.= "CS.c$c->{id} = {n:\"" . dquote($c->{name}) . "\",pl:$pl,pp:\"$c->{ppId}\",a:$areas,c:$ok";
+    my $facet = $c->{historicalFacetOf} ? ",hf:$c->{historicalFacetOf}" : "";
+    $r.= "CS.c$c->{id} = {n:\"" . dquote($c->{name}) . "\",pl:$pl,pp:\"$c->{ppId}\",a:$areas,c:$ok$facet";
     if ($depth >= $a->{maxDepth}) {
         $r.= "};";
         return $r;

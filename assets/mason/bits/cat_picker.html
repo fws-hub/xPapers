@@ -8,19 +8,18 @@ my $i = uniqueKey();
 $i =~ s/-/_/g;
 my $cat = $ARGS{cId} ? xPapers::Cat->get($ARGS{cId}) : undef;
 </%perl>
-<script>
-function cat_picker_cb<%$i%>(id,name) {
-//    injectCat(id,'selectedCat<%$i%>','');
-    <%$ARGS{onSelect}%>;
-}
-</script>
+<div id="catpicker<%$i%>">
 <div class='catac' style='display:block;padding-bottom:0px;padding-left:0px;'> 
     <input style='border:1px solid #eee;width:<%$ARGS{width}||210%>px;font-size:12px' id="catacp<%$i%>"  name="catacp<%$i%>" type="text" onfocus="if(this.value == 'Category name') { this.value='' };<%$ARGS{onFocus}%>;" value="<%$cat?$cat->name:'Category name'%>"> 
     <input id="catp<%$i%>" name="<%$ARGS{field}%>" type="hidden" value="<%$cat?$cat->id:''%>"> 
     <div class="yui-skin-sam" id="auc-conp<%$i%>" style="width:420px"></div>
 </div>
 <span class='hint'><%$ARGS{caption}%></span>
+</div>
 <script type="text/javascript">
-%$m->comp("../search/catcomplete.js",%ARGS, action=>"cat_picker_cb$i(%s,%s)",suffix=>$i);
+function cat_picker_cb<%$i%>(id,name,i) {
+    <%$ARGS{onSelect}%>;
+}
+%$m->comp("../search/catcomplete.js",%ARGS, action=>"cat_picker_cb$i(%s,%s,'$i')",suffix=>$i);
 </script>
 

@@ -118,6 +118,7 @@ function slotclick(id,context,uid) {
             */
             { text: "Rename", onclick:{fn: function(){ renameCat(id) }} },
             { text: "Set as primary location", onclick:{fn: function(){ setPP(id,context)}} },
+            { text: "Make historical facet..",onclick:{fn: function(){ insertXYSelector(id,context) } } },
             { text: "Delete / unlink", onclick:{fn: function(){ trash(id,context) }} }
         ]
     });
@@ -189,6 +190,9 @@ function renderCat(id,context,expand,newcat,pos) {
             $('catc-'+c.pp).insert(el);
         else
              $('catc-root').insert(el);
+    }
+    if (c.hf) {
+        addXYComment(id,c.hf);
     }
     if (expand) {
         renderSubs(id,expand-1);
@@ -267,6 +271,29 @@ function appendInput(id) {
     el.innerHTML += "<input type='text' id='addcatin"+id+"' class='addcat' onchange='addcat(\""+id+"\")'>";
     $('catc-'+id).insert(el); 
 }
+function insertXYSelector(id) {
+    new Ajax.Updater('cat-'+id,"/bits/cat_picker.html",{
+        parameters: { noheader: 1, field: "mk_xy_"+id, onSelect: "set_mk_xy("+id+",id,name);$('catpicker'+i).remove();" },
+        evalScripts: true,
+        insertion:'bottom'
+    });
+}
+function set_mk_xy(caption_id,cat_id,name) {
+    histo.push({act:'set XY',cId:caption_id,xyTarget:cat_id,string:"Set "  + c(caption_id).n + " as historical facet of " + name});
+    drawHistory();
+    addXYComment(caption_id,cat_id);
+}
+function addXYComment(cat_id,target_id) {
+    var comment = new Element('span',{class:'hint',id:'xy_'+cat_id});
+    var target = c(target_id);
+    comment.update("&nbsp;&nbsp;Historical facet of " + target.n + " (<span class='ll hint' style='font-size:10px;color:#888' onclick=\"removeXY('"+cat_id+"')\">remove</span>)");
+    $('cat-'+cat_id).insert(comment);
+}
+function removeXY(cat_id) {
+   $('xy_'+cat_id).remove();
+   histo.push({act:'unset XY',cId:cat_id,string:"Remove historical facet from " + c(cat_id).n});
+   drawHistory();
+}
 
 function trash(id,context) {
     var c = CS['c'+id];
@@ -340,7 +367,22 @@ function addcat(id) {
             $('addcatin'+id).value='';
             histo.push({act:'create',catName:name,cId:nid,pId:id,pos:pos});
             drawHistory();
+
+            if ($('autoFacet').checked) {
+                tryAutoFacet(nid,name);
+            }
         }
+    });
+}
+
+function tryAutoFacet(id,name) {
+    var re = new RegExp(/^(.+?)\s*:\s*(.+?)$/);
+    var ok = re.exec(name);
+    if (!ok) return;
+    var match = RegExp.$2;
+    question("catExists",match,function(r) {
+       var chomped =  r.replace(/\n/g,'');
+       set_mk_xy(id,chomped,match); 
     });
 }
 
@@ -463,15 +505,16 @@ renderCat(1,0,2);
 
 </div>
 
-<div class='sideBox' style="position:fixed;top:150px;right:30px;border:1px solid #555;height:75px;width:300px;background-color:#fff">
+<div class='sideBox' style="position:fixed;top:150px;right:30px;border:1px solid #555;height:175px;width:300px;background-color:#fff">
 <div style='border-bottom:1px solid #999;background-color:#eee'>Options</div>
 <div style='padding:2px;background-color:#fff'>
-<input type='checkbox' id='forceEnd' name='forceEnd'> Force new categories to end of parent
+<input type='checkbox' id='forceEnd' name='forceEnd'> Force new categories to end of parent<p>
+<input type='checkbox' id='autoFacet' name='autoFacet' checked> Automatically make new X:Y categories historical facets through textual matching of the Y part with existing categories.
 </div>
 </div>
 
 
-<div id='ce-status' class='sideBox' style="position:fixed;top:250px;right:30px;border:1px solid #555;height:300px;width:300px;background-color:#fff">
+<div id='ce-status' class='sideBox' style="position:fixed;top:270px;right:30px;border:1px solid #555;height:300px;width:300px;background-color:#fff">
 <div style='border-bottom:1px solid #999;background-color:#eee'>History</div>
 <div id='hist-con' style='height:258px;overflow:auto'></div>
 <div style='padding:2px'>
