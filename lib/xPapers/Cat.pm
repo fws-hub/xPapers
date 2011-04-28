@@ -257,6 +257,7 @@ sub add_child {
     }
     # shift down current items 
     $rank ||= $me->catCount || 0; 
+    $rank-- if $rank > $me->catCount;
     my $q = "update cats_m set rank = rank+1 where pId=$me->{id} and rank >= $rank";
 #    warn $q;
 #    exit;

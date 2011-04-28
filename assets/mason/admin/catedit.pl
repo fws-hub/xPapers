@@ -91,7 +91,7 @@ function slotclick(id,context,uid) {
         } else if (CED.action = 'move') {
             // update the CS structure
             c(CED.from).s = c(CED.from).s.without(CED.cata);
-            p.s.push(CED.cata);
+            p.s.splice(loc,0,CED.cata);
             // move the DOM element
             var el = u(CED.uid).remove();
             u(uid).insert({before:el});
@@ -422,7 +422,7 @@ function drawHistory() {
             if (i.nName) {
                 h += "<br>to/from " + i.nName;
             }
-            if (i.pos) {
+            if (i.pos != undefined) {
                 h += " at pos " +i.pos + "";
             }
         }
