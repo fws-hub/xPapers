@@ -701,6 +701,24 @@ sub ancestry {
     return map { xPapers::Cat->get($_) } @{$me->cache->{ancestry}};
 }
 
+sub fixRanks {
+
+    my ($me) = @_;
+    my @m = sort { $a->rank <=> $b->rank } $me->cat_memberships;
+    my $next = 0;
+    print "Doing $me->{name}\n";
+    for my $m (@m) {
+       if ($m->rank > $next) {
+            print "Changing $m->{cId},$m->{rank} to $next\n";
+            $m->rank($next);
+            $m->save;
+       }
+       $next++;
+    }
+    $_->fixRanks for @{$me->primary_children};
+
+}
+
 sub area {
     my $me = shift;
     my @ans = $me->pAncestry;
