@@ -34,6 +34,7 @@ for my $a (@$cmds) {
     if ($a->{act} eq 'create') {
         $c = $p->create_child($a->{catName},$a->{pos},1);
         $newIds{$a->{cId}} = $c->id;
+        print "Created with id $c->{id}\n";
     } elsif ($a->{act} eq 'delete') {
         # if removing from primary parent, real delete
         # otherwise merely unlink

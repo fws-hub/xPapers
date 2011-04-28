@@ -52,7 +52,6 @@ if (!$user->{id}) {
             </td>
             <td valign="top">
                <%l("/utils/bargains.pl","Book bargains",$user->{id})%>
-               <%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2011,month=>3,day=>15),"bargains")%>
                <br>
                 Find book bargains on Amazon based on your interests, including second-hand books.
             </td>
@@ -63,7 +62,6 @@ if (!$user->{id}) {
             </td>
             <td valign="top">
                <%l("/profile/incomplete.pl","My incomplete records",$user->{id})%>
-               <%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2011,month=>3,day=>15),"incomplete")%>
                <br>
                 Discover and fix incomplete records for your works.
             </td>

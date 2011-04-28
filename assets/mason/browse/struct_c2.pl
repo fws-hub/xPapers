@@ -3,7 +3,7 @@
     $ARGS{context} ||= $ARGS{__cat__};
     my $level = $ARGS{level} || 1;
     return unless $ARGS{__cat__};
-    return if $m->cache_self(key=>"struct_c2m$ARGS{__cat__}->{id}--$ARGS{context}->{id}/$ARGS{depth}--$ARGS{dlevel}--$ARGS{level}--$ARGS{editors}--$ARGS{finder}",expires_in=>"4 hour");
+    return if $m->cache_self(key=>"struct_c2n$ARGS{__cat__}->{id}--$ARGS{context}->{id}/$ARGS{depth}--$ARGS{dlevel}--$ARGS{level}--$ARGS{editors}--$ARGS{finder}",expires_in=>"4 hour");
 </%init>
 <%perl>
     return unless $ARGS{depth} or $ARGS{__cat__}->{catCount};

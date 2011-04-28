@@ -29,13 +29,25 @@ sub map_cat {
     my $cat = lc shift;
     unless ($map->{$cat}) {
 
-        print "No mapping for category $cat, please specified:";
+        print "No mapping for category $cat.\n";
         my $in;
         my $target;
+        my $m;
         do { 
+            print "Please specify a mapping:";
             $in = <STDIN>;
             chomp $in;
-        } until ( $target = xPapers::CatMng->get_objects(query=>[name=>$in,canonical=>1])->[0] );
+            unless ($in) {
+                next;
+            }
+            $m =  xPapers::CatMng->get_objects(query=>[name=>$in,canonical=>1]);
+            if (! @$m ) {
+                print "Not found:$in\nTry again:";
+            } else {
+                print "Found:$in\n";
+            }
+        } until ( @$m );
+        $target = $m->[0];
         print "Associating $in with $cat\n";
         $map->{$cat} = $target->id;
         hash2file($map,$mapfile);

@@ -1667,6 +1667,9 @@ sub prepTitle {
     if (grep {$e->{pub_type} eq $_} qw(book thesis)) {
         $title = "<span class='pub_name'>$title</span>";
     } 
+    if ($e->{review}) {
+        $title .= "&nbsp;<span class='hint'>[REVIEW]</span>";
+    }
 
     return $title;
 }

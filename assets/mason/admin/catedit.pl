@@ -326,51 +326,51 @@ function addcat(id) {
     }
     question("catExists",name, function(r) {
         if (r.match(/\d/) || names.get(name)) {
-            alert("There is already a canonical category with this name.");
-            return;
+            if (!confirm("There is already a canonical category with this name. If you continue, this category's primary parent will be re-allocated to the present location, which could have unexpected consequences. Are you sure you want to continue? If you do, you should submit your changes immediately after and reload the category editor.")) {
+                return;
+            }
+        }
+        names.set(name,1);
+        var nid = 'N' + addedCount++;
+        CS['c'+nid] = { pp: id, n: name, a:[id], s:[] };
+        var pos = 0;
+        if (!CS['c'+id].s || CS['c'+id].s.length == 0) {
+            CS['c'+id].s = [nid];
+            $('empty-'+id).insert({ before: mkCatEl(nid,id) });
         } else {
-            names.set(name,1);
-            var nid = 'N' + addedCount++;
-            CS['c'+nid] = { pp: id, n: name, a:[id], s:[] };
-            var pos = 0;
-            if (!CS['c'+id].s || CS['c'+id].s.length == 0) {
-                CS['c'+id].s = [nid];
+            // already children, find pos.
+            // this is the first non-misc or general cat pos
+            var ar = CS['c'+id].s;
+            for (var x = ar.length-1; x>=0; x--) {
+                var n = CS['c'+ar[x]].n;
+                if (!n.match(/(\W|^)misc/i) && !n.match(/(\W|^)general/i)) {
+                    pos = x+1;
+                    break;
+                }
+            }
+
+            // get the id of cat at insert pos
+            var ipos = CS['c'+id].s[pos];
+            if (!ipos || $('forceEnd').checked) {
+                pos = ar.length;
                 $('empty-'+id).insert({ before: mkCatEl(nid,id) });
             } else {
-                // already children, find pos.
-                // this is the first non-misc or general cat pos
-                var ar = CS['c'+id].s;
-                for (var x = ar.length-1; x>=0; x--) {
-                    var n = CS['c'+ar[x]].n;
-                    if (!n.match(/(\W|^)misc/i) && !n.match(/(\W|^)general/i)) {
-                        pos = x+1;
-                        break;
-                    }
-                }
-
-                // get the id of cat at insert pos
-                var ipos = CS['c'+id].s[pos];
-                if (!ipos || $('forceEnd').checked) {
-                    pos = ar.length;
-                    $('empty-'+id).insert({ before: mkCatEl(nid,id) });
-                } else {
-                    $$(".cat" + id + " " + ".cat" + ipos).each(function(i) {
-                        i.insert({before: mkCatEl(nid,id)});
-                    });
-                }
-                //if (pos <= 0) 
-                    CS['c'+id].s.unshift(nid);
-                //else
-                //   CS['c'+id].s = ar.slice(0,pos-1).concat([nid]).concat(ar.slice(pos,ar.length-1));
+                $$(".cat" + id + " " + ".cat" + ipos).each(function(i) {
+                    i.insert({before: mkCatEl(nid,id)});
+                });
             }
-            //renderCat(nid,id,0,1,pos);
-            $('addcatin'+id).value='';
-            histo.push({act:'create',catName:name,cId:nid,pId:id,pos:pos});
-            drawHistory();
+            //if (pos <= 0) 
+                CS['c'+id].s.unshift(nid);
+            //else
+            //   CS['c'+id].s = ar.slice(0,pos-1).concat([nid]).concat(ar.slice(pos,ar.length-1));
+        }
+        //renderCat(nid,id,0,1,pos);
+        $('addcatin'+id).value='';
+        histo.push({act:'create',catName:name,cId:nid,pId:id,pos:pos});
+        drawHistory();
 
-            if ($('autoFacet').checked) {
-                tryAutoFacet(nid,name);
-            }
+        if ($('autoFacet').checked) {
+            tryAutoFacet(nid,name);
         }
     });
 }

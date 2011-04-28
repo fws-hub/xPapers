@@ -221,20 +221,23 @@ sub eun {
 sub create_child {
     my ($me, $name, $rank, $takeifexists) = @_;
     $rank ||= $me->catCount; 
+    my $cat;
     if (xPapers::CatMng->get_objects_count(query=>[name=>$name,canonical=>1])) {
         if ($takeifexists) {
-            return xPapers::CatMng->get_objects(query=>[name=>$name,canonical=>1])->[0];
+            warn "Taking existing cat with name $name";
+            $cat = xPapers::CatMng->get_objects(query=>[name=>$name,canonical=>1])->[0];
         } else {
             die "cat already exists with name $name";
         }
+    } else {
+        $cat = xPapers::Cat->new(name=>$name);
+        $cat->canonical(1);
+        $cat->calcUName;
+        $cat->save;
     }
-    my $cat = xPapers::Cat->new(name=>$name);
-#    $cat->canonical($me->canonical);
-    $cat->canonical(1);
-    $cat->calcUName;
-    $cat->save;
-    $me->save;
-    xPapers::Relations::PAncestor->new(aId=>$cat->id,cId=>$cat->id)->save;
+    unless ( $cat->hasPAncestor($cat->id) ) {
+        xPapers::Relations::PAncestor->new(aId=>$cat->id,cId=>$cat->id)->save;
+    }
     $me->add_child($cat,$rank);
     $cat->setPP($me->id);
     return $cat;
@@ -253,8 +256,16 @@ sub add_child {
         die "Cycle detected";
     }
     # shift down current items 
-    $rank ||= $me->catCount; 
-    $me->dbh->do("update cats_m set rank = rank+1 where pId=$me->{id} and rank >= $rank");
+    $rank ||= $me->catCount || 0; 
+    my $q = "update cats_m set rank = rank+1 where pId=$me->{id} and rank >= $rank";
+#    warn $q;
+#    exit;
+    eval {
+        $me->dbh->do("$q");
+    };
+    if ($@) {
+        die "Caught database error with $q in add_child";
+    }
     $rel->rank($rank);
     $rel->save;
     $me->catCount($me->catCount+1);

@@ -61,6 +61,7 @@ Your email: <input type="text" name="mil" size=40 value="<%$user->{id} ? $user->
 Subject: <select name="subject">
 %print opt('suggestion','Suggestion',$ARGS{subject});
 %print opt('bug','Bug',$ARGS{subject});
+%print opt('categories','Improvement to categories',$ARGS{subject});
 %print opt('comment','Other',$ARGS{subject});
 </select><br>
 <p>
