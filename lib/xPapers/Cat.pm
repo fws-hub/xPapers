@@ -256,7 +256,7 @@ sub add_child {
         die "Cycle detected";
     }
     # shift down current items 
-    $rank ||= $me->catCount || 0; 
+    $rank ||= $me->catCount || 0 unless defined $rank; 
     $rank-- if $rank > $me->catCount;
     my $q = "update cats_m set rank = rank+1 where pId=$me->{id} and rank >= $rank";
 #    warn $q;
@@ -716,6 +716,8 @@ sub fixRanks {
        }
        $next++;
     }
+    $me->catCount($#m+1);
+    $me->save;
     $_->fixRanks for @{$me->primary_children};
 
 }

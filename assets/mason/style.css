@@ -156,6 +156,7 @@ padding:5px;
 .mainEntry .citation .pubInfo { font-size: 14px }
 .mainEntry .articleTitle { color: #<%$C2%> }
 .mainEntry .abstract { font-size: <%$ts%>px }
+a.more { font-weight:bold }
 
 
 .offcamp a, .offcamp div, .offcamp p { font-size: 11px }
