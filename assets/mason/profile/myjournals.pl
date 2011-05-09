@@ -2,7 +2,8 @@
 <%perl>
 # check if got a list, create one if not
 my $list;
-unless ($user->mysources and $list = xPapers::JournalList->get($user->mysources)) {
+$list = xPapers::JournalList->get($user->mysources);
+unless ($list) {
        $list = xPapers::JournalList->new(jlName=>'My sources',jlOwner=>$user->id); 
        $list->save;
        $user->mysources($list->jlId);

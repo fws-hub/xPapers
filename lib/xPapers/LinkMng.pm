@@ -126,10 +126,10 @@ sub compile {
     for (@all) {
         my $l= $_->{link};
         my $id = $_->{entry};
-        # safe urls are specified manually or have a base present in .2% or more of links
+        # safe urls are specified manually or have a base present in 1% or more of links
         my $safe = (
             (grep {$l =~ /$_/i} @SAFE_DOMAINS) or
-            $base{$me->base($l)} >= ($#all+1)/500 
+            $base{$me->base($l)} >= ($#all+1)/100 
         ) ? 1 : 0;
         my $s = $db->prepare("insert into links set url = ?, safe = ? on duplicate key update safe = ?, dead = 0"); 
         $s->execute($l, $safe, $safe);
