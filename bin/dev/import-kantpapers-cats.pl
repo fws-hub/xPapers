@@ -17,7 +17,7 @@ for my $r ( $parser->read_file($fh) ) {
         title => $r->[3], 
         date => $r->[4],
     );
-    next unless $e->{title} =~ /Models, Theories, and Kant/;
+    #next unless $e->{title} =~ /Models, Theories, and Kant/;
     $e->addAuthor("$r->[1], $r->[2]");
     $e->addLink($r->[7]);
     $e->{kpcats} = [split(/\s*,\s*/,$r->[8])];
