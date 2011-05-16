@@ -120,14 +120,25 @@ sub fuzzyMatch {
         limit => $fuzzLimit,
         offset=>0
     );
+    # need to do an exact search as well because sometimes fulltext wont bring up the item high enough due say to common words or short titles 
+    my $res_exact = $me->get_objects(
+        query=>[
+        title=>$e->title,
+        authors=>{like=>'%' . $e->firstAuthor . '%'},
+        '!deleted'=>1
+        ]
+    );
+    push @res,@$res_exact;
+    print "fuzzyMatch:\n";
+    print $_->toString() . "\n" for @$res;
     return @$res;
 }
 
 sub fuzzyFind {
-    my ($me, $e, $fuzzLimit,$loose) = @_;
-    my @m = $me->fuzzyMatch($e, $fuzzLimit, $loose);
+    my ($me, $e, $fuzzLimit,$loose,$threshold) = @_;
+    my @m = $me->fuzzyMatch($e, $fuzzLimit);
     for (@m) {
-        if (sameEntry($e,$_,undef,$loose)) {
+        if (sameEntry($e,$_,$threshold,$loose)) {
             return $_;
         }
     }

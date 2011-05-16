@@ -87,7 +87,7 @@ if ($ARGS{user}) {
     for my $u (@$us) {
         </%perl>
             <form>
-            <input type="checkbox" name="recursive"> Recursively <input type="hidden" name="uId" value="<%$u->{id}%>" <input type="submit" value="Select" style='font-size:10px'> <%$rend->renderUserC($u)%>
+            <input type="checkbox" name="recursive"> Recursively <input type="hidden" name="uId" value="<%$u->{id}%>"> <input type="submit" value="Select" style='font-size:10px'> <%$rend->renderUserC($u)%>
             </form>
             <br>
         <%perl>

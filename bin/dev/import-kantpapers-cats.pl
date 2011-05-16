@@ -3,11 +3,13 @@ use xPapers::EntryMng;
 use xPapers::Entry;
 use xPapers::Util;
 use Data::Dumper;
+use strict;
 
 my $parser = Text::CSV::Simple->new;
 open my $fh, "<:encoding(utf8)",$ARGV[0];
 my $mapfile = "$ENV{HOME}/.kantpapers-mapping";
 my $map = file2hash($mapfile);
+binmode(STDOUT,":utf8");
 
 for my $r ( $parser->read_file($fh) ) {
 
@@ -15,18 +17,30 @@ for my $r ( $parser->read_file($fh) ) {
         title => $r->[3], 
         date => $r->[4],
     );
+    next unless $e->{title} =~ /Models, Theories, and Kant/;
     $e->addAuthor("$r->[1], $r->[2]");
     $e->addLink($r->[7]);
     $e->{kpcats} = [split(/\s*,\s*/,$r->[8])];
     #print Dumper($e);
-    map_cat($map,$_) for @{$e->{kpcats}};
+    print $e->toString . "\n";
+    my $m = xPapers::EntryMng->fuzzyFind($e,20,1,0.2);
+    if (!$m) {
+        print "* NO MATCH among PP entries!\n";
+    } else {
+        print $m->toString . "\n";
+        for (@{$e->{kpcats}}) {
+            my $cat = map_cat($map,$_);
+            print " -> $cat->{name}\n";
+        }
+    }
+
     #exit;
 }
 
 my %display;
 
-print "Current mapping:\n";
-print "$_ => $display{$_}\n" for sort keys %display;
+#print "Current mapping:\n";
+#print "$_ => $display{$_}\n" for sort keys %display;
 
 sub map_cat {
 
@@ -61,7 +75,7 @@ sub map_cat {
             if (! @$m ) {
                 print "Not found:$in\nTry again:";
             } else {
-                print "Found:$m[0]->{name}\n";
+                print "Found:$m->[0]->{name}\n";
             }
         } until ( @$m or $in eq 'tba' );
         if ($in eq 'tba') {
@@ -69,7 +83,7 @@ sub map_cat {
             $map->{$cat} = 'tba';
         } else {
             $target = $m->[0];
-            print "Associating $m[0]->{name} with $cat\n";
+            print "Associating $m->[0]->{name} with $cat\n";
             $map->{$cat} = $target->id;
         }
         hash2file($map,$mapfile);
@@ -77,5 +91,6 @@ sub map_cat {
     }
     my $found = xPapers::Cat->get($map->{$cat});
     $display{$cat} = $found ? ( $found->name . " (http://philpapers.org/browse/$found->{id})") : "n/a"; 
+    return $found;
 }
 
