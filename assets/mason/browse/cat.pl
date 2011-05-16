@@ -116,7 +116,16 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
                 print "<li>" . $rend->renderCatTO($_,undef,$s) . "</li>";
             }
             print "</ul>";
-
+        }
+        my $res = xPapers::DB->exec("select id from cats where historicalFacetOf = ? order by dfo",$cat->id);
+        my $facet = $res->fetchrow_hashref;
+        if ($facet) {
+            print "History/traditions:<ul class='toc normal' style=''>";
+            while ($facet) {
+                print "<li>" . $rend->renderCatTO(xPapers::Cat->get($facet->{id}),undef,$s) . "</li>";
+                $facet = $res->fetchrow_hashref;
+            }
+            print "</ul>";
         }
     }
 

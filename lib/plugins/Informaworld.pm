@@ -22,10 +22,10 @@ sub process {
         $entry->author_abstract($1);
     }
 
-    if ($page =~ /\b(\d\d\d\d)\s*,\s*pages?\b/sm) {
+    if ($page =~ /\b(\d\d\d\d)\s*,\s*pages?\b/ism) {
         $entry->date($1);
     } else {
-        $entry->date('forthcoming');
+        #$entry->date('forthcoming');
     }
     sleep(1);
 }

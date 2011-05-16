@@ -14,7 +14,7 @@ my $jtable = "${table}_journals";
 # get rid of empty records
 my $r = xPapers::DB->exec("select main_journals.name,main_journals.id from main_journals left join main on main_journals.name=main.source and not main.deleted and main.pub_type = 'journal' where isnull(main.id) order by main_journals.name");
 while (my $h = $r->fetchrow_hashref) {
-    print "$h->{name} has no articles.\n";
+    #print "$h->{name} has no articles.\n";
     my $j = xPapers::Journal->get($h->{id});
     $j->nb(0);
     $j->nbHarvest(0);
@@ -31,7 +31,7 @@ while (my $h = $r->fetchrow_hashref) {
 $c->do("update $table set pubHarvest=1 where db_src='direct' and length(source)>2 and pub_type='journal'");
 $c->do("update $table,$jtable set pubHarvest=1 where $table.source = $jtable.name and $jtable.nbHarvest >= 2");
 
-my $f = "select source as name, if(count(*) / count(distinct volume) > 10,1,0) as showIssues, max(volume) as latestVolume, count(*) as nb,concat(max(volume),' (',max(date),')') as maxVol,concat(min(volume),' (',min(date),')') as minVol, count(*) > $bmin as browsable, sum(pubHarvest) as nbHarvest, count(distinct volume) as nbVol from $table where pub_type='journal' and volume > 0 and volume < 300 and date rlike '^[0-9]+\$' and not deleted group by source order by source";
+my $f = "select source as name, if(count(*) / count(distinct volume) > 10,1,0) as showIssues, max(volume) as latestVolume, count(*) as nb,concat(max(volume),' (',max(date),')') as maxVol,concat(min(volume),' (',min(date),')') as minVol, count(*) > $bmin as browsable, sum(pubHarvest) as nbHarvest, count(distinct volume) as nbVol from $table where pub_type='journal' and volume > 0 and volume < 300 and (date rlike '^[0-9]+\$' or date = 'forthcoming') and not deleted group by source order by source";
 #print $f;
 my $r = $c->prepare($f);
 #$c->do("delete from $jtable");

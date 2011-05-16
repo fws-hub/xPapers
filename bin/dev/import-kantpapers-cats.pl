@@ -23,6 +23,11 @@ for my $r ( $parser->read_file($fh) ) {
     #exit;
 }
 
+my %display;
+
+print "Current mapping:\n";
+print "$_ => $display{$_}\n" for sort keys %display;
+
 sub map_cat {
 
     my $map = shift;
@@ -34,23 +39,43 @@ sub map_cat {
         my $target;
         my $m;
         do { 
+            my $search = $in || $cat;
+            print "\nSuggestions:\n";
+            my $suggestions = xPapers::CatMng->get_objects(query=>[name=>{like=>"%$search%"},canonical=>1]);
+            for my $s (@$suggestions) {
+                print "$s->{id}: $s->{name}\n";
+            }
+            print "\n--\n";
             print "Please specify a mapping:";
             $in = <STDIN>;
             chomp $in;
             unless ($in) {
                 next;
             }
-            $m =  xPapers::CatMng->get_objects(query=>[name=>$in,canonical=>1]);
+            if ($in =~ /^\d+$/) {
+                my $c = xPapers::Cat->get($in);
+                $m = [ $c ] if $in;
+            } else {
+                $m =  xPapers::CatMng->get_objects(query=>[name=>$in,canonical=>1]);
+            }
             if (! @$m ) {
                 print "Not found:$in\nTry again:";
             } else {
-                print "Found:$in\n";
+                print "Found:$m[0]->{name}\n";
             }
-        } until ( @$m );
-        $target = $m->[0];
-        print "Associating $in with $cat\n";
-        $map->{$cat} = $target->id;
+        } until ( @$m or $in eq 'tba' );
+        if ($in eq 'tba') {
+            print "Skipping $cat\n";
+            $map->{$cat} = 'tba';
+        } else {
+            $target = $m->[0];
+            print "Associating $m[0]->{name} with $cat\n";
+            $map->{$cat} = $target->id;
+        }
         hash2file($map,$mapfile);
+        return;
     }
+    my $found = xPapers::Cat->get($map->{$cat});
+    $display{$cat} = $found ? ( $found->name . " (http://philpapers.org/browse/$found->{id})") : "n/a"; 
 }
 

@@ -37,7 +37,7 @@ if ($ARGS{do} eq "update") {
 # show list 
 my $have = $list->journals;
 my %have = map { $_->name => 1 } @$have; 
-my $it = xPapers::JournalMng->get_objects_iterator;
+my $it = xPapers::JournalMng->get_objects_iterator(sort_by=>['name']);
 my $bts = '<input type="submit" name="Save" value="Save"> <input type="button" name="Reset list" value="Reset" onClick="if (confirm(\'Are you sure you want to unselect all journals from your list?\')) {window.location=\'myjournals.pl?do=reset\'}">';
 
 </%perl>
@@ -56,6 +56,7 @@ my $bts = '<input type="submit" name="Save" value="Save"> <input type="button" n
 <%perl>
 my $a =1;
 while (my $j = $it->next) {
+#    $j->load;
    next unless $j->{browsable} or $j->{archive};
    next if $j->{name} eq $s->{niceName} and $j->{archive};
    print "<br>" if $a and !$j->{archive};

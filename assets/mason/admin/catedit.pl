@@ -118,7 +118,7 @@ function slotclick(id,context,uid) {
             */
             { text: "Rename", onclick:{fn: function(){ renameCat(id) }} },
             { text: "Set as primary location", onclick:{fn: function(){ setPP(id,context)}} },
-            { text: "Make historical facet..",onclick:{fn: function(){ insertXYSelector(id,context) } } },
+            { text: "Make a facet..",onclick:{fn: function(){ insertXYSelector(id,context) } } },
             { text: "Delete / unlink", onclick:{fn: function(){ trash(id,context) }} }
         ]
     });
@@ -279,19 +279,19 @@ function insertXYSelector(id) {
     });
 }
 function set_mk_xy(caption_id,cat_id,name) {
-    histo.push({act:'set XY',cId:caption_id,xyTarget:cat_id,string:"Set "  + c(caption_id).n + " as historical facet of " + name});
+    histo.push({act:'set XY',cId:caption_id,xyTarget:cat_id,string:"Set "  + c(caption_id).n + " as facet of " + name});
     drawHistory();
     addXYComment(caption_id,cat_id);
 }
 function addXYComment(cat_id,target_id) {
     var comment = new Element('span',{class:'hint',id:'xy_'+cat_id});
     var target = c(target_id);
-    comment.update("&nbsp;&nbsp;Historical facet of " + target.n + " (<span class='ll hint' style='font-size:10px;color:#888' onclick=\"removeXY('"+cat_id+"')\">remove</span>)");
+    comment.update("&nbsp;&nbsp;Facet of " + target.n + " (<span class='ll hint' style='font-size:10px;color:#888' onclick=\"removeXY('"+cat_id+"')\">remove</span>)");
     $('cat-'+cat_id).insert(comment);
 }
 function removeXY(cat_id) {
    $('xy_'+cat_id).remove();
-   histo.push({act:'unset XY',cId:cat_id,string:"Remove historical facet from " + c(cat_id).n});
+   histo.push({act:'unset XY',cId:cat_id,string:"Remove facet from " + c(cat_id).n});
    drawHistory();
 }
 
@@ -509,7 +509,7 @@ renderCat(1,0,2);
 <div style='border-bottom:1px solid #999;background-color:#eee'>Options</div>
 <div style='padding:2px;background-color:#fff'>
 <input type='checkbox' id='forceEnd' name='forceEnd'> Force new categories to end of parent<p>
-<input type='checkbox' id='autoFacet' name='autoFacet' checked> Automatically make new X:Y categories historical facets through textual matching of the Y part with existing categories.
+<input type='checkbox' id='autoFacet' name='autoFacet' checked> Automatically make new X:Y categories facets through textual matching of the Y part with existing categories.
 </div>
 </div>
 

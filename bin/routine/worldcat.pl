@@ -20,3 +20,4 @@ while( my $inst = $it->next ){
     }
 }
 
+1;
