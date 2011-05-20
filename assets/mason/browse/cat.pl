@@ -33,10 +33,13 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
     }
     print "$toc";
     event('cat toc','end');
+    showFacets($cat,1);
+
     event('also in cat','start');
     </%perl>
     </div>
     </div>
+
     </td>
     <td valign="top" style='padding-left:5px'>
     <div class="sideBox" style="float:right;max-width:500px">
@@ -117,16 +120,7 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
             }
             print "</ul>";
         }
-        my $res = xPapers::DB->exec("select id from cats where historicalFacetOf = ? order by dfo",$cat->id);
-        my $facet = $res->fetchrow_hashref;
-        if ($facet) {
-            print "History/traditions:<ul class='toc normal' style=''>";
-            while ($facet) {
-                print "<li>" . $rend->renderCatTO(xPapers::Cat->get($facet->{id}),undef,$s) . "</li>";
-                $facet = $res->fetchrow_hashref;
-            }
-            print "</ul>";
-        }
+        showFacets($cat);
     }
 
     </%perl>
@@ -135,6 +129,23 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
     $m->comp("../bits/rlist.pl",%ARGS,__cat__=>$cat);
 
 } 
+
+sub showFacets {
+    my ($cat,$bold) = @_;
+    my $res = xPapers::DB->exec("select id from cats where historicalFacetOf = ? order by dfo",$cat->id);
+    my $facet = $res->fetchrow_hashref;
+    my $h = "History/traditions: $cat->{name}";
+    $h = "<p><h3>$h</h3>" if $bold;
+    if ($facet) {
+        print "$h<ul class='toc normal' style=''>";
+        while ($facet) {
+            print "<li>" . $rend->renderCatTO(xPapers::Cat->get($facet->{id}),undef,$s) . "</li>";
+            $facet = $res->fetchrow_hashref;
+        }
+        print "</ul>";
+    }
+
+}
 </%perl>
 
 

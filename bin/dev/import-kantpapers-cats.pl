@@ -17,7 +17,7 @@ for my $r ( $parser->read_file($fh) ) {
         title => $r->[3], 
         date => $r->[4],
     );
-    #next unless $e->{title} =~ /Models, Theories, and Kant/;
+    #next unless $e->{title} =~ /Life After Kant/i;
     $e->addAuthor("$r->[1], $r->[2]");
     $e->addLink($r->[7]);
     $e->{kpcats} = [split(/\s*,\s*/,$r->[8])];
@@ -30,6 +30,7 @@ for my $r ( $parser->read_file($fh) ) {
         print $m->toString . "\n";
         for (@{$e->{kpcats}}) {
             my $cat = map_cat($map,$_);
+            $cat->addEntry($m,3844,deincest=>1,noCheckUnder=>1,checked=>1);
             print " -> $cat->{name}\n";
         }
     }
@@ -39,8 +40,8 @@ for my $r ( $parser->read_file($fh) ) {
 
 my %display;
 
-#print "Current mapping:\n";
-#print "$_ => $display{$_}\n" for sort keys %display;
+print "\n\nCurrent mapping:\n";
+print "$_ => $display{$_}\n" for sort keys %display;
 
 sub map_cat {
 

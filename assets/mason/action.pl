@@ -595,6 +595,12 @@ if ($ARGS{c} eq 'deleteFilter') {
     return;
 }
 
+if ($ARGS{c} eq 'deleteOpenURL') {
+    $user->rId(undef);
+    $user->save(modified_only=>1);
+    return;
+}
+
 if ($ARGS{c} eq 'setOpenURL') {
     jserror("Need to log in") unless $user->{id};
     if ($ARGS{rId}) {

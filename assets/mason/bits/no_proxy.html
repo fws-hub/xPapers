@@ -1,0 +1,30 @@
+<& ../header.html, subtitle=>"No proxy configuration",noindex=>1 &>
+<%gh("No proxy configuration found")%>
+It looks like you are trying to access a subscription-only resource, namely this paper:
+<p>
+    <%$ARGS{entry}->toString()%><p>
+    at this address:</p>
+    <%$ARGS{link}%>
+</p>
+<P>
+But you have no proxy or OpenURL resolver configured in your account. You might want to correct this now and return to this page.
+<P>
+You can also <a href="/resolve.pl?id=<%$ARGS{entry}->{id}%>&amp;nowarning=1">try to access the resource anyway</a>.
+
+</p>
+<ul>
+    <li><a href="/profile/<%$user->{id}%>/offcampus.html">Configure a proxy server for my University</a> (best option if available at your University)</li>
+    <li><a href="/profile/<%$user->{id}%>/openurl.html">Configure an OpenURL resolver for my University</a></li>
+</ul>
+<%perl>
+my @links = $ARGS{entry}->getAllLinks();
+if (@links > 1) {
+    my @filtered = grep { $_ ne $ARGS{link} } @links;
+    print "You might also want to pick an alternate link for this item:";
+    print "<ul>";
+    print map { "<li><a href=\"" . $rend->mklnk($_,$ARGS{entry}). "\">$_</a></li>" } @filtered;
+    print "</ul>";
+}
+</%perl>
+<P>
+You can also <a href="/resolve.pl?id=<%$ARGS{entry}->{id}%>&amp;nowarning=1">try to access the resource anyway</a>.

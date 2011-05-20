@@ -1314,7 +1314,9 @@ sub renderCat {
 sub renderCatTO {
     my ($me, $c, $class,$s,$star,$eds,$finder) = @_;
     $class ||= "catName";
-    my $r = "<a rel='section' class='$class' href='/browse/" . $c->eun . "'>" . $c->{name} . "</a>$star";
+    my $formatted = $c->name;
+    $formatted =~ s/_(.+?)_/<em>$1<\/em>/g;
+    my $r = "<a rel='section' class='$class' href='/browse/" . $c->eun . "'>" . $formatted . "</a>$star";
     $r .= "<span class='hint'> (<b class='hint'>" . format_number($c->preCountWhere($s)) . "</b>" . ($c->{catCount} && $c->localCount($s) && $c->{pLevel} > 1 ? " | ".format_number($c->localCount($s)) : "") . ")</span>";
     if ($eds) {
         my @eds = $c->editors;
@@ -1336,7 +1338,9 @@ sub renderCatTO {
 sub renderCatC {
     my ($me, $c,$comp,$class) = @_;
     $class ||= 'catName';
-    return "<a rel='section' class='$class' href='/browse/" . $c->eun . "/$comp'>" . $c->{name} . "</a>";
+    my $formatted = $c->name;
+    $formatted =~ s/_(.+?)_/<em>$1<\/em>/g;
+    return "<a rel='section' class='$class' href='/browse/" . $c->eun . "/$comp'>" . $formatted . "</a>";
 }
 
 
