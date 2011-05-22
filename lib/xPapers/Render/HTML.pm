@@ -385,7 +385,7 @@ sub renderPostT {
 }
 
 sub mkRefs {
-    my ($me,$t) = @_;
+    my ($me,$t,$norefs) = @_;
     $me->{cites} = [];
     $me->{citesp} = [];
     $me->{foundRefs} = 0;
@@ -398,6 +398,7 @@ sub mkRefs {
     $me->{showAbstract} = 0;
     $me->{noOptions} = 1; 
     $me->{entryReady} = 1;
+    return $t if $norefs;
     $t .= "<p><h3>References</h3><div class='references'><ol class='entryList'>";
     $t .= "<li class='entry'>" . join( "</li><li class='entry'>", map { $me->renderPostO($_) } @{$me->{citesp}} ) . "</li>" if $me->{foundPosts};
     $t .= join( "", map { $me->renderEntry($_) } @{$me->{cites}} );
@@ -409,6 +410,10 @@ sub processCite {
     my ($me, $id) = @_;
     $me->{foundRefs} = 1;
     my $e = xPapers::Entry->get($id);
+    while ($e and $e->deleted and $e->duplicateOf) {
+        $e = xPapers::Entry->get($e->duplicateOf);
+    }
+    return "[BROKEN REFERENCE: $id]" unless $e;
     push @{$me->{cites}},$e;
     return "<a href='$me->{cur}->{site}->{server}/rec/$id'>" . ($e->{date} ||"ms") . "<\/a>";
 }

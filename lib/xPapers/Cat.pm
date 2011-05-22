@@ -67,6 +67,11 @@ columns =>
     edfo        => { type => 'integer' }, #last subcat in depth first order
     pLevel      => { type => 'integer' }, #level through primary parents
     cacheId     => { type => 'integer' }, # marks a category as non-area
+    historicalLeaf => { type => 'integer', default=>0 },
+    summary => {type => 'text' },
+    keyWorks => {type => 'text' },
+    introductions => {type => 'text' },
+
 
 ],
 

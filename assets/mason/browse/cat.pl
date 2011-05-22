@@ -90,6 +90,40 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
     }
 
     unless ($ARGS{start}) {
+    
+        if ($cat->summary or $cat->introductions or $cat->keyWorks) {
+</%perl>
+
+
+        <div class='miniheader' style='font-weight:bold;border-top:1px solid #aaa'>About this topic (<a href="#content">jump to contents</a>)</div>
+
+        <table class="nospace" style="margin-bottom:20px;width:80%">
+%if ($cat->summary) {
+            <tr>
+                <td style="font-size:11px;padding-right:20px;min-width:70px" valign="top"><em>Summary</em></td>
+                <td style="padding-bottom:10px"><%$rend->mkRefs($cat->summary,1)%></td>
+            </tr>
+%}
+
+%if ($cat->introductions) {
+            <tr>
+                <td style="font-size:11px;padding-right:20px" valign="top"><em>Starting points</em></td>
+                <td style="padding-bottom:10px"><%$rend->mkRefs($cat->introductions,1)%></td>
+            </tr>
+%}
+
+%if ($cat->keyWorks) {
+            <tr>
+                <td style="font-size:11px;padding-right:20px" valign="top"><em>Key works</em></td>
+                <td><%$rend->mkRefs($cat->keyWorks,1)%></td>
+            </tr>
+%}
+        </table>
+        <a name="content"></a>
+
+        <%perl>
+        }
+
         print "<div class='miniheader' style='font-weight:bold;border-top:1px solid #aaa'>".($cat->{catCount} ? "Related categories" : "Related categories") . "</div>";
 
         # subcats

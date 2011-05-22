@@ -1,0 +1,110 @@
+<%perl>
+my $id = $ARGS{id};
+</%perl>
+
+<script type="text/javascript">
+// big callback for once editor widget is loaded
+var build_everything<%$id%> = function() {
+var ped = new YAHOO.widget.Editor('editor<%$id%>', {
+    height: '<%$ARGS{height}%>px',
+    width: '<%$ARGS{width}%>px',
+    dompath: false,
+    handleSubmit: true,
+    animate: false,
+    css: " html { height: 95%; } body { height: 100%; padding: 7px; background-color: #fff; font:13px/1.22 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small; } a { color: blue; text-decoration: underline; cursor: pointer; } .warning-localfile { border-bottom: 1px dashed red !important; } .yui-busy { cursor: wait !important; } img.selected { //Safari image selection border: 2px dotted #808080; } img { cursor: pointer !important; border: none; } h1 { font-size: 16px; font-weight: bold; font-style: normal; }  h2 { font-size: 14px; font-weight: bold; font-style: normal; }  h3 { font-size: 12px; font-weight: bold; font-style: italic; } ",
+    toolbar: {
+        buttons: [
+            { group: 'textstyle2', 
+                buttons: [
+                { type: 'push', label: 'Bold', value: 'bold' },
+                { type: 'push', label: 'Italic', value: 'italic' },
+                { type: 'separator' },
+                { type: 'push', label: 'Subscript', value: 'subscript', disabled: true },
+                { type: 'push', label: 'Superscript', value: 'superscript', disabled: true }
+            ]
+            },
+            { group: 'special',
+                buttons: [
+                { type: 'push', label: 'Remove Formatting', value: 'removeformat', disabled: true }
+                ]
+            },
+            { group: 'cite',
+                buttons: [
+                    { type: 'select', label: 'Cite', value: 'cite', disabled: false,
+                        menu: [
+                        { text: 'Cite a paper', value: 'citepaper' },
+                        ]
+                     }
+
+                ]
+            }
+        ]
+    }
+});
+
+YAHOO.util.Event.onDOMReady(function() {
+    ped.render();
+});
+
+YAHOO.util.Event.onContentReady('paper-citer<%$id%>', function() {
+
+    var paperCiter = new YAHOO.widget.SimpleDialog("paper-citer<%$id%>", { 
+        width: "350px",
+        fixedcenter: true,
+        visible: false,
+        draggable: true,
+        close: true,
+        constraintoviewport: true,
+        zIndex:9000
+    });
+    paperCiter.render();
+
+
+    ped.on('toolbarLoaded', function() {
+        this.toolbar.on('citepaperClick', function(o) {
+            paperCiter.show();
+            o.button.value = 'Cite';
+            return false;
+        }, ped, true);
+
+    }, ped, true);
+
+   
+});
+
+    ped<%$id%> = ped;
+} // build_everything
+
+watchForSymbol({
+    symbol:"xpa_yui_loaded",
+    onSuccess: function() {
+        loadScript("editor", build_everything<%$id%>);
+    }
+});
+
+function cite<%$id%>(type,id) {
+    ped<%$id%>.execCommand('inserthtml', (type == 'paper' ? 'e' : 'p') + "#" + id + ""); 
+}
+
+
+</script>
+
+<div class="yui-skin-sam">
+
+<div class="yui-skin-sam ppskin" id="paper-citer<%$id%>">
+    <div class="hd">Cite a paper</div>
+    <div class="bd" style='background-color:white;padding:5px'>
+    Search for an article using the an author's name <b>followed</b> by keywords as required to narrow the search.
+    <p style='font-size:11px'>
+    You will see something like this added to your post: <code>e#CHATCM</code>. This will be converted to the publication date with a link to the work.
+    </p>
+    <& ../search/papercomplete.js, field=>"citer$id",action=>"cite$id('paper',%s);",size=>40 &>
+    <p>
+    </div>
+</div>
+
+</div>
+
+<%perl>
+$NOFOOT = 0;
+</%perl>

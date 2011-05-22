@@ -126,7 +126,6 @@ unless ($cat->{pLevel} <= 1) {
 %$rend->{cur}->{root} = $cat;
 %$rend->{cur}->{currentList} = $cat->id if $cat->canDo("DeletePapers",$user->{id});
 
-
 <% $m->call_next(%ARGS,_c=>$cat,__cat__=>$cat) %>
 
 %#<script type="text/javascript">
