@@ -18,7 +18,18 @@ columns =>
  
 );
 
+package xPapers::Relations::UserAffilMng;
+
+use base qw(Rose::DB::Object::Manager);
+use xPapers::Relations::UserAffil;
+
+sub object_class { 'xPapers::Relations::UserAffil' }
+
+__PACKAGE__->make_manager_methods('affils_m');
+
+
 1;
+
 __END__
 
 

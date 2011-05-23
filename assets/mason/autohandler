@@ -7,7 +7,7 @@ $s = $m->cgi_object->{__site__};
 # weird bug with space handling...
 xPapers::Entry->meta->table('main');
 our $TOO_BUSY;
-our $READ_ONLY = undef;#'4pm today (GMT)';
+our $READ_ONLY = (-e "$LOCAL_BASE/var/read_only");#'4pm today (GMT)';
 $xPapers::Utils::CGI::READ_ONLY = $READ_ONLY;
 #$ENV{NOLOG} =1;
 my $DOWN = 0;
