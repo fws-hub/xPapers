@@ -3,7 +3,7 @@
 
 my $cat = xPapers::Cat->get($ARGS{cId});
 error("Category not found") unless $cat;
-error("Not allowed") unless $cat->isEditor($user);
+error("Not allowed") unless $cat->isEditor($user) or $SECURE;
 use HTML::TagFilter;
 
 if ($ARGS{submit}) {
@@ -12,6 +12,9 @@ if ($ARGS{submit}) {
     $cat->summary($filter->filter($ARGS{summary}));
     $cat->introductions($filter->filter($ARGS{introductions}));
     $cat->keyWorks($filter->filter($ARGS{keyWorks}));
+    $cat->save(modified_only=>1);
+    $cat->summaryUpdated(DateTime->now);
+    $cat->summaryChecked($SECURE);
     $cat->save(modified_only=>1);
     $ARGS{_mmsg} = "Category updated";
     $ARGS{noheader} = 0;

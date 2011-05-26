@@ -1,0 +1,8 @@
+<%perl>
+my $cat = xPapers::Cat->get($ARGS{cId});
+error("Not allowed") unless $cat->canonical;
+
+$rend->mkRefs($cat->{$ARGS{field}},1);
+print $rend->{latestRefs};
+
+</%perl>

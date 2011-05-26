@@ -3,7 +3,11 @@
         return unless $cat and ($cat->summary or $cat->introductions or $cat->keyWorks);
 
         </%perl>
-        <div class='miniheader' style='font-weight:bold;border-top:1px solid #aaa'>About this topic</div>
+        <div class='miniheader' style='font-weight:bold;border-top:1px solid #aaa'>About this topic 
+%if ($SECURE or ($user->{id} and $cat->isEditor($user))) {
+            [ <a href="/utils/edit_summary.pl?cId=<%$cat->id%>">edit this section</a> ]     
+%}
+        </div>
 
         <table class="nospace" style="margin-bottom:20px;width:80%">
 %if ($cat->summary) {
@@ -20,8 +24,8 @@
             </tr>
             <tr>
                 <td></td>
-                <td style="padding-bottom:10px"><span class='ll' onclick="$('refs1').show()">Show all references</span>
-                <div id='refs1' style="display:none"><%$rend->{latestRefs}%></div></td>
+                <td style="padding-bottom:10px"><span class='ll' onclick="simpleReq('/utils/intro_text_refs.html',{cId:<%$cat->id%>,field:'keyWorks',noheader:1},function(r) {;$('xp_refs1').update(r);$('xp_refs1').show();return false})">Show all references</span>
+                <div id='xp_refs1' style="display:none"></div></td>
             </tr>
 %}
 
@@ -32,8 +36,8 @@
             </tr>
             <tr>
                 <td></td>
-                <td><span class='ll' onclick="$('refs2').show()">Show all references</span>
-                <div id='refs2' style="display:none"><%$rend->{latestRefs}%></div></td>
+                <td style="padding-bottom:10px"><span class='ll' onclick="simpleReq('/utils/intro_text_refs.html',{cId:<%$cat->id%>,field:'introductions',noheader:1},function(r) {;$('xp_refs2').update(r);$('xp_refs2').show();return false})">Show all references</span>
+                <div id='xp_refs2' style="display:none"></div></td>
             </tr>
 %}
         </table>
