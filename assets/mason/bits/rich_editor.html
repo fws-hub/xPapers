@@ -16,19 +16,16 @@ var ped = new YAHOO.widget.Editor('editor<%$id%>', {
         buttons: [
             { group: 'textstyle2', 
                 buttons: [
-                { type: 'push', label: 'Bold', value: 'bold' },
                 { type: 'push', label: 'Italic', value: 'italic' },
-                { type: 'separator' },
-                { type: 'push', label: 'Subscript', value: 'subscript', disabled: true },
-                { type: 'push', label: 'Superscript', value: 'superscript', disabled: true }
             ]
             },
             { group: 'special',
                 buttons: [
                 { type: 'push', label: 'Remove Formatting', value: 'removeformat', disabled: true }
                 ]
-            },
-            { group: 'cite',
+            }
+%unless($ARGS{nocites}) {
+            ,{ group: 'cite',
                 buttons: [
                     { type: 'select', label: 'Cite', value: 'cite', disabled: false,
                         menu: [
@@ -38,6 +35,7 @@ var ped = new YAHOO.widget.Editor('editor<%$id%>', {
 
                 ]
             }
+%}
         ]
     }
 });
