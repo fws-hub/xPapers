@@ -1,5 +1,5 @@
 <%perl>
-return unless 1 or $ARGS{key} eq $PUSH_KEY;
+return unless $ARGS{key} eq $PUSH_KEY;
 
 my @user_fields = qw/id firstname lastname passwd email showEmail homePage publish blocked pro betaTester/;
 my @lock_tables = qw/users affils insts areas_m affils_m/;
