@@ -5,7 +5,13 @@
         </%perl>
         <div class='miniheader' style='font-weight:bold;border-top:1px solid #aaa'>About this topic 
 %if ($SECURE or ($user->{id} and $cat->isEditor($user))) {
-            [ <a href="/utils/edit_summary.pl?cId=<%$cat->id%>">edit this section</a> ]     
+            [ <a href="/utils/edit_summary.pl?cId=<%$cat->id%>">Edit this section</a> ]     
+%}
+%if ($SECURE and !$cat->summaryChecked) {
+            <span id='markChecked'>[ <span class='ll admin' onclick="admAct('summaryChecked',{cId:<%$cat->id%>},function(){$('markChecked').hide()})">Mark summary as checked</span> ]</span>
+%}
+%if ($SECURE) {
+            <span id='advertiseSpan'>[ <span class='ll admin' onclick="admAct('advertiseSummary',{cId:<%$cat->id%>},function(){$('advertiseSpan').hide()})">Advertise summary as new/updated</span> ]</span>
 %}
         </div>
 

@@ -90,6 +90,14 @@ if ($ARGS{c} eq "deleteArchive") {
     $opts->emailStep(0);
     $opts->save;
     return;
+} elsif ($ARGS{c} eq 'advertiseSummary') {
+    $cat->advertiseSummary(DateTime->now);
+    $cat->save(modified_only=>1);
+    return;
+} elsif ($ARGS{c} eq 'summaryChecked') {
+    $cat->summaryChecked(1);
+    $cat->save(modified_only=>1);
+    return;
 } elsif ($ARGS{c} eq 'inviteEditor') {
     my $editorship = xPapers::Editorship->new(
         uId => $tuser->id,

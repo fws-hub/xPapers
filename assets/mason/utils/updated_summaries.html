@@ -1,0 +1,13 @@
+<& ../header.html, subtitle=>"Updated category summaries" &>
+
+<%perl>
+
+print gh("Recently updated category summaries");
+my $it = xPapers::CatMng->get_objects_iterator(query=>[advertiseSummary=>{gt => DateTime->now->subtract(months=>6)}],sort_by=>['advertiseSummary desc']);
+my $found = 0;
+while (my $c = $it->next) {
+
+    print $rend->renderCatTO($c,'',$s,'',1) . "&nbsp;&nbsp; updated ". $rend->renderDate($c->advertiseSummary). "<p>" ;
+
+}
+</%perl>

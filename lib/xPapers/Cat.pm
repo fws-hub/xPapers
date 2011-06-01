@@ -73,6 +73,7 @@ columns =>
     introductions => {type => 'text' },
     summaryUpdated => { type=>'datetime' },
     summaryChecked => {type => 'integer', default=>1 },
+    advertiseSummary => { type => 'datetime' }
 
 
 ],

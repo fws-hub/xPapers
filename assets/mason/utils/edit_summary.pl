@@ -8,16 +8,26 @@ use HTML::TagFilter;
 
 if ($ARGS{submit}) {
 
+    my @modified;
     my $filter = new HTML::TagFilter;
-    $cat->summary($filter->filter($ARGS{summary}));
-    $cat->introductions($filter->filter($ARGS{introductions}));
-    $cat->keyWorks($filter->filter($ARGS{keyWorks}));
+    my $nSummary = $filter->filter($ARGS{summary});
+    push @modified,"summary" if $nSummary ne $cat->summary;
+    $cat->summary($nSummary);
+    my $nIntroductions = $filter->filter($ARGS{introductions});
+    push @modified,"introductions" if $cat->introductions ne $nIntroductions;
+    $cat->introductions($nIntroductions);
+    my $nKey = $filter->filter($ARGS{keyWorks});
+    push @modified,"key works" if $nKey ne $cat->keyWorks;
+    $cat->keyWorks($nKey);
     $cat->save(modified_only=>1);
     $cat->summaryUpdated(DateTime->now);
-    $cat->summaryChecked($SECURE);
+    $cat->summaryChecked(0 and $SECURE);
     $cat->save(modified_only=>1);
     $ARGS{_mmsg} = "Category updated";
     $ARGS{noheader} = 0;
+    unless (1 or $SECURE) {
+        xPapers::Mail::MessageMng->notifyAdmin("Category summary updated:",$user->fullname . " modified " . join(",",@modified) . " for $cat->{name}. See $s->{server}/browse/$cat->{uName}");
+    }
 }
 
 my $alsoBib;
