@@ -53,6 +53,9 @@ for my $a (@$cmds) {
     } elsif ($a->{act} eq 'set PP') {
         $c->setPP($p->id);
         $areasChanged = 1 if $c->pLevel <= 1;
+    } elsif ($a->{act} eq 'facetRoot') {
+        $c->facetRoot($a->{bool} ? 1 : 0);
+        $c->save;
     } elsif ($a->{act} eq 'move') {
         $areasChanged ||= $c->pLevel <= 1;
         my $np = xPapers::Cat->get($a->{newParent});

@@ -17,6 +17,7 @@ use strict;
 our $write_lock = 0;
 
 
+__PACKAGE__->overflow_config;
 __PACKAGE__->meta->setup
 (
 table   => 'cats',
@@ -43,7 +44,7 @@ columns =>
     canonical => { type => 'integer', default=> 0, not_null => 1},
     historicalFacetOf => { type => 'integer' },
     marginal    => { type => 'integer', default => 0},
-
+    facetRoot => { type => 'integer', default => 0 },
     updated     => { type => 'timestamp' },
     created     => { type => 'datetime', default=>'now' },
     owner       => { type => 'integer', default=>0 },
@@ -1544,6 +1545,12 @@ sub prepTrawlerWithQ {
     return $q;
 }
 
+sub findFacetRoot {
+    my $me = shift;
+    return undef unless $me->ppId;
+    return $me->facetRoot ? $me : $me->primaryParent->findFacetRoot;
+}
+
 sub mcat {
     my ($c,$depth,$a) = @_;
     #print STDERR "MCAT: $c->{id}\n";
@@ -1558,7 +1565,8 @@ sub mcat {
     my $areas = $c->pArea->id != $c->id ? "[" . $c->pArea->id . "]" : "[]";
     my $pl = $c->{pLevel} || 0;
     my $facet = $c->{historicalFacetOf} ? ",hf:$c->{historicalFacetOf}" : "";
-    $r.= "CS.c$c->{id} = {n:\"" . dquote($c->{name}) . "\",pl:$pl,pp:\"$c->{ppId}\",a:$areas,c:$ok$facet";
+    my $facetRoot = $c->facetRoot ? ",fr:1" : "";
+    $r.= "CS.c$c->{id} = {n:\"" . dquote($c->{name}) . "\",pl:$pl,pp:\"$c->{ppId}\",a:$areas,c:$ok$facet$facetRoot";
     if ($depth >= $a->{maxDepth}) {
         $r.= "};";
         return $r;

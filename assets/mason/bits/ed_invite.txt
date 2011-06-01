@@ -20,10 +20,15 @@ The main responsibility of a category editor is to build that category by import
 
 %if ($ARGS{level} == 1) {
 In your case we are inviting you to become an area editor: that is, the editor of one of the major <%$s->{niceName}%> area categories.  This role carries special prominence, including listing on the front page of <%$s->{niceName}%>, and also special responsibilities, as outlined at the website above.
+
 %} elsif ($ARGS{catCount}) {
 This category is one of the <%$s->{niceName}%> middle-level categories.  We encourage you to consider becoming editor for the lower-level categories underneath this category at the same time.  Responsibilities for middle-category editors are outlined at the web page above.
-%}
 
+%} 
+%if($ARGS{__cat}->historicalFacetOf) {
+Another important responsibility for editors is to help to determine a subcategory structure where appropriate, in consulatation with the main editors.  For historical and geographical categories, we now have the ability to divide these up by topical subcategories.  We hope that you might be able to help in determining appropriate substructure for this category.
+
+%}
 Editorship is for one year in the first instance with the expectation of renewal.  We do hope that all editors will be actively involved in building their categories.  The editors' tools facilitate this process and an editorship is not an enormous time burden, but there is still some time involved.  If you don't think you will be in a position to put in this time, please feel free to decline.
 
 Editorship is a real service to the profession, and we would be honored if you were to accept.  Please feel free to email us at <%$emails%> if you have any questions.  You should also feel free to email other editors about their experience in the role.  If you would be interested in editing a category or categories other than the one we have invited you for, please let us know by email too.

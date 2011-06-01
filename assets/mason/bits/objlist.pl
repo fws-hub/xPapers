@@ -26,6 +26,8 @@ function insertNew() {
         $('ow-').show();
     });
 }
+// to be overwritten
+function validateObjectForm(o) { return true }
 function saveIt(id) {
     var foId = 'of-' + ( id ? id : '');
     var formObj = $(foId);

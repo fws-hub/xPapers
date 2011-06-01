@@ -75,7 +75,7 @@ sub categorize {
     my $entry = delete $params{entry};
     my @cats =  $class->suggest( entry=>$entry, %params );
     for my $cat ( @cats ) {
-        $cat->addEntry( $entry, $AUTOCAT_USER, deincest=>1 );
+        $cat->addEntry( $entry, $AUTOCAT_USER, deincest=>1, checkExclusions=>1);
     }
     return @cats;
 }

@@ -58,7 +58,7 @@ if ($ARGS{c} eq 'delete') {
 
     for my $col (@name_order) {
 
-        print "<tr><td>$names{$col}</td><td><input type='text' size='" . $ARGS{sizes} . "' value=\"" . dquote($o->$col) . "\"></td></tr>";
+        print "<tr><td>$names{$col}</td><td><input type='text' name='$col' size='" . $ARGS{sizes} . "' value=\"" . dquote($o->$col) . "\"></td></tr>";
 
     }
 

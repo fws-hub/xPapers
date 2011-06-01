@@ -370,8 +370,8 @@ xPapers::Utils::CGI::setSite($s);
 #$user = xPapers::User->get(2) if $user and $user->{id} == 1;
 
 our $SAFE_PARAMS = 0;
-our ($tracker,$cook) = tracker($con,$q,$user);
-push @COOKIES_OUT,$cook;
+our ($tracker,$cook) = (undef,undef);#tracker($con,$q,$user);
+#push @COOKIES_OUT,$cook;
 
 event('init renderer','start');
 

@@ -39,7 +39,7 @@ while (my $j = $journals->next) {
     print "\n\n** $j->{name} --> $c->{name}\n";
     my $q = xPapers::EntryMng->get_objects_iterator(query=>[source=>$j->name,catCount=>{lt=>1},added=>{gt=>$tlimit}]);
     while (my $e = $q->next) {
-        $c->addEntry($e, 7, deincest=>1);
+        $c->addEntry($e, 7, deincest=>1,checkExclusions=>1);
     }
     sleep(1);
 }

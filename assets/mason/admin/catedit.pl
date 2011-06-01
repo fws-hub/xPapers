@@ -46,7 +46,7 @@ var trashed = new Hash();
 var menuCount = 0;
 var idCount = 0; // to generate unique ids for the divs
 
-function c(id) { return CS['c' +id] };
+function c(id) { return CS['c' +id]; };
 function u(uid) { var a = $$('.unique-id-'+uid); return a[0] }
 
 function beginAct(act,id,x) {
@@ -118,6 +118,7 @@ function slotclick(id,context,uid) {
             */
             { text: "Rename", onclick:{fn: function(){ renameCat(id) }} },
             { text: "Set as primary location", onclick:{fn: function(){ setPP(id,context)}} },
+            { text: "Toggle facet root", onclick:{fn: function(){ toggleFacetRoot(id) }} },
             { text: "Make a facet..",onclick:{fn: function(){ insertXYSelector(id,context) } } },
             { text: "Delete / unlink", onclick:{fn: function(){ trash(id,context) }} }
         ]
@@ -194,6 +195,9 @@ function renderCat(id,context,expand,newcat,pos) {
     if (c.hf) {
         addXYComment(id,c.hf);
     }
+    if (c.fr) {
+        addFacetRootComment(id);
+    }
     if (expand) {
         renderSubs(id,expand-1);
     }
@@ -202,26 +206,6 @@ function renderCat(id,context,expand,newcat,pos) {
 function mkslot(id,context) {
     if (id == 1) return ""; // exception for root
     var cmb = id+'-'+context;
-    /*
-    YAHOO.util.Event.onContentReady('slotm-'+cmb, function() {
-        var menu = new YAHOO.widget.Menu('slotmenu-'+cmb, {
-            minscrollheight:250,
-            position:"dynamic", 
-            context:['slotm-'+cmb,"tl","bl"],
-            maxheight:400,
-            itemdata: [ 
-                { text: "Move to ..." } ,
-                { text: "Merge with ..." },
-                { text: "Config editors" },
-                { text: "Rename" },
-                { text: "Set primary location" },
-                { text: "Delete", onclick:{fn: function(){ trash(id) }} }
-            ]
-        });
-        menu.render('slotm-'+cmb);
-        menus.set(cmb,menu);
-    });
-    */
     return "<div class='ldiv' id='slotm-"+cmb+"'>&nbsp;</div><span class='ced-slot' onclick='slotclick(\""+id+"\",\""+context+"\",\""+idCount+"\")'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>";
 }
 
@@ -280,20 +264,84 @@ function insertXYSelector(id) {
 }
 function set_mk_xy(caption_id,cat_id,name) {
     histo.push({act:'set XY',cId:caption_id,xyTarget:cat_id,string:"Set "  + c(caption_id).n + " as facet of " + name});
+    var cat = c(caption_id);
+    cat.hf = cat_id;
+    cat.hr = 0;
     drawHistory();
     addXYComment(caption_id,cat_id);
+    guessFacetRoot(caption_id);
 }
 function addXYComment(cat_id,target_id) {
     var comment = new Element('span',{class:'hint',id:'xy_'+cat_id});
     var target = c(target_id);
     comment.update("&nbsp;&nbsp;Facet of " + target.n + " (<span class='ll hint' style='font-size:10px;color:#888' onclick=\"removeXY('"+cat_id+"')\">remove</span>)");
-    $('cat-'+cat_id).insert(comment);
+    if ($('catc-'+cat_id)) 
+        $('catc-'+cat_id).insert({before:comment});
+    else 
+        $('cat-'+cat_id).insert(comment);
 }
 function removeXY(cat_id) {
    $('xy_'+cat_id).remove();
    histo.push({act:'unset XY',cId:cat_id,string:"Remove facet from " + c(cat_id).n});
    drawHistory();
 }
+function primaryAncestors(cat_id) {
+    var list = new Array(); 
+    var cat = c(cat_id);
+    if (!cat.pp) return list;
+    list.push(cat.pp);
+    list.push(primaryAncestors(cat.pp));
+    return list.flatten();
+}
+function currentFacetRoot(cat_id) {
+    var cat = c(cat_id);
+    var ancestors = primaryAncestors(cat_id);
+    var found = null;
+    ancestors.reverse().each(function(i) {
+        if (c(i).fr) found = i;
+    });
+    return found;
+}
+function guessFacetRoot(cat_id) {
+    if (currentFacetRoot(cat_id)) return;
+    var foundId = firstNonFacet(cat_id);
+    var found = c(foundId);
+    // check if already root
+    if (found.fr) return;
+    toggleFacetRoot(foundId);
+}
+function firstNonFacet(cat_id) {
+     var parent = c(cat_id).pp;
+     if (!parent) return cat_id;
+     if (parent.hf) return firstNonFacet(c(cat_id).pp);
+     var re = new RegExp(/\btopics\b/i);
+     var topic = re.exec(parent.n);
+     return topic ? parent.pp : c(cat_id).pp;
+}
+function toggleFacetRoot(cat_id) {
+    var cat = c(cat_id);
+    if (cat.fr) {
+       cat['fr'] = 0; 
+       removeFacetRootComment(cat_id);
+       histo.push({act:'facetRoot',cId:cat_id,bool:0,string:"Toggle facet root on " + cat.n});
+       drawHistory();
+    } else {
+       cat['fr'] = 1;
+       histo.push({act:'facetRoot',cId:cat_id,bool:1,string:"Toggle facet root on " + cat.n});
+       drawHistory();
+       addFacetRootComment(cat_id);
+    }
+}
+function addFacetRootComment(cat_id) {
+    var comment = new Element('span',{class:'hint',id:'fr_'+cat_id});
+    var target = c(cat_id);
+    comment.update("&nbsp;&nbsp;Facet root");
+    $('catc-'+cat_id).insert({before:comment});
+}
+function removeFacetRootComment(cat_id) {
+    $('fr_'+cat_id).remove();
+}
+
 
 function trash(id,context) {
     var c = CS['c'+id];
@@ -466,10 +514,14 @@ var upint;
 function updateStat(id,c) {
     if (!$('batchstatus')) return;
     admAct("val",{class:"xPapers::Operations::UpdateCats",id:bid,field:"status",dummy:c}, function(r) {
-        if (r.match(/Done/)) {
+        if (c > 100) {
+            alert('Updating has timed out. Contact the administrator.');
+            window.location='/admin.html';
+            return;
+        } else if (r.match(/Done/)) {
             $('batchstatus').update("Done (batch:"+id+").<div><a href='/admin.html'>Go to admin menu</a>&nbsp;&nbsp;<a href='/admin/catedit.pl'>Make more changes</a>");
         } else {
-            upint = setTimeout("updateStat(" + id + "," + (c+1) + ")",1000);
+            upint = setTimeout("updateStat(" + id + "," + (c+1) + ")",2000);
             $('batchstatus').update(r);
         }
     });

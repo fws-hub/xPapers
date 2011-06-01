@@ -797,7 +797,7 @@ sub prepTpl {
         }
         : (), 
         {
-        tpl=>' | <a class="more" href="/rec/%s">Share &amp; More Options ...</a> ',
+        tpl=>' | <a class="more" href="/rec/%s">More options ...</a> ',
         fields=>['moreLink']
         }, {
         tpl=>'<span class="eMsg" id="msg-%s"></span></div>',
