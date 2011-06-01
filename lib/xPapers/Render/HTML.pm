@@ -395,14 +395,20 @@ sub mkRefs {
     #$t =~ s/([\w\-\.]+\@[\w\-]+(?:\.[\w\-]+)+)/ecode($1)/ge;
 
     return $t unless $me->{foundRefs};
+    return $t if $norefs;
+    my $showAbstract = $me->{showAbstract};
+    my $noOptions = $me->{noOptions};
+    my $entryReady = $me->{entryReady};
     $me->{showAbstract} = 0;
     $me->{noOptions} = 1; 
     $me->{entryReady} = 1;
-    return $t if $norefs;
     $t .= "<p><h3>References</h3><div class='references'><ol class='entryList'>";
     $t .= "<li class='entry'>" . join( "</li><li class='entry'>", map { $me->renderPostO($_) } @{$me->{citesp}} ) . "</li>" if $me->{foundPosts};
     $t .= join( "", map { $me->renderEntry($_) } @{$me->{cites}} );
     $t .= "</ol></div>";
+    $me->{showAbstract} = $showAbstract;
+    $me->{noOptions} = $noOptions;
+    $me->{entryReady} = $entryReady;
     return $t;
 }
 

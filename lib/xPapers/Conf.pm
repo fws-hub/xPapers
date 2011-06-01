@@ -402,7 +402,7 @@ our @TIPS = (
 $CGIBIN = '/cgi';
 
 $PUSH_SERVER = undef;
-$PUSH_KEY = undef;
+$PUSH_KEY = "CHANGEME";
 
 # Import from system-specific config
 
