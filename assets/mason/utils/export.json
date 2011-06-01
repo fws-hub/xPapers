@@ -1,0 +1,125 @@
+<%perl>
+return unless 1 or $ARGS{key} eq $PUSH_KEY;
+
+my @user_fields = qw/id firstname lastname passwd email showEmail homePage publish blocked pro betaTester/;
+my @lock_tables = qw/users affils insts areas_m affils_m/;
+
+# turn site read-only
+`touch $LOCAL_BASE/var/read_only`;
+
+my $db = xPapers::DB->new;
+my $dbh = $db->dbh;
+my @updates;
+my %struct;
+
+eval {
+
+# wait a bit so the receiving server finishes processing any ongoing update jobs
+sleep(20);
+
+# now flush the update queue 
+$dbh->do("lock table push_jobs write");
+$dbh->do("update push_jobs set status = 'OK' where not status='OK'");
+
+$dbh->do("unlock tables"); # there is a bit of a race condition here, but we can live with it given the protection that var/read_only already offers
+$dbh->do("flush tables with read lock");
+
+# now dump the content.
+# the receiving server is responsible for not accepting any updates until it has finished processing the dump.
+
+
+my $it = xPapers::UserMng->get_objects_iterator(query=>[confirmed=>1]);
+while (my $u = $it->next) {
+    my %r;
+    $r{$_} = $u->{$_} for @user_fields;
+    #print Dumper(\%r);
+    push @updates, {type=>'user',data=>\%r}; 
+}
+
+$it = xPapers::I->get_objects_iterator();
+my %insts;
+my @insts;
+while (my $i = $it->next) {
+
+    my %i;
+    $i{$_} = $i->$_ for qw/id name domain country/;
+    push @insts,\%i;
+    $insts{$i->id} = \%i;
+
+}
+push @updates, {type=>'allInstitutions',data=>\@insts};
+
+$it = xPapers::CatMng->get_objects_iterator(query=>[pLevel=>1,canonical=>1,'!name'=>{like=>'%misc%'}]);;
+my @topics;
+while (my $i = $it->next) {
+
+    my %i;
+    $i{$_} = $i->$_ for qw/id name/;
+    $i{group} = xPapers::Cat->get($i->ppId)->name;
+    next if $i{group} eq 'Other Academic Areas';
+    next if $i{group} =~ /Misc\s*$/;
+    push @topics, \%i;
+
+}
+
+push @updates,{type=>'allTopics',data=>\@topics};
+
+$it = xPapers::Relations::UserAffilMng->get_objects_iterator(sort_by=>['uId','rank']);
+my @affils = ();
+my $currentUser;
+while (my $i = $it->next) {
+
+    my %i;
+    my $affil = $i->affil;
+    $i{institution} = $affil->iId ? $insts{$affil->iId}->{name} : $affil->inst_manual;
+    $i{role} = $affil->role;
+    $i{discipline} = $affil->discipline;
+    $i{rank} = $affil->rank;
+    if (!$currentUser or $currentUser == $i->uId) {
+        push @affils, \%i;
+    } else {
+        push @updates, {type=>'userAffils',userId=>$i->uId,data=>\@affils}
+        @affils = ();
+    }
+    $currentUser = $i->uId;
+}
+push @updates, {type=>'userAffils',userId=>$currentUser,data=>\@affils} if $currentUSer;
+
+$it = xPapers::Relations::UserAOIMng->get_objects_iterator(sort_by=>['uId','rank']);
+my @aois = ();
+$currentUser = undef;
+while (my $i = $it->next) {
+
+    my %i;
+    $i{userId} = $i->mId;
+    $i{topicId} = $i->aId;
+    $i{rank} = $i->rank;
+    if (!$currentUser or $currentUser == $i->mId) {
+        push @aois, \%i;
+    } else {
+        push @updates, {type=>'userTopics',userId=>$i->mId,data=>\@aois};
+        @aois = ();
+    }
+    $currentUser = $i->mId;
+}
+push @updates,{type=>'userTopics',userId=>$currentUser,data=>\@aois} if $currentUser;
+
+
+# take note of the highest job id processed in this
+$struct{latestJob} = xPapers::DB->exec("select max(id) as id from push_jobs")->fetchrow_hashref->{id};
+$struct{updates} = \@updates;
+
+print encode_json(\%struct);
+
+}; #eval
+if ($@) {
+    print "An error has occurred: $@";
+}
+
+
+eval {
+    $dbh->do("unlock tables");
+};
+unlink "$LOCAL_BASE/var/read_only";
+
+</%perl>
