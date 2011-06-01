@@ -258,6 +258,9 @@ my %skip = (
     menuhtml=>1,
     cecmds=>1,
     params=>1,
+    introductions=>1,
+    keyWorks=>1,
+    summary=>1
 );
 foreach my $k (keys %ARGS) {
     if (substr($k,0,2) eq '__' and substr($k, -2, 2) eq '__') {

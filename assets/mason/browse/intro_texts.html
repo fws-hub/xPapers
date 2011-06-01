@@ -1,0 +1,52 @@
+        <%perl>
+        my $cat = $ARGS{__cat__};
+        return unless $cat and ($cat->summary or $cat->introductions or $cat->keyWorks);
+
+        </%perl>
+        <div class='miniheader' style='font-weight:bold;border-top:1px solid #aaa'>About this topic 
+%if ($SECURE or ($user->{id} and $cat->isEditor($user))) {
+            [ <a href="/utils/edit_summary.pl?cId=<%$cat->id%>">Edit this section</a> ]     
+%}
+%if ($SECURE and !$cat->summaryChecked) {
+            <span id='markChecked'>[ <span class='ll admin' onclick="admAct('summaryChecked',{cId:<%$cat->id%>},function(){$('markChecked').hide()})">Mark summary as checked</span> ]</span>
+%}
+%if ($SECURE) {
+            <span id='advertiseSpan'>[ <span class='ll admin' onclick="admAct('advertiseSummary',{cId:<%$cat->id%>},function(){$('advertiseSpan').hide()})">Advertise summary as new/updated</span> ]</span>
+%}
+        </div>
+
+        <table class="nospace" style="margin-bottom:20px;width:80%">
+%if ($cat->summary) {
+            <tr>
+                <td style="font-size:12px;padding-right:20px;width:70px" valign="top"><em>Summary</em></td>
+                <td style="padding-bottom:10px"><%$rend->mkRefs($cat->summary,1)%></td>
+            </tr>
+%}
+
+%if ($cat->keyWorks) {
+            <tr>
+                <td style="font-size:12px;padding-right:20px" valign="top"><em>Key works</em></td>
+                <td><%$rend->mkRefs($cat->keyWorks,1)%></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="padding-bottom:10px"><span class='ll' onclick="simpleReq('/utils/intro_text_refs.html',{cId:<%$cat->id%>,field:'keyWorks',noheader:1},function(r) {;$('xp_refs1').update(r);$('xp_refs1').show();return false})">Show all references</span>
+                <div id='xp_refs1' style="display:none"></div></td>
+            </tr>
+%}
+
+%if ($cat->introductions) {
+            <tr>
+                <td style="font-size:12px;padding-right:20px" valign="top"><em>Introductions</em></td>
+                <td><%$rend->mkRefs($cat->introductions,1)%></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="padding-bottom:10px"><span class='ll' onclick="simpleReq('/utils/intro_text_refs.html',{cId:<%$cat->id%>,field:'introductions',noheader:1},function(r) {;$('xp_refs2').update(r);$('xp_refs2').show();return false})">Show all references</span>
+                <div id='xp_refs2' style="display:none"></div></td>
+            </tr>
+%}
+        </table>
+        <a name="content"></a>
+
+

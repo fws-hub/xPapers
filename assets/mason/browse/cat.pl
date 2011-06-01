@@ -7,6 +7,8 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
 } elsif ($cat->{pLevel} <= 1 and $cat->{catCount} and !$EXPAND_CAT{$cat->{id}} and !($ARGS{forceListing} and $SECURE)) {
     my $finder = $ARGS{finder} ? '1' : '0';
     my $editors = 1;#$finder;
+
+    $m->comp("intro_texts.html",%ARGS);
 </%perl>
     <div class='miniheader' style='font-weight:bold;border-top:1px solid #aaa'>In this area</div>
     <table width="100%">
@@ -90,6 +92,11 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
     }
 
     unless ($ARGS{start}) {
+    
+
+        $m->comp("intro_texts.html",%ARGS);
+
+
         print "<div class='miniheader' style='font-weight:bold;border-top:1px solid #aaa'>".($cat->{catCount} ? "Related categories" : "Related categories") . "</div>";
 
         # subcats

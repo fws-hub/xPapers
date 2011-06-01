@@ -385,30 +385,52 @@ sub renderPostT {
 }
 
 sub mkRefs {
-    my ($me,$t) = @_;
+    my ($me,$t,$norefs) = @_;
     $me->{cites} = [];
     $me->{citesp} = [];
     $me->{foundRefs} = 0;
     $me->{foundPosts} = 0;
+    $t =~ s/\[e\#([\w\-\d]+):(.+?)\]/$me->processCiteT($1,$2)/ge;
     $t =~ s/e\#([\w\-\d]+)/$me->processCite($1)/ge;
     $t =~ s/p\#([\w\-\d]+)/$me->processCiteP($1)/ge;
     #$t =~ s/([\w\-\.]+\@[\w\-]+(?:\.[\w\-]+)+)/ecode($1)/ge;
 
     return $t unless $me->{foundRefs};
     $me->{showAbstract} = 0;
-    $me->{noOptions} = 1; 
+    $me->{noOptions} = !$norefs; 
     $me->{entryReady} = 1;
-    $t .= "<p><h3>References</h3><div class='references'><ol class='entryList'>";
-    $t .= "<li class='entry'>" . join( "</li><li class='entry'>", map { $me->renderPostO($_) } @{$me->{citesp}} ) . "</li>" if $me->{foundPosts};
-    $t .= join( "", map { $me->renderEntry($_) } @{$me->{cites}} );
-    $t .= "</ol></div>";
-    return $t;
+    my $refs = "<p><h3>References</h3><div class='references'><ol class='entryList'>";
+    $refs .= "<li class='entry'>" . join( "</li><li class='entry'>", map { $me->renderPostO($_) } @{$me->{citesp}} ) . "</li>" if $me->{foundPosts};
+    $refs .= join( "", map { $me->renderEntry($_) } @{$me->{cites}} );
+    $refs .= "</ol></div>";
+    $me->{latestRefs} = $refs;
+    return $norefs ? $t : $t.$refs;
 }
+
+sub getEntryForCite {
+    my ($me,$id) = @_; 
+    my $e = xPapers::Entry->get($id);
+    while ($e and $e->deleted and $e->duplicateOf) {
+        $e = xPapers::Entry->get($e->duplicateOf);
+    }
+    return $e;
+}
+
+sub processCiteT {
+    my ($me, $id, $text) = @_;
+    my $e = $me->getEntryForCite($id);
+    $me->{foundRefs} = 1;
+    return "[BROKEN REFERENCE: $id]" unless $e;
+    push @{$me->{cites}},$e;
+    return "<a href='$me->{cur}->{site}->{server}/rec/$id'>$text<\/a>";
+}
+
 
 sub processCite {
     my ($me, $id) = @_;
     $me->{foundRefs} = 1;
-    my $e = xPapers::Entry->get($id);
+    my $e = $me->getEntryForCite($id);
+    return "[BROKEN REFERENCE: $id]" unless $e;
     push @{$me->{cites}},$e;
     return "<a href='$me->{cur}->{site}->{server}/rec/$id'>" . ($e->{date} ||"ms") . "<\/a>";
 }

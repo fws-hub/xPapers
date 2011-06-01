@@ -30,35 +30,5 @@
 var pageDesc="<%dquote($ARGS{description} || $ARGS{subtitle} || "")%>";
 var BASE_URL="<%$BASE_URL%>";
 var SERVER="<%$s->{serer}%>";
-
-function renderFollowX( eId ){
-    var conf =  {
-        width: "450px",
-        height: "400px",
-        fixedcenter: true,
-        visible: false,
-        draggable: false,
-        close: true,
-        text: 'aaaaaaa',
-        constraintoviewport: true,
-        zIndex:9999,
-    };
-    var d = new YAHOO.widget.SimpleDialog("followX",conf);
-    d.setHeader("Follow authors");
-    d.render("container");
-    new Ajax.Request('/followx.pl',
-      {
-        method:'get',
-        parameters: { eId: eId },
-        onSuccess: function(transport){
-           var response = transport.responseText || "no record";
-           d.setBody( response );
-           alert( $('followXform').followXsubmit.onClick );
-        },
-        onFailure: function(){ alert('Something went wrong...') }
-      });
-    d.show();
-}
-
 </script>
 <body class='yui-skin-sam' id='<%$ARGS{embed} ? 'embedBody' : 'mainBody'%>'>

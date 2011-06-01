@@ -80,7 +80,11 @@ for my $e (@$es) {
             <input type="radio" value="no" name="choice<%$e->{id}%>"> Decline
         </td>
         <td width="350px"><%$rend->renderCatC($e->cat)%></td>
-        <td><a href="/browse/<%$e->cat->uName%>/application.html?recursive=on&force=1&cId=<%$e->cId%>&apply=1" target="_blank">Apply for open subcats</td>
+        <td>
+%if($e->cat->catCount) {
+        <a onclick="if (!confirm('This will lodge an application for ALL open subcategories. Are you sure you want to do this?')) return false; return true" href="/browse/<%$e->cat->uName%>/application.html?recursive=on&force=1&cId=<%$e->cId%>&apply=1" target="_blank">Apply for open subcats
+%}
+        </td>
     </tr>
     <%perl>
 
