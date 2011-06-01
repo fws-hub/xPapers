@@ -19,6 +19,16 @@ foreign_keys => [
  
 );
 
+package xPapers::Relations::UserAOIMng;
+
+use base qw(Rose::DB::Object::Manager);
+use xPapers::Relations::UserAOI;
+
+sub object_class { 'xPapers::Relations::UserAOI' }
+
+__PACKAGE__->make_manager_methods('areas_m');
+
+
 1
 __END__
 

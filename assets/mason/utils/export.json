@@ -1,7 +1,7 @@
 <%perl>
-return unless 1 or $ARGS{key} eq $PUSH_KEY;
+return unless $ARGS{key} eq $PUSH_KEY;
 
-my @user_fields = qw/id firstname lastname passwd email showEmail homePage publish blocked pro betaTester/;
+my @user_fields = qw/id firstname lastname passwd email showEmail homePage publish blocked pro betaTester confirmed/;
 my @lock_tables = qw/users affils insts areas_m affils_m/;
 
 # turn site read-only
@@ -28,7 +28,7 @@ $dbh->do("flush tables with read lock");
 # the receiving server is responsible for not accepting any updates until it has finished processing the dump.
 
 
-my $it = xPapers::UserMng->get_objects_iterator(query=>[confirmed=>1]);
+my $it = xPapers::UserMng->get_objects_iterator();
 while (my $u = $it->next) {
     my %r;
     $r{$_} = $u->{$_} for @user_fields;
@@ -64,8 +64,8 @@ while (my $i = $it->next) {
 
 push @updates,{type=>'allTopics',data=>\@topics};
 
-$it = xPapers::Relations::UserAffilMng->get_objects_iterator(sort_by=>['uId','rank']);
-my @affils = ();
+$it = xPapers::Relations::UserAffilMng->get_objects_iterator(sort_by=>['uId']);
+my $affils = [];
 my $currentUser;
 while (my $i = $it->next) {
 
@@ -76,40 +76,42 @@ while (my $i = $it->next) {
     $i{discipline} = $affil->discipline;
     $i{rank} = $affil->rank;
     if (!$currentUser or $currentUser == $i->uId) {
-        push @affils, \%i;
     } else {
-        push @updates, {type=>'userAffils',userId=>$i->uId,data=>\@affils}
-        @affils = ();
+        push @updates, {type=>'userAffils',userId=>$currentUser,data=>$affils};
+        $affils = []; 
     }
+    push @$affils, \%i;
+    @$affils = sort { $a->{rank} <=> $b->{rank} } @$affils;
     $currentUser = $i->uId;
 }
-push @updates, {type=>'userAffils',userId=>$currentUser,data=>\@affils} if $currentUSer;
+push @updates, {type=>'userAffils',userId=>$currentUser,data=>$affils} if $currentUser;
 
-$it = xPapers::Relations::UserAOIMng->get_objects_iterator(sort_by=>['uId','rank']);
-my @aois = ();
+$it = xPapers::Relations::UserAOIMng->get_objects_iterator(sort_by=>['mId','rank']);
+my $aois = [];
+
 $currentUser = undef;
 while (my $i = $it->next) {
 
     my %i;
-    $i{userId} = $i->mId;
+#    $i{userId} = $i->mId;
     $i{topicId} = $i->aId;
     $i{rank} = $i->rank;
     if (!$currentUser or $currentUser == $i->mId) {
-        push @aois, \%i;
     } else {
-        push @updates, {type=>'userTopics',userId=>$i->mId,data=>\@aois};
-        @aois = ();
+        push @updates, {type=>'userTopics',userId=>$currentUser,data=>$aois};
+        $aois = [];
     }
+    push @$aois, $i->aId;
     $currentUser = $i->mId;
 }
-push @updates,{type=>'userTopics',userId=>$currentUser,data=>\@aois} if $currentUser;
+push @updates,{type=>'userTopics',userId=>$currentUser,data=>$aois} if $currentUser;
 
 
 # take note of the highest job id processed in this
-$struct{latestJob} = xPapers::DB->exec("select max(id) as id from push_jobs")->fetchrow_hashref->{id};
-$struct{updates} = \@updates;
+#$struct{latestJob} = xPapers::DB->exec("select max(id) as id from push_jobs")->fetchrow_hashref->{id};
+#$struct{updates} = \@updates;
 
-print encode_json(\%struct);
+print encode_json(\@updates);
 
 }; #eval
 if ($@) {

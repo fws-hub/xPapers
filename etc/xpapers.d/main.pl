@@ -153,4 +153,7 @@ $C2 = '10A010';
 $C3 = '133d9f';
 $C4 = '104bb8';
 
+$PUSH_SERVER = "http://localhost:8080";
+$PUSH_KEY = "lkasdjsdfkljasdkljddkfj";
+
 #print "Extra config loaded.\n";

@@ -396,15 +396,25 @@ sub mkRefs {
     #$t =~ s/([\w\-\.]+\@[\w\-]+(?:\.[\w\-]+)+)/ecode($1)/ge;
 
     return $t unless $me->{foundRefs};
+
+    my $showAbstract = $me->{showAbstract};
+    my $noOptions = $me->{noOptions};
+    my $entryReady = $me->{entryReady};
     $me->{showAbstract} = 0;
     $me->{noOptions} = !$norefs; 
     $me->{entryReady} = 1;
+
     my $refs = "<p><h3>References</h3><div class='references'><ol class='entryList'>";
     $refs .= "<li class='entry'>" . join( "</li><li class='entry'>", map { $me->renderPostO($_) } @{$me->{citesp}} ) . "</li>" if $me->{foundPosts};
     $refs .= join( "", map { $me->renderEntry($_) } @{$me->{cites}} );
     $refs .= "</ol></div>";
     $me->{latestRefs} = $refs;
-    return $norefs ? $t : $t.$refs;
+
+    $me->{showAbstract} = $showAbstract;
+    $me->{noOptions} = $noOptions;
+    $me->{entryReady} = $entryReady;
+
+    return $t;
 }
 
 sub getEntryForCite {
