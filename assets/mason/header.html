@@ -27,7 +27,9 @@ event('menu','end');
     </div>
 %} elsif ($READ_ONLY) {
      <div style="background: #ea972c;padding:5px; color: black; font-weight:bold">
-        The site will be in read-only mode until about <%$READ_ONLY%> as we perform some maintenance. You can use it normally, but you cannot sign in.
+        <center>
+        <%$s->{niceName}%> is currently in read-only mode while we are performing some maintenance. You can use the site normally except that you cannot sign in. This shouldn't last long.
+        </center>
     </div>
 %}
 
