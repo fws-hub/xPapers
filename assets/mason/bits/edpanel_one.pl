@@ -30,7 +30,9 @@ my $c = $ARGS{__cat__};
 </%perl>
 <br>
 <a href="/utils/batch_import.pl?addToList=<%$c->{id}%>">Import a bibliography</a><br>
-<a href="/browse/<%$c->{uName}%>/edit_summary.pl">Edit summary, key works, and see-also references</a><br>
+<!--
+<a href="/utils/edit_summary.pl?cId=<%$c->id%>">Edit summary, key works, and see-also references</a><br>
+-->
 %if ($c->catCount >0 and $c->pLevel != 1) {
 <a href="/browse/<%$c->uName%>/application.html?recursive=on&force=1&cId=<%$c->id%>&apply=1" target="_blank" onclick="if (!confirm('This will lodge an application for ALL open subcategories. Are you sure you want to do this?')) return false; return true">Volunteer to edit all open subcats
 %}
