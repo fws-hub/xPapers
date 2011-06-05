@@ -26,21 +26,24 @@ sub process {
     # do basic alerts for each user 
     #print "getting users..\n";
     my $users = xPapers::UserMng->get_objects_iterator(
-        clauses=>["confirmed and alertFreq > 0 and alertChecked < date_sub(now(), interval alertFreq day)"],
+#        clauses=>["confirmed and alertFreq > 0 and alertChecked < date_sub(now(), interval alertFreq day)"],
         limit=>$limit,
-        #uId=>1
+        query=>[id=>1]
     );
 
     while (my $u = $users->next) {
 
         print "doing $u->{id}\n";
+        $u->alertChecked(DateTime->now->subtract(days=>14));
+        $u->save;
+
         my @alerts = $me->basicAlerts($u);
 
         # fetch & post
         for my $a (sort { $a->{uId} <=> $b->{uId} } @alerts) {
             print "Doing $a->{uId}/$a->{name}\n";
             $a->post if $a->fetch;
-            sleep(5);
+            #sleep(5);
         }
 
         $u->alertChecked(DateTime->now(time_zone=>$TIMEZONE));

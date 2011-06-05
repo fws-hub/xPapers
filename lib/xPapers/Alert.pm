@@ -87,7 +87,7 @@ sub fetch {
             $me->notes("This alert is no longer functioning. This might be because the page's options changed.");
             my $n = xPapers::Mail::Message->new;
             $n->uId($me->uId);
-            $n->brief("One of your content alerts as failed.");
+            $n->brief("One of your content alerts has failed.");
             $n->content($n->greetings . "Your content alert `$me->{name}` has stopped working. This is probably because the settings of the relevant page have changed. You will no longer receive anything from this alert. You may want to visit \"your alert page\":$DEFAULT_SITE->{server}/profile/myalerts.pl to replace this alert with a new one. We apologize for the inconvenience." . $n->signature( $DEFAULT_SITE->{niceName} ) ); 
             $n->save;
         } else {
@@ -96,6 +96,9 @@ sub fetch {
         $me->save;
         return undef;
     } else {
+
+        #print $c;
+        #print "Found: $1\n";
 
         if ($1 > $FORMATS{alert}->{limit}) {
             $c .= "<hr><b>NOTE</b>: there are more new entries matching this alert than are shown here. You may want to consider monitoring with more restrictive settings or increasing the frequency of your alerts.<hr>";
@@ -118,6 +121,7 @@ sub post {
 
     return unless $me->{result};
     my $n = xPapers::Mail::Message->new;
+    print $me->{result};
     $n->brief("Content alert: " . rmTags($me->{name}));
     $n->{content} = encode("utf8"," <html> <head> <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"> <meta http-equiv=\"content-language\" content=\"en\"> </head> <body> <div style='font-size:14px;font-weight:bold'>$me->{name}</div><a href='$DEFAULT_SITE->{server}/profile/myalerts.pl'>Click here to unsubscribe or view or modify your alerts</a><br><br>$me->{result}"); 
     $n->isHTML(1);

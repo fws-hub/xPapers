@@ -192,6 +192,7 @@ function renderCat(id,context,expand,newcat,pos) {
         else
              $('catc-root').insert(el);
     }
+    el.insert("<div style='display:none' class='ced-con untouched' id='catc-" + id + "'></div>");
     if (c.hf) {
         addXYComment(id,c.hf);
     }
@@ -231,7 +232,8 @@ function renderLink(id,loc,pos) {
     }
 }
 function renderSubs(id,expand) {
-    $('cat-'+id).insert("<div class='ced-con ced-con"+l+"' id='catc-" + id + "'></div>");
+    $('catc-'+id).show();
+    $('catc-'+id).removeClassName('untouched');
     if (CS['c'+id].s) {
         var l = CS['c'+id].pl;
         CS['c'+id].s.each(function(i) {
@@ -530,7 +532,7 @@ function updateStat(id,c) {
 
 function catclick(id) {
     var el = $('catc-'+id);
-    if (el) {
+    if (el && !el.hasClassName('untouched')) {
         if (el.hasClassName('ced-expanded')) {
            el.removeClassName('ced-expanded');
            el.addClassName('ced-shrunk');
@@ -541,6 +543,7 @@ function catclick(id) {
     } else {
         renderSubs(id,defaultExpand > 0 ? defaultExpand -1 : 0);      
     }
+
 }
 
 

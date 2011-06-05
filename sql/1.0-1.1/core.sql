@@ -6,4 +6,4 @@ alter table cats add column introductions text;
 alter table cats add column summaryUpdated datetime;
 alter table cats add column summaryChecked tinyint(1) unsigned default 1;
 alter table cats add column advertiseSummary datetime;
-
+alter table notices change column content content longtext;
