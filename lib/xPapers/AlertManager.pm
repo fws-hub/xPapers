@@ -28,12 +28,14 @@ sub process {
     my $users = xPapers::UserMng->get_objects_iterator(
         clauses=>["confirmed and alertFreq > 0 and alertChecked < date_sub(now(), interval alertFreq day)"],
         limit=>$limit,
-#        query=>[id=>38]
     );
 
     while (my $u = $users->next) {
 
         print "doing $u->{id}\n";
+        $u->alertChecked(DateTime->now->subtract(days=>14));
+        $u->save;
+
         my @alerts = $me->basicAlerts($u);
 
         # fetch & post

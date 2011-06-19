@@ -2,7 +2,7 @@
 # Followed by followed
 event('suggest_follow','start');
 use Encode 'decode';
-my $order = $ARGS{all} ? "aliases.name" : "if(rating>30,30,rating)+rand()*30+if(isnull(af2.aId),0,rand()*10+10) desc";
+my $order = $ARGS{all} ? "aliases.name" : "if(rating>20,20,rating)+rand()*40+if(isnull(af2.aId),0,rand()*10+10) desc";
 my $limit = $ARGS{all} ? '500' : 6;
 
 my $q = "

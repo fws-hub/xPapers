@@ -464,6 +464,7 @@ event('initIterator','start');
 my $qu = xPapers::Query->new;
 #$qu->{debug} = $m;
 #$qu->{debug} = $m if $SECURE;
+#$qu->{debug} = $m if $ARGS{format} eq 'alert';
 if ($ARGS{__sql__}) {
     $qu->preparePureSQL($ARGS{__sql__},$filters);
 } else {

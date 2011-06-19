@@ -23,7 +23,7 @@ __PACKAGE__->meta->setup
         uId       => { type => 'integer' },
         email     => { type => 'varchar', default => '', length => 255, not_null => 1 },
         brief     => { type => 'varchar', length => 255 },
-        content   => { type => 'text', length => 65535 },
+        content   => { type => 'text' },
         failures  => { type => 'integer', default => '0' },
         sent      => { type => 'integer', default => '0', not_null => 1 },
         created   => { type => 'datetime', default => 'now', not_null => 1 },

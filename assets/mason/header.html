@@ -37,6 +37,7 @@ event('menu','end');
 <div id='head'>
 
     <div style="float:right;vertical-align:top" id='headlinks'>
+        <span>
 % if ($user->{id}) {
         Signed in as <a href="/profile/<%$user->id%>"><% $user->fullname %></a> 
         | <a href="<%$BASE_URL%>?logoff=1">Sign out</a>
@@ -50,6 +51,7 @@ event('menu','end');
         <a href="/inoff.html">Sign in</a> | <a href="/users/new.html">Create an account</a>
 %}
         | <& bits/addthis.html &> 
+        </span>
     </div>
 
     <div class='topMsgC' style='<%$ARGS{_mmsg} ? "display:block" : "display:none"%>'><%$ARGS{_mmsg} ? "<span class='topMsg'>$ARGS{_mmsg}</span>" : "&nbsp;"%></div>
