@@ -103,6 +103,7 @@ sub fetch {
         
         $me->{result} = $c unless $1 <= 0;
        
+        #print $c;
         return 1 if $me->{ephemeral};
         $me->notes("Last found $1 new items.");
         $me->failures(0);

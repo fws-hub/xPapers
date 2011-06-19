@@ -28,7 +28,7 @@ sub process {
     my $users = xPapers::UserMng->get_objects_iterator(
         clauses=>["confirmed and alertFreq > 0 and alertChecked < date_sub(now(), interval alertFreq day)"],
         limit=>$limit,
-        #uId=>1
+#        query=>[id=>38]
     );
 
     while (my $u = $users->next) {

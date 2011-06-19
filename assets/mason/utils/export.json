@@ -29,12 +29,14 @@ $dbh->do("flush tables with read lock");
 
 
 my $it = xPapers::UserMng->get_objects_iterator();
+my @users;
 while (my $u = $it->next) {
     my %r;
     $r{$_} = $u->{$_} for @user_fields;
     #print Dumper(\%r);
-    push @updates, {type=>'user',data=>\%r}; 
+    push @users, \%r;
 }
+push @updates, {type=>'allUsers',data=>\@users};
 
 $it = xPapers::I->get_objects_iterator();
 my %insts;

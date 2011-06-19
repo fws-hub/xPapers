@@ -79,9 +79,12 @@ sub move {
 
 sub mkPAncestors {
     my $me = shift;
-    my $c = xPapers::DB->new->dbh;
-    $c->do("delete from primary_ancestors");
-    $c->do("insert into primary_ancestors (cId,aId) select a.id , b.id from cats a join cats b on a.dfo >= b.dfo and a.dfo <= b.edfo");
+    my $d = xPapers::DB->new;
+    my $c = $d->dbh;
+    $d->do_transaction( sub {
+        $c->do("delete from primary_ancestors");
+        $c->do("insert into primary_ancestors (cId,aId) select a.id , b.id from cats a join cats b on a.dfo >= b.dfo and a.dfo <= b.edfo");
+    });
 }
 
 sub mkAncestors {
