@@ -9,6 +9,8 @@ use HTML::Entities;
 use Encode;
 use Unicode::Normalize 'compose';
 use LaTeX::ToUnicode 'convert';
+use File::Temp 'tempfile';
+use Encode qw/encode decode/;
 use utf8;
 
 my %map = (
@@ -42,6 +44,28 @@ my %typem = (
 #my ($res,$errors) = parse("/home/xpapers/data/bibs/benj_hellie.bib");
 #print "$_\n" for @$errors;
 #print "$#$res found.\n";
+
+my $fileCount = 0;
+sub parseText {
+    my $text = shift;
+    $fileCount++;
+    my $name = "/tmp/bibtex-parser-$$-$fileCount.tmp";
+    open F, ">$name";
+    #binmode(F,':utf8');
+    #$text = decode('utf8',$text);
+    print F $text;
+    close F;
+    my @result;
+    eval {
+        @result = parse($name);
+    };
+    if ($@) {
+        die "Caught exception: $@";
+        unlink $name;
+    }
+    unlink $name;
+    return @result;
+}
 
 sub parse {
 
@@ -115,6 +139,7 @@ sub parse {
             }
         } elsif ($type eq 'article') {
             $n->{source} = p($e->get('journal'));
+            $n->{source} =~ s/\s*\(.*?\)//g;
             $n->{issue} = p($e->get('number'));
         }
         if ($type eq 'book' and $e->get('volume')) {
@@ -124,6 +149,19 @@ sub parse {
             $n->{date} = $1;
             $n->{dateRP} = $2;
         }
+
+        if (my $jt = $e->get('jstor_articletype')) {
+            if ($jt eq 'research-article') {
+            } elsif ($jt eq 'book-review') {
+                next if $n->title =~ /\[untitled\]/;
+                $n->review(1);
+            } else {
+                #print "Bad type: $jt\n";
+                next;
+            }
+        }
+
+        $n->{pages} =~ s/^\s*pp\.?\s*//;
 
         # check bogus date
         if ($type ne 'unpublished' and
@@ -180,6 +218,7 @@ sub p {
     #$in =~ s/\}$//;
     $in;
 }
+1;
 __END__
 
 
@@ -210,6 +249,5 @@ David Bourget with contributions from Zbigniew Lukasiak
 =head1 COPYRIGHT AND LICENSE
 
 See accompanying README file for licensing information.
-
 
 
