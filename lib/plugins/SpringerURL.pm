@@ -4,10 +4,10 @@ use xPapers::Entry;
 use xPapers::Util;
 use Data::Dumper;
 use HTML::Form;
-use xPapers::Parse::BibTeX;
 use Encode 'decode','encode';
 use File::Temp 'tempfile';
 use xPapers::Render::BibTeX;
+use xPapers::Parse::RIS;
 
 sub validLinks {
     my ($me,$entry) = @_;
@@ -39,65 +39,7 @@ sub parsePage {
     die "Springer broken" unless $result->is_success;
     my $c = decodeResp($result,'cp1252');
 
-    # Convert to a hash
-    my %r;
-    my $tag = "";
-    for my $line (split(/[\r\n]/,$c)) {
-        next unless $line =~ /\w/;
-        $line = rmTags($line);
-        if ($line =~ /^([A-Z]{2,3})\s+-\s(.+)$/) {
-            $tag = $1;
-            # this is a list field
-            if (defined $r{$tag}) {
-                unless (ref($r{$tag}) eq 'ARRAY') {
-                    #print "listying $tag\n";
-                    my @list;
-                    push @list,$r{$tag}; 
-                    $r{$tag} = \@list;
-                }
-                #print "$tag => $2\n";
-                push @{$r{$tag}}, $2;
-            } else {
-                $r{$tag} = $2;
-            }
-        } 
-        # looks like we're continuing previous field 
-        else {
-            #die "extending $tag";
-            $r{$tag} .= " $line";
-        }
-    }
-    #print Dumper($r{AU});
-    #print Dumper(\%r);
-    my @au = ref($r{AU}) ? @{$r{AU}} : $r{AU};
-
-    $entry->setAuthors(map { composeName(parseName($_)) } @au);
-    $entry->title($r{TI});
-    $entry->source($r{JT});
-    $entry->pub_type('journal');
-    $entry->type('article');
-    $entry->author_abstract($r{AB}) if $r{AB};
-    if ($r{VL} and $r{IP}) {
-        $entry->volume($r{VL});
-        $entry->issue($r{IP});
-        $entry->pages($r{PG});
-        if ($r->{DP} =~ /^(\d\d\d\d)/) {
-            $entry->date($1);
-        } else {
-            if ($r{DP} =~ /^(\d{4,4})/) {
-                $entry->date($1);
-            } else {
-                die "No date found";
-            }
-        }
-    } else {
-        $entry->date('forthcoming');
-    }
-    if ($r{AID} =~ /^(.+)\s*\[doi\]/) {
-        $entry->doi($1);
-    }
-    $entry->addLink($r{UR});
-
+    my ($entry) = xPapers::Parse::RIS::parse($c);
 =example
 PT - JOURNAL ARTICLE
 

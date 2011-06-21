@@ -90,9 +90,9 @@ END
         print U Dumper(\%mail);
         close O;
         close U;
-        #$n->sent(1);
-        #$n->sent_time('now');
-        #$n->save;
+        $n->sent(1);
+        $n->sent_time('now');
+        $n->save;
         return;
     }
 
