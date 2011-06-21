@@ -617,7 +617,7 @@ function renderFollowX( eId ){
         close: true,
         text: 'aaaaaaa',
         constraintoviewport: true,
-        zIndex:9999,
+        zIndex:9999
     };
     var d = new YAHOO.widget.SimpleDialog("followX",conf);
     d.setHeader("Follow authors");
