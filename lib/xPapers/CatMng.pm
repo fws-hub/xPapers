@@ -67,13 +67,14 @@ sub move {
     $parent->remove_child($cat);
 
     # if parent isn't changing, adjust the newPos accordingly (the value passed is with the child still in)
-    $newPos-- if ($parent->id == $newParent->id and $newPos > $rel->rank);
+    # actually the value passed is adjusted
+    #$newPos-- if ($parent->id == $newParent->id and $newPos > $rel->rank);
 
     # add to parent at new location 
     $newParent->add_child($cat,$newPos);
 
-    # set as PP if old parent was PP
-    $cat->setPP($newParent->id) unless $cat->ppId;
+    # set as PP if old parent was PP (in which case ppId would have been undefined)
+    $cat->setPP($newParent->id) unless defined $cat->ppId;
 
 }
 

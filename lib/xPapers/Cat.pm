@@ -258,7 +258,10 @@ sub add_child {
     my ($me, $cat, $rank) = @_;
     my $aid = $cat->id;
     my $rel = xPapers::Relations::Cat2Cat->new(pId=>$me->id,cId=>$aid);
-    return if $rel->load_speculative;
+    if ($rel->load_speculative) {
+        warn 'exists already..';
+        return;
+    }
     # check for cycles
     if ($me->hasAncestor($aid)) {
         print STDERR "**** WARNING Attempt to add circular reference with $me->{name} ($me->{id}) :: $cat->{name} ($aid)<br>\n";
@@ -278,6 +281,7 @@ sub add_child {
     }
     $rel->rank($rank);
     $rel->save;
+    $me->forget_related('cat_memberships');
     $me->catCount($me->catCount+1);
     $me->save;
     $me->clear_cache;
@@ -285,7 +289,6 @@ sub add_child {
     # add ancestors
     $me->dbh->do("insert ignore into ancestors (aId,cId) select aId,$cat->{id} from ancestors where cId=$me->{id}");
     $me->dbh->do("insert ignore into ancestors set aId=$cat->{id},cId=$cat->{id}");
-
 }
 
 # DEPRECATED
@@ -317,6 +320,7 @@ sub remove_child {
 
     # get the relation
     my $rel = xPapers::Relations::Cat2Cat->new(pId=>$me->id,cId=>$cat->id)->load_speculative;
+
     die "No such child" unless $rel;
 
     # move up lower cats

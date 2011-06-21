@@ -10,7 +10,7 @@ sub new {
   my ($class) = @_;
   my $self = $class->SUPER::new();
   $self->{noOptions} = 1;
-  #$self->{fullAbstract} = 1;
+  $self->{fullAbstract} = 1;
   $self->{skipInit} = 1;
   $self->{noMousing} = 1;
   $self->{noRelevance} = 1;

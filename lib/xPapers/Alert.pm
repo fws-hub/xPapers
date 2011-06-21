@@ -121,7 +121,7 @@ sub post {
 
     return unless $me->{result};
     my $n = xPapers::Mail::Message->new;
-    print $me->{result};
+    #print $me->{result};
     $n->brief("Content alert: " . rmTags($me->{name}));
     $n->{content} = encode("utf8"," <html> <head> <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"> <meta http-equiv=\"content-language\" content=\"en\"> </head> <body> <div style='font-size:14px;font-weight:bold'>$me->{name}</div><a href='$DEFAULT_SITE->{server}/profile/myalerts.pl'>Click here to unsubscribe or view or modify your alerts</a><br><br>$me->{result}"); 
     $n->isHTML(1);

@@ -9,10 +9,20 @@ use xPapers::Util qw/toUTF rmTags capitalize/;
 
 use base xPapers::Render::Text;
 
+sub beginBiblio {
+    my $me = shift;
+    $me->{biblio} = [];
+}
+
+sub endBiblio {
+    my $me = shift;
+    return encode_json $me->{biblio};
+}
+
 sub renderEntry {
     my ($me,$e) = @_;
     $e->load;
-    return {
+    my $e =  {
         authors => [$e->getAuthors],
         title => capitalize($e->title,notSentence=>1),
         year => $e->date,
@@ -21,8 +31,9 @@ sub renderEntry {
         categories => [ map { { id => $_->id, name => $_->name } } $e->canonical_categories_o ],
         links => [ $e->getAllLinks ],
         pubInfo => trim(rmTags($me->prepPubInfo($e)))
-    }
-
+    };
+    push @{$me->{biblio}}, $e;
+    $e;
 }
 
 sub trim {

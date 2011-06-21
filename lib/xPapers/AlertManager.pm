@@ -34,8 +34,8 @@ sub process {
     while (my $u = $users->next) {
 
         print "doing $u->{id}\n";
-        $u->alertChecked(DateTime->now->subtract(days=>14));
-        $u->save;
+#        $u->alertChecked(DateTime->now->subtract(days=>14));
+#        $u->save;
 
         my @alerts = $me->basicAlerts($u);
 

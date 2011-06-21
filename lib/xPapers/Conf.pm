@@ -141,6 +141,7 @@ $POP_JOURNALS = 1; # id of most popular journals list
 %FORMATS = (
     css => { renderer=>undef, contentType=>'text/css'},
     js => { renderer=>undef, contentType=>'text/javascript' },
+    export => { renderer=>'xPapers::Render::Struct', contentType=>'text/javascript' },
     json => { renderer=>'xPapers::Render::JSON', contentType=>'text/javascript' },
     xml => { renderer=>'xPapers::Render::RSS', contentType=>'application/rss+xml', limit=>500 },
     rss => { renderer=>'xPapers::Render::RSS', contentType=>'application/rss+xml', limit=>500 },

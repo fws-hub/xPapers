@@ -63,6 +63,7 @@ sub afterGroup {};
 sub entryId { my ($me,$e) = @_; return $e->id };
 sub renderNav {};
 sub nothingMsg {};
+sub renderCatHeading {};
 sub renderNameLit {
     my ($me,$name) = @_;
     my $r = reverseName($name);

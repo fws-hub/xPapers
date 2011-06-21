@@ -1,5 +1,11 @@
 <& ../header.html, subtitle=>"Category editor" &>
 <% gh("Category editor") %>
+<%perl>
+if (xPapers::DB->new->countWith("cat_edits where not finished")) {
+    print "An update is still being processed (it can take up to 2-3 minutes to do all the required processing). Please wait before making other changes.";
+    return;
+}
+</%perl>
 <style>
 .ced-shrunk { display: none !important }
 .ced-expanded { display: block !important }
@@ -34,7 +40,7 @@
 
 </style>
 <script type="text/javascript">
-<% xPapers::CatMng->catsJS(maxDepth=>100,__catRoot=>$root,notWritableOK=>1) %>
+<% xPapers::CatMng->catsJS(maxDepth=>100,__catRoot=>$root,notWritableOK=>1,refresh=>0) %>
 var defaultExpand = 1;
 var CED = null;
 var menus = new Hash();
@@ -80,6 +86,7 @@ function slotclick(id,context,uid) {
         }
         var loc = myIndexOf(p.s,id);
         if (loc == -1) loc = (p.s.length > 0 ? p.s.length : 0);
+        if (context == CED.from && loc > myIndexOf(c(CED.from).s,CED.cata)) loc--;
 
         if (CED.action == 'add') {
             if (myIndexOf(p.s,CED.cata) > -1) {
@@ -90,11 +97,28 @@ function slotclick(id,context,uid) {
             histo.push({act:'add',cId:CED.cata,pId:context,catName:c(CED.cata).n,nName:p.n,pos:loc});
         } else if (CED.action = 'move') {
             // update the CS structure
+            var before = c(CED.from).s;
+
             c(CED.from).s = c(CED.from).s.without(CED.cata);
-            p.s.splice(loc,0,CED.cata);
-            // move the DOM element
             var el = u(CED.uid).remove();
-            u(uid).insert({before:el});
+
+            //alert(p.s);
+            //alert(c(CED.from).s)
+            //alert(CED.from);
+
+            var atPrimary = (c(CED.cata).pp == CED.from);
+            if (atPrimary) c(CED.cata).pp = context;
+
+            // re-draw the item
+            if (atPrimary)
+                renderCat(CED.cata,context,false,1,loc);
+            else
+                renderLink(CED.cata,context,loc);
+
+            p.s.splice(loc,0,CED.cata);
+
+            //u(uid).insert({before:el});
+            //alert(before + "\n" + c(CED.from).s);
             histo.push({act:'move',cId:CED.cata,pId:CED.from,catName:c(CED.cata).n,nName:p.n,newParent:context,pos:loc});
         }
         drawHistory();
@@ -103,6 +127,11 @@ function slotclick(id,context,uid) {
     }
 
     if (context == -1) return;
+
+    if (menus.get(cmb)) {
+        var m = menus.get(cmb);
+        m.destroy();
+    }
 
     var menu = new YAHOO.widget.Menu('slotmenu-'+cmb+(menuCount++), {
         minscrollheight:250,
@@ -125,8 +154,8 @@ function slotclick(id,context,uid) {
     });
     menu.render('slotm-'+cmb);
     menu.show();
-    /*
     menus.set(cmb,menu);
+    /*
     var menu = menus.get(cmb);
     if (menu) {
         menu.position="dynamic";
@@ -182,7 +211,9 @@ function renderCat(id,context,expand,newcat,pos) {
         if (!ipos) {
             $('empty-'+context).insert({ before: el });
         } else {
-            $$(".cat" + context + " " + ".cat" + ipos).each(function(i) {
+            var path = ".cat" + context + " " + ".cat" + ipos;
+            //alert(path);
+            $$(path).each(function(i) {
                 i.insert({before: el});
             });
         }
@@ -218,12 +249,13 @@ function renderLink(id,loc,pos) {
     el.innerHTML += "<span class='ced-n ced-n"+id+"'>" + c.n + "</span>";
     el.addClassName('cat'+id);
     el.addClassName('ced-lnk');
-    if (pos) {
+    if (pos >= 0) {
         var ipos = CS['c'+loc].s[pos];
         if (!ipos) {
              $('empty-'+loc).insert({before:el});
         } else {
             $$(".cat" + loc + " " + ".cat" + ipos).each(function(i) {
+                //console.log('inserting at pos ' + pos);
                 i.insert({before: el});
             });
         }
@@ -409,10 +441,10 @@ function addcat(id) {
                     i.insert({before: mkCatEl(nid,id)});
                 });
             }
-            //if (pos <= 0) 
+            if (pos <= 0) 
                 CS['c'+id].s.unshift(nid);
-            //else
-            //   CS['c'+id].s = ar.slice(0,pos-1).concat([nid]).concat(ar.slice(pos,ar.length-1));
+            else
+               CS['c'+id].s = ar.slice(0,pos).concat([nid]).concat(ar.slice(pos,ar.length));
         }
         //renderCat(nid,id,0,1,pos);
         $('addcatin'+id).value='';

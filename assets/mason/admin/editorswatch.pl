@@ -20,7 +20,7 @@ xPapers::Render::GChart->compile(
     chs=>"900x200",
     endDate=>DateTime->now(time_zone=>$TIMEZONE)->subtract(days=>1),
     queries=>[$root->dbh->prepare(" 
-        select date(diffs.created) as l, count(*) as v from diffs join cats on (diffs.relo1=cats.id and cats.canonical) where diffs.type='update' and diffs.class='xPapers::Entry' and diffs.created >= date_sub(date(now()), interval 30 day) group by date(diffs.created) 
+        select date(diffs.created) as l, count(*) as v from diffs join cats on (diffs.relo1=cats.id and cats.canonical) where diffs.type='update' and diffs.uId > 10 and diffs.class='xPapers::Entry' and diffs.created >= date_sub(date(now()), interval 30 day) group by date(diffs.created) 
        
     ")],
 );

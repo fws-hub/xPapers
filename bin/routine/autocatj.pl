@@ -45,5 +45,5 @@ while (my $j = $journals->next) {
 }
 #close R;
 
-print "$count added.\n";
-
+#print "$count added.\n";
+1;

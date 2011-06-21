@@ -1236,6 +1236,7 @@ html>div.block {
     color:#555555;
 }
 .serious_error { font-weight:bold; color:red; }
+.errors { color: red; font-weight:bold; border: 1px solid #666 }
 
 
 /* Uploader */

@@ -12,7 +12,8 @@ __PACKAGE__->meta->setup
         uId       => { type => 'integer' },
         cmds   => { type => 'text', length => 65535 },
         status   => { type => 'varchar', length => 255 },
-        created   => { type => 'datetime' }
+        created   => { type => 'datetime' },
+        finished => { type => 'integer', default => 0 }
     ],
     relationships=> [
         user => { type => 'one to one', class=>'xPapers::User', column_map => { uId => 'id' }}, 

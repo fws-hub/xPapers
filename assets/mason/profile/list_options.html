@@ -22,25 +22,7 @@
        
         # add memberships if public
         if ($ARGS{publish}) {
-            for (keys %ARGS) {
-                next unless /^cat-(\d+)$/;
-                my $cat = xPapers::Cat->new(id=>$1)->load;
-                next unless $cat;
-                my $t;
-                if (!$cat->related) {
-                    $t = xPapers::Cat->new;
-                    $t->name($cat->name);
-                    $t->system(1);
-                    $t->{related} = $cat->id;
-                    $t->save;
-                    $cat->{related} = $t->id;
-                    $cat->save;
-                } else {
-                    $t = $cat->unofficial;
-                }
-                #print "added to " .$t->name . $t->id "<br>";
-                $t->add_child_o($i->id);
-            }
+        } else {
         }
         
         $i->save;
@@ -84,6 +66,7 @@ Name: <input type="text" name="name" value="<%$i->name%>" size="40">
     }
 ">Delete this category</span>
 </li>
+<li><input type="checkbox" name="publish" <%$i->publish?'checked':''%>> Make this bibliography publicly accessible</li>
 </ul>
 </div>
 </div>
@@ -128,28 +111,6 @@ Name: <input type="text" name="name" value="<%$i->name%>" size="40">
 %}
 </div>
 </div>
-
-<div class="bigBox">
-<div class="bigBoxH">Publish it</div>
-<div class="bigBoxC">
-
-        <input type="checkbox" name="publish" value="1" <%$i->publish ? "checked" : ""%> onchange="if (this.checked) {$('popts').show()} else {$('popts').hide()}"> Link with public categories.
-
-        <div id='popts' style="display:<%$i->publish ? 'block' : 'none'%>">
-        <%perl> 
-        my @parents = map { $_->unofficial } grep { $_->{related} } $i->parents;
-        $m->comp("/bits/cat_edit.pl", %ARGS, current=>\@parents, max=>3, notWritableOK=>1, maxDepth=>1, noPerso=>1);
-        </%perl> 
-
-        <p>
-        Public description <span class="hint">(Max. 500 char.)</span>:<br>
-        <br>
-        <textarea name="description" cols="100" rows="2"><%$i->description%></textarea> 
-        </div>
-
-</div>
-</div>
-
 
 <input class='buttons' type="submit" value="Save" name="submit">
 
