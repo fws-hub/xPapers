@@ -695,6 +695,7 @@ sub cleanNames {
 sub cleanJournal {
 #    die "this needs to be updated: add journal name mapping";
     my $source = shift;
+    warn $source;
     unless ($journal_map) {
         $journal_map = file2hash($DEFAULT_SITE->fullConfFile( 'journal_map.txt' ) );
         $journal_map->{lc $_} = $journal_map->{$_} for keys %$journal_map;

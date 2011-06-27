@@ -74,6 +74,19 @@ sub parseStruct {
         $entry->volume($r{VL});
         $entry->issue($r{IS});
         $entry->pages("$r{SP} - $r{EP}");
+        if ($r{Y1} =~ /^(\d\d\d\d)\//) {
+            $entry->date($1);
+        }
+    } elsif ($r{VL}) {
+        $entry->volume($r{VL});
+        if ($r{Y1} =~ /^(\d\d\d\d)\//) {
+            $entry->date($1);
+        }
+        if ($r{SP}) {
+            $entry->pages("$r{SP} - $r{EP}");
+
+        }
+
     } else {
         $entry->date('forthcoming');
     }
