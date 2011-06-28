@@ -59,7 +59,7 @@ if ($ARGS{addSeeAlso}) {
 <input type="hidden" name="cId" value="<%$ARGS{cId}%>">
 <input type="hidden" name="submit" value="ok">
 
-<div class="miniheader" style="border-top:1px solid black">
+<div class="miniheader" style="border-top:1px solid black;height:20px">
 <h3>See also references</h3>
 </div>
 
@@ -82,7 +82,7 @@ print "</ul>";
     <input type="submit" value="Add">
 
 <p>
-<div class="miniheader" style="border-top:1px solid black">
+<div class="miniheader" style="border-top:1px solid black;height:20px">
 <h3>Summary texts</h3>
 </div>
 On most category pages, we aim to have a one paragraph summary of the category, followed by key works and introductions. The idea is to give non-expert readers an idea of the main issues and pointers about where to go next. For a few categories, such as "Misc" categories, a summary may be unnecessary.
