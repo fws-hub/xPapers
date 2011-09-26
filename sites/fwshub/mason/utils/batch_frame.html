@@ -1,0 +1,149 @@
+<& ../head.html &>
+<%perl>
+$NOFOOT=1;
+</%perl>
+<style>
+h3 { color: #<%$C2%> }
+.disabled { color: #aaa }
+</style>
+<script type="text/javascript">
+
+function setcup(id) {
+    $('addToList').value=id;
+    injectCat(id,'selectedCat','');
+    $('targetOld').checked = true;
+}
+</script>
+
+
+<body>
+
+<div id="setup">
+
+
+<h3>Bibliography to import</h3>
+
+<form method="POST" id='upform' enctype='multipart/form-data' action='/utils/process_batch.pl' onsubmit="
+if (!$('agree').checked) {
+    alert('You must confirm your right to upload this bibliography first.');
+    return false;
+}
+window.parent.processbib();
+$('setup').hide();
+">
+<input type="hidden" id="addToList" name="addToList" value="<%$ARGS{addToList}%>">
+<input type="hidden" name="after" value="<%$ARGS{after}||$ENV{HTTP_REFERER}%>">
+<input type="hidden" name="ticket" value="<%uniqueKey()%>">
+<input type="hidden" name="noheader" value="1">
+
+<p>Format:
+<select id="format" name="batchFormat" onchange="
+   if ($F('format') != 'text') {
+       $('createMissing').disabled = false; 
+       $('createMissingT').removeClassName('disabled');
+       $('uptext').hide();
+       $('upfile').show();
+       $('none').show();
+   } else {
+        $('createMissing').checked = false;
+        $('createMissing').disabled = true;
+        $('createMissingT').addClassName('disabled');
+        $('upfile').hide();
+        $('uptext').show();
+        $('none').hide();
+        $('targetNone').checked = false;
+   }
+">
+<option value="">Select a format ..</option>
+<option value="text">Plain text</option>
+<option value="bibtex">BibTeX</option>
+<!--
+<option value="endnote">EndNote (Refer, not XML)</option>
+-->
+<!--
+<option value="endnotex">EndNote (XML)</option>
+-->
+<option value="ris">ReferenceManager (RIS)</option>
+<option value="mods">MODS XML</option>
+</select>
+<p>
+
+<div id='upfile'>
+File: <input type="file" name="file">
+<p>
+</div>
+
+<div id='uptext' style="display:none">
+<ul class="normal">
+<li>Copy (or type) a bibliography in the box below to add its content to your category. </li>
+<li>This tool is not for adding entries to the database, as only currently existing entries will be added to your category.</li> 
+<li>For best results, the bibliography should contain one entry per line.</li>
+<li>To get any results at all, the bibliography should be in the "Authors (year) Title" format, for example:<p>
+<code style="margin-left:20px">
+Chalmers, David J. (1996). The Conscious Mind. Oxford University Press.
+</code>
+<p>
+The parser will understand any reasonable format for the authors' names and is flexible with punctuation and typos. Non-letter characters at the beginning of lines are ignored, so bullet points are OK.<br>Aside from authors and title, all information is optional; however it is best to provide publication years to avoid mismatches.</li>
+</ul>
+<textarea name="content" cols="80" rows="5"></textarea>
+</div>
+
+<p>
+<input id='createMissing' type="checkbox" name="createMissing"> <span id='createMissingT'>create new <% $s->{niceName} %> entries for missing items</span>
+<p>
+<h3>Target category</h3>
+<table>
+
+<tr>
+<td valign="top" width="140"><input type="radio" id="targetOld" name="target" value="existing" <%$ARGS{addToList} ? "checked" : ""%>> Existing category</td>
+<td style='padding-left:10px'>
+<span id='selectedCat'><% $ARGS{addToList} ? $rend->renderCatC(xPapers::Cat->get($ARGS{addToList})) : "<em>None selected</em>" %></span><br>
+<div class='catac' style='display:block;padding-bottom:0px;padding-left:0px;'> 
+    <input style='border:1px solid #eee;width:190px;' id="catacpi"  name="catacpi" type="text" onfocus="$('targetOld').checked=true;if(this.value == 'Find a category by name') { this.value='' }" value="Find a category by name"> 
+    <input id="add-idpi" name="add-idpi" type="hidden"> 
+    <div class="yui-skin-sam" id="auc-conpi" style="width:420px"></div>
+</div>
+<script type="text/javascript">
+%$m->comp("../search/catcomplete.js",%ARGS, action=>"setcup(%s)",suffix=>"i");
+</script>
+</td>
+</tr>
+
+<tr><td colspan="2"><hr bgcolor="#ddd" size="2"></td></tr>
+
+<tr>
+<td valign="top"><input type="radio" id="targetNew" name="target" value="new" <%$ARGS{addToList} ? "" : "checked"%>> New personal list</td>
+<td style='padding-left:10px'>Name of the list: <input onfocus="$('targetNew').checked=true" type="text" name="name" size="30">
+<br>
+Note: To import into an existing list, go to the list's page and click "batch import". 
+
+</td>
+</tr>
+
+<tr><td colspan="2"><hr bgcolor="#ddd" size="2"></td></tr>
+
+<tr id='none'>
+<td><input type="radio" id="targetNone" name="target" value="none"> None</td>
+<td></td>
+</tr>
+
+</table>
+
+<br>
+Note that it can take some time for the file to upload. If the upload fails because your file is too large, contact <a href="/profile/1">the site administrator</a> to arrange the transfer differently.<br>
+<br>
+<input type="checkbox" id="agree"> I certify that this bibliography is mine or that I am authorized to upload it to <% $s->{niceName} %> as per this website's <a target="top" href="/help/terms.html">terms of use</a>.<p>
+<input name="do" type="submit" value="Submit"> 
+
+</form>
+
+</div>
+
+<div id="progress" style='display:none'>
+<b>
+Uploading file .. <img  src="<% $s->rawFile( 'loading.gif' ) %>"> (please be patient)
+</b>
+
+</div>
+</body>
+</html>
