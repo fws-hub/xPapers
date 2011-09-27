@@ -15,6 +15,8 @@ use Digest::MD4 qw/md4_hex/;
 use HTML::Entities;
 use POSIX qw/floor/;
 use Storable 'dclone';
+use Devel::StackTrace;
+ 
 
 my $base_key = time() . "-" . $$ . "-";
 my $key_count = 1;
@@ -58,7 +60,7 @@ sub newFlag {
     my $expires = shift; #DateTime object
     my $label = shift;
     if (laterThanOrEqual(DateTime->now(time_zone=>$expires->time_zone),$expires)) {
-        warn "New flag with label '$label' has expired.";
+        warn "New flag with label '$label' has expired.".Devel::StackTrace->new()->as_string();
         return '';
     } else {
         return "<span class='newFlag'>NEW</span>";

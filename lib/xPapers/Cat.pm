@@ -42,9 +42,9 @@ columns =>
     level    => { type => 'integer', default => '', not_null => 1},
     highestLevel => { type => 'integer' },
     canonical => { type => 'integer', default=> 0, not_null => 1},
-#    historicalFacetOf => { type => 'integer' },
+    historicalFacetOf => { type => 'integer' },
     marginal    => { type => 'integer', default => 0},
-#    facetRoot => { type => 'integer', default => 0 },
+    facetRoot => { type => 'integer', default => 0 },
     updated     => { type => 'timestamp' },
     created     => { type => 'datetime', default=>'now' },
     owner       => { type => 'integer', default=>0 },
@@ -67,14 +67,14 @@ columns =>
     dfo         => { type => 'integer' }, #depth first order
     edfo        => { type => 'integer' }, #last subcat in depth first order
     pLevel      => { type => 'integer' }, #level through primary parents
-    cacheId     => { type => 'integer' } # marks a category as non-area
-#    historicalLeaf => { type => 'integer', default=>0 },
-#    summary => {type => 'text' },
-#    keyWorks => {type => 'text' },
-#    introductions => {type => 'text' },
-#    summaryUpdated => { type=>'datetime' },
-#    summaryChecked => {type => 'integer', default=>1 },
-#    advertiseSummary => { type => 'datetime' }
+    cacheId     => { type => 'integer' }, # marks a category as non-area
+    historicalLeaf => { type => 'integer', default=>0 },
+    summary => {type => 'text' },
+    keyWorks => {type => 'text' },
+    introductions => {type => 'text' },
+    summaryUpdated => { type=>'datetime' },
+    summaryChecked => {type => 'integer', default=>1 },
+    advertiseSummary => { type => 'datetime' }
 
 
 ],

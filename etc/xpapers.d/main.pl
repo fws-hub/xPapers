@@ -6,7 +6,7 @@
     database => 'db',
     host     => 'localhost;enable_mysql_utf8=1',
     username => 'xpapers',
-    password => 'CHANGEME',
+    password => 'xp4p3r5',
     server_time_zone => 'GMT',
 );
 
@@ -86,8 +86,9 @@ $TZ_OFFSET_STR = formatTZ($TZ_OFFSET);
 );
 
 # Your ReCAPTCHA credentials
-$RECAP_KEY = 'CHANGEME';
-$RECAP_PUBKEY = 'CHANGEME';
+#awc - update with new keys using fws-hub@aber.ac.uk 
+$RECAP_KEY = '6LdeJ8gSAAAAAF2N84411KcxVF08yvMFOz7nuxB6';
+$RECAP_PUBKEY = '6LdeJ8gSAAAAABEX0q6tlUyerA8j7Oh3HDEjO6gB';
 
 # Your Amazon Affiliate credentials
 %AMAZON = (
