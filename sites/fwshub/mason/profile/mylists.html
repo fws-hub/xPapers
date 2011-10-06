@@ -1,0 +1,57 @@
+<!--start of mylists.html-->
+<& ../header.html,subtitle=>'My lists',%ARGS&>
+
+<%perl>
+
+print gh('My bibliography');
+$m->comp("../checkLogin.html",%ARGS);
+
+</%perl>
+
+<div class="expl">
+Build your bibliography by creating categories and adding papers to them using the "File under" option which accompanies all entries:
+
+<img style="display:block;border:2px #ddd solid;margin:10px"  src="<% $s->rawFile( 'expl-fileunder.png' ) %>">
+
+This option appears when you are signed in. You can also add entries by pasting in text bibliographies you have or linking categories to <a href="advanced_mng.html">saved searches</a>. Categories can be made public and linked to official <% $s->{niceName} %> categories. 
+<p>
+</div>
+
+<%perl>
+
+my $lists;
+if (!$user->{mybib}) {
+    print "<em>There are no categories in your bibliography.</em>";
+} else {
+    $lists = $user->myBiblio->children_o;
+}
+#$lists = xPapers::CatMng->get_objects(query=>[owner=>1]);
+
+</%perl>
+
+<ul class="big">
+%foreach my $i (@$lists) {
+    <li>
+        <div class="list_item_name" style="display:inline">
+            <a href="/browse/<%$i->id%>"><%$i->name%></a>
+        </div>
+        <div style="display:inline">
+            <span style="background-color:#eee; font-size:smaller"> 
+            <%$i->entries_count%> item(s) 
+            <% $i->{filter_id} ? ' + linked to filter ' . "<a href='/advanced.html?fId=". $i->linkedFilter->id ."'>". $i->linkedFilter->name . '</a> ' : ""%>
+             | <a href='/profile/list_options.html?lId=<%$i->id%>'>Options</a>
+            <% $i->publish ?
+            "<img src='" . $s->rawFile( 'icons/earth3-s.gif' ) . "' align='absbottom' alt='This category is publicly listed' style='margin-left:3px'>"
+                : ""
+            %>
+         | id: <%$i->id%>
+         </span>
+        </div>
+    </li>
+%}
+</ul>
+
+<form onsubmit="ppAct('createList',{ name: $F('newListName') },refresh);return false;">
+Create a new category: <input type="text" id="newListName" size="30"> <input type="Submit" value="Create"> 
+</form>
+<!--end of mylists.html-->

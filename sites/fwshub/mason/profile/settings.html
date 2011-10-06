@@ -1,0 +1,78 @@
+<!--start of settings.html-->
+<%perl>
+$m->comp("../checkLogin.html",%ARGS);
+my $p = $user;
+if ($ARGS{do} eq "save") {
+    $ARGS{noticeMode} = $ARGS{newNoticeMode} if $user->noticeMode eq 'never';
+    $user->loadUserFields(\%ARGS);
+    $user->noticeMode('never') if $ARGS{newNoticeMode} eq 'never';
+    if ($user->noticeMode eq $user->newNoticeMode) {
+        $user->{newNoticeMode} = undef;
+    }
+    if( $user->{id}  ){
+
+        if ($ARGS{followedNotice} eq 'on') {
+            $user->rmFlag('NOFOLLOWERS');
+        } else {
+            $user->setFlag('NOFOLLOWERS');
+        }
+    
+    }
+    $user->save;
+    print redirect($s,$q,"/profile/profile.pl?_lmsg=Profile%20updated");
+    return;
+}
+
+$p->noticeMode($p->newNoticeMode) if $p->newNoticeMode;
+
+</%perl>
+<p>
+<div class="bigBox">
+<div class="bigBoxH">Privacy and communication settings</div>
+<div class="bigBoxC">
+
+<p>
+<form method="POST">
+<input type="hidden" name="do" value="save" >
+<input type="hidden" name="noheader" value="1">
+
+<b>Basic settings</b>
+<p>
+<input type="checkbox" name="publish" <%$p->publish ? 'checked' : ''%>> Show me on relevant listings on this site.  
+<p>
+<input type="checkbox" name="anonymousFollowing" <%$p->anonymousFollowing ? 'checked' : ''%>> I want to follow people anonymously.
+<p>
+<input type="checkbox" name="followedNotice" <%$p->hasFlag('NOFOLLOWERS') ? '' : 'checked'%>> Send me a daily notice of the new people following me (if any).
+<p>
+<input type="checkbox" name="alert" <%$p->alert ? 'checked' : ''%>> Send me a notice when someone writes about one of my papers in the forums. <br>
+<p>
+Frequency of forum notices:<br>
+%if ($p->newNoticeMode) {
+(Your current selection has not yet been applied. It will be when your next notice is sent.)<br>
+%} else {
+(Changes to this setting may only take effect after you receive your next notice.)<br>
+%}
+<input type='radio' name='newNoticeMode' value='instant' <%$p->noticeMode eq 'instant' ? 'checked' : ''%>> As soon as they become available. <br>
+<input type='radio' name='newNoticeMode' value='daily' <%$p->noticeMode eq 'daily' ? 'checked' : ''%>> All together in a daily digest.<br>
+<input type='radio' name='newNoticeMode' value='weekly' <%$p->noticeMode eq 'weekly' ? 'checked' : ''%>> All together in a weekly digest.<br>
+<input type='radio' name='newNoticeMode' value='never' <%$p->noticeMode eq 'never' ? 'checked' : ''%>> Never send me forum notices. <br>
+<span class='hint'>This setting is for your forum-wide subscriptions. Your forum-wide subscriptions can be seen or modified from <a href="myforums_list.html" class='hint'>this page</a>. This setting does not affect <a class='hint' href="/profile/thread_list.html">thread-specific subscriptions</a>, for which notices are sent immediately. </span><br>
+<p>
+<input type="checkbox" name="showEmail" <%$p->showEmail ? 'checked' : ''%>> Show my email address in my profile. <br>
+<span class="hint">Your address will be protected from spammers. <span class='ll hint' onclick="faq('spam')">(how so?)</span></span>
+<p>
+<input type="checkbox" name="hide" <%$p->hide ? 'checked' : ''%>> Make my profile private.
+<br>
+<span class="hint">A private profile will not give away any information about you to the public--not even your name. However, this will only hold so long as you do not contribute to the discussion forums, because anonymous contributions are not allowed.</span> 
+<p>
+<b>Other settings</b>
+<p>
+Content alerts for new entries are configured in <a href="/profile/myalerts.pl">My Alerts</a>.
+<p>
+<input type="submit" value="Save">
+<input type="button" value="Cancel" onclick="window.location='/profile/profile.pl'">
+</form></div>
+</div>
+
+
+<!--end of settings.html-->

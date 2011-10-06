@@ -1,0 +1,120 @@
+<!--start of list_options.html-->
+<%perl>
+    $m->comp("../checkLogin.html");
+    my $i = xPapers::Cat->new(id=>$ARGS{lId})->load;
+    error("Bad list id: $ARGS{lId}") unless $i;
+    error("Options not available for this list") if $i->system;
+
+    # save
+    if ($ARGS{do} eq 'save') {
+
+        # Check that we don't already have one with that name if new
+        #if ($ARGS{name} ne $i->name) {
+        #    my $oth = xPapers::Cat->new(name=>$ARGS{name},owner=>$user->id);
+        #    error("You already have a list with name `$ARGS{name}`") if $oth->load;
+        #}
+        $i->loadUserFields(\%ARGS);
+
+        # delete current memberships except for "my biblio"
+        for ( grep { $_->id != $user->myBiblio->id } $i->parents) {
+            $_->delete_child_o($i->id);
+        }
+       
+        # add memberships if public
+        if ($ARGS{publish}) {
+        } else {
+        }
+        
+        $i->save;
+        if ($ARGS{submit} eq 'Apply') {
+        } else {
+            $m->comp('mylists.html',_mmsg=>"<font color='green'>Category updated.</font>");
+            return;
+        }
+    }
+
+    my @qs = $user->queries_o;
+
+</%perl>
+
+<& ../header.html, subtitle=>"List options", %ARGS &>
+<%perl>
+print gh("Options for category " . $rend->renderCatC($i));
+</%perl>
+<p>
+
+<form>
+<input type="hidden" name="do" value="save">
+<input type="hidden" name="lId" value="<%$i->id%>">
+
+<div class="bigBox">
+<div class="bigBoxH">Basic options</div>
+<div class="bigBoxC">
+Name: <input type="text" name="name" value="<%$i->name%>" size="40"> 
+<ul class='normal'>
+<li>
+<a href="/utils/batch_import.pl?addToList=<%$i->id%>">Import entries from bibliographic file (e.g. BibTeX) or plain text list</a>
+</li>
+<li>
+<a href="/utils/catcopy.pl?targetCat=<%$i->id%>">Import entries from <% $s->{niceName} %> category</a>
+<li>
+<span class='ll' onclick="
+    if (confirm('Are you sure you want to delete this list?')) {
+        ppAct('deleteList', {lId:'<%$i->id%>'}, function() {
+            window.location='/profile/mylists.html';
+        });
+    }
+">Delete this category</span>
+</li>
+<li><input type="checkbox" name="publish" <%$i->publish?'checked':''%>> Make this bibliography publicly accessible</li>
+</ul>
+</div>
+</div>
+
+<div class="bigBox">
+<div class="bigBoxH">Linked search</div>
+<div class="bigBoxC">
+
+        Linked search:
+
+%if ($#qs > -1) {
+                <select name="filter_id" id='linkedFilter'> 
+                <%perl>
+                    print opt(0,'None',$i->{filter_id});
+                    foreach my $f (@qs) {
+                        print opt($f->id, $f->name, $i->{filter_id});    
+                    }
+                </%perl>
+                </select> <input type="submit" name="submit" value="Apply">
+                </%perl>
+%} else {
+
+                <em>No filter available.</em> Click <a href="/advanced.html">here</a> to create one.
+%}
+                <ul class="normal">
+                    <li>When a saved search (created using <a href="/advanced.html">advanced search</a>) is linked to a category, the category is dynamically augmented with the results of the search when it is displayed. Since those results change as entries are added to (or removed from) <% $s->{niceName} %>, this feature can be useful in keeping a category up to date with the current literature. It can also be used to quickly populate a category. It is normally a good idea to use a search which has a relevance limit.</li>
+%if ($i->{filter_id}) {
+                <li> <span class='ll' onclick='
+                    if ($F("linkedFilter") > 0)
+                        window.location="/advanced.html?fId=" + $F("linkedFilter");
+                    else 
+                        alert("Select a filter first.");
+                '>Edit selected search</span></li>
+                <li> <span class='ll' onclick='
+                    if ($F("linkedFilter") > 0)
+                        window.location="/search/advanced.pl?fId=<%$i->{filter_id}%>&lowRelevance=<%$i->id%>";
+                    else 
+                        alert("Select a filter first.");
+                '>View low relevance entries</span> 
+                <div>This option allows you to see the entries that are not in your category as augmented by the selected search but would be if the selected search had a lower relevance threshold. Peruse those results and add any relevant entries your search left out.</div>
+                </li>
+%}
+</div>
+</div>
+
+<input class='buttons' type="submit" value="Save" name="submit">
+
+</form>
+       
+
+<!--end of list_options.html-->

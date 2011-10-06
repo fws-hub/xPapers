@@ -1,0 +1,34 @@
+<div class="bigBox">
+<div class="bigBoxH">
+<%$s->{niceName}%> Social
+</div>
+<div class="bigBoxC">
+<table width="500px">
+<tr>
+<td>
+                <a href="/profile/myfollowers.pl">My followers (<%$user->followerCount%>)</a>
+</td>
+<td>
+                <a href="/profile/myfollowings.pl">People I follow</a> 
+</td>
+<td>
+                <a href="/followx/papers.html">Their works</a>
+</td>
+<td>
+                <a href="/profile/add_followers.pl">Following people</a>
+</td>
+<!--<td>
+                <a href="/profile/facebook.html">Facebook import</a>
+</td>-->
+
+</tr>
+</table>
+<& followed_papers.pl &>
+<& suggest_follow.pl &>
+
+</div>
+
+
+</div>
+
+
