@@ -1,0 +1,15 @@
+<%perl>
+my @l = sort ('Food Security','Water Security','Disease','Genetic Modification','Disasters','Governance');
+print "<div class='centered' style='padding-bottom:5px'><table class='centered'>";
+my @links = map { "<a style='font-size:smaller' href='/browse/". rmhyphen($_) ."' rel='subsection'>$_</a>" } @l;
+print colsplit([
+    @links, "<a style='font-size:smaller' href='/categories.pl'>More ...</a>"
+], 6);
+print "</table></div>";
+
+sub rmhyphen {
+    my $in = lc shift;
+    $in =~ s/ /-/g;
+    return $in;
+}
+</%perl>
