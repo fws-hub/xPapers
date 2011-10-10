@@ -198,6 +198,7 @@ h1.header {
 h2.home {
     font-size:20px;
     color:#<%$C2%>;
+    /*background-color: #dff7fb;*/
     display:inline;
     margin:0;
     padding:0;
@@ -480,15 +481,19 @@ height:100%;
 }
 
 #content {
-padding-left:<%$leftMargin%>; 
+/*padding-left:<%$leftMargin%>; */
 padding-right:<%$rightMargin%>;
 padding-top:10px;
-min-width:<%$minWidth%>px;
-max-width: 1250px;
+/*min-width:<%$minWidth%>px;*/
+min-width: 400px;
+max-width: 954px;
 }
 
 #mainBody {
    background-color:#fff;
+   margin-left: auto;
+   margin-right: auto;
+   width: 1000px;
 }
 
 #main { background: none; background-color:white }
@@ -685,7 +690,7 @@ div.sideBoxH {
     border-bottom:none;
     */
     background:none;
-    background-color:#eee;
+    background-color: #eee;
     color:black;
     font-weight:bold;
     border-radius: 0 0 0 0;
@@ -693,7 +698,7 @@ div.sideBoxH {
     -webkit-border-radius: 0 0 0 0;
     border: 1px solid #aaa;
     border-bottom:none;
-    font-size:10px;
+    font-size:13px;
     padding:1px 1px 1px 8px;
 
     text-align:left;
@@ -710,6 +715,8 @@ div.sideBoxC {
     margin-top:0px;
 
     text-align:left;
+    /*background-color: #dff7fb;*/
+
 }
 
 /*
