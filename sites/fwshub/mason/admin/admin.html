@@ -1,0 +1,226 @@
+<%perl>
+    if (!$SECURE) {
+        error("Not authorized");
+    }
+
+    my $nb_moderated = xPapers::PostMng->get_objects_count(query=>['accepted'=>0]);
+    my $nb_delete = xPapers::D->get_objects_count(query=>[class=>"xPapers::Entry",type=>"delete",status=>0]);
+    my $nb_track = xPapers::D->get_objects_count(query=>[class=>"xPapers::Pages::Page",type=>"update",status=>0]);
+    my $nb_arch = xPapers::D->get_objects_count(query=>[class=>"xPapers::OAI::Repository",status=>0]);
+    my $nb_unchecked = xPapers::D->get_objects_count(query=>[class=>"xPapers::Entry",checked=>0]);
+    my $nb_imports = xPapers::B->get_objects_count(query=>['!checked'=>1]);
+    my $start = '2009-01-28';
+    my $now = DateTime->now(time_zone=>$TIMEZONE)->subtract(minutes=>1);
+
+</%perl>
+<& header.html,title=>$s->{HTML_TITLE},subtitle=>"Contents",noindex=>1,nofollow=>1,%ARGS &>
+
+<style>
+.admopt {
+    border-top:1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.admoptline {
+    width:100px;
+    background:#eee;
+    text-align:right;
+    padding-right:5px;
+}
+.admbox {
+    padding-right:10px;
+}
+
+</style>
+
+<%perl>
+print gh("Activity monitor<span class='ghx'>( <a style='color:" . ($ARGS{mon} == 72 ? 'black' : 'blue') . "' href='?mon=72'>last 72 hours</a> | <a style='color:" . ($ARGS{mon} == 1 ? 'black' : 'blue') . "' href='?mon=1'>last hour</a> )</span>");
+$ARGS{mon}||=72;
+my $q;
+if ($ARGS{mon} == 72) {
+    $q = "select date_format(time,'%H') as l, count(*) as v from log_act where time >= date_sub(now(), interval 72 hour) and time < '" . $now->ymd . "T" . $now->hour . ":00:00' group by date_format(time,'%j %H:00')";
+} else {
+    $q = "select date_format(time,'%i') as l, count(*) as v from log_act where time >= date_sub(now(), interval 1 hour) group by date_format(time,'%j %H:%i')";
+}
+xPapers::Render::GChart->compile(
+    chs=>"1000x200",
+    cht=>"bvs&amp;chbh=a,4,1",
+    xlabels=>"ALL",
+    queries=>[$root->dbh->prepare($q)],
+#    debug=>1
+);
+
+</%perl>
+
+    <table>
+    <tr>
+    <td>
+        <!--
+        <li><a href="/admin/history.pl">Unchecked edits</a> (<%$nb_unchecked%>)</li>
+        -->
+        <!--j
+        | <a href="/admin/uhistory.pl">unchecked by user</a> | <a href="/admin/uhistory.pl?all=1">all by user</a></li>
+        -->
+
+    <h2>Control panel</h2>
+    <table class="admopt">
+    <tr>
+        <td class="admoptline">
+        User edits
+        </td>
+        <td class="admbox">
+        <a href="/admin/pending.pl">Pending deletions</a> (<%$nb_delete%>)
+        </td>
+        <td class="admbox">
+        <a href="/admin/duplicates.pl">Duplicates</a> (<% xPapers::EntryMng->get_objects_count(query=>['!duplicateOf'=>undef,'!deleted'=>1])%>) 
+        </td>
+        <td class="admbox">
+        <a href="/admin/pending2.pl">Pending tracking updates</a> (<%$nb_track%>)
+        </td>
+        <td class="admbox">
+        <a href="/archives/pending.pl">Pending archive updates</a> (<%$nb_arch%>)
+        </td>
+        <td class="admbox">
+        <a href="/admin/batches.pl">Unchecked imports</a> (<%$nb_imports%>)
+        </td>
+        <td class="admbox">
+        <a href="/admin/moderation.html">Moderated posts</a> (<%$nb_moderated%>)
+        </td>
+    </tr>
+    </table>
+
+
+    <table class="admopt">
+        <tr>
+        <td class="admoptline">Editors</td>
+        <td class="admbox">
+        <a href="/admin/apps-simple.pl">View editors</a>
+        </td>
+        <td class="admbox">
+        <a href="/admin/applications.pl">Process applications</a>
+        </td>
+        <td class="admbox">
+        <a href="/admin/editorswatch.pl">Performance monitor</a>
+        </td>
+        <td class="admbox">
+        <a href="/admin/check_summaries.pl">Check summaries</a>
+        </td>
+        </tr>
+    </table>
+
+    <table class="admopt">
+        <tr>
+        <td class="admoptline">User accounts</td>
+
+        <td class="admbox">
+        <a href="/admin/users.pl?sort=created%20desc&limit=200">Newest</a>
+        </td>
+        <td class="admbox">
+        <a href="/admin/users.pl?actions=1&limit=200">Biggest categorizers</a>
+        </td>
+        <td class="admbox">
+        <a href="/admin/users.pl?pubs=1&limit=200">Most pubs</a>
+        </td>
+        <td class="admbox">
+        <a href="/admin/users.pl?jpoints=1&limit=200">Most pubs (popular journals)</a> 
+        </td>
+        <td class="admbox">
+        <div style='padding-top:3px'>
+        <form style="display:inline;font-size:11px" action="/admin/users.pl" id="field">
+            Search: 
+            <input type="text" name="filterValue" style="font-size:11px">
+            <select name="filterField" style="font-size:11px">
+                <option value="lastname">lastname</option>
+                <option value="insts.name">institution</option>
+                <option value="email">email</option>
+                <option value="id">id</option>
+            </select>
+        </form>
+        </div>
+        <!--
+        <br>
+        <form style="display:inline" action="/admin/users.pl" id="letter">
+        <select name="letter" onchange="if (this.value != 'Letter') $('letter').submit()"> 
+            <% join(" ", map { "<option value='$_'>$_</option>" } 'Letter',('A'..'Z')) %>
+        </select>
+        </form>
+        --> 
+        </td>
+        </tr>
+    </table>
+
+    <table class="admopt">
+        <tr>
+        <td class="admoptline">Global structures</td>
+        <td class="admbox">
+        <a href="/profile/myjournals.pl?listId=1">Most popular journals</a>
+        </td>
+        <td class="admbox">
+        <a href="/admin/catedit.pl">Edit category structure</a>
+        </td>
+    </table>
+
+
+    <table class="admopt">
+        <tr>
+        <td class="admoptline">Admin content</td>
+        <td class="admbox">
+        <a href="/bbs/newmsg.pl?fId=11">Post a news item</a>
+        </td>
+        <td class="admbox">
+        <a href="/polls/editp.pl">My polls</a>
+        </td>
+        </tr>
+    </table>
+
+    <table class="admopt">
+        <tr>
+        <td class="admoptline">Input</td>
+        <td class="admbox">
+        <a href="/admin/rss_feeds/">RSS feeds</a>
+        </td>
+        <td class="admbox">
+        <a href="/archives/list.html">Archives</a>
+        </td>
+        <td class="admbox">
+        <a href="/admin/lc_ranges.html">Z39.50</a>
+        </td>
+        <td class="admbox">
+        <a href="/admin/crossref.pl">CrossRef</a>
+        </td>
+        </tr>
+    </table>
+
+    <table class="admopt">
+        <tr>
+        <td class="admoptline">Other</td>
+        <td class="admbox">
+        <a href="/admin/mass-mail.pl">Mass mail</a>
+        </td>
+        <td class="admbox">
+         <a href="/admin/errors.pl">Error log</a>
+        </td>
+        <td class="admbox">
+        </td>
+        </tr>
+    </table>
+
+
+    <h2>Status pages</h2>
+    <& admin/status_pages.html &>
+    <p>
+
+<h2>Harvester monitoring</h2>
+<ul>
+<!--
+        <li><a href="harvest_v.html">Harvester output</a></li>
+	<li><a href="sql.pl?sql=latest_harvest&db=harvest">latest harvest by journal (harvest1)</a></li>
+        -->
+	<li><a href="admin/sql.pl?sql=latest_harvest&db=harvest2">latest harvest by journal (journals only)</a></li>
+    <!--
+	<li><a href="sql.pl?sql=latest_harvest&db=harvest3">latest harvest by journal (class B)</a></li>
+	<li><a href="sql.pl?sql=latest_harvest_pub">latest harvest by publisher / provider</a></li>
+    -->
+</ul>
+
+
+
