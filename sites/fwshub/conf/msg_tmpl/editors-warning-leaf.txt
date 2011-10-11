@@ -1,0 +1,10 @@
+Dear [FIRSTNAME],
+
+We're getting in touch with all PhilPapers editors who have been on board for more than a year, in order to see how things are going.
+
+According to our records, you've been editor for [REL:catName] since [REL:niceStart].  Your category contains [REL:entryCountUnder] items.  You've made [REL:inputu] additions to this category over the past year, and you've excluded [REL:excluded] items while trawling. You've also checked [REL:checked] user modifications to the content of this category. Note that these records are automatically generated, and may well be imperfect in various respects.  If so, please let us know.
+
+Our aim is eventually to get all relevant papers imported into the category.  Could you give us a sense of how things have been going with this project in your category?  Are we getting close to full coverage, and where is more work needed?  Would new categories be useful?  Are the tools currently available to editors (trawlers, automatic categorization, and so on) useful, and how they might they be improved?  Any other thoughts are also welcome.
+
+[LONGBYE]
+
