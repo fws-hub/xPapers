@@ -39,7 +39,7 @@ event('menu','end');
 
 
 <div id='all' class='ppskin'>
-<div id='head' style="background-color: white; background-image: url('<% $s->rawFile('logo.gif') %>'); background-repeat:no-repeat; height: 145px; width: 1024px; margin-bottom: 30px; padding-bottom: 30px;">
+<div id='head' style="background-color: white; background-image: url('<% $s->rawFile('fws-header.png') %>'); background-repeat:no-repeat; height: 145px; width: 1024px; margin-bottom: 30px; padding-bottom: 30px;">
 
         <span style="font-size: 10px; padding-left: 600px;">
 % if ($user->{id}) {
@@ -61,8 +61,10 @@ event('menu','end');
         </span>
 
 
-
+<!--
     <div style="padding-left: 650px;">
+-->
+	<div style="margin-top: 85px">
         
         <& search/basic_form.html, small=>1, noButton=>1, %ARGS &>
     </div>
@@ -74,4 +76,4 @@ event('menu','end');
 </div>
 
 
-<div id='content' style="padding-top: 50px;">
+<div id='content' style="padding-top: 10px;">
