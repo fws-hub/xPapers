@@ -1,6 +1,6 @@
 Dear [FIRSTNAME],
 
-We're getting in touch with all PhilPapers editors who have been on board for more than a year, in order to see how things are going.
+We're getting in touch with all Food and Water Security - Online Research Resource editors who have been on board for more than a year, in order to see how things are going.
 
 According to our records, you've been editor for [REL:catName] since [REL:niceStart].  Your category overall contains [REL:entryCountUnder] items.  At the moment, [REL:entryCount] entries in the category are not further categorized.  You've made [REL:inputu] additions to this category over the past year, and you've excluded [REL:excluded] items while trawling. Note that these records are automatically generated, and may well be imperfect in various respects.  If so, please let us know.
 

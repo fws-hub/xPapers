@@ -1,4 +1,4 @@
 [HELLO]We are pleased to accept your application for the editorship of [CAT]. You will become editor of this category as soon as you confirm your intent. You have two weeks to confirm, after which the position will be offered to someone else. Please follow the link below to accept or decline this offer. [CUSTOM_MSG] 
 
-"Open confirmation page":http://philpapers.org/utils/edconfirm.pl
+"Open confirmation page":http://fws-hub.aber.ac.uk/utils/edconfirm.pl
 [BYE]
