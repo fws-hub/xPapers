@@ -71,7 +71,7 @@ __PACKAGE__->meta->setup
     phd                  => { type => 'integer', default=>'0' },
     pro                  => { type => 'integer', default=>'0' },
     fixedPro             => { type => 'integer', default=>'0' },
-    postQuota            => { type => 'integer', default=>'2' },
+    postQuota            => { type => 'integer', default=>'50' },
     nbCatAdd             => { type => 'integer', default=>'0' },
     nbCatDelete          => { type => 'integer', default=>'0' },
     nbEdit               => { type => 'integer', default=>'0' },
