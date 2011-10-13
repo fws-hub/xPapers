@@ -33,47 +33,35 @@ event('menu','end');
     </div>
 %}
 
-<div id='menu' style='margin-top: 0px;'>
-    <% $menu_content %>
-</div>
-
-
 <div id='all' class='ppskin'>
-<div id='head' style="background-color: white; background-image: url('<% $s->rawFile('fws-header.png') %>'); background-repeat:no-repeat; height: 145px; width: 1024px; margin-bottom: 30px; padding-bottom: 30px;">
 
-        <span style="font-size: 10px; padding-left: 600px;">
+<div id='head' style="background-color: white; background-image: url('<% $s->rawFile('fws-header.png') %>'); background-repeat:no-repeat; height: 180px; width: 960px;">
+	
+	<div style="margin-left: 628px; padding-top:6px">
+	    <& search/basic_form.html, small=>1, noButton=>1, %ARGS &>
+	</div>
+
+        <div style="font-size: 11px; margin-left: 10px; margin-top: 67px;">
 % if ($user->{id}) {
-        Signed in as <a href="/profile/<%$user->id%>"><% $user->fullname %></a> 
-        | <a href="<%$BASE_URL%>?logoff=1">Sign out</a>
+	Signed in as <a href="/profile/<%$user->id%>"><% $user->fullname %></a> 
+     	| <a href="<%$BASE_URL%>?logoff=1">Sign out</a>
 % if ($q->cookie('fakeId')) {
-        | <span class='ll' onclick="eraseCookie('fakeId');window.location='/profile'">stop impersonation</span>
+	| <span class='ll' onclick="eraseCookie('fakeId');window.location='/profile'">stop impersonation</span>
 %}
 % if ($SECURE) {
         | <a href="/admin.html">Admin menu</a>
 %}
 %} else {
         <a href="/inoff.html">Sign in</a> | <a href="/users/new.html">Create an account</a>
+	<span style="margin-left: 10px;"><& bits/addthis.html &></span>
 %}
-        | <& bits/addthis.html &> 
-        
-        
-        
-        </span>
-
-
-<!--
-    <div style="padding-left: 650px;">
--->
-	<div style="margin-top: 85px">
-        
-        <& search/basic_form.html, small=>1, noButton=>1, %ARGS &>
-    </div>
-
-
-
-
+	</div>
+	
+	<div id='menu'>
+    	    <% $menu_content %> 
+	</div>
 
 </div>
 
 
-<div id='content' style="padding-top: 10px;">
+<div id='content'>

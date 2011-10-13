@@ -1,8 +1,5 @@
 <!--start of footer.html-->
-<br>
-<br>
-<br>
-<br>
+<br />
 
 %if ($SECURE) {
 %}
@@ -10,11 +7,12 @@
 </div>
 
 
-<div class="footer centered" style="">
+<div class="footer centered">
 
 <!-- List of areas -->
+<!--
 <& bits/areas_footer.html &>
-
+-->
 <!-- More links -->
 <div class="btnmenu">
     <a rel="subsection" href="<%$s->{server}%>">Home</a> | 
@@ -28,16 +26,13 @@
     <a rel="subsection" href="/help/contact.html">Contact us</a>
 </div>
 
-<p>FWS Hub is brought to you by:</p>
-<div>
-<span style="padding: 10px;">
+<div style="font-size: 11px;padding: 3px;">
+<!--
 <a href="http://www.aber.ac.uk""><img src="/assets/raw/aber_uni.gif" style="width: 160px; border-width: 0px;"></a>
-<a href="http://www.aber.ac.uk">Aberystwyth University</a>
-</span>
-</div>
-
-<br>
+-->
+FWS-orr is brought to you by <a href="http://www.aber.ac.uk" target="_blank">Aberystwyth University</a>.
 <& project_info.html &>
+</div>
 %#Page generated <% localtime() . " Canberra time" %>
 <%perl>
 if ($SECURE) {
