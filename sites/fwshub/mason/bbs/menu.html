@@ -1,0 +1,141 @@
+<%perl>
+return if $m->cache_self(key=>sparseURL('bbsmenu2',%ARGS),expires_in=>'10 minutes');
+#print sparseURL('bbsmenu',%ARGS) if $SECURE;
+</%perl>
+<td class="forum_menu" valign="top" width="220" style="padding-top:20px">
+<div class='sideBox'>
+<div class='sideBoxH'>Forum list</div>
+<div class='sideBoxC'>
+<%perl>
+print "<ul class='forum_menu' style='padding-left:0'>";
+print scalar show_forum_node(mode=>'group',name=>'All discussions',args=>\%ARGS);
+print '<p>';
+print scalar show_forum_node(mode=>'group',name=>'In my forums',args=>\%ARGS);
+my $paperThreads = xPapers::ThreadMng->get_objects_count(
+    query=>['accepted'=>1],
+    require_objects=>['forum.paper']
+);
+my $p_class = $ARGS{group} eq 'Paper discussions' ? ' forum_item_selected' : '';
+print qq{<li><div class="forum_item_depth1"><a class="forum_item_depth1$p_class" href="/bbs/papers.html">Paper discussions</a> ($paperThreads)</div></li>};
+
+for (('In the profession',"About $s->{niceName}")) {
+    print scalar show_forum_node(mode=>'group',name=>$_,args=>\%ARGS);
+}
+print scalar show_forum_node(mode=>'category',cId=>1,name=>"$SUBJECT discussions",args=>\%ARGS);
+print "</ul>";
+
+sub show_forum_node {
+    my %params = @_;
+    my $r = "<li>";
+    my $count = 0;
+    return if $params{fId} and grep { $_ == $params{fId} } @NO_OVERVIEW;
+    my $depth = $params{depth} || 1;
+    my $class = forum_item_class(\%params,$depth);
+    
+    $r .= "<div $class><a$class"; # </a>
+
+    if ($params{mode} eq 'group') {
+        my $group = $FORUM_GROUPS{$params{name}};
+        $r .= " href=\"/bbs/" . $group->{page} .  "\">$params{name}</a>";
+        my $fora = $group->{forums};
+        my $special = $group->{special} || '';
+        if ($special eq 'MY') {
+            if ($user->{id}) {
+                #$fora = [ map { $_->id } $user->forums_o ];
+            }
+        } elsif ($special eq 'ALL') {
+            my @fId_clause;
+            @fId_clause = ( '!fId', {in_set=>\@NO_OVERVIEW} ) if @NO_OVERVIEW;
+            $count = xPapers::ThreadMng->get_objects_count(
+                query=>[@fId_clause, accepted=>1,'!private'=>1]
+            );
+        } 
+        my $sub = "";
+        for (@$fora) {
+            my $forum = xPapers::Forum->get($_);
+            my ($node_content,$node_count) = show_forum_node(
+                mode => $forum->cId ? 'category' : 'single',
+                fId => $_,
+                cId => $forum->cId,
+                name => $forum->name,
+                depth=> $depth+1,
+                args=>$params{args}
+
+            );
+            $count += $node_count;
+            $sub .= $node_content;
+        }
+        if ($special eq 'MY') {
+            $r .= "&nbsp;(<a href=\"/profile/myforums_list.html\">view</a>)";
+        } else {
+            $r .= "&nbsp;($count)";
+        }
+        $r .= "</div><ul class='forum_menu'>";
+        $r .= $sub;
+        $r .= "</ul>";
+
+    } elsif ($params{mode} eq 'category') {
+        my $cat = xPapers::Cat->get($params{cId});    
+        # we get the count as a side effect ..
+        my $forum = $cat->forum;
+        $r .= " href=\"" . $rend->forumURL($forum) . "\">$params{name}</a>";
+
+        my $sub = "";
+        if ($cat->pLevel <= 0) {
+            $sub .= "<ul class='forum_menu'>";
+            for (@{$cat->children_o}) {
+                my ($node_content,$node_count) = show_forum_node(
+                    mode => "category",
+                    cId => $_->id,
+                    name => $_->name,
+                    depth=> $depth+1,
+                    args=>$params{args}
+                );
+                $sub .= $node_content;
+                $count += $node_count;
+                }
+            $sub .= "</ul>";
+        } else {
+            $forum->threads_o(undef,undef,undef,1);
+            return ("$r ($forum->{found})",$forum->{found});
+        }
+        $forum->threads_o(undef,undef,undef,1);
+        $count = $forum->{found};
+        $r .= "&nbsp;($count)</div>";
+        $r .= $sub;
+
+    } elsif ($params{mode} eq 'single') {
+
+        my $forum = xPapers::Forum->get($params{fId});
+        $r .= " href=\"" . $rend->forumURL($forum) . "\">$params{name}</a>";
+        $count = xPapers::ThreadMng->get_objects_count(
+             query=>[fId => $params{fId} ]
+        );
+        $r .= "&nbsp;($count)</div>";
+      
+    }
+    return wantarray ? ($r,$count) : $r;
+}
+
+sub forum_item_class {
+    my $p = shift;
+    my $depth = shift;
+    return is_selected_node($p) ? " class='forum_item_selected forum_item_depth$depth'" : " class='forum_item_depth$depth'";
+}
+
+sub is_selected_node {
+    my $p = shift;
+    return 1 if $p->{args}->{fId} and $p->{fId} == $p->{args}->{fId};
+    return 1 if $p->{args}->{cId} and $p->{cId} == $p->{args}->{cId};
+    return 1 if $p->{args}->{group} and $p->{name} eq $p->{args}->{group};
+    return 0;
+}
+
+sub mk_forum_url {
+    my %params = @_;
+    return "";
+}
+</%perl>
+</div>
+</div>
+</td>
