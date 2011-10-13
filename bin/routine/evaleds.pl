@@ -210,7 +210,7 @@ for my $e (@$eds) {
 #
 
 xPapers::DB->new->dbh->do("insert ignore into groups_m (uId,gId,level) select uId,6,10 from cats_eterms where status = 20");
-xPapers::DB->new->dbh->do("insert ignore into forums_m (uId,fId) select uId,138 from cats_eterms where status = 20");
+#xPapers::DB->new->dbh->do("insert ignore into forums_m (uId,fId) select uId,138 from cats_eterms where status = 20");
 
 sub cat_add {
     my $diff = shift;
