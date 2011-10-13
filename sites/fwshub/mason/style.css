@@ -131,7 +131,14 @@ pre.export {
     padding:0px;
     white-space: pre;
 }
-.btnmenu a { font-size: 11px }
+.btnmenu { 
+    font-size: 11px;
+    border:1px solid #bbb;
+    background-color:#eee;
+    padding:5px;
+    margin-top:3px;
+    margin-bottom:3px;
+}
 
 .programListing {
     border:1px solid black;
@@ -184,7 +191,8 @@ body {
     width:100%;
     padding:0;
     margin:0;
-    max-width:100%;
+/*    max-width:100%;*/
+    width:960px;
 }
 
 h1.header {
@@ -211,10 +219,10 @@ div.sideBox #signInForm td input {
 #head {
 /*padding-left:<%$leftMargin%>;
 padding-right:<%$rightMargin%>;*/
-min-width:<%$minWidth%>px;
-vertical-align:bottom;
-padding-bottom:0px;
-margin-bottom:0px;
+/*min-width:<%$minWidth%>px;*/
+/*vertical-align:bottom;*/
+padding:0px;
+margin:0px;
 /*
 background:url(<% $s->rawFile( 'headbg.png' ) %>) repeat-x 0 -10px;
 */
@@ -231,7 +239,9 @@ background:url(<% $s->rawFile( 'headbg.png' ) %>) repeat-x 0 -10px;
  *
  */
 
- #nav {min-width:900px}
+ #nav {min-width:960px;
+ float: left;
+ }
 
 /* Generic part */
 
@@ -250,7 +260,7 @@ ul.dropdown {
 }
 
 ul.dropdown li {
- float: left;
+float: left;
  line-height: 1.4em;
  vertical-align: middle;
  zoom: 1;
@@ -298,7 +308,8 @@ ul.dropdown {
 	 padding: 0 10px !important;
     */
 %#     border-top: 1px solid #ccc !important;
-     font: bold 12px/normal Arial, sans-serif;
+     font: 12px/normal Arial, sans-serif;
+     background-color:#eee;
 	}
 
 	ul.dropdown li.divider {
@@ -454,21 +465,21 @@ ul.dropdown a.dir:hover {
 
 */
 .dropdown-top {
-    color:#8a8a8a !important; /*this is the colour of the text in the menu bar when not hovering*/
+    color:#fff !important; /*this is the colour of the text in the menu bar when not hovering*/
 }
 /* END OF CSS MENU */
 
 
 #menu {
 /*background:url(<% $s->rawFile( 'sprite.png' ) %>) repeat-x 0 0;*/
-height:23px;
+height:20px;
 color: black;
-vertical-align:top;
+/*vertical-align:top;*/
 /*min-width:<%$minWidth%>px;*/
-padding-left: 200px;
-padding-right:<%$rightMargin%>;
-width: 854px;
-
+margin-top: 10px;
+margin-left: 2px;
+/*padding-right:<%$rightMargin%>;*/
+/*width: 770px;*/
 }
 
 #menutable {
@@ -482,18 +493,19 @@ height:100%;
 
 #content {
 /*padding-left:<%$leftMargin%>; */
-padding-right:<%$rightMargin%>;
-padding-top:10px;
+/*padding-right:<%$rightMargin%>;*/
+margin-top:5px;
+width: 960px;
 /*min-width:<%$minWidth%>px;*/
-min-width: 400px;
-max-width: 954px;
+/*min-width: 400px;*/
+/*max-width: 954px;*/
 }
 
 #mainBody {
    background-color:#fff;
    margin-left: auto;
    margin-right: auto;
-   width: 1000px;
+   width: 960px;
 }
 
 #main { background: none; background-color:white }
