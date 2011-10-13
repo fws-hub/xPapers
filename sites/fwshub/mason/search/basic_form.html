@@ -1,0 +1,84 @@
+<!--start of basic_form.html-->
+<div style="padding-left: 650px;"
+<div>
+<span class='toptabSelected' id='tab1l' class="toptab" onclick="
+$('tab2').hide();
+$('tab1').show();
+$('tab1l').addClassName('toptabSelected');
+$('tab1l').removeClassName('toptabNot');
+$('tab2l').removeClassName('toptabSelected');
+$('tab2l').addClassName('toptabNot');
+$('topSearch').focus();
+">&nbsp;General search&nbsp;</span>
+<span class='toptabNot' id='tab2l' class="toptab"  onclick="
+$('tab1').hide();
+$('tab2').show();
+$('tab2l').addClassName('toptabSelected');
+$('tab2l').removeClassName('toptabNot');
+$('tab1l').removeClassName('toptabSelected');
+$('tab1l').addClassName('toptabNot');
+$('catacpt').focus();
+">&nbsp;Category finder&nbsp;</span>
+</div>
+
+<div id='tab1'>
+
+<!-- regular search -->
+<table cellpadding="0" cellspacing="0" class="nospace">
+<tr>
+<td>
+
+<form style='display:inline' onsubmit="if ($F('topSearch') == 'search for..' || $F('topSearch').length < 3) { alert('You must specify a search query of three or more characters')} else {window.location='/s/'+escape(UTF8.encode($F('topSearch')));} return false;" method=GET action="<%$PATHS{QUICK_SEARCH_SCRIPT} || $PATHS{SEARCH_SCRIPT}%>" onSubmit="">
+
+
+<input id='topSearch' class="topSearch" id="topSearch" type="text" name="searchStr" style="width:210px;<% ($q->param('searchStr') and $ARGS{filterMode} ne 'advanced') ? 'color:black' : 'color:black'%>" onfocus="if (this.value == 'search for..') {this.value = '';this.style.color='black'}" value="<% ($q->param('searchStr') and $ARGS{filterMode} ne 'advanced') ? $q->param('searchStr') : '' %>">
+
+</td>
+
+<td align="right" style="text-align:right">
+
+<input class="topSubmit" id="topSubmit" type="submit" value="Search">
+
+</form>
+
+</td>
+
+</tr>
+
+<tr><td align="left">
+<span style="font-size:10px"><a href="/advanced.html">advanced search</a> | </span>
+<span style="font-size:10px"><a href="/help/search.html"><b>help</b></a></span>
+</td></tr>
+</table>
+
+</div>
+
+
+<!-- cat finder-->
+<div id='tab2' style='display:none'>
+
+<table cellpadding="0" cellspacing="0" class="nospace">
+<tr>
+<td>
+
+
+<div class='catac' style='display:block;padding-bottom:0px;padding-left:0px;z-index:1000'> 
+    <input class='topSearch' id="catacpt" style='width:210px'  name="catacpt" type="text" onfocus="if(this.value == 'Find a category by name') { this.value='' }" value="Find a category by name"> 
+    <input id="add-idpt" name="add-idpt" type="hidden"> 
+    <div class="yui-skin-sam" id="auc-conpt" style="width:420px"></div>
+</div>
+<script type="text/javascript">
+%$m->comp("catcomplete.js",%ARGS, limit=>15,append=>'&eun=1',action=>"window.location='/browse/'+%s",suffix=>"t");
+</script>
+
+</td>
+</tr>
+<tr><td>
+<span style="font-size:10px">Type words to match in category names</span>
+</div>
+</td>
+</tr>
+</table>
+
+</div>
+<!--end of basic form.html-->
