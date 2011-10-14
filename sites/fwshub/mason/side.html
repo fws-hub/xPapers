@@ -118,7 +118,6 @@ if ($user->{id}) {
 </form>
 
 <%perl>return if $ARGS{noheader};</%perl>
-<& bits/offcampusbox.html,%ARGS &>
 <%perl> return if $ARGS{noexport}; </%perl>
 
 %unless ($ARGS{pub} or $ARGS{pubn}) {
