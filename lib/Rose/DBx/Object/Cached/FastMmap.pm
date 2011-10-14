@@ -331,7 +331,8 @@ sub __xrdbopriv_get_cache_handle {
 
         my %chi_settings = (
             %$defaults, 
-            (defined %$SETTINGS ? %$SETTINGS : ()), 
+            #(defined %$SETTINGS ? %$SETTINGS : ()), 
+            %$SETTINGS ? %$SETTINGS : (),
             %$current_settings
        );
 
