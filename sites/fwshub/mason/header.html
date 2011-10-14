@@ -37,23 +37,31 @@ event('menu','end');
 
 <div id='head' style="background-color: white; background-image: url('<% $s->rawFile('fws-header.png') %>'); background-repeat:no-repeat; height: 180px; width: 960px;">
 	
-	<div style="margin-left: 6px; padding-top:6px">
+	<div>
 	    <& search/basic_form.html, small=>1, noButton=>1, %ARGS &>
 	</div>
 
-        <div style="font-size: 11px; margin-left: 10px; margin-top: 67px;">
+        <div style="font-size: 11px; padding-left: 10px; margin-top: 67px;">
 % if ($user->{id}) {
+	<span>
 	Signed in as <a href="/profile/<%$user->id%>"><% $user->fullname %></a> 
      	| <a href="<%$BASE_URL%>?logoff=1">Sign out</a>
+	</span>
 % if ($q->cookie('fakeId')) {
+	<span>
 	| <span class='ll' onclick="eraseCookie('fakeId');window.location='/profile'">stop impersonation</span>
+	</span>
 %}
 % if ($SECURE) {
+	<span>
         | <a href="/admin.html">Admin menu</a>
+	</span>
 %}
 %} else {
+	<span>
         <a href="/inoff.html">Sign in</a> | <a href="/users/new.html">Create an account</a>
-	<span style="margin-left: 10px;"><& bits/addthis.html &></span>
+	</span>
+	<span style="padding-left: 16px;"><& bits/addthis.html &></span>
 %}
 	</div>
 	

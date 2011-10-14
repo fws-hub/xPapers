@@ -476,8 +476,8 @@ height:20px;
 color: black;
 /*vertical-align:top;*/
 /*min-width:<%$minWidth%>px;*/
-margin-top: 10px;
-margin-left: 2px;
+margin-top: 8px;
+margin-left: 1px;
 /*padding-right:<%$rightMargin%>;*/
 /*width: 770px;*/
 }
@@ -538,7 +538,7 @@ td.all {
 
 table.wrap_table { 
     padding:0px; margin:0px; 
-    position:relative; 
+    /*position:relative;*/ 
     border-spacing:0px 0px; 
     border-style:none; 
     width:100%;
