@@ -7,7 +7,7 @@ return if $m->cache_self(key => 'newsbox4', expires_in => '30 minutes');
 
 <%perl>
 
-my $f = xPapers::Forum->get(1);
+my $f = xPapers::Forum->get(11);
 my @threads = $f->threads_o("true","ct desc",0,2);
 for my $p (map { $_->firstPost } @threads) {
     my ($c1,$c2) = $rend->wordSplit($p->body,30);
