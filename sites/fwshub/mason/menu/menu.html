@@ -1,3 +1,4 @@
+<!--start of menu.html-->
 <ul id="nav" class="dropdown dropdown-horizontal">
 	<li><a class="dropdown-top" href="<%$s->{server}%>">Home</a></li>
 	<li><a href="/recent/" class="dir dropdown-top">New items</a>
@@ -14,7 +15,7 @@
             <& areas.html &>
         </ul>
     </li>
-    <li><a class="dropdown-top" href="/journals">Browse journals</a></li>
+    <!-- <li><a class="dropdown-top" href="/journals">Browse journals</a></li> -->
     <li><a class="dir dropdown-top" href="/bbs/">Discussions</a>
         <ul class="submenu">
             <%perl>
@@ -53,3 +54,4 @@ if ($user->{id}) {
     </li>
 </ul>
 
+<!--end of menu.html-->
