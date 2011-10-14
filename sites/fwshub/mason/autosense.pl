@@ -65,14 +65,6 @@ if ( grep { $res->{$_}->{nb} >= 3 } keys %$res ) {
 <tr>
 <td class="main_td">
 
-<div style='background-color:#efe;text-align:left;border:1px dotted #aaa;padding:2px'>
-
-<% # <& search_plugin_link.html &> %>
-
-<b>NEW:&nbsp;</b>
-<a href="/utils/bargains.pl"><b>Amazon Marketplace book bargains powered by PhilPapers</b></a>   
-
-</div>
 
 <%$content%>
 </td>
