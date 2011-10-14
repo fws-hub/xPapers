@@ -1,0 +1,73 @@
+<& '../header.html', subtitle=>"OpenURL configuration" &>
+<% gh("Library look-up - configuration") %>
+<p>
+On this page you can configure your account to use an OpenURL resolver to look up books and articles through your institutional library. Normally, you should be able to quickly access subscription-based journals in this manner, so this is an alternative to our <a href='/offcampus.html'>proxy-based off-campus access system</a>. Once you have configured your resolver below, click 'At my library' under any item to look it up. 
+</p>
+<& ../checkLogin.html, %ARGS &>
+<%perl>
+my $check = $m->scomp("../checkLogin.html",%ARGS);
+if ($check) {
+#    print $check;
+#    return;
+} 
+</%perl>
+
+<p>
+%if ($user->{rId}) { 
+        You are currently using the following OpenURL resolver:
+        <blockquote>
+        <code><%$user->resolver->url%></code>
+        </blockquote>
+%} else {
+        You do not currently have an OpenURL resolver attached to your account.
+%}
+</p>
+
+Please choose one of the two following configuration methods to configure a new resolver (method A or method B). Or <span class='ll' onclick="ppAct( 'deleteOpenURL', { rId: '' }, refresh  )">Reset your OpenURL configuration.</span> 
+
+<p>
+<h3>Method A: Choose one of the OpenURL resolvers published in the WorldCat Registry for your institution</h3>
+Please note that some resolvers found in the WorldCat Registry do not work. You might have to try a few before finding the right one.
+<%perl>
+
+my @affils = $user->affils_o;
+if ( @affils ) {
+    for my $a (@affils) {
+        next unless $a->iId;
+        print "<p><em>" .  $a->instName . "</em>\n";
+        print "<ul class='normal'>\n";
+        my $resolvers = xPapers::Link::ResolverMng->get_objects( query=>[iId=>$a->iId],sort=>['weight desc'] );
+        if( $#$resolvers > -1 ){
+            for my $resolver ( @$resolvers ){
+                print "<li>$resolver->{url} ";
+                if( $user->resolver eq $resolver->id ){
+                    print " [ this is your current choice ]";
+                }
+                else{ 
+                    print qq{ [ <span class='ll' onclick="ppAct( 'setOpenURL', { rId: '$resolver->{id}' }, refresh  )">select this resolver</span> ]</li>\n};
+                }
+            }
+        }
+        else{
+                print "<li><em>No OpenURL resolver found.</em></li>";
+        }
+        print "</ul>\n";
+    }
+    
+}
+else {
+    print "You must <a href='/profile/affils.html'>configure your affiliations</a> before using this configuration method.";
+}
+
+</%perl>
+<p>
+<h3>Method B: Specify an OpenURL address  manually (go back to option A if unsure)</h3>
+
+<p>
+<form id="openurl_form" method="POST"> 
+    Resolver URL: <input type="text" size="40" id="openurl" name="openurl" value="<% $user->{rId} ? $user->resolver->url : 'http://' %>"> 
+    [ <span class='ll' onclick="ppAct( 'setOpenURL', { openurl: $F('openurl') }, refresh )">select this configuration</span> ]
+</form>
+<p>
+Please consult your librarian for your institution's OpenURL resolver.
+</p>
