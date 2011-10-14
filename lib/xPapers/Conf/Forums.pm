@@ -11,7 +11,7 @@ my $root = xPapers::Cat->get(1);
 
 @SUBJECT_FORUMS = @{$root->dbh->selectcol_arrayref("select forums.id from forums join cats on forums.cId=cats.id and cats.pLevel=1")};
 
-$NEWSFORUM = 7;
+$NEWSFORUM = 11;
 
 %FORUM_GROUPS = (
     $SUBJECT => { forums => \@SUBJECT_FORUMS, page => 'subject.html' },
