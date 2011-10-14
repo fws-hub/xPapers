@@ -59,7 +59,7 @@ if ($MP or $OPC) {
         $r .= '["Tools","",,,,,"0","0",,],';
         $r .= '["|Bugs, errors, suggestions?","'.$BASE.'/help/bug.html",,,,,"1","1",,],';
         #$r .= '["|Latest additions","'.$PATHS{SEARCH_SCRIPT}.'?latest=1",,,,,"1","1",,],';
-        $r .= '["|Off-campus access","'.$BASE.'offcampus.html",,,,,"1","1",,],';
+#        $r .= '["|Off-campus access","'.$BASE.'offcampus.html",,,,,"1","1",,],';
 #        $r .= '["|Statistics","'.$BASE.'special.html",,,,,"1","1",,],';
         $r .= '["|Submit an entry","'.$BASE.'suggestion.html",,,,,"1","1",,],';
         $r .= '["|About MindPapers","'.$BASE.'about.html",,,,,"1","1",,]';
