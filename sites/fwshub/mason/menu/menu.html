@@ -1,0 +1,55 @@
+<ul id="nav" class="dropdown dropdown-horizontal">
+	<li><a class="dropdown-top" href="<%$s->{server}%>">Home</a></li>
+	<li><a href="/recent/" class="dir dropdown-top">New items</a>
+		<ul class="submenu" style="width:150px">
+			<li class="first-item"><a href="/recent">All new items</a></li>
+			<li><a href="/recent?preset=books">Books</a></li>
+			<li><a href="/recent?preset=journals">Journal articles</a></li>
+			<li><a href="/recent?preset=web">Manuscripts</a></li>
+        </ul>
+    </li>
+
+    <li><a class="dir dropdown-top" href="/categories.pl">Browse by area</a>
+        <ul class="submenu" style="width:230px">
+            <& areas.html &>
+        </ul>
+    </li>
+    <li><a class="dropdown-top" href="/journals">Browse journals</a></li>
+    <li><a class="dir dropdown-top" href="/bbs/">Discussions</a>
+        <ul class="submenu">
+            <%perl>
+                for (@FORUM_ORDER) {
+                    print "<li><a href='/bbs/$FORUM_GROUPS{$_}->{page}'>$_</a></li>";
+                }
+            </%perl>
+        </ul>
+    </li>
+<%perl>
+if ($user->{id}) {
+    $m->comp("user.html");
+} else {
+</%perl>
+    <li><a class="dir dropdown-top" href="/inoff.html">Sign in</a>
+        <ul class="submenu">
+            <li><a href="/inoff.html">Sign in</a></li>
+            <li><a href="/users/new.html">Register</a></li>
+            <li><a href="/users/forgot.html">I've forgotten my password</a></li>
+        </ul>
+    </li>
+%}
+    <li><a class="dir dropdown-top" href="/help/submit.html">Submit material</a>
+        <ul class="submenu">
+            <li><a href="#" onclick="submitEntry2()">Submit a book or article</a></li>
+            <li><a href="/utils/batch_import.pl">Upload a bibliography</a></li>
+            <li><a href="/pages/list.html">Personal pages we track</a></li>
+            <li><a href="/archives/list.html"><%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2011,month=>3,day=>1),"Archives we track")%>Archives we track</a></li>
+            <li><a href="/help/feeds.html">Information for publishers</a></li>
+        </ul>
+    </li>
+    <li><a class="dir dropdown-top" href="/help/index.html">Help &amp; more</a>
+        <ul class="submenu">
+            <& ../help/help_items.html &>
+        </ul>
+    </li>
+</ul>
+
