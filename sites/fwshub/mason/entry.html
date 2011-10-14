@@ -1,0 +1,96 @@
+<%perl>
+my $e = xPapers::Entry->get($ARGS{id});
+error("Bad entry id") unless $e;
+my ($t1,$t2);
+if (length($e->author_abstract) >= 40) {
+    ($t1, $t2) = $rend->wordSplit($e->author_abstract,30);
+    $t1 .= " ..." if $t2;
+}
+my %H;
+$H{subtitle} = $rend->renderEntryT($e);
+$H{description} = $t1 if $t1;
+$H{keywords} = $e->{descriptors} if $e->{descriptors};
+$H{canonical} = "$s->{server}/rec/$e->{id}";
+my $ma;
+if ($e->{deleted}) {
+    if ($e->{duplicateOf}) {
+        $ma = xPapers::Entry->get($e->{duplicateOf});
+    }
+    unless ($ma) {
+        $ma = xPapers::EntryMng->fuzzyFind($e,undef,1);
+    }
+    $H{forward} = "/rec/$ma->{id}" if $ma;
+}
+
+$m->comp("header.html",%ARGS,%H);
+
+if ($e->{deleted}) {
+
+    if ($ma) {
+        print gh("This entry has moved");
+        print "You will be redirected to its new location in 5 seconds. If not, click <a href='/rec/$ma->{id}'>here</a>.";
+    } else {
+        print gh("This entry has been deleted");
+    }
+
+    return unless $SECURE;
+}
+
+$rend->{fullAbstract} = 1;
+$rend->{noMousing} = 1;
+$rend->{cur}->{noMoreLink} = 1;
+$rend->{cur}->{addDetailsPage} = 1;
+
+my $coin = xPapers::Render::Coins::make($e);
+$coin = "<br><span class=\"Z3988\" title=\"$coin\"></span>" if $coin;
+
+$e->{extraOptions} = 
+"<div style='margin-bottom:5px' class='options'>" . 
+num(format_number($e->viewings),"download") . 
+" &nbsp;|&nbsp; Added to index: " . $rend->renderDate((laterThan($e->added,$LAUNCH_DATE) ? $e->added : $LAUNCH_DATE)) . 
+" &nbsp;|&nbsp; <span title='Mark as duplicate' class='ll' onclick=\"window.location='/utils/duplicate.pl?eId=$e->{id}'\">Mark as duplicate</span>" .
+" &nbsp;|&nbsp; <span title=\"Delete from $s->{niceName}\" class=\"ll\" onclick=\'userDelete(\"$e->{id}\")\'>Remove from index</span>".
+" &nbsp;|&nbsp; <a href=\"/utils/revisions.pl?eId=$e->{id}\" rel='nofollow'>Revision history</a>" . 
+( $e->cn_full ? "&nbsp;|&nbsp; Call number: $e->{cn_full}":"") . 
+"$coin</div>" . $m->scomp("bits/addthis.html",caption=>"Share this paper");
+
+</%perl>
+
+<div class='offcamp' style='float:right;width:230px;margin-left:20px;margin-top:10px;'>
+<& bits/offcampusbox.html &>
+</div>
+<div class="mainEntry"><% $rend->renderEntry($e) %></div>
+
+%$rend->{cur}->{noMoreLink} = 0;
+%if ($SECURE) {
+<div class="sideBox admin">
+<div class="sideBoxH">Admin options</div>
+<div class="sideBoxC">
+<ul class="normal">
+<li><a href="/admin/entrylog.pl?eId=<%$ARGS{id}%>">View change log</a></li>
+<li><a href="/admin/inspect.pl?oId=<%$ARGS{id}%>&amp;class=xPapers::Entry">Inspect object</a></li>
+<li><a href="/admin/cats_me.pl?eId=<%$ARGS{id}%>">All category/list memberships</a></li>
+<li>Source: <& /admin/source_viewer.pl, e=> $e &>
+<li>Source type: <%$e->{db_src}%></li>
+<li>Source subjects: <%$e->{source_subjects}%></li>
+</ul>
+</div>
+</div>
+%}
+
+<%perl>
+
+$ARGS{dir} = "/bbs/";
+$m->comp("bbs/threads-basic.pl",%ARGS,__entry__=>$e,nocap=>1,separate=>1,noheader=>1);
+
+if ($ARGS{edit}) {
+    </%perl>
+        <script type="text/javascript">
+            onYUI(function() { editEntry2('<%$e->id%>') });
+        </script>
+    <%perl>
+}
+
+
+</%perl>
+

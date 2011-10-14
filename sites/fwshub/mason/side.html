@@ -1,0 +1,133 @@
+%#$m->comp("polls/ask_embed.pl");
+<form name="expform">
+<div class="sideBox">
+<div class="sideBoxH">BibTeX / EndNote / RIS / etc</div>
+<div class="sideBoxC">
+Export this page:
+<div style='margin-top:5px'>
+<select name="expf" id="expf" onChange="$('expLimit').show()">
+    <option value=''>Choose a format..</option>
+<%perl>
+    for (qw/htm txt bib zot enw ris/) {
+        print "<option value='$_'>$FORMATS{$_}->{name}</option>";
+    }
+</%perl>
+</select>
+<div id='expLimit' style="display:none">
+    Limit to <input type="text" id="expLimitI" size="3" value="500"> items. 
+    <input type="button" value="Export" onclick="
+        if ($F('expf')) {
+            $('ap-format').value=$F('expf');
+            $('ap-limit').value=$F('expLimitI');
+            refreshWith($('allparams'));
+        } else { 
+            alert('You must first choose a format.') 
+        }
+    ">
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+</form>
+
+
+<form id="moreOptions" name="more">
+%if ($ARGS{filterMode} ne 'advanced' and !$ARGS{nogen} and !$ARGS{noOptions} and !$ARGS{pub} and !$ARGS{pubn}) {
+<div class="sideBox">
+<div class="sideBoxH">Restrictions</div>
+<div class="sideBoxC">
+<& bits/filters.html, %ARGS &>
+<p>
+<div class="centered"><input type="button" value="Apply" onclick='$("ap-start").value=0;$("allparams").submit()'></div>
+
+</div>
+</div>
+
+%}
+%if (!$ARGS{noOptions}) {
+<div class="sideBox">
+<div class="sideBoxH">Viewing options</div>
+<div class="sideBoxC">
+<table>
+
+<tr>
+<td> 
+<% checkBox("showCategories",\%ARGS,"set cookie","
+    \$('ap-showCategories').value=this.checked?'on':'off';
+    if (!this.checked) {
+        \$('ap-sqc').value='off';
+        \$('sqc').disabled = true;
+        \$('sqc').checked = false;
+    } else {
+        \$('sqc').disabled = false;
+    }
+",'') %> 
+</td>
+<td> show categories </td>
+</tr>
+<tr>
+<td> 
+<% checkBox("sqc",\%ARGS,"set cookie","
+    \$('ap-sqc').value=this.checked?'on':'off';
+    if (this.checked) {
+        \$('ap-showCategories').value='on';
+        \$('showCategories').checked = true;
+    }
+",'') %> 
+</td>
+<td> categorization shortcuts </td>
+</tr>
+
+
+<!--
+<tr>
+<td valign="top"> 
+<%perl>
+if ($user->{id}) {
+    checkBox("categorizerOn",\%ARGS,"","",'',[1,0]);
+} else {
+    print "<input type='checkbox' disabled>";
+}
+</%perl>
+</td>
+<td> show categorization panel<%$user->{id} ? "" : "<br><span class='hint'>log in required</span>"%> </td>
+</tr>
+-->
+
+<tr>
+<td valign="top"> <% checkBox("hideAbstracts",\%ARGS,"set cookie","
+    \$('ap-hideAbstracts').value=this.checked?'on':'off';
+") %> </td>
+<td> hide abstracts </td>
+<tr>
+<td valign="top"> <% checkBox("newWindow",\%ARGS,"set cookie","
+    \$('ap-newWindow').value=this.checked?'on':'off';
+") %> </td>
+<td>open articles in new windows</td>
+</tr>
+</table>
+<p>
+<div class="centered nonjs"><input type="button" value="Apply" onclick="$('allparams').submit()"></div>
+</div>
+</div>
+%}
+</form>
+
+<%perl>return if $ARGS{noheader};</%perl>
+<& bits/offcampusbox.html,%ARGS &>
+<%perl> return if $ARGS{noexport}; </%perl>
+
+%unless ($ARGS{pub} or $ARGS{pubn}) {
+<& ../bits/monitor_this.html, %ARGS &>
+%}
+
+<& credits.html &>
+
+<%perl>
+
+</%perl>
+
