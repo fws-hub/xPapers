@@ -84,7 +84,7 @@ if ($SECURE) {
     <span style='float:right;color:#888'>Permanent link: <a href="<%$DEFAULT_SITE->{server}%>/post/<%$p->id%>"><%$DEFAULT_SITE->{server}%>/post/<%$p->id%><a></span>
 %#    <a href='<%$rend->threadURL($thread)%>'>View replies</a> |
 %unless ($thread->noReplies) {
-    <a href="<%$path%>newmsg.pl?target=<%$p->id%>&amp;after=<%urlEncode($ENV{REQUEST_URI})%>">Reply</a>
+    <!--<a href="<%$path%>newmsg.pl?target=<%$p->id%>&amp;after=<%urlEncode($ENV{REQUEST_URI})%>">Reply</a>-->
 %}
 %if ($p->uId == $user->{id} and DateTime->now->subtract(minutes=>30)->subtract_datetime($p->created)->is_negative) {
     | <a href="<%$path%>newmsg.pl?edit=<%$p->id%>&amp;after=<%urlEncode($ENV{REQUEST_URI})%>">Edit</a> (This option will disappear shortly)

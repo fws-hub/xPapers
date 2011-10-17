@@ -523,7 +523,7 @@ sub renderForumPT {
     } elsif ($f->gId) {
        return $f->group->name;
     } elsif ($f->eId) {
-       return 'Discussion of ' . $me->renderEntryT($f->paper); 
+       return 'Review of ' . $me->renderEntryT($f->paper); 
     } else {
        return $f->name;
     }
@@ -779,10 +779,10 @@ sub prepTpl {
         tpl=>$me->checkbox('cb_%s','Reading list','%s',"updateToRead(\$('cb_%s'),'\%s')") .'&nbsp; | &nbsp;',
         fields=>['id','id','id','id','toRead'],
         }, {
-        tpl=>'<span title="Discuss this article" class="ll" onclick="window.location=\'/bbs/threads.pl?eId=%s\'">Discuss</span>&nbsp; | &nbsp;',
+        tpl=>'<span title="Review this article" class="ll" onclick="window.location=\'/bbs/threads.pl?eId=%s\'">Review</span>&nbsp; | &nbsp;',
         fields=>['idnoposts']
         }, {
-        tpl=>'<a title="Discuss this %s" href="/bbs/threads.pl?eId=%s">Discussion (%s)</a>&nbsp; | &nbsp;',
+        tpl=>'<a title="Review this %s" href="/bbs/threads.pl?eId=%s">Reviews (%s)</a>&nbsp; | &nbsp;',
         fields=>['type','id','postCount'],
         testField=>'postCount'
         }, { 

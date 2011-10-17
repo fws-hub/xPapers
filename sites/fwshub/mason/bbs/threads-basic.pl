@@ -9,10 +9,10 @@ my ($forum,$cat,$entry,$group,$head,$subt);
 if ($entry = $ARGS{__entry__}) {
     $ARGS{eId} = $entry->id;
     unless ($ARGS{noheader}) {
-        $head.= "<b style='color:#888'>Paper discussion:</b>" unless $ARGS{nocap};
+        $head.= "<b style='color:#888'>Paper reviews:</b>" unless $ARGS{nocap};
         $head.= "<div class='paperForumH'>" . $rend->renderEntry($entry) . "</div><br><br>";
     }
-    $subt = "Discussion of " . rmTags($rend->renderEntryT($entry));
+    $subt = "Reviews of " . rmTags($rend->renderEntryT($entry));
     $forum = $entry->fId ? $entry->forum : xPapers::Forum->new;
     $forum = xPapers::Forum->new unless $forum;
 } elsif ($ARGS{cId}) {
@@ -22,7 +22,7 @@ if ($entry = $ARGS{__entry__}) {
 } elsif ($ARGS{gId}) {
     $group = xPapers::Group->get($ARGS{gId});
     $forum = $group->fId ? $group->forum : xPapers::Forum->new;
-    $subt = "Discussion";
+    $subt = "Reviews";
 } elsif ($ARGS{fId}) {
     $forum = xPapers::Forum->get($ARGS{fId});
     $head.= gh($forum->name) unless $ARGS{noheader};
@@ -36,8 +36,6 @@ print $head;
 
 print qq{<div style='max-width:1200px'>};
 
-$m->comp("../notes/entry-display.pl",%ARGS,__entry__=>$entry,nocap=>1,separate=>1);
-$m->comp("../bits/similar.html",__entry__=>$entry);
 
 if ($ARGS{separate}) {
     </%perl>
@@ -68,7 +66,7 @@ $found = $forum->{found};
 if ($ARGS{blogView}) {
     print "<div class='blog'>";
     for my $thread (@threads) {
-        $m->comp("../bbs/expanded.html",post=>$thread->firstPost,blogView=>1,charLimit=>1000, showForum=>1);
+        $m->comp("../bbs/expanded_review.html",post=>$thread->firstPost,blogView=>1,charLimit=>1000, showForum=>1);
     }
     print "<p></div>";
 
@@ -83,7 +81,7 @@ if ($ARGS{blogView}) {
 
 }
 
-print "<div style='text-align:center'><em>Nothing in this forum yet.</em></div>" if $#threads == -1;
+print "<div style='text-align:center'><em>There are no reviews for this item.</em></div>" if $#threads == -1;
 
 print "<p>";
 print prevNext($ENV{REQUEST_URI},\%ARGS,$pp,$found);
@@ -101,6 +99,11 @@ if (!$ARGS{separate}) {
 } else {
     print "</div></div>";
 }
+
+$m->comp("../notes/entry-display.pl",%ARGS,__entry__=>$entry,nocap=>1,separate=>1);
+$m->comp("../bits/similar.html",__entry__=>$entry);
+
+
 print qq{</div>};
 writeLog($forum->dbh,$q, $tracker, "forum", $forum->id,$s);
 
