@@ -1,0 +1,71 @@
+<%perl>
+my $t = $ARGS{thread};
+my $f = $ARGS{forum};
+my $dir = pdir(\%ARGS);
+my $firstPost;
+unless ($firstPost = $t->firstPost and $t->latestPost) { print $t->{id}; return; }
+if (1) {
+    print "<div class='blog'";
+    $m->comp("../bbs/expanded.html",post=>$firstPost,blogView=>1,charLimit=>1000,showForum=>1);
+    print "<p></div>";
+    return;
+}
+</%perl>
+
+<table class='tSummary'>
+    <tr>
+        <td valign="top" class='tsumTD tsum1'>
+            <a href="<%$dir%>thread.pl?tId=<%$t->id%>">
+            <b><%$firstPost->subject%></b></a>
+%if ($t->sticky) {
+        &nbsp;<span class='hint'>(sticky thread)</span>
+%}
+        <div class='tSummaryAbout subtle'>
+        <%perl>
+        if (!$f->cId && !$f->eId) {
+        } elsif ($t->forum->id == $f->id) {
+            print "This forum";
+        } elsif ($t->forum->eId) {
+            print $rend->renderForum($t->forum);
+        } else {
+            print "Forum: " . $rend->renderForum($t->forum) . "";
+        }
+        </%perl>
+        </div>
+
+%if (0 and $SECURE) {
+        <%perl>
+        my $body = $firstPost->body;
+        $body = join("<br>", 
+            map { rmTags($_) }
+            split(/<br>/i,$body)
+        );
+        my ($c1,$c2) = $rend->wordSplit($body,50);
+        my $follow = $c2 ? " (<a href='${dir}thread.pl?tId=$t->{id}'>read more</a>)" : "";
+        $follow = "... $follow" if $follow;
+        print "$c1$follow";
+        </%perl>
+%}
+
+        </td>
+
+        <td valign="top" class='tsumTD tsum2'>
+%#            <%$rend->renderUserC($firstPost->user,1)%><br>
+        <a href="<%${dir}%>thread.pl?tId=<%$t->id%>#p<%$firstPost->id%>"><%$firstPost->user->fullname%></a><br>
+        <span class="hint"> <%$rend->renderDate($firstPost->created)%> </span>
+        </div>
+        </td>
+
+        <td valign="top" class='tsumTD tsum2'>
+%if ($t->latestPostId == $t->firstPostId) {
+            <em style='font-size:smaller'>No follow-ups</em>
+%} else {
+            <a href="<%${dir}%>thread.pl?tId=<%$t->id%>#p<%$t->latestPost->id%>"><%$t->latestPost->user->fullname%></a><br>
+            <span class='hint'><%$rend->renderDate($t->latestPost->created)%><span>
+%}
+        </td>
+        <td valign="top" align="center" class='tsumTD tsum3'>
+            <%$t->postCount%>
+        </td>
+    </tr>
+</table>
