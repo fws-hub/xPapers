@@ -16,14 +16,13 @@ $NEWSFORUM = 11;
 %FORUM_GROUPS = (
     $SUBJECT => { forums => \@SUBJECT_FORUMS, page => 'subject.html' },
     'In my forums' => { forums=> [], special => 'MY', page => 'myforums.html' },
-    'Paper discussions' => { forums=> [], special => 'PAPERS', page => 'papers.html' },
     'All discussions' => { forums=> [], special => 'ALL', page => 'all.html' }
 );
 
 $FORUM_GROUPS{$_}->{name} = $_ for keys %FORUM_GROUPS;
 $FORUM_GROUPS{$_}->{exclude} = \@NO_OVERVIEW for keys %FORUM_GROUPS;
 
-@FORUM_ORDER = ('All',$SUBJECT,'In my forums','In the profession','Paper discussions');
+@FORUM_ORDER = ('All','In my forums');
 @DEFAULT_SUBSCRIPTIONS = ( $NEWSFORUM ); 
 
 @NO_OVERVIEW = ();
