@@ -15,12 +15,7 @@ my $paperThreads = xPapers::ThreadMng->get_objects_count(
     query=>['accepted'=>1],
     require_objects=>['forum.paper']
 );
-my $p_class = $ARGS{group} eq 'Paper discussions' ? ' forum_item_selected' : '';
-print qq{<li><div class="forum_item_depth1"><a class="forum_item_depth1$p_class" href="/bbs/papers.html">Paper discussions</a> ($paperThreads)</div></li>};
 
-for (('In the profession',"About $s->{niceName}")) {
-    print scalar show_forum_node(mode=>'group',name=>$_,args=>\%ARGS);
-}
 print scalar show_forum_node(mode=>'category',cId=>1,name=>"$SUBJECT discussions",args=>\%ARGS);
 print "</ul>";
 
