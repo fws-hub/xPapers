@@ -41,7 +41,7 @@ event('menu','end');
 	    <& search/basic_form.html, small=>1, noButton=>1, %ARGS &>
 	</div>
 
-        <div style="font-size: 11px; padding-left: 10px; margin-top: 67px;">
+        <div style="font-size: 11px; padding-left: 16px; margin-top: 67px;">
 % if ($user->{id}) {
 	<span>
 	Signed in as <a href="/profile/<%$user->id%>"><% $user->fullname %></a> 
