@@ -181,7 +181,7 @@ my $subscribers = $forum->subscribers_count;
 
 <& ../header.html, %ARGS, subtitle=>"New message" &>
 <div class='miniheader'>
-<span style="font-size:18px;color:#<%$C2%>;font-weight:bold"><% $ARGS{edit} ? "Edit post (do not take more than 30 minutes)" : "New post"%></span>
+<span style="font-size:18px;color:#<%$C2%>;font-weight:bold"><% $ARGS{edit} ? "Edit post (do not take more than 30 minutes)" : "New Review"%></span>
 </div>
 %if ($moderated) {
 <div style='border:1px dotted grey;padding:3px;font-weight:bold'>
@@ -194,7 +194,7 @@ Please be aware that this forum has <%format_number($subscribers)%> subscribers.
 %}
 <p>
 
-<form id="msg" name="msg" method="POST" action="newmsg.pl">
+<form id="msg" name="msg" method="POST" action="newreview.pl">
 <input type=hidden name="uId" value="<%$user->id%>" size=50>
 <input type=hidden name="target" value="<%$ARGS{target}%>">
 <input type="hidden" name="noheader" value="1">
@@ -236,10 +236,10 @@ if ($targ) {
     </div>
     </div>
     <p>
-<input type="hidden" name="subject" size=50 value="<%$subj%>"><p>
-%} else {
-    Thread subject: <input id="subject" type="text" name="subject" size=45 value="<%$targ ? $targ->subject : ($old ? $old->subject :'')%>"><p>
+
 %}
+<input type="hidden" name="subject" size=50 value="review"><p>
+
 <div class='yui-skin-sam postBody'>
 <textarea id='newmsg' COLS="50" ROWS="15" name="body">
 <%$old ? $old->body : ""%>
@@ -258,7 +258,7 @@ My browser is <%$browser->browser_string . " ".  $browser->version . " (" . $bro
 %} elsif ($targ and $targ->thread->subscribers_count({uId=>$user->{id}})) {
     You are subscribed to this thread.<p>
 %} else {
-    <input type="checkbox" name="subscribe" <%$ARGS{addurl}? "":"checked"%>> Notify me of new messages posted under this thread.<p>
+    <input type="checkbox" name="subscribe" <%$ARGS{addurl}? "":"checked"%>> Notify me when new reviews of this paper are posted.<p>
 %}
 <input type="submit" value="Submit" onclick="
     YAHOO.postSent = 1;

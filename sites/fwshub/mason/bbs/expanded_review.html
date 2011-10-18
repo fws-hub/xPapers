@@ -1,3 +1,4 @@
+<!--start of expanded_review.html-->
 <%perl>
 my $p = $ARGS{post}; 
 my $thread = $ARGS{thread} || $p->thread;
@@ -16,32 +17,22 @@ Note: Because you do not have <span class='ll' onclick='faq("pro")'>pro status</
 </td>
 <td class="postSubject">
 <div class="postSubject">
-%print "<span class='blogForum' style='float:right'>" .$rend->renderForum($thread->forum). "</span>" if $ARGS{showForum};
-%print "<a class='postSubject' href=\"" . $rend->threadURL($thread) . "\">" if $ARGS{blogView}; 
-<%$p->subject%>
-%print "</a>" if $ARGS{blogView};
+%print "<span>" .$rend->renderForum($thread->forum). "</span>" if $ARGS{showForum};
+%print "<span> By ".$rend->renderUserPT($p->user)."</span>" if $ARGS{showForum};
 </div>
-<%perl>
-if (my $tp = $p->targetPost) {
-    print '<div class="postReplyTo">Reply to ';
-    my $link = "${path}thread.pl?tId=" .$thread->id . "#p" . $tp->id;
-    print "<a href='$link'>" . $tp->user->fullname . "</a>";
-    print '</div>';
-}
-</%perl>
 </td>
 </tr>
 <tr>
 <td class="postAuthorTD">
 
-<div class="postAuthor"><%$rend->renderUser($p->user)%>
+<div class="postAuthor">
 </div>
 <%perl>
-if ($SECURE) {
-    event('subscribed','start');
-    print "<br>Subscribed" if $p->thread->subscribers_count({uId=>$p->user->{id}});
-    event('subscribed','end');
-}
+#if ($SECURE) {
+#    event('subscribed','start');
+#    print "<br>Subscribed" if $p->thread->subscribers_count({uId=>$p->user->{id}});
+#    event('subscribed','end');
+#}
 </%perl>
 </td>
 <td class="postContentTD">
@@ -119,3 +110,4 @@ if ($SECURE and !$ARGS{charLimit}) {
 </tr>
 </table>
 <br>
+<!--end of expanded_review.html-->

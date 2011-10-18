@@ -5,8 +5,8 @@ my $dir = pdir(\%ARGS);
 my $firstPost;
 unless ($firstPost = $t->firstPost and $t->latestPost) { print $t->{id}; return; }
 if (1) {
-    print "<div class='blog'";
-    $m->comp("../bbs/expanded.html",post=>$firstPost,blogView=>1,charLimit=>1000,showForum=>1);
+    print "<div class='blog'>";
+    $m->comp("../bbs/expanded_review.html",post=>$firstPost,blogView=>1,charLimit=>1000,showForum=>1);
     print "<p></div>";
     return;
 }
