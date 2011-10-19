@@ -1,33 +1,27 @@
-<%init>
-return if $m->cache_self(key => 'newsbox4', expires_in => '30 minutes');
-</%init>
+<script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAH1bcZsM9KO2LSOLawhwGnRRLhUgCxDzHlnoCdZziIRCvuO2TtxQPuzZlkV-or_Zjh5syUIfSmSV0tA"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+   google.load("feeds", "1");
+   
+   function OnLoad() {
+      // Create a feed control
+      var feedControl = new google.feeds.FeedControl();
+      feedControl.addFeed("http://www.google.com/reader/public/atom/user%2F06388591698525318956%2Fstate%2Fcom.google%2Fbroadcast");
+      feedControl.draw(document.getElementById("news_content"));
+   }
+
+   google.setOnLoadCallback(OnLoad);
+
+
+</script>
+
 <div class="sideBox">
-<div class="sideBoxH">Latest news</div>
-<div class="sideBoxC">
-
-<%perl>
-
-my $f = xPapers::Forum->get(11);
-my @threads = $f->threads_o("true","ct desc",0,2);
-for my $p (map { $_->firstPost } @threads) {
-    my ($c1,$c2) = $rend->wordSplit($p->body,30);
-    #$c1 =~ s/<\/?a[^>]*>?//ig;
-    my $follow = $c2 ? " (<a href='" . $rend->postURL($p) ."'>read more</a>)" : "";
-    $follow = "... $follow" if $follow;
-    $c1 =~ s/^\s*<p>//;
-</%perl>
-
-    <div class="newsHead"><%$p->subject%></div>
-    <div class="newsSubHead">posted <%$rend->renderDate($p->created) %> by <%$rend->renderUserC($p->user,1)%></div>
-    <div class="newsContent"><%$c1.$follow%></div>
-    <p>
-<%perl>
-
-}
-
-</%perl>
-<p>
-<a style='font-size:11px' href="/bbs/threads.pl?fId=11">View older news</a>
-
+<div class="sideBoxH">
+   <span style="padding: 5px;"><a type='application/atom+xml' href="http://www.google.com/reader/public/atom/user%2F06388591698525318956%2Fstate%2Fcom.google%2Fbroadcast"><img src="http://www.google.com/reader/ui/609622892-feed-icon-12.png" alt="" title="Subscribe to FWS News feed"  border="0"></a></span>
+   <span style="padding: 5px;">Latest news</span>
+   <span style="padding: 5px; font-size:11px;font-weight:normal;">(<a href="allnews.html" title="Mmore news">More news</a>)</span>
+</div>
+<div class="sideBoxC" id="news_content"></div>
 </div>
 </div>
