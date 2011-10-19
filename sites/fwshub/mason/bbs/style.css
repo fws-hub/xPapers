@@ -1,0 +1,80 @@
+.references .entryList .entry, .references strong, .references .articleTitle, .references .name, .references .person { padding: 0 !important; font-weight:normal !important; }
+
+.references .entryList { list-style-type: none }
+.sortable {
+    padding-right:20px;
+    background:url(<% $s->rawFile( 'icons/sort.png' ) %>) center right no-repeat;
+}
+
+.oneforum .forumName {font-weight:bold}
+.gh .title { color: #<%$C2%> }
+
+.tSummary {
+width:100%;
+}
+
+table.tsum { border-bottom: 1px #888 solid;padding-bottom:3px }
+
+.tsum2 {width: 120px}
+.tsum3 {width: 60px}
+
+.tSummary .name {
+    font-weight:normal;
+    color:black;
+}
+
+.tsumTD {
+}
+
+.miniheader .tsumTD span, .miniheader tsumTD div, .miniheader .tsum2, .miniheader .tsum3 { vertical-align:20%;  }
+.miniheader .tsum1 span.ll { vertical-align:0%;  }
+
+.tSummarySub {
+    font-weight:bold;
+}
+
+.tSummaryAbout {
+    padding-top:3px;
+}
+
+.postExpanded .person {
+    font-weight:bold; 
+}
+.postExpanded .affil {
+    font-size: smaller;
+}
+
+.replies .postExpanded { 
+    margin: 0;
+    margin-bottom:20px;
+    width:100%;
+}
+.mainPost .postExpanded {
+    border-left:3px solid #ddd;
+    margin: 0;
+    margin-bottom:20px;
+    width:100%;
+}
+.postContentTD { padding: 5px; vertical-align:top; padding-top:16px !important }
+
+.postTime { font-size:smaller; background-color: #fff; padding: 5px; background-color:#f8f8f8}
+.postSubject { font-size:14px; font-weight:bold; color:#000; background-color:#f8f8f8  }
+.postSubject a.postSubject:link, .postSubject a.postSubject:visited { color:#<%$C2%> !important;  }
+.blogForum a { font-size:11px !important; color:#<%$C4%> !important;font-weight:normal !important }
+.replies div.postSubject { display: none }
+.replies div.postReplyTo { font-size:11px }
+.mainPost .postSubject { color: #<%$C2%>; font-size:18px }
+.postAuthor { margin-left:5px; margin-top:10px; }
+.postAuthorTD { width:120px; vertical-align:top; background-color: #fff }
+.postBody h1, #newmsg_editor h1 { font-size: 16px; font-weight:bold;}
+.postBody h2, #newmsg_editor h2 { font-size: 14px; font-weight:bold;}
+.postBody h3, #newmsg_editor h3 { font-size: 13px; font-weight:bold; font-style:normal;color:#555; }
+.postBody { font-family: Arial, Verdana !important }
+pre { font-family: Arial; white-space: normal }
+.postBody p { margin-top:0 } 
+.postReplyTo {}
+.postShort {}
+.postOptions { text-align:left; padding-top:10px; font-size:11px; }
+.postReplyTo .postShort { display: inline }
+.replies { }
+/*end skip*/
