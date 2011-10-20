@@ -523,7 +523,7 @@ sub renderForumPT {
     } elsif ($f->gId) {
        return $f->group->name;
     } elsif ($f->eId) {
-       return 'Review of ' . $me->renderEntryT($f->paper); 
+       return $me->renderEntryT($f->paper); 
     } else {
        return $f->name;
     }
@@ -779,10 +779,10 @@ sub prepTpl {
         tpl=>$me->checkbox('cb_%s','Reading list','%s',"updateToRead(\$('cb_%s'),'\%s')") .'&nbsp; | &nbsp;',
         fields=>['id','id','id','id','toRead'],
         }, {
-        tpl=>'<span title="Review this article" class="ll" onclick="window.location=\'/bbs/threads.pl?eId=%s\'">Review</span>&nbsp; | &nbsp;',
+        tpl=>'<a title="Review this article" class="reviewHighlight" href="/bbs/threads.pl?eId=%s" style="color: blue;">Reviews</a>&nbsp; | &nbsp;',
         fields=>['idnoposts']
         }, {
-        tpl=>'<a title="Review this %s" href="/bbs/threads.pl?eId=%s">Reviews (%s)</a>&nbsp; | &nbsp;',
+        tpl=>'<a title="Review this %s" href="/bbs/threads.pl?eId=%s" style="color: blue;" class="reviewHighlight">Reviews (%s)</a>&nbsp; | &nbsp;',
         fields=>['type','id','postCount'],
         testField=>'postCount'
         }, { 
@@ -811,11 +811,13 @@ sub prepTpl {
         }, {
         tpl=>'&nbsp; | Other links: %s &nbsp;',
         fields=>['extraLinks']
-        }, {
-        tpl=>'&nbsp;|&nbsp<span class="ll" onclick="admAct(\'makeOld\',{eId:\'%s\'})">Oldify*</span> ',
-        fields=>['id'],
-        secureOnly=>1
-        }, {
+        }, 
+        #{
+        #tpl=>'&nbsp;|&nbsp<span class="ll" onclick="admAct(\'makeOld\',{eId:\'%s\'})">Oldify*</span> ',
+        #fields=>['id'],
+        #secureOnly=>1
+        #}, 
+        {
         tpl=>' | <a title="Search on Google Scholar" href="http://scholar.google.com/scholar?q=%s">Scholar</a> ',
         fields=>['gsv']
         }, {
@@ -824,7 +826,7 @@ sub prepTpl {
         }, 
 # rendering followers
         $me->{cur}->{user}->{id} ? {
-         tpl => '&nbsp;|&nbsp<span class="ll" onclick="%s"><span class="newFlag">NEW:</span> Follow the author(s)</span> ',
+         tpl => '&nbsp;|&nbsp<span class="ll" onclick="%s">Follow the author(s)</span> ',
          fields=>['FollowAuthors'],
         }
         : (), 
