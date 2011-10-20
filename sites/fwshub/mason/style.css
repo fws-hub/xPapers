@@ -2934,4 +2934,14 @@ background-color: transparent;
 width: 70px;
 }
 
+/*added for toolbox in CSS instead of tables*/
+.toolboxEntryLeft { 
+width: 350px;
+float: left;
+}
+.toolboxEntryRight { 
+width: 350px;
+float: right;
+}
+
 
