@@ -52,10 +52,6 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
     <div class='ah'><a href="?recent=1&sort=added">Most recently added items</a></div>
     <p>
     <p>
-    <div class='ah'>
-    <a href="/utils/bargains.pl?bmode=<%$cat->id%>">Discounted books in this area</a></div>
-%#    <& biblios.pl, %ARGS &>
-    <p>
     <div class='ah'>Most recent discussion threads:</div>
     <& ../bbs/brief.pl,__forum__=>$cat->forum &>
 
