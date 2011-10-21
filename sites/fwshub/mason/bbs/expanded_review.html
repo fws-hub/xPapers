@@ -16,10 +16,9 @@ Note: Because you do not have <span class='ll' onclick='faq("pro")'>pro status</
  <a name="p<%$p->id%>"><%$rend->renderDate($p->created)%></a>
 </td>
 <td class="postSubject">
-<div class="postSubject">
-%print "<span>" .$rend->renderForum($thread->forum). "</span>" if $ARGS{showForum};
-%print "<span> By ".$rend->renderUserPT($p->user)."</span>" if $ARGS{showForum};
-</div>
+<!--<div class="postSubject">-->
+<h2>Review by <%$rend->renderUserPT($p->user)%></h2>
+<!--</div>-->
 </td>
 </tr>
 <tr>

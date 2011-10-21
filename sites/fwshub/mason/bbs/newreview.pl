@@ -75,6 +75,13 @@ if (!$forum->canDo("AddPosts",$user->{id})) {
     $m->comp("../groups/noAccess.html");
 }
 
+# is the user a senior academic?
+
+if ($user->phd==0)
+{
+    error("Only senior academics can post reviews. If you feel you should be able to post reviews here, please <a href=\"/help/contact.html\"> contact us</a>.");
+}
+
 # check read-only forum
 if (!$targ and $ROFORUMS{$forum->{id}}) {
     error("Permission denied to create a thread in this forum") unless $SECURE;
@@ -185,13 +192,9 @@ my $subscribers = $forum->subscribers_count;
 </div>
 %if ($moderated) {
 <div style='border:1px dotted grey;padding:3px;font-weight:bold'>
-Note: Your post will be reviewed by an editor before being added to the forum. Only contributions judged to be of professional quality will be accepted. Forum posts are not expected to compare in substance or rigor to journal articles, but they should be up to the same standards of clarity and be equally on topic. 
+Note: Your review will be moderated by an editor before being added. Only reviews judged to be of professional quality will be accepted.
 </div>
-%} elsif ($subscribers > 100) {
-<div style='border:1px dotted grey;padding:3px;font-weight:bold'>
-Please be aware that this forum has <%format_number($subscribers)%> subscribers. All subscribers will receive your post as part of their daily or weekly digest. 
-</div>
-%}
+%} 
 <p>
 
 <form id="msg" name="msg" method="POST" action="newreview.pl">
@@ -210,7 +213,7 @@ Please be aware that this forum has <%format_number($subscribers)%> subscribers.
 if ($paper ) {
     print "Target paper: " . $rend->renderEntryC($paper) . "<br>";
     if (!$paper->publicCats) {
-        print "<b>This paper has not been categorized. Its forum (and your post) will be found more easily if you categorize it. Click <span class='ll' onclick='editEntry2(\"$paper->{id}\",\"classificationDetails\")'>here</span> to categorize it.</b><br>";
+        print "<b>This paper has not been categorized. Your review will be found more easily if you categorize it. Click <span class='ll' onclick='editEntry2(\"$paper->{id}\",\"classificationDetails\")'>here</span> to categorize it.</b><br>";
     }
 } else {
     print "Forum: " . $rend->renderForum($forum) . "<br>";

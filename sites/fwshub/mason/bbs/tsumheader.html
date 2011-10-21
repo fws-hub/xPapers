@@ -10,7 +10,7 @@ $ARGS{dir} ||= '/bbs/';
 %if ($ROFORUMS{$ARGS{forum}->{id}} or $ARGS{adhoc} or ($ARGS{forum}->{cId} and $ARGS{forum}->category->highestLevel < 1 and not $RWFORUMS{$ARGS{forum}->{id}})) {
 %#   print "Please post to sub-forums." unless $ARGS{forum}->{id} == 11;
 %} else {
-    <a href='<%$ARGS{dir}%>newreview.pl?eId=<%$ARGS{eId}%>&amp;fId=<%$ARGS{fId}%>'>Write a review</a> 
+    <a href='<%$ARGS{dir}%>newreview.pl?eId=<%$ARGS{eId}%>&amp;fId=<%$ARGS{fId}%>'>Write a review (Senior academics only)</a> 
 %}
 
 

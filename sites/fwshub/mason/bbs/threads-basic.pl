@@ -66,7 +66,7 @@ $found = $forum->{found};
 if ($ARGS{blogView}) {
     print "<div class='blog'>";
     for my $thread (@threads) {
-        $m->comp("../bbs/expanded_review.html",post=>$thread->firstPost,blogView=>1,charLimit=>1000, showForum=>1);
+        $m->comp("../bbs/expanded.html",post=>$thread->firstPost,blogView=>1,charLimit=>1000, showForum=>1);
     }
     print "<p></div>";
 

@@ -59,7 +59,7 @@ table.tsum { border-bottom: 1px #888 solid;padding-bottom:3px }
 
 .postTime { font-size:smaller; background-color: #fff; padding: 5px; background-color:#f8f8f8}
 .postSubject { font-size:14px; font-weight:bold; color:#000; background-color:#f8f8f8  }
-.postSubject a.postSubject:link, .postSubject a.postSubject:visited { color:#<%$C2%> !important;  }
+.postSubject a.postSubject:link, .postSubject a.postSubject:visited, p.postSubject  { color:#<%$C2%> !important;  }
 .blogForum a { font-size:11px !important; color:#<%$C4%> !important;font-weight:normal !important }
 .replies div.postSubject { display: none }
 .replies div.postReplyTo { font-size:11px }
