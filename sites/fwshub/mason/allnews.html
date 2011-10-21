@@ -1,0 +1,56 @@
+<& header.html &>
+
+<script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAH1bcZsM9KO2LSOLawhwGnRRLhUgCxDzHlnoCdZziIRCvuO2TtxQPuzZlkV-or_Zjh5syUIfSmSV0tA"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+   google.load("feeds", "1");
+   
+   function feedLoaded(result) {
+     if (!result.error) {
+        var container = document.getElementById("news_content");
+	
+	for (var i = 0; i < result.feed.entries.length; i++) {
+	   var div = '';
+	   var span = '';
+	   var link = '';
+	   var entry = result.feed.entries[i];
+	   var entryDiv = document.createElement('div');
+	   
+	   entryDiv.setAttribute('style', 'padding-top: 16px;');
+	   link = document.createElement('a');
+	   link.setAttribute('href', entry.link);
+	   //link.appendChild(document.createTextNode(entry.title));
+	   link.innerHTML = entry.title;
+	   div = document.createElement('div');
+	   div.setAttribute('style', 'font-size: 14px; font-weight: bold;');
+	   div.appendChild(link);
+	   entryDiv.appendChild(div);
+	   div = document.createElement('div');
+	   span = document.createElement('span');
+	   span.setAttribute('style', 'font-size: 11px; color: grey;');
+	   span.appendChild(document.createTextNode('by ' + entry.author + ' on ' + entry.publishedDate));
+	   div.appendChild(span);
+	   entryDiv.appendChild(div);
+	   div = document.createElement('div')
+	   //div.appendChild(document.createTextNode(entry.contentSnippet));
+	   div.innerHTML = entry.content;
+	   entryDiv.appendChild(div);
+	   container.appendChild(entryDiv);
+	}
+      }
+    }
+
+   function OnLoad() {
+      var feed = new google.feeds.Feed("http://www.google.com/reader/public/atom/user%2F06388591698525318956%2Fstate%2Fcom.google%2Fbroadcast");
+      feed.includeHistoricalEntries();
+      feed.setNumEntries(250);
+      feed.load(feedLoaded);
+   }
+
+   google.setOnLoadCallback(OnLoad);
+
+
+</script>
+
+<div id="news_content"></div>
