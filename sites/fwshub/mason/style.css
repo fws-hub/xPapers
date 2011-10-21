@@ -478,8 +478,8 @@ height:20px;
 color: black;
 /*vertical-align:top;*/
 /*min-width:<%$minWidth%>px;*/
-margin-top: 19px;
-margin-left: 6px;
+margin-top: 10px;
+margin-left: 10px;
 /*padding-right:<%$rightMargin%>;*/
 /*width: 770px;*/
 }
@@ -2943,5 +2943,4 @@ float: left;
 width: 350px;
 float: right;
 }
-
 
