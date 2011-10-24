@@ -29,7 +29,7 @@ if ($archive->downloadType eq 'partial') {
 } elsif ($archive->downloadType eq 'complete') {
      print "A 'complete' download type means that all articles from this archive will be indexed.";
 } elsif ($archive->downloadType eq 'sets') {
-    print "A 'sets' download type means that only articles categorized under certain sets will be indexed. Click <a href=\"/archives/add.pl?id=$archive->{id}\">here</a> to edit this archive's configuration or view the sets it offers.";
+    print "A 'sets' download type means that only articles categorised under certain sets will be indexed. Click <a href=\"/archives/add.pl?id=$archive->{id}\">here</a> to edit this archive's configuration or view the sets it offers.";
 }
 print "<br>";
 if ($archive->errorLog) {
