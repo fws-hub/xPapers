@@ -419,7 +419,7 @@ function openEditor(id,step,embed,panel) {
 }
 function customEditor(params) {
     if (categorizerOn) {
-        if (!confirm("Are you sure you want to open the editor? Doing so will close the categorization panel."))
+        if (!confirm("Are you sure you want to open the editor? Doing so will close the categorisation panel."))
             return;
     }
     hideCategorizer();
