@@ -1,0 +1,29 @@
+<li><a href="/browse/all">All Categories</a></li>
+<%perl>
+if ($ARGS{d}) {
+print "DEBUG\n";
+print Dumper($root->children_o);
+}
+my $cats = $root->children_o;
+print areasubmenu($_) for @$cats;
+</%perl>
+%#<li><a href="/utils/uncategorized.pl">Uncategorized Material</a></li>
+<li>
+%#<a href="/utils/bargains.pl">Bargain finder &lt;-- NEW</a>
+%#print newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2010,month=>11,day=>15),"Bargains");
+</li>
+
+<%perl>
+sub areasubmenu {
+    my $c = shift;
+    my $r = "<li><a class='dir' href='/browse/" . ($c->eun||$c->id) . "'>$c->{name}</a>\n<ul style=\"width:200px\" class=\"submenu\">\n";
+    for (
+        grep { $_->canonical }
+        grep { ref($_) eq 'xPapers::Cat' }
+        @{$c->children_o}
+    ) {
+        $r .= "<li><a href='/browse/" . ($_->eun||$_->id) . "'>$_->{name}</a></li>\n";
+    }
+    return "$r</ul>\n";
+}
+</%perl>
