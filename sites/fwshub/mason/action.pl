@@ -220,7 +220,7 @@ if ($ARGS{c} eq "reverseDiff") {
     jserror("Access denied: can't add to list #$list->{id}. This may be a bug. Please report and include list #.") unless $list->canDo("AddPapers",$user->{id});
     return unless $entry;
     jserror("Entry already in list") if $list->contains($entry->id);
-    jserror("You have reached your quota of categorization for today, sorry") if !$list->isEditor($user) and $user->danger("CatAdd");
+    jserror("You have reached your quota of categorisation for today, sorry") if !$list->isEditor($user) and $user->danger("CatAdd");
     eval {
     $list->addEntry($entry,$user->{id},deincest=>1);
     };
@@ -229,7 +229,7 @@ if ($ARGS{c} eq "reverseDiff") {
     jserror("Select some entries first") unless $ARGS{entries};
     jserror("Not allowed") unless $list->canDo("AddPapers",$user->{id});
     my @ents = split(";",$ARGS{entries});
-    jserror("You have reached your quota of categorization for today, sorry") if !$list->isEditor($user) and $user->danger("CatAdd",$#ents+1);
+    jserror("You have reached your quota of categorisation for today, sorry") if !$list->isEditor($user) and $user->danger("CatAdd",$#ents+1);
     for (@ents) {
         next unless $_;
         my $e = xPapers::Entry->get($_);
@@ -251,7 +251,7 @@ if ($ARGS{c} eq "reverseDiff") {
     #print L Dumper $list;
     #close L;
     jserror("Access denied") unless $list->canDo("DeletePapers",$user->{id});
-    jserror("You have reached your quota of categorization for today, sorry") if !$list->isEditor($user) and $user->danger("CatDelete");
+    jserror("You have reached your quota of categorisation for today, sorry") if !$list->isEditor($user) and $user->danger("CatDelete");
     my $diff = $list->deleteEntry($entry,$user->{id});
     #$diff->save if $diff;
     return;
