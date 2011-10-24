@@ -45,8 +45,8 @@ Out = entries removed from directly in the category over past year or beginning 
 In_u = entries added somewhere under the category (or directly in it) over past year or beginning of editorship.<br>
 * 6m = same as *, but over past 6 months.<br>
 Count = Entry count in category and primary descendants.<br>
-Uncat = Entries currently requiring further categorization.<br>
-Checked edits = number of checked categorization edits for cat. <br>
+Uncat = Entries currently requiring further categorisation.<br>
+Checked edits = number of checked categorisation edits for cat. <br>
 Excluded = numbers of items excluded from cat while trawling.<br>
 nb: no distinctions are made between editors when there is more than one for a cat.
 <p>
