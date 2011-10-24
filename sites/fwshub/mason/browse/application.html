@@ -1,0 +1,95 @@
+<%perl>
+my $cat = $ARGS{__cat__};
+</%perl>
+<& ../header.html, subtitle=>"Editor application" &>
+<%perl>
+
+my @eds = $cat->editors;
+if ($#eds > -1 and !$ARGS{force}) {
+    error("Applications are not open for this category at the moment.");
+}
+if ($ARGS{apply}) {
+
+    $m->comp("../checkLogin.html",%ARGS);
+
+    # check recursion is specified
+    error("You must specify whether you want to apply for open sub-categories as well.") 
+        if ($cat->pLevel > 1 and $cat->{catCount} and !$ARGS{recursive});
+
+    # check we don't already have one.
+    if (my $date = check($cat) and !$ARGS{force}) {
+
+        print "You have already submitted an application for this category (" . $rend->renderDate($date) . ")"; 
+
+    } else {
+
+        xPapers::Mail::MessageMng->notifyAdmin("New application by " . $user->fullname, "Category: " . $cat->name . "\nSubcats:" . ($ARGS{recursive} ? "yes" : "no") . "\n");
+        $ARGS{recursive} eq 'on' ? recur($cat,$ARGS{comment}) : apply($cat,$ARGS{comment});
+        print "<p>Thank you for your application(s). You will be notified as soon as a decision has been made. This should not take very long. Meanwhile, you can see the status of your application(s) by following the appropriate link in your profile.";
+
+    }
+    print "<p><a href='/browse/" . $cat->eun . "'>Return to category</a>";
+    return;
+
+}
+
+sub recur {
+    my ($cat,$comment,$it) = @_;
+    $it ||= 0;
+    apply($cat,$comment,$it);
+    recur($_,$comment,$it+1) for @{$cat->primary_children};
+}
+
+sub apply {
+    my ($cat,$comment,$recur) = @_;
+    my @eds = $cat->editors;
+    if ($#eds > -1) {
+        print "Skipping $cat->{name} (it already has an editor)<br>";
+        return;
+    }
+    return if check($cat);
+    print "Lodging application for " . $cat->name . "<br>";
+    my $ed = xPapers::Editorship->new(
+        uId=>$user->{id},
+        cId=>$cat->id,
+        recursive=>$recur,
+        comment=>$comment,
+        created=>DateTime->now(time_zone=>$TIMEZONE)
+    );
+    $ed->save;
+}
+
+sub check {
+    my ($cat) = @_;
+    my $c = xPapers::ES->get_objects(query=>[status=>{ge=>0},end=>undef,cId=>$cat->id,uId=>$user->id]);
+    return $#$c > -1 ? $c->[0]->created : undef;
+}
+</%perl>
+
+<h3>Becoming editor of this category</h3>
+First, read the <a href="/help/editors.html">Editor's Guide</a> to ensure you know what an editor's duties and privileges are.   In brief, an editor's role is to ensure that the category he/she edits is complete and does not contain irrelevant or incorrect entries.  A number of tools are provided to make this task as easy as possible.  An editor's term lasts six months. After that, the position becomes open again. An editor who has done good work and is willing to continue will most often be renewed. 
+<p>
+Both leaf categories and non-leaf categories (including area-level categories) can have editors. The responsibilities associated with each category level vary (see the <a href="/help/editors.html">manual</a>). One can be editor of a middle-level category either with or without being editor of the categories underneath it. 
+<p>
+<b>Important</b>: Before you lodge an application to edit a category, please examine and edit the list of works on your profile to make ensure that all of your works which belong in that category (or under it) have been categorized where they belong. One of the main selection criteria is how many works you have in the relevant category, and this is assessed by looking at where your works are currently categorized. Publication venues also weigh in, so you should make sure that your works have full publication details.  Please also ensure that your profile contains affiliation details and a link to your website.
+<p>
+<p>
+<h3>I volunteer to be the editor for: <%$cat->name%></h3>
+<form method="post">
+%if ($cat->pLevel > 1 and $cat->{catCount}) {
+The current category (<%$cat->name%>) is a mid-level category. You have two options: you can apply to edit this category only, or you can apply to edit this category plus its sub-categories which don't currently have editors.  Note that if you do the latter, you will have the responsibilities of a Leaf Editor for all leaf categories underneath which are currently open. If some of these subcategories already have editors, your application will not cover these categories.
+<p>
+<input type="radio" name="recursive" value="off"> I would like to edit this category but not those under it.<br>
+<input type="radio" name="recursive" value="on"> I would like to edit this category and those under it.<br>
+%}
+<p>
+Message for the editors (optional):<br>
+<textarea name="comment" cols="50" rows="5"></textarea>
+<p>
+Your application will be lodged as soon as you click the button below.<p>
+<input type="hidden" name="apply" value="1">
+<!--
+<input type="checkbox" name="terms" id="termsc"> I agree to the terms and conditions for editorships laid out in <a href="/help/editors.html">the editors' manual</a>. <p>
+-->
+<input type="submit" value="Lodge my application">
+</form>
