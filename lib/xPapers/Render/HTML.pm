@@ -790,7 +790,7 @@ sub prepTpl {
         tpl=>'<span title="Edit this entry" class="ll" onclick="editEntry2(\'%s\')">Edit</span>&nbsp; | &nbsp;',
         fields=>['id'],
         }, {
-        tpl=>'<span title="Open categorization tool" class="ll" onclick="showCategorizer(\'%s\')">Categorize</span>&nbsp; | &nbsp;',
+        tpl=>'<span title="Open categorisation tool" class="ll" onclick="showCategorizer(\'%s\')">Categorise</span>&nbsp; | &nbsp;',
 #        tpl=>'<span class="ll" onclick="customEditor({id:\'%s\',embed:1,panel:\'classificationDetails\'})">Categorize</span>&nbsp; | &nbsp;',
         fields=>['id']
         }, {

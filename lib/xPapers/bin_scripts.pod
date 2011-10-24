@@ -96,7 +96,7 @@ Retrieves NLM packages with articles.
 
 =head2 bin/routine/autocatj.pl
 
-Automatically categorizes articles from journals. Uses the categories which can be set by admins on journals' pages.
+Automatically categorises articles from journals. Uses the categories which can be set by admins on journals' pages.
 
 =head2 bin/routine/calc-ratings.pl
 
@@ -104,7 +104,7 @@ Calculates user ratings, for example, publication ratings.
 
 =head2 bin/routine/categorize.pl
 
-Categorizes articles using the AI categorizer. Needs to be run manually with options explained inside for training.
+Categorises articles using the AI categoriser. Needs to be run manually with options explained inside for training.
 
 =head2 bin/routine/catlinks.pl
 
@@ -239,7 +239,7 @@ Generates emails notifying about new events in subscribed areas.
 
 =head2 bin/routine/train-categorizer.pl
 
-Trains the categorizer.
+Trains the categoriser.
 
 =head2 bin/routine/update-pros.pl
 
