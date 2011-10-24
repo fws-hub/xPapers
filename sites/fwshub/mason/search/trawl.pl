@@ -147,7 +147,7 @@ if ($HTML) {
 
     <div class='centered'>
     <form>
-    <input style='height:20px;width:20px' type='checkbox' name='allchecked' id='allchecked'><b>I have categorized all relevant entries on this page.<br>If you check this box and press the button below, the entries you did not categorize will be put on the<br> <span class='ll' onclick='faq("exclusions")'>exclusion list</span> for this category (they will not show up again when trawling).</b><br><br>
+    <input style='height:20px;width:20px' type='checkbox' name='allchecked' id='allchecked'><b>I have categorised all relevant entries on this page.<br>If you check this box and press the button below, the entries you did not categorise will be put on the<br> <span class='ll' onclick='faq("exclusions")'>exclusion list</span> for this category (they will not show up again when trawling).</b><br><br>
     <input style='font-size:15px;font-weight:bold' type='button' value='Next results' onclick="
         if ($('allchecked').checked)
             mkIrrelevant();
