@@ -47,7 +47,7 @@ if ($ARGS{uncat} or $ARGS{recent} or $ARGS{catq} or $ARGS{since} or !$HTML) {
     <div class="sideBox" style="float:right;max-width:500px">
     <div class='sideBoxH'>Also in this area</div>
     <div class="sideBoxC">
-    <div class='ah'><a href="?uncat=1">Entries to categorize (<%$cat->localCount($s)%>)</a></div>
+    <div class='ah'><a href="?uncat=1">Entries to categorise (<%$cat->localCount($s)%>)</a></div>
     <p>
     <div class='ah'><a href="?recent=1&sort=added">Most recently added items</a></div>
     <p>

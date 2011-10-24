@@ -58,7 +58,7 @@ if ($m->request_comp->name eq 'people.pl') {
     $H{subtitle} .= " - New online papers";
     $H{canonical} .= "?recent=1";
 } elsif ($ARGS{uncat}) {
-    $H{subtitle} .= " - Material to categorize";
+    $H{subtitle} .= " - Material to categorise";
     $H{canonical} .= "?uncat=1";
 } elsif ($m->request_comp->name eq 'thread.pl') {
     $ARGS{__thread__} = xPapers::Thread->new(id=>$ARGS{tId})->load_speculative;
