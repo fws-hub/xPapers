@@ -213,7 +213,7 @@ Note: Your review will be moderated by an editor before being added. Only review
 if ($paper ) {
     print "Target paper: " . $rend->renderEntryC($paper) . "<br>";
     if (!$paper->publicCats) {
-        print "<b>This paper has not been categorized. Your review will be found more easily if you categorize it. Click <span class='ll' onclick='editEntry2(\"$paper->{id}\",\"classificationDetails\")'>here</span> to categorize it.</b><br>";
+        print "<b>This paper has not been categorised. Your review will be found more easily if you categorise it. Click <span class='ll' onclick='editEntry2(\"$paper->{id}\",\"classificationDetails\")'>here</span> to categorise it.</b><br>";
     }
 } else {
     print "Forum: " . $rend->renderForum($forum) . "<br>";
