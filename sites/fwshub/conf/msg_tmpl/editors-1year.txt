@@ -2,15 +2,15 @@ Dear [FIRSTNAME],
 
 We're getting in touch with all Food and Water Security - Online Research Resource editors who have been on board for more than a year, in order to see how things are going.
 
-According to our records, you've been editor for [REL:catName] since [REL:niceStart].  Your category overall contains [REL:entryCountUnder] items.  At the moment, [REL:entryCount] entries in the category are not further categorized.  You've made [REL:inputu] additions to this category over the past year, and you've excluded [REL:excluded] items while trawling. Note that these records are automatically generated, and may well be imperfect in various respects.  If so, please let us know.
+According to our records, you've been editor for [REL:catName] since [REL:niceStart].  Your category overall contains [REL:entryCountUnder] items.  At the moment, [REL:entryCount] entries in the category are not further categorised.  You've made [REL:inputu] additions to this category over the past year, and you've excluded [REL:excluded] items while trawling. Note that these records are automatically generated, and may well be imperfect in various respects.  If so, please let us know.
 
-Our aim is eventually to get all relevant papers imported into the category and classified appropriately within it.  Of course the former project is a long-term goal, with trawling, automatic categorization, bibliography importing and the like working as short-term mechanisms.  The latter project, classifying all papers currently listed in the category, is a shorter-term goal.  Could you give us a sense of how things have been going with both of these projects in your category?
+Our aim is eventually to get all relevant papers imported into the category and classified appropriately within it.  Of course the former project is a long-term goal, with trawling, automatic categorisation, bibliography importing and the like working as short-term mechanisms.  The latter project, classifying all papers currently listed in the category, is a shorter-term goal.  Could you give us a sense of how things have been going with both of these projects in your category?
 
-Regarding the importing project: have trawlers, automatic categorization, and the like been useful for you?  Do you have a sense of how extensive the current coverage within the category is and of how far we have to go?
+Regarding the importing project: have trawlers, automatic categorisation, and the like been useful for you?  Do you have a sense of how extensive the current coverage within the category is and of how far we have to go?
 
-Regarding the internal classification project: how have you found the tools for classification?  Insofar as there are remaining uncategorized entries, does this reflect the difficulty of classifying certain items, the size of the class of uncategorized items, shortage of time, or something else?
+Regarding the internal classification project: how have you found the tools for classification?  Insofar as there are remaining uncategorised entries, does this reflect the difficulty of classifying certain items, the size of the class of uncategorised items, shortage of time, or something else?
 
-We are interested to get your thoughts on the tools currently available to editors and how they might be improved.  We are also interested to get your thoughts on the current structure of the category and whether new subcategories might be needed to assist with internal categorization.  Any other thoughts are also welcome.
+We are interested to get your thoughts on the tools currently available to editors and how they might be improved.  We are also interested to get your thoughts on the current structure of the category and whether new subcategories might be needed to assist with internal categorisation.  Any other thoughts are also welcome.
 
 [LONGBYE]
 
