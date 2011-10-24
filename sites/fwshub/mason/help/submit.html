@@ -1,0 +1,17 @@
+<& ../header.html, subtitle=>"Submitting material to $s->{niceName}" &>
+<% gh("Submitting material to $s->{niceName}") %>
+
+Journal publishers and editors should <a href="/help/contact.html">contact us</a> to arrange bulk submissions.<br><br>Regular users can submit material in three ways:
+<p>
+<h3>Individual item submissions</h3>
+To submit an individual item, click <span class='ll' onclick='submitEntry2()'>here</span>. This interface allows you to categorize the item, provide links, and provide a copy for archival.
+<p>
+<h3>Bibliography submissions</h3>
+It's also possible to submit items in bulk by <a href="/utils/batch_import.pl">uploading a bibliography</a>. 
+
+<p>
+<h3>Personal web pages</h3>
+<% $s->{niceName} %> has the capacity to extract articles from personal or departmental pages. To have your page tracked, go <a href="/pages/">here</a>. Note that you should submit the page where your articles are directly linked, not a front page which leads to such a page.
+<p>
+<h3>Open Access Archives</h3>
+<% $s->{niceName} %> also monitors open access archives for new content. To have you archive tracked, go <a href="/archives/list.html">here</a>.
