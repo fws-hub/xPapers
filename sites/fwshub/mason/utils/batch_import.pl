@@ -55,7 +55,7 @@ function processbib() {
 This tools allows you to import the content of a bibliographic file into <% $s->{niceNameP} %> <!--'-->database.  In this way, you can add new entries to <% $s->{niceName} %>, fill in missing publication details for existing entries, and add entries to <% $s->{niceName} %>categories and lists.
 
 <p>
-A number of bibliographic formats are supported. Please make sure you choose the right one. You can also import a plain text bibliography (e.g. copied from a PDF). Plain text imports cannot be used to create new <% $s->{niceName} %> entries, but can be used to add publication and categorization information for existing entries when they match.
+A number of bibliographic formats are supported. Please make sure you choose the right one. You can also import a plain text bibliography (e.g. copied from a PDF). Plain text imports cannot be used to create new <% $s->{niceName} %> entries, but can be used to add publication and categorisation information for existing entries when they match.
 <p>
 <div style="border:1px solid black; background-color:#eee;padding:5px">
 <center style="color:#800;font-weight:bold;padding-bottom:5px">IMPORTANT</center>

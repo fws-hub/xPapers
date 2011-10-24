@@ -1,6 +1,6 @@
 <%perl>
-$m->comp("../header.html",subtitle=>"Uncategorized entries");
-print gh("Uncategorized material");
+$m->comp("../header.html",subtitle=>"Uncategorised entries");
+print gh("Uncategorised material");
 $m->comp("../checkLogin.html");
 my $perPage = 20;
 my $db = xPapers::DB->new;
@@ -9,13 +9,13 @@ my $todo = $db->countWhere("not deleted and catCount < 1");
 <div style='border: 1px dotted grey;padding:5px;'>
 <ul class="normal">
 <li>This page shows entries which do not belong to any public category on <% $s->{niceName} %> (<%$perPage%> at a time).</li>
-<li>Help us categorize by copying them down to the relevant areas. The same process will be repeated in these areas.</li>
+<li>Help us categorise by copying them down to the relevant areas. The same process will be repeated in these areas.</li>
 <li>We expect 1 to 3 areas to be relevant to each paper.</li>
-<li>If unsure about an entry's areas, <b>categorize in the top-level categories only</b> (e.g. M&amp;E, Value theory). Also keep in mind that picking too many categories is better than picking too few. Don't hesitate to click "skip" as necessary.</li>
+<li>If unsure about an entry's areas, <b>categorise in the top-level categories only</b> (e.g. M&amp;E, Value theory). Also keep in mind that picking too many categories is better than picking too few. Don't hesitate to click "skip" as necessary.</li>
 <li>Click the <b>done</b> button once you are finished with an entry. Once you have gone through all entries on the page, it will reload automatically to show new items.</li>
-<li>More fine-grained categorization can be performed using the "categorize .." and "edit" links.</li>
-<li>"Skipped" entries will remain skipped only so long as you reload the page by going through all entries or clicking the button at the bottom. Refreshing the page or accessing it anew from elsewhere will turn up previously skipped entries which have not been categorized by someone else in the meantime. This limitation will be fixed a.s.a.p.</li>
-<li>There are currently <% format_number($todo) %> uncategorized entries. The system will try to give you recent entries as much as possible.</li>
+<li>More fine-grained categorisation can be performed using the "categorise .." and "edit" links.</li>
+<li>"Skipped" entries will remain skipped only so long as you reload the page by going through all entries or clicking the button at the bottom. Refreshing the page or accessing it anew from elsewhere will turn up previously skipped entries which have not been categorised by someone else in the meantime. This limitation will be fixed a.s.a.p.</li>
+<li>There are currently <% format_number($todo) %> uncategorised entries. The system will try to give you recent entries as much as possible.</li>
 </ul>
 </div>
 <script type="text/javascript">
@@ -69,7 +69,7 @@ while (my $e = $it->next) {
     $found++;
 }
 if (!$found) {
-    print "<p>There are currently no entries to categorize at this level. There might be many in sub-areas, however. Visit M&amp;E, Value Theory, and other top-level areas.</p>"; 
+    print "<p>There are currently no entries to categorise at this level. There might be many in sub-areas, however. Visit M&amp;E, Value Theory, and other top-level areas.</p>"; 
 }
 
 writeLog($root->dbh,$q,$tracker,"uncat","",$DEFAULT_SITE);
