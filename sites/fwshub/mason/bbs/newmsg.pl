@@ -210,7 +210,7 @@ Please be aware that this forum has <%format_number($subscribers)%> subscribers.
 if ($paper ) {
     print "Target paper: " . $rend->renderEntryC($paper) . "<br>";
     if (!$paper->publicCats) {
-        print "<b>This paper has not been categorized. Its forum (and your post) will be found more easily if you categorize it. Click <span class='ll' onclick='editEntry2(\"$paper->{id}\",\"classificationDetails\")'>here</span> to categorize it.</b><br>";
+        print "<b>This paper has not been categorised. Its forum (and your post) will be found more easily if you categorise it. Click <span class='ll' onclick='editEntry2(\"$paper->{id}\",\"classificationDetails\")'>here</span> to categorise it.</b><br>";
     }
 } else {
     print "Forum: " . $rend->renderForum($forum) . "<br>";
