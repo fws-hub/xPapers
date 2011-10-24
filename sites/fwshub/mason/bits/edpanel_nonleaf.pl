@@ -5,7 +5,7 @@ my $c = $ARGS{__cat__};
 <tr bgcolor="#555" style='color:white'>
 <td><b>Name</b></td>
 <td><b>Count</b></td>
-<td><b>To categorize</b></td>
+<td><b>To categorise</b></td>
 </tr>
 %}
 

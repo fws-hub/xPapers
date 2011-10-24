@@ -2,10 +2,10 @@
 use xPapers::Link::Affiliate::QuoteMng;
 
 my $st = $ARGS{recent} ? "Most recently added entries" :
-         $ARGS{uncat} ? "Material to categorize" :
+         $ARGS{uncat} ? "Material to categorise" :
          "";
 my $cat = $ARGS{__cat__};
-my $direct = xPapers::Cat->new(id=>$cat->id,name=>($cat->{catCount} ? "Material to categorize" : "Content"));
+my $direct = xPapers::Cat->new(id=>$cat->id,name=>($cat->{catCount} ? "Material to categorise" : "Content"));
 my %sortinf = %SORTER;
 $ARGS{sort} = undef if $ARGS{sort} eq 'relevance' and !$ARGS{catq};
 $ARGS{sort} ||= 'relevance' if $ARGS{catq};
@@ -33,7 +33,7 @@ my $qu = xPapers::Query->new;
 if ($ARGS{uncat} and $cat->{__user_is_editor}) {
 </%perl>
 
-<p><em>This page shows material to categorize inside this category. As Editor, you have the option of setting some items aside in order to progress through the list (click "Set aside for now").<br><%$ARGS{setAside}? "<b>You are currently displaying the  items which have been set aside. Click <a href=\"/browse/".$cat->eun."?uncat=1\">here</a> for the normal listing.</b>" : "If you want to see the items you or previous editors have set aside, click <a href=\"$ENV{REQUEST_URI}&setAside=1\">here</a>"%>.</em></p>
+<p><em>This page shows material to categorise inside this category. As Editor, you have the option of setting some items aside in order to progress through the list (click "Set aside for now").<br><%$ARGS{setAside}? "<b>You are currently displaying the  items which have been set aside. Click <a href=\"/browse/".$cat->eun."?uncat=1\">here</a> for the normal listing.</b>" : "If you want to see the items you or previous editors have set aside, click <a href=\"$ENV{REQUEST_URI}&setAside=1\">here</a>"%>.</em></p>
 
 <%perl>
 }
@@ -276,7 +276,7 @@ for (0..$#stack) {
     print $rend->afterGroup("c$stack[$_]");
     lafter($stack[$_],\%found);
 }
-print "<div style='padding:5px;font-style:italic'>Nothing in this category. <span style='font-style:normal'>Everyone can categorize entries. Please help if you have the expertise.</span></div>" unless $qu->foundRows or !$HTML;
+print "<div style='padding:5px;font-style:italic'>Nothing in this category. <span style='font-style:normal'>Everyone can categorise entries. Please help if you have the expertise.</span></div>" unless $qu->foundRows or !$HTML;
 print $rend->endBiblio;
 print "</div>" if $HTML;
 #$ARGS{cId} = $stack[-1] if $#stack > -1;

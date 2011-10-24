@@ -18,7 +18,7 @@ print Dumper($root->children_o);
         }"
     } @$cats);
 </%perl>
-    , { text: "Uncategorized Material", url: "/utils/uncategorized.pl" }
+    , { text: "Uncategorised Material", url: "/utils/uncategorized.pl" }
 ] 
 
 

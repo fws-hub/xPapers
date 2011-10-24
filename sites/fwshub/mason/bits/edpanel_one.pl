@@ -9,7 +9,7 @@ my $c = $ARGS{__cat__};
 %if (!$ARGS{nonleaf}) {
 <b>User edits</b>
 %} else {
-<b>To categorize</b>
+<b>To categorise</b>
 %}
 </td>
 <td><b>Trawling</b></td>

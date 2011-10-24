@@ -134,7 +134,7 @@ if ($HTML and !$ARGS{noheaderatall}) {
         <tr>
         <td style="max-width:100px">
         <b>
-        <% $ARGS{miniheadercap} || (cap(num($q->{found},'item')) . ($NLC ? "&nbsp;to&nbsp;categorize." : "&nbsp;found.")) %>
+        <% $ARGS{miniheadercap} || (cap(num($q->{found},'item')) . ($NLC ? "&nbsp;to&nbsp;categorise." : "&nbsp;found.")) %>
         </b>
         </td>
         <td>
@@ -182,11 +182,11 @@ if ($NLC and $HTML) {
     </%perl>
         
         <div style='font-size:11px;border:1px gray dotted;padding:3px'>
-            <div style='font-weight:bold;padding-bottom:4px'>The quick categorization tool</div>
+            <div style='font-weight:bold;padding-bottom:4px'>The quick categorisation tool</div>
             <& ../help/cat_top_explanation.html &>
             <!--
             <form>
-                <input type='checkbox' name='quickCat' <%$m->cgi_object->cookie('quickCat') ? 'checked' : ''%> onclick="createCookie('quickCat',this.checked ? 1 : 0);refresh()"> Activate quick categorization links.
+                <input type='checkbox' name='quickCat' <%$m->cgi_object->cookie('quickCat') ? 'checked' : ''%> onclick="createCookie('quickCat',this.checked ? 1 : 0);refresh()"> Activate quick categorisation links.
             </form>
             -->
             </div>
@@ -196,7 +196,7 @@ if ($NLC and $HTML) {
     } else {
         </%perl>
         <div style='font-size:14px;border:1px gray dotted;padding:3px;text-align:center'>
-            This space is for entries awaiting further categorization under subcategories.<br>To find categorized material, browse the subcategories on the left.
+            This space is for entries awaiting further categorisation under subcategories.<br>To find categorised material, browse the subcategories on the left.
         </div>
         <%perl>
 
