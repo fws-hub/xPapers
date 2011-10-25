@@ -7,7 +7,7 @@ use xPapers::EntryMng;
 use xPapers::Mail::Message;
 
 my $advice=<<END;
-To help others access your work, please make sure that each of your publications 1) is in the index; 2) has an associated online copy; 3) has full publication details; 4) has an associated abstract in our database; 5) has associated categories at the leaf level in our database. The leaf categories are the narrowest in the category structure. To add a new item to the index, click 'Submit material' -> 'Submit a book or article' in the top menu. "Open your profile":http://philpapers.org/profile to see the works currently attributed to you. You can edit any index entry on the site by clicking the small 'edit' link under it. 
+To help others access your work, please make sure that each of your publications 1) is in the index; 2) has an associated online copy; 3) has full publication details; 4) has an associated abstract in our database; 5) has associated categories at the leaf level in our database. The leaf categories are the narrowest in the category structure. To add a new item to the index, click 'Submit material' -> 'Submit a book or article' in the top menu. "Open your profile":http://fws.aber.ac.uk/profile to see the works currently attributed to you. You can edit any index entry on the site by clicking the small 'edit' link under it. 
 END
 
 my %warnings = xPapers::EntryMng->computeIncompleteWarnings( $ARGV[0] );

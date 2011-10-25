@@ -63,8 +63,8 @@ for my $uId ( keys %users ){
     $r->{cur}->{site} = $DEFAULT_SITE;
     my $email = xPapers::Mail::Message->new;
     $email->uId($uId);
-    $email->brief( "New works by people you follow on PhilPapers" );
-    my $content = "[HELLO]<p>There are some new works by people you follow on PhilPapers:";
+    $email->brief( "New works by people you follow on FWS-ore" );
+    my $content = "[HELLO]<p>There are some new works by people you follow on FWS-ore:";
     $content .= $r->startBiblio({noDataHeader=>1});
     for my $e ( @{ $users{$uId} } ){
         $content .= $r->renderEntry($e);
