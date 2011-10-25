@@ -8,7 +8,7 @@
     <td><b>User</b></td>
     <td><b>Category</b></td>
     <td><b>New</b></td>
-    <td><b>Categorized</b></td>
+    <td><b>Categorised</b></td>
     <td><b>Old</b></td>
     <td><b>Options</b></td>
 </tr>
@@ -29,7 +29,7 @@ if ($b->cId and !$b->cat) {
     <td><%$rend->renderUserC($b->user,1)%></td>
     <td><%($b->cId and $b->cat) ? $rend->renderCatC($b->cat) : "None"%></td>
     <td><a href="/utils/batch_report.pl?bId=<%$b->id%>&section=added"><%$b->inserted%></a></td>
-    <td><a href="/utils/batch_report.pl?bId=<%$b->id%>&section=cat"><%$b->categorised%></a></td>
+    <td><a href="/utils/batch_report.pl?bId=<%$b->id%>&section=cat"><%$b->categorized%></a></td>
     <td><%$b->found%></td>
     <td>
         <a href="/utils/batch_report.pl?bId=<%$b->id%>">Report</a> | 
