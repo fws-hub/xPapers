@@ -162,6 +162,11 @@ event('tsummary','start');
 for (@{$res->{results}}) {
     my $thread = xPapers::Thread->get($_);
     next unless $thread;
+    #stop reviews showing up in main thread view
+    
+    if($thread->firstPost->subject eq "review") {
+	next;
+    }
     print "<div class='blog'>";
     $m->comp("../bbs/expanded.html",post=>$thread->firstPost,thread=>$thread,blogView=>1,charLimit=>1000,showForum=>1);
     print "<p></div>";
