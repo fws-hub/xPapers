@@ -1,3 +1,4 @@
+<!--start of autohandler-->
 <%perl>
 #$ARGS{id} = $ARGS{id}->[0] if ref($ARGS{id}) eq 'ARRAY';
 $m->comp("../checkLogin.html") unless $ARGS{id} || $user->{id};
@@ -112,15 +113,15 @@ my @affs = $p->affils_o;
 for (rankSort(@affs)) {
     print "<li>".$_->{role} . ", " . ($_->instName) . "</li>";
 }
-if ($p->phd) {
-    print "<li>" . 
-        ($p->degree->iId ? $p->degree->inst->phdName : "PhD") . ", " . 
-        $p->degree->instName . ", " . 
-        $p->degree->year . 
-    ".</li>";
-} else {
-    print "<li>None specified</li>" if $#affs == -1;
-}
+#if ($p->phd) {
+#    print "<li>" . 
+#        ($p->degree->iId ? $p->degree->inst->phdName : "PhD") . ", " . 
+#        $p->degree->instName . ", " . 
+#        $p->degree->year . 
+#    ".</li>";
+#} else {
+#    print "<li>None specified</li>" if $#affs == -1;
+#}
 </%perl>
 </ul>
 
@@ -171,11 +172,9 @@ print "<li>None specified</li>" if $#areas == -1;
 <div class="bigBoxH">Preferences</div>
 <div class="bigBoxC">
 <ul class="normal">
-<li><a href='/profile/<%$user->id%>/myjournals.pl'>My Journals</a></li>
-<li><a href='/profile/<%$user->id%>/offcampus.html'>Off-campus access</a></li>
+<!--<li><a href='/profile/<%$user->id%>/myjournals.pl'>My Journals</a></li>-->
 <li><a href='/profile/<%$user->id%>/aliases.pl'>Aliases</a></li>
 <li><a href='/profile/<%$user->id%>/openurl.html'>At my library</a></li>
-<li><a href='/profile/<%$user->id%>/shopping.html'>Book shopping</a> <%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2011,month=>3,day=>1),"Shopping")%></li>
 <li><a href='/profile/<%$user->id%>/settings.html'>Privacy and communications</a></li>
 <li><a href='/profile/<%$user->id%>/account.html'>Email, identification and password</a></li>
 <li><a href='/profile/<%$user->id%>/deactivate.pl'>Close this account</a></li>
@@ -226,9 +225,10 @@ $m->call_next(%ARGS,u=>$p,__same=>$same);
 </tr>
 </table>
 
+<!--
 </div>
 </div>
-
+-->
 <%once>
 
     sub l {
@@ -240,3 +240,4 @@ $m->call_next(%ARGS,u=>$p,__same=>$same);
         }
     }
 </%once>
+<!--end of autohandler-->

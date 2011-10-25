@@ -1,3 +1,4 @@
+<!--start of affils.html-->
 <%perl>
 my $p = $ARGS{_u} || $user;
 if ($ARGS{do} eq "Save") {
@@ -6,21 +7,21 @@ if ($ARGS{do} eq "Save") {
         return (!$h->{iId} and !$h->{inst_manual});
     });
     error($affils) unless ref($affils);
-    if ($ARGS{phd} and ($ARGS{iId999} or $ARGS{inst_manual999}) and $ARGS{year999}) {
-        my $phd = xPapers::Affil->new(
-            iId => $ARGS{iId999},
-            inst_manual => $ARGS{inst_manual999},
-            year=> $ARGS{year999},
-            discipline=>$SUBJECT,
-            role=>'Alumni',
-            rank=>999
-        );
-        $phd->load_speculative;
-        $phd->save;
-        $user->phd($phd->id);
-    } else {
-        $user->phd(undef);
-    }
+#    if ($ARGS{phd} and ($ARGS{iId999} or $ARGS{inst_manual999}) and $ARGS{year999}) {
+#        my $phd = xPapers::Affil->new(
+#            iId => $ARGS{iId999},
+#            inst_manual => $ARGS{inst_manual999},
+#            year=> $ARGS{year999},
+#            discipline=>$SUBJECT,
+#            role=>'Alumni',
+#            rank=>999
+#        );
+#        $phd->load_speculative;
+#        $phd->save;
+#        $user->phd($phd->id);
+#    } else {
+#        $user->phd(undef);
+#    }
 #print $q->header;
 #print "<pre>" . Dumper($affils->[0]->{id}) . "</pre>";
 #return;
@@ -58,3 +59,4 @@ if ($ARGS{do} eq "Save") {
 </form>
 </div>
 </div>
+<!--end of affils.html-->

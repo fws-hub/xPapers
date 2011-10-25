@@ -1,3 +1,4 @@
+<!--start of account.html-->
 <%perl>
 my $doNow = $ARGS{doNow};
 my $oldDo = $ARGS{oldDo};
@@ -63,17 +64,6 @@ if ($ARGS{do} eq 'Save') {
     $p->passwd(xPapers::UserMng->crypt($ARGS{passwd})) if $ARGS{passwd};
     $p->alertChecked(DateTime->now);
 
-    if ($ARGS{phd}) {
-        $phd = xPapers::Affil->new(
-            iId => $ARGS{iId999},
-            inst_manual => $ARGS{inst_manual999},
-            discipline=>$SUBJECT,
-            role=>'Alumni',
-            year=> $ARGS{year999},
-            rank=>999
-        );
-        $phd->load_speculative;
-    }
     if ($ARGS{iId1} or $ARGS{inst_manual1}) {
         $affil = xPapers::Affil->new(
             iId => $ARGS{iId1},
@@ -93,10 +83,6 @@ if ($ARGS{do} eq 'Save') {
     # fields ok
     if (!$errors) {
         
-        if ($phd and ($phd->{iId} or $phd->{inst_manual}) and $phd->{year}) {
-            $phd->save;
-            $p->phd($phd->id);
-        }
         if ($affil) {
             $affil->save;
             $p->affils($affil->id);
@@ -279,12 +265,6 @@ my $new = !$p->id;
         </td>  
         </tr>
         <tr>
-        <td valign="top" width="120">Background:</td>
-        <td>
-        <& ../profile/phd.html, object=>$phd &>
-        </td>
-        </tr>
-        <tr>
         <td colspan="2">
 %}
 %if ($ARGS{guest}) {
@@ -317,4 +297,4 @@ my $new = !$p->id;
 </div>
 </div>
 %}
-
+<!--end of account.html-->
