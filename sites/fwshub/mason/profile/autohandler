@@ -88,6 +88,7 @@ if ($ARGS{foreign}) {
 <div class="bigBoxH" style="padding-bottom:4px"><a title="Go to profile" style="color:#<%$C2%>;font-size:18px;text-decoration:none" href='/profile/<%$p->id%>'><%$name%></a></div>
 -->
 <div class="bigBoxC">
+<img src="/assets/raw/usericon.png">
 <div class="smallh"><% $same ? 'Basic information <span class="hint"><a href="/profile/'.$user->id.'/account.html">(edit)</a></span>' : 'Contact'%></div>
 <ul class='normal'>
 %if($p->homePage) {
