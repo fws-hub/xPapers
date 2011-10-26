@@ -77,7 +77,7 @@ if (!$forum->canDo("AddPosts",$user->{id})) {
 
 # is the user a senior academic?
 
-if ($user->phd==0)
+if ($user->fixedPro==0)
 {
     error("Only senior academics can post reviews. If you feel you should be able to post reviews here, please <a href=\"/help/contact.html\"> contact us</a>.");
 }
