@@ -226,8 +226,6 @@ $m->call_next(%ARGS,u=>$p,__same=>$same);
 </tr>
 </table>
 
-</div>
-</div>
 
 <%once>
 
