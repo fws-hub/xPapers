@@ -12,7 +12,7 @@ if ($ARGS{fId}) {
     $cat = xPapers::Cat->get($ARGS{cId});
     $forum = $cat->forum;
     $name = $cat->name;
-    print "<!-- debugging: forum = %$forum name = $name -->";
+    #print "<!-- debugging: forum = %$forum name = $name -->";
     $config{forums} = [map { $_->fId } @{$cat->primary_descendants_o(1)}];
 } elsif ($ARGS{group}) {
     $name = $ARGS{group}; 

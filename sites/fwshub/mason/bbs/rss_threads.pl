@@ -22,17 +22,20 @@ for my $t (@{$ARGS{__threads__}}) {
     next unless $fp;
     my ($desc,$b) = $fp->body; #$rend->wordSplit($fp->body,100);
     my $subject = $fp->thread->forum->cId ? $fp->thread->forum->category->name : undef;
-    $x->add_item(
-       title=>$fp->user->fullname . ": " . $fp->subject,
-       link=>$rend->postURL($fp),
-       description=>$desc . ($b ? "..." : ""),
-       dc => {
-            creator => $fp->user->fullname,
-            subject=> $subject,
-            date=> $fp->created->ymd,
-            identifier=>"$DEFAULT_SITE->{server}/post/" . $fp->id
-       }
-    );
+    if($fp->subject ne "review")
+    {
+        $x->add_item(
+	   title=>$fp->subject,
+           link=>$rend->postURL($fp),
+	   description=>$desc . ($b ? "..." : ""),
+           dc => {
+    	        creator => $fp->user->fullname,
+	        subject=> $subject,
+                date=> $fp->created->ymd,
+        	identifier=>"$DEFAULT_SITE->{server}/post/" . $fp->id
+    	    }
+	);
+    }
 }
 
 print $x->as_string;
