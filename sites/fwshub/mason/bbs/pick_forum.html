@@ -1,0 +1,34 @@
+<& ../header.html, title=>"New discussion" &>
+<% gh("Please choose a forum for your discussion") %>
+
+Please note: if your discussion is about a particular book or article, it is recommended that you attach it to the book or article instead of posting it here. This will make it visible in all relevant forums. Click "Discuss" under the relevant entry to add a discussion to it.
+
+<%perl>
+
+for my $g (@FORUM_ORDER) {
+    my $conf = $FORUM_GROUPS{$g};
+    next unless $conf->{forums};
+    my $fora = $conf->{forums};
+    next unless $#$fora > -1;
+    next if $g eq $SUBJECT;
+    print "<p><h3>$g</h3><ul class='normal'>";
+    for my $forumId (@{$conf->{forums}}) {
+        next if $ROFORUMS{$forumId};
+        my $forum = xPapers::Forum->get($forumId);
+        print "<li><a href='/bbs/newmsg.pl?fId=$forumId'>" . $forum->name . "</a></li>";
+    }
+    print '</ul>';
+}
+
+my $clusters = $root->children_o;
+
+for my $c (@$clusters) {
+    print "<p><h3>$c->{name}</h3><ul class='normal'>";
+    for my $area (@{$c->children_o}) {
+        print "<li><a href='/bbs/newmsg.pl?fId=$area->{fId}'>" . $area->name . "</a></li>";
+    }
+    print "</ul>";
+}
+
+
+</%perl>
