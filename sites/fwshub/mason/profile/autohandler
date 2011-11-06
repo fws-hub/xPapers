@@ -91,7 +91,8 @@ if ($ARGS{foreign}) {
 -->
 <div class="bigBoxC">
 <%perl>
-print "<img src=\"http://www.gravatar.com/avatar/".md5_hex(lc $p->email)."?d=http://fws.aber.ac.uk/assets/raw/usericon.png&s=40\">";
+print "<img src=\"http://www.gravatar.com/avatar/".md5_hex(lc $p->email)."?d=http://fws.aber.ac.uk/assets/raw/usericon.png&s=80\">";
+print "<p style=\"font-size: 80%\">Set your profile image by creating an account with <a href=\"http://www.gravatar.com\">gravatar.com</a></p>";
 </%perl>
 <div class="smallh"><% $same ? 'Basic information <span class="hint"><a href="/profile/'.$user->id.'/account.html">(edit)</a></span>' : 'Contact'%></div>
 <ul class='normal'>
@@ -176,11 +177,11 @@ print "<li>None specified</li>" if $#areas == -1;
 <div class="bigBoxH">Preferences</div>
 <div class="bigBoxC">
 <ul class="normal">
-<li><a href='/profile/<%$user->id%>/myjournals.pl'>My Journals</a></li>
-<li><a href='/profile/<%$user->id%>/offcampus.html'>Off-campus access</a></li>
+<!--<li><a href='/profile/<%$user->id%>/myjournals.pl'>My Journals</a></li>
+<li><a href='/profile/<%$user->id%>/offcampus.html'>Off-campus access</a></li>-->
 <li><a href='/profile/<%$user->id%>/aliases.pl'>Aliases</a></li>
-<li><a href='/profile/<%$user->id%>/openurl.html'>At my library</a></li>
-<li><a href='/profile/<%$user->id%>/shopping.html'>Book shopping</a> <%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2011,month=>3,day=>1),"Shopping")%></li>
+<!--<li><a href='/profile/<%$user->id%>/openurl.html'>At my library</a></li>
+<li><a href='/profile/<%$user->id%>/shopping.html'>Book shopping</a> <%newFlag(DateTime->new(time_zone=>$TIMEZONE,year=>2011,month=>3,day=>1),"Shopping")%></li>-->
 <li><a href='/profile/<%$user->id%>/settings.html'>Privacy and communications</a></li>
 <li><a href='/profile/<%$user->id%>/account.html'>Email, identification and password</a></li>
 <li><a href='/profile/<%$user->id%>/deactivate.pl'>Close this account</a></li>
