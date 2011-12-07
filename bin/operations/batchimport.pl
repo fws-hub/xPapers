@@ -53,6 +53,10 @@ my $infile = ($format ne $b->format) ? $b->inputFile."-converted" : $b->inputFil
 
 my ($res,$errors);
 if ($format eq 'bibtex') {
+    #cleanup the bibtex to add missing key entries and remove misc types
+    print "running cleaner from perl with filename ".$infile;
+    print "$PATHS{OPERATIONS}clean_bibtex.sh ".$infile;
+    system("$PATHS{OPERATIONS}clean_bibtex.sh ".$infile);
     use xPapers::Parse::BibTeX;
     ($res,$errors) = xPapers::Parse::BibTeX::parse($infile);
     $errors = join("<br>", @$errors);
@@ -61,7 +65,7 @@ if ($format eq 'bibtex') {
     use xPapers::Parse::Text qw/parse_list/;
     $res = [parse_list($content,1)];
     if ($#xPapers::Parse::Text::notParsed > -1) {
-        $errors = "<b>The following lines were not understood by the parser</b>. You might want to try to make them more standard looking and re-submit them.<p>";
+        $errors .= "<b>The following lines were not understood by the parser</b>. You might want to try to make them more standard looking and re-submit them.<p>";
         $errors .= join("<br>",@xPapers::Parse::Text::notParsed);
     }
 } else {
