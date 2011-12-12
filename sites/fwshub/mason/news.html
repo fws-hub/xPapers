@@ -1,27 +1,45 @@
-<script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAH1bcZsM9KO2LSOLawhwGnRRLhUgCxDzHlnoCdZziIRCvuO2TtxQPuzZlkV-or_Zjh5syUIfSmSV0tA"></script>
-
-<script type="text/javascript" charset="utf-8">
-
-   google.load("feeds", "1");
-   
-   function OnLoad() {
-      // Create a feed control
-      var feedControl = new google.feeds.FeedControl();
-      feedControl.addFeed("http://www.google.com/reader/public/atom/user%2F06388591698525318956%2Fstate%2Fcom.google%2Fbroadcast");
-      feedControl.draw(document.getElementById("news_content"));
-   }
-
-   google.setOnLoadCallback(OnLoad);
-
-
-</script>
-
 <div class="sideBox">
 <div class="sideBoxH">
    <span style="padding: 5px;"><a type='application/atom+xml' href="http://www.google.com/reader/public/atom/user%2F06388591698525318956%2Fstate%2Fcom.google%2Fbroadcast"><img src="http://www.google.com/reader/ui/609622892-feed-icon-12.png" alt="" title="Subscribe to FWS News feed"  border="0"></a></span>
    <span style="padding: 5px;">Latest news</span>
+   <br>
    <span style="padding: 5px; font-size:11px;font-weight:normal;">(<a href="allnews.html" title="Mmore news">More news</a>)</span>
 </div>
-<div class="sideBoxC" id="news_content"></div>
+<div class="sideBoxC" id="news_content">
+
+<%perl>
+use XML::Feed;
+use File::Copy;
+
+my $issues_feed = XML::Feed->parse(URI->new('http://www.google.com/reader/public/atom/user%2F06388591698525318956%2Fstate%2Fcom.google%2Fbroadcast')) or die  XML::Feed->errstr;
+
+my $count = 0;
+
+for my $issues_entry ($issues_feed->entries) {
+    print "<a href=\"".$issues_entry->link."\">".$issues_entry->title."</a><br>";
+    print "<span style=\"font-size: 10px; color: gray;\"> (".$issues_entry->issued->strftime("%d %b %Y").")</span>";
+    my $body = $issues_entry->summary->body;
+    
+    if (length($body)>150)
+    {
+	$body = substr($body,0,150);
+	$body = $body.".....";
+    }
+    print "<p>".$body."</p>";
+    print "<br>";
+    $count++;
+    if($count>5)
+    {
+	last;
+    }
+}
+
+
+</%perl>
+
+
+</div>
+
+
 </div>
 </div>
