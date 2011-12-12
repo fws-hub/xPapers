@@ -10,23 +10,29 @@
 <%perl>
 use XML::Feed;
 use File::Copy;
+use HTML::TagFilter;
+        
 
 my $issues_feed = XML::Feed->parse(URI->new('http://www.google.com/reader/public/atom/user%2F06388591698525318956%2Fstate%2Fcom.google%2Fbroadcast')) or die  XML::Feed->errstr;
 
 my $count = 0;
+my $tf = HTML::TagFilter->new(allow=>{},strip_comments=>1);
+
 
 for my $issues_entry ($issues_feed->entries) {
-    print "<a href=\"".$issues_entry->link."\">".$issues_entry->title."</a><br>";
-    print "<span style=\"font-size: 10px; color: gray;\"> (".$issues_entry->issued->strftime("%d %b %Y").")</span>";
+    print "<a href=\"".$issues_entry->link."\">".$issues_entry->title."</a><br>\n";
+    print "<span style=\"font-size: 10px; color: gray;\"> (".$issues_entry->issued->strftime("%d %b %Y").")</span>\n";
     my $body = $issues_entry->summary->body;
     
-    if (length($body)>150)
+    $body = $tf->filter($body);
+
+    if (length($body)>160)
     {
-	$body = substr($body,0,150);
+	$body = substr($body,0,160);
 	$body = $body.".....";
     }
-    print "<p>".$body."</p>";
-    print "<br>";
+    print "<p>".$body."</p>\n";
+    print "<br>\n\n";
     $count++;
     if($count>5)
     {
