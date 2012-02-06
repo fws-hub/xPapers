@@ -8,7 +8,8 @@ use HTML::TagFilter;
 #$ENV{'http_proxy'} = 'http://wwwcache.aber.ac.uk:8080';
 
 
-my $issues_feed = XML::Feed->parse(URI->new('http://www.google.com/reader/public/atom/user%2F06388591698525318956%2Fstate%2Fcom.google%2Fbroadcast')) or die  XML::Feed->errstr;
+#my $issues_feed = XML::Feed->parse(URI->new('http://www.google.com/reader/public/atom/user%2F06388591698525318956%2Fstate%2Fcom.google%2Fbroadcast')) or die  XML::Feed->errstr;
+my $issues_feed = XML::Feed->parse(URI->new('file:///home/xpapers/sites/fwshub/mason/news.atom')) or die  XML::Feed->errstr;
 
     my $tf = HTML::TagFilter->new(allow=>{},strip_comments=>1);
         

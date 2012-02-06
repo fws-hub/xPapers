@@ -1,0 +1,151 @@
+<?xml version="1.0"?><feed xmlns:media="http://search.yahoo.com/mrss/" xmlns:gr="http://www.google.com/schemas/reader/atom/" xmlns:idx="urn:atom-extension:indexing" xmlns="http://www.w3.org/2005/Atom" idx:index="no" gr:dir="ltr"><!--
+Content-type: Preventing XSRF in IE.
+
+-->
+<generator uri="http://www.google.com/reader">Google Reader</generator>
+<id>tag:google.com,2005:reader/user/06388591698525318956/state/com.google/broadcast</id>
+<link rel="hub" href="http://pubsubhubbub.appspot.com/"/>
+<title>Fws' shared items in Google Reader</title>
+<link rel="self" href="http://www.google.com/reader/public/atom/user%2F06388591698525318956%2Fstate%2Fcom.google%2Fbroadcast"/>
+<author>
+    <name>Fws</name>
+</author>
+<updated>2012-02-06T09:53:54Z</updated>
+
+
+
+<entry gr:crawl-timestamp-msec="1328521615">
+    <title type="html">State of the Art in Plant Phenomics: the latest BBSRC research</title>
+    <published>2012-02-06T09:45:00Z</published>
+    <updated>2012-02-06T09:45:00Z</updated>
+    <link rel="alternate" href="http://www.bbsrc.ac.uk/news/food-security/2012/120113-pr-nourishing-gene-brings-hope.aspx" type="text/html"/>
+    <summary xml:base="http://www.bbsrc.ac.uk/news/food-security/2012/120113-pr-nourishing-gene-brings-hope.aspx" type="html">BBSRC (Biotechnology and Biological Sciences Research Council) news blurb on recent research in plant genetics. The Meg1 gene is expressed only from maternal chromosomes and regulates nutrient provisioning during seed development. This has an effect on seed size and productivity. As such, the research findings are important for global agriculture and food security because it forms a method to improve certain seed traits. More information on the discovery can be found on the BBSRC website.</summary>
+    <author gr:unknown-author="true">
+	<name>(author unknown)</name>
+    </author>
+</entry>
+
+
+<entry gr:crawl-timestamp-msec="1328521204">
+    <title type="html">A Dutch company's contribution to the fight against desertification and world hunger</title>
+    <published>2012-02-06T09:00:00Z</published>
+    <updated>2012-02-06T09:00:00Z</updated>
+    <link rel="alternate" href="http://www.groasis.com/en" type="text/html"/>
+    <summary xml:base="http://www.groasis.com/en" type="html">The Groasis Waterboxx developed by the Dutch company AquaPro is a fascinating piece of technology. The Waterbox is a simple device made out of biopolymer that captures water from the air through both rain as well as condensation. The small box is placed around a plant or tree and allows vegetation to grow on dry soil and rocks. The technology has been successfully tested in the Sahara and is now sold through partnership companies across the globe. To find out more about this exciting and innovative anti-desertification technology that has the potential to combat world hunger and improve world food security please visit the Groasis website.</summary>
+    <author gr:unknown-author="true">
+	<name>(author unknown)</name>
+    </author>
+</entry>
+
+
+
+<entry gr:crawl-timestamp-msec="1319622834578">
+    <id gr:original-id="">tag:google.com,2005:reader/item/4eee6c91bc3231e1</id>
+    <title type="html">Food price dynamics: Where to now? (7 October 2011 01:30-17:30 (GMT+01 (BST)) - Round-table, London)</title>
+    <published>2011-10-26T09:53:54Z</published>
+    <updated>2011-10-26T09:53:54Z</updated>
+    <link rel="alternate" href="http://feeds.odi.org.uk/~r/ODI_Food/~3/lNXZ5ELD5vs/details.asp" type="text/html"/>
+    <summary xml:base="http://www.odi.org.uk/" type="html">
+    &lt;img src="http://www.odi.org.uk/images/database/381-w80h80.jpg" width="80" height="80" alt="Rice researcher in Indonesia (Source: vredeseilanden, Flickr - http://www.flickr.com/photos/vredeseilanden/491264943/)" title="Rice researcher in Indonesia (Source: vredeseilanden, Flickr - http://www.flickr.com/photos/vredeseilanden/491264943/)" align="left" hspace="10"&gt;
+    &lt;div&gt;&lt;div&gt;&lt;p&gt;Where are prices of cereals headed over the next ten years? 
+    And what does this imply for policy? &lt;/p&gt;&lt;br&gt;
+    These questions were addressed at a workshop with presentations from Merritt Cluff of FAO, Dirk Willenbockel 
+    from IDS and Chris Gilbert from Trento University. All agreed that prices are likely to fall a little in real 
+    terms, but will remain well above the levels seen in the early 2000s. &lt;br&gt;&lt;br&gt;
+    A panel of specialists chaired by Simon Maxwell, with Brendan Bayley from HMT, Bettina Prato from IFAD, 
+    Benoit Daviron from CIRAD, and Ruth Kelly from Oxfam, shared their views on the policy implications of a world 
+    facing sustained higher food prices and possible increased volatility.&lt;br&gt;&lt;br&gt;
+    A &lt;a href="http://www.odi.org.uk/events/documents/2728-report.pdf"&gt;report&lt;/a&gt; of the event, a 
+    &lt;a href="http://blogs.odi.org.uk/blogs/main/archive/2011/10/18/world_food_prices_policy.aspx"&gt;
+    blog&lt;/a&gt; outlining key messages from discussion, as well as 
+    &lt;a href="http://www.odi.org.uk/events/details.asp?id=2728&amp;amp;title=food-price-dynamics-policy-implications#report"&gt;presentations&lt;/a&gt; 
+    and &lt;a href="http://www.odi.org.uk/events/details.asp?id=2728&amp;amp;title=food-price-dynamics-policy-implications#details"&gt;
+    videos&lt;/a&gt; from key speakers can be found on this page.
+    &lt;/div&gt;&lt;/div&gt; &lt;p&gt;&lt;a href="http://www.odi.org.uk/events/details.asp?id=2728&amp;amp;title=food-price-dynamics-policy-implications"&gt;View full details&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/ODI_Food/~4/lNXZ5ELD5vs" height="1" width="1"&gt;</summary><author gr:unknown-author="true"><name>(author unknown)</name></author><source gr:stream-id="feed/http://feeds.odi.org.uk/ODI_Food"><id>tag:google.com,2005:reader/feed/http://feeds.odi.org.uk/ODI_Food</id><title type="html">Overseas Development Institute - Theme: Food</title><link rel="alternate" href="http://www.odi.org.uk/" type="text/html"/></source></entry><entry gr:crawl-timestamp-msec="1319619625543"><id gr:original-id="http://www.iwmi.cgiar.org/Publications/Water_Issue_Briefs/Landing_Pages/WIB8.aspx">tag:google.com,2005:reader/item/e2449bb958ae2a29</id><category term="Publications"/><title type="html">IWMI Water Issue Brief - 8: Water, poverty and equity</title><published>2011-08-09T03:13:51Z</published><updated>2011-08-09T03:13:51Z</updated><link rel="alternate" href="http://www.iwmi.cgiar.org/Publications/Water_Issue_Briefs/Landing_Pages/WIB8.aspx" type="text/html"/><summary xml:base="http://www.iwmi.org/" type="html">The world's population is set to exceed nine billion by 2050, adding a third more inhabitants to the planet than today. Feeding them, taking into consideration increasing demand for diets based on fruit, vegetables and meat, will require farmers to double food production.</summary><author gr:unknown-author="true"><name>(author unknown)</name></author><source gr:stream-id="feed/http://www.iwmi.cgiar.org/News_Room/RSS/CGInsidePubs.xml"><id>tag:google.com,2005:reader/feed/http://www.iwmi.cgiar.org/News_Room/RSS/CGInsidePubs.xml</id><title type="html">IWMI Publication - International Water Management Institute</title><link rel="alternate" href="http://www.iwmi.org" type="text/html"/></source></entry><entry gr:crawl-timestamp-msec="1319617523733"><id gr:original-id="0C0F11DA-3423-4987-827B-6FCC93A5E657">tag:google.com,2005:reader/item/6437e99f6284f256</id><title type="html">Breakthrough in the production of flood-tolerant crops</title><published>2011-10-24T10:35:11Z</published><updated>2011-10-24T10:35:11Z</updated><link rel="alternate" href="http://feedproxy.google.com/~r/bbsrc/~3/aH3tOQ5K_yk/111024-pr-flood-tolerant-crops.aspx" type="text/html"/><summary xml:base="http://www.bbsrc.ac.uk/" type="html">This week thousands of families lost their homes and crops as flood waters swept across Central America. In Thailand huge tracts of farmland were submerged as the country faced its worst flooding in 50 years. Across the globe agricultural production is at risk as catastrophic flooding becomes a world-wide problem.&lt;img src="http://feeds.feedburner.com/~r/bbsrc/~4/aH3tOQ5K_yk" height="1" width="1"&gt;</summary><author gr:unknown-author="true"><name>(author unknown)</name></author><source gr:stream-id="feed/http://feeds.feedburner.com/bbsrc"><id>tag:google.com,2005:reader/feed/http://feeds.feedburner.com/bbsrc</id><title type="html">BBSRC - News stories and features</title><link rel="alternate" href="http://www.bbsrc.ac.uk" type="text/html"/></source></entry><entry gr:crawl-timestamp-msec="1319205385743"><id gr:original-id="http://fws.aber.ac.uk/bbs/thread.pl?tId=18#p5667">tag:google.com,2005:reader/item/8353106e8fda66c8</id><category term="FWS-ore News"/><title type="html">World Food Day Sunday 16th of October 2011</title><published>2011-10-13T07:00:00Z</published><updated>2011-10-13T07:00:00Z</updated><link rel="alternate" href="http://fws.aber.ac.uk/bbs/thread.pl?tId=18#p5667" type="text/html"/><summary xml:base="http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss" type="html">World Food Day - get involved</summary><author><name>Justa Hopma</name></author><source gr:stream-id="feed/http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss"><id>tag:google.com,2005:reader/feed/http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss</id><title type="text">(title unknown)</title><link rel="alternate" href="http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss" type="text/html"/></source></entry><entry gr:crawl-timestamp-msec="1319205383356"><id gr:original-id="http://fws.aber.ac.uk/bbs/thread.pl?tId=19#p5668">tag:google.com,2005:reader/item/3e4ca8d33a444eae</id><category term="FWS-ore News"/><title type="html">Published this Monday: The State of World Food Insecurity 2011 by the Food &amp;amp; Agriculture Organization.</title><published>2011-10-13T07:00:00Z</published><updated>2011-10-13T07:00:00Z</updated><link rel="alternate" href="http://fws.aber.ac.uk/bbs/thread.pl?tId=19#p5668" type="text/html"/><summary xml:base="http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss" type="html">FAO published its report on global price volatility and how it affects developing countries this Monday. Please find the full report &lt;a href="http://www.fao.org/publications/sofi/en/"&gt;HERE&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;a href="http://www.fao.org/publications/sofi/en/"&gt;&lt;/a&gt;&lt;br&gt;</summary><author><name>Justa Hopma</name></author><source gr:stream-id="feed/http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss"><id>tag:google.com,2005:reader/feed/http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss</id><title type="text">(title unknown)</title><link rel="alternate" href="http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss" type="text/html"/></source></entry><entry gr:crawl-timestamp-msec="1319205379556"><id gr:original-id="http://fws.aber.ac.uk/bbs/thread.pl?tId=27#p5682">tag:google.com,2005:reader/item/d564ab9f8b82128b</id><category term="FWS-ore News"/><title type="html">Key Publication: Food self-sufficiency and natural hazards in China</title><published>2011-10-18T07:00:00Z</published><updated>2011-10-18T07:00:00Z</updated><link rel="alternate" href="http://fws.aber.ac.uk/bbs/thread.pl?tId=27#p5682" type="text/html"/><summary xml:base="http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss" type="html">In &lt;a href="http://www.springerlink.com/content/p676860qw141416l/"&gt;this article&lt;/a&gt; Elisabeth Simelton presents a regional analysis of the
+    self-sufficiency of China&amp;#39;s agricultural sector. It combines agricultural and
+    disaster data to assess the resilience of the Chinese agricultural system in
+    the face of floods and droughts.
+    </summary>
+    <author>
+	<name>Justa Hopma</name>
+    </author>
+    <source gr:stream-id="feed/http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss">
+    <id>tag:google.com,2005:reader/feed/http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss</id>
+    <title type="text">(title unknown)</title>
+    <link rel="alternate" href="http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&amp;limit=20&amp;cId=3&amp;format=rss" type="text/html"/>
+    </source>
+</entry>
+
+<entry gr:crawl-timestamp-msec="1319035023710">
+    <id gr:original-id="99884 at http://www.wfp.org">tag:google.com,2005:reader/item/e9792dd74744a75a</id>
+    <category term="Zambia" scheme="http://www.wfp.org/taxonomy/term/345"/>
+    <category term="Africa" scheme="http://www.wfp.org/taxonomy/term/6"/>
+    <title type="html">Food Assistance Builds Bridge Between Hunger And Hope As Millions Mark World Food Day</title>
+    <published>2011-10-18T15:01:19Z</published>
+    <updated>2011-10-18T15:01:19Z</updated>
+    <link rel="alternate" href="http://www.wfp.org/news/news-release/food-assistance-builds-bridge-between-hunger-and-hope-millions-mark-world-food-day" type="text/html"/>
+    <summary xml:base="http://www.wfp.org/news/early-warnings" type="html">Lusaka – The World Food Programme (WFP) today marks World Food Day by highlighting the vital role that food assistance plays during humanitarian crises, supporting recovery in the immediate aftermath of disasters, and building the resilience that is necessary to ensure food security.</summary>
+    <author>
+	<name>WFP</name>
+    </author>
+	<source gr:stream-id="feed/http://www.wfp.org/news/press-releases/feed">
+	<id>tag:google.com,2005:reader/feed/http://www.wfp.org/news/press-releases/feed</id>
+	<title type="html">WFP - News releases</title>
+	<link rel="alternate" href="http://www.wfp.org/news/early-warnings" type="text/html"/>
+    </source>
+</entry>
+
+<entry gr:crawl-timestamp-msec="1319029264028">
+    <id gr:original-id="99896 at http://www.wfp.org">tag:google.com,2005:reader/item/e03826df2b700603</id>
+    <category term="Contributions to WFP" scheme="http://www.wfp.org/category/content-flow/contributions-wfp"/>
+    <category term="Sudan" scheme="http://www.wfp.org/taxonomy/term/112"/>
+    <category term="Africa" scheme="http://www.wfp.org/taxonomy/term/6"/>
+    <title type="html">WFP Welcomes Brazil And Spain Contributions Worth US$6 Million To Provide Food For Vulnerable People In Sudan</title>
+    <published>2011-10-18T16:09:11Z</published>
+    <updated>2011-10-18T16:09:11Z</updated>
+    <link rel="alternate" href="http://www.wfp.org/news/news-release/wfp-welcomes-brazil-and-spain-contributions-worth-us6-million-provide-food-vulnera" type="text/html"/>
+    <summary xml:base="http://www.wfp.org/news/early-warnings" type="html">KHARTOUM    Brazil and Spain have teamed up to make a joint contribution of US$ 6 million towards United Nations World Food Programme (WFP) Emergency Operation in Sudan.</summary>
+    <author>
+	<name>WFP</name>
+    </author>
+    <source gr:stream-id="feed/http://www.wfp.org/news/press-releases/feed">
+	<id>tag:google.com,2005:reader/feed/http://www.wfp.org/news/press-releases/feed</id>
+	<title type="html">WFP - News releases</title>
+	<link rel="alternate" href="http://www.wfp.org/news/early-warnings" type="text/html"/>
+    </source>
+</entry>
+
+<entry gr:crawl-timestamp-msec="1319029224817">
+    <id gr:original-id="http://www.fao.org/news/story/en/item/92495/icode/">tag:google.com,2005:reader/item/016ead32989b2341</id>
+    <title type="html">World hunger report 2011: High, volatile prices set to continue</title>
+    <published>2011-10-10T08:00:00Z</published>
+    <updated>2011-10-10T08:00:00Z</updated>
+    <link rel="alternate" href="http://www.fao.org/news/story/en/item/92495/icode/" type="text/html"/>
+    <summary xml:base="http://www.fao.org/news/newsroom-home/en/" type="html">Food price volatility featuring high prices is likely to continue and possibly increase, making poor farmers, consumers and countries more vulnerable to poverty and food insecurity, the United Nations' three Rome-based agencies said in the global hunger report published today.</summary>
+    <author>
+	<name>FAO-Newsroom@fao.org (FAO-Newsroom)</name>
+    </author>
+    <source gr:stream-id="feed/http://www.fao.org/news/newsroom-home/en/?no_cache=1&amp;feed_id=16872&amp;type=334">
+    <id>tag:google.com,2005:reader/feed/http://www.fao.org/news/newsroom-home/en/?no_cache=1&amp;feed_id=16872&amp;type=334</id>
+    <title type="html">FAO Newsroom RSS</title>
+    <link rel="alternate" href="http://www.fao.org/news/newsroom-home/en/" type="text/html"/></source>
+</entry>
+
+<entry gr:crawl-timestamp-msec="1318866753415">
+    <id gr:original-id="9FDF8683-5538-4D3E-81AE-43D69AF851DE">tag:google.com,2005:reader/item/ab2ff326045b9271</id>
+    <title type="html">We must protect biodiversity while tackling food security, warns researcher</title>
+    <published>2011-10-12T08:00:00Z</published>
+    <updated>2011-10-12T08:00:00Z</updated>
+    <link rel="alternate" href="http://feedproxy.google.com/~r/bbsrc/~3/t2D3iaa9dRo/111012-pr-protect-biodiversity.aspx" type="text/html"/>
+    <summary xml:base="http://www.bbsrc.ac.uk/" type="html">An increasing number of plant species are under threat from the demands being put on agriculture to produce more food to support the growing world population which is increasing by 160,000 every day. In a study published in the Proceedings of the Royal Society today, Dr Jonathan Storkey has brought together data for the first time on the threat status of plants found in arable habitats across Europe and warns of the importance of protecting plant diversity as we focus on increasing food production.&lt;img src="http://feeds.feedburner.com/~r/bbsrc/~4/t2D3iaa9dRo" height="1" width="1"&gt;</summary>
+    <author gr:unknown-author="true">
+	<name>(author unknown)</name>
+    </author>
+    <source gr:stream-id="feed/http://feeds.feedburner.com/bbsrc">
+	<id>tag:google.com,2005:reader/feed/http://feeds.feedburner.com/bbsrc</id>
+	<title type="html">BBSRC - News stories and features</title>
+	<link rel="alternate" href="http://www.bbsrc.ac.uk" type="text/html"/>
+    </source>
+</entry>
+
+</feed>
