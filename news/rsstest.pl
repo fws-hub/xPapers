@@ -1,6 +1,7 @@
 use XML::Feed;
 use File::Copy;
 use HTML::TagFilter;
+use HTML::Entities;
 
 #$ENV{'http_proxy'} = 'http://wwwcache.aber.ac.uk:8080';
 
@@ -13,11 +14,16 @@ $i = 0;
         
     
 #@urls = ( "http://www.google.com/reader/public/atom/user%2F06388591698525318956%2Fstate%2Fcom.google%2Fbroadcast", "http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&limit=20&cId=3&format=rss" );
+
+#the list of URLs we are pulling news from 
+#this needs to come from an OPML file
+#needs its own editor
 @urls = ( "http://fws.aber.ac.uk/bbs/threads.pl?tSort=ct%20desc&limit=20&cId=3&format=rss" );        
 my $feed_count=0;
 my $item_count=0;
 
 
+#news.rss is the currently selected news as will be displayed on the site
 my $news_feed = XML::Feed->parse(URI->new("file:///home/cos/news.rss")) or die  XML::Feed->errstr;
 #build a list of all URLs in the local feed, we'll use this to test what's already selected
 for my $news_entry ($news_feed->entries) {
@@ -25,6 +31,9 @@ for my $news_entry ($news_feed->entries) {
 }
 
 #use XML dumper instead?
+
+#newsfull.rss is a list of all the news stories we know about, those not in news.rss will be shown as unselected
+#we will give IDs to rss_select.pl which will rewrite news.rss
 open(FULLNEWS, ">newsfull.rss"); #open for write, overwrite
 
 print FULLNEWS "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
@@ -44,9 +53,9 @@ foreach my $url (@urls) {
 	
 	
 	print FULLNEWS "<item rdf:about=\"".$issues_entry->link."\">\n";
-	print FULLNEWS "<title>".$feed_count."_".$item_count." ".$issues_entry->title."</title>\n";
+	print FULLNEWS "<title>".$feed_count."_".$item_count." ".HTML::Entities::encode($issues_entry->title)."</title>\n";
 	print FULLNEWS "<link>".$issues_entry->link."</link>\n";
-	print FULLNEWS "<description>".$body."</description>\n";
+	print FULLNEWS "<description>".HTML::Entities::encode($body)."</description>\n";
 	print FULLNEWS "<dc:date>".$issues_entry->issued->strftime("%Y-%m-%d")."</dc:date>\n";
 	print FULLNEWS "</item>\n";
 	
@@ -69,8 +78,6 @@ for ($i=0;$i<=$size;$i++)
     {
 	print " checked=\"checked\"";
     }
-    
-    
     print "><p><a href=\"".$items_list[$i]->[1]."\">".$items_list[$i]->[2]."</a></p>"; #title
     print "\n";
     #print $list[$i]->[2]; #body
