@@ -243,6 +243,7 @@ background:url(<% $s->rawFile( 'headbg.png' ) %>) repeat-x 0 -10px;
 
  #nav {min-width:960px;
  float: left;
+
  }
 
 /* Generic part */
@@ -473,12 +474,13 @@ ul.dropdown a.dir:hover {
 
 
 #menu {
+ background-color: #28a3c0;
 /*background:url(<% $s->rawFile( 'sprite.png' ) %>) repeat-x 0 0;*/
 height:20px;
 color: black;
 /*vertical-align:top;*/
 /*min-width:<%$minWidth%>px;*/
-margin-top: 10px;
+margin-top: 5px;
 margin-left: 10px;
 /*padding-right:<%$rightMargin%>;*/
 /*width: 770px;*/
